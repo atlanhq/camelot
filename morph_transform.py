@@ -1,19 +1,5 @@
 import cv2
-import sys
-import subprocess
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 import numpy as np
-
-from pdfminer.pdfparser import PDFParser
-from pdfminer.pdfdocument import PDFDocument
-from pdfminer.pdfpage import PDFPage
-from pdfminer.pdfpage import PDFTextExtractionNotAllowed
-from pdfminer.pdfinterp import PDFResourceManager
-from pdfminer.pdfinterp import PDFPageInterpreter
-from pdfminer.pdfdevice import PDFDevice
-from pdfminer.converter import PDFPageAggregator
-from pdfminer.layout import LAParams, LTChar
 
 def transform(x, y, img_x, img_y, pdf_x, pdf_y):
 	x *= pdf_x / float(img_x)
@@ -27,9 +13,10 @@ def morph(imagename, p_x, p_y, s):
 	img_x, img_y = img.shape[1], img.shape[0]
 	pdf_x, pdf_y = p_x, p_y
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-	th1 = cv2.adaptiveThreshold(np.invert(gray), 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 15, -2)
-	vertical = th1
-	horizontal = th1
+	# empirical result taken from http://pequan.lip6.fr/~bereziat/pima/2012/seuillage/sezgin04.pdf
+	threshold = cv2.adaptiveThreshold(np.invert(gray), 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 15, -0.2)
+	vertical = threshold
+	horizontal = threshold
 
 	scale = s
 	verticalsize = vertical.shape[0] / scale
@@ -51,15 +38,22 @@ def morph(imagename, p_x, p_y, s):
 
 	tables = {}
 	for c in contours:
-		x, y, w, h = cv2.boundingRect(c)
-		jmask = joints[y:y+h, x:x+w]
-		_, jc, _ = cv2.findContours(jmask, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-		
+		c_poly = cv2.approxPolyDP(c, 3, True)
+		x, y, w, h = cv2.boundingRect(c_poly)
+		# find number of non-zero values in joints using what boundingRect returns
+		roi = joints[y:y+h, x:x+w]
+		_, jc, _ = cv2.findContours(roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
 		if len(jc) <= 4: # remove contours with less than <=4 joints
 			continue
+		joint_coords = []
+		for j in jc:
+			jx, jy, jw, jh = cv2.boundingRect(j)
+			c1, c2 = x + (2*jx + jw) / 2, y + (2*jy + jh) / 2
+			c1, c2 = transform(c1, c2, img_x, img_y, pdf_x, pdf_y)
+			joint_coords.append((c1, c2))
 		x1, y1 = transform(x, y, img_x, img_y, pdf_x, pdf_y)
 		x2, y2 = transform(x + w, y + h, img_x, img_y, pdf_x, pdf_y)
-		tables[(x1, y2)] = (x2, y1)
+		tables[(x1, y2, x2, y1)] = joint_coords
 
 	v_segments, h_segments = [], []
 	_, vcontours, _ = cv2.findContours(vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)

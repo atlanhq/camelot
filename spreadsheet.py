@@ -15,8 +15,22 @@ def remove_close_values(ar):
 			ret.append(a)
 		else:
 			temp = ret[-1]
-			if np.isclose(temp, a, atol=1):
+			if np.isclose(temp, a, atol=2):
 				pass
+			else:
+				ret.append(a)
+	return ret
+
+def merge_close_values(ar):
+	ret = []
+	for a in ar:
+		if not ret:
+			ret.append(a)
+		else:
+			temp = ret[-1]
+			if np.isclose(temp, a, atol=2):
+				temp = (temp + a) / 2.0
+				ret[-1] = temp
 			else:
 				ret.append(a)
 	return ret
@@ -40,34 +54,46 @@ def reduce_index(t, r_idx, c_idx):
 			r_idx -= 1
 	return r_idx, c_idx
 
-def fill(t):
-	for i in range(len(t.cells)):
-		for j in range(len(t.cells[i])):
-			if t.cells[i][j].get_text().strip() == '':
-				if t.cells[i][j].spanning_h:
-					t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
-				elif t.cells[i][j].spanning_v:
-					t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
+def fill(t, orientation):
+	if orientation == "h":
+		for i in range(len(t.cells)):
+			for j in range(len(t.cells[i])):
+				if t.cells[i][j].get_text().strip() == '':
+					if t.cells[i][j].spanning_h:
+						t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
+	elif orientation == "v":
+		for i in range(len(t.cells)):
+			for j in range(len(t.cells[i])):
+				if t.cells[i][j].get_text().strip() == '':
+					if t.cells[i][j].spanning_v:
+						t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
+	elif orientation == "hv":
+		for i in range(len(t.cells)):
+			for j in range(len(t.cells[i])):
+				if t.cells[i][j].get_text().strip() == '':
+					if t.cells[i][j].spanning_h:
+						t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
+					elif t.cells[i][j].spanning_v:
+						t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
 	return t
 
-def spreadsheet(pdf_dir, filename, guess, scale):
+def spreadsheet(pdf_dir, filename, orientation, scale):
 	print "working on", filename
 	imagename = os.path.join(pdf_dir, filename.split('.')[0] + '.png')
 	text, pdf_x, pdf_y = get_pdf_info(os.path.join(pdf_dir, filename), 'spreadsheet')
 	tables, v_segments, h_segments = morph(imagename, pdf_x, pdf_y, scale)
 
 	num_tables = 0
-	for k in sorted(tables.keys(), reverse=True):
+	for k in sorted(tables.keys(), key=lambda x: x[1], reverse=True): # sort tables based on y-coord
 		# find rows and columns that lie in table
-		lb = k
-		rt = tables[k]
+		lb = (k[0], k[1])
+		rt = (k[2], k[3])
 		v_s = [v for v in v_segments if v[1] > lb[1] - 2 and v[3] < rt[1] + 2 and lb[0] - 2 <= v[0] <= rt[0] + 2]
 		h_s = [h for h in h_segments if h[0] > lb[0] - 2 and h[2] < rt[0] + 2 and lb[1] - 2 <= h[1] <= rt[1] + 2]
-		columns = [v[0] for v in v_s]
-		rows = [h[1] for h in h_s]
+		columns, rows = zip(*tables[k])
 		# sort horizontal and vertical segments
-		columns = remove_close_values(sorted(columns))
-		rows = remove_close_values(sorted(rows, reverse=True))
+		columns = merge_close_values(sorted(list(columns)))
+		rows = merge_close_values(sorted(list(rows), reverse=True))
 		# make grid using x and y coord of shortlisted rows and columns
 		columns = [(columns[i], columns[i + 1]) for i in range(0, len(columns) - 1)]
 		rows = [(rows[i], rows[i + 1]) for i in range(0, len(rows) - 1)]
@@ -89,8 +115,8 @@ def spreadsheet(pdf_dir, filename, guess, scale):
 				r_idx, c_idx = reduce_index(table, r_idx, c_idx)
 				table.cells[r_idx][c_idx].add_text(t.get_text().strip('\n'))
 
-		if guess:
-			table = fill(table)
+		if orientation:
+			table = fill(table, orientation)
 
 		csvname = filename.split('.')[0] + ('_table_%d' % (num_tables + 1)) + '.csv'
 		csvpath = os.path.join(pdf_dir, csvname)

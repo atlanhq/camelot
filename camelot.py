@@ -1,7 +1,9 @@
 import os
 import re
 import glob
+import time
 import shutil
+import logging
 import subprocess
 import argparse
 
@@ -16,62 +18,64 @@ def mkdir(directory):
 
 def filesort(filename):
 	filename = filename.split('/')[-1]
-	return int(pno.findall(filename)[0])
+	num = pno.findall(filename)
+	if len(num) == 2:
+		return (int(num[0]), int(num[1]))
+	else:
+		return (int(num[0]), 0)
 
+start_time = time.time()
 CAMELOT_DIR = '.camelot/'
 mkdir(CAMELOT_DIR)
 
 parser = argparse.ArgumentParser(description='Parse yo pdf!', usage='python2 camelot.py [options] pdf_file')
-parser.add_argument('-p', nargs='+', action='store', dest='pages', help='Specify the page numbers and/or page ranges to be parsed. Example: -p="1 3-5 9". (default: -p="1")')
-parser.add_argument('-f', nargs=1, action='store', dest='format', help='Output format (csv/xlsx). Example: -f="xlsx" (default: -f="csv")')
-parser.add_argument('-spreadsheet', action='store_true', dest='spreadsheet', help='Extract data stored in pdfs with ruling lines.')
-parser.add_argument('-guess', action='store_true', dest='guess', help='[Experimental] Guess the values in empty cells.')
+parser.add_argument('-p', nargs='+', action='store', dest='pages', help='Specify the page numbers and/or page ranges to be parsed. Example: -p="1 3-5 9", -p="all" (default: -p="1")')
+parser.add_argument('-f', nargs=1, action='store', dest='format', help='Output format (csv/xlsx). Example: -f="xlsx" (default: -f="csv")', default=["csv"])
+parser.add_argument('-spreadsheet', action='store_true', dest='spreadsheet', help='Extract data stored in pdfs with ruling lines. (default: False)')
+parser.add_argument('-F', action='store', dest='orientation', help='Fill the values in empty cells. Example: -F="h", -F="v", -F="hv" (default: None)', default=None)
 parser.add_argument('-s', nargs='?', action='store', dest='scale', help='Scaling factor. Large scaling factor leads to smaller lines being detected. (default: 15)', default=15, type=int)
 parser.add_argument('file', nargs=1)
 
 result = parser.parse_args()
 
 if result.pages:
-	p = []
-	for r in result.pages[0].split(' '):
-		if '-' in r:
-			a, b = r.split('-')
-			a, b = int(a), int(b)
-			p.extend([str(i) for i in range(a, b + 1)])
-		else:
-			p.extend([str(r)])
+	if result.pages == ['all']:
+		p = result.pages
+	else:
+		p = []
+		for r in result.pages[0].split(' '):
+			if '-' in r:
+				a, b = r.split('-')
+				a, b = int(a), int(b)
+				p.extend([str(i) for i in range(a, b + 1)])
+			else:
+				p.extend([str(r)])
 else:
 	p = ['1']
 p = sorted(set(p))
 
-if result.format:
-	f = result.format
-else:
-	f = ['csv']
-
-if result.spreadsheet:
-	s = True
-else:
-	s = False
+s = result.spreadsheet
 
 pdf_dir = os.path.join(CAMELOT_DIR, os.urandom(16).encode('hex'))
 mkdir(pdf_dir)
 filename = result.file[0].split('/')[-1]
+logging.basicConfig(filename=os.path.join(pdf_dir, filename.split('.')[0] + '.log'), filemode='w', level=logging.DEBUG)
+
 shutil.copy(result.file[0], os.path.join(pdf_dir, filename))
 print "separating pdf into pages"
 print
-for page in p:
-	subprocess.call(['pdfseparate', '-f', page, '-l', page, os.path.join(pdf_dir, filename), os.path.join(pdf_dir, 'pg-' + page + '.pdf')])
+if p == ['all']:
+	subprocess.call(['pdfseparate', os.path.join(pdf_dir, filename), os.path.join(pdf_dir, 'pg-%d.pdf')])
+else:
+	for page in p:
+		subprocess.call(['pdfseparate', '-f', page, '-l', page, os.path.join(pdf_dir, filename), os.path.join(pdf_dir, 'pg-' + page + '.pdf')])
 
 if s:
 	print "using the spreadsheet method"
 	for g in sorted(glob.glob(os.path.join(pdf_dir, 'pg-*.pdf'))):
 		print "converting", g.split('/')[-1], "to image"
 		os.system(' '.join(['convert', '-density', '300', g, '-depth', '8', g[:-4] + '.png']))
-		try:
-			spreadsheet(pdf_dir, g.split('/')[-1], result.guess, result.scale)
-		except:
-			pass
+		spreadsheet(pdf_dir, g.split('/')[-1], result.orientation, result.scale)
 else:
 	print "using the basic method"
 	for g in sorted(glob.glob(os.path.join(pdf_dir, 'pg-*.pdf'))):
@@ -92,3 +96,6 @@ if result.format == ['xlsx']:
 	save_data(xlsxpath, data)
 	print
 	print "saved as", xlsxname
+
+print "finished in", time.time() - start_time, "seconds"
+logging.info("Time taken for " + filename + ": " + str(time.time() - start_time) + " seconds")
