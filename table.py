@@ -11,9 +11,11 @@ class Table:
 		for v in vertical:
 			# find closest x coord
 			# iterate over y coords and find closest points
-			i = [i for i, t in enumerate(self.columns) if np.isclose(v[0], t[0])]
+			i = [i for i, t in enumerate(self.columns) if np.isclose(v[0], t[0], atol=2)]
 			j = [j for j, t in enumerate(self.rows) if np.isclose(v[3], t[0], atol=2)]
 			k = [k for k, t in enumerate(self.rows) if np.isclose(v[1], t[0], atol=2)]
+			if not j:
+				continue
 			if i == [0]: # only left edge
 				if k:
 					I = i[0]
@@ -65,9 +67,11 @@ class Table:
 		for h in horizontal:
 			#  find closest y coord
 			# iterate over x coords and find closest points
-			i = [i for i, t in enumerate(self.rows) if np.isclose(h[1], t[0])]
+			i = [i for i, t in enumerate(self.rows) if np.isclose(h[1], t[0], atol=2)]
 			j = [j for j, t in enumerate(self.columns) if np.isclose(h[0], t[0], atol=2)]
 			k = [k for k, t in enumerate(self.columns) if np.isclose(h[2], t[0], atol=2)]
+			if not j:
+				continue
 			if i == [0]: # only top edge
 				if k:
 					I = i[0]
