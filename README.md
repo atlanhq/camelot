@@ -1,13 +1,20 @@
-Camelot
--------
+# camelot
 
-Description: Parse tables from pdfs!
+## Dependencies
 
-Dependencies
+Currently, camelot works under Python 2.7.
 
-Install
+The required dependencies include pdfminer, numpy, opencv.
 
-Usage: python2 camelot.py [options] file
+For debugging, matplotlib is required. For runnings tests in the future, nose may be required.
+
+camelot also uses poppler-utils, more specifically `pdfseparate` to separate pdfs into pages, with ImageMagick's `convert` to convert that page into an image.
+
+## Install
+
+## Usage
+
+python2 camelot.py [options] file
 
 positional arguments:
 
@@ -65,6 +72,39 @@ optional arguments:
 
     Specify output directory.
 
-Development: Code, Contributing, Tests
+## Development
 
-License
+### Code
+
+You can check the latest sources with the command:
+
+<pre>
+git clone https://github.com/socialcopsdev/camelot.git
+</pre>
+
+### Contributing
+
+The preferred way to contribute to camelot is to fork this repository, and then submit a "pull request" (PR):
+
+1. Create an account on GitHub if you don't already have one.
+2. Fork the project repository: click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub server.
+3. Clone this copy to your local disk.
+4. Create a branch to hold your changes:
+<pre>
+git checkout -b my-feature
+</pre>
+5. Work on this copy, on your computer, using Git to do the version control. When you’re done editing, do:
+<pre>
+$ git add modified_files
+$ git commit
+</pre>
+to record your changes in Git, then push them to GitHub with:
+<pre>
+$ git push -u origin my-feature
+</pre>
+
+Finally, go to the web page of the your fork of the camelot repo, and click ‘Pull request’ to send your changes to the maintainers for review.
+
+### Testing
+
+## License
