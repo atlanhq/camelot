@@ -1,30 +1,70 @@
 Camelot
 -------
 
-usage: python2 camelot.py [options] pdf_file
+Description: Parse tables from pdfs!
 
-Parse yo pdf!
+Dependencies
+
+Install
+
+Usage: python2 camelot.py [options] file
 
 positional arguments:
+
   file
 
 optional arguments:
-  -h, --help            show this help message and exit
 
-  -p PAGES [PAGES ...]  Specify the page numbers and/or page ranges to be
-                        parsed. Example: -p="1 3-5 9", -p="all" (default:
-                        -p="1")
+  -h, --help
 
-  -f FORMAT             Output format (csv/xlsx). Example: -f="xlsx" (default:
-                        -f="csv")
+    show this help message and exit
 
-  -spreadsheet          Extract data stored in pdfs with ruling lines.
-                        (default: False)
+  -p, --pages PAGES [PAGES ...]
 
-  -F ORIENTATION        Fill the values in empty cells. Example: -F="h",
-                        -F="v", -F="hv" (default: None)
+    Specify the page numbers and/or page ranges to be
+    parsed. Example: -p="1 3-5 9", -p="all" (default: 1)
 
-  -s [SCALE]            Scaling factor. Large scaling factor leads to smaller
-                        lines being detected. (default: 15)
+  -f, --format FORMAT
 
-Under construction...
+    Output format (csv/xlsx). Example: -f="xlsx" (default: csv)
+
+  -m, --spreadsheet
+
+    Extract tables with ruling lines. (default: False)
+
+  -F, --fill FILL
+
+    Fill the values in empty cells horizontally(h) and/or
+    vertically(v). Example: -F="h", -F="v", -F="hv" (default: None)
+
+  -s, --scale [SCALE]
+
+    Scaling factor. Large scaling factor leads to smaller
+    lines being detected. (default: 15)
+
+  -j, --jtol [JTOL]
+
+    Tolerance to account for when comparing joint and line
+    coordinates. (default: 2)
+
+  -M, --mtol [MTOL]
+
+    Tolerance to account for when merging lines which are
+    very close. (default: 2)
+
+  -i, --invert
+
+    Make sure lines are in foreground. (default: False)
+
+  -d, --debug DEBUG
+
+    Debug by visualizing contours, lines, joints, tables.
+    Example: --debug="contours"
+
+  -o, --output OUTPUT
+
+    Specify output directory.
+
+Development: Code, Contributing, Tests
+
+License
