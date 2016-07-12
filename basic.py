@@ -33,9 +33,10 @@ def get_column_idx(t, columns):
             return c
 
 
-def basic(pdf_dir, filename):
+def basic(pdf_dir, filename, char_margin, line_margin, word_margin):
     print "working on", filename
-    text, _, _ = get_pdf_info(os.path.join(pdf_dir, filename), 'basic')
+    text, _, _ = get_pdf_info(os.path.join(pdf_dir, filename), 'basic',
+                              char_margin, line_margin, word_margin)
     text.sort(key=lambda x: (-x.y0, x.x0))
     y_last = 0
     data = []

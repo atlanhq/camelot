@@ -11,7 +11,8 @@ from utils import (translate, scale, merge_close_values, get_row_idx,
                    get_column_idx, reduce_index, outline, fill, remove_empty)
 
 
-def spreadsheet(pdf_dir, filename, fill, s, jtol, mtol, invert, debug):
+def spreadsheet(pdf_dir, filename, fill, s, jtol, mtol, invert, debug,
+                char_margin, line_margin, word_margin):
     if debug:
         import matplotlib.pyplot as plt
         import matplotlib.patches as patches
@@ -20,7 +21,8 @@ def spreadsheet(pdf_dir, filename, fill, s, jtol, mtol, invert, debug):
     img = cv2.imread(imagename)
     img_x, img_y = img.shape[1], img.shape[0]
     text, pdf_x, pdf_y = get_pdf_info(
-        os.path.join(pdf_dir, filename), 'spreadsheet')
+        os.path.join(pdf_dir, filename), 'spreadsheet',
+        char_margin, line_margin, word_margin)
     scaling_factor_x = pdf_x / float(img_x)
     scaling_factor_y = pdf_y / float(img_y)
     tables, v_segments, h_segments = morph_transform(imagename, s, invert)
