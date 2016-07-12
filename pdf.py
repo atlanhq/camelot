@@ -37,13 +37,15 @@ def parse_text_spreadsheet(layout, t=None):
     return t
 
 
-def get_pdf_info(pdfname, method):
+def get_pdf_info(pdfname, method, char_margin, line_margin, word_margin):
     with open(pdfname, 'r') as f:
         parser = PDFParser(f)
         document = PDFDocument(parser)
         if not document.is_extractable:
             raise PDFTextExtractionNotAllowed
-        laparams = LAParams()
+        laparams = LAParams(char_margin=char_margin,
+                            line_margin=line_margin,
+                            word_margin=word_margin)
         rsrcmgr = PDFResourceManager()
         device = PDFPageAggregator(rsrcmgr, laparams=laparams)
         interpreter = PDFPageInterpreter(rsrcmgr, device)
