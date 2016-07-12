@@ -93,6 +93,7 @@ The preferred way to contribute to camelot is to fork this repository, and then 
 <pre>
 git checkout -b my-feature
 </pre>
+and start making changes. Never work in the `master` branch!
 5. Work on this copy, on your computer, using Git to do the version control. When you’re done editing, do:
 <pre>
 $ git add modified_files
