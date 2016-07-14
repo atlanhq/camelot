@@ -2,16 +2,61 @@ import numpy as np
 
 
 def translate(x1, x2):
+    """Translate coordinate x2 by x1.
+
+    Parameters
+    ----------
+    x1 : float
+
+    x2 : float
+
+    Returns
+    -------
+    x2 : float
+    """
     x2 += x1
     return x2
 
 
 def scale(x, s):
+    """Scale coordinate x by scaling factor s.
+
+    Parameters
+    ----------
+    x : float
+
+    s : float
+
+    Returns
+    -------
+    x : float
+    """
     x *= s
     return x
 
 
 def rotate(x1, y1, x2, y2, angle):
+    """Rotate point x2, y2 about point x1, y1 by angle.
+
+    Parameters
+    ----------
+    x1 : float
+
+    y1 : float
+
+    x2 : float
+
+    y2 : float
+
+    angle : float
+        Angle in radians.
+
+    Returns
+    -------
+    xnew : float
+
+    ynew : float
+    """
     s = np.sin(angle)
     c = np.cos(angle)
     x2 = translate(-x1, x2)
@@ -23,7 +68,20 @@ def rotate(x1, y1, x2, y2, angle):
     return xnew, ynew
 
 
-def remove_close_values(ar, mtol):
+def remove_close_values(ar, mtol=2):
+    """Remove values which are within a tolerance of mtol of another value
+    present in list.
+
+    Parameters
+    ----------
+    ar : list
+
+    mtol : int, default: 2, optional
+
+    Returns
+    -------
+    ret : list
+    """
     ret = []
     for a in ar:
         if not ret:
@@ -37,7 +95,20 @@ def remove_close_values(ar, mtol):
     return ret
 
 
-def merge_close_values(ar, mtol):
+def merge_close_values(ar, mtol=2):
+    """Merge values which are within a tolerance of mtol by calculating
+    a moving mean.
+
+    Parameters
+    ----------
+    ar : list
+
+    mtol : int, default: 2, optional
+
+    Returns
+    -------
+    ret : list
+    """
     ret = []
     for a in ar:
         if not ret:
@@ -53,18 +124,63 @@ def merge_close_values(ar, mtol):
 
 
 def get_row_idx(t, rows):
+    """Get index of the row in which the given object falls by
+    comparing their co-ordinates.
+
+    Parameters
+    ----------
+    t : object
+
+    rows : list
+
+    Returns
+    -------
+    r : int
+    """
     for r in range(len(rows)):
         if (t.y0 + t.y1) / 2.0 < rows[r][0] and (t.y0 + t.y1) / 2.0 > rows[r][1]:
             return r
 
 
 def get_column_idx(t, columns):
+    """Get index of the column in which the given object falls by
+    comparing their co-ordinates.
+
+    Parameters
+    ----------
+    t : object
+
+    columns : list
+
+    Returns
+    -------
+    c : int
+    """
     for c in range(len(columns)):
         if (t.x0 + t.x1) / 2.0 > columns[c][0] and (t.x0 + t.x1) / 2.0 < columns[c][1]:
             return c
 
 
 def reduce_index(t, rotated, r_idx, c_idx):
+    """Shift a text object if it lies within a spanning cell taking
+    in account table rotation.
+
+    Parameters
+    ----------
+    t : object
+
+    rotated : string
+
+    r_idx : int
+
+    c_idx : int
+
+    Returns
+    -------
+    r_idx : int
+
+    c_idx : int
+    """
     if not rotated:
         if t.cells[r_idx][c_idx].spanning_h:
             while not t.cells[r_idx][c_idx].left:
@@ -90,6 +206,16 @@ def reduce_index(t, rotated, r_idx, c_idx):
 
 
 def outline(t):
+    """Light up table boundary.
+
+    Parameters
+    ----------
+    t : object
+
+    Returns
+    -------
+    t : object
+    """
     for i in range(len(t.cells)):
         t.cells[i][0].left = True
         t.cells[i][len(t.cells[i]) - 1].right = True
@@ -99,7 +225,19 @@ def outline(t):
     return t
 
 
-def fill(t, f):
+def fill(t, f=None):
+    """Fill spanning cells.
+
+    Parameters
+    ----------
+    t : object
+
+    f : string, default: None, optional
+
+    Returns
+    -------
+    t : object
+    """
     if f == "h":
         for i in range(len(t.cells)):
             for j in range(len(t.cells[i])):
@@ -124,6 +262,16 @@ def fill(t, f):
 
 
 def remove_empty(d):
+    """Remove empty rows and columns.
+
+    Parameters
+    ----------
+    d : list
+
+    Returns
+    -------
+    d : list
+    """
     for i, row in enumerate(d):
         if row == [''] * len(row):
             d.pop(i)

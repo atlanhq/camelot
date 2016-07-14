@@ -4,14 +4,55 @@ from cell import Cell
 
 
 class Table:
+    """Table
+    
+    Parameters
+    ----------
+    columns : list
+        List of column x-coordinates.
 
+    rows : list
+        List of row y-coordinates.
+
+    Attributes
+    ----------
+    cells : list
+        2-D list of cell objects.
+
+    columns : list
+        List of column x-coordinates.
+
+    rows : list
+        List of row y-coordinates.
+    """
     def __init__(self, columns, rows):
+
         self.cells = [[Cell(c[0], r[1], c[1], r[0])
                        for c in columns] for r in rows]
         self.columns = columns
         self.rows = rows
 
-    def set_edges(self, vertical, horizontal, jtol):
+    def set_edges(self, vertical, horizontal, jtol=2):
+        """Set cell edges to True if corresponding line segments
+        are detected in the pdf image.
+
+        Parameters
+        ----------
+        vertical : list
+            List of vertical line segments.
+
+        horizontal : list
+            List of horizontal line segments.
+
+        jtol : int, default: 2, optional
+            Tolerance to account for when comparing joint and line
+            coordinates.
+
+        Returns
+        -------
+        self : object
+            Returns self.
+        """
         for v in vertical:
             # find closest x coord
             # iterate over y coords and find closest points
@@ -117,6 +158,14 @@ class Table:
         return self
 
     def set_spanning(self):
+        """Set spanning values of a cell to True if it isn't
+        bounded by four edges.
+
+        Returns
+        -------
+        self : object
+            Returns self.
+        """
         for i in range(len(self.cells)):
             for j in range(len(self.cells[i])):
                 bound = self.cells[i][j].get_bounded_edges()
@@ -125,28 +174,38 @@ class Table:
 
                 elif bound == 3:
                     if not self.cells[i][j].left:
-                        if self.cells[i][j].right and self.cells[i][j].top and self.cells[i][j].bottom:
+                        if (self.cells[i][j].right and
+                                self.cells[i][j].top and 
+                                self.cells[i][j].bottom):
                             self.cells[i][j].spanning_h = True
 
                     elif not self.cells[i][j].right:
-                        if self.cells[i][j].left and self.cells[i][j].top and self.cells[i][j].bottom:
+                        if (self.cells[i][j].left and
+                                self.cells[i][j].top and
+                                self.cells[i][j].bottom):
                             self.cells[i][j].spanning_h = True
 
                     elif not self.cells[i][j].top:
-                        if self.cells[i][j].left and self.cells[i][j].right and self.cells[i][j].bottom:
+                        if (self.cells[i][j].left and
+                                self.cells[i][j].right and
+                                self.cells[i][j].bottom):
                             self.cells[i][j].spanning_v = True
 
                     elif not self.cells[i][j].bottom:
-                        if self.cells[i][j].left and self.cells[i][j].right and self.cells[i][j].top:
+                        if (self.cells[i][j].left and
+                                self.cells[i][j].right and
+                                self.cells[i][j].top):
                             self.cells[i][j].spanning_v = True
 
                 elif bound == 2:
                     if self.cells[i][j].left and self.cells[i][j].right:
-                        if not self.cells[i][j].top and not self.cells[i][j].bottom:
+                        if (not self.cells[i][j].top and
+                                not self.cells[i][j].bottom):
                             self.cells[i][j].spanning_v = True
 
                     elif self.cells[i][j].top and self.cells[i][j].bottom:
-                        if not self.cells[i][j].left and not self.cells[i][j].right:
+                        if (not self.cells[i][j].left and
+                                not self.cells[i][j].right):
                             self.cells[i][j].spanning_h = True
 
         return self
