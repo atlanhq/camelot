@@ -125,6 +125,7 @@ if __name__ == '__main__':
     froot, fext = os.path.splitext(fname)
     if fext.lower() != '.pdf':
         print "camelot can parse only pdfs right now"
+        shutil.rmtree(tmpdir)
         sys.exit()
 
     logfname = os.path.join(tmpdir, froot + '.log')
@@ -156,8 +157,7 @@ if __name__ == '__main__':
                                invert=args['--invert'], debug=args['--debug'])
                 if data is None:
                     print
-                    print "See 'camelot lattice -h' for various parameters you can tweak."
-                    sys.exit()
+                    continue
                 for k in sorted(data.keys()):
                     csvfile = g_froot + '_%s.csv' % k
                     with open(csvfile, 'w') as outfile:
@@ -183,8 +183,7 @@ if __name__ == '__main__':
                               debug=args['--debug'])
                 if data is None:
                     print
-                    print "See 'camelot stream -h' for various parameters you can tweak."
-                    sys.exit()
+                    continue
                 csvfile = g_froot + '.csv'
                 with open(csvfile, 'w') as outfile:
                     writer = csv.writer(outfile)
@@ -197,17 +196,24 @@ if __name__ == '__main__':
                 print "couldn't parse", g_fname, "see log for more info"
                 print
 
+    if args['--log']:
+        if args['--output']:
+            shutil.copy(logfname, args['--output'])
+        else:
+            shutil.copy(logfname, fdir)
+
+    if args['--debug'] not in [None, False]:
+        print "See 'camelot <method> -h' for various parameters you can tweak."
+        shutil.rmtree(tmpdir)
+        sys.exit()
+
     glob_csv = sorted(glob.glob(os.path.join(tmpdir, '*.csv')), key=filesort)
     if args['--format'] == 'csv':
         if len(glob_csv) == 1:
             if args['--output']:
                 shutil.copy(glob_csv[0], args['--output'])
-                if args['--log']:
-                    shutil.copy(logfname, args['--output'])
             else:
                 shutil.copy(glob_csv[0], fdir)
-                if args['--log']:
-                    shutil.copy(zippath, fdir)
         else:
             zipname = froot + '.zip'
             zippath = os.path.join(tmpdir, zipname)
@@ -217,12 +223,8 @@ if __name__ == '__main__':
                     myzip.write(g, os.path.join(froot, os.path.basename(g)))
             if args['--output']:
                 shutil.copy(zippath, args['--output'])
-                if args['--log']:
-                    shutil.copy(logfname, args['--output'])
             else:
                 shutil.copy(zippath, fdir)
-                if args['--log']:
-                    shutil.copy(zippath, fdir)
             print
     elif args['--format'] == 'xlsx':
         from pyexcel_xlsx import save_data
@@ -241,12 +243,8 @@ if __name__ == '__main__':
         save_data(xlsxpath, data)
         if args['--output']:
             shutil.copy(xlsxpath, args['--output'])
-            if args['--log']:
-                shutil.copy(logfname, args['--output'])
         else:
             shutil.copy(xlsxpath, fdir)
-            if args['--log']:
-                shutil.copy(zippath, fdir)
         print
         print "saved as", xlsxname
 
