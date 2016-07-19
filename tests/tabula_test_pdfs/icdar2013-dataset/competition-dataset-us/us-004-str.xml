@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-004-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='2'>
+         <cell id='1' start-row='0' start-col='0' end-row='1'>
+            <bounding-box x1='131' y1='534' x2='176' y2='544'/>
+            <content>Loan type</content>
+            <instruction instr-id='525' subinstr-id='0'/>
+            <instruction instr-id='525' subinstr-id='2'/>
+            <instruction instr-id='525' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1' end-col='2'>
+            <bounding-box x1='262' y1='550' x2='313' y2='559'/>
+            <content>12/31/2009</content>
+            <instruction instr-id='527' subinstr-id='2'/>
+            <instruction instr-id='527' subinstr-id='4'/>
+            <instruction instr-id='527' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='3' end-col='4'>
+            <bounding-box x1='354' y1='550' x2='404' y2='559'/>
+            <content>12/31/2010</content>
+            <instruction instr-id='523' subinstr-id='0'/>
+            <instruction instr-id='523' subinstr-id='2'/>
+            <instruction instr-id='523' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='5' end-col='6'>
+            <bounding-box x1='458' y1='550' x2='503' y2='559'/>
+            <content>6/30/2011</content>
+            <instruction instr-id='523' subinstr-id='20'/>
+            <instruction instr-id='523' subinstr-id='22'/>
+            <instruction instr-id='523' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='251' y1='535' x2='280' y2='545'/>
+            <content>$000's</content>
+            <instruction instr-id='447' subinstr-id='0'/>
+            <instruction instr-id='447' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2'>
+            <bounding-box x1='309' y1='535' x2='318' y2='545'/>
+            <content>%</content>
+            <instruction instr-id='447' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3'>
+            <bounding-box x1='347' y1='535' x2='376' y2='545'/>
+            <content>$000's</content>
+            <instruction instr-id='447' subinstr-id='6'/>
+            <instruction instr-id='447' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='4'>
+            <bounding-box x1='405' y1='535' x2='414' y2='545'/>
+            <content>%</content>
+            <instruction instr-id='447' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='5'>
+            <bounding-box x1='444' y1='535' x2='472' y2='545'/>
+            <content>$000's</content>
+            <instruction instr-id='447' subinstr-id='12'/>
+            <instruction instr-id='447' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='6'>
+            <bounding-box x1='501' y1='535' x2='510' y2='545'/>
+            <content>%</content>
+            <instruction instr-id='447' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='74' y1='522' x2='170' y2='533'/>
+            <content>Real estate loans</content>
+            <instruction instr-id='452' subinstr-id='0'/>
+            <instruction instr-id='452' subinstr-id='2'/>
+            <instruction instr-id='452' subinstr-id='4'/>
+            <instruction instr-id='452' subinstr-id='6'/>
+            <instruction instr-id='452' subinstr-id='8'/>
+            <instruction instr-id='452' subinstr-id='10'/>
+            <instruction instr-id='452' subinstr-id='12'/>
+            <instruction instr-id='452' subinstr-id='14'/>
+            <instruction instr-id='452' subinstr-id='18'/>
+            <instruction instr-id='452' subinstr-id='20'/>
+            <instruction instr-id='452' subinstr-id='22'/>
+            <instruction instr-id='452' subinstr-id='24'/>
+            <instruction instr-id='452' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='77' y1='509' x2='217' y2='518'/>
+            <content>1-4 family residential mortgage</content>
+            <instruction instr-id='457' subinstr-id='0'/>
+            <instruction instr-id='457' subinstr-id='2'/>
+            <instruction instr-id='457' subinstr-id='4'/>
+            <instruction instr-id='457' subinstr-id='6'/>
+            <instruction instr-id='457' subinstr-id='8'/>
+            <instruction instr-id='457' subinstr-id='10'/>
+            <instruction instr-id='457' subinstr-id='12'/>
+            <instruction instr-id='457' subinstr-id='16'/>
+            <instruction instr-id='457' subinstr-id='18'/>
+            <instruction instr-id='457' subinstr-id='20'/>
+            <instruction instr-id='457' subinstr-id='22'/>
+            <instruction instr-id='457' subinstr-id='24'/>
+            <instruction instr-id='457' subinstr-id='26'/>
+            <instruction instr-id='457' subinstr-id='28'/>
+            <instruction instr-id='457' subinstr-id='30'/>
+            <instruction instr-id='457' subinstr-id='32'/>
+            <instruction instr-id='457' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='248' y1='509' x2='293' y2='518'/>
+            <content>4,151,000</content>
+            <instruction instr-id='457' subinstr-id='36'/>
+            <instruction instr-id='457' subinstr-id='38'/>
+            <instruction instr-id='457' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2'>
+            <bounding-box x1='310' y1='509' x2='330' y2='518'/>
+            <content>25.0</content>
+            <instruction instr-id='457' subinstr-id='42'/>
+            <instruction instr-id='457' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='3'>
+            <bounding-box x1='344' y1='509' x2='389' y2='518'/>
+            <content>4,090,000</content>
+            <instruction instr-id='457' subinstr-id='46'/>
+            <instruction instr-id='457' subinstr-id='48'/>
+            <instruction instr-id='457' subinstr-id='50'/>
+            <instruction instr-id='457' subinstr-id='52'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='4'>
+            <bounding-box x1='406' y1='509' x2='426' y2='518'/>
+            <content>27.5</content>
+            <instruction instr-id='457' subinstr-id='54'/>
+            <instruction instr-id='457' subinstr-id='56'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='5'>
+            <bounding-box x1='440' y1='509' x2='485' y2='518'/>
+            <content>3,925,000</content>
+            <instruction instr-id='457' subinstr-id='58'/>
+            <instruction instr-id='457' subinstr-id='60'/>
+            <instruction instr-id='457' subinstr-id='62'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='6'>
+            <bounding-box x1='503' y1='509' x2='523' y2='518'/>
+            <content>24.9</content>
+            <instruction instr-id='457' subinstr-id='64'/>
+            <instruction instr-id='457' subinstr-id='66'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='80' y1='496' x2='180' y2='506'/>
+            <content>Commercial Mortgage</content>
+            <instruction instr-id='461' subinstr-id='0'/>
+            <instruction instr-id='461' subinstr-id='2'/>
+            <instruction instr-id='461' subinstr-id='4'/>
+            <instruction instr-id='461' subinstr-id='6'/>
+            <instruction instr-id='461' subinstr-id='8'/>
+            <instruction instr-id='461' subinstr-id='10'/>
+            <instruction instr-id='461' subinstr-id='12'/>
+            <instruction instr-id='461' subinstr-id='14'/>
+            <instruction instr-id='461' subinstr-id='16'/>
+            <instruction instr-id='461' subinstr-id='18'/>
+            <instruction instr-id='461' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='257' y1='496' x2='293' y2='506'/>
+            <content>361,000</content>
+            <instruction instr-id='461' subinstr-id='22'/>
+            <instruction instr-id='461' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2'>
+            <bounding-box x1='316' y1='496' x2='330' y2='506'/>
+            <content>2.2</content>
+            <instruction instr-id='461' subinstr-id='26'/>
+            <instruction instr-id='461' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3'>
+            <bounding-box x1='353' y1='496' x2='389' y2='506'/>
+            <content>331,000</content>
+            <instruction instr-id='461' subinstr-id='30'/>
+            <instruction instr-id='461' subinstr-id='32'/>
+            <instruction instr-id='461' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='4'>
+            <bounding-box x1='412' y1='496' x2='426' y2='506'/>
+            <content>2.2</content>
+            <instruction instr-id='461' subinstr-id='36'/>
+            <instruction instr-id='461' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='5'>
+            <bounding-box x1='449' y1='496' x2='485' y2='506'/>
+            <content>284,000</content>
+            <instruction instr-id='461' subinstr-id='40'/>
+            <instruction instr-id='461' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='6'>
+            <bounding-box x1='508' y1='496' x2='523' y2='506'/>
+            <content>1.8</content>
+            <instruction instr-id='461' subinstr-id='44'/>
+            <instruction instr-id='461' subinstr-id='46'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='80' y1='484' x2='232' y2='493'/>
+            <content>Multifamily residential (5 or more)</content>
+            <instruction instr-id='464' subinstr-id='0'/>
+            <instruction instr-id='464' subinstr-id='2'/>
+            <instruction instr-id='464' subinstr-id='4'/>
+            <instruction instr-id='464' subinstr-id='6'/>
+            <instruction instr-id='464' subinstr-id='8'/>
+            <instruction instr-id='464' subinstr-id='10'/>
+            <instruction instr-id='464' subinstr-id='12'/>
+            <instruction instr-id='464' subinstr-id='14'/>
+            <instruction instr-id='464' subinstr-id='16'/>
+            <instruction instr-id='464' subinstr-id='18'/>
+            <instruction instr-id='464' subinstr-id='20'/>
+            <instruction instr-id='464' subinstr-id='22'/>
+            <instruction instr-id='464' subinstr-id='24'/>
+            <instruction instr-id='464' subinstr-id='26'/>
+            <instruction instr-id='464' subinstr-id='28'/>
+            <instruction instr-id='464' subinstr-id='30'/>
+            <instruction instr-id='464' subinstr-id='34'/>
+            <instruction instr-id='464' subinstr-id='36'/>
+            <instruction instr-id='464' subinstr-id='38'/>
+            <instruction instr-id='464' subinstr-id='42'/>
+            <instruction instr-id='464' subinstr-id='44'/>
+            <instruction instr-id='464' subinstr-id='46'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1'>
+            <bounding-box x1='257' y1='484' x2='293' y2='493'/>
+            <content>380,000</content>
+            <instruction instr-id='464' subinstr-id='48'/>
+            <instruction instr-id='464' subinstr-id='50'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2'>
+            <bounding-box x1='316' y1='484' x2='330' y2='493'/>
+            <content>2.3</content>
+            <instruction instr-id='464' subinstr-id='52'/>
+            <instruction instr-id='464' subinstr-id='54'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='3'>
+            <bounding-box x1='353' y1='484' x2='389' y2='493'/>
+            <content>327,000</content>
+            <instruction instr-id='464' subinstr-id='56'/>
+            <instruction instr-id='464' subinstr-id='58'/>
+            <instruction instr-id='464' subinstr-id='60'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='4'>
+            <bounding-box x1='412' y1='484' x2='426' y2='493'/>
+            <content>2.2</content>
+            <instruction instr-id='464' subinstr-id='62'/>
+            <instruction instr-id='464' subinstr-id='64'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='5'>
+            <bounding-box x1='449' y1='484' x2='485' y2='493'/>
+            <content>327,000</content>
+            <instruction instr-id='464' subinstr-id='66'/>
+            <instruction instr-id='464' subinstr-id='68'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='6'>
+            <bounding-box x1='508' y1='484' x2='523' y2='493'/>
+            <content>2.1</content>
+            <instruction instr-id='464' subinstr-id='70'/>
+            <instruction instr-id='464' subinstr-id='72'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0'>
+            <bounding-box x1='80' y1='471' x2='168' y2='481'/>
+            <content>Construction Loans</content>
+            <instruction instr-id='468' subinstr-id='0'/>
+            <instruction instr-id='468' subinstr-id='2'/>
+            <instruction instr-id='468' subinstr-id='4'/>
+            <instruction instr-id='468' subinstr-id='6'/>
+            <instruction instr-id='468' subinstr-id='8'/>
+            <instruction instr-id='468' subinstr-id='10'/>
+            <instruction instr-id='468' subinstr-id='12'/>
+            <instruction instr-id='468' subinstr-id='14'/>
+            <instruction instr-id='468' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1'>
+            <bounding-box x1='257' y1='471' x2='293' y2='481'/>
+            <content>173,000</content>
+            <instruction instr-id='468' subinstr-id='18'/>
+            <instruction instr-id='468' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2'>
+            <bounding-box x1='316' y1='471' x2='330' y2='481'/>
+            <content>1.0</content>
+            <instruction instr-id='468' subinstr-id='22'/>
+            <instruction instr-id='468' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3'>
+            <bounding-box x1='353' y1='471' x2='389' y2='481'/>
+            <content>148,000</content>
+            <instruction instr-id='468' subinstr-id='26'/>
+            <instruction instr-id='468' subinstr-id='28'/>
+            <instruction instr-id='468' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='4'>
+            <bounding-box x1='412' y1='471' x2='426' y2='481'/>
+            <content>1.0</content>
+            <instruction instr-id='468' subinstr-id='32'/>
+            <instruction instr-id='468' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='5'>
+            <bounding-box x1='449' y1='471' x2='485' y2='481'/>
+            <content>170,000</content>
+            <instruction instr-id='468' subinstr-id='36'/>
+            <instruction instr-id='468' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='6'>
+            <bounding-box x1='508' y1='471' x2='523' y2='481'/>
+            <content>1.1</content>
+            <instruction instr-id='468' subinstr-id='40'/>
+            <instruction instr-id='468' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='0'>
+            <bounding-box x1='74' y1='458' x2='194' y2='467'/>
+            <content>Commercial &amp; Industrial</content>
+            <instruction instr-id='475' subinstr-id='0'/>
+            <instruction instr-id='475' subinstr-id='2'/>
+            <instruction instr-id='475' subinstr-id='4'/>
+            <instruction instr-id='475' subinstr-id='6'/>
+            <instruction instr-id='475' subinstr-id='8'/>
+            <instruction instr-id='475' subinstr-id='10'/>
+            <instruction instr-id='475' subinstr-id='12'/>
+            <instruction instr-id='475' subinstr-id='14'/>
+            <instruction instr-id='475' subinstr-id='16'/>
+            <instruction instr-id='475' subinstr-id='18'/>
+            <instruction instr-id='475' subinstr-id='22'/>
+            <instruction instr-id='475' subinstr-id='24'/>
+            <instruction instr-id='475' subinstr-id='26'/>
+            <instruction instr-id='475' subinstr-id='28'/>
+            <instruction instr-id='475' subinstr-id='30'/>
+            <instruction instr-id='475' subinstr-id='32'/>
+            <instruction instr-id='475' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1'>
+            <bounding-box x1='257' y1='458' x2='293' y2='467'/>
+            <content>555,000</content>
+            <instruction instr-id='479' subinstr-id='0'/>
+            <instruction instr-id='479' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2'>
+            <bounding-box x1='316' y1='458' x2='330' y2='467'/>
+            <content>3.3</content>
+            <instruction instr-id='479' subinstr-id='4'/>
+            <instruction instr-id='479' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='3'>
+            <bounding-box x1='353' y1='458' x2='389' y2='467'/>
+            <content>497,000</content>
+            <instruction instr-id='479' subinstr-id='8'/>
+            <instruction instr-id='479' subinstr-id='10'/>
+            <instruction instr-id='479' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='4'>
+            <bounding-box x1='412' y1='458' x2='426' y2='467'/>
+            <content>3.3</content>
+            <instruction instr-id='479' subinstr-id='14'/>
+            <instruction instr-id='479' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='5'>
+            <bounding-box x1='449' y1='458' x2='485' y2='467'/>
+            <content>438,000</content>
+            <instruction instr-id='479' subinstr-id='18'/>
+            <instruction instr-id='479' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='6'>
+            <bounding-box x1='508' y1='458' x2='523' y2='467'/>
+            <content>2.8</content>
+            <instruction instr-id='479' subinstr-id='22'/>
+            <instruction instr-id='479' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='0'>
+            <bounding-box x1='74' y1='444' x2='158' y2='454'/>
+            <content>Consumer Loans</content>
+            <instruction instr-id='483' subinstr-id='0'/>
+            <instruction instr-id='483' subinstr-id='2'/>
+            <instruction instr-id='483' subinstr-id='4'/>
+            <instruction instr-id='483' subinstr-id='6'/>
+            <instruction instr-id='483' subinstr-id='8'/>
+            <instruction instr-id='483' subinstr-id='10'/>
+            <instruction instr-id='483' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='01'>
+            <bounding-box x1='262' y1='445' x2='293' y2='454'/>
+            <content>63,000</content>
+            <instruction instr-id='487' subinstr-id='0'/>
+            <instruction instr-id='487' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='2'>
+            <bounding-box x1='316' y1='445' x2='330' y2='454'/>
+            <content>0.4</content>
+            <instruction instr-id='487' subinstr-id='4'/>
+            <instruction instr-id='487' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='3'>
+            <bounding-box x1='358' y1='445' x2='389' y2='454'/>
+            <content>69,000</content>
+            <instruction instr-id='487' subinstr-id='8'/>
+            <instruction instr-id='487' subinstr-id='10'/>
+            <instruction instr-id='487' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='4'>
+            <bounding-box x1='412' y1='445' x2='426' y2='454'/>
+            <content>0.5</content>
+            <instruction instr-id='487' subinstr-id='14'/>
+            <instruction instr-id='487' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='5'>
+            <bounding-box x1='455' y1='445' x2='485' y2='454'/>
+            <content>66,000</content>
+            <instruction instr-id='487' subinstr-id='18'/>
+            <instruction instr-id='487' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='6'>
+            <bounding-box x1='508' y1='445' x2='523' y2='454'/>
+            <content>0.4</content>
+            <instruction instr-id='487' subinstr-id='22'/>
+            <instruction instr-id='487' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='0'>
+            <bounding-box x1='74' y1='431' x2='215' y2='441'/>
+            <content>Lease financing receivables</content>
+            <instruction instr-id='492' subinstr-id='0'/>
+            <instruction instr-id='492' subinstr-id='2'/>
+            <instruction instr-id='492' subinstr-id='4'/>
+            <instruction instr-id='492' subinstr-id='6'/>
+            <instruction instr-id='492' subinstr-id='8'/>
+            <instruction instr-id='492' subinstr-id='10'/>
+            <instruction instr-id='492' subinstr-id='12'/>
+            <instruction instr-id='492' subinstr-id='14'/>
+            <instruction instr-id='492' subinstr-id='16'/>
+            <instruction instr-id='492' subinstr-id='18'/>
+            <instruction instr-id='492' subinstr-id='20'/>
+            <instruction instr-id='492' subinstr-id='22'/>
+            <instruction instr-id='492' subinstr-id='24'/>
+            <instruction instr-id='492' subinstr-id='26'/>
+            <instruction instr-id='492' subinstr-id='28'/>
+            <instruction instr-id='492' subinstr-id='30'/>
+            <instruction instr-id='492' subinstr-id='32'/>
+            <instruction instr-id='492' subinstr-id='34'/>
+            <instruction instr-id='492' subinstr-id='36'/>
+            <instruction instr-id='492' subinstr-id='38'/>
+            <instruction instr-id='492' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='1'>
+            <bounding-box x1='248' y1='431' x2='293' y2='441'/>
+            <content>3,508,000</content>
+            <instruction instr-id='496' subinstr-id='0'/>
+            <instruction instr-id='496' subinstr-id='2'/>
+            <instruction instr-id='496' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='2'>
+            <bounding-box x1='310' y1='431' x2='330' y2='441'/>
+            <content>21.1</content>
+            <instruction instr-id='496' subinstr-id='6'/>
+            <instruction instr-id='496' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='3'>
+            <bounding-box x1='344' y1='431' x2='389' y2='441'/>
+            <content>3,147,000</content>
+            <instruction instr-id='496' subinstr-id='10'/>
+            <instruction instr-id='496' subinstr-id='12'/>
+            <instruction instr-id='496' subinstr-id='14'/>
+            <instruction instr-id='496' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='4'>
+            <bounding-box x1='406' y1='431' x2='426' y2='441'/>
+            <content>21.2</content>
+            <instruction instr-id='496' subinstr-id='18'/>
+            <instruction instr-id='496' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='5'>
+            <bounding-box x1='440' y1='431' x2='485' y2='441'/>
+            <content>2,780,000</content>
+            <instruction instr-id='496' subinstr-id='22'/>
+            <instruction instr-id='496' subinstr-id='24'/>
+            <instruction instr-id='496' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='06'>
+            <bounding-box x1='503' y1='431' x2='523' y2='441'/>
+            <content>17.7</content>
+            <instruction instr-id='496' subinstr-id='28'/>
+            <instruction instr-id='496' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='0'>
+            <bounding-box x1='74' y1='418' x2='132' y2='427'/>
+            <content>Other loans</content>
+            <instruction instr-id='501' subinstr-id='0'/>
+            <instruction instr-id='501' subinstr-id='2'/>
+            <instruction instr-id='501' subinstr-id='4'/>
+            <instruction instr-id='501' subinstr-id='6'/>
+            <instruction instr-id='501' subinstr-id='8'/>
+            <instruction instr-id='501' subinstr-id='10'/>
+            <instruction instr-id='501' subinstr-id='12'/>
+            <instruction instr-id='501' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='0'>
+            <bounding-box x1='77' y1='405' x2='208' y2='415'/>
+            <content>Loans to purchase securities</content>
+            <instruction instr-id='508' subinstr-id='2'/>
+            <instruction instr-id='508' subinstr-id='4'/>
+            <instruction instr-id='508' subinstr-id='6'/>
+            <instruction instr-id='508' subinstr-id='8'/>
+            <instruction instr-id='508' subinstr-id='10'/>
+            <instruction instr-id='508' subinstr-id='12'/>
+            <instruction instr-id='508' subinstr-id='14'/>
+            <instruction instr-id='508' subinstr-id='16'/>
+            <instruction instr-id='508' subinstr-id='18'/>
+            <instruction instr-id='508' subinstr-id='20'/>
+            <instruction instr-id='508' subinstr-id='22'/>
+            <instruction instr-id='508' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='1'>
+            <bounding-box x1='248' y1='405' x2='293' y2='415'/>
+            <content>1,844,000</content>
+            <instruction instr-id='508' subinstr-id='26'/>
+            <instruction instr-id='508' subinstr-id='28'/>
+            <instruction instr-id='508' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='2'>
+            <bounding-box x1='310' y1='405' x2='330' y2='415'/>
+            <content>11.1</content>
+            <instruction instr-id='508' subinstr-id='32'/>
+            <instruction instr-id='508' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='3'>
+            <bounding-box x1='344' y1='405' x2='389' y2='415'/>
+            <content>1,148,000</content>
+            <instruction instr-id='508' subinstr-id='36'/>
+            <instruction instr-id='508' subinstr-id='38'/>
+            <instruction instr-id='508' subinstr-id='40'/>
+            <instruction instr-id='508' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='4'>
+            <bounding-box x1='412' y1='405' x2='426' y2='415'/>
+            <content>7.7</content>
+            <instruction instr-id='508' subinstr-id='44'/>
+            <instruction instr-id='508' subinstr-id='46'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='5'>
+            <bounding-box x1='440' y1='405' x2='485' y2='415'/>
+            <content>2,754,000</content>
+            <instruction instr-id='508' subinstr-id='48'/>
+            <instruction instr-id='508' subinstr-id='50'/>
+            <instruction instr-id='508' subinstr-id='52'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='6'>
+            <bounding-box x1='503' y1='405' x2='523' y2='415'/>
+            <content>17.5</content>
+            <instruction instr-id='508' subinstr-id='54'/>
+            <instruction instr-id='508' subinstr-id='56'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='0'>
+            <bounding-box x1='77' y1='393' x2='223' y2='402'/>
+            <content>Loans to nondepository Fin.Inst.</content>
+            <instruction instr-id='512' subinstr-id='2'/>
+            <instruction instr-id='512' subinstr-id='4'/>
+            <instruction instr-id='512' subinstr-id='6'/>
+            <instruction instr-id='512' subinstr-id='8'/>
+            <instruction instr-id='512' subinstr-id='10'/>
+            <instruction instr-id='512' subinstr-id='12'/>
+            <instruction instr-id='512' subinstr-id='14'/>
+            <instruction instr-id='512' subinstr-id='16'/>
+            <instruction instr-id='512' subinstr-id='18'/>
+            <instruction instr-id='512' subinstr-id='20'/>
+            <instruction instr-id='512' subinstr-id='22'/>
+            <instruction instr-id='512' subinstr-id='24'/>
+            <instruction instr-id='512' subinstr-id='26'/>
+            <instruction instr-id='512' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='1'>
+            <bounding-box x1='248' y1='393' x2='293' y2='402'/>
+            <content>4,958,000</content>
+            <instruction instr-id='512' subinstr-id='30'/>
+            <instruction instr-id='512' subinstr-id='32'/>
+            <instruction instr-id='512' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='2'>
+            <bounding-box x1='310' y1='393' x2='330' y2='402'/>
+            <content>29.9</content>
+            <instruction instr-id='512' subinstr-id='36'/>
+            <instruction instr-id='512' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='3'>
+            <bounding-box x1='344' y1='393' x2='389' y2='402'/>
+            <content>4,512,000</content>
+            <instruction instr-id='512' subinstr-id='40'/>
+            <instruction instr-id='512' subinstr-id='42'/>
+            <instruction instr-id='512' subinstr-id='44'/>
+            <instruction instr-id='512' subinstr-id='46'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='4'>
+            <bounding-box x1='406' y1='393' x2='426' y2='402'/>
+            <content>30.3</content>
+            <instruction instr-id='512' subinstr-id='48'/>
+            <instruction instr-id='512' subinstr-id='50'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='5'>
+            <bounding-box x1='440' y1='393' x2='485' y2='402'/>
+            <content>4,207,000</content>
+            <instruction instr-id='512' subinstr-id='52'/>
+            <instruction instr-id='512' subinstr-id='54'/>
+            <instruction instr-id='512' subinstr-id='56'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='6'>
+            <bounding-box x1='503' y1='393' x2='523' y2='402'/>
+            <content>26.7</content>
+            <instruction instr-id='512' subinstr-id='58'/>
+            <instruction instr-id='512' subinstr-id='60'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='0'>
+            <bounding-box x1='77' y1='380' x2='145' y2='390'/>
+            <content>All other Loans</content>
+            <instruction instr-id='517' subinstr-id='0'/>
+            <instruction instr-id='517' subinstr-id='2'/>
+            <instruction instr-id='517' subinstr-id='4'/>
+            <instruction instr-id='517' subinstr-id='6'/>
+            <instruction instr-id='517' subinstr-id='8'/>
+            <instruction instr-id='517' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='1'>
+            <bounding-box x1='257' y1='380' x2='293' y2='390'/>
+            <content>611,000</content>
+            <instruction instr-id='517' subinstr-id='14'/>
+            <instruction instr-id='517' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='2'>
+            <bounding-box x1='316' y1='380' x2='330' y2='390'/>
+            <content>3.7</content>
+            <instruction instr-id='517' subinstr-id='18'/>
+            <instruction instr-id='517' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='3'>
+            <bounding-box x1='353' y1='380' x2='389' y2='390'/>
+            <content>602,000</content>
+            <instruction instr-id='517' subinstr-id='22'/>
+            <instruction instr-id='517' subinstr-id='24'/>
+            <instruction instr-id='517' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='4'>
+            <bounding-box x1='412' y1='380' x2='426' y2='390'/>
+            <content>4.0</content>
+            <instruction instr-id='517' subinstr-id='28'/>
+            <instruction instr-id='517' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='5'>
+            <bounding-box x1='449' y1='380' x2='485' y2='390'/>
+            <content>799,000</content>
+            <instruction instr-id='517' subinstr-id='32'/>
+            <instruction instr-id='517' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='6'>
+            <bounding-box x1='508' y1='380' x2='523' y2='390'/>
+            <content>5.1</content>
+            <instruction instr-id='517' subinstr-id='36'/>
+            <instruction instr-id='517' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='0'>
+            <bounding-box x1='74' y1='367' x2='157' y2='377'/>
+            <content>Total Gross Loans</content>
+            <instruction instr-id='521' subinstr-id='0'/>
+            <instruction instr-id='521' subinstr-id='2'/>
+            <instruction instr-id='521' subinstr-id='4'/>
+            <instruction instr-id='521' subinstr-id='6'/>
+            <instruction instr-id='521' subinstr-id='8'/>
+            <instruction instr-id='521' subinstr-id='10'/>
+            <instruction instr-id='521' subinstr-id='12'/>
+            <instruction instr-id='521' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='1'>
+            <bounding-box x1='243' y1='367' x2='293' y2='377'/>
+            <content>16,604,000</content>
+            <instruction instr-id='521' subinstr-id='18'/>
+            <instruction instr-id='521' subinstr-id='20'/>
+            <instruction instr-id='521' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='2'>
+            <bounding-box x1='305' y1='367' x2='330' y2='377'/>
+            <content>100.0</content>
+            <instruction instr-id='521' subinstr-id='24'/>
+            <instruction instr-id='521' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='3'>
+            <bounding-box x1='339' y1='367' x2='389' y2='377'/>
+            <content>14,871,000</content>
+            <instruction instr-id='521' subinstr-id='28'/>
+            <instruction instr-id='521' subinstr-id='30'/>
+            <instruction instr-id='521' subinstr-id='32'/>
+            <instruction instr-id='521' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='4'>
+            <bounding-box x1='401' y1='367' x2='426' y2='377'/>
+            <content>100.0</content>
+            <instruction instr-id='521' subinstr-id='36'/>
+            <instruction instr-id='521' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='5'>
+            <bounding-box x1='435' y1='367' x2='485' y2='377'/>
+            <content>15,750,000</content>
+            <instruction instr-id='521' subinstr-id='40'/>
+            <instruction instr-id='521' subinstr-id='42'/>
+            <instruction instr-id='521' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='6'>
+            <bounding-box x1='497' y1='367' x2='523' y2='377'/>
+            <content>100.0</content>
+            <instruction instr-id='521' subinstr-id='46'/>
+            <instruction instr-id='521' subinstr-id='48'/>
+         </cell>
+      </region>
+   </table>
+</document>

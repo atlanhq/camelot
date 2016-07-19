@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-038-str.xml'>
+   <table id='1'>
+      <region page='2' id='1' col-increment='0' row-increment='0'>
+         <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
+            <bounding-box x1='340' y1='619' x2='371' y2='629'/>
+            <content>Species</content>
+            <instruction instr-id='154' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2' end-row='1' end-col='2'>
+            <bounding-box x1='412' y1='619' x2='486' y2='642'/>
+            <content>Percent of Range
+Impacted</content>
+            <instruction instr-id='156' subinstr-id='-1'/>
+            <instruction instr-id='158' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1' end-row='2' end-col='1'>
+            <bounding-box x1='313' y1='597' x2='356' y2='607'/>
+            <content>Kingfisher</content>
+            <instruction instr-id='161' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2' end-row='2' end-col='2'>
+            <bounding-box x1='440' y1='597' x2='458' y2='607'/>
+            <content>29%</content>
+            <instruction instr-id='161' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1' end-row='3' end-col='1'>
+            <bounding-box x1='313' y1='577' x2='357' y2='587'/>
+            <content>Bald Eagle</content>
+            <instruction instr-id='164' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2' end-row='3' end-col='2'>
+            <bounding-box x1='440' y1='577' x2='458' y2='587'/>
+            <content>34%</content>
+            <instruction instr-id='164' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1' end-row='4' end-col='1'>
+            <bounding-box x1='313' y1='556' x2='342' y2='566'/>
+            <content>Osprey</content>
+            <instruction instr-id='169' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2' end-row='4' end-col='2'>
+            <bounding-box x1='440' y1='556' x2='458' y2='566'/>
+            <content>20%</content>
+            <instruction instr-id='169' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1' end-row='5' end-col='1'>
+            <bounding-box x1='313' y1='536' x2='374' y2='546'/>
+            <content>Common Loon</content>
+            <instruction instr-id='172' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2' end-row='5' end-col='2'>
+            <bounding-box x1='440' y1='536' x2='458' y2='546'/>
+            <content>40%</content>
+            <instruction instr-id='172' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1' end-row='6' end-col='1'>
+            <bounding-box x1='313' y1='516' x2='375' y2='526'/>
+            <content>Florida Panther</content>
+            <instruction instr-id='175' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2' end-row='6' end-col='2'>
+            <bounding-box x1='437' y1='516' x2='461' y2='526'/>
+            <content>100%</content>
+            <instruction instr-id='175' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1' end-row='7' end-col='1'>
+            <bounding-box x1='313' y1='495' x2='335' y2='506'/>
+            <content>Mink</content>
+            <instruction instr-id='178' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2' end-row='7' end-col='2'>
+            <bounding-box x1='440' y1='495' x2='458' y2='506'/>
+            <content>35%</content>
+            <instruction instr-id='178' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='1' end-row='8' end-col='1'>
+            <bounding-box x1='313' y1='475' x2='359' y2='485'/>
+            <content>River Otter</content>
+            <instruction instr-id='181' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='2' end-row='8' end-col='2'>
+            <bounding-box x1='440' y1='475' x2='458' y2='485'/>
+            <content>38%</content>
+            <instruction instr-id='181' subinstr-id='2'/>
+         </cell>
+      </region>
+   </table>
+</document>

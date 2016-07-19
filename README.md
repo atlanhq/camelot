@@ -4,25 +4,39 @@
 
 Currently, camelot works under Python 2.7.
 
-The required dependencies include pdfminer, numpy, opencv.
-
-For debugging, matplotlib is required. For runnings tests in the future, nose may be required.
+The required dependencies include numpy, opencv, and imagemagick.
 
 ## Install
+
+Make sure you have the required dependencies installed on your system. If you're working in a virtual environment, copy the `cv2.so` file from your system's site-packages to the virtualenv's site-packages. After that, `cd` into the project directory and issue the following command.
+
+<pre>
+python setup.py install
+</pre>
 
 ## Usage
 
 <pre>
-camelot.py [options] <method> [<args>...]
+from camelot import *
+
+extractor = Lattice(Pdf("/path/to/pdf", pagenos=[{'start': 2, 'end': 4}]))
+tables = extractor.get_tables()
+</pre>
+
+<pre>
+camelot parses tables from PDFs!
+
+usage:
+ camelot.py [options] <method> [<args>...]
 
 options:
- -h, --help                Show this screen.
- -v, --version             Show version.
- -p, --pages &lt;pageno&gt;      Comma-separated list of page numbers.
-                           Example: -p 1,3-6,10  [default: 1]
- -f, --format &lt;format&gt;     Output format. (csv,xlsx) [default: csv]
- -l, --log                 Print log to file.
- -o, --output &lt;directory&gt;  Output directory.
+ -h, --help                      Show this screen.
+ -v, --version                   Show version.
+ -p, --pages &lt;pageno&gt;            Comma-separated list of page numbers.
+                                 Example: -p 1,3-6,10  [default: 1]
+ -f, --format &lt;format&gt;           Output format. (csv,tsv,html,json,xlsx) [default: csv]
+ -l, --log                       Print log to file.
+ -o, --output &lt;directory&gt;        Output directory.
 
 camelot methods:
  lattice  Looks for lines between data.

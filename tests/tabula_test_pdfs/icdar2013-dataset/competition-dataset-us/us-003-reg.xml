@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-003-reg.xml'>
+   <table id='1'>
+      <region id='1' page='1'>
+         <instruction instr-id='174'/>
+         <instruction instr-id='176'/>
+         <instruction instr-id='176' subinstr-id='2'/>
+         <instruction instr-id='192'/>
+         <instruction instr-id='192' subinstr-id='2'/>
+         <instruction instr-id='192' subinstr-id='4'/>
+         <instruction instr-id='192' subinstr-id='6'/>
+         <instruction instr-id='192' subinstr-id='8'/>
+         <instruction instr-id='192' subinstr-id='10'/>
+         <instruction instr-id='192' subinstr-id='14'/>
+         <instruction instr-id='192' subinstr-id='16'/>
+         <instruction instr-id='192' subinstr-id='18'/>
+         <instruction instr-id='192' subinstr-id='20'/>
+         <instruction instr-id='192' subinstr-id='24'/>
+         <instruction instr-id='192' subinstr-id='26'/>
+         <instruction instr-id='192' subinstr-id='28'/>
+         <instruction instr-id='192' subinstr-id='30'/>
+         <instruction instr-id='192' subinstr-id='34'/>
+         <instruction instr-id='192' subinstr-id='36'/>
+         <instruction instr-id='192' subinstr-id='38'/>
+         <instruction instr-id='192' subinstr-id='40'/>
+         <instruction instr-id='198'/>
+         <instruction instr-id='198' subinstr-id='2'/>
+         <instruction instr-id='198' subinstr-id='4'/>
+         <instruction instr-id='198' subinstr-id='6'/>
+         <instruction instr-id='198' subinstr-id='8'/>
+         <instruction instr-id='198' subinstr-id='10'/>
+         <instruction instr-id='198' subinstr-id='12'/>
+         <instruction instr-id='198' subinstr-id='14'/>
+         <instruction instr-id='198' subinstr-id='16'/>
+         <instruction instr-id='198' subinstr-id='18'/>
+         <instruction instr-id='198' subinstr-id='20'/>
+         <instruction instr-id='201'/>
+         <instruction instr-id='201' subinstr-id='2'/>
+         <instruction instr-id='201' subinstr-id='4'/>
+         <instruction instr-id='201' subinstr-id='6'/>
+         <instruction instr-id='201' subinstr-id='8'/>
+         <instruction instr-id='201' subinstr-id='10'/>
+         <instruction instr-id='201' subinstr-id='12'/>
+         <instruction instr-id='201' subinstr-id='14'/>
+         <instruction instr-id='206'/>
+         <instruction instr-id='206' subinstr-id='2'/>
+         <instruction instr-id='206' subinstr-id='4'/>
+         <instruction instr-id='206' subinstr-id='6'/>
+         <instruction instr-id='206' subinstr-id='8'/>
+         <instruction instr-id='206' subinstr-id='10'/>
+         <instruction instr-id='206' subinstr-id='12'/>
+         <instruction instr-id='206' subinstr-id='16'/>
+         <instruction instr-id='206' subinstr-id='18'/>
+         <instruction instr-id='206' subinstr-id='20'/>
+         <instruction instr-id='206' subinstr-id='22'/>
+         <instruction instr-id='206' subinstr-id='24'/>
+         <instruction instr-id='206' subinstr-id='26'/>
+         <instruction instr-id='206' subinstr-id='28'/>
+         <instruction instr-id='206' subinstr-id='30'/>
+         <instruction instr-id='206' subinstr-id='32'/>
+         <instruction instr-id='206' subinstr-id='34'/>
+         <instruction instr-id='206' subinstr-id='36'/>
+         <instruction instr-id='206' subinstr-id='38'/>
+         <instruction instr-id='206' subinstr-id='40'/>
+         <instruction instr-id='206' subinstr-id='42'/>
+         <instruction instr-id='206' subinstr-id='44'/>
+         <instruction instr-id='206' subinstr-id='46'/>
+         <instruction instr-id='206' subinstr-id='48'/>
+         <instruction instr-id='206' subinstr-id='50'/>
+         <instruction instr-id='206' subinstr-id='52'/>
+         <instruction instr-id='206' subinstr-id='54'/>
+         <instruction instr-id='206' subinstr-id='56'/>
+         <bounding-box x1='77' y1='424' x2='504' y2='493'/>
+      </region>
+   </table>
+</document>

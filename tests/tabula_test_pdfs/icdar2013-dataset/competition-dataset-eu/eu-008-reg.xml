@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_eu-008-reg.xml'>
+   <table id='1'>
+      <region id='1' page='1'>
+         <instruction instr-id='362'/>
+         <instruction instr-id='362' subinstr-id='2'/>
+         <instruction instr-id='362' subinstr-id='4'/>
+         <instruction instr-id='362' subinstr-id='6'/>
+         <instruction instr-id='362' subinstr-id='8'/>
+         <instruction instr-id='362' subinstr-id='10'/>
+         <instruction instr-id='362' subinstr-id='12'/>
+         <instruction instr-id='362' subinstr-id='14'/>
+         <instruction instr-id='362' subinstr-id='16'/>
+         <instruction instr-id='396'/>
+         <instruction instr-id='396' subinstr-id='2'/>
+         <instruction instr-id='396' subinstr-id='4'/>
+         <instruction instr-id='396' subinstr-id='6'/>
+         <instruction instr-id='431'/>
+         <instruction instr-id='431' subinstr-id='2'/>
+         <instruction instr-id='431' subinstr-id='4'/>
+         <instruction instr-id='431' subinstr-id='6'/>
+         <instruction instr-id='431' subinstr-id='8'/>
+         <instruction instr-id='431' subinstr-id='10'/>
+         <instruction instr-id='431' subinstr-id='12'/>
+         <instruction instr-id='431' subinstr-id='14'/>
+         <instruction instr-id='466'/>
+         <instruction instr-id='466' subinstr-id='2'/>
+         <instruction instr-id='466' subinstr-id='4'/>
+         <instruction instr-id='531'/>
+         <instruction instr-id='534'/>
+         <instruction instr-id='538'/>
+         <instruction instr-id='542'/>
+         <instruction instr-id='562'/>
+         <instruction instr-id='562' subinstr-id='2'/>
+         <instruction instr-id='562' subinstr-id='4'/>
+         <instruction instr-id='562' subinstr-id='6'/>
+         <instruction instr-id='565'/>
+         <instruction instr-id='569'/>
+         <instruction instr-id='573'/>
+         <instruction instr-id='592'/>
+         <instruction instr-id='596'/>
+         <instruction instr-id='600'/>
+         <instruction instr-id='604'/>
+         <instruction instr-id='623'/>
+         <instruction instr-id='626'/>
+         <instruction instr-id='630'/>
+         <instruction instr-id='634'/>
+         <instruction instr-id='653'/>
+         <instruction instr-id='653' subinstr-id='2'/>
+         <instruction instr-id='656'/>
+         <instruction instr-id='660'/>
+         <instruction instr-id='664'/>
+         <instruction instr-id='683'/>
+         <instruction instr-id='686'/>
+         <instruction instr-id='690'/>
+         <instruction instr-id='694'/>
+         <instruction instr-id='713'/>
+         <instruction instr-id='716'/>
+         <instruction instr-id='720'/>
+         <instruction instr-id='724'/>
+         <instruction instr-id='742'/>
+         <instruction instr-id='745'/>
+         <instruction instr-id='749'/>
+         <instruction instr-id='753'/>
+         <instruction instr-id='771'/>
+         <instruction instr-id='774'/>
+         <instruction instr-id='780'/>
+         <instruction instr-id='784'/>
+         <instruction instr-id='803'/>
+         <instruction instr-id='806'/>
+         <instruction instr-id='810'/>
+         <instruction instr-id='814'/>
+         <instruction instr-id='833'/>
+         <instruction instr-id='836'/>
+         <instruction instr-id='840'/>
+         <instruction instr-id='844'/>
+         <instruction instr-id='863'/>
+         <instruction instr-id='866'/>
+         <instruction instr-id='870'/>
+         <instruction instr-id='874'/>
+         <instruction instr-id='893'/>
+         <instruction instr-id='893' subinstr-id='2'/>
+         <instruction instr-id='901'/>
+         <instruction instr-id='924'/>
+         <instruction instr-id='924' subinstr-id='2'/>
+         <instruction instr-id='924' subinstr-id='4'/>
+         <instruction instr-id='927'/>
+         <instruction instr-id='931'/>
+         <instruction instr-id='935'/>
+         <bounding-box x1='106' y1='106' x2='470' y2='294'/>
+      </region>
+   </table>
+</document>

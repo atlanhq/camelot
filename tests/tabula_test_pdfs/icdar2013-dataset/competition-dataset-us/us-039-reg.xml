@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_us-039-reg.xml'>
+   <table id='1'>
+      <region id='1' page='2'>
+         <instruction instr-id='142'/>
+         <instruction instr-id='142' subinstr-id='2'/>
+         <instruction instr-id='144'/>
+         <instruction instr-id='146'/>
+         <instruction instr-id='148'/>
+         <instruction instr-id='150'/>
+         <instruction instr-id='152'/>
+         <instruction instr-id='154'/>
+         <instruction instr-id='156'/>
+         <instruction instr-id='158'/>
+         <instruction instr-id='160'/>
+         <instruction instr-id='162'/>
+         <instruction instr-id='166'/>
+         <instruction instr-id='166' subinstr-id='2'/>
+         <bounding-box x1='151' y1='493' x2='441' y2='635'/>
+      </region>
+   </table>
+</document>

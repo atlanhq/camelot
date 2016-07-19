@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename="bm_eu-015-reg.xml">
+    <table id="1">
+        <region id="1" page="1">
+            <instruction instr-id="51"/>
+            <instruction instr-id="51" subinstr-id="2"/>
+            <instruction instr-id="56"/>
+            <instruction instr-id="60"/>
+            <instruction instr-id="64"/>
+            <instruction instr-id="68"/>
+            <instruction instr-id="72"/>
+            <instruction instr-id="76"/>
+            <instruction instr-id="80"/>
+            <instruction instr-id="84"/>
+            <instruction instr-id="88"/>
+            <instruction instr-id="92"/>
+            <instruction instr-id="96"/>
+            <instruction instr-id="100"/>
+            <instruction instr-id="104"/>
+            <instruction instr-id="108"/>
+            <instruction instr-id="112"/>
+            <instruction instr-id="116"/>
+            <instruction instr-id="120"/>
+            <instruction instr-id="124"/>
+            <instruction instr-id="128"/>
+            <instruction instr-id="132"/>
+            <instruction instr-id="137"/>
+            <instruction instr-id="137" subinstr-id="2"/>
+            <bounding-box x1="60" x2="356" y1="292" y2="505"/>
+        </region>
+    </table>
+    <table id="2">
+        <region id="1" page="1">
+            <instruction instr-id="147"/>
+            <instruction instr-id="147" subinstr-id="2"/>
+            <instruction instr-id="152"/>
+            <instruction instr-id="156"/>
+            <instruction instr-id="159"/>
+            <instruction instr-id="162"/>
+            <instruction instr-id="165"/>
+            <instruction instr-id="168"/>
+            <instruction instr-id="172"/>
+            <instruction instr-id="176"/>
+            <instruction instr-id="180"/>
+            <instruction instr-id="184"/>
+            <instruction instr-id="188"/>
+            <instruction instr-id="192"/>
+            <instruction instr-id="196"/>
+            <instruction instr-id="200"/>
+            <instruction instr-id="204"/>
+            <instruction instr-id="207"/>
+            <instruction instr-id="210"/>
+            <instruction instr-id="214"/>
+            <instruction instr-id="219"/>
+            <instruction instr-id="219" subinstr-id="2"/>
+            <bounding-box x1="60" x2="356" y1="61" y2="274"/>
+        </region>
+    </table>
+    <table id="3">
+        <region id="1" page="2">
+            <instruction instr-id="65"/>
+            <instruction instr-id="65" subinstr-id="2"/>
+            <instruction instr-id="94"/>
+            <instruction instr-id="94" subinstr-id="2"/>
+            <instruction instr-id="97"/>
+            <instruction instr-id="97" subinstr-id="2"/>
+            <instruction instr-id="100"/>
+            <instruction instr-id="100" subinstr-id="2"/>
+            <instruction instr-id="103"/>
+            <instruction instr-id="103" subinstr-id="2"/>
+            <instruction instr-id="106"/>
+            <instruction instr-id="106" subinstr-id="2"/>
+            <instruction instr-id="109"/>
+            <instruction instr-id="109" subinstr-id="2"/>
+            <instruction instr-id="112"/>
+            <instruction instr-id="112" subinstr-id="2"/>
+            <instruction instr-id="115"/>
+            <instruction instr-id="115" subinstr-id="2"/>
+            <instruction instr-id="118"/>
+            <instruction instr-id="118" subinstr-id="2"/>
+            <instruction instr-id="121"/>
+            <instruction instr-id="121" subinstr-id="2"/>
+            <instruction instr-id="124"/>
+            <instruction instr-id="124" subinstr-id="2"/>
+            <instruction instr-id="127"/>
+            <instruction instr-id="127" subinstr-id="2"/>
+            <instruction instr-id="130"/>
+            <instruction instr-id="130" subinstr-id="2"/>
+            <instruction instr-id="133"/>
+            <instruction instr-id="133" subinstr-id="2"/>
+            <instruction instr-id="136"/>
+            <instruction instr-id="136" subinstr-id="2"/>
+            <instruction instr-id="140"/>
+            <instruction instr-id="140" subinstr-id="2"/>
+            <instruction instr-id="144"/>
+            <instruction instr-id="144" subinstr-id="2"/>
+            <instruction instr-id="147"/>
+            <instruction instr-id="147" subinstr-id="2"/>
+            <instruction instr-id="150"/>
+            <instruction instr-id="150" subinstr-id="2"/>
+            <instruction instr-id="153"/>
+            <instruction instr-id="153" subinstr-id="2"/>
+            <instruction instr-id="156"/>
+            <instruction instr-id="156" subinstr-id="2"/>
+            <instruction instr-id="159"/>
+            <instruction instr-id="159" subinstr-id="2"/>
+            <instruction instr-id="162"/>
+            <instruction instr-id="162" subinstr-id="2"/>
+            <instruction instr-id="165"/>
+            <instruction instr-id="165" subinstr-id="2"/>
+            <instruction instr-id="168"/>
+            <instruction instr-id="168" subinstr-id="2"/>
+            <instruction instr-id="171"/>
+            <instruction instr-id="171" subinstr-id="2"/>
+            <instruction instr-id="174"/>
+            <instruction instr-id="174" subinstr-id="2"/>
+            <instruction instr-id="178"/>
+            <instruction instr-id="178" subinstr-id="2"/>
+            <instruction instr-id="187"/>
+            <instruction instr-id="187" subinstr-id="2"/>
+            <instruction instr-id="197"/>
+            <instruction instr-id="197" subinstr-id="2"/>
+            <instruction instr-id="201"/>
+            <instruction instr-id="201" subinstr-id="2"/>
+            <bounding-box x1="58" x2="170" y1="193" y2="505"/>
+        </region>
+    </table>
+    <table id="4">
+        <region id="1" page="2">
+            <instruction instr-id="69"/>
+            <instruction instr-id="73"/>
+            <instruction instr-id="77"/>
+            <instruction instr-id="94" subinstr-id="4"/>
+            <instruction instr-id="94" subinstr-id="6"/>
+            <instruction instr-id="97" subinstr-id="4"/>
+            <instruction instr-id="97" subinstr-id="6"/>
+            <instruction instr-id="100" subinstr-id="4"/>
+            <instruction instr-id="100" subinstr-id="6"/>
+            <instruction instr-id="103" subinstr-id="4"/>
+            <instruction instr-id="103" subinstr-id="6"/>
+            <instruction instr-id="106" subinstr-id="4"/>
+            <instruction instr-id="106" subinstr-id="6"/>
+            <instruction instr-id="109" subinstr-id="4"/>
+            <instruction instr-id="109" subinstr-id="6"/>
+            <instruction instr-id="112" subinstr-id="4"/>
+            <instruction instr-id="112" subinstr-id="6"/>
+            <instruction instr-id="115" subinstr-id="4"/>
+            <instruction instr-id="115" subinstr-id="6"/>
+            <instruction instr-id="118" subinstr-id="4"/>
+            <instruction instr-id="118" subinstr-id="6"/>
+            <instruction instr-id="121" subinstr-id="4"/>
+            <instruction instr-id="121" subinstr-id="6"/>
+            <instruction instr-id="124" subinstr-id="4"/>
+            <instruction instr-id="124" subinstr-id="6"/>
+            <instruction instr-id="127" subinstr-id="4"/>
+            <instruction instr-id="127" subinstr-id="6"/>
+            <instruction instr-id="130" subinstr-id="4"/>
+            <instruction instr-id="130" subinstr-id="6"/>
+            <instruction instr-id="133" subinstr-id="4"/>
+            <instruction instr-id="133" subinstr-id="6"/>
+            <instruction instr-id="136" subinstr-id="4"/>
+            <instruction instr-id="136" subinstr-id="6"/>
+            <instruction instr-id="140" subinstr-id="4"/>
+            <instruction instr-id="140" subinstr-id="6"/>
+            <instruction instr-id="144" subinstr-id="4"/>
+            <instruction instr-id="144" subinstr-id="6"/>
+            <instruction instr-id="147" subinstr-id="4"/>
+            <instruction instr-id="147" subinstr-id="6"/>
+            <instruction instr-id="150" subinstr-id="4"/>
+            <instruction instr-id="150" subinstr-id="6"/>
+            <instruction instr-id="153" subinstr-id="4"/>
+            <instruction instr-id="153" subinstr-id="6"/>
+            <instruction instr-id="156" subinstr-id="4"/>
+            <instruction instr-id="156" subinstr-id="6"/>
+            <instruction instr-id="159" subinstr-id="4"/>
+            <instruction instr-id="159" subinstr-id="6"/>
+            <instruction instr-id="162" subinstr-id="4"/>
+            <instruction instr-id="162" subinstr-id="6"/>
+            <instruction instr-id="165" subinstr-id="4"/>
+            <instruction instr-id="165" subinstr-id="6"/>
+            <instruction instr-id="168" subinstr-id="4"/>
+            <instruction instr-id="168" subinstr-id="6"/>
+            <instruction instr-id="171" subinstr-id="4"/>
+            <instruction instr-id="171" subinstr-id="6"/>
+            <instruction instr-id="174" subinstr-id="4"/>
+            <instruction instr-id="174" subinstr-id="6"/>
+            <instruction instr-id="183"/>
+            <instruction instr-id="183" subinstr-id="2"/>
+            <instruction instr-id="192"/>
+            <instruction instr-id="192" subinstr-id="2"/>
+            <instruction instr-id="197" subinstr-id="4"/>
+            <instruction instr-id="197" subinstr-id="6"/>
+            <instruction instr-id="206"/>
+            <instruction instr-id="206" subinstr-id="2"/>
+            <instruction instr-id="211"/>
+            <instruction instr-id="211" subinstr-id="2"/>
+            <bounding-box x1="184" x2="297" y1="183" y2="515"/>
+        </region>
+    </table>
+    <table id="5">
+        <region id="1" page="2">
+            <instruction instr-id="81"/>
+            <instruction instr-id="85"/>
+            <instruction instr-id="89"/>
+            <instruction instr-id="94" subinstr-id="8"/>
+            <instruction instr-id="94" subinstr-id="10"/>
+            <instruction instr-id="97" subinstr-id="8"/>
+            <instruction instr-id="97" subinstr-id="10"/>
+            <instruction instr-id="100" subinstr-id="8"/>
+            <instruction instr-id="100" subinstr-id="10"/>
+            <instruction instr-id="103" subinstr-id="8"/>
+            <instruction instr-id="103" subinstr-id="10"/>
+            <instruction instr-id="106" subinstr-id="8"/>
+            <instruction instr-id="106" subinstr-id="10"/>
+            <instruction instr-id="109" subinstr-id="8"/>
+            <instruction instr-id="109" subinstr-id="10"/>
+            <instruction instr-id="112" subinstr-id="8"/>
+            <instruction instr-id="112" subinstr-id="10"/>
+            <instruction instr-id="115" subinstr-id="8"/>
+            <instruction instr-id="115" subinstr-id="10"/>
+            <instruction instr-id="118" subinstr-id="8"/>
+            <instruction instr-id="118" subinstr-id="10"/>
+            <instruction instr-id="121" subinstr-id="8"/>
+            <instruction instr-id="121" subinstr-id="10"/>
+            <instruction instr-id="124" subinstr-id="8"/>
+            <instruction instr-id="124" subinstr-id="10"/>
+            <instruction instr-id="127" subinstr-id="8"/>
+            <instruction instr-id="127" subinstr-id="10"/>
+            <instruction instr-id="130" subinstr-id="8"/>
+            <instruction instr-id="130" subinstr-id="10"/>
+            <instruction instr-id="133" subinstr-id="8"/>
+            <instruction instr-id="133" subinstr-id="10"/>
+            <instruction instr-id="136" subinstr-id="8"/>
+            <instruction instr-id="136" subinstr-id="10"/>
+            <instruction instr-id="140" subinstr-id="8"/>
+            <instruction instr-id="140" subinstr-id="10"/>
+            <instruction instr-id="144" subinstr-id="8"/>
+            <instruction instr-id="144" subinstr-id="10"/>
+            <instruction instr-id="147" subinstr-id="8"/>
+            <instruction instr-id="147" subinstr-id="10"/>
+            <instruction instr-id="150" subinstr-id="8"/>
+            <instruction instr-id="150" subinstr-id="10"/>
+            <instruction instr-id="153" subinstr-id="8"/>
+            <instruction instr-id="153" subinstr-id="10"/>
+            <instruction instr-id="156" subinstr-id="8"/>
+            <instruction instr-id="156" subinstr-id="10"/>
+            <instruction instr-id="159" subinstr-id="8"/>
+            <instruction instr-id="159" subinstr-id="10"/>
+            <instruction instr-id="162" subinstr-id="8"/>
+            <instruction instr-id="162" subinstr-id="10"/>
+            <instruction instr-id="165" subinstr-id="8"/>
+            <instruction instr-id="165" subinstr-id="10"/>
+            <instruction instr-id="168" subinstr-id="8"/>
+            <instruction instr-id="168" subinstr-id="10"/>
+            <instruction instr-id="171" subinstr-id="8"/>
+            <instruction instr-id="171" subinstr-id="10"/>
+            <instruction instr-id="174" subinstr-id="8"/>
+            <instruction instr-id="174" subinstr-id="10"/>
+            <instruction instr-id="183" subinstr-id="4"/>
+            <instruction instr-id="183" subinstr-id="6"/>
+            <instruction instr-id="192" subinstr-id="4"/>
+            <instruction instr-id="192" subinstr-id="6"/>
+            <instruction instr-id="197" subinstr-id="8"/>
+            <instruction instr-id="197" subinstr-id="10"/>
+            <instruction instr-id="206" subinstr-id="4"/>
+            <instruction instr-id="206" subinstr-id="6"/>
+            <instruction instr-id="211" subinstr-id="4"/>
+            <instruction instr-id="211" subinstr-id="6"/>
+            <bounding-box x1="316" x2="428" y1="183" y2="515"/>
+        </region>
+    </table>
+</document>

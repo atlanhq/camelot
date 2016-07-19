@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_eu-014-reg.xml'>
+   <table id='1'>
+      <region id='1' page='2'>
+         <instruction instr-id='354'/>
+         <instruction instr-id='354' subinstr-id='2'/>
+         <instruction instr-id='354' subinstr-id='4'/>
+         <instruction instr-id='364'/>
+         <instruction instr-id='364' subinstr-id='2'/>
+         <instruction instr-id='364' subinstr-id='4'/>
+         <instruction instr-id='364' subinstr-id='6'/>
+         <instruction instr-id='380'/>
+         <instruction instr-id='380' subinstr-id='2'/>
+         <instruction instr-id='380' subinstr-id='4'/>
+         <instruction instr-id='380' subinstr-id='6'/>
+         <instruction instr-id='380' subinstr-id='8'/>
+         <instruction instr-id='390'/>
+         <instruction instr-id='396'/>
+         <instruction instr-id='396' subinstr-id='2'/>
+         <instruction instr-id='396' subinstr-id='4'/>
+         <instruction instr-id='396' subinstr-id='6'/>
+         <instruction instr-id='406'/>
+         <instruction instr-id='406' subinstr-id='2'/>
+         <instruction instr-id='406' subinstr-id='4'/>
+         <instruction instr-id='428'/>
+         <instruction instr-id='428' subinstr-id='2'/>
+         <instruction instr-id='428' subinstr-id='4'/>
+         <instruction instr-id='438'/>
+         <instruction instr-id='444'/>
+         <instruction instr-id='444' subinstr-id='2'/>
+         <instruction instr-id='455'/>
+         <instruction instr-id='455' subinstr-id='2'/>
+         <instruction instr-id='471'/>
+         <instruction instr-id='471' subinstr-id='2'/>
+         <instruction instr-id='471' subinstr-id='4'/>
+         <instruction instr-id='471' subinstr-id='6'/>
+         <instruction instr-id='481'/>
+         <instruction instr-id='481' subinstr-id='2'/>
+         <instruction instr-id='481' subinstr-id='4'/>
+         <instruction instr-id='481' subinstr-id='6'/>
+         <instruction instr-id='481' subinstr-id='8'/>
+         <bounding-box x1='76' y1='140' x2='500' y2='299'/>
+      </region>
+   </table>
+</document>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_eu-026-reg.xml'>
+   <table id='1'>
+      <region id='1' page='4'>
+         <instruction instr-id='505'/>
+         <instruction instr-id='511'/>
+         <instruction instr-id='517'/>
+         <instruction instr-id='523'/>
+         <instruction instr-id='529'/>
+         <instruction instr-id='535'/>
+         <instruction instr-id='541'/>
+         <instruction instr-id='547'/>
+         <instruction instr-id='553'/>
+         <instruction instr-id='559'/>
+         <instruction instr-id='565'/>
+         <instruction instr-id='571'/>
+         <instruction instr-id='577'/>
+         <instruction instr-id='594'/>
+         <instruction instr-id='600'/>
+         <instruction instr-id='606'/>
+         <instruction instr-id='612'/>
+         <instruction instr-id='618'/>
+         <instruction instr-id='624'/>
+         <instruction instr-id='630'/>
+         <instruction instr-id='642'/>
+         <instruction instr-id='648'/>
+         <instruction instr-id='654'/>
+         <instruction instr-id='660'/>
+         <instruction instr-id='666'/>
+         <instruction instr-id='672'/>
+         <instruction instr-id='678'/>
+         <instruction instr-id='684'/>
+         <instruction instr-id='690'/>
+         <instruction instr-id='696'/>
+         <instruction instr-id='702'/>
+         <instruction instr-id='714'/>
+         <instruction instr-id='720'/>
+         <instruction instr-id='726'/>
+         <instruction instr-id='732'/>
+         <instruction instr-id='738'/>
+         <instruction instr-id='744'/>
+         <instruction instr-id='750'/>
+         <instruction instr-id='756'/>
+         <instruction instr-id='762'/>
+         <instruction instr-id='768'/>
+         <instruction instr-id='774'/>
+         <instruction instr-id='780'/>
+         <instruction instr-id='792'/>
+         <instruction instr-id='798'/>
+         <instruction instr-id='804'/>
+         <instruction instr-id='810'/>
+         <instruction instr-id='827'/>
+         <instruction instr-id='833'/>
+         <instruction instr-id='845'/>
+         <instruction instr-id='851'/>
+         <instruction instr-id='857'/>
+         <instruction instr-id='863'/>
+         <bounding-box x1='80' y1='643' x2='503' y2='718'/>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' page='5'>
+         <instruction instr-id='712'/>
+         <instruction instr-id='718'/>
+         <instruction instr-id='724'/>
+         <instruction instr-id='730'/>
+         <instruction instr-id='736'/>
+         <instruction instr-id='748'/>
+         <instruction instr-id='754'/>
+         <instruction instr-id='760'/>
+         <instruction instr-id='766'/>
+         <instruction instr-id='772'/>
+         <instruction instr-id='778'/>
+         <instruction instr-id='795'/>
+         <instruction instr-id='807'/>
+         <instruction instr-id='813'/>
+         <instruction instr-id='819'/>
+         <instruction instr-id='825'/>
+         <instruction instr-id='837'/>
+         <instruction instr-id='843'/>
+         <instruction instr-id='849'/>
+         <instruction instr-id='855'/>
+         <instruction instr-id='867'/>
+         <instruction instr-id='873'/>
+         <instruction instr-id='879'/>
+         <instruction instr-id='885'/>
+         <instruction instr-id='897'/>
+         <instruction instr-id='903'/>
+         <instruction instr-id='909'/>
+         <bounding-box x1='82' y1='575' x2='430' y2='635'/>
+      </region>
+   </table>
+   <table id='3'>
+      <region id='1' page='6'>
+         <instruction instr-id='1070'/>
+         <instruction instr-id='1076'/>
+         <instruction instr-id='1082'/>
+         <instruction instr-id='1088'/>
+         <instruction instr-id='1094'/>
+         <instruction instr-id='1106'/>
+         <instruction instr-id='1112'/>
+         <instruction instr-id='1118'/>
+         <instruction instr-id='1124'/>
+         <instruction instr-id='1130'/>
+         <instruction instr-id='1136'/>
+         <instruction instr-id='1153'/>
+         <instruction instr-id='1165'/>
+         <instruction instr-id='1171'/>
+         <instruction instr-id='1177'/>
+         <instruction instr-id='1183'/>
+         <instruction instr-id='1195'/>
+         <instruction instr-id='1201'/>
+         <instruction instr-id='1207'/>
+         <instruction instr-id='1213'/>
+         <instruction instr-id='1225'/>
+         <instruction instr-id='1231'/>
+         <instruction instr-id='1237'/>
+         <instruction instr-id='1243'/>
+         <instruction instr-id='1255'/>
+         <instruction instr-id='1261'/>
+         <instruction instr-id='1267'/>
+         <bounding-box x1='80' y1='519' x2='428' y2='580'/>
+      </region>
+   </table>
+</document>

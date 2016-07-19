@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-040-str.xml'>
+   <table id='1'>
+      <region page='2' id='1' col-increment='0' row-increment='0'>
+         <cell id='1' start-row='1' start-col='1' end-row='2' end-col='1'>
+            <bounding-box x1='119' y1='647' x2='147' y2='656'/>
+            <content>Species</content>
+            <instruction instr-id='169' subinstr-id='-1'/>
+            <instruction instr-id='185' subinstr-id='-1'/>
+            <instruction instr-id='195' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2' end-row='1' end-col='3'>
+            <bounding-box x1='334' y1='651' x2='398' y2='671'/>
+            <content>Wildlife Criterion
+(pg/L)</content>
+            <instruction instr-id='198' subinstr-id='-1'/>
+            <instruction instr-id='200' subinstr-id='-1'/>
+            <instruction instr-id='216' subinstr-id='-1'/>
+            <instruction instr-id='226' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2' end-row='2' end-col='2'>
+            <bounding-box x1='273' y1='632' x2='303' y2='641'/>
+            <content>GLWQI</content>
+            <instruction instr-id='229' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='3' end-row='2' end-col='3'>
+            <bounding-box x1='380' y1='632' x2='506' y2='641'/>
+            <content>Mercury Study Report to Congress</content>
+            <instruction instr-id='229' subinstr-id='2'/>
+            <instruction instr-id='229' subinstr-id='4'/>
+            <instruction instr-id='245' subinstr-id='-1'/>
+            <instruction instr-id='254' subinstr-id='-1'/>
+            <instruction instr-id='270' subinstr-id='-1'/>
+            <instruction instr-id='279' subinstr-id='-1'/>
+            <instruction instr-id='295' subinstr-id='-1'/>
+            <instruction instr-id='304' subinstr-id='-1'/>
+            <instruction instr-id='320' subinstr-id='-1'/>
+            <instruction instr-id='329' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1' end-row='4' end-col='1'>
+            <bounding-box x1='61' y1='611' x2='81' y2='620'/>
+            <content>Mink</content>
+            <instruction instr-id='331' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2' end-row='4' end-col='2'>
+            <bounding-box x1='279' y1='611' x2='297' y2='620'/>
+            <content>2880</content>
+            <instruction instr-id='333' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3' end-row='4' end-col='3'>
+            <bounding-box x1='434' y1='611' x2='452' y2='620'/>
+            <content>1038</content>
+            <instruction instr-id='333' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1' end-row='5' end-col='1'>
+            <bounding-box x1='61' y1='592' x2='80' y2='601'/>
+            <content>Otter</content>
+            <instruction instr-id='335' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2' end-row='5' end-col='2'>
+            <bounding-box x1='279' y1='592' x2='297' y2='601'/>
+            <content>1930</content>
+            <instruction instr-id='337' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='3' end-row='5' end-col='3'>
+            <bounding-box x1='436' y1='592' x2='449' y2='601'/>
+            <content>764</content>
+            <instruction instr-id='337' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1' end-row='6' end-col='1'>
+            <bounding-box x1='61' y1='572' x2='100' y2='581'/>
+            <content>Kingfisher</content>
+            <instruction instr-id='339' subinstr-id='-1'/>
+            <instruction instr-id='355' subinstr-id='-1'/>
+            <instruction instr-id='364' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2' end-row='6' end-col='2'>
+            <bounding-box x1='279' y1='572' x2='297' y2='581'/>
+            <content>1040</content>
+            <instruction instr-id='366' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3' end-row='6' end-col='3'>
+            <bounding-box x1='436' y1='572' x2='449' y2='581'/>
+            <content>598</content>
+            <instruction instr-id='366' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1' end-row='7' end-col='1'>
+            <bounding-box x1='61' y1='553' x2='87' y2='562'/>
+            <content>Osprey</content>
+            <instruction instr-id='369' subinstr-id='-1'/>
+            <instruction instr-id='386' subinstr-id='-1'/>
+            <instruction instr-id='395' subinstr-id='-1'/>
+            <instruction instr-id='411' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2' end-row='7' end-col='2'>
+            <bounding-box x1='271' y1='553' x2='305' y2='562'/>
+            <content>Not done</content>
+            <instruction instr-id='420' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='3' end-row='7' end-col='3'>
+            <bounding-box x1='434' y1='553' x2='452' y2='562'/>
+            <content>1498</content>
+            <instruction instr-id='420' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='1' end-row='8' end-col='1'>
+            <bounding-box x1='61' y1='534' x2='82' y2='543'/>
+            <content>Eagle</content>
+            <instruction instr-id='423' subinstr-id='-1'/>
+            <instruction instr-id='440' subinstr-id='-1'/>
+            <instruction instr-id='449' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='2' end-row='8' end-col='2'>
+            <bounding-box x1='279' y1='534' x2='297' y2='543'/>
+            <content>1920</content>
+            <instruction instr-id='451' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='3' end-row='8' end-col='3'>
+            <bounding-box x1='434' y1='534' x2='452' y2='543'/>
+            <content>1818</content>
+            <instruction instr-id='451' subinstr-id='2'/>
+         </cell>
+      </region>
+   </table>
+</document>

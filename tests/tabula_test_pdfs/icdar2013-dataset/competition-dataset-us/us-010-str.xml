@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-010-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='2'>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='266' y1='321' x2='339' y2='357'/>
+            <content>Launch:
+May 21, 2009</content>
+            <instruction instr-id='280' subinstr-id='-1'/>
+            <instruction instr-id='1080' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2'>
+            <bounding-box x1='352' y1='321' x2='425' y2='359'/>
+            <content>1 Year:
+May 21, 2010</content>
+            <instruction instr-id='295' subinstr-id='-1'/>
+            <instruction instr-id='308' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='3'>
+            <bounding-box x1='442' y1='321' x2='520' y2='359'/>
+            <content>FY 2010
+Sept. 30, 2011</content>
+            <instruction instr-id='323' subinstr-id='-1'/>
+            <instruction instr-id='335' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='72' y1='292' x2='210' y2='304'/>
+            <content>Total data sets available</content>
+            <instruction instr-id='401' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='296' y1='292' x2='309' y2='304'/>
+            <content>47</content>
+            <instruction instr-id='420' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2'>
+            <bounding-box x1='367' y1='292' x2='410' y2='304'/>
+            <content>272,768</content>
+            <instruction instr-id='434' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3'>
+            <bounding-box x1='459' y1='292' x2='502' y2='304'/>
+            <content>389,933</content>
+            <instruction instr-id='447' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='72' y1='234' x2='233' y2='277'/>
+            <content>Applications and mashups
+developed by the public and
+government</content>
+            <instruction instr-id='480' subinstr-id='-1'/>
+            <instruction instr-id='493' subinstr-id='0'/>
+            <instruction instr-id='493' subinstr-id='2'/>
+            <instruction instr-id='493' subinstr-id='4'/>
+            <instruction instr-id='493' subinstr-id='6'/>
+            <instruction instr-id='506' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='299' y1='265' x2='306' y2='277'/>
+            <content>0</content>
+            <instruction instr-id='524' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2'>
+            <bounding-box x1='379' y1='265' x2='399' y2='277'/>
+            <content>237</content>
+            <instruction instr-id='538' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='3'>
+            <bounding-box x1='466' y1='265' x2='496' y2='277'/>
+            <content>1,079</content>
+            <instruction instr-id='552' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='72' y1='207' x2='184' y2='219'/>
+            <content>Data set downloads</content>
+            <instruction instr-id='617' subinstr-id='0'/>
+            <instruction instr-id='617' subinstr-id='2'/>
+            <instruction instr-id='617' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='299' y1='207' x2='306' y2='219'/>
+            <content>0</content>
+            <instruction instr-id='636' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2'>
+            <bounding-box x1='367' y1='207' x2='410' y2='219'/>
+            <content>652,412</content>
+            <instruction instr-id='650' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='3'>
+            <bounding-box x1='454' y1='207' x2='507' y2='219'/>
+            <content>2,348,928</content>
+            <instruction instr-id='663' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='72' y1='164' x2='249' y2='192'/>
+            <content>Nations establishing open data
+sites</content>
+            <instruction instr-id='728' subinstr-id='-1'/>
+            <instruction instr-id='741' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='299' y1='180' x2='306' y2='192'/>
+            <content>0</content>
+            <instruction instr-id='759' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2'>
+            <bounding-box x1='385' y1='180' x2='392' y2='192'/>
+            <content>6</content>
+            <instruction instr-id='772' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3'>
+            <bounding-box x1='474' y1='180' x2='487' y2='192'/>
+            <content>21</content>
+            <instruction instr-id='785' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='72' y1='137' x2='246' y2='149'/>
+            <content>States offering open data sites</content>
+            <instruction instr-id='850' subinstr-id='0'/>
+            <instruction instr-id='850' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1'>
+            <bounding-box x1='299' y1='137' x2='306' y2='149'/>
+            <content>0</content>
+            <instruction instr-id='869' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2'>
+            <bounding-box x1='385' y1='137' x2='392' y2='149'/>
+            <content>8</content>
+            <instruction instr-id='882' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='3'>
+            <bounding-box x1='474' y1='137' x2='487' y2='149'/>
+            <content>29</content>
+            <instruction instr-id='895' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0'>
+            <bounding-box x1='72' y1='94' x2='232' y2='122'/>
+            <content>Cities in North America with
+open data sites</content>
+            <instruction instr-id='960' subinstr-id='0'/>
+            <instruction instr-id='960' subinstr-id='2'/>
+            <instruction instr-id='960' subinstr-id='4'/>
+            <instruction instr-id='973' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1'>
+            <bounding-box x1='299' y1='110' x2='306' y2='122'/>
+            <content>0</content>
+            <instruction instr-id='992' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2'>
+            <bounding-box x1='385' y1='110' x2='392' y2='122'/>
+            <content>8</content>
+            <instruction instr-id='1005' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3'>
+            <bounding-box x1='474' y1='110' x2='487' y2='122'/>
+            <content>11</content>
+            <instruction instr-id='1018' subinstr-id='-1'/>
+         </cell>
+      </region>
+   </table>
+</document>

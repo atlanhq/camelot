@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename="bm_eu-012-str.xml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
+    <table id="1">
+        <region col-increment="0" id="1" page="3" row-increment="0">
+            <cell id="1" start-col="1" start-row="0">
+                <bounding-box x1="169" x2="206" y1="274" y2="286"/>
+                <content>Finland</content>
+                <instruction instr-id="514" subinstr-id="0"/>
+                <instruction instr-id="514" subinstr-id="2"/>
+                <instruction instr-id="514" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="0">
+                <bounding-box x1="307" x2="337" y1="274" y2="286"/>
+                <content>EU-15</content>
+                <instruction instr-id="527" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="0">
+                <bounding-box x1="442" x2="472" y1="274" y2="286"/>
+                <content>EU-25</content>
+                <instruction instr-id="527" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="1">
+                <bounding-box x1="76" x2="98" y1="258" y2="269"/>
+                <content>1996</content>
+                <instruction instr-id="544" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="176" x2="190" y1="258" y2="269"/>
+                <content>3.7</content>
+                <instruction instr-id="544" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="315" x2="329" y1="258" y2="269"/>
+                <content>1.6</content>
+                <instruction instr-id="544" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="450" x2="463" y1="258" y2="269"/>
+                <content>1.7</content>
+                <instruction instr-id="544" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="76" x2="98" y1="242" y2="253"/>
+                <content>2000</content>
+                <instruction instr-id="556" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="176" x2="190" y1="242" y2="253"/>
+                <content>5.0</content>
+                <instruction instr-id="556" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="315" x2="329" y1="242" y2="253"/>
+                <content>3.9</content>
+                <instruction instr-id="556" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="450" x2="463" y1="242" y2="253"/>
+                <content>3.9</content>
+                <instruction instr-id="556" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="76" x2="98" y1="225" y2="236"/>
+                <content>2005</content>
+                <instruction instr-id="568" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="176" x2="190" y1="225" y2="236"/>
+                <content>1.5</content>
+                <instruction instr-id="568" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="315" x2="329" y1="225" y2="236"/>
+                <content>1.5</content>
+                <instruction instr-id="568" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="450" x2="463" y1="225" y2="236"/>
+                <content>1.6</content>
+                <instruction instr-id="568" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="76" x2="113" y1="209" y2="220"/>
+                <content>2006 (*)</content>
+                <instruction instr-id="582" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="176" x2="190" y1="209" y2="220"/>
+                <content>3.5</content>
+                <instruction instr-id="582" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="315" x2="329" y1="209" y2="220"/>
+                <content>2.0</content>
+                <instruction instr-id="582" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="449" x2="463" y1="209" y2="220"/>
+                <content>2.1</content>
+                <instruction instr-id="582" subinstr-id="6"/>
+            </cell>
+        </region>
+    </table>
+    <table id="2">
+        <region col-increment="0" id="1" page="4" row-increment="0">
+            <cell id="1" start-col="2" start-row="0">
+                <bounding-box x1="237" x2="293" y1="608" y2="619"/>
+                <content>Agriculture</content>
+                <instruction instr-id="87" subinstr-id="0"/>
+                <instruction instr-id="87" subinstr-id="2"/>
+                <instruction instr-id="87" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="0">
+                <bounding-box x1="348" x2="389" y1="608" y2="619"/>
+                <content>Industry</content>
+                <instruction instr-id="99" subinstr-id="0"/>
+                <instruction instr-id="99" subinstr-id="2"/>
+                <instruction instr-id="99" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="0">
+                <bounding-box x1="451" x2="490" y1="608" y2="619"/>
+                <content>Services</content>
+                <instruction instr-id="111" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="1" end-row="3">
+                <bounding-box x1="81" x2="103" y1="575" y2="586"/>
+                <content>1991</content>
+                <instruction instr-id="166" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="118" x2="139" y1="591" y2="602"/>
+                <content>Men</content>
+                <instruction instr-id="133" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="258" x2="278" y1="591" y2="602"/>
+                <content>11.0</content>
+                <instruction instr-id="133" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="357" x2="377" y1="591" y2="602"/>
+                <content>40.7</content>
+                <instruction instr-id="133" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="1">
+                <bounding-box x1="464" x2="483" y1="591" y2="602"/>
+                <content>48.4</content>
+                <instruction instr-id="133" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="118" x2="153" y1="575" y2="586"/>
+                <content>Women</content>
+                <instruction instr-id="149" subinstr-id="0"/>
+                <instruction instr-id="149" subinstr-id="2"/>
+                <instruction instr-id="149" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="264" x2="278" y1="575" y2="586"/>
+                <content>6.6</content>
+                <instruction instr-id="149" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="357" x2="377" y1="575" y2="586"/>
+                <content>16.0</content>
+                <instruction instr-id="149" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="2">
+                <bounding-box x1="464" x2="483" y1="575" y2="586"/>
+                <content>77.4</content>
+                <instruction instr-id="149" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="182" x2="207" y1="558" y2="569"/>
+                <content>Total</content>
+                <instruction instr-id="172" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="264" x2="278" y1="558" y2="569"/>
+                <content>8.9</content>
+                <instruction instr-id="172" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="357" x2="377" y1="558" y2="569"/>
+                <content>28.7</content>
+                <instruction instr-id="172" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="3">
+                <bounding-box x1="464" x2="483" y1="558" y2="569"/>
+                <content>62.4</content>
+                <instruction instr-id="172" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="118" x2="139" y1="542" y2="553"/>
+                <content>Men</content>
+                <instruction instr-id="189" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="264" x2="278" y1="542" y2="553"/>
+                <content>9.5</content>
+                <instruction instr-id="189" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="357" x2="377" y1="542" y2="553"/>
+                <content>39.4</content>
+                <instruction instr-id="189" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="4">
+                <bounding-box x1="464" x2="483" y1="542" y2="553"/>
+                <content>51.0</content>
+                <instruction instr-id="189" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4" end-row="6">
+                <bounding-box x1="81" x2="103" y1="526" y2="537"/>
+                <content>1996</content>
+                <instruction instr-id="222" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="118" x2="153" y1="526" y2="537"/>
+                <content>Women</content>
+                <instruction instr-id="205" subinstr-id="0"/>
+                <instruction instr-id="205" subinstr-id="2"/>
+                <instruction instr-id="205" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="264" x2="278" y1="526" y2="537"/>
+                <content>5.3</content>
+                <instruction instr-id="205" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="357" x2="377" y1="526" y2="537"/>
+                <content>13.9</content>
+                <instruction instr-id="205" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="5">
+                <bounding-box x1="464" x2="483" y1="526" y2="537"/>
+                <content>80.9</content>
+                <instruction instr-id="205" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="182" x2="207" y1="509" y2="520"/>
+                <content>Total</content>
+                <instruction instr-id="228" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="264" x2="278" y1="509" y2="520"/>
+                <content>7.5</content>
+                <instruction instr-id="228" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="357" x2="377" y1="509" y2="520"/>
+                <content>27.3</content>
+                <instruction instr-id="228" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="6">
+                <bounding-box x1="464" x2="483" y1="509" y2="520"/>
+                <content>65.2</content>
+                <instruction instr-id="228" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="118" x2="139" y1="493" y2="504"/>
+                <content>Men</content>
+                <instruction instr-id="245" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="264" x2="278" y1="493" y2="504"/>
+                <content>7.5</content>
+                <instruction instr-id="245" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="357" x2="377" y1="493" y2="504"/>
+                <content>39.4</content>
+                <instruction instr-id="245" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="7">
+                <bounding-box x1="464" x2="483" y1="493" y2="504"/>
+                <content>53.1</content>
+                <instruction instr-id="245" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7" end-row="9">
+                <bounding-box x1="81" x2="103" y1="476" y2="487"/>
+                <content>2001</content>
+                <instruction instr-id="278" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="118" x2="153" y1="476" y2="487"/>
+                <content>Women</content>
+                <instruction instr-id="261" subinstr-id="0"/>
+                <instruction instr-id="261" subinstr-id="2"/>
+                <instruction instr-id="261" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="264" x2="278" y1="476" y2="487"/>
+                <content>3.7</content>
+                <instruction instr-id="261" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="357" x2="377" y1="476" y2="487"/>
+                <content>13.8</content>
+                <instruction instr-id="261" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="8">
+                <bounding-box x1="464" x2="483" y1="476" y2="487"/>
+                <content>82.5</content>
+                <instruction instr-id="261" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="182" x2="207" y1="460" y2="471"/>
+                <content>Total</content>
+                <instruction instr-id="284" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="264" x2="278" y1="460" y2="471"/>
+                <content>5.7</content>
+                <instruction instr-id="284" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="357" x2="377" y1="460" y2="471"/>
+                <content>27.2</content>
+                <instruction instr-id="284" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="9">
+                <bounding-box x1="464" x2="483" y1="460" y2="471"/>
+                <content>67.1</content>
+                <instruction instr-id="284" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="118" x2="139" y1="443" y2="454"/>
+                <content>Men</content>
+                <instruction instr-id="301" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="264" x2="278" y1="443" y2="454"/>
+                <content>6.7</content>
+                <instruction instr-id="301" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="357" x2="377" y1="443" y2="454"/>
+                <content>38.1</content>
+                <instruction instr-id="301" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="10">
+                <bounding-box x1="464" x2="483" y1="443" y2="454"/>
+                <content>55.2</content>
+                <instruction instr-id="301" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="10" end-row="12">
+                <bounding-box x1="81" x2="103" y1="427" y2="438"/>
+                <content>2003</content>
+                <instruction instr-id="334" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="118" x2="153" y1="427" y2="438"/>
+                <content>Women</content>
+                <instruction instr-id="317" subinstr-id="0"/>
+                <instruction instr-id="317" subinstr-id="2"/>
+                <instruction instr-id="317" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="264" x2="278" y1="427" y2="438"/>
+                <content>3.0</content>
+                <instruction instr-id="317" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="11">
+                <bounding-box x1="357" x2="377" y1="427" y2="438"/>
+                <content>12.4</content>
+                <instruction instr-id="317" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="11">
+                <bounding-box x1="464" x2="483" y1="427" y2="438"/>
+                <content>84.6</content>
+                <instruction instr-id="317" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="182" x2="207" y1="410" y2="421"/>
+                <content>Total</content>
+                <instruction instr-id="340" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="264" x2="278" y1="410" y2="421"/>
+                <content>4.9</content>
+                <instruction instr-id="340" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="12">
+                <bounding-box x1="357" x2="377" y1="410" y2="421"/>
+                <content>25.7</content>
+                <instruction instr-id="340" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="12">
+                <bounding-box x1="464" x2="483" y1="410" y2="421"/>
+                <content>69.4</content>
+                <instruction instr-id="340" subinstr-id="4"/>
+            </cell>
+        </region>
+    </table>
+    <table id="3">
+        <region col-increment="0" id="1" page="4" row-increment="0">
+            <cell id="1" start-col="1" end-col="4" start-row="0">
+                <bounding-box x1="160" x2="197" y1="235" y2="246"/>
+                <content>Finland</content>
+                <instruction instr-id="460" subinstr-id="0"/>
+                <instruction instr-id="460" subinstr-id="2"/>
+                <instruction instr-id="460" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="5" end-col="8" start-row="0">
+                <bounding-box x1="304" x2="334" y1="235" y2="246"/>
+                <content>EU-15</content>
+                <instruction instr-id="474" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="9" end-col="12" start-row="0">
+                <bounding-box x1="442" x2="472" y1="235" y2="246"/>
+                <content>EU-25</content>
+                <instruction instr-id="474" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="111" x2="136" y1="219" y2="227"/>
+                <content>Female</content>
+                <instruction instr-id="490" subinstr-id="0"/>
+                <instruction instr-id="490" subinstr-id="2"/>
+                <instruction instr-id="490" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="152" x2="169" y1="219" y2="227"/>
+                <content>Male</content>
+                <instruction instr-id="504" subinstr-id="0"/>
+                <instruction instr-id="504" subinstr-id="2"/>
+                <instruction instr-id="504" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="188" x2="206" y1="219" y2="227"/>
+                <content>Total</content>
+                <instruction instr-id="504" subinstr-id="4"/>
+                <instruction instr-id="504" subinstr-id="6"/>
+                <instruction instr-id="504" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="1">
+                <bounding-box x1="224" x2="243" y1="219" y2="227"/>
+                <content>15-24</content>
+                <instruction instr-id="504" subinstr-id="10"/>
+                <instruction instr-id="504" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="1">
+                <bounding-box x1="256" x2="281" y1="219" y2="227"/>
+                <content>Female</content>
+                <instruction instr-id="517" subinstr-id="0"/>
+                <instruction instr-id="517" subinstr-id="2"/>
+                <instruction instr-id="517" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="6" start-row="1">
+                <bounding-box x1="293" x2="311" y1="219" y2="227"/>
+                <content>Male</content>
+                <instruction instr-id="529" subinstr-id="0"/>
+                <instruction instr-id="529" subinstr-id="2"/>
+                <instruction instr-id="529" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="7" start-row="1">
+                <bounding-box x1="326" x2="345" y1="219" y2="227"/>
+                <content>Total</content>
+                <instruction instr-id="542" subinstr-id="0"/>
+                <instruction instr-id="542" subinstr-id="2"/>
+                <instruction instr-id="542" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="8" start-row="1">
+                <bounding-box x1="360" x2="379" y1="219" y2="227"/>
+                <content>15-24</content>
+                <instruction instr-id="542" subinstr-id="4"/>
+                <instruction instr-id="542" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="9" start-row="1">
+                <bounding-box x1="391" x2="416" y1="219" y2="227"/>
+                <content>Female</content>
+                <instruction instr-id="542" subinstr-id="8"/>
+                <instruction instr-id="542" subinstr-id="10"/>
+                <instruction instr-id="542" subinstr-id="12"/>
+                <instruction instr-id="542" subinstr-id="14"/>
+                <instruction instr-id="542" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="10" start-row="1">
+                <bounding-box x1="431" x2="448" y1="219" y2="227"/>
+                <content>Male</content>
+                <instruction instr-id="542" subinstr-id="18"/>
+                <instruction instr-id="542" subinstr-id="20"/>
+                <instruction instr-id="542" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="11" start-row="1">
+                <bounding-box x1="466" x2="484" y1="219" y2="227"/>
+                <content>Total</content>
+                <instruction instr-id="556" subinstr-id="0"/>
+                <instruction instr-id="556" subinstr-id="2"/>
+                <instruction instr-id="556" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="12" start-row="1">
+                <bounding-box x1="501" x2="520" y1="219" y2="227"/>
+                <content>15-24</content>
+                <instruction instr-id="556" subinstr-id="4"/>
+                <instruction instr-id="556" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="77" x2="99" y1="199" y2="211"/>
+                <content>1995</content>
+                <instruction instr-id="588" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="114" x2="134" y1="199" y2="211"/>
+                <content>15.1</content>
+                <instruction instr-id="595" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="151" x2="170" y1="199" y2="211"/>
+                <content>15.7</content>
+                <instruction instr-id="595" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="187" x2="207" y1="199" y2="211"/>
+                <content>15.4</content>
+                <instruction instr-id="595" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="2">
+                <bounding-box x1="224" x2="243" y1="199" y2="211"/>
+                <content>29.7</content>
+                <instruction instr-id="595" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="2">
+                <bounding-box x1="259" x2="278" y1="199" y2="211"/>
+                <content>12.0</content>
+                <instruction instr-id="595" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="6" start-row="2">
+                <bounding-box x1="295" x2="309" y1="199" y2="211"/>
+                <content>8.7</content>
+                <instruction instr-id="595" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="7" start-row="2">
+                <bounding-box x1="326" x2="346" y1="199" y2="211"/>
+                <content>10.1</content>
+                <instruction instr-id="595" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="8" start-row="2">
+                <bounding-box x1="360" x2="379" y1="199" y2="211"/>
+                <content>21.1</content>
+                <instruction instr-id="595" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="9" start-row="2">
+                <bounding-box x1="403" x2="406" y1="199" y2="211"/>
+                <content>:</content>
+                <instruction instr-id="595" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="10" start-row="2">
+                <bounding-box x1="438" x2="441" y1="199" y2="211"/>
+                <content>:</content>
+                <instruction instr-id="595" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="11" start-row="2">
+                <bounding-box x1="474" x2="477" y1="199" y2="211"/>
+                <content>:</content>
+                <instruction instr-id="595" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="12" start-row="2">
+                <bounding-box x1="509" x2="512" y1="199" y2="211"/>
+                <content>:</content>
+                <instruction instr-id="595" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="77" x2="99" y1="177" y2="188"/>
+                <content>2000</content>
+                <instruction instr-id="628" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="114" x2="134" y1="177" y2="188"/>
+                <content>10.6</content>
+                <instruction instr-id="634" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="154" x2="167" y1="177" y2="188"/>
+                <content>9.1</content>
+                <instruction instr-id="634" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="190" x2="204" y1="177" y2="188"/>
+                <content>9.8</content>
+                <instruction instr-id="634" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="3">
+                <bounding-box x1="224" x2="243" y1="177" y2="188"/>
+                <content>21.4</content>
+                <instruction instr-id="634" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="3">
+                <bounding-box x1="262" x2="275" y1="177" y2="188"/>
+                <content>9.3</content>
+                <instruction instr-id="634" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="6" start-row="3">
+                <bounding-box x1="295" x2="309" y1="177" y2="188"/>
+                <content>6.4</content>
+                <instruction instr-id="634" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="7" start-row="3">
+                <bounding-box x1="329" x2="343" y1="177" y2="188"/>
+                <content>7.7</content>
+                <instruction instr-id="634" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="8" start-row="3">
+                <bounding-box x1="360" x2="379" y1="177" y2="188"/>
+                <content>15.3</content>
+                <instruction instr-id="634" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="9" start-row="3">
+                <bounding-box x1="394" x2="414" y1="177" y2="188"/>
+                <content>10.2</content>
+                <instruction instr-id="634" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="10" start-row="3">
+                <bounding-box x1="433" x2="446" y1="177" y2="188"/>
+                <content>7.4</content>
+                <instruction instr-id="634" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="11" start-row="3">
+                <bounding-box x1="468" x2="482" y1="177" y2="188"/>
+                <content>8.6</content>
+                <instruction instr-id="634" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="12" start-row="3">
+                <bounding-box x1="501" x2="520" y1="177" y2="188"/>
+                <content>17.4</content>
+                <instruction instr-id="634" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="77" x2="99" y1="155" y2="166"/>
+                <content>2005</content>
+                <instruction instr-id="666" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="117" x2="131" y1="155" y2="166"/>
+                <content>8.6</content>
+                <instruction instr-id="672" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="154" x2="167" y1="155" y2="166"/>
+                <content>8.2</content>
+                <instruction instr-id="672" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="190" x2="204" y1="155" y2="166"/>
+                <content>8.4</content>
+                <instruction instr-id="672" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="4">
+                <bounding-box x1="224" x2="243" y1="155" y2="166"/>
+                <content>20.1</content>
+                <instruction instr-id="672" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="4">
+                <bounding-box x1="262" x2="275" y1="155" y2="166"/>
+                <content>8.9</content>
+                <instruction instr-id="672" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="6" start-row="4">
+                <bounding-box x1="295" x2="309" y1="155" y2="166"/>
+                <content>7.0</content>
+                <instruction instr-id="672" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="7" start-row="4">
+                <bounding-box x1="329" x2="343" y1="155" y2="166"/>
+                <content>7.9</content>
+                <instruction instr-id="672" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="8" start-row="4">
+                <bounding-box x1="360" x2="379" y1="155" y2="166"/>
+                <content>16.7</content>
+                <instruction instr-id="672" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="9" start-row="4">
+                <bounding-box x1="397" x2="411" y1="155" y2="166"/>
+                <content>9.8</content>
+                <instruction instr-id="672" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="10" start-row="4">
+                <bounding-box x1="433" x2="446" y1="155" y2="166"/>
+                <content>7.9</content>
+                <instruction instr-id="672" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="11" start-row="4">
+                <bounding-box x1="468" x2="482" y1="155" y2="166"/>
+                <content>8.7</content>
+                <instruction instr-id="672" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="12" start-row="4">
+                <bounding-box x1="501" x2="520" y1="155" y2="166"/>
+                <content>18.5</content>
+                <instruction instr-id="672" subinstr-id="18"/>
+            </cell>
+        </region>
+    </table>
+    <table id="4">
+        <region col-increment="0" id="1" page="5" row-increment="0">
+            <cell id="1" start-col="1" end-col="3" start-row="0">
+                <bounding-box x1="158" x2="195" y1="721" y2="733"/>
+                <content>Finland</content>
+                <instruction instr-id="37" subinstr-id="0"/>
+                <instruction instr-id="37" subinstr-id="2"/>
+                <instruction instr-id="37" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="4" end-col="6" start-row="0">
+                <bounding-box x1="303" x2="333" y1="721" y2="733"/>
+                <content>EU-15</content>
+                <instruction instr-id="49" subinstr-id="0"/>
+                <instruction instr-id="49" subinstr-id="2"/>
+                <instruction instr-id="49" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="7" end-col="9" start-row="0">
+                <bounding-box x1="442" x2="472" y1="721" y2="733"/>
+                <content>EU-25</content>
+                <instruction instr-id="61" subinstr-id="0"/>
+                <instruction instr-id="61" subinstr-id="2"/>
+                <instruction instr-id="61" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="117" x2="142" y1="705" y2="713"/>
+                <content>Female</content>
+                <instruction instr-id="86" subinstr-id="0"/>
+                <instruction instr-id="86" subinstr-id="2"/>
+                <instruction instr-id="86" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="168" x2="185" y1="705" y2="713"/>
+                <content>Male</content>
+                <instruction instr-id="86" subinstr-id="6"/>
+                <instruction instr-id="86" subinstr-id="8"/>
+                <instruction instr-id="86" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="215" x2="233" y1="705" y2="713"/>
+                <content>Total</content>
+                <instruction instr-id="86" subinstr-id="10"/>
+                <instruction instr-id="86" subinstr-id="12"/>
+                <instruction instr-id="86" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="1">
+                <bounding-box x1="259" x2="284" y1="705" y2="713"/>
+                <content>Female</content>
+                <instruction instr-id="86" subinstr-id="16"/>
+                <instruction instr-id="86" subinstr-id="18"/>
+                <instruction instr-id="86" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="1">
+                <bounding-box x1="310" x2="327" y1="705" y2="713"/>
+                <content>Male</content>
+                <instruction instr-id="86" subinstr-id="22"/>
+                <instruction instr-id="86" subinstr-id="24"/>
+                <instruction instr-id="86" subinstr-id="26"/>
+            </cell>
+            <cell id="1" start-col="6" start-row="1">
+                <bounding-box x1="356" x2="375" y1="705" y2="713"/>
+                <content>Total</content>
+                <instruction instr-id="86" subinstr-id="26"/>
+                <instruction instr-id="86" subinstr-id="28"/>
+                <instruction instr-id="86" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="7" start-row="1">
+                <bounding-box x1="399" x2="424" y1="705" y2="713"/>
+                <content>Female</content>
+                <instruction instr-id="86" subinstr-id="32"/>
+                <instruction instr-id="86" subinstr-id="34"/>
+                <instruction instr-id="86" subinstr-id="36"/>
+            </cell>
+            <cell id="1" start-col="8" start-row="1">
+                <bounding-box x1="448" x2="465" y1="705" y2="713"/>
+                <content>Male</content>
+                <instruction instr-id="86" subinstr-id="38"/>
+                <instruction instr-id="86" subinstr-id="40"/>
+                <instruction instr-id="86" subinstr-id="42"/>
+            </cell>
+            <cell id="1" start-col="9" start-row="1">
+                <bounding-box x1="492" x2="511" y1="705" y2="713"/>
+                <content>Total</content>
+                <instruction instr-id="86" subinstr-id="44"/>
+                <instruction instr-id="86" subinstr-id="46"/>
+                <instruction instr-id="86" subinstr-id="48"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="77" x2="99" y1="686" y2="697"/>
+                <content>1995</content>
+                <instruction instr-id="112" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="120" x2="139" y1="686" y2="697"/>
+                <content>59.0</content>
+                <instruction instr-id="119" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="167" x2="186" y1="686" y2="697"/>
+                <content>64.2</content>
+                <instruction instr-id="119" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="214" x2="234" y1="686" y2="697"/>
+                <content>61.6</content>
+                <instruction instr-id="119" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="2">
+                <bounding-box x1="262" x2="281" y1="686" y2="697"/>
+                <content>49.7</content>
+                <instruction instr-id="119" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="2">
+                <bounding-box x1="309" x2="328" y1="686" y2="697"/>
+                <content>70.5</content>
+                <instruction instr-id="119" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="6" start-row="2">
+                <bounding-box x1="356" x2="375" y1="686" y2="697"/>
+                <content>60.1</content>
+                <instruction instr-id="119" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="7" start-row="2">
+                <bounding-box x1="410" x2="413" y1="686" y2="697"/>
+                <content>:</content>
+                <instruction instr-id="119" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="8" start-row="2">
+                <bounding-box x1="455" x2="458" y1="686" y2="697"/>
+                <content>:</content>
+                <instruction instr-id="119" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="9" start-row="2">
+                <bounding-box x1="500" x2="503" y1="686" y2="697"/>
+                <content>:</content>
+                <instruction instr-id="119" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="77" x2="99" y1="663" y2="674"/>
+                <content>2000</content>
+                <instruction instr-id="146" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="120" x2="139" y1="663" y2="674"/>
+                <content>64.2</content>
+                <instruction instr-id="152" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="167" x2="186" y1="663" y2="674"/>
+                <content>70.1</content>
+                <instruction instr-id="152" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="214" x2="234" y1="663" y2="674"/>
+                <content>67.2</content>
+                <instruction instr-id="152" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="3">
+                <bounding-box x1="261" x2="281" y1="663" y2="674"/>
+                <content>54.1</content>
+                <instruction instr-id="152" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="3">
+                <bounding-box x1="309" x2="328" y1="663" y2="674"/>
+                <content>72.8</content>
+                <instruction instr-id="152" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="6" start-row="3">
+                <bounding-box x1="356" x2="375" y1="663" y2="674"/>
+                <content>63.4</content>
+                <instruction instr-id="152" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="7" start-row="3">
+                <bounding-box x1="402" x2="421" y1="663" y2="674"/>
+                <content>53.6</content>
+                <instruction instr-id="152" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="8" start-row="3">
+                <bounding-box x1="447" x2="466" y1="663" y2="674"/>
+                <content>71.2</content>
+                <instruction instr-id="152" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="9" start-row="3">
+                <bounding-box x1="492" x2="511" y1="663" y2="674"/>
+                <content>62.4</content>
+                <instruction instr-id="152" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="77" x2="99" y1="641" y2="652"/>
+                <content>2005</content>
+                <instruction instr-id="178" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="120" x2="139" y1="641" y2="652"/>
+                <content>66.5</content>
+                <instruction instr-id="184" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="167" x2="186" y1="641" y2="652"/>
+                <content>70.3</content>
+                <instruction instr-id="184" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="214" x2="234" y1="641" y2="652"/>
+                <content>68.4</content>
+                <instruction instr-id="184" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="4">
+                <bounding-box x1="261" x2="281" y1="641" y2="652"/>
+                <content>57.4</content>
+                <instruction instr-id="184" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="4">
+                <bounding-box x1="309" x2="328" y1="641" y2="652"/>
+                <content>72.9</content>
+                <instruction instr-id="184" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="6" start-row="4">
+                <bounding-box x1="356" x2="375" y1="641" y2="652"/>
+                <content>65.1</content>
+                <instruction instr-id="184" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="7" start-row="4">
+                <bounding-box x1="402" x2="421" y1="641" y2="652"/>
+                <content>56.3</content>
+                <instruction instr-id="184" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="8" start-row="4">
+                <bounding-box x1="447" x2="466" y1="641" y2="652"/>
+                <content>71.3</content>
+                <instruction instr-id="184" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="9" start-row="4">
+                <bounding-box x1="492" x2="511" y1="641" y2="652"/>
+                <content>63.8</content>
+                <instruction instr-id="184" subinstr-id="8"/>
+            </cell>
+        </region>
+    </table>
+    <table id="5">
+        <region col-increment="0" id="1" page="5" row-increment="0">
+            <cell id="1" start-col="0" start-row="0">
+                <bounding-box x1="76" x2="116" y1="344" y2="355"/>
+                <content>Country</content>
+                <instruction instr-id="392" subinstr-id="0"/>
+                <instruction instr-id="392" subinstr-id="2"/>
+                <instruction instr-id="392" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="0">
+                <bounding-box x1="214" x2="265" y1="344" y2="355"/>
+                <content>ISCED 0-2</content>
+                <instruction instr-id="392" subinstr-id="6"/>
+                <instruction instr-id="392" subinstr-id="8"/>
+                <instruction instr-id="392" subinstr-id="10"/>
+                <instruction instr-id="392" subinstr-id="12"/>
+                <instruction instr-id="392" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="0">
+                <bounding-box x1="330" x2="381" y1="344" y2="355"/>
+                <content>ISCED 3-4</content>
+                <instruction instr-id="406" subinstr-id="0"/>
+                <instruction instr-id="406" subinstr-id="2"/>
+                <instruction instr-id="406" subinstr-id="4"/>
+                <instruction instr-id="406" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="0">
+                <bounding-box x1="443" x2="494" y1="344" y2="355"/>
+                <content>ISCED 5-6</content>
+                <instruction instr-id="420" subinstr-id="0"/>
+                <instruction instr-id="420" subinstr-id="2"/>
+                <instruction instr-id="420" subinstr-id="4"/>
+                <instruction instr-id="420" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="1">
+                <bounding-box x1="76" x2="117" y1="322" y2="333"/>
+                <content>Denmark</content>
+                <instruction instr-id="441" subinstr-id="0"/>
+                <instruction instr-id="441" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="234" x2="245" y1="322" y2="333"/>
+                <content>17</content>
+                <instruction instr-id="441" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="350" x2="361" y1="322" y2="333"/>
+                <content>49</content>
+                <instruction instr-id="441" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="463" x2="474" y1="322" y2="333"/>
+                <content>34</content>
+                <instruction instr-id="441" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="76" x2="109" y1="299" y2="310"/>
+                <content>Finland</content>
+                <instruction instr-id="455" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="234" x2="245" y1="299" y2="310"/>
+                <content>21</content>
+                <instruction instr-id="455" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="350" x2="361" y1="299" y2="310"/>
+                <content>44</content>
+                <instruction instr-id="455" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="463" x2="474" y1="299" y2="310"/>
+                <content>34</content>
+                <instruction instr-id="455" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="76" x2="109" y1="277" y2="288"/>
+                <content>Estonia</content>
+                <instruction instr-id="469" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="234" x2="245" y1="277" y2="288"/>
+                <content>11</content>
+                <instruction instr-id="469" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="350" x2="361" y1="277" y2="288"/>
+                <content>56</content>
+                <instruction instr-id="469" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="463" x2="474" y1="277" y2="288"/>
+                <content>33</content>
+                <instruction instr-id="469" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="76" x2="111" y1="255" y2="266"/>
+                <content>Sweden</content>
+                <instruction instr-id="483" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="234" x2="245" y1="255" y2="266"/>
+                <content>16</content>
+                <instruction instr-id="483" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="350" x2="361" y1="255" y2="266"/>
+                <content>54</content>
+                <instruction instr-id="483" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="463" x2="474" y1="255" y2="266"/>
+                <content>29</content>
+                <instruction instr-id="483" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="76" x2="101" y1="232" y2="243"/>
+                <content>Spain</content>
+                <instruction instr-id="497" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="234" x2="245" y1="232" y2="243"/>
+                <content>51</content>
+                <instruction instr-id="497" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="350" x2="361" y1="232" y2="243"/>
+                <content>21</content>
+                <instruction instr-id="497" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="463" x2="474" y1="232" y2="243"/>
+                <content>29</content>
+                <instruction instr-id="497" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="76" x2="117" y1="210" y2="221"/>
+                <content>Germany</content>
+                <instruction instr-id="510" subinstr-id="0"/>
+                <instruction instr-id="510" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="234" x2="245" y1="210" y2="221"/>
+                <content>17</content>
+                <instruction instr-id="510" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="350" x2="361" y1="210" y2="221"/>
+                <content>58</content>
+                <instruction instr-id="510" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="463" x2="474" y1="210" y2="221"/>
+                <content>25</content>
+                <instruction instr-id="510" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="76" x2="96" y1="187" y2="198"/>
+                <content>Italy</content>
+                <instruction instr-id="524" subinstr-id="0"/>
+                <instruction instr-id="524" subinstr-id="2"/>
+                <instruction instr-id="524" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="234" x2="245" y1="187" y2="198"/>
+                <content>49</content>
+                <instruction instr-id="524" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="350" x2="361" y1="187" y2="198"/>
+                <content>39</content>
+                <instruction instr-id="524" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="463" x2="474" y1="187" y2="198"/>
+                <content>13</content>
+                <instruction instr-id="524" subinstr-id="10"/>
+            </cell>
+        </region>
+    </table>
+</document>

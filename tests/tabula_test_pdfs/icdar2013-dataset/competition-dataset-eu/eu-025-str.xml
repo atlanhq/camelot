@@ -1,0 +1,1785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename="bm_eu-025-str.xml">
+    <table id="1">
+        <region col-increment="0" id="1" row-increment="0" page='2'>
+            <cell id="1" start-col="0" start-row="0" end-row="1">
+                <bounding-box x1="78" x2="108" y1="458" y2="467"/>
+                <content>Gender</content>
+                <instruction instr-id="162" subinstr-id="0"/>
+                <instruction instr-id="162" subinstr-id="2"/>
+                <instruction instr-id="162" subinstr-id="4"/>
+                <instruction instr-id="162" subinstr-id="6"/>
+                <instruction instr-id="162" subinstr-id="8"/>
+                <instruction instr-id="162" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" end-col="3" start-row="0">
+                <bounding-box x1="177" x2="315" y1="469" y2="478"/>
+                <content>How healthy do you think you are?</content>
+                <instruction instr-id="91" subinstr-id="0"/>
+                <instruction instr-id="91" subinstr-id="2"/>
+                <instruction instr-id="91" subinstr-id="4"/>
+                <instruction instr-id="91" subinstr-id="8"/>
+                <instruction instr-id="91" subinstr-id="10"/>
+                <instruction instr-id="91" subinstr-id="12"/>
+                <instruction instr-id="91" subinstr-id="14"/>
+                <instruction instr-id="91" subinstr-id="16"/>
+                <instruction instr-id="91" subinstr-id="18"/>
+                <instruction instr-id="91" subinstr-id="20"/>
+                <instruction instr-id="91" subinstr-id="24"/>
+                <instruction instr-id="91" subinstr-id="26"/>
+                <instruction instr-id="91" subinstr-id="30"/>
+                <instruction instr-id="91" subinstr-id="32"/>
+                <instruction instr-id="91" subinstr-id="34"/>
+                <instruction instr-id="91" subinstr-id="38"/>
+                <instruction instr-id="91" subinstr-id="40"/>
+                <instruction instr-id="91" subinstr-id="42"/>
+                <instruction instr-id="91" subinstr-id="44"/>
+                <instruction instr-id="91" subinstr-id="46"/>
+                <instruction instr-id="91" subinstr-id="50"/>
+                <instruction instr-id="91" subinstr-id="52"/>
+                <instruction instr-id="91" subinstr-id="54"/>
+                <instruction instr-id="91" subinstr-id="58"/>
+                <instruction instr-id="91" subinstr-id="60"/>
+                <instruction instr-id="91" subinstr-id="62"/>
+                <instruction instr-id="91" subinstr-id="64"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="143" x2="193" y1="454" y2="463"/>
+                <content>Very healthy</content>
+                <instruction instr-id="191" subinstr-id="0"/>
+                <instruction instr-id="191" subinstr-id="2"/>
+                <instruction instr-id="191" subinstr-id="4"/>
+                <instruction instr-id="191" subinstr-id="6"/>
+                <instruction instr-id="191" subinstr-id="10"/>
+                <instruction instr-id="191" subinstr-id="12"/>
+                <instruction instr-id="191" subinstr-id="14"/>
+                <instruction instr-id="191" subinstr-id="16"/>
+                <instruction instr-id="191" subinstr-id="18"/>
+                <instruction instr-id="191" subinstr-id="20"/>
+                <instruction instr-id="191" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="220" x2="273" y1="454" y2="463"/>
+                <content>Quite healthy</content>
+                <instruction instr-id="220" subinstr-id="0"/>
+                <instruction instr-id="220" subinstr-id="2"/>
+                <instruction instr-id="220" subinstr-id="4"/>
+                <instruction instr-id="220" subinstr-id="6"/>
+                <instruction instr-id="220" subinstr-id="8"/>
+                <instruction instr-id="220" subinstr-id="12"/>
+                <instruction instr-id="220" subinstr-id="14"/>
+                <instruction instr-id="220" subinstr-id="16"/>
+                <instruction instr-id="220" subinstr-id="18"/>
+                <instruction instr-id="220" subinstr-id="20"/>
+                <instruction instr-id="220" subinstr-id="22"/>
+                <instruction instr-id="220" subinstr-id="24"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="304" x2="344" y1="454" y2="463"/>
+                <content>Unhealthy</content>
+                <instruction instr-id="249" subinstr-id="0"/>
+                <instruction instr-id="249" subinstr-id="2"/>
+                <instruction instr-id="249" subinstr-id="4"/>
+                <instruction instr-id="249" subinstr-id="6"/>
+                <instruction instr-id="249" subinstr-id="8"/>
+                <instruction instr-id="249" subinstr-id="10"/>
+                <instruction instr-id="249" subinstr-id="12"/>
+                <instruction instr-id="249" subinstr-id="14"/>
+                <instruction instr-id="249" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="59" x2="78" y1="440" y2="449"/>
+                <content>Male</content>
+                <instruction instr-id="320" subinstr-id="0"/>
+                <instruction instr-id="320" subinstr-id="2"/>
+                <instruction instr-id="320" subinstr-id="4"/>
+                <instruction instr-id="320" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="196" x2="206" y1="440" y2="449"/>
+                <content>36</content>
+                <instruction instr-id="349" subinstr-id="0"/>
+                <instruction instr-id="349" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="269" x2="284" y1="440" y2="449"/>
+                <content>102</content>
+                <instruction instr-id="395" subinstr-id="0"/>
+                <instruction instr-id="395" subinstr-id="2"/>
+                <instruction instr-id="395" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="352" x2="362" y1="440" y2="449"/>
+                <content>16</content>
+                <instruction instr-id="441" subinstr-id="0"/>
+                <instruction instr-id="441" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="59" x2="89" y1="425" y2="434"/>
+                <content>Female</content>
+                <instruction instr-id="539" subinstr-id="0"/>
+                <instruction instr-id="539" subinstr-id="2"/>
+                <instruction instr-id="539" subinstr-id="4"/>
+                <instruction instr-id="539" subinstr-id="6"/>
+                <instruction instr-id="539" subinstr-id="8"/>
+                <instruction instr-id="539" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="196" x2="206" y1="425" y2="434"/>
+                <content>33</content>
+                <instruction instr-id="568" subinstr-id="0"/>
+                <instruction instr-id="568" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="269" x2="284" y1="425" y2="434"/>
+                <content>270</content>
+                <instruction instr-id="614" subinstr-id="0"/>
+                <instruction instr-id="614" subinstr-id="2"/>
+                <instruction instr-id="614" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="352" x2="362" y1="425" y2="434"/>
+                <content>32</content>
+                <instruction instr-id="660" subinstr-id="0"/>
+                <instruction instr-id="660" subinstr-id="2"/>
+            </cell>
+        </region>
+    </table>
+    <table id="2">
+        <region col-increment="0" id="1" row-increment="0" page='2'>
+            <cell id="1" start-col="0" start-row="0" end-row="1">
+                <bounding-box x1="76" x2="137" y1="344" y2="363"/>
+                <content>Psychosomatic
+Symptoms</content>
+                <instruction instr-id="891" subinstr-id="0"/>
+                <instruction instr-id="891" subinstr-id="2"/>
+                <instruction instr-id="891" subinstr-id="4"/>
+                <instruction instr-id="891" subinstr-id="6"/>
+                <instruction instr-id="891" subinstr-id="8"/>
+                <instruction instr-id="891" subinstr-id="10"/>
+                <instruction instr-id="891" subinstr-id="12"/>
+                <instruction instr-id="891" subinstr-id="14"/>
+                <instruction instr-id="891" subinstr-id="16"/>
+                <instruction instr-id="891" subinstr-id="18"/>
+                <instruction instr-id="891" subinstr-id="20"/>
+                <instruction instr-id="891" subinstr-id="22"/>
+                <instruction instr-id="891" subinstr-id="24"/>
+                <instruction instr-id="903" subinstr-id="0"/>
+                <instruction instr-id="903" subinstr-id="2"/>
+                <instruction instr-id="903" subinstr-id="4"/>
+                <instruction instr-id="903" subinstr-id="6"/>
+                <instruction instr-id="903" subinstr-id="8"/>
+                <instruction instr-id="903" subinstr-id="10"/>
+                <instruction instr-id="903" subinstr-id="12"/>
+                <instruction instr-id="903" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" end-col="3" start-row="0">
+                <bounding-box x1="179" x2="340" y1="364" y2="373"/>
+                <content>How often do you have these symptoms</content>
+                <instruction instr-id="820" subinstr-id="0"/>
+                <instruction instr-id="820" subinstr-id="2"/>
+                <instruction instr-id="820" subinstr-id="4"/>
+                <instruction instr-id="820" subinstr-id="8"/>
+                <instruction instr-id="820" subinstr-id="10"/>
+                <instruction instr-id="820" subinstr-id="12"/>
+                <instruction instr-id="820" subinstr-id="14"/>
+                <instruction instr-id="820" subinstr-id="16"/>
+                <instruction instr-id="820" subinstr-id="20"/>
+                <instruction instr-id="820" subinstr-id="22"/>
+                <instruction instr-id="820" subinstr-id="26"/>
+                <instruction instr-id="820" subinstr-id="28"/>
+                <instruction instr-id="820" subinstr-id="30"/>
+                <instruction instr-id="820" subinstr-id="34"/>
+                <instruction instr-id="820" subinstr-id="36"/>
+                <instruction instr-id="820" subinstr-id="38"/>
+                <instruction instr-id="820" subinstr-id="40"/>
+                <instruction instr-id="820" subinstr-id="44"/>
+                <instruction instr-id="820" subinstr-id="46"/>
+                <instruction instr-id="820" subinstr-id="48"/>
+                <instruction instr-id="820" subinstr-id="50"/>
+                <instruction instr-id="820" subinstr-id="52"/>
+                <instruction instr-id="820" subinstr-id="56"/>
+                <instruction instr-id="820" subinstr-id="58"/>
+                <instruction instr-id="820" subinstr-id="60"/>
+                <instruction instr-id="820" subinstr-id="62"/>
+                <instruction instr-id="820" subinstr-id="64"/>
+                <instruction instr-id="820" subinstr-id="66"/>
+                <instruction instr-id="820" subinstr-id="68"/>
+                <instruction instr-id="820" subinstr-id="70"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="163" x2="218" y1="340" y2="359"/>
+                <content>At least every
+week</content>
+                <instruction instr-id="935" subinstr-id="0"/>
+                <instruction instr-id="935" subinstr-id="2"/>
+                <instruction instr-id="935" subinstr-id="6"/>
+                <instruction instr-id="935" subinstr-id="8"/>
+                <instruction instr-id="935" subinstr-id="10"/>
+                <instruction instr-id="935" subinstr-id="12"/>
+                <instruction instr-id="935" subinstr-id="14"/>
+                <instruction instr-id="935" subinstr-id="18"/>
+                <instruction instr-id="935" subinstr-id="20"/>
+                <instruction instr-id="935" subinstr-id="22"/>
+                <instruction instr-id="935" subinstr-id="24"/>
+                <instruction instr-id="935" subinstr-id="26"/>
+                <instruction instr-id="947" subinstr-id="0"/>
+                <instruction instr-id="947" subinstr-id="2"/>
+                <instruction instr-id="947" subinstr-id="4"/>
+                <instruction instr-id="947" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="236" x2="284" y1="340" y2="359"/>
+                <content>About every
+month</content>
+                <instruction instr-id="976" subinstr-id="0"/>
+                <instruction instr-id="976" subinstr-id="2"/>
+                <instruction instr-id="976" subinstr-id="4"/>
+                <instruction instr-id="976" subinstr-id="6"/>
+                <instruction instr-id="976" subinstr-id="8"/>
+                <instruction instr-id="976" subinstr-id="12"/>
+                <instruction instr-id="976" subinstr-id="14"/>
+                <instruction instr-id="976" subinstr-id="16"/>
+                <instruction instr-id="976" subinstr-id="18"/>
+                <instruction instr-id="976" subinstr-id="20"/>
+                <instruction instr-id="988" subinstr-id="0"/>
+                <instruction instr-id="988" subinstr-id="2"/>
+                <instruction instr-id="988" subinstr-id="4"/>
+                <instruction instr-id="988" subinstr-id="6"/>
+                <instruction instr-id="988" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="302" x2="355" y1="340" y2="349"/>
+                <content>Rarely/Never</content>
+                <instruction instr-id="1017" subinstr-id="0"/>
+                <instruction instr-id="1017" subinstr-id="2"/>
+                <instruction instr-id="1017" subinstr-id="4"/>
+                <instruction instr-id="1017" subinstr-id="6"/>
+                <instruction instr-id="1017" subinstr-id="8"/>
+                <instruction instr-id="1017" subinstr-id="10"/>
+                <instruction instr-id="1017" subinstr-id="12"/>
+                <instruction instr-id="1017" subinstr-id="14"/>
+                <instruction instr-id="1017" subinstr-id="16"/>
+                <instruction instr-id="1017" subinstr-id="18"/>
+                <instruction instr-id="1017" subinstr-id="20"/>
+                <instruction instr-id="1017" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="59" x2="100" y1="325" y2="334"/>
+                <content>Headache</content>
+                <instruction instr-id="1088" subinstr-id="0"/>
+                <instruction instr-id="1088" subinstr-id="2"/>
+                <instruction instr-id="1088" subinstr-id="4"/>
+                <instruction instr-id="1088" subinstr-id="6"/>
+                <instruction instr-id="1088" subinstr-id="8"/>
+                <instruction instr-id="1088" subinstr-id="10"/>
+                <instruction instr-id="1088" subinstr-id="12"/>
+                <instruction instr-id="1088" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="209" x2="224" y1="325" y2="334"/>
+                <content>239</content>
+                <instruction instr-id="1117" subinstr-id="0"/>
+                <instruction instr-id="1117" subinstr-id="2"/>
+                <instruction instr-id="1117" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="278" x2="293" y1="325" y2="334"/>
+                <content>119</content>
+                <instruction instr-id="1163" subinstr-id="0"/>
+                <instruction instr-id="1163" subinstr-id="2"/>
+                <instruction instr-id="1163" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="347" x2="362" y1="325" y2="334"/>
+                <content>128</content>
+                <instruction instr-id="1209" subinstr-id="0"/>
+                <instruction instr-id="1209" subinstr-id="2"/>
+                <instruction instr-id="1209" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="59" x2="117" y1="311" y2="320"/>
+                <content>Stomach-ache</content>
+                <instruction instr-id="1307" subinstr-id="0"/>
+                <instruction instr-id="1307" subinstr-id="2"/>
+                <instruction instr-id="1307" subinstr-id="4"/>
+                <instruction instr-id="1307" subinstr-id="6"/>
+                <instruction instr-id="1307" subinstr-id="8"/>
+                <instruction instr-id="1307" subinstr-id="10"/>
+                <instruction instr-id="1307" subinstr-id="12"/>
+                <instruction instr-id="1307" subinstr-id="14"/>
+                <instruction instr-id="1307" subinstr-id="16"/>
+                <instruction instr-id="1307" subinstr-id="18"/>
+                <instruction instr-id="1307" subinstr-id="20"/>
+                <instruction instr-id="1307" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="214" x2="224" y1="311" y2="320"/>
+                <content>78</content>
+                <instruction instr-id="1336" subinstr-id="0"/>
+                <instruction instr-id="1336" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="278" x2="293" y1="311" y2="320"/>
+                <content>120</content>
+                <instruction instr-id="1382" subinstr-id="0"/>
+                <instruction instr-id="1382" subinstr-id="2"/>
+                <instruction instr-id="1382" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="347" x2="362" y1="311" y2="320"/>
+                <content>284</content>
+                <instruction instr-id="1428" subinstr-id="0"/>
+                <instruction instr-id="1428" subinstr-id="2"/>
+                <instruction instr-id="1428" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="59" x2="101" y1="297" y2="306"/>
+                <content>Back-ache</content>
+                <instruction instr-id="1518" subinstr-id="0"/>
+                <instruction instr-id="1518" subinstr-id="2"/>
+                <instruction instr-id="1518" subinstr-id="4"/>
+                <instruction instr-id="1518" subinstr-id="6"/>
+                <instruction instr-id="1518" subinstr-id="8"/>
+                <instruction instr-id="1518" subinstr-id="10"/>
+                <instruction instr-id="1518" subinstr-id="12"/>
+                <instruction instr-id="1518" subinstr-id="14"/>
+                <instruction instr-id="1518" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="209" x2="224" y1="297" y2="306"/>
+                <content>139</content>
+                <instruction instr-id="1547" subinstr-id="0"/>
+                <instruction instr-id="1547" subinstr-id="2"/>
+                <instruction instr-id="1547" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="278" x2="293" y1="297" y2="306"/>
+                <content>126</content>
+                <instruction instr-id="1593" subinstr-id="0"/>
+                <instruction instr-id="1593" subinstr-id="2"/>
+                <instruction instr-id="1593" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="347" x2="362" y1="297" y2="306"/>
+                <content>219</content>
+                <instruction instr-id="1639" subinstr-id="0"/>
+                <instruction instr-id="1639" subinstr-id="2"/>
+                <instruction instr-id="1639" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="59" x2="153" y1="283" y2="292"/>
+                <content>Neck and shoulder pain</content>
+                <instruction instr-id="1729" subinstr-id="0"/>
+                <instruction instr-id="1729" subinstr-id="2"/>
+                <instruction instr-id="1729" subinstr-id="4"/>
+                <instruction instr-id="1729" subinstr-id="6"/>
+                <instruction instr-id="1729" subinstr-id="10"/>
+                <instruction instr-id="1729" subinstr-id="12"/>
+                <instruction instr-id="1729" subinstr-id="14"/>
+                <instruction instr-id="1729" subinstr-id="18"/>
+                <instruction instr-id="1729" subinstr-id="20"/>
+                <instruction instr-id="1729" subinstr-id="22"/>
+                <instruction instr-id="1729" subinstr-id="24"/>
+                <instruction instr-id="1729" subinstr-id="26"/>
+                <instruction instr-id="1729" subinstr-id="28"/>
+                <instruction instr-id="1729" subinstr-id="30"/>
+                <instruction instr-id="1729" subinstr-id="32"/>
+                <instruction instr-id="1729" subinstr-id="36"/>
+                <instruction instr-id="1729" subinstr-id="38"/>
+                <instruction instr-id="1729" subinstr-id="40"/>
+                <instruction instr-id="1729" subinstr-id="42"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="209" x2="224" y1="283" y2="292"/>
+                <content>146</content>
+                <instruction instr-id="1775" subinstr-id="0"/>
+                <instruction instr-id="1775" subinstr-id="2"/>
+                <instruction instr-id="1775" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="283" x2="293" y1="283" y2="292"/>
+                <content>99</content>
+                <instruction instr-id="1821" subinstr-id="0"/>
+                <instruction instr-id="1821" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="347" x2="362" y1="283" y2="292"/>
+                <content>241</content>
+                <instruction instr-id="1867" subinstr-id="0"/>
+                <instruction instr-id="1867" subinstr-id="2"/>
+                <instruction instr-id="1867" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="59" x2="146" y1="269" y2="278"/>
+                <content>Feeling low and down</content>
+                <instruction instr-id="1957" subinstr-id="0"/>
+                <instruction instr-id="1957" subinstr-id="2"/>
+                <instruction instr-id="1957" subinstr-id="4"/>
+                <instruction instr-id="1957" subinstr-id="6"/>
+                <instruction instr-id="1957" subinstr-id="8"/>
+                <instruction instr-id="1957" subinstr-id="10"/>
+                <instruction instr-id="1957" subinstr-id="12"/>
+                <instruction instr-id="1957" subinstr-id="16"/>
+                <instruction instr-id="1957" subinstr-id="18"/>
+                <instruction instr-id="1957" subinstr-id="20"/>
+                <instruction instr-id="1957" subinstr-id="24"/>
+                <instruction instr-id="1957" subinstr-id="26"/>
+                <instruction instr-id="1957" subinstr-id="28"/>
+                <instruction instr-id="1957" subinstr-id="32"/>
+                <instruction instr-id="1957" subinstr-id="34"/>
+                <instruction instr-id="1957" subinstr-id="36"/>
+                <instruction instr-id="1957" subinstr-id="38"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="209" x2="224" y1="269" y2="278"/>
+                <content>221</content>
+                <instruction instr-id="1986" subinstr-id="0"/>
+                <instruction instr-id="1986" subinstr-id="2"/>
+                <instruction instr-id="1986" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="278" x2="293" y1="269" y2="278"/>
+                <content>131</content>
+                <instruction instr-id="2032" subinstr-id="0"/>
+                <instruction instr-id="2032" subinstr-id="2"/>
+                <instruction instr-id="2032" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="347" x2="362" y1="269" y2="278"/>
+                <content>131</content>
+                <instruction instr-id="2078" subinstr-id="0"/>
+                <instruction instr-id="2078" subinstr-id="2"/>
+                <instruction instr-id="2078" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="59" x2="123" y1="255" y2="264"/>
+                <content>Feeling nervous</content>
+                <instruction instr-id="2168" subinstr-id="0"/>
+                <instruction instr-id="2168" subinstr-id="2"/>
+                <instruction instr-id="2168" subinstr-id="4"/>
+                <instruction instr-id="2168" subinstr-id="6"/>
+                <instruction instr-id="2168" subinstr-id="8"/>
+                <instruction instr-id="2168" subinstr-id="10"/>
+                <instruction instr-id="2168" subinstr-id="12"/>
+                <instruction instr-id="2168" subinstr-id="16"/>
+                <instruction instr-id="2168" subinstr-id="18"/>
+                <instruction instr-id="2168" subinstr-id="20"/>
+                <instruction instr-id="2168" subinstr-id="22"/>
+                <instruction instr-id="2168" subinstr-id="24"/>
+                <instruction instr-id="2168" subinstr-id="26"/>
+                <instruction instr-id="2168" subinstr-id="28"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="209" x2="224" y1="255" y2="264"/>
+                <content>303</content>
+                <instruction instr-id="2197" subinstr-id="0"/>
+                <instruction instr-id="2197" subinstr-id="2"/>
+                <instruction instr-id="2197" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="278" x2="293" y1="255" y2="264"/>
+                <content>108</content>
+                <instruction instr-id="2243" subinstr-id="0"/>
+                <instruction instr-id="2243" subinstr-id="2"/>
+                <instruction instr-id="2243" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="352" x2="362" y1="255" y2="264"/>
+                <content>71</content>
+                <instruction instr-id="2289" subinstr-id="0"/>
+                <instruction instr-id="2289" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="59" x2="141" y1="241" y2="250"/>
+                <content>Tired and exhausted</content>
+                <instruction instr-id="2379" subinstr-id="0"/>
+                <instruction instr-id="2379" subinstr-id="2"/>
+                <instruction instr-id="2379" subinstr-id="4"/>
+                <instruction instr-id="2379" subinstr-id="6"/>
+                <instruction instr-id="2379" subinstr-id="8"/>
+                <instruction instr-id="2379" subinstr-id="12"/>
+                <instruction instr-id="2379" subinstr-id="14"/>
+                <instruction instr-id="2379" subinstr-id="16"/>
+                <instruction instr-id="2379" subinstr-id="20"/>
+                <instruction instr-id="2379" subinstr-id="22"/>
+                <instruction instr-id="2379" subinstr-id="24"/>
+                <instruction instr-id="2379" subinstr-id="26"/>
+                <instruction instr-id="2379" subinstr-id="28"/>
+                <instruction instr-id="2379" subinstr-id="30"/>
+                <instruction instr-id="2379" subinstr-id="32"/>
+                <instruction instr-id="2379" subinstr-id="34"/>
+                <instruction instr-id="2379" subinstr-id="36"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="209" x2="224" y1="241" y2="250"/>
+                <content>377</content>
+                <instruction instr-id="2408" subinstr-id="0"/>
+                <instruction instr-id="2408" subinstr-id="2"/>
+                <instruction instr-id="2408" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="283" x2="293" y1="241" y2="250"/>
+                <content>63</content>
+                <instruction instr-id="2454" subinstr-id="0"/>
+                <instruction instr-id="2454" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="352" x2="362" y1="241" y2="250"/>
+                <content>47</content>
+                <instruction instr-id="2500" subinstr-id="0"/>
+                <instruction instr-id="2500" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9">
+                <bounding-box x1="59" x2="121" y1="226" y2="235"/>
+                <content>Sleep problems</content>
+                <instruction instr-id="2590" subinstr-id="0"/>
+                <instruction instr-id="2590" subinstr-id="2"/>
+                <instruction instr-id="2590" subinstr-id="4"/>
+                <instruction instr-id="2590" subinstr-id="6"/>
+                <instruction instr-id="2590" subinstr-id="8"/>
+                <instruction instr-id="2590" subinstr-id="12"/>
+                <instruction instr-id="2590" subinstr-id="14"/>
+                <instruction instr-id="2590" subinstr-id="16"/>
+                <instruction instr-id="2590" subinstr-id="18"/>
+                <instruction instr-id="2590" subinstr-id="20"/>
+                <instruction instr-id="2590" subinstr-id="22"/>
+                <instruction instr-id="2590" subinstr-id="24"/>
+                <instruction instr-id="2590" subinstr-id="26"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="209" x2="224" y1="226" y2="235"/>
+                <content>130</content>
+                <instruction instr-id="2619" subinstr-id="0"/>
+                <instruction instr-id="2619" subinstr-id="2"/>
+                <instruction instr-id="2619" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="283" x2="293" y1="226" y2="235"/>
+                <content>48</content>
+                <instruction instr-id="2665" subinstr-id="0"/>
+                <instruction instr-id="2665" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="347" x2="362" y1="226" y2="235"/>
+                <content>308</content>
+                <instruction instr-id="2711" subinstr-id="0"/>
+                <instruction instr-id="2711" subinstr-id="2"/>
+                <instruction instr-id="2711" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="10">
+                <bounding-box x1="59" x2="111" y1="212" y2="221"/>
+                <content>Feeling dizzy</content>
+                <instruction instr-id="2801" subinstr-id="0"/>
+                <instruction instr-id="2801" subinstr-id="2"/>
+                <instruction instr-id="2801" subinstr-id="4"/>
+                <instruction instr-id="2801" subinstr-id="6"/>
+                <instruction instr-id="2801" subinstr-id="8"/>
+                <instruction instr-id="2801" subinstr-id="10"/>
+                <instruction instr-id="2801" subinstr-id="12"/>
+                <instruction instr-id="2801" subinstr-id="16"/>
+                <instruction instr-id="2801" subinstr-id="18"/>
+                <instruction instr-id="2801" subinstr-id="20"/>
+                <instruction instr-id="2801" subinstr-id="22"/>
+                <instruction instr-id="2801" subinstr-id="24"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="209" x2="224" y1="212" y2="221"/>
+                <content>123</content>
+                <instruction instr-id="2830" subinstr-id="0"/>
+                <instruction instr-id="2830" subinstr-id="2"/>
+                <instruction instr-id="2830" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="283" x2="293" y1="212" y2="221"/>
+                <content>69</content>
+                <instruction instr-id="2876" subinstr-id="0"/>
+                <instruction instr-id="2876" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="347" x2="362" y1="212" y2="221"/>
+                <content>293</content>
+                <instruction instr-id="2922" subinstr-id="0"/>
+                <instruction instr-id="2922" subinstr-id="2"/>
+                <instruction instr-id="2922" subinstr-id="4"/>
+            </cell>
+        </region>
+    </table>
+    <table id="3">
+        <region col-increment="0" id="1" row-increment="0" page='2'>
+            <cell id="1" start-col="0" start-row="0" end-row="1">
+                <bounding-box x1="75" x2="136" y1="141" y2="160"/>
+                <content>Psychosomatic
+Symptoms</content>
+                <instruction instr-id="3141" subinstr-id="0"/>
+                <instruction instr-id="3141" subinstr-id="2"/>
+                <instruction instr-id="3141" subinstr-id="4"/>
+                <instruction instr-id="3141" subinstr-id="6"/>
+                <instruction instr-id="3141" subinstr-id="8"/>
+                <instruction instr-id="3141" subinstr-id="10"/>
+                <instruction instr-id="3141" subinstr-id="12"/>
+                <instruction instr-id="3141" subinstr-id="14"/>
+                <instruction instr-id="3141" subinstr-id="16"/>
+                <instruction instr-id="3141" subinstr-id="18"/>
+                <instruction instr-id="3141" subinstr-id="20"/>
+                <instruction instr-id="3141" subinstr-id="22"/>
+                <instruction instr-id="3141" subinstr-id="24"/>
+                <instruction instr-id="3153" subinstr-id="0"/>
+                <instruction instr-id="3153" subinstr-id="2"/>
+                <instruction instr-id="3153" subinstr-id="4"/>
+                <instruction instr-id="3153" subinstr-id="6"/>
+                <instruction instr-id="3153" subinstr-id="8"/>
+                <instruction instr-id="3153" subinstr-id="10"/>
+                <instruction instr-id="3153" subinstr-id="12"/>
+                <instruction instr-id="3153" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" end-col="3" start-row="0">
+                <bounding-box x1="165" x2="352" y1="151" y2="160"/>
+                <content>How often have you taken medicine or tablets?</content>
+                <instruction instr-id="3082" subinstr-id="0"/>
+                <instruction instr-id="3082" subinstr-id="2"/>
+                <instruction instr-id="3082" subinstr-id="4"/>
+                <instruction instr-id="3082" subinstr-id="8"/>
+                <instruction instr-id="3082" subinstr-id="10"/>
+                <instruction instr-id="3082" subinstr-id="12"/>
+                <instruction instr-id="3082" subinstr-id="14"/>
+                <instruction instr-id="3082" subinstr-id="16"/>
+                <instruction instr-id="3082" subinstr-id="20"/>
+                <instruction instr-id="3082" subinstr-id="22"/>
+                <instruction instr-id="3082" subinstr-id="24"/>
+                <instruction instr-id="3082" subinstr-id="26"/>
+                <instruction instr-id="3082" subinstr-id="30"/>
+                <instruction instr-id="3082" subinstr-id="32"/>
+                <instruction instr-id="3082" subinstr-id="34"/>
+                <instruction instr-id="3082" subinstr-id="38"/>
+                <instruction instr-id="3082" subinstr-id="40"/>
+                <instruction instr-id="3082" subinstr-id="42"/>
+                <instruction instr-id="3082" subinstr-id="44"/>
+                <instruction instr-id="3082" subinstr-id="46"/>
+                <instruction instr-id="3082" subinstr-id="50"/>
+                <instruction instr-id="3082" subinstr-id="52"/>
+                <instruction instr-id="3082" subinstr-id="54"/>
+                <instruction instr-id="3082" subinstr-id="56"/>
+                <instruction instr-id="3082" subinstr-id="58"/>
+                <instruction instr-id="3082" subinstr-id="60"/>
+                <instruction instr-id="3082" subinstr-id="62"/>
+                <instruction instr-id="3082" subinstr-id="64"/>
+                <instruction instr-id="3082" subinstr-id="68"/>
+                <instruction instr-id="3082" subinstr-id="70"/>
+                <instruction instr-id="3082" subinstr-id="74"/>
+                <instruction instr-id="3082" subinstr-id="76"/>
+                <instruction instr-id="3082" subinstr-id="78"/>
+                <instruction instr-id="3082" subinstr-id="80"/>
+                <instruction instr-id="3082" subinstr-id="82"/>
+                <instruction instr-id="3082" subinstr-id="84"/>
+                <instruction instr-id="3082" subinstr-id="86"/>
+                <instruction instr-id="3082" subinstr-id="88"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="183" x2="195" y1="137" y2="146"/>
+                <content>No</content>
+                <instruction instr-id="3182" subinstr-id="0"/>
+                <instruction instr-id="3182" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="233" x2="284" y1="137" y2="146"/>
+                <content>Occasionally</content>
+                <instruction instr-id="3211" subinstr-id="0"/>
+                <instruction instr-id="3211" subinstr-id="2"/>
+                <instruction instr-id="3211" subinstr-id="4"/>
+                <instruction instr-id="3211" subinstr-id="6"/>
+                <instruction instr-id="3211" subinstr-id="8"/>
+                <instruction instr-id="3211" subinstr-id="10"/>
+                <instruction instr-id="3211" subinstr-id="12"/>
+                <instruction instr-id="3211" subinstr-id="14"/>
+                <instruction instr-id="3211" subinstr-id="16"/>
+                <instruction instr-id="3211" subinstr-id="18"/>
+                <instruction instr-id="3211" subinstr-id="20"/>
+                <instruction instr-id="3211" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="307" x2="350" y1="137" y2="146"/>
+                <content>Frequently</content>
+                <instruction instr-id="3240" subinstr-id="0"/>
+                <instruction instr-id="3240" subinstr-id="2"/>
+                <instruction instr-id="3240" subinstr-id="4"/>
+                <instruction instr-id="3240" subinstr-id="6"/>
+                <instruction instr-id="3240" subinstr-id="8"/>
+                <instruction instr-id="3240" subinstr-id="10"/>
+                <instruction instr-id="3240" subinstr-id="12"/>
+                <instruction instr-id="3240" subinstr-id="14"/>
+                <instruction instr-id="3240" subinstr-id="16"/>
+                <instruction instr-id="3240" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="59" x2="100" y1="122" y2="131"/>
+                <content>Headache</content>
+                <instruction instr-id="3311" subinstr-id="0"/>
+                <instruction instr-id="3311" subinstr-id="2"/>
+                <instruction instr-id="3311" subinstr-id="4"/>
+                <instruction instr-id="3311" subinstr-id="6"/>
+                <instruction instr-id="3311" subinstr-id="8"/>
+                <instruction instr-id="3311" subinstr-id="10"/>
+                <instruction instr-id="3311" subinstr-id="12"/>
+                <instruction instr-id="3311" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="207" x2="222" y1="122" y2="131"/>
+                <content>228</content>
+                <instruction instr-id="3340" subinstr-id="0"/>
+                <instruction instr-id="3340" subinstr-id="2"/>
+                <instruction instr-id="3340" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="277" x2="292" y1="122" y2="131"/>
+                <content>163</content>
+                <instruction instr-id="3386" subinstr-id="0"/>
+                <instruction instr-id="3386" subinstr-id="2"/>
+                <instruction instr-id="3386" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="352" x2="362" y1="122" y2="131"/>
+                <content>99</content>
+                <instruction instr-id="3432" subinstr-id="0"/>
+                <instruction instr-id="3432" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="59" x2="117" y1="108" y2="117"/>
+                <content>Stomach-ache</content>
+                <instruction instr-id="3530" subinstr-id="0"/>
+                <instruction instr-id="3530" subinstr-id="2"/>
+                <instruction instr-id="3530" subinstr-id="4"/>
+                <instruction instr-id="3530" subinstr-id="6"/>
+                <instruction instr-id="3530" subinstr-id="8"/>
+                <instruction instr-id="3530" subinstr-id="10"/>
+                <instruction instr-id="3530" subinstr-id="12"/>
+                <instruction instr-id="3530" subinstr-id="14"/>
+                <instruction instr-id="3530" subinstr-id="16"/>
+                <instruction instr-id="3530" subinstr-id="18"/>
+                <instruction instr-id="3530" subinstr-id="20"/>
+                <instruction instr-id="3530" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="207" x2="222" y1="108" y2="117"/>
+                <content>421</content>
+                <instruction instr-id="3559" subinstr-id="0"/>
+                <instruction instr-id="3559" subinstr-id="2"/>
+                <instruction instr-id="3559" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="282" x2="292" y1="108" y2="117"/>
+                <content>49</content>
+                <instruction instr-id="3605" subinstr-id="0"/>
+                <instruction instr-id="3605" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="352" x2="362" y1="108" y2="117"/>
+                <content>16</content>
+                <instruction instr-id="3651" subinstr-id="0"/>
+                <instruction instr-id="3651" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="59" x2="137" y1="94" y2="103"/>
+                <content>Sleeping Difficulties</content>
+                <instruction instr-id="3741" subinstr-id="0"/>
+                <instruction instr-id="3741" subinstr-id="2"/>
+                <instruction instr-id="3741" subinstr-id="4"/>
+                <instruction instr-id="3741" subinstr-id="6"/>
+                <instruction instr-id="3741" subinstr-id="8"/>
+                <instruction instr-id="3741" subinstr-id="10"/>
+                <instruction instr-id="3741" subinstr-id="12"/>
+                <instruction instr-id="3741" subinstr-id="14"/>
+                <instruction instr-id="3741" subinstr-id="18"/>
+                <instruction instr-id="3741" subinstr-id="20"/>
+                <instruction instr-id="3741" subinstr-id="22"/>
+                <instruction instr-id="3741" subinstr-id="24"/>
+                <instruction instr-id="3741" subinstr-id="26"/>
+                <instruction instr-id="3741" subinstr-id="28"/>
+                <instruction instr-id="3741" subinstr-id="30"/>
+                <instruction instr-id="3741" subinstr-id="32"/>
+                <instruction instr-id="3741" subinstr-id="34"/>
+                <instruction instr-id="3741" subinstr-id="36"/>
+                <instruction instr-id="3741" subinstr-id="38"/>
+                <instruction instr-id="3741" subinstr-id="40"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="207" x2="222" y1="94" y2="103"/>
+                <content>458</content>
+                <instruction instr-id="3770" subinstr-id="0"/>
+                <instruction instr-id="3770" subinstr-id="2"/>
+                <instruction instr-id="3770" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="282" x2="292" y1="94" y2="103"/>
+                <content>16</content>
+                <instruction instr-id="3816" subinstr-id="0"/>
+                <instruction instr-id="3816" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="357" x2="362" y1="94" y2="103"/>
+                <content>7</content>
+                <instruction instr-id="3862" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="59" x2="111" y1="80" y2="89"/>
+                <content>Nervousness</content>
+                <instruction instr-id="3952" subinstr-id="0"/>
+                <instruction instr-id="3952" subinstr-id="2"/>
+                <instruction instr-id="3952" subinstr-id="4"/>
+                <instruction instr-id="3952" subinstr-id="6"/>
+                <instruction instr-id="3952" subinstr-id="8"/>
+                <instruction instr-id="3952" subinstr-id="10"/>
+                <instruction instr-id="3952" subinstr-id="12"/>
+                <instruction instr-id="3952" subinstr-id="14"/>
+                <instruction instr-id="3952" subinstr-id="16"/>
+                <instruction instr-id="3952" subinstr-id="18"/>
+                <instruction instr-id="3952" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="207" x2="222" y1="80" y2="89"/>
+                <content>449</content>
+                <instruction instr-id="3981" subinstr-id="0"/>
+                <instruction instr-id="3981" subinstr-id="2"/>
+                <instruction instr-id="3981" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="282" x2="292" y1="80" y2="89"/>
+                <content>20</content>
+                <instruction instr-id="4027" subinstr-id="0"/>
+                <instruction instr-id="4027" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="352" x2="362" y1="80" y2="89"/>
+                <content>14</content>
+                <instruction instr-id="4073" subinstr-id="0"/>
+                <instruction instr-id="4073" subinstr-id="2"/>
+            </cell>
+        </region>
+    </table>
+    <table id="4">
+        <region col-increment="0" id="1" row-increment="0" page='3'>
+            <cell id="1" start-col="0" start-row="0" end-row="1">
+                <bounding-box x1="107" x2="142" y1="494" y2="503"/>
+                <content>Illnesses</content>
+                <instruction instr-id="152" subinstr-id="0"/>
+                <instruction instr-id="152" subinstr-id="2"/>
+                <instruction instr-id="152" subinstr-id="4"/>
+                <instruction instr-id="152" subinstr-id="6"/>
+                <instruction instr-id="152" subinstr-id="8"/>
+                <instruction instr-id="152" subinstr-id="10"/>
+                <instruction instr-id="152" subinstr-id="12"/>
+                <instruction instr-id="152" subinstr-id="14"/>
+                <instruction instr-id="152" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" end-col="2" start-row="0">
+                <bounding-box x1="263" x2="293" y1="505" y2="514"/>
+                <content>Gender</content>
+                <instruction instr-id="81" subinstr-id="0"/>
+                <instruction instr-id="81" subinstr-id="2"/>
+                <instruction instr-id="81" subinstr-id="4"/>
+                <instruction instr-id="81" subinstr-id="6"/>
+                <instruction instr-id="81" subinstr-id="8"/>
+                <instruction instr-id="81" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="225" x2="245" y1="490" y2="499"/>
+                <content>Male</content>
+                <instruction instr-id="181" subinstr-id="0"/>
+                <instruction instr-id="181" subinstr-id="2"/>
+                <instruction instr-id="181" subinstr-id="4"/>
+                <instruction instr-id="181" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="305" x2="335" y1="490" y2="499"/>
+                <content>Female</content>
+                <instruction instr-id="210" subinstr-id="0"/>
+                <instruction instr-id="210" subinstr-id="2"/>
+                <instruction instr-id="210" subinstr-id="4"/>
+                <instruction instr-id="210" subinstr-id="6"/>
+                <instruction instr-id="210" subinstr-id="8"/>
+                <instruction instr-id="210" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="59" x2="126" y1="476" y2="485"/>
+                <content>Allergy problems</content>
+                <instruction instr-id="269" subinstr-id="0"/>
+                <instruction instr-id="269" subinstr-id="2"/>
+                <instruction instr-id="269" subinstr-id="4"/>
+                <instruction instr-id="269" subinstr-id="6"/>
+                <instruction instr-id="269" subinstr-id="8"/>
+                <instruction instr-id="269" subinstr-id="10"/>
+                <instruction instr-id="269" subinstr-id="12"/>
+                <instruction instr-id="269" subinstr-id="16"/>
+                <instruction instr-id="269" subinstr-id="18"/>
+                <instruction instr-id="269" subinstr-id="20"/>
+                <instruction instr-id="269" subinstr-id="22"/>
+                <instruction instr-id="269" subinstr-id="24"/>
+                <instruction instr-id="269" subinstr-id="26"/>
+                <instruction instr-id="269" subinstr-id="28"/>
+                <instruction instr-id="269" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="266" x2="276" y1="476" y2="485"/>
+                <content>25</content>
+                <instruction instr-id="298" subinstr-id="0"/>
+                <instruction instr-id="298" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="352" x2="362" y1="476" y2="485"/>
+                <content>68</content>
+                <instruction instr-id="344" subinstr-id="0"/>
+                <instruction instr-id="344" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="59" x2="123" y1="461" y2="470"/>
+                <content>Anxiety disorder</content>
+                <instruction instr-id="428" subinstr-id="0"/>
+                <instruction instr-id="428" subinstr-id="2"/>
+                <instruction instr-id="428" subinstr-id="4"/>
+                <instruction instr-id="428" subinstr-id="6"/>
+                <instruction instr-id="428" subinstr-id="8"/>
+                <instruction instr-id="428" subinstr-id="10"/>
+                <instruction instr-id="428" subinstr-id="12"/>
+                <instruction instr-id="428" subinstr-id="16"/>
+                <instruction instr-id="428" subinstr-id="18"/>
+                <instruction instr-id="428" subinstr-id="20"/>
+                <instruction instr-id="428" subinstr-id="22"/>
+                <instruction instr-id="428" subinstr-id="24"/>
+                <instruction instr-id="428" subinstr-id="26"/>
+                <instruction instr-id="428" subinstr-id="28"/>
+                <instruction instr-id="428" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="266" x2="276" y1="461" y2="470"/>
+                <content>17</content>
+                <instruction instr-id="457" subinstr-id="0"/>
+                <instruction instr-id="457" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="352" x2="362" y1="461" y2="470"/>
+                <content>64</content>
+                <instruction instr-id="503" subinstr-id="0"/>
+                <instruction instr-id="503" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="59" x2="89" y1="447" y2="456"/>
+                <content>Asthma</content>
+                <instruction instr-id="583" subinstr-id="0"/>
+                <instruction instr-id="583" subinstr-id="2"/>
+                <instruction instr-id="583" subinstr-id="4"/>
+                <instruction instr-id="583" subinstr-id="6"/>
+                <instruction instr-id="583" subinstr-id="8"/>
+                <instruction instr-id="583" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="271" x2="276" y1="447" y2="456"/>
+                <content>6</content>
+                <instruction instr-id="612" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="352" x2="362" y1="447" y2="456"/>
+                <content>25</content>
+                <instruction instr-id="658" subinstr-id="0"/>
+                <instruction instr-id="658" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="59" x2="161" y1="433" y2="442"/>
+                <content>Chronic fatigue syndrome</content>
+                <instruction instr-id="738" subinstr-id="0"/>
+                <instruction instr-id="738" subinstr-id="2"/>
+                <instruction instr-id="738" subinstr-id="4"/>
+                <instruction instr-id="738" subinstr-id="6"/>
+                <instruction instr-id="738" subinstr-id="8"/>
+                <instruction instr-id="738" subinstr-id="10"/>
+                <instruction instr-id="738" subinstr-id="12"/>
+                <instruction instr-id="738" subinstr-id="16"/>
+                <instruction instr-id="738" subinstr-id="18"/>
+                <instruction instr-id="738" subinstr-id="20"/>
+                <instruction instr-id="738" subinstr-id="22"/>
+                <instruction instr-id="738" subinstr-id="24"/>
+                <instruction instr-id="738" subinstr-id="26"/>
+                <instruction instr-id="738" subinstr-id="28"/>
+                <instruction instr-id="738" subinstr-id="32"/>
+                <instruction instr-id="738" subinstr-id="34"/>
+                <instruction instr-id="738" subinstr-id="36"/>
+                <instruction instr-id="738" subinstr-id="38"/>
+                <instruction instr-id="738" subinstr-id="40"/>
+                <instruction instr-id="738" subinstr-id="42"/>
+                <instruction instr-id="738" subinstr-id="44"/>
+                <instruction instr-id="738" subinstr-id="46"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="271" x2="276" y1="433" y2="442"/>
+                <content>5</content>
+                <instruction instr-id="767" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="352" x2="362" y1="433" y2="442"/>
+                <content>14</content>
+                <instruction instr-id="813" subinstr-id="0"/>
+                <instruction instr-id="813" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="59" x2="104" y1="419" y2="428"/>
+                <content>Depression</content>
+                <instruction instr-id="893" subinstr-id="0"/>
+                <instruction instr-id="893" subinstr-id="2"/>
+                <instruction instr-id="893" subinstr-id="4"/>
+                <instruction instr-id="893" subinstr-id="6"/>
+                <instruction instr-id="893" subinstr-id="8"/>
+                <instruction instr-id="893" subinstr-id="10"/>
+                <instruction instr-id="893" subinstr-id="12"/>
+                <instruction instr-id="893" subinstr-id="14"/>
+                <instruction instr-id="893" subinstr-id="16"/>
+                <instruction instr-id="893" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="266" x2="276" y1="419" y2="428"/>
+                <content>20</content>
+                <instruction instr-id="922" subinstr-id="0"/>
+                <instruction instr-id="922" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="352" x2="362" y1="419" y2="428"/>
+                <content>28</content>
+                <instruction instr-id="968" subinstr-id="0"/>
+                <instruction instr-id="968" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="59" x2="94" y1="405" y2="414"/>
+                <content>Diabetes</content>
+                <instruction instr-id="1048" subinstr-id="0"/>
+                <instruction instr-id="1048" subinstr-id="2"/>
+                <instruction instr-id="1048" subinstr-id="4"/>
+                <instruction instr-id="1048" subinstr-id="6"/>
+                <instruction instr-id="1048" subinstr-id="8"/>
+                <instruction instr-id="1048" subinstr-id="10"/>
+                <instruction instr-id="1048" subinstr-id="12"/>
+                <instruction instr-id="1048" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="271" x2="276" y1="405" y2="414"/>
+                <content>1</content>
+                <instruction instr-id="1077" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="357" x2="362" y1="405" y2="414"/>
+                <content>0</content>
+                <instruction instr-id="1123" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="59" x2="178" y1="391" y2="400"/>
+                <content>Sexually transmitted diseases</content>
+                <instruction instr-id="1203" subinstr-id="0"/>
+                <instruction instr-id="1203" subinstr-id="2"/>
+                <instruction instr-id="1203" subinstr-id="4"/>
+                <instruction instr-id="1203" subinstr-id="6"/>
+                <instruction instr-id="1203" subinstr-id="8"/>
+                <instruction instr-id="1203" subinstr-id="10"/>
+                <instruction instr-id="1203" subinstr-id="12"/>
+                <instruction instr-id="1203" subinstr-id="14"/>
+                <instruction instr-id="1203" subinstr-id="18"/>
+                <instruction instr-id="1203" subinstr-id="20"/>
+                <instruction instr-id="1203" subinstr-id="22"/>
+                <instruction instr-id="1203" subinstr-id="24"/>
+                <instruction instr-id="1203" subinstr-id="26"/>
+                <instruction instr-id="1203" subinstr-id="28"/>
+                <instruction instr-id="1203" subinstr-id="30"/>
+                <instruction instr-id="1203" subinstr-id="32"/>
+                <instruction instr-id="1203" subinstr-id="34"/>
+                <instruction instr-id="1203" subinstr-id="36"/>
+                <instruction instr-id="1203" subinstr-id="38"/>
+                <instruction instr-id="1203" subinstr-id="42"/>
+                <instruction instr-id="1203" subinstr-id="44"/>
+                <instruction instr-id="1203" subinstr-id="46"/>
+                <instruction instr-id="1203" subinstr-id="48"/>
+                <instruction instr-id="1203" subinstr-id="50"/>
+                <instruction instr-id="1203" subinstr-id="52"/>
+                <instruction instr-id="1203" subinstr-id="54"/>
+                <instruction instr-id="1203" subinstr-id="56"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="271" x2="276" y1="391" y2="400"/>
+                <content>3</content>
+                <instruction instr-id="1232" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="357" x2="362" y1="391" y2="400"/>
+                <content>4</content>
+                <instruction instr-id="1278" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9">
+                <bounding-box x1="59" x2="163" y1="377" y2="386"/>
+                <content>Substance abuse problem</content>
+                <instruction instr-id="1358" subinstr-id="0"/>
+                <instruction instr-id="1358" subinstr-id="2"/>
+                <instruction instr-id="1358" subinstr-id="4"/>
+                <instruction instr-id="1358" subinstr-id="6"/>
+                <instruction instr-id="1358" subinstr-id="8"/>
+                <instruction instr-id="1358" subinstr-id="10"/>
+                <instruction instr-id="1358" subinstr-id="12"/>
+                <instruction instr-id="1358" subinstr-id="14"/>
+                <instruction instr-id="1358" subinstr-id="16"/>
+                <instruction instr-id="1358" subinstr-id="20"/>
+                <instruction instr-id="1358" subinstr-id="22"/>
+                <instruction instr-id="1358" subinstr-id="24"/>
+                <instruction instr-id="1358" subinstr-id="26"/>
+                <instruction instr-id="1358" subinstr-id="28"/>
+                <instruction instr-id="1358" subinstr-id="32"/>
+                <instruction instr-id="1358" subinstr-id="34"/>
+                <instruction instr-id="1358" subinstr-id="36"/>
+                <instruction instr-id="1358" subinstr-id="38"/>
+                <instruction instr-id="1358" subinstr-id="40"/>
+                <instruction instr-id="1358" subinstr-id="42"/>
+                <instruction instr-id="1358" subinstr-id="44"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="271" x2="276" y1="377" y2="386"/>
+                <content>5</content>
+                <instruction instr-id="1387" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="357" x2="362" y1="377" y2="386"/>
+                <content>5</content>
+                <instruction instr-id="1433" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="10">
+                <bounding-box x1="59" x2="98" y1="363" y2="372"/>
+                <content>Back pain</content>
+                <instruction instr-id="1513" subinstr-id="0"/>
+                <instruction instr-id="1513" subinstr-id="2"/>
+                <instruction instr-id="1513" subinstr-id="4"/>
+                <instruction instr-id="1513" subinstr-id="6"/>
+                <instruction instr-id="1513" subinstr-id="10"/>
+                <instruction instr-id="1513" subinstr-id="12"/>
+                <instruction instr-id="1513" subinstr-id="14"/>
+                <instruction instr-id="1513" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="266" x2="276" y1="363" y2="372"/>
+                <content>46</content>
+                <instruction instr-id="1542" subinstr-id="0"/>
+                <instruction instr-id="1542" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="347" x2="362" y1="363" y2="372"/>
+                <content>156</content>
+                <instruction instr-id="1588" subinstr-id="0"/>
+                <instruction instr-id="1588" subinstr-id="2"/>
+                <instruction instr-id="1588" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="11">
+                <bounding-box x1="59" x2="143" y1="349" y2="358"/>
+                <content>Broken bone/fracture</content>
+                <instruction instr-id="1668" subinstr-id="0"/>
+                <instruction instr-id="1668" subinstr-id="2"/>
+                <instruction instr-id="1668" subinstr-id="4"/>
+                <instruction instr-id="1668" subinstr-id="6"/>
+                <instruction instr-id="1668" subinstr-id="8"/>
+                <instruction instr-id="1668" subinstr-id="10"/>
+                <instruction instr-id="1668" subinstr-id="14"/>
+                <instruction instr-id="1668" subinstr-id="16"/>
+                <instruction instr-id="1668" subinstr-id="18"/>
+                <instruction instr-id="1668" subinstr-id="20"/>
+                <instruction instr-id="1668" subinstr-id="22"/>
+                <instruction instr-id="1668" subinstr-id="24"/>
+                <instruction instr-id="1668" subinstr-id="26"/>
+                <instruction instr-id="1668" subinstr-id="28"/>
+                <instruction instr-id="1668" subinstr-id="30"/>
+                <instruction instr-id="1668" subinstr-id="32"/>
+                <instruction instr-id="1668" subinstr-id="34"/>
+                <instruction instr-id="1668" subinstr-id="36"/>
+                <instruction instr-id="1668" subinstr-id="38"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="271" x2="276" y1="349" y2="358"/>
+                <content>7</content>
+                <instruction instr-id="1697" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="357" x2="362" y1="349" y2="358"/>
+                <content>5</content>
+                <instruction instr-id="1743" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="12">
+                <bounding-box x1="59" x2="184" y1="335" y2="344"/>
+                <content>Bronchitis/ear or sinus infection</content>
+                <instruction instr-id="1823" subinstr-id="0"/>
+                <instruction instr-id="1823" subinstr-id="2"/>
+                <instruction instr-id="1823" subinstr-id="4"/>
+                <instruction instr-id="1823" subinstr-id="6"/>
+                <instruction instr-id="1823" subinstr-id="8"/>
+                <instruction instr-id="1823" subinstr-id="10"/>
+                <instruction instr-id="1823" subinstr-id="12"/>
+                <instruction instr-id="1823" subinstr-id="14"/>
+                <instruction instr-id="1823" subinstr-id="16"/>
+                <instruction instr-id="1823" subinstr-id="18"/>
+                <instruction instr-id="1823" subinstr-id="20"/>
+                <instruction instr-id="1823" subinstr-id="22"/>
+                <instruction instr-id="1823" subinstr-id="24"/>
+                <instruction instr-id="1823" subinstr-id="26"/>
+                <instruction instr-id="1823" subinstr-id="30"/>
+                <instruction instr-id="1823" subinstr-id="32"/>
+                <instruction instr-id="1823" subinstr-id="36"/>
+                <instruction instr-id="1823" subinstr-id="38"/>
+                <instruction instr-id="1823" subinstr-id="40"/>
+                <instruction instr-id="1823" subinstr-id="42"/>
+                <instruction instr-id="1823" subinstr-id="44"/>
+                <instruction instr-id="1823" subinstr-id="48"/>
+                <instruction instr-id="1823" subinstr-id="50"/>
+                <instruction instr-id="1823" subinstr-id="52"/>
+                <instruction instr-id="1823" subinstr-id="54"/>
+                <instruction instr-id="1823" subinstr-id="56"/>
+                <instruction instr-id="1823" subinstr-id="58"/>
+                <instruction instr-id="1823" subinstr-id="60"/>
+                <instruction instr-id="1823" subinstr-id="62"/>
+                <instruction instr-id="1823" subinstr-id="64"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="266" x2="276" y1="335" y2="344"/>
+                <content>23</content>
+                <instruction instr-id="1852" subinstr-id="0"/>
+                <instruction instr-id="1852" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="352" x2="362" y1="335" y2="344"/>
+                <content>81</content>
+                <instruction instr-id="1898" subinstr-id="0"/>
+                <instruction instr-id="1898" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="13">
+                <bounding-box x1="59" x2="116" y1="321" y2="330"/>
+                <content>Endometriosis</content>
+                <instruction instr-id="1978" subinstr-id="0"/>
+                <instruction instr-id="1978" subinstr-id="2"/>
+                <instruction instr-id="1978" subinstr-id="4"/>
+                <instruction instr-id="1978" subinstr-id="6"/>
+                <instruction instr-id="1978" subinstr-id="8"/>
+                <instruction instr-id="1978" subinstr-id="10"/>
+                <instruction instr-id="1978" subinstr-id="12"/>
+                <instruction instr-id="1978" subinstr-id="14"/>
+                <instruction instr-id="1978" subinstr-id="16"/>
+                <instruction instr-id="1978" subinstr-id="18"/>
+                <instruction instr-id="1978" subinstr-id="20"/>
+                <instruction instr-id="1978" subinstr-id="22"/>
+                <instruction instr-id="1978" subinstr-id="24"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="13">
+                <bounding-box x1="271" x2="276" y1="321" y2="330"/>
+                <content>0</content>
+                <instruction instr-id="2007" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="13">
+                <bounding-box x1="357" x2="362" y1="321" y2="330"/>
+                <content>6</content>
+                <instruction instr-id="2053" subinstr-id="-1"/>
+            </cell>
+        </region>
+    </table>
+    <table id="5">
+        <region col-increment="0" id="1" row-increment="0" page='3'>
+            <cell id="1" start-col="0" start-row="0" end-row="1">
+                <bounding-box x1="109" x2="144" y1="251" y2="260"/>
+                <content>Illnesses</content>
+                <instruction instr-id="2270" subinstr-id="0"/>
+                <instruction instr-id="2270" subinstr-id="2"/>
+                <instruction instr-id="2270" subinstr-id="4"/>
+                <instruction instr-id="2270" subinstr-id="6"/>
+                <instruction instr-id="2270" subinstr-id="8"/>
+                <instruction instr-id="2270" subinstr-id="10"/>
+                <instruction instr-id="2270" subinstr-id="12"/>
+                <instruction instr-id="2270" subinstr-id="14"/>
+                <instruction instr-id="2270" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" end-col="3" start-row="0">
+                <bounding-box x1="254" x2="304" y1="262" y2="271"/>
+                <content>Course Year</content>
+                <instruction instr-id="2199" subinstr-id="0"/>
+                <instruction instr-id="2199" subinstr-id="2"/>
+                <instruction instr-id="2199" subinstr-id="4"/>
+                <instruction instr-id="2199" subinstr-id="6"/>
+                <instruction instr-id="2199" subinstr-id="8"/>
+                <instruction instr-id="2199" subinstr-id="10"/>
+                <instruction instr-id="2199" subinstr-id="14"/>
+                <instruction instr-id="2199" subinstr-id="16"/>
+                <instruction instr-id="2199" subinstr-id="18"/>
+                <instruction instr-id="2199" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="206" x2="238" y1="248" y2="257"/>
+                <content>1st year</content>
+                <instruction instr-id="2299" subinstr-id="0"/>
+                <instruction instr-id="2299" subinstr-id="2"/>
+                <instruction instr-id="2299" subinstr-id="4"/>
+                <instruction instr-id="2299" subinstr-id="8"/>
+                <instruction instr-id="2299" subinstr-id="10"/>
+                <instruction instr-id="2299" subinstr-id="12"/>
+                <instruction instr-id="2299" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="255" x2="290" y1="248" y2="257"/>
+                <content>2nd year</content>
+                <instruction instr-id="2328" subinstr-id="0"/>
+                <instruction instr-id="2328" subinstr-id="2"/>
+                <instruction instr-id="2328" subinstr-id="4"/>
+                <instruction instr-id="2328" subinstr-id="8"/>
+                <instruction instr-id="2328" subinstr-id="10"/>
+                <instruction instr-id="2328" subinstr-id="12"/>
+                <instruction instr-id="2328" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="305" x2="354" y1="248" y2="257"/>
+                <content>3rd-5th year</content>
+                <instruction instr-id="2357" subinstr-id="0"/>
+                <instruction instr-id="2357" subinstr-id="2"/>
+                <instruction instr-id="2357" subinstr-id="4"/>
+                <instruction instr-id="2357" subinstr-id="6"/>
+                <instruction instr-id="2357" subinstr-id="8"/>
+                <instruction instr-id="2357" subinstr-id="10"/>
+                <instruction instr-id="2357" subinstr-id="12"/>
+                <instruction instr-id="2357" subinstr-id="16"/>
+                <instruction instr-id="2357" subinstr-id="18"/>
+                <instruction instr-id="2357" subinstr-id="20"/>
+                <instruction instr-id="2357" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="59" x2="126" y1="233" y2="242"/>
+                <content>Allergy problems</content>
+                <instruction instr-id="2428" subinstr-id="0"/>
+                <instruction instr-id="2428" subinstr-id="2"/>
+                <instruction instr-id="2428" subinstr-id="4"/>
+                <instruction instr-id="2428" subinstr-id="6"/>
+                <instruction instr-id="2428" subinstr-id="8"/>
+                <instruction instr-id="2428" subinstr-id="10"/>
+                <instruction instr-id="2428" subinstr-id="12"/>
+                <instruction instr-id="2428" subinstr-id="16"/>
+                <instruction instr-id="2428" subinstr-id="18"/>
+                <instruction instr-id="2428" subinstr-id="20"/>
+                <instruction instr-id="2428" subinstr-id="22"/>
+                <instruction instr-id="2428" subinstr-id="24"/>
+                <instruction instr-id="2428" subinstr-id="26"/>
+                <instruction instr-id="2428" subinstr-id="28"/>
+                <instruction instr-id="2428" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="236" x2="246" y1="233" y2="242"/>
+                <content>23</content>
+                <instruction instr-id="2457" subinstr-id="0"/>
+                <instruction instr-id="2457" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="286" x2="296" y1="233" y2="242"/>
+                <content>55</content>
+                <instruction instr-id="2503" subinstr-id="0"/>
+                <instruction instr-id="2503" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="350" x2="360" y1="233" y2="242"/>
+                <content>15</content>
+                <instruction instr-id="2549" subinstr-id="0"/>
+                <instruction instr-id="2549" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="59" x2="123" y1="219" y2="228"/>
+                <content>Anxiety disorder</content>
+                <instruction instr-id="2647" subinstr-id="0"/>
+                <instruction instr-id="2647" subinstr-id="2"/>
+                <instruction instr-id="2647" subinstr-id="4"/>
+                <instruction instr-id="2647" subinstr-id="6"/>
+                <instruction instr-id="2647" subinstr-id="8"/>
+                <instruction instr-id="2647" subinstr-id="10"/>
+                <instruction instr-id="2647" subinstr-id="12"/>
+                <instruction instr-id="2647" subinstr-id="16"/>
+                <instruction instr-id="2647" subinstr-id="18"/>
+                <instruction instr-id="2647" subinstr-id="20"/>
+                <instruction instr-id="2647" subinstr-id="22"/>
+                <instruction instr-id="2647" subinstr-id="24"/>
+                <instruction instr-id="2647" subinstr-id="26"/>
+                <instruction instr-id="2647" subinstr-id="28"/>
+                <instruction instr-id="2647" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="236" x2="246" y1="219" y2="228"/>
+                <content>22</content>
+                <instruction instr-id="2676" subinstr-id="0"/>
+                <instruction instr-id="2676" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="286" x2="296" y1="219" y2="228"/>
+                <content>42</content>
+                <instruction instr-id="2722" subinstr-id="0"/>
+                <instruction instr-id="2722" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="350" x2="360" y1="219" y2="228"/>
+                <content>17</content>
+                <instruction instr-id="2768" subinstr-id="0"/>
+                <instruction instr-id="2768" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="59" x2="89" y1="205" y2="214"/>
+                <content>Asthma</content>
+                <instruction instr-id="2858" subinstr-id="0"/>
+                <instruction instr-id="2858" subinstr-id="2"/>
+                <instruction instr-id="2858" subinstr-id="4"/>
+                <instruction instr-id="2858" subinstr-id="6"/>
+                <instruction instr-id="2858" subinstr-id="8"/>
+                <instruction instr-id="2858" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="241" x2="246" y1="205" y2="214"/>
+                <content>9</content>
+                <instruction instr-id="2887" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="286" x2="296" y1="205" y2="214"/>
+                <content>17</content>
+                <instruction instr-id="2933" subinstr-id="0"/>
+                <instruction instr-id="2933" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="355" x2="360" y1="205" y2="214"/>
+                <content>5</content>
+                <instruction instr-id="2979" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="59" x2="161" y1="190" y2="199"/>
+                <content>Chronic fatigue syndrome</content>
+                <instruction instr-id="3069" subinstr-id="0"/>
+                <instruction instr-id="3069" subinstr-id="2"/>
+                <instruction instr-id="3069" subinstr-id="4"/>
+                <instruction instr-id="3069" subinstr-id="6"/>
+                <instruction instr-id="3069" subinstr-id="8"/>
+                <instruction instr-id="3069" subinstr-id="10"/>
+                <instruction instr-id="3069" subinstr-id="12"/>
+                <instruction instr-id="3069" subinstr-id="16"/>
+                <instruction instr-id="3069" subinstr-id="18"/>
+                <instruction instr-id="3069" subinstr-id="20"/>
+                <instruction instr-id="3069" subinstr-id="22"/>
+                <instruction instr-id="3069" subinstr-id="24"/>
+                <instruction instr-id="3069" subinstr-id="26"/>
+                <instruction instr-id="3069" subinstr-id="28"/>
+                <instruction instr-id="3069" subinstr-id="32"/>
+                <instruction instr-id="3069" subinstr-id="34"/>
+                <instruction instr-id="3069" subinstr-id="36"/>
+                <instruction instr-id="3069" subinstr-id="38"/>
+                <instruction instr-id="3069" subinstr-id="40"/>
+                <instruction instr-id="3069" subinstr-id="42"/>
+                <instruction instr-id="3069" subinstr-id="44"/>
+                <instruction instr-id="3069" subinstr-id="46"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="241" x2="246" y1="190" y2="199"/>
+                <content>6</content>
+                <instruction instr-id="3098" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="291" x2="296" y1="190" y2="199"/>
+                <content>4</content>
+                <instruction instr-id="3144" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="355" x2="360" y1="190" y2="199"/>
+                <content>9</content>
+                <instruction instr-id="3190" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="59" x2="104" y1="176" y2="185"/>
+                <content>Depression</content>
+                <instruction instr-id="3280" subinstr-id="0"/>
+                <instruction instr-id="3280" subinstr-id="2"/>
+                <instruction instr-id="3280" subinstr-id="4"/>
+                <instruction instr-id="3280" subinstr-id="6"/>
+                <instruction instr-id="3280" subinstr-id="8"/>
+                <instruction instr-id="3280" subinstr-id="10"/>
+                <instruction instr-id="3280" subinstr-id="12"/>
+                <instruction instr-id="3280" subinstr-id="14"/>
+                <instruction instr-id="3280" subinstr-id="16"/>
+                <instruction instr-id="3280" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="236" x2="246" y1="176" y2="185"/>
+                <content>19</content>
+                <instruction instr-id="3309" subinstr-id="0"/>
+                <instruction instr-id="3309" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="286" x2="296" y1="176" y2="185"/>
+                <content>24</content>
+                <instruction instr-id="3355" subinstr-id="0"/>
+                <instruction instr-id="3355" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="355" x2="360" y1="176" y2="185"/>
+                <content>5</content>
+                <instruction instr-id="3401" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="59" x2="94" y1="162" y2="171"/>
+                <content>Diabetes</content>
+                <instruction instr-id="3491" subinstr-id="0"/>
+                <instruction instr-id="3491" subinstr-id="2"/>
+                <instruction instr-id="3491" subinstr-id="4"/>
+                <instruction instr-id="3491" subinstr-id="6"/>
+                <instruction instr-id="3491" subinstr-id="8"/>
+                <instruction instr-id="3491" subinstr-id="10"/>
+                <instruction instr-id="3491" subinstr-id="12"/>
+                <instruction instr-id="3491" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="241" x2="246" y1="162" y2="171"/>
+                <content>0</content>
+                <instruction instr-id="3520" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="291" x2="296" y1="162" y2="171"/>
+                <content>1</content>
+                <instruction instr-id="3566" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="355" x2="360" y1="162" y2="171"/>
+                <content>0</content>
+                <instruction instr-id="3612" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="59" x2="178" y1="148" y2="157"/>
+                <content>Sexually transmitted diseases</content>
+                <instruction instr-id="3702" subinstr-id="0"/>
+                <instruction instr-id="3702" subinstr-id="2"/>
+                <instruction instr-id="3702" subinstr-id="4"/>
+                <instruction instr-id="3702" subinstr-id="6"/>
+                <instruction instr-id="3702" subinstr-id="8"/>
+                <instruction instr-id="3702" subinstr-id="10"/>
+                <instruction instr-id="3702" subinstr-id="12"/>
+                <instruction instr-id="3702" subinstr-id="14"/>
+                <instruction instr-id="3702" subinstr-id="18"/>
+                <instruction instr-id="3702" subinstr-id="20"/>
+                <instruction instr-id="3702" subinstr-id="22"/>
+                <instruction instr-id="3702" subinstr-id="24"/>
+                <instruction instr-id="3702" subinstr-id="26"/>
+                <instruction instr-id="3702" subinstr-id="28"/>
+                <instruction instr-id="3702" subinstr-id="30"/>
+                <instruction instr-id="3702" subinstr-id="32"/>
+                <instruction instr-id="3702" subinstr-id="34"/>
+                <instruction instr-id="3702" subinstr-id="36"/>
+                <instruction instr-id="3702" subinstr-id="38"/>
+                <instruction instr-id="3702" subinstr-id="42"/>
+                <instruction instr-id="3702" subinstr-id="44"/>
+                <instruction instr-id="3702" subinstr-id="46"/>
+                <instruction instr-id="3702" subinstr-id="48"/>
+                <instruction instr-id="3702" subinstr-id="50"/>
+                <instruction instr-id="3702" subinstr-id="52"/>
+                <instruction instr-id="3702" subinstr-id="54"/>
+                <instruction instr-id="3702" subinstr-id="56"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="241" x2="246" y1="148" y2="157"/>
+                <content>2</content>
+                <instruction instr-id="3731" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="291" x2="296" y1="148" y2="157"/>
+                <content>4</content>
+                <instruction instr-id="3777" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="355" x2="360" y1="148" y2="157"/>
+                <content>1</content>
+                <instruction instr-id="3823" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9">
+                <bounding-box x1="59" x2="163" y1="134" y2="143"/>
+                <content>Substance abuse problem</content>
+                <instruction instr-id="3913" subinstr-id="0"/>
+                <instruction instr-id="3913" subinstr-id="2"/>
+                <instruction instr-id="3913" subinstr-id="4"/>
+                <instruction instr-id="3913" subinstr-id="6"/>
+                <instruction instr-id="3913" subinstr-id="8"/>
+                <instruction instr-id="3913" subinstr-id="10"/>
+                <instruction instr-id="3913" subinstr-id="12"/>
+                <instruction instr-id="3913" subinstr-id="14"/>
+                <instruction instr-id="3913" subinstr-id="16"/>
+                <instruction instr-id="3913" subinstr-id="20"/>
+                <instruction instr-id="3913" subinstr-id="22"/>
+                <instruction instr-id="3913" subinstr-id="24"/>
+                <instruction instr-id="3913" subinstr-id="26"/>
+                <instruction instr-id="3913" subinstr-id="28"/>
+                <instruction instr-id="3913" subinstr-id="32"/>
+                <instruction instr-id="3913" subinstr-id="34"/>
+                <instruction instr-id="3913" subinstr-id="36"/>
+                <instruction instr-id="3913" subinstr-id="38"/>
+                <instruction instr-id="3913" subinstr-id="40"/>
+                <instruction instr-id="3913" subinstr-id="42"/>
+                <instruction instr-id="3913" subinstr-id="44"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="241" x2="246" y1="134" y2="143"/>
+                <content>2</content>
+                <instruction instr-id="3942" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="291" x2="296" y1="134" y2="143"/>
+                <content>8</content>
+                <instruction instr-id="3988" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="355" x2="360" y1="134" y2="143"/>
+                <content>0</content>
+                <instruction instr-id="4034" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="10">
+                <bounding-box x1="59" x2="98" y1="120" y2="129"/>
+                <content>Back pain</content>
+                <instruction instr-id="4124" subinstr-id="0"/>
+                <instruction instr-id="4124" subinstr-id="2"/>
+                <instruction instr-id="4124" subinstr-id="4"/>
+                <instruction instr-id="4124" subinstr-id="6"/>
+                <instruction instr-id="4124" subinstr-id="10"/>
+                <instruction instr-id="4124" subinstr-id="12"/>
+                <instruction instr-id="4124" subinstr-id="14"/>
+                <instruction instr-id="4124" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="236" x2="246" y1="120" y2="129"/>
+                <content>68</content>
+                <instruction instr-id="4153" subinstr-id="0"/>
+                <instruction instr-id="4153" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="281" x2="296" y1="120" y2="129"/>
+                <content>109</content>
+                <instruction instr-id="4199" subinstr-id="0"/>
+                <instruction instr-id="4199" subinstr-id="2"/>
+                <instruction instr-id="4199" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="350" x2="360" y1="120" y2="129"/>
+                <content>25</content>
+                <instruction instr-id="4245" subinstr-id="0"/>
+                <instruction instr-id="4245" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="11">
+                <bounding-box x1="59" x2="143" y1="106" y2="115"/>
+                <content>Broken bone/fracture</content>
+                <instruction instr-id="4335" subinstr-id="0"/>
+                <instruction instr-id="4335" subinstr-id="2"/>
+                <instruction instr-id="4335" subinstr-id="4"/>
+                <instruction instr-id="4335" subinstr-id="6"/>
+                <instruction instr-id="4335" subinstr-id="8"/>
+                <instruction instr-id="4335" subinstr-id="10"/>
+                <instruction instr-id="4335" subinstr-id="14"/>
+                <instruction instr-id="4335" subinstr-id="16"/>
+                <instruction instr-id="4335" subinstr-id="18"/>
+                <instruction instr-id="4335" subinstr-id="20"/>
+                <instruction instr-id="4335" subinstr-id="22"/>
+                <instruction instr-id="4335" subinstr-id="24"/>
+                <instruction instr-id="4335" subinstr-id="26"/>
+                <instruction instr-id="4335" subinstr-id="28"/>
+                <instruction instr-id="4335" subinstr-id="30"/>
+                <instruction instr-id="4335" subinstr-id="32"/>
+                <instruction instr-id="4335" subinstr-id="34"/>
+                <instruction instr-id="4335" subinstr-id="36"/>
+                <instruction instr-id="4335" subinstr-id="38"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="241" x2="246" y1="106" y2="115"/>
+                <content>5</content>
+                <instruction instr-id="4364" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="291" x2="296" y1="106" y2="115"/>
+                <content>6</content>
+                <instruction instr-id="4410" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="11">
+                <bounding-box x1="355" x2="360" y1="106" y2="115"/>
+                <content>1</content>
+                <instruction instr-id="4456" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="12">
+                <bounding-box x1="59" x2="184" y1="92" y2="101"/>
+                <content>Bronchitis/ear or sinus infection</content>
+                <instruction instr-id="4546" subinstr-id="0"/>
+                <instruction instr-id="4546" subinstr-id="2"/>
+                <instruction instr-id="4546" subinstr-id="4"/>
+                <instruction instr-id="4546" subinstr-id="6"/>
+                <instruction instr-id="4546" subinstr-id="8"/>
+                <instruction instr-id="4546" subinstr-id="10"/>
+                <instruction instr-id="4546" subinstr-id="12"/>
+                <instruction instr-id="4546" subinstr-id="14"/>
+                <instruction instr-id="4546" subinstr-id="16"/>
+                <instruction instr-id="4546" subinstr-id="18"/>
+                <instruction instr-id="4546" subinstr-id="20"/>
+                <instruction instr-id="4546" subinstr-id="22"/>
+                <instruction instr-id="4546" subinstr-id="24"/>
+                <instruction instr-id="4546" subinstr-id="26"/>
+                <instruction instr-id="4546" subinstr-id="30"/>
+                <instruction instr-id="4546" subinstr-id="32"/>
+                <instruction instr-id="4546" subinstr-id="36"/>
+                <instruction instr-id="4546" subinstr-id="38"/>
+                <instruction instr-id="4546" subinstr-id="40"/>
+                <instruction instr-id="4546" subinstr-id="42"/>
+                <instruction instr-id="4546" subinstr-id="44"/>
+                <instruction instr-id="4546" subinstr-id="48"/>
+                <instruction instr-id="4546" subinstr-id="50"/>
+                <instruction instr-id="4546" subinstr-id="52"/>
+                <instruction instr-id="4546" subinstr-id="54"/>
+                <instruction instr-id="4546" subinstr-id="56"/>
+                <instruction instr-id="4546" subinstr-id="58"/>
+                <instruction instr-id="4546" subinstr-id="60"/>
+                <instruction instr-id="4546" subinstr-id="62"/>
+                <instruction instr-id="4546" subinstr-id="64"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="236" x2="246" y1="92" y2="101"/>
+                <content>38</content>
+                <instruction instr-id="4575" subinstr-id="0"/>
+                <instruction instr-id="4575" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="286" x2="296" y1="92" y2="101"/>
+                <content>50</content>
+                <instruction instr-id="4621" subinstr-id="0"/>
+                <instruction instr-id="4621" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="12">
+                <bounding-box x1="350" x2="360" y1="92" y2="101"/>
+                <content>16</content>
+                <instruction instr-id="4667" subinstr-id="0"/>
+                <instruction instr-id="4667" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="13">
+                <bounding-box x1="59" x2="116" y1="78" y2="87"/>
+                <content>Endometriosis</content>
+                <instruction instr-id="4757" subinstr-id="0"/>
+                <instruction instr-id="4757" subinstr-id="2"/>
+                <instruction instr-id="4757" subinstr-id="4"/>
+                <instruction instr-id="4757" subinstr-id="6"/>
+                <instruction instr-id="4757" subinstr-id="8"/>
+                <instruction instr-id="4757" subinstr-id="10"/>
+                <instruction instr-id="4757" subinstr-id="12"/>
+                <instruction instr-id="4757" subinstr-id="14"/>
+                <instruction instr-id="4757" subinstr-id="16"/>
+                <instruction instr-id="4757" subinstr-id="18"/>
+                <instruction instr-id="4757" subinstr-id="20"/>
+                <instruction instr-id="4757" subinstr-id="22"/>
+                <instruction instr-id="4757" subinstr-id="24"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="13">
+                <bounding-box x1="241" x2="246" y1="78" y2="87"/>
+                <content>2</content>
+                <instruction instr-id="4786" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="13">
+                <bounding-box x1="291" x2="296" y1="78" y2="87"/>
+                <content>3</content>
+                <instruction instr-id="4832" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="13">
+                <bounding-box x1="355" x2="360" y1="78" y2="87"/>
+                <content>1</content>
+                <instruction instr-id="4878" subinstr-id="-1"/>
+            </cell>
+        </region>
+    </table>
+</document>

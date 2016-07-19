@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-006-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='1'>
+         <cell id='1' start-row='0' start-col='0'>
+            <bounding-box x1='72' y1='361' x2='170' y2='372'/>
+            <content>Child Race/Ethnicity</content>
+            <instruction instr-id='330' subinstr-id='0'/>
+            <instruction instr-id='330' subinstr-id='2'/>
+            <instruction instr-id='330' subinstr-id='4'/>
+            <instruction instr-id='330' subinstr-id='6'/>
+            <instruction instr-id='330' subinstr-id='8'/>
+            <instruction instr-id='330' subinstr-id='10'/>
+            <instruction instr-id='330' subinstr-id='12'/>
+            <instruction instr-id='330' subinstr-id='14'/>
+            <instruction instr-id='330' subinstr-id='16'/>
+            <instruction instr-id='330' subinstr-id='18'/>
+            <instruction instr-id='330' subinstr-id='20'/>
+            <instruction instr-id='330' subinstr-id='22'/>
+            <instruction instr-id='330' subinstr-id='24'/>
+            <instruction instr-id='330' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='231' y1='361' x2='321' y2='372'/>
+            <content>3-Year-Old Cohort</content>
+            <instruction instr-id='351' subinstr-id='-1'/>
+            <instruction instr-id='354' subinstr-id='0'/>
+            <instruction instr-id='354' subinstr-id='2'/>
+            <instruction instr-id='354' subinstr-id='4'/>
+            <instruction instr-id='357' subinstr-id='-1'/>
+            <instruction instr-id='361' subinstr-id='0'/>
+            <instruction instr-id='361' subinstr-id='2'/>
+            <instruction instr-id='361' subinstr-id='4'/>
+            <instruction instr-id='361' subinstr-id='6'/>
+            <instruction instr-id='361' subinstr-id='8'/>
+            <instruction instr-id='361' subinstr-id='10'/>
+            <instruction instr-id='361' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2'>
+            <bounding-box x1='347' y1='361' x2='437' y2='372'/>
+            <content>4-Year-Old Cohort</content>
+            <instruction instr-id='382' subinstr-id='-1'/>
+            <instruction instr-id='385' subinstr-id='0'/>
+            <instruction instr-id='385' subinstr-id='2'/>
+            <instruction instr-id='385' subinstr-id='4'/>
+            <instruction instr-id='388' subinstr-id='-1'/>
+            <instruction instr-id='392' subinstr-id='0'/>
+            <instruction instr-id='392' subinstr-id='2'/>
+            <instruction instr-id='392' subinstr-id='4'/>
+            <instruction instr-id='392' subinstr-id='6'/>
+            <instruction instr-id='392' subinstr-id='8'/>
+            <instruction instr-id='392' subinstr-id='10'/>
+            <instruction instr-id='392' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='72' y1='342' x2='113' y2='353'/>
+            <content>Hispanic</content>
+            <instruction instr-id='440' subinstr-id='0'/>
+            <instruction instr-id='440' subinstr-id='2'/>
+            <instruction instr-id='440' subinstr-id='4'/>
+            <instruction instr-id='440' subinstr-id='6'/>
+            <instruction instr-id='440' subinstr-id='8'/>
+            <instruction instr-id='440' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='269' y1='342' x2='298' y2='354'/>
+            <content>37.4%</content>
+            <instruction instr-id='460' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2'>
+            <bounding-box x1='384' y1='342' x2='412' y2='354'/>
+            <content>51.6%</content>
+            <instruction instr-id='477' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='72' y1='323' x2='99' y2='334'/>
+            <content>Black</content>
+            <instruction instr-id='517' subinstr-id='0'/>
+            <instruction instr-id='517' subinstr-id='2'/>
+            <instruction instr-id='517' subinstr-id='4'/>
+            <instruction instr-id='517' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='269' y1='323' x2='298' y2='334'/>
+            <content>32.8%</content>
+            <instruction instr-id='537' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2'>
+            <bounding-box x1='384' y1='323' x2='412' y2='334'/>
+            <content>17.5%</content>
+            <instruction instr-id='554' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='72' y1='304' x2='131' y2='315'/>
+            <content>White/Other</content>
+            <instruction instr-id='594' subinstr-id='0'/>
+            <instruction instr-id='594' subinstr-id='2'/>
+            <instruction instr-id='594' subinstr-id='4'/>
+            <instruction instr-id='594' subinstr-id='6'/>
+            <instruction instr-id='594' subinstr-id='8'/>
+            <instruction instr-id='594' subinstr-id='10'/>
+            <instruction instr-id='594' subinstr-id='12'/>
+            <instruction instr-id='594' subinstr-id='14'/>
+            <instruction instr-id='594' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='269' y1='304' x2='298' y2='315'/>
+            <content>29.8%</content>
+            <instruction instr-id='614' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2'>
+            <bounding-box x1='384' y1='304' x2='412' y2='315'/>
+            <content>30.8%</content>
+            <instruction instr-id='631' subinstr-id='0'/>
+         </cell>
+      </region>
+   </table>
+</document>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-011-reg.xml'>
+   <table id='1'>
+      <region id='1' page='2'>
+         <instruction instr-id='229'/>
+         <instruction instr-id='245'/>
+         <instruction instr-id='288'/>
+         <instruction instr-id='304'/>
+         <instruction instr-id='330'/>
+         <instruction instr-id='344'/>
+         <instruction instr-id='344' subinstr-id='2'/>
+         <instruction instr-id='360'/>
+         <instruction instr-id='404'/>
+         <instruction instr-id='420'/>
+         <instruction instr-id='463'/>
+         <instruction instr-id='479'/>
+         <instruction instr-id='522'/>
+         <instruction instr-id='538'/>
+         <instruction instr-id='582'/>
+         <instruction instr-id='598'/>
+         <instruction instr-id='642'/>
+         <instruction instr-id='658'/>
+         <instruction instr-id='700'/>
+         <instruction instr-id='716'/>
+         <instruction instr-id='760'/>
+         <instruction instr-id='760' subinstr-id='2'/>
+         <instruction instr-id='776'/>
+         <instruction instr-id='820'/>
+         <instruction instr-id='820' subinstr-id='2'/>
+         <instruction instr-id='820' subinstr-id='4'/>
+         <instruction instr-id='820' subinstr-id='6'/>
+         <instruction instr-id='820' subinstr-id='8'/>
+         <instruction instr-id='820' subinstr-id='10'/>
+         <instruction instr-id='820' subinstr-id='12'/>
+         <instruction instr-id='836'/>
+         <instruction instr-id='879'/>
+         <instruction instr-id='895'/>
+         <bounding-box x1='85' y1='186' x2='510' y2='512'/>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' page='3'>
+         <instruction instr-id='182'/>
+         <instruction instr-id='198'/>
+         <instruction instr-id='243'/>
+         <instruction instr-id='259'/>
+         <instruction instr-id='285'/>
+         <instruction instr-id='289'/>
+         <instruction instr-id='305'/>
+         <instruction instr-id='349'/>
+         <instruction instr-id='352'/>
+         <instruction instr-id='368'/>
+         <instruction instr-id='412'/>
+         <instruction instr-id='416'/>
+         <instruction instr-id='432'/>
+         <instruction instr-id='476'/>
+         <instruction instr-id='476' subinstr-id='2'/>
+         <instruction instr-id='480'/>
+         <instruction instr-id='496'/>
+         <instruction instr-id='539'/>
+         <instruction instr-id='555'/>
+         <bounding-box x1='85' y1='422' x2='510' y2='597'/>
+      </region>
+   </table>
+</document>

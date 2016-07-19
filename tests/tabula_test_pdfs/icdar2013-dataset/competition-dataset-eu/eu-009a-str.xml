@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename="bm_eu-009-str.xml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
+    <table id="1">
+        <region col-increment="0" id="1" page="1" row-increment="0">
+            <cell end-col="3" id="1" start-col="0" start-row="0">
+                <bounding-box x1="244" x2="356" y1="517" y2="527"/>
+                <content>Assignment Categories</content>
+                <instruction instr-id="107" subinstr-id="0"/>
+                <instruction instr-id="107" subinstr-id="2"/>
+                <instruction instr-id="107" subinstr-id="4"/>
+            </cell>
+            <cell end-col="1" id="1" start-col="0" start-row="1">
+                <bounding-box x1="164" x2="265" y1="505" y2="515"/>
+                <content>JASPERS Categories</content>
+                <instruction instr-id="148" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="3" id="1" start-col="2" start-row="1">
+                <bounding-box x1="347" x2="415" y1="505" y2="515"/>
+                <content>EV Categories</content>
+                <instruction instr-id="179" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="139" x2="180" y1="493" y2="503"/>
+                <content>Category</content>
+                <instruction instr-id="218" subinstr-id="0"/>
+                <instruction instr-id="218" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="196" x2="246" y1="493" y2="503"/>
+                <content>Description</content>
+                <instruction instr-id="248" subinstr-id="0"/>
+                <instruction instr-id="248" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="302" x2="342" y1="493" y2="503"/>
+                <content>Category</content>
+                <instruction instr-id="278" subinstr-id="0"/>
+                <instruction instr-id="278" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="359" x2="409" y1="493" y2="503"/>
+                <content>Description</content>
+                <instruction instr-id="314" subinstr-id="0"/>
+                <instruction instr-id="314" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="139" x2="145" y1="481" y2="491"/>
+                <content>1</content>
+                <instruction instr-id="345" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="196" x2="283" y1="458" y2="491"/>
+                <content>Involvement “at the
+beginning of project
+preparation”</content>
+                <instruction instr-id="349" subinstr-id="-1"/>
+                <instruction instr-id="353" subinstr-id="0"/>
+                <instruction instr-id="353" subinstr-id="2"/>
+                <instruction instr-id="353" subinstr-id="4"/>
+                <instruction instr-id="353" subinstr-id="6"/>
+                <instruction instr-id="353" subinstr-id="8"/>
+                <instruction instr-id="353" subinstr-id="10"/>
+                <instruction instr-id="358" subinstr-id="0"/>
+                <instruction instr-id="358" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="302" x2="313" y1="481" y2="491"/>
+                <content>1a</content>
+                <instruction instr-id="364" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="359" x2="446" y1="470" y2="491"/>
+                <content>Influence on project
+concept</content>
+                <instruction instr-id="367" subinstr-id="0"/>
+                <instruction instr-id="367" subinstr-id="2"/>
+                <instruction instr-id="367" subinstr-id="4"/>
+                <instruction instr-id="367" subinstr-id="6"/>
+                <instruction instr-id="367" subinstr-id="8"/>
+                <instruction instr-id="371" subinstr-id="0"/>
+                <instruction instr-id="371" subinstr-id="2"/>
+                <instruction instr-id="371" subinstr-id="4"/>
+                <instruction instr-id="371" subinstr-id="6"/>
+                <instruction instr-id="371" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="302" x2="313" y1="446" y2="456"/>
+                <content>1b</content>
+                <instruction instr-id="410" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="359" x2="461" y1="423" y2="456"/>
+                <content>No influence on project
+concept (presentation
+only)</content>
+                <instruction instr-id="414" subinstr-id="0"/>
+                <instruction instr-id="414" subinstr-id="2"/>
+                <instruction instr-id="414" subinstr-id="4"/>
+                <instruction instr-id="418" subinstr-id="0"/>
+                <instruction instr-id="418" subinstr-id="2"/>
+                <instruction instr-id="418" subinstr-id="4"/>
+                <instruction instr-id="418" subinstr-id="6"/>
+                <instruction instr-id="418" subinstr-id="8"/>
+                <instruction instr-id="424" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="139" x2="145" y1="411" y2="421"/>
+                <content>2</content>
+                <instruction instr-id="455" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="196" x2="284" y1="388" y2="421"/>
+                <content>Involvement “during
+the feasibility study
+preparation”</content>
+                <instruction instr-id="458" subinstr-id="0"/>
+                <instruction instr-id="458" subinstr-id="2"/>
+                <instruction instr-id="458" subinstr-id="4"/>
+                <instruction instr-id="461" subinstr-id="-1"/>
+                <instruction instr-id="466" subinstr-id="0"/>
+                <instruction instr-id="466" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="302" x2="313" y1="411" y2="421"/>
+                <content>2a</content>
+                <instruction instr-id="472" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="359" x2="446" y1="400" y2="421"/>
+                <content>Influence on project
+concept</content>
+                <instruction instr-id="475" subinstr-id="0"/>
+                <instruction instr-id="475" subinstr-id="2"/>
+                <instruction instr-id="475" subinstr-id="4"/>
+                <instruction instr-id="475" subinstr-id="6"/>
+                <instruction instr-id="475" subinstr-id="8"/>
+                <instruction instr-id="479" subinstr-id="0"/>
+                <instruction instr-id="479" subinstr-id="2"/>
+                <instruction instr-id="479" subinstr-id="4"/>
+                <instruction instr-id="479" subinstr-id="6"/>
+                <instruction instr-id="479" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="302" x2="313" y1="376" y2="386"/>
+                <content>2b</content>
+                <instruction instr-id="518" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="359" x2="461" y1="353" y2="386"/>
+                <content>No influence on project
+concept (presentation
+only)</content>
+                <instruction instr-id="522" subinstr-id="0"/>
+                <instruction instr-id="522" subinstr-id="2"/>
+                <instruction instr-id="522" subinstr-id="4"/>
+                <instruction instr-id="526" subinstr-id="0"/>
+                <instruction instr-id="526" subinstr-id="2"/>
+                <instruction instr-id="526" subinstr-id="4"/>
+                <instruction instr-id="526" subinstr-id="6"/>
+                <instruction instr-id="526" subinstr-id="8"/>
+                <instruction instr-id="531" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="139" x2="145" y1="341" y2="351"/>
+                <content>3</content>
+                <instruction instr-id="562" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="196" x2="277" y1="318" y2="351"/>
+                <content>Involvement “after
+draft application is
+prepared”</content>
+                <instruction instr-id="565" subinstr-id="0"/>
+                <instruction instr-id="565" subinstr-id="2"/>
+                <instruction instr-id="569" subinstr-id="0"/>
+                <instruction instr-id="569" subinstr-id="2"/>
+                <instruction instr-id="569" subinstr-id="4"/>
+                <instruction instr-id="569" subinstr-id="6"/>
+                <instruction instr-id="575" subinstr-id="0"/>
+                <instruction instr-id="575" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="302" x2="313" y1="341" y2="351"/>
+                <content>3a</content>
+                <instruction instr-id="581" subinstr-id="-1"/>
+            </cell>
+            
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="359" x2="446" y1="330" y2="351"/>
+                <content>Influence on project
+concept</content>
+                <instruction instr-id="584" subinstr-id="0"/>
+                <instruction instr-id="584" subinstr-id="2"/>
+                <instruction instr-id="584" subinstr-id="4"/>
+                <instruction instr-id="584" subinstr-id="6"/>
+                <instruction instr-id="584" subinstr-id="8"/>
+                <instruction instr-id="588" subinstr-id="0"/>
+                <instruction instr-id="588" subinstr-id="2"/>
+                <instruction instr-id="588" subinstr-id="4"/>
+                <instruction instr-id="588" subinstr-id="6"/>
+                <instruction instr-id="588" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="302" x2="313" y1="306" y2="317"/>
+                <content>3b</content>
+                <instruction instr-id="626" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="359" x2="441" y1="295" y2="317"/>
+                <content>Other presentation
+issues</content>
+                <instruction instr-id="630" subinstr-id="-1"/>
+                <instruction instr-id="632" subinstr-id="0"/>
+                <instruction instr-id="632" subinstr-id="2"/>
+                <instruction instr-id="632" subinstr-id="4"/>
+                <instruction instr-id="632" subinstr-id="6"/>
+                <instruction instr-id="632" subinstr-id="8"/>
+                <instruction instr-id="632" subinstr-id="10"/>
+                <instruction instr-id="636" subinstr-id="-1"/>
+            </cell>
+        </region>
+    </table>
+</document>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename="bm_eu-011-str.xml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
+    <table id="1">
+        <region col-increment="0" id="1" page="3" row-increment="0">
+            <cell end-col="0" end-row="0" id="1" start-col="0" start-row="0">
+                <bounding-box x1="73" x2="243" y1="536" y2="546"/>
+                <content>Differences with respect to Germany</content>
+                <instruction instr-id="345" subinstr-id="0"/>
+                <instruction instr-id="345" subinstr-id="2"/>
+                <instruction instr-id="345" subinstr-id="4"/>
+                <instruction instr-id="345" subinstr-id="6"/>
+                <instruction instr-id="345" subinstr-id="8"/>
+                <instruction instr-id="345" subinstr-id="10"/>
+                <instruction instr-id="345" subinstr-id="12"/>
+                <instruction instr-id="345" subinstr-id="14"/>
+                <instruction instr-id="345" subinstr-id="16"/>
+                <instruction instr-id="345" subinstr-id="18"/>
+                <instruction instr-id="345" subinstr-id="20"/>
+                <instruction instr-id="345" subinstr-id="22"/>
+            </cell>
+            <cell end-col="1" end-row="0" id="1" start-col="1" start-row="0">
+                <bounding-box x1="279" x2="319" y1="536" y2="546"/>
+                <content>Portugal</content>
+                <instruction instr-id="371" subinstr-id="0"/>
+                <instruction instr-id="371" subinstr-id="2"/>
+            </cell>
+            <cell end-col="2" end-row="0" id="1" start-col="2" start-row="0">
+                <bounding-box x1="330" x2="361" y1="536" y2="546"/>
+                <content>Greece</content>
+                <instruction instr-id="396" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="3" end-row="0" id="1" start-col="3" start-row="0">
+                <bounding-box x1="378" x2="405" y1="536" y2="546"/>
+                <content>Spain</content>
+                <instruction instr-id="420" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="4" end-row="0" id="1" start-col="4" start-row="0">
+                <bounding-box x1="426" x2="448" y1="536" y2="546"/>
+                <content>Italy</content>
+                <instruction instr-id="445" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="5" end-row="0" id="1" start-col="5" start-row="0">
+                <bounding-box x1="474" x2="506" y1="536" y2="546"/>
+                <content>France</content>
+                <instruction instr-id="470" subinstr-id="0"/>
+            </cell>
+            <cell end-col="0" end-row="1" id="1" start-col="0" start-row="1">
+                <bounding-box x1="71" x2="169" y1="518" y2="528"/>
+                <content>Q2 2006 – Q1 2010**</content>
+                <instruction instr-id="529" subinstr-id="0"/>
+                <instruction instr-id="529" subinstr-id="2"/>
+                <instruction instr-id="529" subinstr-id="4"/>
+                <instruction instr-id="529" subinstr-id="6"/>
+                <instruction instr-id="529" subinstr-id="8"/>
+            </cell>
+            <cell end-col="1" end-row="1" id="1" start-col="1" start-row="1">
+                <bounding-box x1="279" x2="298" y1="518" y2="528"/>
+                <content>0.33</content>
+                <instruction instr-id="555" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="2" end-row="1" id="1" start-col="2" start-row="1">
+                <bounding-box x1="330" x2="349" y1="518" y2="528"/>
+                <content>0.51</content>
+                <instruction instr-id="579" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="3" end-row="1" id="1" start-col="3" start-row="1">
+                <bounding-box x1="378" x2="397" y1="518" y2="528"/>
+                <content>0.31</content>
+                <instruction instr-id="603" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="4" end-row="1" id="1" start-col="4" start-row="1">
+                <bounding-box x1="426" x2="445" y1="518" y2="528"/>
+                <content>0.18</content>
+                <instruction instr-id="627" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="5" end-row="1" id="1" start-col="5" start-row="1">
+                <bounding-box x1="474" x2="493" y1="518" y2="528"/>
+                <content>0.05</content>
+                <instruction instr-id="651" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="0" end-row="2" id="1" start-col="0" start-row="2">
+                <bounding-box x1="71" x2="159" y1="503" y2="513"/>
+                <content>Q1 2009 – Q4 2009</content>
+                <instruction instr-id="710" subinstr-id="0"/>
+                <instruction instr-id="710" subinstr-id="2"/>
+                <instruction instr-id="710" subinstr-id="4"/>
+                <instruction instr-id="710" subinstr-id="6"/>
+            </cell>
+            <cell end-col="1" end-row="2" id="1" start-col="1" start-row="2">
+                <bounding-box x1="279" x2="302" y1="503" y2="513"/>
+                <content>-0.01</content>
+                <instruction instr-id="736" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="2" end-row="2" id="1" start-col="2" start-row="2">
+                <bounding-box x1="330" x2="349" y1="503" y2="513"/>
+                <content>0.45</content>
+                <instruction instr-id="761" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="3" end-row="2" id="1" start-col="3" start-row="2">
+                <bounding-box x1="378" x2="397" y1="503" y2="513"/>
+                <content>0.21</content>
+                <instruction instr-id="785" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="4" end-row="2" id="1" start-col="4" start-row="2">
+                <bounding-box x1="426" x2="445" y1="503" y2="513"/>
+                <content>0.18</content>
+                <instruction instr-id="809" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="5" end-row="2" id="1" start-col="5" start-row="2">
+                <bounding-box x1="474" x2="493" y1="503" y2="513"/>
+                <content>0.05</content>
+                <instruction instr-id="833" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="0" end-row="3" id="1" start-col="0" start-row="3">
+                <bounding-box x1="71" x2="109" y1="488" y2="498"/>
+                <content>Q4 2009</content>
+                <instruction instr-id="859" subinstr-id="0"/>
+                <instruction instr-id="859" subinstr-id="2"/>
+            </cell>
+            <cell end-col="1" end-row="3" id="1" start-col="1" start-row="3">
+                <bounding-box x1="279" x2="298" y1="488" y2="498"/>
+                <content>0.17</content>
+                <instruction instr-id="885" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="2" end-row="3" id="1" start-col="2" start-row="3">
+                <bounding-box x1="330" x2="349" y1="488" y2="498"/>
+                <content>0.70</content>
+                <instruction instr-id="909" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="3" end-row="3" id="1" start-col="3" start-row="3">
+                <bounding-box x1="378" x2="397" y1="488" y2="498"/>
+                <content>0.26</content>
+                <instruction instr-id="933" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="4" end-row="3" id="1" start-col="4" start-row="3">
+                <bounding-box x1="426" x2="445" y1="488" y2="498"/>
+                <content>0.09</content>
+                <instruction instr-id="957" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="5" end-row="3" id="1" start-col="5" start-row="3">
+                <bounding-box x1="474" x2="497" y1="488" y2="498"/>
+                <content>-0.01</content>
+                <instruction instr-id="982" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="0" end-row="4" id="1" start-col="0" start-row="4">
+                <bounding-box x1="71" x2="109" y1="473" y2="483"/>
+                <content>Q1 2010</content>
+                <instruction instr-id="1005" subinstr-id="0"/>
+                <instruction instr-id="1005" subinstr-id="2"/>
+            </cell>
+            <cell end-col="1" end-row="4" id="1" start-col="1" start-row="4">
+                <bounding-box x1="279" x2="298" y1="473" y2="483"/>
+                <content>0.64</content>
+                <instruction instr-id="1028" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="2" end-row="4" id="1" start-col="2" start-row="4">
+                <bounding-box x1="330" x2="349" y1="473" y2="483"/>
+                <content>0.72</content>
+                <instruction instr-id="1049" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="3" end-row="4" id="1" start-col="3" start-row="4">
+                <bounding-box x1="378" x2="397" y1="473" y2="483"/>
+                <content>0.56</content>
+                <instruction instr-id="1070" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="4" end-row="4" id="1" start-col="4" start-row="4">
+                <bounding-box x1="426" x2="445" y1="473" y2="483"/>
+                <content>0.43</content>
+                <instruction instr-id="1091" subinstr-id="-1"/>
+            </cell>
+            <cell end-col="5" end-row="4" id="1" start-col="5" start-row="4">
+                <bounding-box x1="474" x2="493" y1="473" y2="483"/>
+                <content>0.25</content>
+                <instruction instr-id="1112" subinstr-id="-1"/>
+            </cell>
+        </region>
+    </table>
+</document>

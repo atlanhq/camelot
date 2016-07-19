@@ -1,0 +1,2281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename="bm_eu-021-str.xml">
+    <table id="1">
+        <region col-increment="0" id="1" row-increment="0" page='3'>
+            <cell id="1" start-col="0" end-col="1" start-row="0">
+                <bounding-box x1="94" x2="171" y1="487" y2="496"/>
+                <content>Treatment/Therapy</content>
+                <instruction instr-id="122" subinstr-id="0"/>
+                <instruction instr-id="122" subinstr-id="2"/>
+                <instruction instr-id="122" subinstr-id="4"/>
+                <instruction instr-id="122" subinstr-id="6"/>
+                <instruction instr-id="122" subinstr-id="8"/>
+                <instruction instr-id="122" subinstr-id="10"/>
+                <instruction instr-id="122" subinstr-id="12"/>
+                <instruction instr-id="122" subinstr-id="14"/>
+                <instruction instr-id="122" subinstr-id="16"/>
+                <instruction instr-id="122" subinstr-id="18"/>
+                <instruction instr-id="122" subinstr-id="20"/>
+                <instruction instr-id="122" subinstr-id="22"/>
+                <instruction instr-id="122" subinstr-id="24"/>
+                <instruction instr-id="122" subinstr-id="26"/>
+                <instruction instr-id="122" subinstr-id="28"/>
+                <instruction instr-id="122" subinstr-id="30"/>
+                <instruction instr-id="122" subinstr-id="32"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="0">
+                <bounding-box x1="230" x2="264" y1="477" y2="496"/>
+                <content>Suffered
+from</content>
+                <instruction instr-id="159" subinstr-id="0"/>
+                <instruction instr-id="159" subinstr-id="2"/>
+                <instruction instr-id="159" subinstr-id="4"/>
+                <instruction instr-id="159" subinstr-id="6"/>
+                <instruction instr-id="159" subinstr-id="8"/>
+                <instruction instr-id="159" subinstr-id="10"/>
+                <instruction instr-id="159" subinstr-id="12"/>
+                <instruction instr-id="159" subinstr-id="14"/>
+                <instruction instr-id="171" subinstr-id="0"/>
+                <instruction instr-id="171" subinstr-id="2"/>
+                <instruction instr-id="171" subinstr-id="4"/>
+                <instruction instr-id="171" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="0">
+                <bounding-box x1="305" x2="343" y1="477" y2="496"/>
+                <content>Followed
+treatment</content>
+                <instruction instr-id="200" subinstr-id="0"/>
+                <instruction instr-id="200" subinstr-id="2"/>
+                <instruction instr-id="200" subinstr-id="4"/>
+                <instruction instr-id="200" subinstr-id="6"/>
+                <instruction instr-id="200" subinstr-id="8"/>
+                <instruction instr-id="200" subinstr-id="10"/>
+                <instruction instr-id="200" subinstr-id="12"/>
+                <instruction instr-id="200" subinstr-id="14"/>
+                <instruction instr-id="212" subinstr-id="0"/>
+                <instruction instr-id="212" subinstr-id="2"/>
+                <instruction instr-id="212" subinstr-id="4"/>
+                <instruction instr-id="212" subinstr-id="6"/>
+                <instruction instr-id="212" subinstr-id="8"/>
+                <instruction instr-id="212" subinstr-id="10"/>
+                <instruction instr-id="212" subinstr-id="12"/>
+                <instruction instr-id="212" subinstr-id="14"/>
+                <instruction instr-id="212" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="1" end-row="2">
+                <bounding-box x1="58" x2="125" y1="459" y2="468"/>
+                <content>Allergy problems</content>
+                <instruction instr-id="424" subinstr-id="0"/>
+                <instruction instr-id="424" subinstr-id="2"/>
+                <instruction instr-id="424" subinstr-id="4"/>
+                <instruction instr-id="424" subinstr-id="6"/>
+                <instruction instr-id="424" subinstr-id="8"/>
+                <instruction instr-id="424" subinstr-id="10"/>
+                <instruction instr-id="424" subinstr-id="12"/>
+                <instruction instr-id="424" subinstr-id="16"/>
+                <instruction instr-id="424" subinstr-id="18"/>
+                <instruction instr-id="424" subinstr-id="20"/>
+                <instruction instr-id="424" subinstr-id="22"/>
+                <instruction instr-id="424" subinstr-id="24"/>
+                <instruction instr-id="424" subinstr-id="26"/>
+                <instruction instr-id="424" subinstr-id="28"/>
+                <instruction instr-id="424" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="148" x2="172" y1="459" y2="468"/>
+                <content>Count</content>
+                <instruction instr-id="285" subinstr-id="0"/>
+                <instruction instr-id="285" subinstr-id="2"/>
+                <instruction instr-id="285" subinstr-id="4"/>
+                <instruction instr-id="285" subinstr-id="6"/>
+                <instruction instr-id="285" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="242" x2="252" y1="459" y2="468"/>
+                <content>93</content>
+                <instruction instr-id="314" subinstr-id="0"/>
+                <instruction instr-id="314" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="319" x2="329" y1="459" y2="468"/>
+                <content>77</content>
+                <instruction instr-id="343" subinstr-id="0"/>
+                <instruction instr-id="343" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="148" x2="194" y1="445" y2="454"/>
+                <content>Percentage</content>
+                <instruction instr-id="453" subinstr-id="0"/>
+                <instruction instr-id="453" subinstr-id="2"/>
+                <instruction instr-id="453" subinstr-id="4"/>
+                <instruction instr-id="453" subinstr-id="6"/>
+                <instruction instr-id="453" subinstr-id="8"/>
+                <instruction instr-id="453" subinstr-id="10"/>
+                <instruction instr-id="453" subinstr-id="12"/>
+                <instruction instr-id="453" subinstr-id="14"/>
+                <instruction instr-id="453" subinstr-id="16"/>
+                <instruction instr-id="453" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="234" x2="260" y1="445" y2="454"/>
+                <content>18.8%</content>
+                <instruction instr-id="482" subinstr-id="0"/>
+                <instruction instr-id="482" subinstr-id="2"/>
+                <instruction instr-id="482" subinstr-id="4"/>
+                <instruction instr-id="482" subinstr-id="6"/>
+                <instruction instr-id="482" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="311" x2="337" y1="445" y2="454"/>
+                <content>15.6%</content>
+                <instruction instr-id="511" subinstr-id="0"/>
+                <instruction instr-id="511" subinstr-id="2"/>
+                <instruction instr-id="511" subinstr-id="4"/>
+                <instruction instr-id="511" subinstr-id="6"/>
+                <instruction instr-id="511" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3" end-row="4">
+                <bounding-box x1="58" x2="122" y1="431" y2="440"/>
+                <content>Anxiety disorder</content>
+                <instruction instr-id="709" subinstr-id="0"/>
+                <instruction instr-id="709" subinstr-id="2"/>
+                <instruction instr-id="709" subinstr-id="4"/>
+                <instruction instr-id="709" subinstr-id="6"/>
+                <instruction instr-id="709" subinstr-id="8"/>
+                <instruction instr-id="709" subinstr-id="10"/>
+                <instruction instr-id="709" subinstr-id="12"/>
+                <instruction instr-id="709" subinstr-id="16"/>
+                <instruction instr-id="709" subinstr-id="18"/>
+                <instruction instr-id="709" subinstr-id="20"/>
+                <instruction instr-id="709" subinstr-id="22"/>
+                <instruction instr-id="709" subinstr-id="24"/>
+                <instruction instr-id="709" subinstr-id="26"/>
+                <instruction instr-id="709" subinstr-id="28"/>
+                <instruction instr-id="709" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="148" x2="172" y1="431" y2="440"/>
+                <content>Count</content>
+                <instruction instr-id="578" subinstr-id="0"/>
+                <instruction instr-id="578" subinstr-id="2"/>
+                <instruction instr-id="578" subinstr-id="4"/>
+                <instruction instr-id="578" subinstr-id="6"/>
+                <instruction instr-id="578" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="242" x2="252" y1="431" y2="440"/>
+                <content>81</content>
+                <instruction instr-id="607" subinstr-id="0"/>
+                <instruction instr-id="607" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="319" x2="329" y1="431" y2="440"/>
+                <content>29</content>
+                <instruction instr-id="636" subinstr-id="0"/>
+                <instruction instr-id="636" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="148" x2="194" y1="416" y2="425"/>
+                <content>Percentage</content>
+                <instruction instr-id="738" subinstr-id="0"/>
+                <instruction instr-id="738" subinstr-id="2"/>
+                <instruction instr-id="738" subinstr-id="4"/>
+                <instruction instr-id="738" subinstr-id="6"/>
+                <instruction instr-id="738" subinstr-id="8"/>
+                <instruction instr-id="738" subinstr-id="10"/>
+                <instruction instr-id="738" subinstr-id="12"/>
+                <instruction instr-id="738" subinstr-id="14"/>
+                <instruction instr-id="738" subinstr-id="16"/>
+                <instruction instr-id="738" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="234" x2="260" y1="416" y2="425"/>
+                <content>16.4%</content>
+                <instruction instr-id="767" subinstr-id="0"/>
+                <instruction instr-id="767" subinstr-id="2"/>
+                <instruction instr-id="767" subinstr-id="4"/>
+                <instruction instr-id="767" subinstr-id="6"/>
+                <instruction instr-id="767" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="313" x2="334" y1="416" y2="425"/>
+                <content>5.9%</content>
+                <instruction instr-id="796" subinstr-id="0"/>
+                <instruction instr-id="796" subinstr-id="2"/>
+                <instruction instr-id="796" subinstr-id="4"/>
+                <instruction instr-id="796" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5" end-row="6">
+                <bounding-box x1="58" x2="88" y1="402" y2="411"/>
+                <content>Asthma</content>
+                <instruction instr-id="994" subinstr-id="0"/>
+                <instruction instr-id="994" subinstr-id="2"/>
+                <instruction instr-id="994" subinstr-id="4"/>
+                <instruction instr-id="994" subinstr-id="6"/>
+                <instruction instr-id="994" subinstr-id="8"/>
+                <instruction instr-id="994" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="148" x2="172" y1="402" y2="411"/>
+                <content>Count</content>
+                <instruction instr-id="863" subinstr-id="0"/>
+                <instruction instr-id="863" subinstr-id="2"/>
+                <instruction instr-id="863" subinstr-id="4"/>
+                <instruction instr-id="863" subinstr-id="6"/>
+                <instruction instr-id="863" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="242" x2="252" y1="402" y2="411"/>
+                <content>31</content>
+                <instruction instr-id="892" subinstr-id="0"/>
+                <instruction instr-id="892" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="319" x2="329" y1="402" y2="411"/>
+                <content>22</content>
+                <instruction instr-id="921" subinstr-id="0"/>
+                <instruction instr-id="921" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="148" x2="194" y1="388" y2="397"/>
+                <content>Percentage</content>
+                <instruction instr-id="1023" subinstr-id="0"/>
+                <instruction instr-id="1023" subinstr-id="2"/>
+                <instruction instr-id="1023" subinstr-id="4"/>
+                <instruction instr-id="1023" subinstr-id="6"/>
+                <instruction instr-id="1023" subinstr-id="8"/>
+                <instruction instr-id="1023" subinstr-id="10"/>
+                <instruction instr-id="1023" subinstr-id="12"/>
+                <instruction instr-id="1023" subinstr-id="14"/>
+                <instruction instr-id="1023" subinstr-id="16"/>
+                <instruction instr-id="1023" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="236" x2="257" y1="388" y2="397"/>
+                <content>6.3%</content>
+                <instruction instr-id="1052" subinstr-id="0"/>
+                <instruction instr-id="1052" subinstr-id="2"/>
+                <instruction instr-id="1052" subinstr-id="4"/>
+                <instruction instr-id="1052" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="313" x2="334" y1="388" y2="397"/>
+                <content>4.4%</content>
+                <instruction instr-id="1081" subinstr-id="0"/>
+                <instruction instr-id="1081" subinstr-id="2"/>
+                <instruction instr-id="1081" subinstr-id="4"/>
+                <instruction instr-id="1081" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7" end-row="8">
+                <bounding-box x1="58" x2="118" y1="364" y2="383"/>
+                <content>Chronic fatigue
+syndrome</content>
+                <instruction instr-id="1279" subinstr-id="0"/>
+                <instruction instr-id="1279" subinstr-id="2"/>
+                <instruction instr-id="1279" subinstr-id="4"/>
+                <instruction instr-id="1279" subinstr-id="6"/>
+                <instruction instr-id="1279" subinstr-id="8"/>
+                <instruction instr-id="1279" subinstr-id="10"/>
+                <instruction instr-id="1279" subinstr-id="12"/>
+                <instruction instr-id="1279" subinstr-id="16"/>
+                <instruction instr-id="1279" subinstr-id="18"/>
+                <instruction instr-id="1279" subinstr-id="20"/>
+                <instruction instr-id="1279" subinstr-id="22"/>
+                <instruction instr-id="1279" subinstr-id="24"/>
+                <instruction instr-id="1279" subinstr-id="26"/>
+                <instruction instr-id="1279" subinstr-id="28"/>
+                <instruction instr-id="1291" subinstr-id="0"/>
+                <instruction instr-id="1291" subinstr-id="2"/>
+                <instruction instr-id="1291" subinstr-id="4"/>
+                <instruction instr-id="1291" subinstr-id="6"/>
+                <instruction instr-id="1291" subinstr-id="8"/>
+                <instruction instr-id="1291" subinstr-id="10"/>
+                <instruction instr-id="1291" subinstr-id="12"/>
+                <instruction instr-id="1291" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="148" x2="172" y1="374" y2="383"/>
+                <content>Count</content>
+                <instruction instr-id="1148" subinstr-id="0"/>
+                <instruction instr-id="1148" subinstr-id="2"/>
+                <instruction instr-id="1148" subinstr-id="4"/>
+                <instruction instr-id="1148" subinstr-id="6"/>
+                <instruction instr-id="1148" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="242" x2="252" y1="374" y2="383"/>
+                <content>19</content>
+                <instruction instr-id="1177" subinstr-id="0"/>
+                <instruction instr-id="1177" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="321" x2="326" y1="374" y2="383"/>
+                <content>4</content>
+                <instruction instr-id="1206" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="148" x2="194" y1="360" y2="369"/>
+                <content>Percentage</content>
+                <instruction instr-id="1320" subinstr-id="0"/>
+                <instruction instr-id="1320" subinstr-id="2"/>
+                <instruction instr-id="1320" subinstr-id="4"/>
+                <instruction instr-id="1320" subinstr-id="6"/>
+                <instruction instr-id="1320" subinstr-id="8"/>
+                <instruction instr-id="1320" subinstr-id="10"/>
+                <instruction instr-id="1320" subinstr-id="12"/>
+                <instruction instr-id="1320" subinstr-id="14"/>
+                <instruction instr-id="1320" subinstr-id="16"/>
+                <instruction instr-id="1320" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="236" x2="257" y1="360" y2="369"/>
+                <content>3.8%</content>
+                <instruction instr-id="1349" subinstr-id="0"/>
+                <instruction instr-id="1349" subinstr-id="2"/>
+                <instruction instr-id="1349" subinstr-id="4"/>
+                <instruction instr-id="1349" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="313" x2="334" y1="360" y2="369"/>
+                <content>0.8%</content>
+                <instruction instr-id="1378" subinstr-id="0"/>
+                <instruction instr-id="1378" subinstr-id="2"/>
+                <instruction instr-id="1378" subinstr-id="4"/>
+                <instruction instr-id="1378" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9" end-row="10">
+                <bounding-box x1="58" x2="103" y1="346" y2="355"/>
+                <content>Depression</content>
+                <instruction instr-id="1576" subinstr-id="0"/>
+                <instruction instr-id="1576" subinstr-id="2"/>
+                <instruction instr-id="1576" subinstr-id="4"/>
+                <instruction instr-id="1576" subinstr-id="6"/>
+                <instruction instr-id="1576" subinstr-id="8"/>
+                <instruction instr-id="1576" subinstr-id="10"/>
+                <instruction instr-id="1576" subinstr-id="12"/>
+                <instruction instr-id="1576" subinstr-id="14"/>
+                <instruction instr-id="1576" subinstr-id="16"/>
+                <instruction instr-id="1576" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="148" x2="172" y1="346" y2="355"/>
+                <content>Count</content>
+                <instruction instr-id="1445" subinstr-id="0"/>
+                <instruction instr-id="1445" subinstr-id="2"/>
+                <instruction instr-id="1445" subinstr-id="4"/>
+                <instruction instr-id="1445" subinstr-id="6"/>
+                <instruction instr-id="1445" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="242" x2="252" y1="346" y2="355"/>
+                <content>48</content>
+                <instruction instr-id="1474" subinstr-id="0"/>
+                <instruction instr-id="1474" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="319" x2="329" y1="346" y2="355"/>
+                <content>12</content>
+                <instruction instr-id="1503" subinstr-id="0"/>
+                <instruction instr-id="1503" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="148" x2="194" y1="332" y2="341"/>
+                <content>Percentage</content>
+                <instruction instr-id="1605" subinstr-id="0"/>
+                <instruction instr-id="1605" subinstr-id="2"/>
+                <instruction instr-id="1605" subinstr-id="4"/>
+                <instruction instr-id="1605" subinstr-id="6"/>
+                <instruction instr-id="1605" subinstr-id="8"/>
+                <instruction instr-id="1605" subinstr-id="10"/>
+                <instruction instr-id="1605" subinstr-id="12"/>
+                <instruction instr-id="1605" subinstr-id="14"/>
+                <instruction instr-id="1605" subinstr-id="16"/>
+                <instruction instr-id="1605" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="236" x2="257" y1="332" y2="341"/>
+                <content>9.7%</content>
+                <instruction instr-id="1634" subinstr-id="0"/>
+                <instruction instr-id="1634" subinstr-id="2"/>
+                <instruction instr-id="1634" subinstr-id="4"/>
+                <instruction instr-id="1634" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="313" x2="334" y1="332" y2="341"/>
+                <content>2.4%</content>
+                <instruction instr-id="1663" subinstr-id="0"/>
+                <instruction instr-id="1663" subinstr-id="2"/>
+                <instruction instr-id="1663" subinstr-id="4"/>
+                <instruction instr-id="1663" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="11" end-row="12">
+                <bounding-box x1="58" x2="93" y1="318" y2="327"/>
+                <content>Diabetes</content>
+                <instruction instr-id="1861" subinstr-id="0"/>
+                <instruction instr-id="1861" subinstr-id="2"/>
+                <instruction instr-id="1861" subinstr-id="4"/>
+                <instruction instr-id="1861" subinstr-id="6"/>
+                <instruction instr-id="1861" subinstr-id="8"/>
+                <instruction instr-id="1861" subinstr-id="10"/>
+                <instruction instr-id="1861" subinstr-id="12"/>
+                <instruction instr-id="1861" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="148" x2="172" y1="318" y2="327"/>
+                <content>Count</content>
+                <instruction instr-id="1730" subinstr-id="0"/>
+                <instruction instr-id="1730" subinstr-id="2"/>
+                <instruction instr-id="1730" subinstr-id="4"/>
+                <instruction instr-id="1730" subinstr-id="6"/>
+                <instruction instr-id="1730" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="244" x2="249" y1="318" y2="327"/>
+                <content>1</content>
+                <instruction instr-id="1759" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="11">
+                <bounding-box x1="321" x2="326" y1="318" y2="327"/>
+                <content>1</content>
+                <instruction instr-id="1788" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="148" x2="194" y1="304" y2="313"/>
+                <content>Percentage</content>
+                <instruction instr-id="1890" subinstr-id="0"/>
+                <instruction instr-id="1890" subinstr-id="2"/>
+                <instruction instr-id="1890" subinstr-id="4"/>
+                <instruction instr-id="1890" subinstr-id="6"/>
+                <instruction instr-id="1890" subinstr-id="8"/>
+                <instruction instr-id="1890" subinstr-id="10"/>
+                <instruction instr-id="1890" subinstr-id="12"/>
+                <instruction instr-id="1890" subinstr-id="14"/>
+                <instruction instr-id="1890" subinstr-id="16"/>
+                <instruction instr-id="1890" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="236" x2="257" y1="304" y2="313"/>
+                <content>0.2%</content>
+                <instruction instr-id="1919" subinstr-id="0"/>
+                <instruction instr-id="1919" subinstr-id="2"/>
+                <instruction instr-id="1919" subinstr-id="4"/>
+                <instruction instr-id="1919" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="12">
+                <bounding-box x1="313" x2="334" y1="304" y2="313"/>
+                <content>0.2%</content>
+                <instruction instr-id="1948" subinstr-id="0"/>
+                <instruction instr-id="1948" subinstr-id="2"/>
+                <instruction instr-id="1948" subinstr-id="4"/>
+                <instruction instr-id="1948" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="13" end-row="14">
+                <bounding-box x1="58" x2="139" y1="279" y2="299"/>
+                <content>Sexually transmitted
+diseases</content>
+                <instruction instr-id="2146" subinstr-id="0"/>
+                <instruction instr-id="2146" subinstr-id="2"/>
+                <instruction instr-id="2146" subinstr-id="4"/>
+                <instruction instr-id="2146" subinstr-id="6"/>
+                <instruction instr-id="2146" subinstr-id="8"/>
+                <instruction instr-id="2146" subinstr-id="10"/>
+                <instruction instr-id="2146" subinstr-id="12"/>
+                <instruction instr-id="2146" subinstr-id="14"/>
+                <instruction instr-id="2146" subinstr-id="18"/>
+                <instruction instr-id="2146" subinstr-id="20"/>
+                <instruction instr-id="2146" subinstr-id="22"/>
+                <instruction instr-id="2146" subinstr-id="24"/>
+                <instruction instr-id="2146" subinstr-id="26"/>
+                <instruction instr-id="2146" subinstr-id="28"/>
+                <instruction instr-id="2146" subinstr-id="30"/>
+                <instruction instr-id="2146" subinstr-id="32"/>
+                <instruction instr-id="2146" subinstr-id="34"/>
+                <instruction instr-id="2146" subinstr-id="36"/>
+                <instruction instr-id="2146" subinstr-id="38"/>
+                <instruction instr-id="2158" subinstr-id="0"/>
+                <instruction instr-id="2158" subinstr-id="2"/>
+                <instruction instr-id="2158" subinstr-id="4"/>
+                <instruction instr-id="2158" subinstr-id="6"/>
+                <instruction instr-id="2158" subinstr-id="8"/>
+                <instruction instr-id="2158" subinstr-id="10"/>
+                <instruction instr-id="2158" subinstr-id="12"/>
+                <instruction instr-id="2158" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="13">
+                <bounding-box x1="148" x2="172" y1="290" y2="299"/>
+                <content>Count</content>
+                <instruction instr-id="2015" subinstr-id="0"/>
+                <instruction instr-id="2015" subinstr-id="2"/>
+                <instruction instr-id="2015" subinstr-id="4"/>
+                <instruction instr-id="2015" subinstr-id="6"/>
+                <instruction instr-id="2015" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="13">
+                <bounding-box x1="244" x2="249" y1="290" y2="299"/>
+                <content>7</content>
+                <instruction instr-id="2044" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="13">
+                <bounding-box x1="321" x2="326" y1="290" y2="299"/>
+                <content>7</content>
+                <instruction instr-id="2073" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="14">
+                <bounding-box x1="148" x2="194" y1="275" y2="284"/>
+                <content>Percentage</content>
+                <instruction instr-id="2187" subinstr-id="0"/>
+                <instruction instr-id="2187" subinstr-id="2"/>
+                <instruction instr-id="2187" subinstr-id="4"/>
+                <instruction instr-id="2187" subinstr-id="6"/>
+                <instruction instr-id="2187" subinstr-id="8"/>
+                <instruction instr-id="2187" subinstr-id="10"/>
+                <instruction instr-id="2187" subinstr-id="12"/>
+                <instruction instr-id="2187" subinstr-id="14"/>
+                <instruction instr-id="2187" subinstr-id="16"/>
+                <instruction instr-id="2187" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="14">
+                <bounding-box x1="236" x2="257" y1="275" y2="284"/>
+                <content>1.4%</content>
+                <instruction instr-id="2216" subinstr-id="0"/>
+                <instruction instr-id="2216" subinstr-id="2"/>
+                <instruction instr-id="2216" subinstr-id="4"/>
+                <instruction instr-id="2216" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="14">
+                <bounding-box x1="313" x2="334" y1="275" y2="284"/>
+                <content>1.4%</content>
+                <instruction instr-id="2245" subinstr-id="0"/>
+                <instruction instr-id="2245" subinstr-id="2"/>
+                <instruction instr-id="2245" subinstr-id="4"/>
+                <instruction instr-id="2245" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="15" end-row="16">
+                <bounding-box x1="58" x2="109" y1="261" y2="270"/>
+                <content>HIV infection</content>
+                <instruction instr-id="2443" subinstr-id="0"/>
+                <instruction instr-id="2443" subinstr-id="2"/>
+                <instruction instr-id="2443" subinstr-id="4"/>
+                <instruction instr-id="2443" subinstr-id="8"/>
+                <instruction instr-id="2443" subinstr-id="10"/>
+                <instruction instr-id="2443" subinstr-id="12"/>
+                <instruction instr-id="2443" subinstr-id="14"/>
+                <instruction instr-id="2443" subinstr-id="16"/>
+                <instruction instr-id="2443" subinstr-id="18"/>
+                <instruction instr-id="2443" subinstr-id="20"/>
+                <instruction instr-id="2443" subinstr-id="22"/>
+                <instruction instr-id="2443" subinstr-id="24"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="15">
+                <bounding-box x1="148" x2="172" y1="261" y2="270"/>
+                <content>Count</content>
+                <instruction instr-id="2312" subinstr-id="0"/>
+                <instruction instr-id="2312" subinstr-id="2"/>
+                <instruction instr-id="2312" subinstr-id="4"/>
+                <instruction instr-id="2312" subinstr-id="6"/>
+                <instruction instr-id="2312" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="15">
+                <bounding-box x1="244" x2="249" y1="261" y2="270"/>
+                <content>0</content>
+                <instruction instr-id="2341" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="15">
+                <bounding-box x1="321" x2="326" y1="261" y2="270"/>
+                <content>0</content>
+                <instruction instr-id="2370" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="16">
+                <bounding-box x1="148" x2="194" y1="247" y2="256"/>
+                <content>Percentage</content>
+                <instruction instr-id="2472" subinstr-id="0"/>
+                <instruction instr-id="2472" subinstr-id="2"/>
+                <instruction instr-id="2472" subinstr-id="4"/>
+                <instruction instr-id="2472" subinstr-id="6"/>
+                <instruction instr-id="2472" subinstr-id="8"/>
+                <instruction instr-id="2472" subinstr-id="10"/>
+                <instruction instr-id="2472" subinstr-id="12"/>
+                <instruction instr-id="2472" subinstr-id="14"/>
+                <instruction instr-id="2472" subinstr-id="16"/>
+                <instruction instr-id="2472" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="16">
+                <bounding-box x1="236" x2="257" y1="247" y2="256"/>
+                <content>0.0%</content>
+                <instruction instr-id="2501" subinstr-id="0"/>
+                <instruction instr-id="2501" subinstr-id="2"/>
+                <instruction instr-id="2501" subinstr-id="4"/>
+                <instruction instr-id="2501" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="16">
+                <bounding-box x1="313" x2="334" y1="247" y2="256"/>
+                <content>0.0%</content>
+                <instruction instr-id="2530" subinstr-id="0"/>
+                <instruction instr-id="2530" subinstr-id="2"/>
+                <instruction instr-id="2530" subinstr-id="4"/>
+                <instruction instr-id="2530" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="17" end-row="18">
+                <bounding-box x1="58" x2="128" y1="223" y2="242"/>
+                <content>Substance abuse
+problem</content>
+                <instruction instr-id="2728" subinstr-id="0"/>
+                <instruction instr-id="2728" subinstr-id="2"/>
+                <instruction instr-id="2728" subinstr-id="4"/>
+                <instruction instr-id="2728" subinstr-id="6"/>
+                <instruction instr-id="2728" subinstr-id="8"/>
+                <instruction instr-id="2728" subinstr-id="10"/>
+                <instruction instr-id="2728" subinstr-id="12"/>
+                <instruction instr-id="2728" subinstr-id="14"/>
+                <instruction instr-id="2728" subinstr-id="16"/>
+                <instruction instr-id="2728" subinstr-id="20"/>
+                <instruction instr-id="2728" subinstr-id="22"/>
+                <instruction instr-id="2728" subinstr-id="24"/>
+                <instruction instr-id="2728" subinstr-id="26"/>
+                <instruction instr-id="2728" subinstr-id="28"/>
+                <instruction instr-id="2740" subinstr-id="0"/>
+                <instruction instr-id="2740" subinstr-id="2"/>
+                <instruction instr-id="2740" subinstr-id="4"/>
+                <instruction instr-id="2740" subinstr-id="6"/>
+                <instruction instr-id="2740" subinstr-id="8"/>
+                <instruction instr-id="2740" subinstr-id="10"/>
+                <instruction instr-id="2740" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="17">
+                <bounding-box x1="148" x2="172" y1="233" y2="242"/>
+                <content>Count</content>
+                <instruction instr-id="2597" subinstr-id="0"/>
+                <instruction instr-id="2597" subinstr-id="2"/>
+                <instruction instr-id="2597" subinstr-id="4"/>
+                <instruction instr-id="2597" subinstr-id="6"/>
+                <instruction instr-id="2597" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="17">
+                <bounding-box x1="242" x2="252" y1="233" y2="242"/>
+                <content>10</content>
+                <instruction instr-id="2626" subinstr-id="0"/>
+                <instruction instr-id="2626" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="17">
+                <bounding-box x1="321" x2="326" y1="233" y2="242"/>
+                <content>0</content>
+                <instruction instr-id="2655" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="18">
+                <bounding-box x1="148" x2="194" y1="219" y2="228"/>
+                <content>Percentage</content>
+                <instruction instr-id="2769" subinstr-id="0"/>
+                <instruction instr-id="2769" subinstr-id="2"/>
+                <instruction instr-id="2769" subinstr-id="4"/>
+                <instruction instr-id="2769" subinstr-id="6"/>
+                <instruction instr-id="2769" subinstr-id="8"/>
+                <instruction instr-id="2769" subinstr-id="10"/>
+                <instruction instr-id="2769" subinstr-id="12"/>
+                <instruction instr-id="2769" subinstr-id="14"/>
+                <instruction instr-id="2769" subinstr-id="16"/>
+                <instruction instr-id="2769" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="18">
+                <bounding-box x1="236" x2="257" y1="219" y2="228"/>
+                <content>2.0%</content>
+                <instruction instr-id="2798" subinstr-id="0"/>
+                <instruction instr-id="2798" subinstr-id="2"/>
+                <instruction instr-id="2798" subinstr-id="4"/>
+                <instruction instr-id="2798" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="18">
+                <bounding-box x1="316" x2="332" y1="219" y2="228"/>
+                <content>.0%</content>
+                <instruction instr-id="2827" subinstr-id="0"/>
+                <instruction instr-id="2827" subinstr-id="2"/>
+                <instruction instr-id="2827" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="19" end-row="20">
+                <bounding-box x1="58" x2="97" y1="205" y2="214"/>
+                <content>Back pain</content>
+                <instruction instr-id="3025" subinstr-id="0"/>
+                <instruction instr-id="3025" subinstr-id="2"/>
+                <instruction instr-id="3025" subinstr-id="4"/>
+                <instruction instr-id="3025" subinstr-id="6"/>
+                <instruction instr-id="3025" subinstr-id="10"/>
+                <instruction instr-id="3025" subinstr-id="12"/>
+                <instruction instr-id="3025" subinstr-id="14"/>
+                <instruction instr-id="3025" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="19">
+                <bounding-box x1="148" x2="172" y1="205" y2="214"/>
+                <content>Count</content>
+                <instruction instr-id="2894" subinstr-id="0"/>
+                <instruction instr-id="2894" subinstr-id="2"/>
+                <instruction instr-id="2894" subinstr-id="4"/>
+                <instruction instr-id="2894" subinstr-id="6"/>
+                <instruction instr-id="2894" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="19">
+                <bounding-box x1="239" x2="254" y1="205" y2="214"/>
+                <content>202</content>
+                <instruction instr-id="2923" subinstr-id="0"/>
+                <instruction instr-id="2923" subinstr-id="2"/>
+                <instruction instr-id="2923" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="19">
+                <bounding-box x1="319" x2="329" y1="205" y2="214"/>
+                <content>56</content>
+                <instruction instr-id="2952" subinstr-id="0"/>
+                <instruction instr-id="2952" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="20">
+                <bounding-box x1="148" x2="194" y1="191" y2="200"/>
+                <content>Percentage</content>
+                <instruction instr-id="3054" subinstr-id="0"/>
+                <instruction instr-id="3054" subinstr-id="2"/>
+                <instruction instr-id="3054" subinstr-id="4"/>
+                <instruction instr-id="3054" subinstr-id="6"/>
+                <instruction instr-id="3054" subinstr-id="8"/>
+                <instruction instr-id="3054" subinstr-id="10"/>
+                <instruction instr-id="3054" subinstr-id="12"/>
+                <instruction instr-id="3054" subinstr-id="14"/>
+                <instruction instr-id="3054" subinstr-id="16"/>
+                <instruction instr-id="3054" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="20">
+                <bounding-box x1="234" x2="260" y1="191" y2="200"/>
+                <content>40.9%</content>
+                <instruction instr-id="3083" subinstr-id="0"/>
+                <instruction instr-id="3083" subinstr-id="2"/>
+                <instruction instr-id="3083" subinstr-id="4"/>
+                <instruction instr-id="3083" subinstr-id="6"/>
+                <instruction instr-id="3083" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="20">
+                <bounding-box x1="311" x2="337" y1="191" y2="200"/>
+                <content>11.3%</content>
+                <instruction instr-id="3112" subinstr-id="0"/>
+                <instruction instr-id="3112" subinstr-id="2"/>
+                <instruction instr-id="3112" subinstr-id="4"/>
+                <instruction instr-id="3112" subinstr-id="6"/>
+                <instruction instr-id="3112" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="21" end-row="22">
+                <bounding-box x1="58" x2="142" y1="177" y2="186"/>
+                <content>Broken bone/fracture</content>
+                <instruction instr-id="3310" subinstr-id="0"/>
+                <instruction instr-id="3310" subinstr-id="2"/>
+                <instruction instr-id="3310" subinstr-id="4"/>
+                <instruction instr-id="3310" subinstr-id="6"/>
+                <instruction instr-id="3310" subinstr-id="8"/>
+                <instruction instr-id="3310" subinstr-id="10"/>
+                <instruction instr-id="3310" subinstr-id="14"/>
+                <instruction instr-id="3310" subinstr-id="16"/>
+                <instruction instr-id="3310" subinstr-id="18"/>
+                <instruction instr-id="3310" subinstr-id="20"/>
+                <instruction instr-id="3310" subinstr-id="22"/>
+                <instruction instr-id="3310" subinstr-id="24"/>
+                <instruction instr-id="3310" subinstr-id="26"/>
+                <instruction instr-id="3310" subinstr-id="28"/>
+                <instruction instr-id="3310" subinstr-id="30"/>
+                <instruction instr-id="3310" subinstr-id="32"/>
+                <instruction instr-id="3310" subinstr-id="34"/>
+                <instruction instr-id="3310" subinstr-id="36"/>
+                <instruction instr-id="3310" subinstr-id="38"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="21">
+                <bounding-box x1="148" x2="172" y1="177" y2="186"/>
+                <content>Count</content>
+                <instruction instr-id="3179" subinstr-id="0"/>
+                <instruction instr-id="3179" subinstr-id="2"/>
+                <instruction instr-id="3179" subinstr-id="4"/>
+                <instruction instr-id="3179" subinstr-id="6"/>
+                <instruction instr-id="3179" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="21">
+                <bounding-box x1="242" x2="252" y1="177" y2="186"/>
+                <content>12</content>
+                <instruction instr-id="3208" subinstr-id="0"/>
+                <instruction instr-id="3208" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="21">
+                <bounding-box x1="319" x2="329" y1="177" y2="186"/>
+                <content>12</content>
+                <instruction instr-id="3237" subinstr-id="0"/>
+                <instruction instr-id="3237" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="22">
+                <bounding-box x1="148" x2="194" y1="163" y2="172"/>
+                <content>Percentage</content>
+                <instruction instr-id="3356" subinstr-id="0"/>
+                <instruction instr-id="3356" subinstr-id="2"/>
+                <instruction instr-id="3356" subinstr-id="4"/>
+                <instruction instr-id="3356" subinstr-id="6"/>
+                <instruction instr-id="3356" subinstr-id="8"/>
+                <instruction instr-id="3356" subinstr-id="10"/>
+                <instruction instr-id="3356" subinstr-id="12"/>
+                <instruction instr-id="3356" subinstr-id="14"/>
+                <instruction instr-id="3356" subinstr-id="16"/>
+                <instruction instr-id="3356" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="22">
+                <bounding-box x1="236" x2="257" y1="163" y2="172"/>
+                <content>2.4%</content>
+                <instruction instr-id="3385" subinstr-id="0"/>
+                <instruction instr-id="3385" subinstr-id="2"/>
+                <instruction instr-id="3385" subinstr-id="4"/>
+                <instruction instr-id="3385" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="22">
+                <bounding-box x1="313" x2="334" y1="163" y2="172"/>
+                <content>2.4%</content>
+                <instruction instr-id="3414" subinstr-id="0"/>
+                <instruction instr-id="3414" subinstr-id="2"/>
+                <instruction instr-id="3414" subinstr-id="4"/>
+                <instruction instr-id="3414" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="23" end-row="24">
+                <bounding-box x1="58" x2="123" y1="138" y2="158"/>
+                <content>Bronchitis/ear or
+sinus infection</content>
+                <instruction instr-id="3612" subinstr-id="0"/>
+                <instruction instr-id="3612" subinstr-id="2"/>
+                <instruction instr-id="3612" subinstr-id="4"/>
+                <instruction instr-id="3612" subinstr-id="6"/>
+                <instruction instr-id="3612" subinstr-id="8"/>
+                <instruction instr-id="3612" subinstr-id="10"/>
+                <instruction instr-id="3612" subinstr-id="12"/>
+                <instruction instr-id="3612" subinstr-id="14"/>
+                <instruction instr-id="3612" subinstr-id="16"/>
+                <instruction instr-id="3612" subinstr-id="18"/>
+                <instruction instr-id="3612" subinstr-id="20"/>
+                <instruction instr-id="3612" subinstr-id="22"/>
+                <instruction instr-id="3612" subinstr-id="24"/>
+                <instruction instr-id="3612" subinstr-id="26"/>
+                <instruction instr-id="3612" subinstr-id="30"/>
+                <instruction instr-id="3612" subinstr-id="32"/>
+                <instruction instr-id="3624" subinstr-id="0"/>
+                <instruction instr-id="3624" subinstr-id="2"/>
+                <instruction instr-id="3624" subinstr-id="4"/>
+                <instruction instr-id="3624" subinstr-id="6"/>
+                <instruction instr-id="3624" subinstr-id="8"/>
+                <instruction instr-id="3624" subinstr-id="12"/>
+                <instruction instr-id="3624" subinstr-id="14"/>
+                <instruction instr-id="3624" subinstr-id="16"/>
+                <instruction instr-id="3624" subinstr-id="18"/>
+                <instruction instr-id="3624" subinstr-id="20"/>
+                <instruction instr-id="3624" subinstr-id="22"/>
+                <instruction instr-id="3624" subinstr-id="24"/>
+                <instruction instr-id="3624" subinstr-id="26"/>
+                <instruction instr-id="3624" subinstr-id="28"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="23">
+                <bounding-box x1="148" x2="172" y1="149" y2="158"/>
+                <content>Count</content>
+                <instruction instr-id="3481" subinstr-id="0"/>
+                <instruction instr-id="3481" subinstr-id="2"/>
+                <instruction instr-id="3481" subinstr-id="4"/>
+                <instruction instr-id="3481" subinstr-id="6"/>
+                <instruction instr-id="3481" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="23">
+                <bounding-box x1="239" x2="254" y1="149" y2="158"/>
+                <content>104</content>
+                <instruction instr-id="3510" subinstr-id="0"/>
+                <instruction instr-id="3510" subinstr-id="2"/>
+                <instruction instr-id="3510" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="23">
+                <bounding-box x1="319" x2="329" y1="149" y2="158"/>
+                <content>87</content>
+                <instruction instr-id="3539" subinstr-id="0"/>
+                <instruction instr-id="3539" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="24">
+                <bounding-box x1="148" x2="194" y1="134" y2="143"/>
+                <content>Percentage</content>
+                <instruction instr-id="3653" subinstr-id="0"/>
+                <instruction instr-id="3653" subinstr-id="2"/>
+                <instruction instr-id="3653" subinstr-id="4"/>
+                <instruction instr-id="3653" subinstr-id="6"/>
+                <instruction instr-id="3653" subinstr-id="8"/>
+                <instruction instr-id="3653" subinstr-id="10"/>
+                <instruction instr-id="3653" subinstr-id="12"/>
+                <instruction instr-id="3653" subinstr-id="14"/>
+                <instruction instr-id="3653" subinstr-id="16"/>
+                <instruction instr-id="3653" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="24">
+                <bounding-box x1="234" x2="260" y1="134" y2="143"/>
+                <content>21.1%</content>
+                <instruction instr-id="3682" subinstr-id="0"/>
+                <instruction instr-id="3682" subinstr-id="2"/>
+                <instruction instr-id="3682" subinstr-id="4"/>
+                <instruction instr-id="3682" subinstr-id="6"/>
+                <instruction instr-id="3682" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="24">
+                <bounding-box x1="311" x2="337" y1="134" y2="143"/>
+                <content>17.6%</content>
+                <instruction instr-id="3711" subinstr-id="0"/>
+                <instruction instr-id="3711" subinstr-id="2"/>
+                <instruction instr-id="3711" subinstr-id="4"/>
+                <instruction instr-id="3711" subinstr-id="6"/>
+                <instruction instr-id="3711" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="25" end-row="26">
+                <bounding-box x1="58" x2="115" y1="120" y2="129"/>
+                <content>Endometriosis</content>
+                <instruction instr-id="3909" subinstr-id="0"/>
+                <instruction instr-id="3909" subinstr-id="2"/>
+                <instruction instr-id="3909" subinstr-id="4"/>
+                <instruction instr-id="3909" subinstr-id="6"/>
+                <instruction instr-id="3909" subinstr-id="8"/>
+                <instruction instr-id="3909" subinstr-id="10"/>
+                <instruction instr-id="3909" subinstr-id="12"/>
+                <instruction instr-id="3909" subinstr-id="14"/>
+                <instruction instr-id="3909" subinstr-id="16"/>
+                <instruction instr-id="3909" subinstr-id="18"/>
+                <instruction instr-id="3909" subinstr-id="20"/>
+                <instruction instr-id="3909" subinstr-id="22"/>
+                <instruction instr-id="3909" subinstr-id="24"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="25">
+                <bounding-box x1="148" x2="172" y1="120" y2="129"/>
+                <content>Count</content>
+                <instruction instr-id="3778" subinstr-id="0"/>
+                <instruction instr-id="3778" subinstr-id="2"/>
+                <instruction instr-id="3778" subinstr-id="4"/>
+                <instruction instr-id="3778" subinstr-id="6"/>
+                <instruction instr-id="3778" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="25">
+                <bounding-box x1="244" x2="249" y1="120" y2="129"/>
+                <content>6</content>
+                <instruction instr-id="3807" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="25">
+                <bounding-box x1="321" x2="326" y1="120" y2="129"/>
+                <content>5</content>
+                <instruction instr-id="3836" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="26">
+                <bounding-box x1="148" x2="194" y1="106" y2="115"/>
+                <content>Percentage</content>
+                <instruction instr-id="3938" subinstr-id="0"/>
+                <instruction instr-id="3938" subinstr-id="2"/>
+                <instruction instr-id="3938" subinstr-id="4"/>
+                <instruction instr-id="3938" subinstr-id="6"/>
+                <instruction instr-id="3938" subinstr-id="8"/>
+                <instruction instr-id="3938" subinstr-id="10"/>
+                <instruction instr-id="3938" subinstr-id="12"/>
+                <instruction instr-id="3938" subinstr-id="14"/>
+                <instruction instr-id="3938" subinstr-id="16"/>
+                <instruction instr-id="3938" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="26">
+                <bounding-box x1="236" x2="257" y1="106" y2="115"/>
+                <content>1.2%</content>
+                <instruction instr-id="3967" subinstr-id="0"/>
+                <instruction instr-id="3967" subinstr-id="2"/>
+                <instruction instr-id="3967" subinstr-id="4"/>
+                <instruction instr-id="3967" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="26">
+                <bounding-box x1="313" x2="334" y1="106" y2="115"/>
+                <content>1.0%</content>
+                <instruction instr-id="3996" subinstr-id="0"/>
+                <instruction instr-id="3996" subinstr-id="2"/>
+                <instruction instr-id="3996" subinstr-id="4"/>
+                <instruction instr-id="3996" subinstr-id="6"/>
+            </cell>
+        </region>
+    </table>
+    <table id="2">
+        <region col-increment="0" id="1" row-increment="0" page='7'>
+            <cell id="1" start-col="0" end-col="1" start-row="0">
+                <bounding-box x1="62" x2="96" y1="500" y2="509"/>
+                <content>Difficulty</content>
+                <instruction instr-id="112" subinstr-id="0"/>
+                <instruction instr-id="112" subinstr-id="2"/>
+                <instruction instr-id="112" subinstr-id="4"/>
+                <instruction instr-id="112" subinstr-id="6"/>
+                <instruction instr-id="112" subinstr-id="8"/>
+                <instruction instr-id="112" subinstr-id="10"/>
+                <instruction instr-id="112" subinstr-id="12"/>
+                <instruction instr-id="112" subinstr-id="14"/>
+                <instruction instr-id="112" subinstr-id="16"/>
+                <instruction instr-id="112" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="0">
+                <bounding-box x1="211" x2="252" y1="500" y2="509"/>
+                <content>Quite a lot</content>
+                <instruction instr-id="141" subinstr-id="0"/>
+                <instruction instr-id="141" subinstr-id="2"/>
+                <instruction instr-id="141" subinstr-id="4"/>
+                <instruction instr-id="141" subinstr-id="6"/>
+                <instruction instr-id="141" subinstr-id="8"/>
+                <instruction instr-id="141" subinstr-id="12"/>
+                <instruction instr-id="141" subinstr-id="16"/>
+                <instruction instr-id="141" subinstr-id="18"/>
+                <instruction instr-id="141" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="0">
+                <bounding-box x1="263" x2="301" y1="500" y2="509"/>
+                <content>Not much</content>
+                <instruction instr-id="187" subinstr-id="0"/>
+                <instruction instr-id="187" subinstr-id="2"/>
+                <instruction instr-id="187" subinstr-id="4"/>
+                <instruction instr-id="187" subinstr-id="8"/>
+                <instruction instr-id="187" subinstr-id="10"/>
+                <instruction instr-id="187" subinstr-id="12"/>
+                <instruction instr-id="187" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="0">
+                <bounding-box x1="315" x2="351" y1="500" y2="509"/>
+                <content>Not at all</content>
+                <instruction instr-id="233" subinstr-id="0"/>
+                <instruction instr-id="233" subinstr-id="2"/>
+                <instruction instr-id="233" subinstr-id="4"/>
+                <instruction instr-id="233" subinstr-id="8"/>
+                <instruction instr-id="233" subinstr-id="10"/>
+                <instruction instr-id="233" subinstr-id="14"/>
+                <instruction instr-id="233" subinstr-id="16"/>
+                <instruction instr-id="233" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="1" end-row="2">
+                <bounding-box x1="62" x2="111" y1="485" y2="494"/>
+                <content>Alcohol use</content>
+                <instruction instr-id="556" subinstr-id="0"/>
+                <instruction instr-id="556" subinstr-id="2"/>
+                <instruction instr-id="556" subinstr-id="4"/>
+                <instruction instr-id="556" subinstr-id="6"/>
+                <instruction instr-id="556" subinstr-id="8"/>
+                <instruction instr-id="556" subinstr-id="10"/>
+                <instruction instr-id="556" subinstr-id="12"/>
+                <instruction instr-id="556" subinstr-id="16"/>
+                <instruction instr-id="556" subinstr-id="18"/>
+                <instruction instr-id="556" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="154" x2="179" y1="485" y2="494"/>
+                <content>Count</content>
+                <instruction instr-id="323" subinstr-id="0"/>
+                <instruction instr-id="323" subinstr-id="2"/>
+                <instruction instr-id="323" subinstr-id="4"/>
+                <instruction instr-id="323" subinstr-id="6"/>
+                <instruction instr-id="323" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="245" x2="255" y1="485" y2="494"/>
+                <content>20</content>
+                <instruction instr-id="352" subinstr-id="0"/>
+                <instruction instr-id="352" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="296" x2="306" y1="485" y2="494"/>
+                <content>56</content>
+                <instruction instr-id="398" subinstr-id="0"/>
+                <instruction instr-id="398" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="1">
+                <bounding-box x1="341" x2="357" y1="485" y2="494"/>
+                <content>391</content>
+                <instruction instr-id="444" subinstr-id="0"/>
+                <instruction instr-id="444" subinstr-id="2"/>
+                <instruction instr-id="444" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="154" x2="202" y1="470" y2="480"/>
+                <content>Percentage</content>
+                <instruction instr-id="597" subinstr-id="0"/>
+                <instruction instr-id="597" subinstr-id="2"/>
+                <instruction instr-id="597" subinstr-id="4"/>
+                <instruction instr-id="597" subinstr-id="6"/>
+                <instruction instr-id="597" subinstr-id="8"/>
+                <instruction instr-id="597" subinstr-id="10"/>
+                <instruction instr-id="597" subinstr-id="12"/>
+                <instruction instr-id="597" subinstr-id="14"/>
+                <instruction instr-id="597" subinstr-id="16"/>
+                <instruction instr-id="597" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="235" x2="255" y1="471" y2="480"/>
+                <content>4.3%</content>
+                <instruction instr-id="643" subinstr-id="0"/>
+                <instruction instr-id="643" subinstr-id="2"/>
+                <instruction instr-id="643" subinstr-id="4"/>
+                <instruction instr-id="643" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="280" x2="306" y1="471" y2="480"/>
+                <content>12.0%</content>
+                <instruction instr-id="689" subinstr-id="0"/>
+                <instruction instr-id="689" subinstr-id="2"/>
+                <instruction instr-id="689" subinstr-id="4"/>
+                <instruction instr-id="689" subinstr-id="6"/>
+                <instruction instr-id="689" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="2">
+                <bounding-box x1="331" x2="357" y1="471" y2="480"/>
+                <content>83.7%</content>
+                <instruction instr-id="735" subinstr-id="0"/>
+                <instruction instr-id="735" subinstr-id="2"/>
+                <instruction instr-id="735" subinstr-id="4"/>
+                <instruction instr-id="735" subinstr-id="6"/>
+                <instruction instr-id="735" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3" end-row="4">
+                <bounding-box x1="62" x2="99" y1="455" y2="465"/>
+                <content>Allergies</content>
+                <instruction instr-id="1050" subinstr-id="0"/>
+                <instruction instr-id="1050" subinstr-id="2"/>
+                <instruction instr-id="1050" subinstr-id="4"/>
+                <instruction instr-id="1050" subinstr-id="6"/>
+                <instruction instr-id="1050" subinstr-id="8"/>
+                <instruction instr-id="1050" subinstr-id="10"/>
+                <instruction instr-id="1050" subinstr-id="12"/>
+                <instruction instr-id="1050" subinstr-id="14"/>
+                <instruction instr-id="1050" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="154" x2="179" y1="455" y2="465"/>
+                <content>Count</content>
+                <instruction instr-id="829" subinstr-id="0"/>
+                <instruction instr-id="829" subinstr-id="2"/>
+                <instruction instr-id="829" subinstr-id="4"/>
+                <instruction instr-id="829" subinstr-id="6"/>
+                <instruction instr-id="829" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="245" x2="255" y1="456" y2="465"/>
+                <content>40</content>
+                <instruction instr-id="858" subinstr-id="0"/>
+                <instruction instr-id="858" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="296" x2="306" y1="456" y2="465"/>
+                <content>28</content>
+                <instruction instr-id="904" subinstr-id="0"/>
+                <instruction instr-id="904" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="3">
+                <bounding-box x1="341" x2="357" y1="456" y2="465"/>
+                <content>398</content>
+                <instruction instr-id="950" subinstr-id="0"/>
+                <instruction instr-id="950" subinstr-id="2"/>
+                <instruction instr-id="950" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="154" x2="202" y1="441" y2="450"/>
+                <content>Percentage</content>
+                <instruction instr-id="1079" subinstr-id="0"/>
+                <instruction instr-id="1079" subinstr-id="2"/>
+                <instruction instr-id="1079" subinstr-id="4"/>
+                <instruction instr-id="1079" subinstr-id="6"/>
+                <instruction instr-id="1079" subinstr-id="8"/>
+                <instruction instr-id="1079" subinstr-id="10"/>
+                <instruction instr-id="1079" subinstr-id="12"/>
+                <instruction instr-id="1079" subinstr-id="14"/>
+                <instruction instr-id="1079" subinstr-id="16"/>
+                <instruction instr-id="1079" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="235" x2="255" y1="441" y2="450"/>
+                <content>8.6%</content>
+                <instruction instr-id="1125" subinstr-id="0"/>
+                <instruction instr-id="1125" subinstr-id="2"/>
+                <instruction instr-id="1125" subinstr-id="4"/>
+                <instruction instr-id="1125" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="285" x2="306" y1="441" y2="450"/>
+                <content>6.0%</content>
+                <instruction instr-id="1171" subinstr-id="0"/>
+                <instruction instr-id="1171" subinstr-id="2"/>
+                <instruction instr-id="1171" subinstr-id="4"/>
+                <instruction instr-id="1171" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="4">
+                <bounding-box x1="331" x2="357" y1="441" y2="450"/>
+                <content>85.4%</content>
+                <instruction instr-id="1217" subinstr-id="0"/>
+                <instruction instr-id="1217" subinstr-id="2"/>
+                <instruction instr-id="1217" subinstr-id="4"/>
+                <instruction instr-id="1217" subinstr-id="6"/>
+                <instruction instr-id="1217" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5" end-row="6">
+                <bounding-box x1="62" x2="143" y1="415" y2="436"/>
+                <content>Chronic illness and
+chronic pain</content>
+                <instruction instr-id="1532" subinstr-id="0"/>
+                <instruction instr-id="1532" subinstr-id="2"/>
+                <instruction instr-id="1532" subinstr-id="4"/>
+                <instruction instr-id="1532" subinstr-id="6"/>
+                <instruction instr-id="1532" subinstr-id="8"/>
+                <instruction instr-id="1532" subinstr-id="10"/>
+                <instruction instr-id="1532" subinstr-id="12"/>
+                <instruction instr-id="1532" subinstr-id="16"/>
+                <instruction instr-id="1532" subinstr-id="18"/>
+                <instruction instr-id="1532" subinstr-id="20"/>
+                <instruction instr-id="1532" subinstr-id="22"/>
+                <instruction instr-id="1532" subinstr-id="24"/>
+                <instruction instr-id="1532" subinstr-id="26"/>
+                <instruction instr-id="1532" subinstr-id="28"/>
+                <instruction instr-id="1532" subinstr-id="32"/>
+                <instruction instr-id="1532" subinstr-id="34"/>
+                <instruction instr-id="1532" subinstr-id="36"/>
+                <instruction instr-id="1544" subinstr-id="0"/>
+                <instruction instr-id="1544" subinstr-id="2"/>
+                <instruction instr-id="1544" subinstr-id="4"/>
+                <instruction instr-id="1544" subinstr-id="6"/>
+                <instruction instr-id="1544" subinstr-id="8"/>
+                <instruction instr-id="1544" subinstr-id="10"/>
+                <instruction instr-id="1544" subinstr-id="12"/>
+                <instruction instr-id="1544" subinstr-id="16"/>
+                <instruction instr-id="1544" subinstr-id="18"/>
+                <instruction instr-id="1544" subinstr-id="20"/>
+                <instruction instr-id="1544" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="154" x2="179" y1="426" y2="436"/>
+                <content>Count</content>
+                <instruction instr-id="1311" subinstr-id="0"/>
+                <instruction instr-id="1311" subinstr-id="2"/>
+                <instruction instr-id="1311" subinstr-id="4"/>
+                <instruction instr-id="1311" subinstr-id="6"/>
+                <instruction instr-id="1311" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="245" x2="255" y1="427" y2="436"/>
+                <content>19</content>
+                <instruction instr-id="1340" subinstr-id="0"/>
+                <instruction instr-id="1340" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="296" x2="306" y1="427" y2="436"/>
+                <content>15</content>
+                <instruction instr-id="1386" subinstr-id="0"/>
+                <instruction instr-id="1386" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="5">
+                <bounding-box x1="341" x2="357" y1="427" y2="436"/>
+                <content>425</content>
+                <instruction instr-id="1432" subinstr-id="0"/>
+                <instruction instr-id="1432" subinstr-id="2"/>
+                <instruction instr-id="1432" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="154" x2="202" y1="411" y2="421"/>
+                <content>Percentage</content>
+                <instruction instr-id="1573" subinstr-id="0"/>
+                <instruction instr-id="1573" subinstr-id="2"/>
+                <instruction instr-id="1573" subinstr-id="4"/>
+                <instruction instr-id="1573" subinstr-id="6"/>
+                <instruction instr-id="1573" subinstr-id="8"/>
+                <instruction instr-id="1573" subinstr-id="10"/>
+                <instruction instr-id="1573" subinstr-id="12"/>
+                <instruction instr-id="1573" subinstr-id="14"/>
+                <instruction instr-id="1573" subinstr-id="16"/>
+                <instruction instr-id="1573" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="235" x2="255" y1="412" y2="421"/>
+                <content>4.1%</content>
+                <instruction instr-id="1619" subinstr-id="0"/>
+                <instruction instr-id="1619" subinstr-id="2"/>
+                <instruction instr-id="1619" subinstr-id="4"/>
+                <instruction instr-id="1619" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="285" x2="306" y1="412" y2="421"/>
+                <content>3.3%</content>
+                <instruction instr-id="1665" subinstr-id="0"/>
+                <instruction instr-id="1665" subinstr-id="2"/>
+                <instruction instr-id="1665" subinstr-id="4"/>
+                <instruction instr-id="1665" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="6">
+                <bounding-box x1="331" x2="357" y1="412" y2="421"/>
+                <content>92.6%</content>
+                <instruction instr-id="1711" subinstr-id="0"/>
+                <instruction instr-id="1711" subinstr-id="2"/>
+                <instruction instr-id="1711" subinstr-id="4"/>
+                <instruction instr-id="1711" subinstr-id="6"/>
+                <instruction instr-id="1711" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7" end-row="8">
+                <bounding-box x1="62" x2="124" y1="386" y2="406"/>
+                <content>Colds/flu/sinus
+infections</content>
+                <instruction instr-id="2026" subinstr-id="0"/>
+                <instruction instr-id="2026" subinstr-id="2"/>
+                <instruction instr-id="2026" subinstr-id="4"/>
+                <instruction instr-id="2026" subinstr-id="6"/>
+                <instruction instr-id="2026" subinstr-id="8"/>
+                <instruction instr-id="2026" subinstr-id="10"/>
+                <instruction instr-id="2026" subinstr-id="12"/>
+                <instruction instr-id="2026" subinstr-id="14"/>
+                <instruction instr-id="2026" subinstr-id="16"/>
+                <instruction instr-id="2026" subinstr-id="18"/>
+                <instruction instr-id="2026" subinstr-id="20"/>
+                <instruction instr-id="2026" subinstr-id="22"/>
+                <instruction instr-id="2026" subinstr-id="24"/>
+                <instruction instr-id="2026" subinstr-id="26"/>
+                <instruction instr-id="2026" subinstr-id="28"/>
+                <instruction instr-id="2038" subinstr-id="0"/>
+                <instruction instr-id="2038" subinstr-id="2"/>
+                <instruction instr-id="2038" subinstr-id="4"/>
+                <instruction instr-id="2038" subinstr-id="6"/>
+                <instruction instr-id="2038" subinstr-id="8"/>
+                <instruction instr-id="2038" subinstr-id="10"/>
+                <instruction instr-id="2038" subinstr-id="12"/>
+                <instruction instr-id="2038" subinstr-id="14"/>
+                <instruction instr-id="2038" subinstr-id="16"/>
+                <instruction instr-id="2038" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="154" x2="179" y1="397" y2="406"/>
+                <content>Count</content>
+                <instruction instr-id="1805" subinstr-id="0"/>
+                <instruction instr-id="1805" subinstr-id="2"/>
+                <instruction instr-id="1805" subinstr-id="4"/>
+                <instruction instr-id="1805" subinstr-id="6"/>
+                <instruction instr-id="1805" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="245" x2="255" y1="397" y2="406"/>
+                <content>89</content>
+                <instruction instr-id="1834" subinstr-id="0"/>
+                <instruction instr-id="1834" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="291" x2="306" y1="397" y2="406"/>
+                <content>138</content>
+                <instruction instr-id="1880" subinstr-id="0"/>
+                <instruction instr-id="1880" subinstr-id="2"/>
+                <instruction instr-id="1880" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="7">
+                <bounding-box x1="341" x2="357" y1="397" y2="406"/>
+                <content>238</content>
+                <instruction instr-id="1926" subinstr-id="0"/>
+                <instruction instr-id="1926" subinstr-id="2"/>
+                <instruction instr-id="1926" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="154" x2="202" y1="382" y2="392"/>
+                <content>Percentage</content>
+                <instruction instr-id="2067" subinstr-id="0"/>
+                <instruction instr-id="2067" subinstr-id="2"/>
+                <instruction instr-id="2067" subinstr-id="4"/>
+                <instruction instr-id="2067" subinstr-id="6"/>
+                <instruction instr-id="2067" subinstr-id="8"/>
+                <instruction instr-id="2067" subinstr-id="10"/>
+                <instruction instr-id="2067" subinstr-id="12"/>
+                <instruction instr-id="2067" subinstr-id="14"/>
+                <instruction instr-id="2067" subinstr-id="16"/>
+                <instruction instr-id="2067" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="230" x2="255" y1="383" y2="392"/>
+                <content>19.1%</content>
+                <instruction instr-id="2113" subinstr-id="0"/>
+                <instruction instr-id="2113" subinstr-id="2"/>
+                <instruction instr-id="2113" subinstr-id="4"/>
+                <instruction instr-id="2113" subinstr-id="6"/>
+                <instruction instr-id="2113" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="280" x2="306" y1="383" y2="392"/>
+                <content>29.7%</content>
+                <instruction instr-id="2159" subinstr-id="0"/>
+                <instruction instr-id="2159" subinstr-id="2"/>
+                <instruction instr-id="2159" subinstr-id="4"/>
+                <instruction instr-id="2159" subinstr-id="6"/>
+                <instruction instr-id="2159" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="8">
+                <bounding-box x1="331" x2="357" y1="383" y2="392"/>
+                <content>51.2%</content>
+                <instruction instr-id="2205" subinstr-id="0"/>
+                <instruction instr-id="2205" subinstr-id="2"/>
+                <instruction instr-id="2205" subinstr-id="4"/>
+                <instruction instr-id="2205" subinstr-id="6"/>
+                <instruction instr-id="2205" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9" end-row="10">
+                <bounding-box x1="62" x2="150" y1="357" y2="377"/>
+                <content>Concern over friends
+or family</content>
+                <instruction instr-id="2528" subinstr-id="0"/>
+                <instruction instr-id="2528" subinstr-id="2"/>
+                <instruction instr-id="2528" subinstr-id="4"/>
+                <instruction instr-id="2528" subinstr-id="6"/>
+                <instruction instr-id="2528" subinstr-id="8"/>
+                <instruction instr-id="2528" subinstr-id="10"/>
+                <instruction instr-id="2528" subinstr-id="12"/>
+                <instruction instr-id="2528" subinstr-id="16"/>
+                <instruction instr-id="2528" subinstr-id="18"/>
+                <instruction instr-id="2528" subinstr-id="20"/>
+                <instruction instr-id="2528" subinstr-id="22"/>
+                <instruction instr-id="2528" subinstr-id="26"/>
+                <instruction instr-id="2528" subinstr-id="28"/>
+                <instruction instr-id="2528" subinstr-id="30"/>
+                <instruction instr-id="2528" subinstr-id="32"/>
+                <instruction instr-id="2528" subinstr-id="34"/>
+                <instruction instr-id="2528" subinstr-id="36"/>
+                <instruction instr-id="2528" subinstr-id="38"/>
+                <instruction instr-id="2540" subinstr-id="0"/>
+                <instruction instr-id="2540" subinstr-id="2"/>
+                <instruction instr-id="2540" subinstr-id="6"/>
+                <instruction instr-id="2540" subinstr-id="8"/>
+                <instruction instr-id="2540" subinstr-id="10"/>
+                <instruction instr-id="2540" subinstr-id="12"/>
+                <instruction instr-id="2540" subinstr-id="14"/>
+                <instruction instr-id="2540" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="154" x2="179" y1="367" y2="377"/>
+                <content>Count</content>
+                <instruction instr-id="2299" subinstr-id="0"/>
+                <instruction instr-id="2299" subinstr-id="2"/>
+                <instruction instr-id="2299" subinstr-id="4"/>
+                <instruction instr-id="2299" subinstr-id="6"/>
+                <instruction instr-id="2299" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="240" x2="255" y1="368" y2="377"/>
+                <content>125</content>
+                <instruction instr-id="2328" subinstr-id="0"/>
+                <instruction instr-id="2328" subinstr-id="2"/>
+                <instruction instr-id="2328" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="291" x2="306" y1="368" y2="377"/>
+                <content>138</content>
+                <instruction instr-id="2374" subinstr-id="0"/>
+                <instruction instr-id="2374" subinstr-id="2"/>
+                <instruction instr-id="2374" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="9">
+                <bounding-box x1="341" x2="357" y1="368" y2="377"/>
+                <content>203</content>
+                <instruction instr-id="2420" subinstr-id="0"/>
+                <instruction instr-id="2420" subinstr-id="2"/>
+                <instruction instr-id="2420" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="154" x2="202" y1="353" y2="362"/>
+                <content>Percentage</content>
+                <instruction instr-id="2569" subinstr-id="0"/>
+                <instruction instr-id="2569" subinstr-id="2"/>
+                <instruction instr-id="2569" subinstr-id="4"/>
+                <instruction instr-id="2569" subinstr-id="6"/>
+                <instruction instr-id="2569" subinstr-id="8"/>
+                <instruction instr-id="2569" subinstr-id="10"/>
+                <instruction instr-id="2569" subinstr-id="12"/>
+                <instruction instr-id="2569" subinstr-id="14"/>
+                <instruction instr-id="2569" subinstr-id="16"/>
+                <instruction instr-id="2569" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="230" x2="255" y1="353" y2="362"/>
+                <content>26.8%</content>
+                <instruction instr-id="2615" subinstr-id="0"/>
+                <instruction instr-id="2615" subinstr-id="2"/>
+                <instruction instr-id="2615" subinstr-id="4"/>
+                <instruction instr-id="2615" subinstr-id="6"/>
+                <instruction instr-id="2615" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="280" x2="306" y1="353" y2="362"/>
+                <content>29.6%</content>
+                <instruction instr-id="2661" subinstr-id="0"/>
+                <instruction instr-id="2661" subinstr-id="2"/>
+                <instruction instr-id="2661" subinstr-id="4"/>
+                <instruction instr-id="2661" subinstr-id="6"/>
+                <instruction instr-id="2661" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="10">
+                <bounding-box x1="331" x2="357" y1="353" y2="362"/>
+                <content>43.6%</content>
+                <instruction instr-id="2707" subinstr-id="0"/>
+                <instruction instr-id="2707" subinstr-id="2"/>
+                <instruction instr-id="2707" subinstr-id="4"/>
+                <instruction instr-id="2707" subinstr-id="6"/>
+                <instruction instr-id="2707" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="11" end-row="12">
+                <bounding-box x1="62" x2="143" y1="338" y2="348"/>
+                <content>Depression/anxiety</content>
+                <instruction instr-id="3022" subinstr-id="0"/>
+                <instruction instr-id="3022" subinstr-id="2"/>
+                <instruction instr-id="3022" subinstr-id="4"/>
+                <instruction instr-id="3022" subinstr-id="6"/>
+                <instruction instr-id="3022" subinstr-id="8"/>
+                <instruction instr-id="3022" subinstr-id="10"/>
+                <instruction instr-id="3022" subinstr-id="12"/>
+                <instruction instr-id="3022" subinstr-id="14"/>
+                <instruction instr-id="3022" subinstr-id="16"/>
+                <instruction instr-id="3022" subinstr-id="18"/>
+                <instruction instr-id="3022" subinstr-id="20"/>
+                <instruction instr-id="3022" subinstr-id="22"/>
+                <instruction instr-id="3022" subinstr-id="24"/>
+                <instruction instr-id="3022" subinstr-id="26"/>
+                <instruction instr-id="3022" subinstr-id="28"/>
+                <instruction instr-id="3022" subinstr-id="30"/>
+                <instruction instr-id="3022" subinstr-id="32"/>
+                <instruction instr-id="3022" subinstr-id="34"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="154" x2="179" y1="338" y2="348"/>
+                <content>Count</content>
+                <instruction instr-id="2801" subinstr-id="0"/>
+                <instruction instr-id="2801" subinstr-id="2"/>
+                <instruction instr-id="2801" subinstr-id="4"/>
+                <instruction instr-id="2801" subinstr-id="6"/>
+                <instruction instr-id="2801" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="245" x2="255" y1="339" y2="348"/>
+                <content>80</content>
+                <instruction instr-id="2830" subinstr-id="0"/>
+                <instruction instr-id="2830" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="11">
+                <bounding-box x1="296" x2="306" y1="339" y2="348"/>
+                <content>98</content>
+                <instruction instr-id="2876" subinstr-id="0"/>
+                <instruction instr-id="2876" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="11">
+                <bounding-box x1="341" x2="357" y1="339" y2="348"/>
+                <content>288</content>
+                <instruction instr-id="2922" subinstr-id="0"/>
+                <instruction instr-id="2922" subinstr-id="2"/>
+                <instruction instr-id="2922" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="154" x2="202" y1="323" y2="333"/>
+                <content>Percentage</content>
+                <instruction instr-id="3051" subinstr-id="0"/>
+                <instruction instr-id="3051" subinstr-id="2"/>
+                <instruction instr-id="3051" subinstr-id="4"/>
+                <instruction instr-id="3051" subinstr-id="6"/>
+                <instruction instr-id="3051" subinstr-id="8"/>
+                <instruction instr-id="3051" subinstr-id="10"/>
+                <instruction instr-id="3051" subinstr-id="12"/>
+                <instruction instr-id="3051" subinstr-id="14"/>
+                <instruction instr-id="3051" subinstr-id="16"/>
+                <instruction instr-id="3051" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="230" x2="255" y1="324" y2="333"/>
+                <content>17.2%</content>
+                <instruction instr-id="3097" subinstr-id="0"/>
+                <instruction instr-id="3097" subinstr-id="2"/>
+                <instruction instr-id="3097" subinstr-id="4"/>
+                <instruction instr-id="3097" subinstr-id="6"/>
+                <instruction instr-id="3097" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="12">
+                <bounding-box x1="280" x2="306" y1="324" y2="333"/>
+                <content>21.0%</content>
+                <instruction instr-id="3143" subinstr-id="0"/>
+                <instruction instr-id="3143" subinstr-id="2"/>
+                <instruction instr-id="3143" subinstr-id="4"/>
+                <instruction instr-id="3143" subinstr-id="6"/>
+                <instruction instr-id="3143" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="12">
+                <bounding-box x1="331" x2="357" y1="324" y2="333"/>
+                <content>61.8%</content>
+                <instruction instr-id="3189" subinstr-id="0"/>
+                <instruction instr-id="3189" subinstr-id="2"/>
+                <instruction instr-id="3189" subinstr-id="4"/>
+                <instruction instr-id="3189" subinstr-id="6"/>
+                <instruction instr-id="3189" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="13" end-row="14">
+                <bounding-box x1="62" x2="101" y1="309" y2="318"/>
+                <content>Drug use</content>
+                <instruction instr-id="3504" subinstr-id="0"/>
+                <instruction instr-id="3504" subinstr-id="2"/>
+                <instruction instr-id="3504" subinstr-id="4"/>
+                <instruction instr-id="3504" subinstr-id="6"/>
+                <instruction instr-id="3504" subinstr-id="10"/>
+                <instruction instr-id="3504" subinstr-id="12"/>
+                <instruction instr-id="3504" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="13">
+                <bounding-box x1="154" x2="179" y1="309" y2="318"/>
+                <content>Count</content>
+                <instruction instr-id="3283" subinstr-id="0"/>
+                <instruction instr-id="3283" subinstr-id="2"/>
+                <instruction instr-id="3283" subinstr-id="4"/>
+                <instruction instr-id="3283" subinstr-id="6"/>
+                <instruction instr-id="3283" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="13">
+                <bounding-box x1="250" x2="255" y1="309" y2="318"/>
+                <content>4</content>
+                <instruction instr-id="3312" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="13">
+                <bounding-box x1="301" x2="306" y1="309" y2="318"/>
+                <content>7</content>
+                <instruction instr-id="3358" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="13">
+                <bounding-box x1="341" x2="357" y1="309" y2="318"/>
+                <content>448</content>
+                <instruction instr-id="3404" subinstr-id="0"/>
+                <instruction instr-id="3404" subinstr-id="2"/>
+                <instruction instr-id="3404" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="14">
+                <bounding-box x1="154" x2="202" y1="294" y2="304"/>
+                <content>Percentage</content>
+                <instruction instr-id="3533" subinstr-id="0"/>
+                <instruction instr-id="3533" subinstr-id="2"/>
+                <instruction instr-id="3533" subinstr-id="4"/>
+                <instruction instr-id="3533" subinstr-id="6"/>
+                <instruction instr-id="3533" subinstr-id="8"/>
+                <instruction instr-id="3533" subinstr-id="10"/>
+                <instruction instr-id="3533" subinstr-id="12"/>
+                <instruction instr-id="3533" subinstr-id="14"/>
+                <instruction instr-id="3533" subinstr-id="16"/>
+                <instruction instr-id="3533" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="14">
+                <bounding-box x1="240" x2="255" y1="295" y2="304"/>
+                <content>.9%</content>
+                <instruction instr-id="3579" subinstr-id="0"/>
+                <instruction instr-id="3579" subinstr-id="2"/>
+                <instruction instr-id="3579" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="14">
+                <bounding-box x1="285" x2="306" y1="295" y2="304"/>
+                <content>1.5%</content>
+                <instruction instr-id="3625" subinstr-id="0"/>
+                <instruction instr-id="3625" subinstr-id="2"/>
+                <instruction instr-id="3625" subinstr-id="4"/>
+                <instruction instr-id="3625" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="14">
+                <bounding-box x1="331" x2="357" y1="295" y2="304"/>
+                <content>97.6%</content>
+                <instruction instr-id="3671" subinstr-id="0"/>
+                <instruction instr-id="3671" subinstr-id="2"/>
+                <instruction instr-id="3671" subinstr-id="4"/>
+                <instruction instr-id="3671" subinstr-id="6"/>
+                <instruction instr-id="3671" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="15" end-row="16">
+                <bounding-box x1="62" x2="126" y1="280" y2="289"/>
+                <content>Eating disorder</content>
+                <instruction instr-id="3986" subinstr-id="0"/>
+                <instruction instr-id="3986" subinstr-id="2"/>
+                <instruction instr-id="3986" subinstr-id="4"/>
+                <instruction instr-id="3986" subinstr-id="6"/>
+                <instruction instr-id="3986" subinstr-id="8"/>
+                <instruction instr-id="3986" subinstr-id="10"/>
+                <instruction instr-id="3986" subinstr-id="14"/>
+                <instruction instr-id="3986" subinstr-id="16"/>
+                <instruction instr-id="3986" subinstr-id="18"/>
+                <instruction instr-id="3986" subinstr-id="20"/>
+                <instruction instr-id="3986" subinstr-id="22"/>
+                <instruction instr-id="3986" subinstr-id="24"/>
+                <instruction instr-id="3986" subinstr-id="26"/>
+                <instruction instr-id="3986" subinstr-id="28"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="15">
+                <bounding-box x1="154" x2="179" y1="280" y2="289"/>
+                <content>Count</content>
+                <instruction instr-id="3765" subinstr-id="0"/>
+                <instruction instr-id="3765" subinstr-id="2"/>
+                <instruction instr-id="3765" subinstr-id="4"/>
+                <instruction instr-id="3765" subinstr-id="6"/>
+                <instruction instr-id="3765" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="15">
+                <bounding-box x1="245" x2="255" y1="280" y2="289"/>
+                <content>16</content>
+                <instruction instr-id="3794" subinstr-id="0"/>
+                <instruction instr-id="3794" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="15">
+                <bounding-box x1="296" x2="306" y1="280" y2="289"/>
+                <content>39</content>
+                <instruction instr-id="3840" subinstr-id="0"/>
+                <instruction instr-id="3840" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="15">
+                <bounding-box x1="341" x2="357" y1="280" y2="289"/>
+                <content>409</content>
+                <instruction instr-id="3886" subinstr-id="0"/>
+                <instruction instr-id="3886" subinstr-id="2"/>
+                <instruction instr-id="3886" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="16">
+                <bounding-box x1="154" x2="202" y1="265" y2="274"/>
+                <content>Percentage</content>
+                <instruction instr-id="4015" subinstr-id="0"/>
+                <instruction instr-id="4015" subinstr-id="2"/>
+                <instruction instr-id="4015" subinstr-id="4"/>
+                <instruction instr-id="4015" subinstr-id="6"/>
+                <instruction instr-id="4015" subinstr-id="8"/>
+                <instruction instr-id="4015" subinstr-id="10"/>
+                <instruction instr-id="4015" subinstr-id="12"/>
+                <instruction instr-id="4015" subinstr-id="14"/>
+                <instruction instr-id="4015" subinstr-id="16"/>
+                <instruction instr-id="4015" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="16">
+                <bounding-box x1="235" x2="255" y1="265" y2="274"/>
+                <content>3.4%</content>
+                <instruction instr-id="4061" subinstr-id="0"/>
+                <instruction instr-id="4061" subinstr-id="2"/>
+                <instruction instr-id="4061" subinstr-id="4"/>
+                <instruction instr-id="4061" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="16">
+                <bounding-box x1="285" x2="306" y1="265" y2="274"/>
+                <content>8.4%</content>
+                <instruction instr-id="4107" subinstr-id="0"/>
+                <instruction instr-id="4107" subinstr-id="2"/>
+                <instruction instr-id="4107" subinstr-id="4"/>
+                <instruction instr-id="4107" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="16">
+                <bounding-box x1="331" x2="357" y1="265" y2="274"/>
+                <content>88.1%</content>
+                <instruction instr-id="4153" subinstr-id="0"/>
+                <instruction instr-id="4153" subinstr-id="2"/>
+                <instruction instr-id="4153" subinstr-id="4"/>
+                <instruction instr-id="4153" subinstr-id="6"/>
+                <instruction instr-id="4153" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="17" end-row="18">
+                <bounding-box x1="62" x2="85" y1="250" y2="260"/>
+                <content>Injury</content>
+                <instruction instr-id="4468" subinstr-id="0"/>
+                <instruction instr-id="4468" subinstr-id="2"/>
+                <instruction instr-id="4468" subinstr-id="4"/>
+                <instruction instr-id="4468" subinstr-id="6"/>
+                <instruction instr-id="4468" subinstr-id="8"/>
+                <instruction instr-id="4468" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="17">
+                <bounding-box x1="154" x2="179" y1="250" y2="260"/>
+                <content>Count</content>
+                <instruction instr-id="4247" subinstr-id="0"/>
+                <instruction instr-id="4247" subinstr-id="2"/>
+                <instruction instr-id="4247" subinstr-id="4"/>
+                <instruction instr-id="4247" subinstr-id="6"/>
+                <instruction instr-id="4247" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="17">
+                <bounding-box x1="250" x2="255" y1="251" y2="260"/>
+                <content>7</content>
+                <instruction instr-id="4276" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="17">
+                <bounding-box x1="296" x2="306" y1="251" y2="260"/>
+                <content>23</content>
+                <instruction instr-id="4322" subinstr-id="0"/>
+                <instruction instr-id="4322" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="17">
+                <bounding-box x1="341" x2="357" y1="251" y2="260"/>
+                <content>432</content>
+                <instruction instr-id="4368" subinstr-id="0"/>
+                <instruction instr-id="4368" subinstr-id="2"/>
+                <instruction instr-id="4368" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="18">
+                <bounding-box x1="154" x2="202" y1="235" y2="245"/>
+                <content>Percentage</content>
+                <instruction instr-id="4497" subinstr-id="0"/>
+                <instruction instr-id="4497" subinstr-id="2"/>
+                <instruction instr-id="4497" subinstr-id="4"/>
+                <instruction instr-id="4497" subinstr-id="6"/>
+                <instruction instr-id="4497" subinstr-id="8"/>
+                <instruction instr-id="4497" subinstr-id="10"/>
+                <instruction instr-id="4497" subinstr-id="12"/>
+                <instruction instr-id="4497" subinstr-id="14"/>
+                <instruction instr-id="4497" subinstr-id="16"/>
+                <instruction instr-id="4497" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="18">
+                <bounding-box x1="235" x2="255" y1="236" y2="245"/>
+                <content>1.5%</content>
+                <instruction instr-id="4543" subinstr-id="0"/>
+                <instruction instr-id="4543" subinstr-id="2"/>
+                <instruction instr-id="4543" subinstr-id="4"/>
+                <instruction instr-id="4543" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="18">
+                <bounding-box x1="285" x2="306" y1="236" y2="245"/>
+                <content>5.0%</content>
+                <instruction instr-id="4589" subinstr-id="0"/>
+                <instruction instr-id="4589" subinstr-id="2"/>
+                <instruction instr-id="4589" subinstr-id="4"/>
+                <instruction instr-id="4589" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="18">
+                <bounding-box x1="331" x2="357" y1="236" y2="245"/>
+                <content>93.5%</content>
+                <instruction instr-id="4635" subinstr-id="0"/>
+                <instruction instr-id="4635" subinstr-id="2"/>
+                <instruction instr-id="4635" subinstr-id="4"/>
+                <instruction instr-id="4635" subinstr-id="6"/>
+                <instruction instr-id="4635" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="19" end-row="20">
+                <bounding-box x1="62" x2="113" y1="221" y2="230"/>
+                <content>Harassment</content>
+                <instruction instr-id="4950" subinstr-id="0"/>
+                <instruction instr-id="4950" subinstr-id="2"/>
+                <instruction instr-id="4950" subinstr-id="4"/>
+                <instruction instr-id="4950" subinstr-id="6"/>
+                <instruction instr-id="4950" subinstr-id="8"/>
+                <instruction instr-id="4950" subinstr-id="10"/>
+                <instruction instr-id="4950" subinstr-id="12"/>
+                <instruction instr-id="4950" subinstr-id="14"/>
+                <instruction instr-id="4950" subinstr-id="16"/>
+                <instruction instr-id="4950" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="19">
+                <bounding-box x1="154" x2="179" y1="221" y2="230"/>
+                <content>Count</content>
+                <instruction instr-id="4729" subinstr-id="0"/>
+                <instruction instr-id="4729" subinstr-id="2"/>
+                <instruction instr-id="4729" subinstr-id="4"/>
+                <instruction instr-id="4729" subinstr-id="6"/>
+                <instruction instr-id="4729" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="19">
+                <bounding-box x1="250" x2="255" y1="221" y2="230"/>
+                <content>8</content>
+                <instruction instr-id="4758" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="19">
+                <bounding-box x1="301" x2="306" y1="221" y2="230"/>
+                <content>7</content>
+                <instruction instr-id="4804" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="19">
+                <bounding-box x1="341" x2="357" y1="221" y2="230"/>
+                <content>446</content>
+                <instruction instr-id="4850" subinstr-id="0"/>
+                <instruction instr-id="4850" subinstr-id="2"/>
+                <instruction instr-id="4850" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="20">
+                <bounding-box x1="154" x2="202" y1="206" y2="216"/>
+                <content>Percentage</content>
+                <instruction instr-id="4979" subinstr-id="0"/>
+                <instruction instr-id="4979" subinstr-id="2"/>
+                <instruction instr-id="4979" subinstr-id="4"/>
+                <instruction instr-id="4979" subinstr-id="6"/>
+                <instruction instr-id="4979" subinstr-id="8"/>
+                <instruction instr-id="4979" subinstr-id="10"/>
+                <instruction instr-id="4979" subinstr-id="12"/>
+                <instruction instr-id="4979" subinstr-id="14"/>
+                <instruction instr-id="4979" subinstr-id="16"/>
+                <instruction instr-id="4979" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="20">
+                <bounding-box x1="235" x2="255" y1="207" y2="216"/>
+                <content>1.7%</content>
+                <instruction instr-id="5025" subinstr-id="0"/>
+                <instruction instr-id="5025" subinstr-id="2"/>
+                <instruction instr-id="5025" subinstr-id="4"/>
+                <instruction instr-id="5025" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="20">
+                <bounding-box x1="285" x2="306" y1="207" y2="216"/>
+                <content>1.5%</content>
+                <instruction instr-id="5071" subinstr-id="0"/>
+                <instruction instr-id="5071" subinstr-id="2"/>
+                <instruction instr-id="5071" subinstr-id="4"/>
+                <instruction instr-id="5071" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="20">
+                <bounding-box x1="331" x2="357" y1="207" y2="216"/>
+                <content>96.7%</content>
+                <instruction instr-id="5117" subinstr-id="0"/>
+                <instruction instr-id="5117" subinstr-id="2"/>
+                <instruction instr-id="5117" subinstr-id="4"/>
+                <instruction instr-id="5117" subinstr-id="6"/>
+                <instruction instr-id="5117" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="21" end-row="22">
+                <bounding-box x1="62" x2="115" y1="181" y2="201"/>
+                <content>Relationship
+difficulties</content>
+                <instruction instr-id="5432" subinstr-id="0"/>
+                <instruction instr-id="5432" subinstr-id="2"/>
+                <instruction instr-id="5432" subinstr-id="4"/>
+                <instruction instr-id="5432" subinstr-id="6"/>
+                <instruction instr-id="5432" subinstr-id="8"/>
+                <instruction instr-id="5432" subinstr-id="10"/>
+                <instruction instr-id="5432" subinstr-id="12"/>
+                <instruction instr-id="5432" subinstr-id="14"/>
+                <instruction instr-id="5432" subinstr-id="16"/>
+                <instruction instr-id="5432" subinstr-id="18"/>
+                <instruction instr-id="5432" subinstr-id="20"/>
+                <instruction instr-id="5432" subinstr-id="22"/>
+                <instruction instr-id="5444" subinstr-id="0"/>
+                <instruction instr-id="5444" subinstr-id="2"/>
+                <instruction instr-id="5444" subinstr-id="4"/>
+                <instruction instr-id="5444" subinstr-id="6"/>
+                <instruction instr-id="5444" subinstr-id="8"/>
+                <instruction instr-id="5444" subinstr-id="10"/>
+                <instruction instr-id="5444" subinstr-id="12"/>
+                <instruction instr-id="5444" subinstr-id="14"/>
+                <instruction instr-id="5444" subinstr-id="16"/>
+                <instruction instr-id="5444" subinstr-id="18"/>
+                <instruction instr-id="5444" subinstr-id="20"/>
+                <instruction instr-id="5444" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="21">
+                <bounding-box x1="154" x2="179" y1="192" y2="201"/>
+                <content>Count</content>
+                <instruction instr-id="5211" subinstr-id="0"/>
+                <instruction instr-id="5211" subinstr-id="2"/>
+                <instruction instr-id="5211" subinstr-id="4"/>
+                <instruction instr-id="5211" subinstr-id="6"/>
+                <instruction instr-id="5211" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="21">
+                <bounding-box x1="240" x2="255" y1="192" y2="201"/>
+                <content>108</content>
+                <instruction instr-id="5240" subinstr-id="0"/>
+                <instruction instr-id="5240" subinstr-id="2"/>
+                <instruction instr-id="5240" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="21">
+                <bounding-box x1="291" x2="306" y1="192" y2="201"/>
+                <content>101</content>
+                <instruction instr-id="5286" subinstr-id="0"/>
+                <instruction instr-id="5286" subinstr-id="2"/>
+                <instruction instr-id="5286" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="21">
+                <bounding-box x1="341" x2="357" y1="192" y2="201"/>
+                <content>257</content>
+                <instruction instr-id="5332" subinstr-id="0"/>
+                <instruction instr-id="5332" subinstr-id="2"/>
+                <instruction instr-id="5332" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="22">
+                <bounding-box x1="154" x2="202" y1="177" y2="186"/>
+                <content>Percentage</content>
+                <instruction instr-id="5473" subinstr-id="0"/>
+                <instruction instr-id="5473" subinstr-id="2"/>
+                <instruction instr-id="5473" subinstr-id="4"/>
+                <instruction instr-id="5473" subinstr-id="6"/>
+                <instruction instr-id="5473" subinstr-id="8"/>
+                <instruction instr-id="5473" subinstr-id="10"/>
+                <instruction instr-id="5473" subinstr-id="12"/>
+                <instruction instr-id="5473" subinstr-id="14"/>
+                <instruction instr-id="5473" subinstr-id="16"/>
+                <instruction instr-id="5473" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="22">
+                <bounding-box x1="230" x2="255" y1="177" y2="186"/>
+                <content>23.2%</content>
+                <instruction instr-id="5519" subinstr-id="0"/>
+                <instruction instr-id="5519" subinstr-id="2"/>
+                <instruction instr-id="5519" subinstr-id="4"/>
+                <instruction instr-id="5519" subinstr-id="6"/>
+                <instruction instr-id="5519" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="22">
+                <bounding-box x1="280" x2="306" y1="177" y2="186"/>
+                <content>21.7%</content>
+                <instruction instr-id="5565" subinstr-id="0"/>
+                <instruction instr-id="5565" subinstr-id="2"/>
+                <instruction instr-id="5565" subinstr-id="4"/>
+                <instruction instr-id="5565" subinstr-id="6"/>
+                <instruction instr-id="5565" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="22">
+                <bounding-box x1="331" x2="357" y1="177" y2="186"/>
+                <content>55.2%</content>
+                <instruction instr-id="5611" subinstr-id="0"/>
+                <instruction instr-id="5611" subinstr-id="2"/>
+                <instruction instr-id="5611" subinstr-id="4"/>
+                <instruction instr-id="5611" subinstr-id="6"/>
+                <instruction instr-id="5611" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="23" end-row="24">
+                <bounding-box x1="62" x2="148" y1="151" y2="172"/>
+                <content>Sexually transmitted
+diseases</content>
+                <instruction instr-id="5926" subinstr-id="0"/>
+                <instruction instr-id="5926" subinstr-id="2"/>
+                <instruction instr-id="5926" subinstr-id="4"/>
+                <instruction instr-id="5926" subinstr-id="6"/>
+                <instruction instr-id="5926" subinstr-id="8"/>
+                <instruction instr-id="5926" subinstr-id="10"/>
+                <instruction instr-id="5926" subinstr-id="12"/>
+                <instruction instr-id="5926" subinstr-id="14"/>
+                <instruction instr-id="5926" subinstr-id="18"/>
+                <instruction instr-id="5926" subinstr-id="20"/>
+                <instruction instr-id="5926" subinstr-id="22"/>
+                <instruction instr-id="5926" subinstr-id="24"/>
+                <instruction instr-id="5926" subinstr-id="26"/>
+                <instruction instr-id="5926" subinstr-id="28"/>
+                <instruction instr-id="5926" subinstr-id="30"/>
+                <instruction instr-id="5926" subinstr-id="32"/>
+                <instruction instr-id="5926" subinstr-id="34"/>
+                <instruction instr-id="5926" subinstr-id="36"/>
+                <instruction instr-id="5926" subinstr-id="38"/>
+                <instruction instr-id="5938" subinstr-id="0"/>
+                <instruction instr-id="5938" subinstr-id="2"/>
+                <instruction instr-id="5938" subinstr-id="4"/>
+                <instruction instr-id="5938" subinstr-id="6"/>
+                <instruction instr-id="5938" subinstr-id="8"/>
+                <instruction instr-id="5938" subinstr-id="10"/>
+                <instruction instr-id="5938" subinstr-id="12"/>
+                <instruction instr-id="5938" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="23">
+                <bounding-box x1="154" x2="179" y1="162" y2="172"/>
+                <content>Count</content>
+                <instruction instr-id="5705" subinstr-id="0"/>
+                <instruction instr-id="5705" subinstr-id="2"/>
+                <instruction instr-id="5705" subinstr-id="4"/>
+                <instruction instr-id="5705" subinstr-id="6"/>
+                <instruction instr-id="5705" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="23">
+                <bounding-box x1="250" x2="255" y1="163" y2="172"/>
+                <content>4</content>
+                <instruction instr-id="5734" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="23">
+                <bounding-box x1="301" x2="306" y1="163" y2="172"/>
+                <content>6</content>
+                <instruction instr-id="5780" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="23">
+                <bounding-box x1="341" x2="357" y1="163" y2="172"/>
+                <content>449</content>
+                <instruction instr-id="5826" subinstr-id="0"/>
+                <instruction instr-id="5826" subinstr-id="2"/>
+                <instruction instr-id="5826" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="24">
+                <bounding-box x1="154" x2="202" y1="148" y2="157"/>
+                <content>Percentage</content>
+                <instruction instr-id="5967" subinstr-id="0"/>
+                <instruction instr-id="5967" subinstr-id="2"/>
+                <instruction instr-id="5967" subinstr-id="4"/>
+                <instruction instr-id="5967" subinstr-id="6"/>
+                <instruction instr-id="5967" subinstr-id="8"/>
+                <instruction instr-id="5967" subinstr-id="10"/>
+                <instruction instr-id="5967" subinstr-id="12"/>
+                <instruction instr-id="5967" subinstr-id="14"/>
+                <instruction instr-id="5967" subinstr-id="16"/>
+                <instruction instr-id="5967" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="24">
+                <bounding-box x1="240" x2="255" y1="148" y2="157"/>
+                <content>.9%</content>
+                <instruction instr-id="6013" subinstr-id="0"/>
+                <instruction instr-id="6013" subinstr-id="2"/>
+                <instruction instr-id="6013" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="24">
+                <bounding-box x1="285" x2="306" y1="148" y2="157"/>
+                <content>1.3%</content>
+                <instruction instr-id="6059" subinstr-id="0"/>
+                <instruction instr-id="6059" subinstr-id="2"/>
+                <instruction instr-id="6059" subinstr-id="4"/>
+                <instruction instr-id="6059" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="24">
+                <bounding-box x1="331" x2="357" y1="148" y2="157"/>
+                <content>97.8%</content>
+                <instruction instr-id="6105" subinstr-id="0"/>
+                <instruction instr-id="6105" subinstr-id="2"/>
+                <instruction instr-id="6105" subinstr-id="4"/>
+                <instruction instr-id="6105" subinstr-id="6"/>
+                <instruction instr-id="6105" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="25" end-row="26">
+                <bounding-box x1="62" x2="131" y1="133" y2="142"/>
+                <content>Sleep difficulties</content>
+                <instruction instr-id="6420" subinstr-id="0"/>
+                <instruction instr-id="6420" subinstr-id="2"/>
+                <instruction instr-id="6420" subinstr-id="4"/>
+                <instruction instr-id="6420" subinstr-id="6"/>
+                <instruction instr-id="6420" subinstr-id="8"/>
+                <instruction instr-id="6420" subinstr-id="12"/>
+                <instruction instr-id="6420" subinstr-id="14"/>
+                <instruction instr-id="6420" subinstr-id="16"/>
+                <instruction instr-id="6420" subinstr-id="18"/>
+                <instruction instr-id="6420" subinstr-id="20"/>
+                <instruction instr-id="6420" subinstr-id="22"/>
+                <instruction instr-id="6420" subinstr-id="24"/>
+                <instruction instr-id="6420" subinstr-id="26"/>
+                <instruction instr-id="6420" subinstr-id="28"/>
+                <instruction instr-id="6420" subinstr-id="30"/>
+                <instruction instr-id="6420" subinstr-id="32"/>
+                <instruction instr-id="6420" subinstr-id="34"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="25">
+                <bounding-box x1="154" x2="179" y1="133" y2="142"/>
+                <content>Count</content>
+                <instruction instr-id="6199" subinstr-id="0"/>
+                <instruction instr-id="6199" subinstr-id="2"/>
+                <instruction instr-id="6199" subinstr-id="4"/>
+                <instruction instr-id="6199" subinstr-id="6"/>
+                <instruction instr-id="6199" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="25">
+                <bounding-box x1="245" x2="255" y1="133" y2="142"/>
+                <content>75</content>
+                <instruction instr-id="6228" subinstr-id="0"/>
+                <instruction instr-id="6228" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="25">
+                <bounding-box x1="296" x2="306" y1="133" y2="142"/>
+                <content>82</content>
+                <instruction instr-id="6274" subinstr-id="0"/>
+                <instruction instr-id="6274" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="25">
+                <bounding-box x1="341" x2="357" y1="133" y2="142"/>
+                <content>311</content>
+                <instruction instr-id="6320" subinstr-id="0"/>
+                <instruction instr-id="6320" subinstr-id="2"/>
+                <instruction instr-id="6320" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="26">
+                <bounding-box x1="154" x2="202" y1="118" y2="128"/>
+                <content>Percentage</content>
+                <instruction instr-id="6449" subinstr-id="0"/>
+                <instruction instr-id="6449" subinstr-id="2"/>
+                <instruction instr-id="6449" subinstr-id="4"/>
+                <instruction instr-id="6449" subinstr-id="6"/>
+                <instruction instr-id="6449" subinstr-id="8"/>
+                <instruction instr-id="6449" subinstr-id="10"/>
+                <instruction instr-id="6449" subinstr-id="12"/>
+                <instruction instr-id="6449" subinstr-id="14"/>
+                <instruction instr-id="6449" subinstr-id="16"/>
+                <instruction instr-id="6449" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="26">
+                <bounding-box x1="230" x2="255" y1="119" y2="128"/>
+                <content>16.0%</content>
+                <instruction instr-id="6495" subinstr-id="0"/>
+                <instruction instr-id="6495" subinstr-id="2"/>
+                <instruction instr-id="6495" subinstr-id="4"/>
+                <instruction instr-id="6495" subinstr-id="6"/>
+                <instruction instr-id="6495" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="26">
+                <bounding-box x1="280" x2="306" y1="119" y2="128"/>
+                <content>17.5%</content>
+                <instruction instr-id="6541" subinstr-id="0"/>
+                <instruction instr-id="6541" subinstr-id="2"/>
+                <instruction instr-id="6541" subinstr-id="4"/>
+                <instruction instr-id="6541" subinstr-id="6"/>
+                <instruction instr-id="6541" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="26">
+                <bounding-box x1="331" x2="357" y1="119" y2="128"/>
+                <content>66.5%</content>
+                <instruction instr-id="6587" subinstr-id="0"/>
+                <instruction instr-id="6587" subinstr-id="2"/>
+                <instruction instr-id="6587" subinstr-id="4"/>
+                <instruction instr-id="6587" subinstr-id="6"/>
+                <instruction instr-id="6587" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="27" end-row="28">
+                <bounding-box x1="62" x2="89" y1="104" y2="113"/>
+                <content>Stress</content>
+                <instruction instr-id="6902" subinstr-id="0"/>
+                <instruction instr-id="6902" subinstr-id="2"/>
+                <instruction instr-id="6902" subinstr-id="4"/>
+                <instruction instr-id="6902" subinstr-id="6"/>
+                <instruction instr-id="6902" subinstr-id="8"/>
+                <instruction instr-id="6902" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="27">
+                <bounding-box x1="154" x2="179" y1="104" y2="113"/>
+                <content>Count</content>
+                <instruction instr-id="6681" subinstr-id="0"/>
+                <instruction instr-id="6681" subinstr-id="2"/>
+                <instruction instr-id="6681" subinstr-id="4"/>
+                <instruction instr-id="6681" subinstr-id="6"/>
+                <instruction instr-id="6681" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="27">
+                <bounding-box x1="240" x2="255" y1="104" y2="113"/>
+                <content>237</content>
+                <instruction instr-id="6710" subinstr-id="0"/>
+                <instruction instr-id="6710" subinstr-id="2"/>
+                <instruction instr-id="6710" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="27">
+                <bounding-box x1="291" x2="306" y1="104" y2="113"/>
+                <content>110</content>
+                <instruction instr-id="6756" subinstr-id="0"/>
+                <instruction instr-id="6756" subinstr-id="2"/>
+                <instruction instr-id="6756" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="27">
+                <bounding-box x1="341" x2="357" y1="104" y2="113"/>
+                <content>122</content>
+                <instruction instr-id="6802" subinstr-id="0"/>
+                <instruction instr-id="6802" subinstr-id="2"/>
+                <instruction instr-id="6802" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="28">
+                <bounding-box x1="154" x2="202" y1="89" y2="98"/>
+                <content>Percentage</content>
+                <instruction instr-id="6931" subinstr-id="0"/>
+                <instruction instr-id="6931" subinstr-id="2"/>
+                <instruction instr-id="6931" subinstr-id="4"/>
+                <instruction instr-id="6931" subinstr-id="6"/>
+                <instruction instr-id="6931" subinstr-id="8"/>
+                <instruction instr-id="6931" subinstr-id="10"/>
+                <instruction instr-id="6931" subinstr-id="12"/>
+                <instruction instr-id="6931" subinstr-id="14"/>
+                <instruction instr-id="6931" subinstr-id="16"/>
+                <instruction instr-id="6931" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="28">
+                <bounding-box x1="230" x2="255" y1="89" y2="98"/>
+                <content>50.5%</content>
+                <instruction instr-id="6977" subinstr-id="0"/>
+                <instruction instr-id="6977" subinstr-id="2"/>
+                <instruction instr-id="6977" subinstr-id="4"/>
+                <instruction instr-id="6977" subinstr-id="6"/>
+                <instruction instr-id="6977" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="28">
+                <bounding-box x1="280" x2="306" y1="89" y2="98"/>
+                <content>23.5%</content>
+                <instruction instr-id="7023" subinstr-id="0"/>
+                <instruction instr-id="7023" subinstr-id="2"/>
+                <instruction instr-id="7023" subinstr-id="4"/>
+                <instruction instr-id="7023" subinstr-id="6"/>
+                <instruction instr-id="7023" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="28">
+                <bounding-box x1="331" x2="357" y1="89" y2="98"/>
+                <content>26.0%</content>
+                <instruction instr-id="7069" subinstr-id="0"/>
+                <instruction instr-id="7069" subinstr-id="2"/>
+                <instruction instr-id="7069" subinstr-id="4"/>
+                <instruction instr-id="7069" subinstr-id="6"/>
+                <instruction instr-id="7069" subinstr-id="8"/>
+            </cell>
+        </region>
+    </table>
+</document>
