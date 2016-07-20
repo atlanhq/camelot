@@ -114,6 +114,7 @@ def stream(filepath, ncolumns=0, columns=None, char_margin=2.0,
         return None
 
     if columns:
+        columns = columns.split(',')
         cols = [(float(columns[i]), float(columns[i + 1]))
                 for i in range(0, len(columns) - 1)]
         cols = [(c[0] + c[1]) / 2.0 for c in cols]

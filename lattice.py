@@ -235,8 +235,6 @@ def lattice(filepath, f=None, s=15, jtol=2, mtol=2, invert=False, debug=None):
                 plt.plot([v[0], v[2]], [v[1], v[3]])
             for h in h_s:
                 plt.plot([h[0], h[2]], [h[1], h[3]])
-            plt.show()
-            return None
 
         columns, rows = zip(*tables_new[k])
         columns, rows = list(columns), list(rows)
@@ -273,8 +271,6 @@ def lattice(filepath, f=None, s=15, jtol=2, mtol=2, invert=False, debug=None):
                     if table.cells[i][j].bottom:
                         plt.plot([table.cells[i][j].lb[0], table.cells[i][j].rb[0]],
                                  [table.cells[i][j].lb[1], table.cells[i][j].rb[1]])
-            plt.show()
-            return None
 
         # fill text after sorting it
         if not rotated:
@@ -308,5 +304,9 @@ def lattice(filepath, f=None, s=15, jtol=2, mtol=2, invert=False, debug=None):
         data = remove_empty(data)
         output['table_%d' % num_tables] = data
         num_tables += 1
+
+    if debug in ['line', 'table']:
+        plt.show()
+        return None
 
     return output
