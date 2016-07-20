@@ -8,8 +8,6 @@ The required dependencies include pdfminer, numpy, opencv.
 
 For debugging, matplotlib is required. For runnings tests in the future, nose may be required.
 
-camelot also uses poppler-utils, more specifically `pdfseparate` to separate a pdf into pages, with ImageMagick's `convert` to convert each page into an image.
-
 ## Install
 
 ## Usage

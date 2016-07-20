@@ -9,9 +9,9 @@ import shutil
 import logging
 import zipfile
 import tempfile
-import subprocess
 from docopt import docopt
 from werkzeug.utils import secure_filename
+from PyPDF2 import PdfFileWriter, PdfFileReader
 
 from lattice import lattice
 from stream import stream
@@ -135,12 +135,21 @@ if __name__ == '__main__':
     print "separating pdf into pages"
     print
     if p == ['all']:
-        subprocess.call(['pdfseparate', os.path.join(tmpdir, fname), os.path.join(tmpdir,
-                        'pg-%d.pdf')])
+        infile = PdfFileReader(open(os.path.join(tmpdir, fname), 'rb'))
+        for i in range(infile.getNumPages()):
+            p = infile.getPage(i)
+            outfile = PdfFileWriter()
+            outfile.addPage(p)
+            with open(os.path.join(tmpdir, 'pg-%d.pdf' % (i + 1)), 'wb') as f:
+                outfile.write(f)
     else:
         for page in p:
-            subprocess.call(['pdfseparate', '-f', page, '-l', page, os.path.join(tmpdir, fname),
-                            os.path.join(tmpdir, 'pg-%s.pdf' % page)])
+            infile = PdfFileReader(open(os.path.join(tmpdir, fname), 'rb'))
+            p = infile.getPage(int(page) - 1)
+            outfile = PdfFileWriter()
+            outfile.addPage(p)
+            with open(os.path.join(tmpdir, 'pg-%s.pdf' % page), 'wb') as f:
+                outfile.write(f)
 
     glob_pdf = sorted(glob.glob(os.path.join(tmpdir, 'pg-*.pdf')))
     if args['<method>'] == 'lattice':
