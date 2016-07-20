@@ -147,10 +147,8 @@ if __name__ == '__main__':
         print "using the lattice method"
         for g in glob_pdf:
             g_fname = os.path.basename(g)
+            print "working on", g_fname
             g_froot, __ = os.path.splitext(g)
-            print "converting %s to image" % g_fname
-            os.system(' '.join(['convert', '-density', '300',
-                               g, '-depth', '8', g_froot + '.png']))
             try:
                 data = lattice(g, f=args['--fill'], s=int(args['--scale']),
                                jtol=int(args['--jtol']), mtol=int(args['--mtol']),
@@ -174,6 +172,7 @@ if __name__ == '__main__':
         print "using the stream method"
         for g in glob_pdf:
             g_fname = os.path.basename(g)
+            print "working on", g_fname
             g_froot, __ = os.path.splitext(g)
             try:
                 data = stream(g, ncolumns=int(args['--ncols']), columns=args['--columns'],
