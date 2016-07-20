@@ -2,6 +2,7 @@ import os
 import cv2
 import glob
 import numpy as np
+from wand.image import Image
 
 from table import Table
 from pdf import get_pdf_info
@@ -150,10 +151,10 @@ def lattice(filepath, f=None, s=15, jtol=2, mtol=2, invert=False, debug=None):
     """
     if debug:
         import matplotlib.pyplot as plt
-    filename = os.path.basename(filepath)
-    print "working on", filename
     fileroot, __ = os.path.splitext(filepath)
     imagename = fileroot + '.png'
+    with Image(filename=filepath, depth=8, resolution=300) as png:
+        png.save(filename=imagename)
     img = cv2.imread(imagename)
     img_x, img_y = img.shape[1], img.shape[0]
     text, pdf_x, pdf_y = get_pdf_info(filepath, method='lattice')

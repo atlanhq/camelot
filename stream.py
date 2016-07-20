@@ -70,7 +70,6 @@ def stream(filepath, ncolumns=0, columns=None, char_margin=2.0,
     output : list
     """
     filename = os.path.basename(filepath)
-    print "working on", filename
     text, __, __ = get_pdf_info(filepath, method='stream', char_margin=char_margin,
                                 line_margin=line_margin, word_margin=word_margin)
     text.sort(key=lambda x: (-x.y0, x.x0))
