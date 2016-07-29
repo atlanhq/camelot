@@ -1,0 +1,4175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-020-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='2'>
+         <cell id='42' start-row='0' start-col='0'>
+            <bounding-box x1='38' y1='642' x2='100' y2='651'/>
+            <content>Education system</content>
+         </cell>
+         <cell id='11' start-row='1' start-col='0'>
+            <bounding-box x1='38' y1='631' x2='69' y2='639'/>
+            <content>Australia</content>
+         </cell>
+         <cell id='116' start-row='1' start-col='3'>
+            <bounding-box x1='338' y1='631' x2='348' y2='639'/>
+            <content>96</content>
+         </cell>
+         <cell id='178' start-row='1' start-col='5'>
+            <bounding-box x1='477' y1='631' x2='486' y2='639'/>
+            <content>95</content>
+         </cell>
+         <cell id='213' start-row='1' start-col='6'>
+            <bounding-box x1='546' y1='631' x2='555' y2='639'/>
+            <content>93</content>
+         </cell>
+         <cell id='215' start-row='1' start-col='4'>
+            <bounding-box x1='408' y1='631' x2='417' y2='639'/>
+            <content>98</content>
+         </cell>
+         <cell id='286' start-row='1' start-col='1'>
+            <bounding-box x1='196' y1='631' x2='209' y2='639'/>
+            <content>100</content>
+         </cell>
+         <cell id='297' start-row='1' start-col='2'>
+            <bounding-box x1='273' y1='631' x2='278' y2='639'/>
+            <content>4</content>
+         </cell>
+         <cell id='46' start-row='2' start-col='5'>
+            <bounding-box x1='477' y1='620' x2='486' y2='629'/>
+            <content>98</content>
+         </cell>
+         <cell id='150' start-row='2' start-col='6'>
+            <bounding-box x1='546' y1='620' x2='555' y2='629'/>
+            <content>98</content>
+         </cell>
+         <cell id='227' start-row='2' start-col='4'>
+            <bounding-box x1='404' y1='620' x2='417' y2='629'/>
+            <content>100</content>
+         </cell>
+         <cell id='235' start-row='2' start-col='0'>
+            <bounding-box x1='38' y1='620' x2='63' y2='629'/>
+            <content>Austria</content>
+         </cell>
+         <cell id='253' start-row='2' start-col='2'>
+            <bounding-box x1='273' y1='620' x2='278' y2='629'/>
+            <content>5</content>
+         </cell>
+         <cell id='256' start-row='2' start-col='3'>
+            <bounding-box x1='334' y1='620' x2='348' y2='629'/>
+            <content>100</content>
+         </cell>
+         <cell id='321' start-row='2' start-col='1'>
+            <bounding-box x1='196' y1='620' x2='209' y2='629'/>
+            <content>100</content>
+         </cell>
+         <cell id='16' start-row='3' start-col='1'>
+            <bounding-box x1='196' y1='609' x2='209' y2='618'/>
+            <content>100</content>
+         </cell>
+         <cell id='77' start-row='3' start-col='0'>
+            <bounding-box x1='38' y1='609' x2='75' y2='618'/>
+            <content>Azerbaijan</content>
+         </cell>
+         <cell id='83' start-row='3' start-col='4'>
+            <bounding-box x1='404' y1='609' x2='417' y2='618'/>
+            <content>100</content>
+         </cell>
+         <cell id='148' start-row='3' start-col='5'>
+            <bounding-box x1='473' y1='609' x2='486' y2='618'/>
+            <content>100</content>
+         </cell>
+         <cell id='254' start-row='3' start-col='2'>
+            <bounding-box x1='273' y1='609' x2='278' y2='618'/>
+            <content>7</content>
+         </cell>
+         <cell id='258' start-row='3' start-col='6'>
+            <bounding-box x1='542' y1='609' x2='555' y2='618'/>
+            <content>100</content>
+         </cell>
+         <cell id='315' start-row='3' start-col='3'>
+            <bounding-box x1='338' y1='609' x2='348' y2='618'/>
+            <content>84</content>
+         </cell>
+         <cell id='9' start-row='4' start-col='4'>
+            <bounding-box x1='408' y1='599' x2='417' y2='607'/>
+            <content>85</content>
+         </cell>
+         <cell id='55' start-row='4' start-col='0'>
+            <bounding-box x1='38' y1='599' x2='115' y2='607'/>
+            <content>Belgium(French)-BEL</content>
+         </cell>
+         <cell id='180' start-row='4' start-col='2'>
+            <bounding-box x1='273' y1='599' x2='278' y2='607'/>
+            <content>6</content>
+         </cell>
+         <cell id='196' start-row='4' start-col='1'>
+            <bounding-box x1='196' y1='599' x2='209' y2='607'/>
+            <content>100</content>
+         </cell>
+         <cell id='248' start-row='4' start-col='6'>
+            <bounding-box x1='546' y1='599' x2='555' y2='607'/>
+            <content>82</content>
+         </cell>
+         <cell id='261' start-row='4' start-col='3'>
+            <bounding-box x1='338' y1='599' x2='348' y2='607'/>
+            <content>77</content>
+         </cell>
+         <cell id='303' start-row='4' start-col='5'>
+            <bounding-box x1='477' y1='599' x2='486' y2='607'/>
+            <content>97</content>
+         </cell>
+         <cell id='53' start-row='5' start-col='0'>
+            <bounding-box x1='38' y1='588' x2='67' y2='596'/>
+            <content>Bulgaria</content>
+         </cell>
+         <cell id='74' start-row='5' start-col='3'>
+            <bounding-box x1='338' y1='588' x2='348' y2='596'/>
+            <content>97</content>
+         </cell>
+         <cell id='169' start-row='5' start-col='5'>
+            <bounding-box x1='477' y1='588' x2='486' y2='596'/>
+            <content>95</content>
+         </cell>
+         <cell id='184' start-row='5' start-col='6'>
+            <bounding-box x1='546' y1='588' x2='555' y2='596'/>
+            <content>95</content>
+         </cell>
+         <cell id='234' start-row='5' start-col='4'>
+            <bounding-box x1='404' y1='588' x2='417' y2='596'/>
+            <content>100</content>
+         </cell>
+         <cell id='304' start-row='5' start-col='1'>
+            <bounding-box x1='196' y1='588' x2='209' y2='596'/>
+            <content>100</content>
+         </cell>
+         <cell id='335' start-row='5' start-col='2'>
+            <bounding-box x1='273' y1='588' x2='278' y2='596'/>
+            <content>3</content>
+         </cell>
+         <cell id='30' start-row='6' start-col='6'>
+            <bounding-box x1='546' y1='577' x2='555' y2='585'/>
+            <content>94</content>
+         </cell>
+         <cell id='69' start-row='6' start-col='0'>
+            <bounding-box x1='38' y1='577' x2='66' y2='586'/>
+            <content>Canada</content>
+         </cell>
+         <cell id='94' start-row='6' start-col='1'>
+            <bounding-box x1='196' y1='577' x2='209' y2='585'/>
+            <content>100</content>
+         </cell>
+         <cell id='160' start-row='6' start-col='4'>
+            <bounding-box x1='408' y1='577' x2='417' y2='585'/>
+            <content>98</content>
+         </cell>
+         <cell id='194' start-row='6' start-col='3'>
+            <bounding-box x1='338' y1='577' x2='348' y2='585'/>
+            <content>98</content>
+         </cell>
+         <cell id='278' start-row='6' start-col='5'>
+            <bounding-box x1='477' y1='577' x2='486' y2='585'/>
+            <content>96</content>
+         </cell>
+         <cell id='302' start-row='6' start-col='2'>
+            <bounding-box x1='269' y1='577' x2='278' y2='585'/>
+            <content>10</content>
+         </cell>
+         <cell id='44' start-row='7' start-col='0'>
+            <bounding-box x1='38' y1='566' x2='109' y2='575'/>
+            <content>ChineseTaipei-CHN</content>
+         </cell>
+         <cell id='71' start-row='7' start-col='3'>
+            <bounding-box x1='334' y1='566' x2='348' y2='575'/>
+            <content>100</content>
+         </cell>
+         <cell id='84' start-row='7' start-col='4'>
+            <bounding-box x1='404' y1='566' x2='417' y2='575'/>
+            <content>100</content>
+         </cell>
+         <cell id='122' start-row='7' start-col='1'>
+            <bounding-box x1='196' y1='566' x2='209' y2='575'/>
+            <content>100</content>
+         </cell>
+         <cell id='206' start-row='7' start-col='2'>
+            <bounding-box x1='273' y1='566' x2='278' y2='575'/>
+            <content>1</content>
+         </cell>
+         <cell id='262' start-row='7' start-col='5'>
+            <bounding-box x1='477' y1='566' x2='486' y2='575'/>
+            <content>99</content>
+         </cell>
+         <cell id='329' start-row='7' start-col='6'>
+            <bounding-box x1='546' y1='566' x2='555' y2='575'/>
+            <content>99</content>
+         </cell>
+         <cell id='52' start-row='8' start-col='5'>
+            <bounding-box x1='477' y1='555' x2='486' y2='564'/>
+            <content>97</content>
+         </cell>
+         <cell id='54' start-row='8' start-col='4'>
+            <bounding-box x1='408' y1='555' x2='417' y2='564'/>
+            <content>99</content>
+         </cell>
+         <cell id='73' start-row='8' start-col='0'>
+            <bounding-box x1='38' y1='555' x2='71' y2='564'/>
+            <content>Colombia</content>
+         </cell>
+         <cell id='161' start-row='8' start-col='3'>
+            <bounding-box x1='338' y1='555' x2='348' y2='564'/>
+            <content>89</content>
+         </cell>
+         <cell id='185' start-row='8' start-col='1'>
+            <bounding-box x1='196' y1='555' x2='209' y2='564'/>
+            <content>100</content>
+         </cell>
+         <cell id='252' start-row='8' start-col='6'>
+            <bounding-box x1='546' y1='555' x2='555' y2='564'/>
+            <content>95</content>
+         </cell>
+         <cell id='263' start-row='8' start-col='2'>
+            <bounding-box x1='273' y1='555' x2='278' y2='564'/>
+            <content>2</content>
+         </cell>
+         <cell id='1' start-row='9' start-col='0'>
+            <bounding-box x1='38' y1='545' x2='64' y2='553'/>
+            <content>Croatia</content>
+         </cell>
+         <cell id='56' start-row='9' start-col='1'>
+            <bounding-box x1='196' y1='545' x2='209' y2='553'/>
+            <content>100</content>
+         </cell>
+         <cell id='136' start-row='9' start-col='5'>
+            <bounding-box x1='477' y1='545' x2='486' y2='553'/>
+            <content>95</content>
+         </cell>
+         <cell id='138' start-row='9' start-col='6'>
+            <bounding-box x1='546' y1='545' x2='555' y2='553'/>
+            <content>95</content>
+         </cell>
+         <cell id='166' start-row='9' start-col='3'>
+            <bounding-box x1='338' y1='545' x2='348' y2='553'/>
+            <content>99</content>
+         </cell>
+         <cell id='170' start-row='9' start-col='4'>
+            <bounding-box x1='404' y1='545' x2='417' y2='553'/>
+            <content>100</content>
+         </cell>
+         <cell id='277' start-row='9' start-col='2'>
+            <bounding-box x1='273' y1='545' x2='278' y2='553'/>
+            <content>8</content>
+         </cell>
+         <cell id='6' start-row='10' start-col='0'>
+            <bounding-box x1='38' y1='534' x2='93' y2='542'/>
+            <content>CzechRepublic</content>
+         </cell>
+         <cell id='22' start-row='10' start-col='1'>
+            <bounding-box x1='196' y1='534' x2='209' y2='542'/>
+            <content>100</content>
+         </cell>
+         <cell id='92' start-row='10' start-col='2'>
+            <bounding-box x1='273' y1='534' x2='278' y2='542'/>
+            <content>5</content>
+         </cell>
+         <cell id='123' start-row='10' start-col='4'>
+            <bounding-box x1='408' y1='534' x2='417' y2='542'/>
+            <content>99</content>
+         </cell>
+         <cell id='280' start-row='10' start-col='5'>
+            <bounding-box x1='477' y1='534' x2='486' y2='542'/>
+            <content>94</content>
+         </cell>
+         <cell id='322' start-row='10' start-col='6'>
+            <bounding-box x1='546' y1='534' x2='555' y2='542'/>
+            <content>94</content>
+         </cell>
+         <cell id='331' start-row='10' start-col='3'>
+            <bounding-box x1='338' y1='534' x2='348' y2='542'/>
+            <content>90</content>
+         </cell>
+         <cell id='88' start-row='11' start-col='4'>
+            <bounding-box x1='408' y1='523' x2='417' y2='531'/>
+            <content>98</content>
+         </cell>
+         <cell id='142' start-row='11' start-col='5'>
+            <bounding-box x1='477' y1='523' x2='486' y2='531'/>
+            <content>97</content>
+         </cell>
+         <cell id='146' start-row='11' start-col='0'>
+            <bounding-box x1='38' y1='523' x2='70' y2='532'/>
+            <content>Denmark</content>
+         </cell>
+         <cell id='237' start-row='11' start-col='1'>
+            <bounding-box x1='196' y1='523' x2='209' y2='531'/>
+            <content>100</content>
+         </cell>
+         <cell id='245' start-row='11' start-col='3'>
+            <bounding-box x1='338' y1='523' x2='348' y2='531'/>
+            <content>87</content>
+         </cell>
+         <cell id='269' start-row='11' start-col='2'>
+            <bounding-box x1='273' y1='523' x2='278' y2='531'/>
+            <content>7</content>
+         </cell>
+         <cell id='324' start-row='11' start-col='6'>
+            <bounding-box x1='546' y1='523' x2='555' y2='531'/>
+            <content>95</content>
+         </cell>
+         <cell id='5' start-row='12' start-col='0'>
+            <bounding-box x1='38' y1='512' x2='86' y2='521'/>
+            <content>England-GBR</content>
+         </cell>
+         <cell id='43' start-row='12' start-col='5'>
+            <bounding-box x1='477' y1='512' x2='486' y2='521'/>
+            <content>94</content>
+         </cell>
+         <cell id='99' start-row='12' start-col='4'>
+            <bounding-box x1='408' y1='512' x2='417' y2='521'/>
+            <content>87</content>
+         </cell>
+         <cell id='147' start-row='12' start-col='3'>
+            <bounding-box x1='338' y1='512' x2='348' y2='521'/>
+            <content>73</content>
+         </cell>
+         <cell id='174' start-row='12' start-col='1'>
+            <bounding-box x1='196' y1='512' x2='209' y2='521'/>
+            <content>100</content>
+         </cell>
+         <cell id='175' start-row='12' start-col='6'>
+            <bounding-box x1='546' y1='512' x2='555' y2='521'/>
+            <content>82</content>
+         </cell>
+         <cell id='323' start-row='12' start-col='2'>
+            <bounding-box x1='273' y1='512' x2='278' y2='521'/>
+            <content>2</content>
+         </cell>
+         <cell id='103' start-row='13' start-col='4'>
+            <bounding-box x1='408' y1='501' x2='417' y2='510'/>
+            <content>99</content>
+         </cell>
+         <cell id='134' start-row='13' start-col='0'>
+            <bounding-box x1='38' y1='501' x2='64' y2='510'/>
+            <content>Finland</content>
+         </cell>
+         <cell id='162' start-row='13' start-col='5'>
+            <bounding-box x1='477' y1='501' x2='486' y2='510'/>
+            <content>96</content>
+         </cell>
+         <cell id='201' start-row='13' start-col='6'>
+            <bounding-box x1='546' y1='501' x2='555' y2='510'/>
+            <content>95</content>
+         </cell>
+         <cell id='217' start-row='13' start-col='1'>
+            <bounding-box x1='196' y1='501' x2='209' y2='510'/>
+            <content>100</content>
+         </cell>
+         <cell id='255' start-row='13' start-col='3'>
+            <bounding-box x1='338' y1='501' x2='348' y2='510'/>
+            <content>97</content>
+         </cell>
+         <cell id='285' start-row='13' start-col='2'>
+            <bounding-box x1='273' y1='501' x2='278' y2='510'/>
+            <content>3</content>
+         </cell>
+         <cell id='98' start-row='14' start-col='4'>
+            <bounding-box x1='404' y1='491' x2='417' y2='499'/>
+            <content>100</content>
+         </cell>
+         <cell id='129' start-row='14' start-col='0'>
+            <bounding-box x1='38' y1='491' x2='63' y2='499'/>
+            <content>France</content>
+         </cell>
+         <cell id='208' start-row='14' start-col='3'>
+            <bounding-box x1='338' y1='491' x2='348' y2='499'/>
+            <content>98</content>
+         </cell>
+         <cell id='239' start-row='14' start-col='5'>
+            <bounding-box x1='477' y1='491' x2='486' y2='499'/>
+            <content>98</content>
+         </cell>
+         <cell id='270' start-row='14' start-col='2'>
+            <bounding-box x1='273' y1='491' x2='278' y2='499'/>
+            <content>5</content>
+         </cell>
+         <cell id='273' start-row='14' start-col='1'>
+            <bounding-box x1='196' y1='491' x2='209' y2='499'/>
+            <content>100</content>
+         </cell>
+         <cell id='311' start-row='14' start-col='6'>
+            <bounding-box x1='546' y1='491' x2='555' y2='499'/>
+            <content>97</content>
+         </cell>
+         <cell id='32' start-row='15' start-col='3'>
+            <bounding-box x1='338' y1='480' x2='348' y2='488'/>
+            <content>97</content>
+         </cell>
+         <cell id='104' start-row='15' start-col='5'>
+            <bounding-box x1='477' y1='480' x2='486' y2='488'/>
+            <content>98</content>
+         </cell>
+         <cell id='115' start-row='15' start-col='4'>
+            <bounding-box x1='408' y1='480' x2='417' y2='488'/>
+            <content>98</content>
+         </cell>
+         <cell id='163' start-row='15' start-col='0'>
+            <bounding-box x1='38' y1='480' x2='66' y2='488'/>
+            <content>Georgia</content>
+         </cell>
+         <cell id='172' start-row='15' start-col='6'>
+            <bounding-box x1='546' y1='480' x2='555' y2='488'/>
+            <content>96</content>
+         </cell>
+         <cell id='238' start-row='15' start-col='1'>
+            <bounding-box x1='200' y1='480' x2='209' y2='488'/>
+            <content>92</content>
+         </cell>
+         <cell id='247' start-row='15' start-col='2'>
+            <bounding-box x1='273' y1='480' x2='278' y2='488'/>
+            <content>5</content>
+         </cell>
+         <cell id='66' start-row='16' start-col='0'>
+            <bounding-box x1='38' y1='469' x2='71' y2='478'/>
+            <content>Germany</content>
+         </cell>
+         <cell id='79' start-row='16' start-col='6'>
+            <bounding-box x1='546' y1='469' x2='555' y2='477'/>
+            <content>95</content>
+         </cell>
+         <cell id='119' start-row='16' start-col='4'>
+            <bounding-box x1='408' y1='469' x2='417' y2='477'/>
+            <content>99</content>
+         </cell>
+         <cell id='157' start-row='16' start-col='1'>
+            <bounding-box x1='196' y1='469' x2='209' y2='477'/>
+            <content>100</content>
+         </cell>
+         <cell id='158' start-row='16' start-col='3'>
+            <bounding-box x1='338' y1='469' x2='348' y2='477'/>
+            <content>96</content>
+         </cell>
+         <cell id='211' start-row='16' start-col='2'>
+            <bounding-box x1='273' y1='469' x2='278' y2='477'/>
+            <content>2</content>
+         </cell>
+         <cell id='272' start-row='16' start-col='5'>
+            <bounding-box x1='477' y1='469' x2='486' y2='477'/>
+            <content>96</content>
+         </cell>
+         <cell id='58' start-row='17' start-col='0'>
+            <bounding-box x1='38' y1='458' x2='97' y2='467'/>
+            <content>HongKong-CHN</content>
+         </cell>
+         <cell id='76' start-row='17' start-col='6'>
+            <bounding-box x1='546' y1='458' x2='555' y2='467'/>
+            <content>83</content>
+         </cell>
+         <cell id='200' start-row='17' start-col='2'>
+            <bounding-box x1='269' y1='458' x2='278' y2='467'/>
+            <content>12</content>
+         </cell>
+         <cell id='230' start-row='17' start-col='1'>
+            <bounding-box x1='196' y1='458' x2='209' y2='467'/>
+            <content>100</content>
+         </cell>
+         <cell id='275' start-row='17' start-col='5'>
+            <bounding-box x1='477' y1='458' x2='486' y2='467'/>
+            <content>94</content>
+         </cell>
+         <cell id='289' start-row='17' start-col='4'>
+            <bounding-box x1='408' y1='458' x2='417' y2='467'/>
+            <content>88</content>
+         </cell>
+         <cell id='310' start-row='17' start-col='3'>
+            <bounding-box x1='338' y1='458' x2='348' y2='467'/>
+            <content>86</content>
+         </cell>
+         <cell id='36' start-row='18' start-col='6'>
+            <bounding-box x1='546' y1='447' x2='555' y2='456'/>
+            <content>96</content>
+         </cell>
+         <cell id='120' start-row='18' start-col='0'>
+            <bounding-box x1='38' y1='447' x2='68' y2='456'/>
+            <content>Hungary</content>
+         </cell>
+         <cell id='189' start-row='18' start-col='1'>
+            <bounding-box x1='196' y1='447' x2='209' y2='456'/>
+            <content>100</content>
+         </cell>
+         <cell id='220' start-row='18' start-col='4'>
+            <bounding-box x1='408' y1='447' x2='417' y2='456'/>
+            <content>99</content>
+         </cell>
+         <cell id='271' start-row='18' start-col='3'>
+            <bounding-box x1='338' y1='447' x2='348' y2='456'/>
+            <content>98</content>
+         </cell>
+         <cell id='279' start-row='18' start-col='5'>
+            <bounding-box x1='477' y1='447' x2='486' y2='456'/>
+            <content>97</content>
+         </cell>
+         <cell id='337' start-row='18' start-col='2'>
+            <bounding-box x1='273' y1='447' x2='278' y2='456'/>
+            <content>4</content>
+         </cell>
+         <cell id='78' start-row='19' start-col='4'>
+            <bounding-box x1='404' y1='437' x2='417' y2='445'/>
+            <content>100</content>
+         </cell>
+         <cell id='105' start-row='19' start-col='0'>
+            <bounding-box x1='38' y1='437' x2='72' y2='445'/>
+            <content>Indonesia</content>
+         </cell>
+         <cell id='229' start-row='19' start-col='3'>
+            <bounding-box x1='334' y1='437' x2='348' y2='445'/>
+            <content>100</content>
+         </cell>
+         <cell id='236' start-row='19' start-col='1'>
+            <bounding-box x1='196' y1='437' x2='209' y2='445'/>
+            <content>100</content>
+         </cell>
+         <cell id='288' start-row='19' start-col='5'>
+            <bounding-box x1='477' y1='437' x2='486' y2='445'/>
+            <content>97</content>
+         </cell>
+         <cell id='313' start-row='19' start-col='6'>
+            <bounding-box x1='546' y1='437' x2='555' y2='445'/>
+            <content>97</content>
+         </cell>
+         <cell id='336' start-row='19' start-col='2'>
+            <bounding-box x1='273' y1='437' x2='278' y2='445'/>
+            <content>3</content>
+         </cell>
+         <cell id='31' start-row='20' start-col='0'>
+            <bounding-box x1='38' y1='426' x2='109' y2='434'/>
+            <content>Iran, IslamicRep. Of</content>
+         </cell>
+         <cell id='111' start-row='20' start-col='4'>
+            <bounding-box x1='404' y1='426' x2='417' y2='434'/>
+            <content>100</content>
+         </cell>
+         <cell id='202' start-row='20' start-col='6'>
+            <bounding-box x1='546' y1='426' x2='555' y2='434'/>
+            <content>99</content>
+         </cell>
+         <cell id='204' start-row='20' start-col='3'>
+            <bounding-box x1='334' y1='426' x2='348' y2='434'/>
+            <content>100</content>
+         </cell>
+         <cell id='241' start-row='20' start-col='5'>
+            <bounding-box x1='477' y1='426' x2='486' y2='434'/>
+            <content>99</content>
+         </cell>
+         <cell id='250' start-row='20' start-col='1'>
+            <bounding-box x1='196' y1='426' x2='209' y2='434'/>
+            <content>100</content>
+         </cell>
+         <cell id='281' start-row='20' start-col='2'>
+            <bounding-box x1='273' y1='426' x2='278' y2='434'/>
+            <content>5</content>
+         </cell>
+         <cell id='72' start-row='21' start-col='3'>
+            <bounding-box x1='338' y1='415' x2='348' y2='423'/>
+            <content>98</content>
+         </cell>
+         <cell id='114' start-row='21' start-col='0'>
+            <bounding-box x1='38' y1='415' x2='62' y2='424'/>
+            <content>Ireland</content>
+         </cell>
+         <cell id='128' start-row='21' start-col='4'>
+            <bounding-box x1='404' y1='415' x2='417' y2='423'/>
+            <content>100</content>
+         </cell>
+         <cell id='222' start-row='21' start-col='6'>
+            <bounding-box x1='546' y1='415' x2='555' y2='423'/>
+            <content>95</content>
+         </cell>
+         <cell id='232' start-row='21' start-col='5'>
+            <bounding-box x1='477' y1='415' x2='486' y2='423'/>
+            <content>95</content>
+         </cell>
+         <cell id='306' start-row='21' start-col='1'>
+            <bounding-box x1='196' y1='415' x2='209' y2='423'/>
+            <content>100</content>
+         </cell>
+         <cell id='309' start-row='21' start-col='2'>
+            <bounding-box x1='273' y1='415' x2='278' y2='423'/>
+            <content>3</content>
+         </cell>
+         <cell id='3' start-row='22' start-col='4'>
+            <bounding-box x1='408' y1='404' x2='417' y2='413'/>
+            <content>99</content>
+         </cell>
+         <cell id='37' start-row='22' start-col='3'>
+            <bounding-box x1='338' y1='404' x2='348' y2='413'/>
+            <content>98</content>
+         </cell>
+         <cell id='124' start-row='22' start-col='0'>
+            <bounding-box x1='38' y1='404' x2='58' y2='413'/>
+            <content>Israel</content>
+         </cell>
+         <cell id='132' start-row='22' start-col='6'>
+            <bounding-box x1='546' y1='404' x2='555' y2='413'/>
+            <content>93</content>
+         </cell>
+         <cell id='179' start-row='22' start-col='1'>
+            <bounding-box x1='196' y1='404' x2='209' y2='413'/>
+            <content>100</content>
+         </cell>
+         <cell id='244' start-row='22' start-col='5'>
+            <bounding-box x1='477' y1='404' x2='486' y2='413'/>
+            <content>94</content>
+         </cell>
+         <cell id='308' start-row='22' start-col='2'>
+            <bounding-box x1='269' y1='404' x2='278' y2='413'/>
+            <content>25</content>
+         </cell>
+         <cell id='15' start-row='23' start-col='3'>
+            <bounding-box x1='338' y1='393' x2='348' y2='402'/>
+            <content>81</content>
+         </cell>
+         <cell id='101' start-row='23' start-col='0'>
+            <bounding-box x1='38' y1='393' x2='53' y2='402'/>
+            <content>Italy</content>
+         </cell>
+         <cell id='228' start-row='23' start-col='6'>
+            <bounding-box x1='546' y1='393' x2='555' y2='402'/>
+            <content>95</content>
+         </cell>
+         <cell id='301' start-row='23' start-col='1'>
+            <bounding-box x1='196' y1='393' x2='209' y2='402'/>
+            <content>100</content>
+         </cell>
+         <cell id='326' start-row='23' start-col='2'>
+            <bounding-box x1='273' y1='393' x2='278' y2='402'/>
+            <content>4</content>
+         </cell>
+         <cell id='330' start-row='23' start-col='4'>
+            <bounding-box x1='408' y1='393' x2='417' y2='402'/>
+            <content>98</content>
+         </cell>
+         <cell id='334' start-row='23' start-col='5'>
+            <bounding-box x1='477' y1='393' x2='486' y2='402'/>
+            <content>96</content>
+         </cell>
+         <cell id='4' start-row='24' start-col='3'>
+            <bounding-box x1='338' y1='383' x2='348' y2='391'/>
+            <content>94</content>
+         </cell>
+         <cell id='60' start-row='24' start-col='0'>
+            <bounding-box x1='38' y1='383' x2='70' y2='391'/>
+            <content>Lithuania</content>
+         </cell>
+         <cell id='75' start-row='24' start-col='5'>
+            <bounding-box x1='477' y1='383' x2='486' y2='391'/>
+            <content>94</content>
+         </cell>
+         <cell id='82' start-row='24' start-col='6'>
+            <bounding-box x1='546' y1='383' x2='555' y2='391'/>
+            <content>94</content>
+         </cell>
+         <cell id='188' start-row='24' start-col='4'>
+            <bounding-box x1='404' y1='383' x2='417' y2='391'/>
+            <content>100</content>
+         </cell>
+         <cell id='214' start-row='24' start-col='1'>
+            <bounding-box x1='200' y1='383' x2='209' y2='391'/>
+            <content>93</content>
+         </cell>
+         <cell id='295' start-row='24' start-col='2'>
+            <bounding-box x1='273' y1='383' x2='278' y2='391'/>
+            <content>6</content>
+         </cell>
+         <cell id='181' start-row='25' start-col='6'>
+            <bounding-box x1='546' y1='372' x2='555' y2='380'/>
+            <content>95</content>
+         </cell>
+         <cell id='183' start-row='25' start-col='1'>
+            <bounding-box x1='196' y1='372' x2='209' y2='380'/>
+            <content>100</content>
+         </cell>
+         <cell id='191' start-row='25' start-col='2'>
+            <bounding-box x1='273' y1='372' x2='278' y2='380'/>
+            <content>4</content>
+         </cell>
+         <cell id='199' start-row='25' start-col='3'>
+            <bounding-box x1='334' y1='372' x2='348' y2='380'/>
+            <content>100</content>
+         </cell>
+         <cell id='218' start-row='25' start-col='5'>
+            <bounding-box x1='477' y1='372' x2='486' y2='380'/>
+            <content>95</content>
+         </cell>
+         <cell id='224' start-row='25' start-col='0'>
+            <bounding-box x1='38' y1='372' x2='58' y2='380'/>
+            <content>Malta</content>
+         </cell>
+         <cell id='266' start-row='25' start-col='4'>
+            <bounding-box x1='404' y1='372' x2='417' y2='380'/>
+            <content>100</content>
+         </cell>
+         <cell id='63' start-row='26' start-col='1'>
+            <bounding-box x1='196' y1='361' x2='209' y2='369'/>
+            <content>100</content>
+         </cell>
+         <cell id='70' start-row='26' start-col='0'>
+            <bounding-box x1='38' y1='361' x2='68' y2='370'/>
+            <content>Morocco</content>
+         </cell>
+         <cell id='100' start-row='26' start-col='5'>
+            <bounding-box x1='477' y1='361' x2='486' y2='369'/>
+            <content>96</content>
+         </cell>
+         <cell id='108' start-row='26' start-col='4'>
+            <bounding-box x1='408' y1='361' x2='417' y2='369'/>
+            <content>99</content>
+         </cell>
+         <cell id='125' start-row='26' start-col='6'>
+            <bounding-box x1='546' y1='361' x2='555' y2='369'/>
+            <content>95</content>
+         </cell>
+         <cell id='141' start-row='26' start-col='3'>
+            <bounding-box x1='338' y1='361' x2='348' y2='369'/>
+            <content>99</content>
+         </cell>
+         <cell id='153' start-row='26' start-col='2'>
+            <bounding-box x1='273' y1='361' x2='278' y2='369'/>
+            <content>2</content>
+         </cell>
+         <cell id='65' start-row='27' start-col='0'>
+            <bounding-box x1='38' y1='350' x2='80' y2='359'/>
+            <content>Netherlands</content>
+         </cell>
+         <cell id='80' start-row='27' start-col='4'>
+            <bounding-box x1='408' y1='350' x2='417' y2='359'/>
+            <content>92</content>
+         </cell>
+         <cell id='110' start-row='27' start-col='1'>
+            <bounding-box x1='196' y1='350' x2='209' y2='359'/>
+            <content>100</content>
+         </cell>
+         <cell id='155' start-row='27' start-col='5'>
+            <bounding-box x1='477' y1='350' x2='486' y2='359'/>
+            <content>97</content>
+         </cell>
+         <cell id='283' start-row='27' start-col='6'>
+            <bounding-box x1='546' y1='350' x2='555' y2='359'/>
+            <content>89</content>
+         </cell>
+         <cell id='307' start-row='27' start-col='3'>
+            <bounding-box x1='338' y1='350' x2='348' y2='359'/>
+            <content>68</content>
+         </cell>
+         <cell id='318' start-row='27' start-col='2'>
+            <bounding-box x1='273' y1='350' x2='278' y2='359'/>
+            <content>4</content>
+         </cell>
+         <cell id='41' start-row='28' start-col='0'>
+            <bounding-box x1='38' y1='339' x2='84' y2='348'/>
+            <content>NewZealand</content>
+         </cell>
+         <cell id='59' start-row='28' start-col='4'>
+            <bounding-box x1='408' y1='339' x2='417' y2='348'/>
+            <content>99</content>
+         </cell>
+         <cell id='167' start-row='28' start-col='1'>
+            <bounding-box x1='196' y1='339' x2='209' y2='348'/>
+            <content>100</content>
+         </cell>
+         <cell id='176' start-row='28' start-col='2'>
+            <bounding-box x1='273' y1='339' x2='278' y2='348'/>
+            <content>3</content>
+         </cell>
+         <cell id='226' start-row='28' start-col='5'>
+            <bounding-box x1='477' y1='339' x2='486' y2='348'/>
+            <content>94</content>
+         </cell>
+         <cell id='249' start-row='28' start-col='6'>
+            <bounding-box x1='546' y1='339' x2='555' y2='348'/>
+            <content>93</content>
+         </cell>
+         <cell id='291' start-row='28' start-col='3'>
+            <bounding-box x1='338' y1='339' x2='348' y2='348'/>
+            <content>93</content>
+         </cell>
+         <cell id='14' start-row='29' start-col='0'>
+            <bounding-box x1='38' y1='329' x2='114' y2='337'/>
+            <content>NorthernIreland-GBR</content>
+         </cell>
+         <cell id='35' start-row='29' start-col='6'>
+            <bounding-box x1='546' y1='329' x2='555' y2='337'/>
+            <content>79</content>
+         </cell>
+         <cell id='126' start-row='29' start-col='5'>
+            <bounding-box x1='477' y1='329' x2='486' y2='337'/>
+            <content>93</content>
+         </cell>
+         <cell id='154' start-row='29' start-col='1'>
+            <bounding-box x1='196' y1='329' x2='209' y2='337'/>
+            <content>100</content>
+         </cell>
+         <cell id='260' start-row='29' start-col='4'>
+            <bounding-box x1='408' y1='329' x2='417' y2='337'/>
+            <content>85</content>
+         </cell>
+         <cell id='294' start-row='29' start-col='3'>
+            <bounding-box x1='338' y1='329' x2='348' y2='337'/>
+            <content>62</content>
+         </cell>
+         <cell id='328' start-row='29' start-col='2'>
+            <bounding-box x1='273' y1='329' x2='278' y2='337'/>
+            <content>4</content>
+         </cell>
+         <cell id='2' start-row='30' start-col='1'>
+            <bounding-box x1='196' y1='318' x2='209' y2='326'/>
+            <content>100</content>
+         </cell>
+         <cell id='135' start-row='30' start-col='0'>
+            <bounding-box x1='38' y1='318' x2='65' y2='326'/>
+            <content>Norway</content>
+         </cell>
+         <cell id='243' start-row='30' start-col='6'>
+            <bounding-box x1='546' y1='318' x2='555' y2='326'/>
+            <content>71</content>
+         </cell>
+         <cell id='246' start-row='30' start-col='2'>
+            <bounding-box x1='273' y1='318' x2='278' y2='326'/>
+            <content>4</content>
+         </cell>
+         <cell id='259' start-row='30' start-col='5'>
+            <bounding-box x1='477' y1='318' x2='486' y2='326'/>
+            <content>86</content>
+         </cell>
+         <cell id='290' start-row='30' start-col='4'>
+            <bounding-box x1='408' y1='318' x2='417' y2='326'/>
+            <content>83</content>
+         </cell>
+         <cell id='332' start-row='30' start-col='3'>
+            <bounding-box x1='338' y1='318' x2='348' y2='326'/>
+            <content>57</content>
+         </cell>
+         <cell id='102' start-row='31' start-col='1'>
+            <bounding-box x1='196' y1='307' x2='209' y2='315'/>
+            <content>100</content>
+         </cell>
+         <cell id='140' start-row='31' start-col='5'>
+            <bounding-box x1='477' y1='307' x2='486' y2='315'/>
+            <content>98</content>
+         </cell>
+         <cell id='145' start-row='31' start-col='4'>
+            <bounding-box x1='408' y1='307' x2='417' y2='315'/>
+            <content>98</content>
+         </cell>
+         <cell id='164' start-row='31' start-col='6'>
+            <bounding-box x1='546' y1='307' x2='555' y2='315'/>
+            <content>96</content>
+         </cell>
+         <cell id='219' start-row='31' start-col='0'>
+            <bounding-box x1='38' y1='307' x2='60' y2='316'/>
+            <content>Oman</content>
+         </cell>
+         <cell id='223' start-row='31' start-col='3'>
+            <bounding-box x1='338' y1='307' x2='348' y2='315'/>
+            <content>98</content>
+         </cell>
+         <cell id='316' start-row='31' start-col='2'>
+            <bounding-box x1='273' y1='307' x2='278' y2='315'/>
+            <content>2</content>
+         </cell>
+         <cell id='86' start-row='32' start-col='0'>
+            <bounding-box x1='38' y1='296' x2='63' y2='305'/>
+            <content>Poland</content>
+         </cell>
+         <cell id='93' start-row='32' start-col='1'>
+            <bounding-box x1='196' y1='296' x2='209' y2='305'/>
+            <content>100</content>
+         </cell>
+         <cell id='121' start-row='32' start-col='4'>
+            <bounding-box x1='404' y1='296' x2='417' y2='305'/>
+            <content>100</content>
+         </cell>
+         <cell id='233' start-row='32' start-col='6'>
+            <bounding-box x1='546' y1='296' x2='555' y2='305'/>
+            <content>96</content>
+         </cell>
+         <cell id='251' start-row='32' start-col='5'>
+            <bounding-box x1='477' y1='296' x2='486' y2='305'/>
+            <content>96</content>
+         </cell>
+         <cell id='305' start-row='32' start-col='3'>
+            <bounding-box x1='334' y1='296' x2='348' y2='305'/>
+            <content>100</content>
+         </cell>
+         <cell id='320' start-row='32' start-col='2'>
+            <bounding-box x1='273' y1='296' x2='278' y2='305'/>
+            <content>4</content>
+         </cell>
+         <cell id='20' start-row='33' start-col='5'>
+            <bounding-box x1='477' y1='285' x2='486' y2='294'/>
+            <content>95</content>
+         </cell>
+         <cell id='28' start-row='33' start-col='4'>
+            <bounding-box x1='408' y1='285' x2='417' y2='294'/>
+            <content>99</content>
+         </cell>
+         <cell id='131' start-row='33' start-col='1'>
+            <bounding-box x1='196' y1='285' x2='209' y2='294'/>
+            <content>100</content>
+         </cell>
+         <cell id='159' start-row='33' start-col='2'>
+            <bounding-box x1='273' y1='285' x2='278' y2='294'/>
+            <content>3</content>
+         </cell>
+         <cell id='182' start-row='33' start-col='0'>
+            <bounding-box x1='38' y1='285' x2='68' y2='294'/>
+            <content>Portugal</content>
+         </cell>
+         <cell id='314' start-row='33' start-col='3'>
+            <bounding-box x1='338' y1='285' x2='348' y2='294'/>
+            <content>87</content>
+         </cell>
+         <cell id='317' start-row='33' start-col='6'>
+            <bounding-box x1='546' y1='285' x2='555' y2='294'/>
+            <content>93</content>
+         </cell>
+         <cell id='45' start-row='34' start-col='4'>
+            <bounding-box x1='404' y1='275' x2='417' y2='283'/>
+            <content>100</content>
+         </cell>
+         <cell id='67' start-row='34' start-col='1'>
+            <bounding-box x1='196' y1='275' x2='209' y2='283'/>
+            <content>100</content>
+         </cell>
+         <cell id='107' start-row='34' start-col='0'>
+            <bounding-box x1='38' y1='275' x2='58' y2='283'/>
+            <content>Qatar</content>
+         </cell>
+         <cell id='133' start-row='34' start-col='3'>
+            <bounding-box x1='334' y1='275' x2='348' y2='283'/>
+            <content>100</content>
+         </cell>
+         <cell id='144' start-row='34' start-col='6'>
+            <bounding-box x1='546' y1='275' x2='555' y2='283'/>
+            <content>99</content>
+         </cell>
+         <cell id='177' start-row='34' start-col='5'>
+            <bounding-box x1='477' y1='275' x2='486' y2='283'/>
+            <content>99</content>
+         </cell>
+         <cell id='327' start-row='34' start-col='2'>
+            <bounding-box x1='273' y1='275' x2='278' y2='283'/>
+            <content>6</content>
+         </cell>
+         <cell id='91' start-row='35' start-col='0'>
+            <bounding-box x1='38' y1='264' x2='70' y2='272'/>
+            <content>Romania</content>
+         </cell>
+         <cell id='117' start-row='35' start-col='5'>
+            <bounding-box x1='477' y1='264' x2='486' y2='272'/>
+            <content>97</content>
+         </cell>
+         <cell id='197' start-row='35' start-col='1'>
+            <bounding-box x1='196' y1='264' x2='209' y2='272'/>
+            <content>100</content>
+         </cell>
+         <cell id='212' start-row='35' start-col='2'>
+            <bounding-box x1='273' y1='264' x2='278' y2='272'/>
+            <content>4</content>
+         </cell>
+         <cell id='296' start-row='35' start-col='3'>
+            <bounding-box x1='338' y1='264' x2='348' y2='272'/>
+            <content>99</content>
+         </cell>
+         <cell id='299' start-row='35' start-col='6'>
+            <bounding-box x1='546' y1='264' x2='555' y2='272'/>
+            <content>97</content>
+         </cell>
+         <cell id='300' start-row='35' start-col='4'>
+            <bounding-box x1='404' y1='264' x2='417' y2='272'/>
+            <content>100</content>
+         </cell>
+         <cell id='13' start-row='36' start-col='0'>
+            <bounding-box x1='38' y1='253' x2='106' y2='262'/>
+            <content>RussianFederation</content>
+         </cell>
+         <cell id='156' start-row='36' start-col='3'>
+            <bounding-box x1='334' y1='253' x2='348' y2='261'/>
+            <content>100</content>
+         </cell>
+         <cell id='207' start-row='36' start-col='2'>
+            <bounding-box x1='273' y1='253' x2='278' y2='261'/>
+            <content>5</content>
+         </cell>
+         <cell id='221' start-row='36' start-col='4'>
+            <bounding-box x1='404' y1='253' x2='417' y2='261'/>
+            <content>100</content>
+         </cell>
+         <cell id='231' start-row='36' start-col='6'>
+            <bounding-box x1='546' y1='253' x2='555' y2='261'/>
+            <content>98</content>
+         </cell>
+         <cell id='282' start-row='36' start-col='1'>
+            <bounding-box x1='196' y1='253' x2='209' y2='261'/>
+            <content>100</content>
+         </cell>
+         <cell id='298' start-row='36' start-col='5'>
+            <bounding-box x1='477' y1='253' x2='486' y2='261'/>
+            <content>98</content>
+         </cell>
+         <cell id='90' start-row='37' start-col='4'>
+            <bounding-box x1='404' y1='242' x2='417' y2='251'/>
+            <content>100</content>
+         </cell>
+         <cell id='127' start-row='37' start-col='6'>
+            <bounding-box x1='546' y1='242' x2='555' y2='251'/>
+            <content>98</content>
+         </cell>
+         <cell id='152' start-row='37' start-col='0'>
+            <bounding-box x1='38' y1='242' x2='83' y2='251'/>
+            <content>SaudiArabia</content>
+         </cell>
+         <cell id='168' start-row='37' start-col='5'>
+            <bounding-box x1='477' y1='242' x2='486' y2='251'/>
+            <content>98</content>
+         </cell>
+         <cell id='171' start-row='37' start-col='1'>
+            <bounding-box x1='196' y1='242' x2='209' y2='251'/>
+            <content>100</content>
+         </cell>
+         <cell id='186' start-row='37' start-col='2'>
+            <bounding-box x1='273' y1='242' x2='278' y2='251'/>
+            <content>2</content>
+         </cell>
+         <cell id='265' start-row='37' start-col='3'>
+            <bounding-box x1='338' y1='242' x2='348' y2='251'/>
+            <content>95</content>
+         </cell>
+         <cell id='17' start-row='38' start-col='0'>
+            <bounding-box x1='38' y1='231' x2='74' y2='240'/>
+            <content>Singapore</content>
+         </cell>
+         <cell id='57' start-row='38' start-col='2'>
+            <bounding-box x1='273' y1='231' x2='278' y2='240'/>
+            <content>6</content>
+         </cell>
+         <cell id='139' start-row='38' start-col='1'>
+            <bounding-box x1='196' y1='231' x2='209' y2='240'/>
+            <content>100</content>
+         </cell>
+         <cell id='187' start-row='38' start-col='4'>
+            <bounding-box x1='404' y1='231' x2='417' y2='240'/>
+            <content>100</content>
+         </cell>
+         <cell id='198' start-row='38' start-col='3'>
+            <bounding-box x1='334' y1='231' x2='348' y2='240'/>
+            <content>100</content>
+         </cell>
+         <cell id='225' start-row='38' start-col='5'>
+            <bounding-box x1='477' y1='231' x2='486' y2='240'/>
+            <content>96</content>
+         </cell>
+         <cell id='333' start-row='38' start-col='6'>
+            <bounding-box x1='546' y1='231' x2='555' y2='240'/>
+            <content>96</content>
+         </cell>
+         <cell id='7' start-row='39' start-col='0'>
+            <bounding-box x1='38' y1='221' x2='94' y2='229'/>
+            <content>SlovakRepublic</content>
+         </cell>
+         <cell id='18' start-row='39' start-col='3'>
+            <bounding-box x1='338' y1='221' x2='348' y2='229'/>
+            <content>95</content>
+         </cell>
+         <cell id='27' start-row='39' start-col='5'>
+            <bounding-box x1='477' y1='221' x2='486' y2='229'/>
+            <content>97</content>
+         </cell>
+         <cell id='173' start-row='39' start-col='1'>
+            <bounding-box x1='196' y1='221' x2='209' y2='229'/>
+            <content>100</content>
+         </cell>
+         <cell id='203' start-row='39' start-col='6'>
+            <bounding-box x1='546' y1='221' x2='555' y2='229'/>
+            <content>96</content>
+         </cell>
+         <cell id='209' start-row='39' start-col='4'>
+            <bounding-box x1='408' y1='221' x2='417' y2='229'/>
+            <content>99</content>
+         </cell>
+         <cell id='284' start-row='39' start-col='2'>
+            <bounding-box x1='273' y1='221' x2='278' y2='229'/>
+            <content>5</content>
+         </cell>
+         <cell id='40' start-row='40' start-col='1'>
+            <bounding-box x1='196' y1='210' x2='209' y2='218'/>
+            <content>100</content>
+         </cell>
+         <cell id='49' start-row='40' start-col='0'>
+            <bounding-box x1='38' y1='210' x2='68' y2='218'/>
+            <content>Slovenia</content>
+         </cell>
+         <cell id='97' start-row='40' start-col='4'>
+            <bounding-box x1='408' y1='210' x2='417' y2='218'/>
+            <content>97</content>
+         </cell>
+         <cell id='112' start-row='40' start-col='5'>
+            <bounding-box x1='477' y1='210' x2='486' y2='218'/>
+            <content>97</content>
+         </cell>
+         <cell id='216' start-row='40' start-col='2'>
+            <bounding-box x1='273' y1='210' x2='278' y2='218'/>
+            <content>3</content>
+         </cell>
+         <cell id='257' start-row='40' start-col='6'>
+            <bounding-box x1='546' y1='210' x2='555' y2='218'/>
+            <content>95</content>
+         </cell>
+         <cell id='287' start-row='40' start-col='3'>
+            <bounding-box x1='338' y1='210' x2='348' y2='218'/>
+            <content>96</content>
+         </cell>
+         <cell id='68' start-row='41' start-col='0'>
+            <bounding-box x1='38' y1='199' x2='58' y2='208'/>
+            <content>Spain</content>
+         </cell>
+         <cell id='106' start-row='41' start-col='1'>
+            <bounding-box x1='196' y1='199' x2='209' y2='207'/>
+            <content>100</content>
+         </cell>
+         <cell id='130' start-row='41' start-col='5'>
+            <bounding-box x1='477' y1='199' x2='486' y2='207'/>
+            <content>97</content>
+         </cell>
+         <cell id='190' start-row='41' start-col='3'>
+            <bounding-box x1='338' y1='199' x2='348' y2='207'/>
+            <content>96</content>
+         </cell>
+         <cell id='240' start-row='41' start-col='6'>
+            <bounding-box x1='546' y1='199' x2='555' y2='207'/>
+            <content>96</content>
+         </cell>
+         <cell id='268' start-row='41' start-col='4'>
+            <bounding-box x1='408' y1='199' x2='417' y2='207'/>
+            <content>99</content>
+         </cell>
+         <cell id='276' start-row='41' start-col='2'>
+            <bounding-box x1='273' y1='199' x2='278' y2='207'/>
+            <content>5</content>
+         </cell>
+         <cell id='85' start-row='42' start-col='4'>
+            <bounding-box x1='408' y1='188' x2='417' y2='197'/>
+            <content>99</content>
+         </cell>
+         <cell id='118' start-row='42' start-col='1'>
+            <bounding-box x1='196' y1='188' x2='209' y2='197'/>
+            <content>100</content>
+         </cell>
+         <cell id='149' start-row='42' start-col='0'>
+            <bounding-box x1='38' y1='188' x2='67' y2='197'/>
+            <content>Sweden</content>
+         </cell>
+         <cell id='151' start-row='42' start-col='3'>
+            <bounding-box x1='338' y1='188' x2='348' y2='197'/>
+            <content>97</content>
+         </cell>
+         <cell id='193' start-row='42' start-col='5'>
+            <bounding-box x1='477' y1='188' x2='486' y2='197'/>
+            <content>92</content>
+         </cell>
+         <cell id='312' start-row='42' start-col='6'>
+            <bounding-box x1='546' y1='188' x2='555' y2='197'/>
+            <content>91</content>
+         </cell>
+         <cell id='325' start-row='42' start-col='2'>
+            <bounding-box x1='273' y1='188' x2='278' y2='197'/>
+            <content>4</content>
+         </cell>
+         <cell id='21' start-row='43' start-col='3'>
+            <bounding-box x1='338' y1='177' x2='348' y2='186'/>
+            <content>99</content>
+         </cell>
+         <cell id='33' start-row='43' start-col='0'>
+            <bounding-box x1='38' y1='177' x2='109' y2='186'/>
+            <content>Trinidad andTobago</content>
+         </cell>
+         <cell id='113' start-row='43' start-col='2'>
+            <bounding-box x1='273' y1='177' x2='278' y2='186'/>
+            <content>1</content>
+         </cell>
+         <cell id='205' start-row='43' start-col='1'>
+            <bounding-box x1='196' y1='177' x2='209' y2='186'/>
+            <content>100</content>
+         </cell>
+         <cell id='274' start-row='43' start-col='4'>
+            <bounding-box x1='408' y1='177' x2='417' y2='186'/>
+            <content>99</content>
+         </cell>
+         <cell id='292' start-row='43' start-col='5'>
+            <bounding-box x1='477' y1='177' x2='486' y2='186'/>
+            <content>96</content>
+         </cell>
+         <cell id='293' start-row='43' start-col='6'>
+            <bounding-box x1='546' y1='177' x2='555' y2='186'/>
+            <content>95</content>
+         </cell>
+         <cell id='23' start-row='44' start-col='3'>
+            <bounding-box x1='334' y1='167' x2='348' y2='175'/>
+            <content>100</content>
+         </cell>
+         <cell id='24' start-row='44' start-col='4'>
+            <bounding-box x1='404' y1='167' x2='417' y2='175'/>
+            <content>100</content>
+         </cell>
+         <cell id='47' start-row='44' start-col='6'>
+            <bounding-box x1='546' y1='167' x2='555' y2='175'/>
+            <content>97</content>
+         </cell>
+         <cell id='62' start-row='44' start-col='0'>
+            <bounding-box x1='38' y1='167' x2='112' y2='175'/>
+            <content>United Arab Emirates</content>
+         </cell>
+         <cell id='210' start-row='44' start-col='5'>
+            <bounding-box x1='477' y1='167' x2='486' y2='175'/>
+            <content>97</content>
+         </cell>
+         <cell id='242' start-row='44' start-col='2'>
+            <bounding-box x1='273' y1='167' x2='278' y2='175'/>
+            <content>3</content>
+         </cell>
+         <cell id='319' start-row='44' start-col='1'>
+            <bounding-box x1='196' y1='167' x2='209' y2='175'/>
+            <content>100</content>
+         </cell>
+         <cell id='19' start-row='45' start-col='1'>
+            <bounding-box x1='196' y1='156' x2='209' y2='164'/>
+            <content>100</content>
+         </cell>
+         <cell id='81' start-row='45' start-col='3'>
+            <bounding-box x1='338' y1='156' x2='348' y2='164'/>
+            <content>80</content>
+         </cell>
+         <cell id='192' start-row='45' start-col='6'>
+            <bounding-box x1='546' y1='156' x2='555' y2='164'/>
+            <content>81</content>
+         </cell>
+         <cell id='195' start-row='45' start-col='5'>
+            <bounding-box x1='477' y1='156' x2='486' y2='164'/>
+            <content>96</content>
+         </cell>
+         <cell id='264' start-row='45' start-col='2'>
+            <bounding-box x1='273' y1='156' x2='278' y2='164'/>
+            <content>7</content>
+         </cell>
+         <cell id='267' start-row='45' start-col='4'>
+            <bounding-box x1='408' y1='156' x2='417' y2='164'/>
+            <content>85</content>
+         </cell>
+         <cell id='143' start-row='45' start-col='0'>
+            <bounding-box x1='38' y1='155' x2='85' y2='164'/>
+            <content>United States</content>
+         </cell>
+         <cell id='318' start-row='0' start-col='1'>
+            <bounding-box x1='145' y1='642' x2='208' y2='678'/>
+            <content>Percentage of
+international
+desired population
+coverage</content>
+            <instruction instr-id='482' subinstr-id='0'/>
+            <instruction instr-id='482' subinstr-id='2'/>
+            <instruction instr-id='482' subinstr-id='4'/>
+            <instruction instr-id='482' subinstr-id='6'/>
+            <instruction instr-id='482' subinstr-id='8'/>
+            <instruction instr-id='482' subinstr-id='10'/>
+            <instruction instr-id='482' subinstr-id='12'/>
+            <instruction instr-id='482' subinstr-id='16'/>
+            <instruction instr-id='482' subinstr-id='18'/>
+            <instruction instr-id='484' subinstr-id='0'/>
+            <instruction instr-id='484' subinstr-id='2'/>
+            <instruction instr-id='484' subinstr-id='4'/>
+            <instruction instr-id='484' subinstr-id='6'/>
+            <instruction instr-id='484' subinstr-id='8'/>
+            <instruction instr-id='484' subinstr-id='10'/>
+            <instruction instr-id='484' subinstr-id='12'/>
+            <instruction instr-id='484' subinstr-id='14'/>
+            <instruction instr-id='484' subinstr-id='16'/>
+            <instruction instr-id='484' subinstr-id='18'/>
+            <instruction instr-id='484' subinstr-id='20'/>
+            <instruction instr-id='484' subinstr-id='22'/>
+            <instruction instr-id='486' subinstr-id='0'/>
+            <instruction instr-id='486' subinstr-id='2'/>
+            <instruction instr-id='486' subinstr-id='4'/>
+            <instruction instr-id='486' subinstr-id='6'/>
+            <instruction instr-id='486' subinstr-id='8'/>
+            <instruction instr-id='486' subinstr-id='12'/>
+            <instruction instr-id='486' subinstr-id='14'/>
+            <instruction instr-id='486' subinstr-id='16'/>
+            <instruction instr-id='486' subinstr-id='18'/>
+            <instruction instr-id='486' subinstr-id='20'/>
+            <instruction instr-id='486' subinstr-id='22'/>
+            <instruction instr-id='486' subinstr-id='24'/>
+            <instruction instr-id='486' subinstr-id='26'/>
+            <instruction instr-id='486' subinstr-id='28'/>
+            <instruction instr-id='486' subinstr-id='30'/>
+            <instruction instr-id='489' subinstr-id='0'/>
+            <instruction instr-id='489' subinstr-id='2'/>
+            <instruction instr-id='489' subinstr-id='4'/>
+            <instruction instr-id='489' subinstr-id='6'/>
+            <instruction instr-id='489' subinstr-id='8'/>
+         </cell>
+         <cell id='319' start-row='0' start-col='2'>
+            <bounding-box x1='217' y1='642' x2='277' y2='668'/>
+            <content>National desired
+population overall
+exclusion rate</content>
+            <instruction instr-id='492' subinstr-id='0'/>
+            <instruction instr-id='492' subinstr-id='2'/>
+            <instruction instr-id='492' subinstr-id='4'/>
+            <instruction instr-id='492' subinstr-id='6'/>
+            <instruction instr-id='492' subinstr-id='8'/>
+            <instruction instr-id='492' subinstr-id='10'/>
+            <instruction instr-id='492' subinstr-id='12'/>
+            <instruction instr-id='492' subinstr-id='14'/>
+            <instruction instr-id='492' subinstr-id='18'/>
+            <instruction instr-id='492' subinstr-id='20'/>
+            <instruction instr-id='492' subinstr-id='22'/>
+            <instruction instr-id='492' subinstr-id='24'/>
+            <instruction instr-id='492' subinstr-id='26'/>
+            <instruction instr-id='495' subinstr-id='0'/>
+            <instruction instr-id='495' subinstr-id='2'/>
+            <instruction instr-id='495' subinstr-id='4'/>
+            <instruction instr-id='495' subinstr-id='6'/>
+            <instruction instr-id='495' subinstr-id='8'/>
+            <instruction instr-id='495' subinstr-id='10'/>
+            <instruction instr-id='495' subinstr-id='12'/>
+            <instruction instr-id='495' subinstr-id='14'/>
+            <instruction instr-id='495' subinstr-id='16'/>
+            <instruction instr-id='495' subinstr-id='18'/>
+            <instruction instr-id='495' subinstr-id='22'/>
+            <instruction instr-id='495' subinstr-id='24'/>
+            <instruction instr-id='495' subinstr-id='26'/>
+            <instruction instr-id='495' subinstr-id='28'/>
+            <instruction instr-id='495' subinstr-id='30'/>
+            <instruction instr-id='498' subinstr-id='0'/>
+            <instruction instr-id='498' subinstr-id='2'/>
+            <instruction instr-id='498' subinstr-id='4'/>
+            <instruction instr-id='498' subinstr-id='6'/>
+            <instruction instr-id='498' subinstr-id='8'/>
+            <instruction instr-id='498' subinstr-id='10'/>
+            <instruction instr-id='498' subinstr-id='14'/>
+            <instruction instr-id='498' subinstr-id='16'/>
+            <instruction instr-id='498' subinstr-id='18'/>
+         </cell>
+         <cell id='320' start-row='0' start-col='3'>
+            <bounding-box x1='283' y1='642' x2='347' y2='668'/>
+            <content>Weighted school
+participation rate
+before substitution</content>
+            <instruction instr-id='500' subinstr-id='0'/>
+            <instruction instr-id='500' subinstr-id='2'/>
+            <instruction instr-id='500' subinstr-id='4'/>
+            <instruction instr-id='500' subinstr-id='6'/>
+            <instruction instr-id='500' subinstr-id='8'/>
+            <instruction instr-id='500' subinstr-id='10'/>
+            <instruction instr-id='500' subinstr-id='12'/>
+            <instruction instr-id='500' subinstr-id='14'/>
+            <instruction instr-id='500' subinstr-id='18'/>
+            <instruction instr-id='500' subinstr-id='20'/>
+            <instruction instr-id='500' subinstr-id='22'/>
+            <instruction instr-id='500' subinstr-id='24'/>
+            <instruction instr-id='502' subinstr-id='0'/>
+            <instruction instr-id='502' subinstr-id='2'/>
+            <instruction instr-id='502' subinstr-id='4'/>
+            <instruction instr-id='502' subinstr-id='6'/>
+            <instruction instr-id='502' subinstr-id='8'/>
+            <instruction instr-id='502' subinstr-id='10'/>
+            <instruction instr-id='502' subinstr-id='12'/>
+            <instruction instr-id='502' subinstr-id='14'/>
+            <instruction instr-id='502' subinstr-id='16'/>
+            <instruction instr-id='502' subinstr-id='18'/>
+            <instruction instr-id='502' subinstr-id='20'/>
+            <instruction instr-id='502' subinstr-id='24'/>
+            <instruction instr-id='502' subinstr-id='26'/>
+            <instruction instr-id='502' subinstr-id='28'/>
+            <instruction instr-id='504' subinstr-id='0'/>
+            <instruction instr-id='504' subinstr-id='2'/>
+            <instruction instr-id='504' subinstr-id='4'/>
+            <instruction instr-id='504' subinstr-id='6'/>
+            <instruction instr-id='504' subinstr-id='8'/>
+            <instruction instr-id='504' subinstr-id='12'/>
+            <instruction instr-id='504' subinstr-id='14'/>
+            <instruction instr-id='504' subinstr-id='16'/>
+            <instruction instr-id='504' subinstr-id='18'/>
+            <instruction instr-id='504' subinstr-id='20'/>
+            <instruction instr-id='504' subinstr-id='22'/>
+            <instruction instr-id='504' subinstr-id='24'/>
+            <instruction instr-id='504' subinstr-id='26'/>
+            <instruction instr-id='504' subinstr-id='28'/>
+            <instruction instr-id='504' subinstr-id='30'/>
+         </cell>
+         <cell id='321' start-row='0' start-col='4'>
+            <bounding-box x1='358' y1='642' x2='416' y2='668'/>
+            <content>Weighted school
+participation rate
+after substitution</content>
+            <instruction instr-id='506' subinstr-id='0'/>
+            <instruction instr-id='506' subinstr-id='2'/>
+            <instruction instr-id='506' subinstr-id='4'/>
+            <instruction instr-id='506' subinstr-id='6'/>
+            <instruction instr-id='506' subinstr-id='8'/>
+            <instruction instr-id='506' subinstr-id='10'/>
+            <instruction instr-id='506' subinstr-id='12'/>
+            <instruction instr-id='506' subinstr-id='14'/>
+            <instruction instr-id='506' subinstr-id='18'/>
+            <instruction instr-id='506' subinstr-id='20'/>
+            <instruction instr-id='506' subinstr-id='22'/>
+            <instruction instr-id='506' subinstr-id='24'/>
+            <instruction instr-id='508' subinstr-id='0'/>
+            <instruction instr-id='508' subinstr-id='2'/>
+            <instruction instr-id='508' subinstr-id='4'/>
+            <instruction instr-id='508' subinstr-id='6'/>
+            <instruction instr-id='508' subinstr-id='8'/>
+            <instruction instr-id='508' subinstr-id='10'/>
+            <instruction instr-id='508' subinstr-id='12'/>
+            <instruction instr-id='508' subinstr-id='14'/>
+            <instruction instr-id='508' subinstr-id='16'/>
+            <instruction instr-id='508' subinstr-id='18'/>
+            <instruction instr-id='508' subinstr-id='20'/>
+            <instruction instr-id='508' subinstr-id='24'/>
+            <instruction instr-id='508' subinstr-id='26'/>
+            <instruction instr-id='508' subinstr-id='28'/>
+            <instruction instr-id='510' subinstr-id='0'/>
+            <instruction instr-id='510' subinstr-id='2'/>
+            <instruction instr-id='510' subinstr-id='4'/>
+            <instruction instr-id='510' subinstr-id='6'/>
+            <instruction instr-id='510' subinstr-id='8'/>
+            <instruction instr-id='510' subinstr-id='10'/>
+            <instruction instr-id='510' subinstr-id='12'/>
+            <instruction instr-id='510' subinstr-id='14'/>
+            <instruction instr-id='510' subinstr-id='16'/>
+            <instruction instr-id='510' subinstr-id='18'/>
+            <instruction instr-id='510' subinstr-id='20'/>
+            <instruction instr-id='510' subinstr-id='22'/>
+            <instruction instr-id='510' subinstr-id='24'/>
+            <instruction instr-id='510' subinstr-id='26'/>
+            <instruction instr-id='510' subinstr-id='28'/>
+         </cell>
+         <cell id='322' start-row='0' start-col='5'>
+            <bounding-box x1='425' y1='642' x2='485' y2='659'/>
+            <content>Weighted student
+response rate</content>
+            <instruction instr-id='512' subinstr-id='0'/>
+            <instruction instr-id='512' subinstr-id='2'/>
+            <instruction instr-id='512' subinstr-id='4'/>
+            <instruction instr-id='512' subinstr-id='6'/>
+            <instruction instr-id='512' subinstr-id='8'/>
+            <instruction instr-id='512' subinstr-id='10'/>
+            <instruction instr-id='512' subinstr-id='12'/>
+            <instruction instr-id='512' subinstr-id='14'/>
+            <instruction instr-id='512' subinstr-id='18'/>
+            <instruction instr-id='512' subinstr-id='20'/>
+            <instruction instr-id='512' subinstr-id='22'/>
+            <instruction instr-id='512' subinstr-id='24'/>
+            <instruction instr-id='512' subinstr-id='26'/>
+            <instruction instr-id='512' subinstr-id='28'/>
+            <instruction instr-id='514' subinstr-id='0'/>
+            <instruction instr-id='514' subinstr-id='2'/>
+            <instruction instr-id='514' subinstr-id='4'/>
+            <instruction instr-id='514' subinstr-id='6'/>
+            <instruction instr-id='514' subinstr-id='8'/>
+            <instruction instr-id='514' subinstr-id='12'/>
+            <instruction instr-id='514' subinstr-id='14'/>
+            <instruction instr-id='514' subinstr-id='16'/>
+         </cell>
+         <cell id='323' start-row='0' start-col='6'>
+            <bounding-box x1='498' y1='642' x2='554' y2='687'/>
+            <content>Combined
+weighted school
+participation
+and student
+response rate</content>
+            <instruction instr-id='516' subinstr-id='0'/>
+            <instruction instr-id='516' subinstr-id='2'/>
+            <instruction instr-id='516' subinstr-id='4'/>
+            <instruction instr-id='516' subinstr-id='6'/>
+            <instruction instr-id='516' subinstr-id='8'/>
+            <instruction instr-id='516' subinstr-id='10'/>
+            <instruction instr-id='516' subinstr-id='12'/>
+            <instruction instr-id='519' subinstr-id='0'/>
+            <instruction instr-id='519' subinstr-id='2'/>
+            <instruction instr-id='519' subinstr-id='4'/>
+            <instruction instr-id='519' subinstr-id='6'/>
+            <instruction instr-id='519' subinstr-id='8'/>
+            <instruction instr-id='519' subinstr-id='10'/>
+            <instruction instr-id='519' subinstr-id='12'/>
+            <instruction instr-id='519' subinstr-id='14'/>
+            <instruction instr-id='519' subinstr-id='18'/>
+            <instruction instr-id='519' subinstr-id='20'/>
+            <instruction instr-id='519' subinstr-id='22'/>
+            <instruction instr-id='519' subinstr-id='24'/>
+            <instruction instr-id='522' subinstr-id='0'/>
+            <instruction instr-id='522' subinstr-id='2'/>
+            <instruction instr-id='522' subinstr-id='4'/>
+            <instruction instr-id='522' subinstr-id='6'/>
+            <instruction instr-id='522' subinstr-id='8'/>
+            <instruction instr-id='522' subinstr-id='10'/>
+            <instruction instr-id='522' subinstr-id='12'/>
+            <instruction instr-id='522' subinstr-id='14'/>
+            <instruction instr-id='522' subinstr-id='16'/>
+            <instruction instr-id='522' subinstr-id='18'/>
+            <instruction instr-id='522' subinstr-id='20'/>
+            <instruction instr-id='524' subinstr-id='0'/>
+            <instruction instr-id='524' subinstr-id='2'/>
+            <instruction instr-id='524' subinstr-id='4'/>
+            <instruction instr-id='524' subinstr-id='8'/>
+            <instruction instr-id='524' subinstr-id='10'/>
+            <instruction instr-id='524' subinstr-id='12'/>
+            <instruction instr-id='524' subinstr-id='14'/>
+            <instruction instr-id='524' subinstr-id='16'/>
+            <instruction instr-id='524' subinstr-id='18'/>
+            <instruction instr-id='526' subinstr-id='0'/>
+            <instruction instr-id='526' subinstr-id='2'/>
+            <instruction instr-id='526' subinstr-id='4'/>
+            <instruction instr-id='526' subinstr-id='6'/>
+            <instruction instr-id='526' subinstr-id='8'/>
+            <instruction instr-id='526' subinstr-id='12'/>
+            <instruction instr-id='526' subinstr-id='14'/>
+            <instruction instr-id='526' subinstr-id='16'/>
+         </cell>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' col-increment='0' row-increment='0' page='3'>
+         <cell id='5' start-row='1' start-col='0'>
+            <bounding-box x1='56' y1='631' x2='100' y2='639'/>
+            <content>Alberta-CAN</content>
+         </cell>
+         <cell id='23' start-row='1' start-col='4'>
+            <bounding-box x1='426' y1='631' x2='435' y2='639'/>
+            <content>99</content>
+         </cell>
+         <cell id='47' start-row='1' start-col='6'>
+            <bounding-box x1='564' y1='631' x2='573' y2='639'/>
+            <content>94</content>
+         </cell>
+         <cell id='48' start-row='1' start-col='2'>
+            <bounding-box x1='291' y1='631' x2='296' y2='639'/>
+            <content>7</content>
+         </cell>
+         <cell id='61' start-row='1' start-col='1'>
+            <bounding-box x1='214' y1='631' x2='227' y2='639'/>
+            <content>100</content>
+         </cell>
+         <cell id='63' start-row='1' start-col='3'>
+            <bounding-box x1='356' y1='631' x2='366' y2='639'/>
+            <content>97</content>
+         </cell>
+         <cell id='71' start-row='1' start-col='5'>
+            <bounding-box x1='495' y1='631' x2='504' y2='639'/>
+            <content>95</content>
+         </cell>
+         <cell id='9' start-row='2' start-col='0'>
+            <bounding-box x1='56' y1='620' x2='101' y2='629'/>
+            <content>Ontario-CAN</content>
+         </cell>
+         <cell id='45' start-row='2' start-col='3'>
+            <bounding-box x1='356' y1='620' x2='366' y2='629'/>
+            <content>99</content>
+         </cell>
+         <cell id='49' start-row='2' start-col='5'>
+            <bounding-box x1='495' y1='620' x2='504' y2='629'/>
+            <content>96</content>
+         </cell>
+         <cell id='53' start-row='2' start-col='6'>
+            <bounding-box x1='564' y1='620' x2='573' y2='629'/>
+            <content>95</content>
+         </cell>
+         <cell id='64' start-row='2' start-col='4'>
+            <bounding-box x1='426' y1='620' x2='435' y2='629'/>
+            <content>99</content>
+         </cell>
+         <cell id='65' start-row='2' start-col='1'>
+            <bounding-box x1='214' y1='620' x2='227' y2='629'/>
+            <content>100</content>
+         </cell>
+         <cell id='78' start-row='2' start-col='2'>
+            <bounding-box x1='291' y1='620' x2='296' y2='629'/>
+            <content>8</content>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='56' y1='609' x2='103' y2='618'/>
+            <content>Quebec-CAN</content>
+         </cell>
+         <cell id='22' start-row='3' start-col='6'>
+            <bounding-box x1='564' y1='609' x2='573' y2='618'/>
+            <content>92</content>
+         </cell>
+         <cell id='41' start-row='3' start-col='1'>
+            <bounding-box x1='214' y1='609' x2='227' y2='618'/>
+            <content>100</content>
+         </cell>
+         <cell id='43' start-row='3' start-col='4'>
+            <bounding-box x1='426' y1='609' x2='435' y2='618'/>
+            <content>96</content>
+         </cell>
+         <cell id='58' start-row='3' start-col='5'>
+            <bounding-box x1='495' y1='609' x2='504' y2='618'/>
+            <content>96</content>
+         </cell>
+         <cell id='62' start-row='3' start-col='3'>
+            <bounding-box x1='356' y1='609' x2='366' y2='618'/>
+            <content>95</content>
+         </cell>
+         <cell id='68' start-row='3' start-col='2'>
+            <bounding-box x1='291' y1='609' x2='296' y2='618'/>
+            <content>4</content>
+         </cell>
+         <cell id='27' start-row='4' start-col='0'>
+            <bounding-box x1='56' y1='599' x2='101' y2='607'/>
+            <content>Maltese-MLT</content>
+         </cell>
+         <cell id='39' start-row='4' start-col='1'>
+            <bounding-box x1='214' y1='599' x2='227' y2='607'/>
+            <content>100</content>
+         </cell>
+         <cell id='54' start-row='4' start-col='3'>
+            <bounding-box x1='352' y1='599' x2='366' y2='607'/>
+            <content>100</content>
+         </cell>
+         <cell id='59' start-row='4' start-col='6'>
+            <bounding-box x1='564' y1='599' x2='573' y2='607'/>
+            <content>94</content>
+         </cell>
+         <cell id='66' start-row='4' start-col='4'>
+            <bounding-box x1='422' y1='599' x2='435' y2='607'/>
+            <content>100</content>
+         </cell>
+         <cell id='76' start-row='4' start-col='5'>
+            <bounding-box x1='495' y1='599' x2='504' y2='607'/>
+            <content>94</content>
+         </cell>
+         <cell id='77' start-row='4' start-col='2'>
+            <bounding-box x1='291' y1='599' x2='296' y2='607'/>
+            <content>4</content>
+         </cell>
+         <cell id='2' start-row='5' start-col='0'>
+            <bounding-box x1='56' y1='588' x2='109' y2='596'/>
+            <content>Andalusia-ESP</content>
+         </cell>
+         <cell id='11' start-row='5' start-col='2'>
+            <bounding-box x1='291' y1='588' x2='296' y2='596'/>
+            <content>5</content>
+         </cell>
+         <cell id='28' start-row='5' start-col='3'>
+            <bounding-box x1='356' y1='588' x2='366' y2='596'/>
+            <content>99</content>
+         </cell>
+         <cell id='56' start-row='5' start-col='6'>
+            <bounding-box x1='564' y1='588' x2='573' y2='596'/>
+            <content>96</content>
+         </cell>
+         <cell id='69' start-row='5' start-col='5'>
+            <bounding-box x1='495' y1='588' x2='504' y2='596'/>
+            <content>97</content>
+         </cell>
+         <cell id='70' start-row='5' start-col='1'>
+            <bounding-box x1='214' y1='588' x2='227' y2='596'/>
+            <content>100</content>
+         </cell>
+         <cell id='72' start-row='5' start-col='4'>
+            <bounding-box x1='426' y1='588' x2='435' y2='596'/>
+            <content>99</content>
+         </cell>
+         <cell id='3' start-row='6' start-col='0'>
+            <bounding-box x1='56' y1='577' x2='111' y2='586'/>
+            <content>AbuDhabi-UAE</content>
+         </cell>
+         <cell id='4' start-row='6' start-col='1'>
+            <bounding-box x1='214' y1='577' x2='227' y2='585'/>
+            <content>100</content>
+         </cell>
+         <cell id='19' start-row='6' start-col='3'>
+            <bounding-box x1='356' y1='577' x2='366' y2='585'/>
+            <content>99</content>
+         </cell>
+         <cell id='21' start-row='6' start-col='6'>
+            <bounding-box x1='564' y1='577' x2='573' y2='585'/>
+            <content>96</content>
+         </cell>
+         <cell id='42' start-row='6' start-col='5'>
+            <bounding-box x1='495' y1='577' x2='504' y2='585'/>
+            <content>97</content>
+         </cell>
+         <cell id='44' start-row='6' start-col='4'>
+            <bounding-box x1='426' y1='577' x2='435' y2='585'/>
+            <content>99</content>
+         </cell>
+         <cell id='55' start-row='6' start-col='2'>
+            <bounding-box x1='291' y1='577' x2='296' y2='585'/>
+            <content>3</content>
+         </cell>
+         <cell id='10' start-row='7' start-col='5'>
+            <bounding-box x1='495' y1='566' x2='504' y2='575'/>
+            <content>96</content>
+         </cell>
+         <cell id='13' start-row='7' start-col='0'>
+            <bounding-box x1='56' y1='566' x2='95' y2='575'/>
+            <content>Dubai-UAE</content>
+         </cell>
+         <cell id='24' start-row='7' start-col='1'>
+            <bounding-box x1='214' y1='566' x2='227' y2='575'/>
+            <content>100</content>
+         </cell>
+         <cell id='46' start-row='7' start-col='6'>
+            <bounding-box x1='564' y1='566' x2='573' y2='575'/>
+            <content>94</content>
+         </cell>
+         <cell id='50' start-row='7' start-col='4'>
+            <bounding-box x1='426' y1='566' x2='435' y2='575'/>
+            <content>99</content>
+         </cell>
+         <cell id='74' start-row='7' start-col='2'>
+            <bounding-box x1='291' y1='566' x2='296' y2='575'/>
+            <content>5</content>
+         </cell>
+         <cell id='75' start-row='7' start-col='3'>
+            <bounding-box x1='356' y1='566' x2='366' y2='575'/>
+            <content>99</content>
+         </cell>
+         <cell id='32' start-row='8' start-col='6'>
+            <bounding-box x1='563' y1='556' x2='573' y2='564'/>
+            <content>91</content>
+         </cell>
+         <cell id='34' start-row='8' start-col='3'>
+            <bounding-box x1='356' y1='556' x2='366' y2='564'/>
+            <content>96</content>
+         </cell>
+         <cell id='37' start-row='8' start-col='2'>
+            <bounding-box x1='287' y1='556' x2='296' y2='564'/>
+            <content>13</content>
+         </cell>
+         <cell id='52' start-row='8' start-col='4'>
+            <bounding-box x1='425' y1='556' x2='435' y2='564'/>
+            <content>96</content>
+         </cell>
+         <cell id='60' start-row='8' start-col='1'>
+            <bounding-box x1='218' y1='556' x2='227' y2='564'/>
+            <content>89</content>
+         </cell>
+         <cell id='67' start-row='8' start-col='0'>
+            <bounding-box x1='56' y1='556' x2='99' y2='564'/>
+            <content>Florida-USA</content>
+         </cell>
+         <cell id='73' start-row='8' start-col='5'>
+            <bounding-box x1='494' y1='556' x2='504' y2='564'/>
+            <content>95</content>
+         </cell>
+         <cell id='57' start-row='0' start-col='0'>
+            <bounding-box x1='56' y1='642' x2='120' y2='659'/>
+            <content>Benchmarking
+educationsystems</content>
+            <instruction instr-id='202' subinstr-id='0'/>
+            <instruction instr-id='202' subinstr-id='2'/>
+            <instruction instr-id='202' subinstr-id='4'/>
+            <instruction instr-id='202' subinstr-id='6'/>
+            <instruction instr-id='202' subinstr-id='8'/>
+            <instruction instr-id='202' subinstr-id='10'/>
+            <instruction instr-id='202' subinstr-id='12'/>
+            <instruction instr-id='206' subinstr-id='0'/>
+            <instruction instr-id='206' subinstr-id='2'/>
+            <instruction instr-id='206' subinstr-id='4'/>
+            <instruction instr-id='206' subinstr-id='6'/>
+            <instruction instr-id='206' subinstr-id='8'/>
+            <instruction instr-id='206' subinstr-id='10'/>
+            <instruction instr-id='206' subinstr-id='12'/>
+            <instruction instr-id='206' subinstr-id='14'/>
+            <instruction instr-id='206' subinstr-id='18'/>
+            <instruction instr-id='206' subinstr-id='20'/>
+            <instruction instr-id='206' subinstr-id='22'/>
+         </cell>
+         <cell id='58' start-row='0' start-col='1'>
+            <bounding-box x1='163' y1='642' x2='226' y2='678'/>
+            <content>Percentageof
+international
+desiredpopulation
+coverage</content>
+            <instruction instr-id='208' subinstr-id='0'/>
+            <instruction instr-id='208' subinstr-id='2'/>
+            <instruction instr-id='208' subinstr-id='4'/>
+            <instruction instr-id='208' subinstr-id='6'/>
+            <instruction instr-id='208' subinstr-id='8'/>
+            <instruction instr-id='208' subinstr-id='10'/>
+            <instruction instr-id='208' subinstr-id='12'/>
+            <instruction instr-id='208' subinstr-id='16'/>
+            <instruction instr-id='208' subinstr-id='18'/>
+            <instruction instr-id='210' subinstr-id='0'/>
+            <instruction instr-id='210' subinstr-id='2'/>
+            <instruction instr-id='210' subinstr-id='4'/>
+            <instruction instr-id='210' subinstr-id='6'/>
+            <instruction instr-id='210' subinstr-id='8'/>
+            <instruction instr-id='210' subinstr-id='10'/>
+            <instruction instr-id='210' subinstr-id='12'/>
+            <instruction instr-id='210' subinstr-id='14'/>
+            <instruction instr-id='210' subinstr-id='16'/>
+            <instruction instr-id='210' subinstr-id='18'/>
+            <instruction instr-id='210' subinstr-id='20'/>
+            <instruction instr-id='210' subinstr-id='22'/>
+            <instruction instr-id='212' subinstr-id='0'/>
+            <instruction instr-id='212' subinstr-id='2'/>
+            <instruction instr-id='212' subinstr-id='4'/>
+            <instruction instr-id='212' subinstr-id='6'/>
+            <instruction instr-id='212' subinstr-id='8'/>
+            <instruction instr-id='212' subinstr-id='12'/>
+            <instruction instr-id='212' subinstr-id='14'/>
+            <instruction instr-id='212' subinstr-id='16'/>
+            <instruction instr-id='212' subinstr-id='18'/>
+            <instruction instr-id='212' subinstr-id='20'/>
+            <instruction instr-id='212' subinstr-id='22'/>
+            <instruction instr-id='212' subinstr-id='24'/>
+            <instruction instr-id='212' subinstr-id='26'/>
+            <instruction instr-id='212' subinstr-id='28'/>
+            <instruction instr-id='212' subinstr-id='30'/>
+            <instruction instr-id='215' subinstr-id='0'/>
+            <instruction instr-id='215' subinstr-id='2'/>
+            <instruction instr-id='215' subinstr-id='4'/>
+            <instruction instr-id='215' subinstr-id='6'/>
+            <instruction instr-id='215' subinstr-id='8'/>
+         </cell>
+         <cell id='59' start-row='0' start-col='2'>
+            <bounding-box x1='235' y1='642' x2='295' y2='668'/>
+            <content>Nationaldesired
+populationoverall
+exclusionrate</content>
+            <instruction instr-id='218' subinstr-id='0'/>
+            <instruction instr-id='218' subinstr-id='2'/>
+            <instruction instr-id='218' subinstr-id='4'/>
+            <instruction instr-id='218' subinstr-id='6'/>
+            <instruction instr-id='218' subinstr-id='8'/>
+            <instruction instr-id='218' subinstr-id='10'/>
+            <instruction instr-id='218' subinstr-id='12'/>
+            <instruction instr-id='218' subinstr-id='14'/>
+            <instruction instr-id='218' subinstr-id='18'/>
+            <instruction instr-id='218' subinstr-id='20'/>
+            <instruction instr-id='218' subinstr-id='22'/>
+            <instruction instr-id='218' subinstr-id='24'/>
+            <instruction instr-id='218' subinstr-id='26'/>
+            <instruction instr-id='221' subinstr-id='0'/>
+            <instruction instr-id='221' subinstr-id='2'/>
+            <instruction instr-id='221' subinstr-id='4'/>
+            <instruction instr-id='221' subinstr-id='6'/>
+            <instruction instr-id='221' subinstr-id='8'/>
+            <instruction instr-id='221' subinstr-id='10'/>
+            <instruction instr-id='221' subinstr-id='12'/>
+            <instruction instr-id='221' subinstr-id='14'/>
+            <instruction instr-id='221' subinstr-id='16'/>
+            <instruction instr-id='221' subinstr-id='18'/>
+            <instruction instr-id='221' subinstr-id='22'/>
+            <instruction instr-id='221' subinstr-id='24'/>
+            <instruction instr-id='221' subinstr-id='26'/>
+            <instruction instr-id='221' subinstr-id='28'/>
+            <instruction instr-id='221' subinstr-id='30'/>
+            <instruction instr-id='224' subinstr-id='0'/>
+            <instruction instr-id='224' subinstr-id='2'/>
+            <instruction instr-id='224' subinstr-id='4'/>
+            <instruction instr-id='224' subinstr-id='6'/>
+            <instruction instr-id='224' subinstr-id='8'/>
+            <instruction instr-id='224' subinstr-id='10'/>
+            <instruction instr-id='224' subinstr-id='14'/>
+            <instruction instr-id='224' subinstr-id='16'/>
+            <instruction instr-id='224' subinstr-id='18'/>
+         </cell>
+         <cell id='60' start-row='0' start-col='3'>
+            <bounding-box x1='301' y1='642' x2='365' y2='668'/>
+            <content>Weightedschool
+participationrate
+beforesubstitution</content>
+            <instruction instr-id='226' subinstr-id='0'/>
+            <instruction instr-id='226' subinstr-id='2'/>
+            <instruction instr-id='226' subinstr-id='4'/>
+            <instruction instr-id='226' subinstr-id='6'/>
+            <instruction instr-id='226' subinstr-id='8'/>
+            <instruction instr-id='226' subinstr-id='10'/>
+            <instruction instr-id='226' subinstr-id='12'/>
+            <instruction instr-id='226' subinstr-id='14'/>
+            <instruction instr-id='226' subinstr-id='18'/>
+            <instruction instr-id='226' subinstr-id='20'/>
+            <instruction instr-id='226' subinstr-id='22'/>
+            <instruction instr-id='226' subinstr-id='24'/>
+            <instruction instr-id='228' subinstr-id='0'/>
+            <instruction instr-id='228' subinstr-id='2'/>
+            <instruction instr-id='228' subinstr-id='4'/>
+            <instruction instr-id='228' subinstr-id='6'/>
+            <instruction instr-id='228' subinstr-id='8'/>
+            <instruction instr-id='228' subinstr-id='10'/>
+            <instruction instr-id='228' subinstr-id='12'/>
+            <instruction instr-id='228' subinstr-id='14'/>
+            <instruction instr-id='228' subinstr-id='16'/>
+            <instruction instr-id='228' subinstr-id='18'/>
+            <instruction instr-id='228' subinstr-id='20'/>
+            <instruction instr-id='228' subinstr-id='24'/>
+            <instruction instr-id='228' subinstr-id='26'/>
+            <instruction instr-id='228' subinstr-id='28'/>
+            <instruction instr-id='230' subinstr-id='0'/>
+            <instruction instr-id='230' subinstr-id='2'/>
+            <instruction instr-id='230' subinstr-id='4'/>
+            <instruction instr-id='230' subinstr-id='6'/>
+            <instruction instr-id='230' subinstr-id='8'/>
+            <instruction instr-id='230' subinstr-id='12'/>
+            <instruction instr-id='230' subinstr-id='14'/>
+            <instruction instr-id='230' subinstr-id='16'/>
+            <instruction instr-id='230' subinstr-id='18'/>
+            <instruction instr-id='230' subinstr-id='20'/>
+            <instruction instr-id='230' subinstr-id='22'/>
+            <instruction instr-id='230' subinstr-id='24'/>
+            <instruction instr-id='230' subinstr-id='26'/>
+            <instruction instr-id='230' subinstr-id='28'/>
+            <instruction instr-id='230' subinstr-id='30'/>
+         </cell>
+         <cell id='61' start-row='0' start-col='4'>
+            <bounding-box x1='376' y1='642' x2='434' y2='668'/>
+            <content>Weightedschool
+participationrate
+aftersubstitution</content>
+            <instruction instr-id='232' subinstr-id='0'/>
+            <instruction instr-id='232' subinstr-id='2'/>
+            <instruction instr-id='232' subinstr-id='4'/>
+            <instruction instr-id='232' subinstr-id='6'/>
+            <instruction instr-id='232' subinstr-id='8'/>
+            <instruction instr-id='232' subinstr-id='10'/>
+            <instruction instr-id='232' subinstr-id='12'/>
+            <instruction instr-id='232' subinstr-id='14'/>
+            <instruction instr-id='232' subinstr-id='18'/>
+            <instruction instr-id='232' subinstr-id='20'/>
+            <instruction instr-id='232' subinstr-id='22'/>
+            <instruction instr-id='232' subinstr-id='24'/>
+            <instruction instr-id='234' subinstr-id='0'/>
+            <instruction instr-id='234' subinstr-id='2'/>
+            <instruction instr-id='234' subinstr-id='4'/>
+            <instruction instr-id='234' subinstr-id='6'/>
+            <instruction instr-id='234' subinstr-id='8'/>
+            <instruction instr-id='234' subinstr-id='10'/>
+            <instruction instr-id='234' subinstr-id='12'/>
+            <instruction instr-id='234' subinstr-id='14'/>
+            <instruction instr-id='234' subinstr-id='16'/>
+            <instruction instr-id='234' subinstr-id='18'/>
+            <instruction instr-id='234' subinstr-id='20'/>
+            <instruction instr-id='234' subinstr-id='24'/>
+            <instruction instr-id='234' subinstr-id='26'/>
+            <instruction instr-id='234' subinstr-id='28'/>
+            <instruction instr-id='236' subinstr-id='0'/>
+            <instruction instr-id='236' subinstr-id='2'/>
+            <instruction instr-id='236' subinstr-id='4'/>
+            <instruction instr-id='236' subinstr-id='6'/>
+            <instruction instr-id='236' subinstr-id='8'/>
+            <instruction instr-id='236' subinstr-id='10'/>
+            <instruction instr-id='236' subinstr-id='12'/>
+            <instruction instr-id='236' subinstr-id='14'/>
+            <instruction instr-id='236' subinstr-id='16'/>
+            <instruction instr-id='236' subinstr-id='18'/>
+            <instruction instr-id='236' subinstr-id='20'/>
+            <instruction instr-id='236' subinstr-id='22'/>
+            <instruction instr-id='236' subinstr-id='24'/>
+            <instruction instr-id='236' subinstr-id='26'/>
+            <instruction instr-id='236' subinstr-id='28'/>
+         </cell>
+         <cell id='62' start-row='0' start-col='5'>
+            <bounding-box x1='443' y1='642' x2='503' y2='659'/>
+            <content>Weightedstudent
+responserate</content>
+            <instruction instr-id='238' subinstr-id='0'/>
+            <instruction instr-id='238' subinstr-id='2'/>
+            <instruction instr-id='238' subinstr-id='4'/>
+            <instruction instr-id='238' subinstr-id='6'/>
+            <instruction instr-id='238' subinstr-id='8'/>
+            <instruction instr-id='238' subinstr-id='10'/>
+            <instruction instr-id='238' subinstr-id='12'/>
+            <instruction instr-id='238' subinstr-id='14'/>
+            <instruction instr-id='238' subinstr-id='18'/>
+            <instruction instr-id='238' subinstr-id='20'/>
+            <instruction instr-id='238' subinstr-id='22'/>
+            <instruction instr-id='238' subinstr-id='24'/>
+            <instruction instr-id='238' subinstr-id='26'/>
+            <instruction instr-id='238' subinstr-id='28'/>
+            <instruction instr-id='240' subinstr-id='0'/>
+            <instruction instr-id='240' subinstr-id='2'/>
+            <instruction instr-id='240' subinstr-id='4'/>
+            <instruction instr-id='240' subinstr-id='6'/>
+            <instruction instr-id='240' subinstr-id='8'/>
+            <instruction instr-id='240' subinstr-id='12'/>
+            <instruction instr-id='240' subinstr-id='14'/>
+            <instruction instr-id='240' subinstr-id='16'/>
+         </cell>
+         <cell id='63' start-row='0' start-col='6'>
+            <bounding-box x1='516' y1='642' x2='572' y2='687'/>
+            <content>Combined
+weightedschool
+participation
+andstudent
+responserate</content>
+            <instruction instr-id='242' subinstr-id='0'/>
+            <instruction instr-id='242' subinstr-id='2'/>
+            <instruction instr-id='242' subinstr-id='4'/>
+            <instruction instr-id='242' subinstr-id='6'/>
+            <instruction instr-id='242' subinstr-id='8'/>
+            <instruction instr-id='242' subinstr-id='10'/>
+            <instruction instr-id='242' subinstr-id='12'/>
+            <instruction instr-id='245' subinstr-id='0'/>
+            <instruction instr-id='245' subinstr-id='2'/>
+            <instruction instr-id='245' subinstr-id='4'/>
+            <instruction instr-id='245' subinstr-id='6'/>
+            <instruction instr-id='245' subinstr-id='8'/>
+            <instruction instr-id='245' subinstr-id='10'/>
+            <instruction instr-id='245' subinstr-id='12'/>
+            <instruction instr-id='245' subinstr-id='14'/>
+            <instruction instr-id='245' subinstr-id='18'/>
+            <instruction instr-id='245' subinstr-id='20'/>
+            <instruction instr-id='245' subinstr-id='22'/>
+            <instruction instr-id='245' subinstr-id='24'/>
+            <instruction instr-id='248' subinstr-id='0'/>
+            <instruction instr-id='248' subinstr-id='2'/>
+            <instruction instr-id='248' subinstr-id='4'/>
+            <instruction instr-id='248' subinstr-id='6'/>
+            <instruction instr-id='248' subinstr-id='8'/>
+            <instruction instr-id='248' subinstr-id='10'/>
+            <instruction instr-id='248' subinstr-id='12'/>
+            <instruction instr-id='248' subinstr-id='14'/>
+            <instruction instr-id='248' subinstr-id='16'/>
+            <instruction instr-id='248' subinstr-id='18'/>
+            <instruction instr-id='248' subinstr-id='20'/>
+            <instruction instr-id='250' subinstr-id='0'/>
+            <instruction instr-id='250' subinstr-id='2'/>
+            <instruction instr-id='250' subinstr-id='4'/>
+            <instruction instr-id='250' subinstr-id='8'/>
+            <instruction instr-id='250' subinstr-id='10'/>
+            <instruction instr-id='250' subinstr-id='12'/>
+            <instruction instr-id='250' subinstr-id='14'/>
+            <instruction instr-id='250' subinstr-id='16'/>
+            <instruction instr-id='250' subinstr-id='18'/>
+            <instruction instr-id='252' subinstr-id='0'/>
+            <instruction instr-id='252' subinstr-id='2'/>
+            <instruction instr-id='252' subinstr-id='4'/>
+            <instruction instr-id='252' subinstr-id='6'/>
+            <instruction instr-id='252' subinstr-id='8'/>
+            <instruction instr-id='252' subinstr-id='12'/>
+            <instruction instr-id='252' subinstr-id='14'/>
+            <instruction instr-id='252' subinstr-id='16'/>
+         </cell>
+      </region>
+   </table>
+   <table id='3'>
+      <region id='1' col-increment='0' row-increment='0' page='4'>
+         <cell id='4' start-row='0' start-col='0'>
+            <bounding-box x1='38' y1='664' x2='100' y2='673'/>
+            <content>Educationsystem</content>
+         </cell>
+         <cell id='59' start-row='1' start-col='7'>
+            <bounding-box x1='534' y1='653' x2='553' y2='661'/>
+            <content>6,126</content>
+         </cell>
+         <cell id='91' start-row='1' start-col='3'>
+            <bounding-box x1='304' y1='653' x2='317' y2='661'/>
+            <content>275</content>
+         </cell>
+         <cell id='95' start-row='1' start-col='0'>
+            <bounding-box x1='38' y1='653' x2='69' y2='661'/>
+            <content>Australia</content>
+         </cell>
+         <cell id='104' start-row='1' start-col='6'>
+            <bounding-box x1='475' y1='653' x2='494' y2='661'/>
+            <content>6,709</content>
+         </cell>
+         <cell id='189' start-row='1' start-col='5'>
+            <bounding-box x1='422' y1='653' x2='435' y2='661'/>
+            <content>280</content>
+         </cell>
+         <cell id='227' start-row='1' start-col='2'>
+            <bounding-box x1='245' y1='653' x2='258' y2='661'/>
+            <content>284</content>
+         </cell>
+         <cell id='346' start-row='1' start-col='4'>
+            <bounding-box x1='371' y1='653' x2='376' y2='661'/>
+            <content>5</content>
+         </cell>
+         <cell id='370' start-row='1' start-col='1'>
+            <bounding-box x1='186' y1='653' x2='199' y2='661'/>
+            <content>290</content>
+         </cell>
+         <cell id='20' start-row='2' start-col='3'>
+            <bounding-box x1='304' y1='642' x2='317' y2='650'/>
+            <content>158</content>
+         </cell>
+         <cell id='38' start-row='2' start-col='5'>
+            <bounding-box x1='422' y1='642' x2='435' y2='650'/>
+            <content>158</content>
+         </cell>
+         <cell id='144' start-row='2' start-col='7'>
+            <bounding-box x1='534' y1='642' x2='553' y2='650'/>
+            <content>4,670</content>
+         </cell>
+         <cell id='207' start-row='2' start-col='6'>
+            <bounding-box x1='475' y1='642' x2='494' y2='650'/>
+            <content>4,976</content>
+         </cell>
+         <cell id='245' start-row='2' start-col='0'>
+            <bounding-box x1='38' y1='642' x2='63' y2='651'/>
+            <content>Austria</content>
+         </cell>
+         <cell id='279' start-row='2' start-col='1'>
+            <bounding-box x1='186' y1='642' x2='199' y2='650'/>
+            <content>160</content>
+         </cell>
+         <cell id='288' start-row='2' start-col='2'>
+            <bounding-box x1='245' y1='642' x2='258' y2='650'/>
+            <content>158</content>
+         </cell>
+         <cell id='375' start-row='2' start-col='4'>
+            <bounding-box x1='371' y1='642' x2='376' y2='650'/>
+            <content>0</content>
+         </cell>
+         <cell id='97' start-row='3' start-col='6'>
+            <bounding-box x1='475' y1='631' x2='494' y2='640'/>
+            <content>5,098</content>
+         </cell>
+         <cell id='131' start-row='3' start-col='3'>
+            <bounding-box x1='304' y1='631' x2='317' y2='640'/>
+            <content>142</content>
+         </cell>
+         <cell id='136' start-row='3' start-col='2'>
+            <bounding-box x1='245' y1='631' x2='258' y2='640'/>
+            <content>169</content>
+         </cell>
+         <cell id='195' start-row='3' start-col='0'>
+            <bounding-box x1='38' y1='631' x2='75' y2='640'/>
+            <content>Azerbaijan</content>
+         </cell>
+         <cell id='246' start-row='3' start-col='7'>
+            <bounding-box x1='534' y1='631' x2='553' y2='640'/>
+            <content>4,881</content>
+         </cell>
+         <cell id='280' start-row='3' start-col='1'>
+            <bounding-box x1='186' y1='631' x2='199' y2='640'/>
+            <content>170</content>
+         </cell>
+         <cell id='286' start-row='3' start-col='4'>
+            <bounding-box x1='367' y1='631' x2='376' y2='640'/>
+            <content>27</content>
+         </cell>
+         <cell id='306' start-row='3' start-col='5'>
+            <bounding-box x1='422' y1='631' x2='435' y2='640'/>
+            <content>169</content>
+         </cell>
+         <cell id='125' start-row='4' start-col='5'>
+            <bounding-box x1='422' y1='621' x2='435' y2='629'/>
+            <content>127</content>
+         </cell>
+         <cell id='179' start-row='4' start-col='3'>
+            <bounding-box x1='305' y1='621' x2='317' y2='629'/>
+            <content>115</content>
+         </cell>
+         <cell id='203' start-row='4' start-col='7'>
+            <bounding-box x1='534' y1='621' x2='553' y2='629'/>
+            <content>3,727</content>
+         </cell>
+         <cell id='214' start-row='4' start-col='6'>
+            <bounding-box x1='475' y1='621' x2='494' y2='629'/>
+            <content>3,910</content>
+         </cell>
+         <cell id='311' start-row='4' start-col='1'>
+            <bounding-box x1='186' y1='621' x2='199' y2='629'/>
+            <content>150</content>
+         </cell>
+         <cell id='316' start-row='4' start-col='2'>
+            <bounding-box x1='245' y1='621' x2='258' y2='629'/>
+            <content>150</content>
+         </cell>
+         <cell id='336' start-row='4' start-col='4'>
+            <bounding-box x1='367' y1='621' x2='376' y2='629'/>
+            <content>12</content>
+         </cell>
+         <cell id='60' start-row='4' start-col='0'>
+            <bounding-box x1='38' y1='620' x2='115' y2='629'/>
+            <content>Belgium(French)-BEL</content>
+         </cell>
+         <cell id='28' start-row='5' start-col='6'>
+            <bounding-box x1='475' y1='610' x2='494' y2='618'/>
+            <content>5,725</content>
+         </cell>
+         <cell id='77' start-row='5' start-col='2'>
+            <bounding-box x1='245' y1='610' x2='258' y2='618'/>
+            <content>147</content>
+         </cell>
+         <cell id='117' start-row='5' start-col='0'>
+            <bounding-box x1='38' y1='610' x2='67' y2='618'/>
+            <content>Bulgaria</content>
+         </cell>
+         <cell id='163' start-row='5' start-col='7'>
+            <bounding-box x1='534' y1='610' x2='553' y2='618'/>
+            <content>5,261</content>
+         </cell>
+         <cell id='243' start-row='5' start-col='4'>
+            <bounding-box x1='371' y1='610' x2='376' y2='618'/>
+            <content>5</content>
+         </cell>
+         <cell id='303' start-row='5' start-col='1'>
+            <bounding-box x1='186' y1='610' x2='199' y2='618'/>
+            <content>150</content>
+         </cell>
+         <cell id='319' start-row='5' start-col='5'>
+            <bounding-box x1='422' y1='610' x2='435' y2='618'/>
+            <content>147</content>
+         </cell>
+         <cell id='331' start-row='5' start-col='3'>
+            <bounding-box x1='304' y1='610' x2='317' y2='618'/>
+            <content>142</content>
+         </cell>
+         <cell id='8' start-row='6' start-col='5'>
+            <bounding-box x1='417' y1='599' x2='435' y2='607'/>
+            <content>1,111</content>
+         </cell>
+         <cell id='53' start-row='6' start-col='0'>
+            <bounding-box x1='38' y1='599' x2='66' y2='608'/>
+            <content>Canada</content>
+         </cell>
+         <cell id='94' start-row='6' start-col='7'>
+            <bounding-box x1='530' y1='599' x2='553' y2='607'/>
+            <content>23,206</content>
+         </cell>
+         <cell id='112' start-row='6' start-col='1'>
+            <bounding-box x1='180' y1='599' x2='199' y2='607'/>
+            <content>1,142</content>
+         </cell>
+         <cell id='155' start-row='6' start-col='6'>
+            <bounding-box x1='471' y1='599' x2='494' y2='607'/>
+            <content>25,707</content>
+         </cell>
+         <cell id='240' start-row='6' start-col='2'>
+            <bounding-box x1='239' y1='599' x2='258' y2='607'/>
+            <content>1,125</content>
+         </cell>
+         <cell id='301' start-row='6' start-col='3'>
+            <bounding-box x1='298' y1='599' x2='317' y2='607'/>
+            <content>1,106</content>
+         </cell>
+         <cell id='337' start-row='6' start-col='4'>
+            <bounding-box x1='371' y1='599' x2='376' y2='607'/>
+            <content>5</content>
+         </cell>
+         <cell id='76' start-row='7' start-col='0'>
+            <bounding-box x1='38' y1='588' x2='109' y2='597'/>
+            <content>ChineseTaipei-CHN</content>
+         </cell>
+         <cell id='289' start-row='7' start-col='7'>
+            <bounding-box x1='534' y1='588' x2='553' y2='596'/>
+            <content>4,293</content>
+         </cell>
+         <cell id='322' start-row='7' start-col='3'>
+            <bounding-box x1='304' y1='588' x2='317' y2='596'/>
+            <content>150</content>
+         </cell>
+         <cell id='350' start-row='7' start-col='2'>
+            <bounding-box x1='245' y1='588' x2='258' y2='596'/>
+            <content>150</content>
+         </cell>
+         <cell id='352' start-row='7' start-col='1'>
+            <bounding-box x1='186' y1='588' x2='199' y2='596'/>
+            <content>150</content>
+         </cell>
+         <cell id='354' start-row='7' start-col='6'>
+            <bounding-box x1='475' y1='588' x2='494' y2='596'/>
+            <content>4,376</content>
+         </cell>
+         <cell id='359' start-row='7' start-col='5'>
+            <bounding-box x1='422' y1='588' x2='435' y2='596'/>
+            <content>150</content>
+         </cell>
+         <cell id='381' start-row='7' start-col='4'>
+            <bounding-box x1='371' y1='588' x2='376' y2='596'/>
+            <content>0</content>
+         </cell>
+         <cell id='31' start-row='8' start-col='0'>
+            <bounding-box x1='38' y1='577' x2='71' y2='586'/>
+            <content>Colombia</content>
+         </cell>
+         <cell id='63' start-row='8' start-col='6'>
+            <bounding-box x1='475' y1='577' x2='494' y2='586'/>
+            <content>4,309</content>
+         </cell>
+         <cell id='81' start-row='8' start-col='1'>
+            <bounding-box x1='186' y1='577' x2='199' y2='586'/>
+            <content>157</content>
+         </cell>
+         <cell id='197' start-row='8' start-col='3'>
+            <bounding-box x1='304' y1='577' x2='317' y2='586'/>
+            <content>131</content>
+         </cell>
+         <cell id='230' start-row='8' start-col='5'>
+            <bounding-box x1='422' y1='577' x2='435' y2='586'/>
+            <content>150</content>
+         </cell>
+         <cell id='278' start-row='8' start-col='7'>
+            <bounding-box x1='534' y1='577' x2='553' y2='586'/>
+            <content>3,966</content>
+         </cell>
+         <cell id='294' start-row='8' start-col='4'>
+            <bounding-box x1='367' y1='577' x2='376' y2='586'/>
+            <content>19</content>
+         </cell>
+         <cell id='324' start-row='8' start-col='2'>
+            <bounding-box x1='245' y1='577' x2='258' y2='586'/>
+            <content>152</content>
+         </cell>
+         <cell id='44' start-row='9' start-col='3'>
+            <bounding-box x1='304' y1='567' x2='317' y2='575'/>
+            <content>150</content>
+         </cell>
+         <cell id='50' start-row='9' start-col='6'>
+            <bounding-box x1='475' y1='567' x2='494' y2='575'/>
+            <content>5,097</content>
+         </cell>
+         <cell id='143' start-row='9' start-col='5'>
+            <bounding-box x1='422' y1='567' x2='435' y2='575'/>
+            <content>152</content>
+         </cell>
+         <cell id='156' start-row='9' start-col='4'>
+            <bounding-box x1='371' y1='567' x2='376' y2='575'/>
+            <content>2</content>
+         </cell>
+         <cell id='271' start-row='9' start-col='7'>
+            <bounding-box x1='534' y1='567' x2='553' y2='575'/>
+            <content>4,587</content>
+         </cell>
+         <cell id='287' start-row='9' start-col='1'>
+            <bounding-box x1='186' y1='567' x2='199' y2='575'/>
+            <content>152</content>
+         </cell>
+         <cell id='369' start-row='9' start-col='2'>
+            <bounding-box x1='245' y1='567' x2='258' y2='575'/>
+            <content>152</content>
+         </cell>
+         <cell id='16' start-row='9' start-col='0'>
+            <bounding-box x1='38' y1='566' x2='64' y2='575'/>
+            <content>Croatia</content>
+         </cell>
+         <cell id='13' start-row='10' start-col='7'>
+            <bounding-box x1='534' y1='556' x2='553' y2='564'/>
+            <content>4,556</content>
+         </cell>
+         <cell id='18' start-row='10' start-col='2'>
+            <bounding-box x1='245' y1='556' x2='258' y2='564'/>
+            <content>178</content>
+         </cell>
+         <cell id='73' start-row='10' start-col='5'>
+            <bounding-box x1='422' y1='556' x2='435' y2='564'/>
+            <content>177</content>
+         </cell>
+         <cell id='164' start-row='10' start-col='6'>
+            <bounding-box x1='475' y1='556' x2='494' y2='564'/>
+            <content>4,895</content>
+         </cell>
+         <cell id='177' start-row='10' start-col='0'>
+            <bounding-box x1='38' y1='556' x2='93' y2='564'/>
+            <content>CzechRepublic</content>
+         </cell>
+         <cell id='260' start-row='10' start-col='4'>
+            <bounding-box x1='367' y1='556' x2='376' y2='564'/>
+            <content>16</content>
+         </cell>
+         <cell id='266' start-row='10' start-col='3'>
+            <bounding-box x1='304' y1='556' x2='317' y2='564'/>
+            <content>161</content>
+         </cell>
+         <cell id='367' start-row='10' start-col='1'>
+            <bounding-box x1='186' y1='556' x2='199' y2='564'/>
+            <content>180</content>
+         </cell>
+         <cell id='9' start-row='11' start-col='0'>
+            <bounding-box x1='38' y1='545' x2='70' y2='554'/>
+            <content>Denmark</content>
+         </cell>
+         <cell id='78' start-row='11' start-col='7'>
+            <bounding-box x1='534' y1='545' x2='553' y2='553'/>
+            <content>4,594</content>
+         </cell>
+         <cell id='116' start-row='11' start-col='6'>
+            <bounding-box x1='475' y1='545' x2='494' y2='553'/>
+            <content>4,994</content>
+         </cell>
+         <cell id='139' start-row='11' start-col='4'>
+            <bounding-box x1='367' y1='545' x2='376' y2='553'/>
+            <content>25</content>
+         </cell>
+         <cell id='176' start-row='11' start-col='5'>
+            <bounding-box x1='422' y1='545' x2='435' y2='553'/>
+            <content>232</content>
+         </cell>
+         <cell id='185' start-row='11' start-col='2'>
+            <bounding-box x1='245' y1='545' x2='258' y2='553'/>
+            <content>236</content>
+         </cell>
+         <cell id='249' start-row='11' start-col='3'>
+            <bounding-box x1='304' y1='545' x2='317' y2='553'/>
+            <content>207</content>
+         </cell>
+         <cell id='265' start-row='11' start-col='1'>
+            <bounding-box x1='186' y1='545' x2='199' y2='553'/>
+            <content>240</content>
+         </cell>
+         <cell id='140' start-row='12' start-col='4'>
+            <bounding-box x1='367' y1='534' x2='376' y2='542'/>
+            <content>20</content>
+         </cell>
+         <cell id='148' start-row='12' start-col='1'>
+            <bounding-box x1='186' y1='534' x2='199' y2='542'/>
+            <content>150</content>
+         </cell>
+         <cell id='183' start-row='12' start-col='2'>
+            <bounding-box x1='245' y1='534' x2='258' y2='542'/>
+            <content>148</content>
+         </cell>
+         <cell id='212' start-row='12' start-col='0'>
+            <bounding-box x1='38' y1='534' x2='86' y2='543'/>
+            <content>England-GBR</content>
+         </cell>
+         <cell id='213' start-row='12' start-col='6'>
+            <bounding-box x1='475' y1='534' x2='494' y2='542'/>
+            <content>4,243</content>
+         </cell>
+         <cell id='225' start-row='12' start-col='7'>
+            <bounding-box x1='534' y1='534' x2='553' y2='542'/>
+            <content>3,927</content>
+         </cell>
+         <cell id='231' start-row='12' start-col='3'>
+            <bounding-box x1='304' y1='534' x2='317' y2='542'/>
+            <content>109</content>
+         </cell>
+         <cell id='335' start-row='12' start-col='5'>
+            <bounding-box x1='422' y1='534' x2='435' y2='542'/>
+            <content>129</content>
+         </cell>
+         <cell id='22' start-row='13' start-col='7'>
+            <bounding-box x1='534' y1='523' x2='553' y2='532'/>
+            <content>4,640</content>
+         </cell>
+         <cell id='217' start-row='13' start-col='0'>
+            <bounding-box x1='38' y1='523' x2='64' y2='532'/>
+            <content>Finland</content>
+         </cell>
+         <cell id='220' start-row='13' start-col='5'>
+            <bounding-box x1='422' y1='523' x2='435' y2='532'/>
+            <content>145</content>
+         </cell>
+         <cell id='229' start-row='13' start-col='6'>
+            <bounding-box x1='475' y1='523' x2='494' y2='532'/>
+            <content>4,914</content>
+         </cell>
+         <cell id='252' start-row='13' start-col='2'>
+            <bounding-box x1='245' y1='523' x2='258' y2='532'/>
+            <content>146</content>
+         </cell>
+         <cell id='326' start-row='13' start-col='1'>
+            <bounding-box x1='186' y1='523' x2='199' y2='532'/>
+            <content>150</content>
+         </cell>
+         <cell id='327' start-row='13' start-col='4'>
+            <bounding-box x1='371' y1='523' x2='376' y2='532'/>
+            <content>4</content>
+         </cell>
+         <cell id='353' start-row='13' start-col='3'>
+            <bounding-box x1='304' y1='523' x2='317' y2='532'/>
+            <content>141</content>
+         </cell>
+         <cell id='1' start-row='14' start-col='3'>
+            <bounding-box x1='304' y1='513' x2='317' y2='521'/>
+            <content>170</content>
+         </cell>
+         <cell id='90' start-row='14' start-col='1'>
+            <bounding-box x1='186' y1='513' x2='199' y2='521'/>
+            <content>175</content>
+         </cell>
+         <cell id='147' start-row='14' start-col='7'>
+            <bounding-box x1='534' y1='513' x2='553' y2='521'/>
+            <content>4,438</content>
+         </cell>
+         <cell id='162' start-row='14' start-col='4'>
+            <bounding-box x1='371' y1='513' x2='376' y2='521'/>
+            <content>4</content>
+         </cell>
+         <cell id='255' start-row='14' start-col='5'>
+            <bounding-box x1='422' y1='513' x2='435' y2='521'/>
+            <content>174</content>
+         </cell>
+         <cell id='307' start-row='14' start-col='2'>
+            <bounding-box x1='245' y1='513' x2='258' y2='521'/>
+            <content>175</content>
+         </cell>
+         <cell id='320' start-row='14' start-col='6'>
+            <bounding-box x1='475' y1='513' x2='494' y2='521'/>
+            <content>4,638</content>
+         </cell>
+         <cell id='254' start-row='14' start-col='0'>
+            <bounding-box x1='38' y1='512' x2='63' y2='521'/>
+            <content>France</content>
+         </cell>
+         <cell id='48' start-row='15' start-col='2'>
+            <bounding-box x1='245' y1='502' x2='258' y2='510'/>
+            <content>177</content>
+         </cell>
+         <cell id='83' start-row='15' start-col='7'>
+            <bounding-box x1='534' y1='502' x2='553' y2='510'/>
+            <content>4,796</content>
+         </cell>
+         <cell id='98' start-row='15' start-col='1'>
+            <bounding-box x1='186' y1='502' x2='199' y2='510'/>
+            <content>180</content>
+         </cell>
+         <cell id='182' start-row='15' start-col='0'>
+            <bounding-box x1='38' y1='502' x2='66' y2='510'/>
+            <content>Georgia</content>
+         </cell>
+         <cell id='187' start-row='15' start-col='5'>
+            <bounding-box x1='422' y1='502' x2='435' y2='510'/>
+            <content>173</content>
+         </cell>
+         <cell id='199' start-row='15' start-col='6'>
+            <bounding-box x1='475' y1='502' x2='494' y2='510'/>
+            <content>4,958</content>
+         </cell>
+         <cell id='226' start-row='15' start-col='3'>
+            <bounding-box x1='304' y1='502' x2='317' y2='510'/>
+            <content>172</content>
+         </cell>
+         <cell id='345' start-row='15' start-col='4'>
+            <bounding-box x1='371' y1='502' x2='376' y2='510'/>
+            <content>1</content>
+         </cell>
+         <cell id='110' start-row='16' start-col='0'>
+            <bounding-box x1='38' y1='491' x2='71' y2='500'/>
+            <content>Germany</content>
+         </cell>
+         <cell id='168' start-row='16' start-col='5'>
+            <bounding-box x1='422' y1='491' x2='435' y2='499'/>
+            <content>197</content>
+         </cell>
+         <cell id='175' start-row='16' start-col='1'>
+            <bounding-box x1='186' y1='491' x2='199' y2='499'/>
+            <content>200</content>
+         </cell>
+         <cell id='188' start-row='16' start-col='2'>
+            <bounding-box x1='245' y1='491' x2='258' y2='499'/>
+            <content>199</content>
+         </cell>
+         <cell id='224' start-row='16' start-col='7'>
+            <bounding-box x1='534' y1='491' x2='553' y2='499'/>
+            <content>4,000</content>
+         </cell>
+         <cell id='269' start-row='16' start-col='6'>
+            <bounding-box x1='475' y1='491' x2='494' y2='499'/>
+            <content>4,229</content>
+         </cell>
+         <cell id='283' start-row='16' start-col='3'>
+            <bounding-box x1='304' y1='491' x2='317' y2='499'/>
+            <content>190</content>
+         </cell>
+         <cell id='317' start-row='16' start-col='4'>
+            <bounding-box x1='371' y1='491' x2='376' y2='499'/>
+            <content>7</content>
+         </cell>
+         <cell id='7' start-row='17' start-col='5'>
+            <bounding-box x1='422' y1='480' x2='435' y2='488'/>
+            <content>132</content>
+         </cell>
+         <cell id='11' start-row='17' start-col='0'>
+            <bounding-box x1='38' y1='480' x2='97' y2='489'/>
+            <content>HongKong-CHN</content>
+         </cell>
+         <cell id='120' start-row='17' start-col='7'>
+            <bounding-box x1='534' y1='480' x2='553' y2='488'/>
+            <content>3,875</content>
+         </cell>
+         <cell id='205' start-row='17' start-col='6'>
+            <bounding-box x1='475' y1='480' x2='494' y2='488'/>
+            <content>4,189</content>
+         </cell>
+         <cell id='218' start-row='17' start-col='2'>
+            <bounding-box x1='245' y1='480' x2='258' y2='488'/>
+            <content>150</content>
+         </cell>
+         <cell id='256' start-row='17' start-col='4'>
+            <bounding-box x1='371' y1='480' x2='376' y2='488'/>
+            <content>2</content>
+         </cell>
+         <cell id='308' start-row='17' start-col='3'>
+            <bounding-box x1='304' y1='480' x2='317' y2='488'/>
+            <content>130</content>
+         </cell>
+         <cell id='377' start-row='17' start-col='1'>
+            <bounding-box x1='186' y1='480' x2='199' y2='488'/>
+            <content>154</content>
+         </cell>
+         <cell id='40' start-row='18' start-col='0'>
+            <bounding-box x1='38' y1='469' x2='68' y2='478'/>
+            <content>Hungary</content>
+         </cell>
+         <cell id='64' start-row='18' start-col='3'>
+            <bounding-box x1='304' y1='469' x2='317' y2='478'/>
+            <content>146</content>
+         </cell>
+         <cell id='134' start-row='18' start-col='1'>
+            <bounding-box x1='186' y1='469' x2='199' y2='478'/>
+            <content>150</content>
+         </cell>
+         <cell id='208' start-row='18' start-col='5'>
+            <bounding-box x1='422' y1='469' x2='435' y2='478'/>
+            <content>149</content>
+         </cell>
+         <cell id='222' start-row='18' start-col='7'>
+            <bounding-box x1='534' y1='469' x2='553' y2='478'/>
+            <content>5,204</content>
+         </cell>
+         <cell id='274' start-row='18' start-col='2'>
+            <bounding-box x1='245' y1='469' x2='258' y2='478'/>
+            <content>150</content>
+         </cell>
+         <cell id='300' start-row='18' start-col='6'>
+            <bounding-box x1='475' y1='469' x2='494' y2='478'/>
+            <content>5,488</content>
+         </cell>
+         <cell id='374' start-row='18' start-col='4'>
+            <bounding-box x1='371' y1='469' x2='376' y2='478'/>
+            <content>3</content>
+         </cell>
+         <cell id='21' start-row='19' start-col='6'>
+            <bounding-box x1='475' y1='459' x2='494' y2='467'/>
+            <content>5,049</content>
+         </cell>
+         <cell id='70' start-row='19' start-col='1'>
+            <bounding-box x1='186' y1='459' x2='199' y2='467'/>
+            <content>158</content>
+         </cell>
+         <cell id='172' start-row='19' start-col='2'>
+            <bounding-box x1='245' y1='459' x2='258' y2='467'/>
+            <content>158</content>
+         </cell>
+         <cell id='206' start-row='19' start-col='7'>
+            <bounding-box x1='534' y1='459' x2='553' y2='467'/>
+            <content>4,791</content>
+         </cell>
+         <cell id='267' start-row='19' start-col='3'>
+            <bounding-box x1='304' y1='459' x2='317' y2='467'/>
+            <content>158</content>
+         </cell>
+         <cell id='290' start-row='19' start-col='5'>
+            <bounding-box x1='422' y1='459' x2='435' y2='467'/>
+            <content>158</content>
+         </cell>
+         <cell id='338' start-row='19' start-col='4'>
+            <bounding-box x1='371' y1='459' x2='376' y2='467'/>
+            <content>0</content>
+         </cell>
+         <cell id='169' start-row='19' start-col='0'>
+            <bounding-box x1='38' y1='458' x2='72' y2='467'/>
+            <content>Indonesia</content>
+         </cell>
+         <cell id='24' start-row='20' start-col='2'>
+            <bounding-box x1='245' y1='448' x2='258' y2='456'/>
+            <content>244</content>
+         </cell>
+         <cell id='55' start-row='20' start-col='0'>
+            <bounding-box x1='38' y1='448' x2='109' y2='456'/>
+            <content>Iran,IslamicRep.Of</content>
+         </cell>
+         <cell id='67' start-row='20' start-col='7'>
+            <bounding-box x1='534' y1='448' x2='553' y2='456'/>
+            <content>5,758</content>
+         </cell>
+         <cell id='102' start-row='20' start-col='3'>
+            <bounding-box x1='304' y1='448' x2='317' y2='456'/>
+            <content>244</content>
+         </cell>
+         <cell id='258' start-row='20' start-col='5'>
+            <bounding-box x1='422' y1='448' x2='435' y2='456'/>
+            <content>244</content>
+         </cell>
+         <cell id='261' start-row='20' start-col='6'>
+            <bounding-box x1='475' y1='448' x2='494' y2='456'/>
+            <content>5,932</content>
+         </cell>
+         <cell id='358' start-row='20' start-col='4'>
+            <bounding-box x1='371' y1='448' x2='376' y2='456'/>
+            <content>0</content>
+         </cell>
+         <cell id='363' start-row='20' start-col='1'>
+            <bounding-box x1='186' y1='448' x2='199' y2='456'/>
+            <content>250</content>
+         </cell>
+         <cell id='52' start-row='21' start-col='4'>
+            <bounding-box x1='371' y1='437' x2='376' y2='445'/>
+            <content>3</content>
+         </cell>
+         <cell id='88' start-row='21' start-col='7'>
+            <bounding-box x1='534' y1='437' x2='553' y2='445'/>
+            <content>4,524</content>
+         </cell>
+         <cell id='145' start-row='21' start-col='1'>
+            <bounding-box x1='186' y1='437' x2='199' y2='445'/>
+            <content>152</content>
+         </cell>
+         <cell id='191' start-row='21' start-col='0'>
+            <bounding-box x1='38' y1='437' x2='62' y2='446'/>
+            <content>Ireland</content>
+         </cell>
+         <cell id='237' start-row='21' start-col='3'>
+            <bounding-box x1='304' y1='437' x2='317' y2='445'/>
+            <content>148</content>
+         </cell>
+         <cell id='253' start-row='21' start-col='5'>
+            <bounding-box x1='422' y1='437' x2='435' y2='445'/>
+            <content>151</content>
+         </cell>
+         <cell id='272' start-row='21' start-col='2'>
+            <bounding-box x1='245' y1='437' x2='258' y2='445'/>
+            <content>151</content>
+         </cell>
+         <cell id='347' start-row='21' start-col='6'>
+            <bounding-box x1='475' y1='437' x2='494' y2='445'/>
+            <content>4,849</content>
+         </cell>
+         <cell id='15' start-row='22' start-col='1'>
+            <bounding-box x1='186' y1='426' x2='199' y2='434'/>
+            <content>153</content>
+         </cell>
+         <cell id='99' start-row='22' start-col='2'>
+            <bounding-box x1='245' y1='426' x2='258' y2='434'/>
+            <content>153</content>
+         </cell>
+         <cell id='106' start-row='22' start-col='6'>
+            <bounding-box x1='475' y1='426' x2='494' y2='434'/>
+            <content>4,579</content>
+         </cell>
+         <cell id='180' start-row='22' start-col='7'>
+            <bounding-box x1='534' y1='426' x2='553' y2='434'/>
+            <content>4,186</content>
+         </cell>
+         <cell id='216' start-row='22' start-col='5'>
+            <bounding-box x1='422' y1='426' x2='435' y2='434'/>
+            <content>152</content>
+         </cell>
+         <cell id='221' start-row='22' start-col='3'>
+            <bounding-box x1='304' y1='426' x2='317' y2='434'/>
+            <content>150</content>
+         </cell>
+         <cell id='238' start-row='22' start-col='0'>
+            <bounding-box x1='38' y1='426' x2='58' y2='435'/>
+            <content>Israel</content>
+         </cell>
+         <cell id='293' start-row='22' start-col='4'>
+            <bounding-box x1='371' y1='426' x2='376' y2='434'/>
+            <content>2</content>
+         </cell>
+         <cell id='33' start-row='23' start-col='6'>
+            <bounding-box x1='475' y1='415' x2='494' y2='424'/>
+            <content>4,529</content>
+         </cell>
+         <cell id='37' start-row='23' start-col='0'>
+            <bounding-box x1='38' y1='415' x2='53' y2='424'/>
+            <content>Italy</content>
+         </cell>
+         <cell id='69' start-row='23' start-col='7'>
+            <bounding-box x1='534' y1='415' x2='553' y2='424'/>
+            <content>4,189</content>
+         </cell>
+         <cell id='93' start-row='23' start-col='4'>
+            <bounding-box x1='367' y1='415' x2='376' y2='424'/>
+            <content>36</content>
+         </cell>
+         <cell id='103' start-row='23' start-col='5'>
+            <bounding-box x1='422' y1='415' x2='435' y2='424'/>
+            <content>202</content>
+         </cell>
+         <cell id='178' start-row='23' start-col='2'>
+            <bounding-box x1='245' y1='415' x2='258' y2='424'/>
+            <content>205</content>
+         </cell>
+         <cell id='211' start-row='23' start-col='1'>
+            <bounding-box x1='186' y1='415' x2='199' y2='424'/>
+            <content>205</content>
+         </cell>
+         <cell id='328' start-row='23' start-col='3'>
+            <bounding-box x1='304' y1='415' x2='317' y2='424'/>
+            <content>166</content>
+         </cell>
+         <cell id='58' start-row='24' start-col='5'>
+            <bounding-box x1='422' y1='405' x2='435' y2='413'/>
+            <content>154</content>
+         </cell>
+         <cell id='87' start-row='24' start-col='6'>
+            <bounding-box x1='475' y1='405' x2='494' y2='413'/>
+            <content>5,140</content>
+         </cell>
+         <cell id='118' start-row='24' start-col='2'>
+            <bounding-box x1='245' y1='405' x2='258' y2='413'/>
+            <content>154</content>
+         </cell>
+         <cell id='159' start-row='24' start-col='1'>
+            <bounding-box x1='186' y1='405' x2='199' y2='413'/>
+            <content>160</content>
+         </cell>
+         <cell id='277' start-row='24' start-col='3'>
+            <bounding-box x1='304' y1='405' x2='317' y2='413'/>
+            <content>145</content>
+         </cell>
+         <cell id='282' start-row='24' start-col='7'>
+            <bounding-box x1='534' y1='405' x2='553' y2='413'/>
+            <content>4,661</content>
+         </cell>
+         <cell id='378' start-row='24' start-col='4'>
+            <bounding-box x1='371' y1='405' x2='376' y2='413'/>
+            <content>9</content>
+         </cell>
+         <cell id='92' start-row='24' start-col='0'>
+            <bounding-box x1='38' y1='404' x2='70' y2='413'/>
+            <content>Lithuania</content>
+         </cell>
+         <cell id='47' start-row='25' start-col='6'>
+            <bounding-box x1='475' y1='394' x2='494' y2='402'/>
+            <content>3,958</content>
+         </cell>
+         <cell id='239' start-row='25' start-col='7'>
+            <bounding-box x1='534' y1='394' x2='553' y2='402'/>
+            <content>3,598</content>
+         </cell>
+         <cell id='241' start-row='25' start-col='0'>
+            <bounding-box x1='38' y1='394' x2='58' y2='402'/>
+            <content>Malta</content>
+         </cell>
+         <cell id='273' start-row='25' start-col='1'>
+            <bounding-box x1='190' y1='394' x2='199' y2='402'/>
+            <content>99</content>
+         </cell>
+         <cell id='281' start-row='25' start-col='2'>
+            <bounding-box x1='249' y1='394' x2='258' y2='402'/>
+            <content>96</content>
+         </cell>
+         <cell id='296' start-row='25' start-col='5'>
+            <bounding-box x1='426' y1='394' x2='435' y2='402'/>
+            <content>96</content>
+         </cell>
+         <cell id='312' start-row='25' start-col='4'>
+            <bounding-box x1='371' y1='394' x2='376' y2='402'/>
+            <content>0</content>
+         </cell>
+         <cell id='334' start-row='25' start-col='3'>
+            <bounding-box x1='308' y1='394' x2='317' y2='402'/>
+            <content>96</content>
+         </cell>
+         <cell id='61' start-row='26' start-col='5'>
+            <bounding-box x1='422' y1='383' x2='435' y2='391'/>
+            <content>284</content>
+         </cell>
+         <cell id='127' start-row='26' start-col='4'>
+            <bounding-box x1='371' y1='383' x2='376' y2='391'/>
+            <content>0</content>
+         </cell>
+         <cell id='141' start-row='26' start-col='0'>
+            <bounding-box x1='38' y1='383' x2='68' y2='392'/>
+            <content>Morocco</content>
+         </cell>
+         <cell id='153' start-row='26' start-col='6'>
+            <bounding-box x1='475' y1='383' x2='494' y2='391'/>
+            <content>8,381</content>
+         </cell>
+         <cell id='165' start-row='26' start-col='7'>
+            <bounding-box x1='534' y1='383' x2='553' y2='391'/>
+            <content>7,805</content>
+         </cell>
+         <cell id='202' start-row='26' start-col='2'>
+            <bounding-box x1='245' y1='383' x2='258' y2='391'/>
+            <content>287</content>
+         </cell>
+         <cell id='332' start-row='26' start-col='3'>
+            <bounding-box x1='304' y1='383' x2='317' y2='391'/>
+            <content>284</content>
+         </cell>
+         <cell id='361' start-row='26' start-col='1'>
+            <bounding-box x1='186' y1='383' x2='199' y2='391'/>
+            <content>289</content>
+         </cell>
+         <cell id='51' start-row='27' start-col='0'>
+            <bounding-box x1='38' y1='372' x2='80' y2='381'/>
+            <content>Netherlands</content>
+         </cell>
+         <cell id='66' start-row='27' start-col='1'>
+            <bounding-box x1='186' y1='372' x2='199' y2='380'/>
+            <content>151</content>
+         </cell>
+         <cell id='107' start-row='27' start-col='3'>
+            <bounding-box x1='308' y1='372' x2='317' y2='380'/>
+            <content>97</content>
+         </cell>
+         <cell id='135' start-row='27' start-col='6'>
+            <bounding-box x1='475' y1='372' x2='494' y2='380'/>
+            <content>4,179</content>
+         </cell>
+         <cell id='275' start-row='27' start-col='7'>
+            <bounding-box x1='534' y1='372' x2='553' y2='380'/>
+            <content>3,995</content>
+         </cell>
+         <cell id='315' start-row='27' start-col='4'>
+            <bounding-box x1='367' y1='372' x2='376' y2='380'/>
+            <content>41</content>
+         </cell>
+         <cell id='323' start-row='27' start-col='2'>
+            <bounding-box x1='245' y1='372' x2='258' y2='380'/>
+            <content>151</content>
+         </cell>
+         <cell id='355' start-row='27' start-col='5'>
+            <bounding-box x1='422' y1='372' x2='435' y2='380'/>
+            <content>138</content>
+         </cell>
+         <cell id='39' start-row='28' start-col='0'>
+            <bounding-box x1='38' y1='361' x2='84' y2='370'/>
+            <content>NewZealand</content>
+         </cell>
+         <cell id='151' start-row='28' start-col='5'>
+            <bounding-box x1='422' y1='361' x2='435' y2='370'/>
+            <content>192</content>
+         </cell>
+         <cell id='167' start-row='28' start-col='1'>
+            <bounding-box x1='186' y1='361' x2='199' y2='370'/>
+            <content>201</content>
+         </cell>
+         <cell id='270' start-row='28' start-col='6'>
+            <bounding-box x1='475' y1='361' x2='494' y2='370'/>
+            <content>6,192</content>
+         </cell>
+         <cell id='276' start-row='28' start-col='4'>
+            <bounding-box x1='367' y1='361' x2='376' y2='370'/>
+            <content>12</content>
+         </cell>
+         <cell id='304' start-row='28' start-col='3'>
+            <bounding-box x1='304' y1='361' x2='317' y2='370'/>
+            <content>180</content>
+         </cell>
+         <cell id='330' start-row='28' start-col='7'>
+            <bounding-box x1='534' y1='361' x2='553' y2='370'/>
+            <content>5,644</content>
+         </cell>
+         <cell id='380' start-row='28' start-col='2'>
+            <bounding-box x1='245' y1='361' x2='258' y2='370'/>
+            <content>199</content>
+         </cell>
+         <cell id='75' start-row='29' start-col='4'>
+            <bounding-box x1='367' y1='351' x2='376' y2='359'/>
+            <content>36</content>
+         </cell>
+         <cell id='101' start-row='29' start-col='5'>
+            <bounding-box x1='422' y1='351' x2='435' y2='359'/>
+            <content>136</content>
+         </cell>
+         <cell id='124' start-row='29' start-col='7'>
+            <bounding-box x1='534' y1='351' x2='553' y2='359'/>
+            <content>3,586</content>
+         </cell>
+         <cell id='129' start-row='29' start-col='6'>
+            <bounding-box x1='475' y1='351' x2='494' y2='359'/>
+            <content>3,942</content>
+         </cell>
+         <cell id='146' start-row='29' start-col='3'>
+            <bounding-box x1='304' y1='351' x2='317' y2='359'/>
+            <content>100</content>
+         </cell>
+         <cell id='219' start-row='29' start-col='1'>
+            <bounding-box x1='186' y1='351' x2='199' y2='359'/>
+            <content>160</content>
+         </cell>
+         <cell id='344' start-row='29' start-col='2'>
+            <bounding-box x1='245' y1='351' x2='258' y2='359'/>
+            <content>160</content>
+         </cell>
+         <cell id='2' start-row='29' start-col='0'>
+            <bounding-box x1='38' y1='350' x2='114' y2='359'/>
+            <content>NorthernIreland-GBR</content>
+         </cell>
+         <cell id='10' start-row='30' start-col='0'>
+            <bounding-box x1='38' y1='340' x2='65' y2='348'/>
+            <content>Norway</content>
+         </cell>
+         <cell id='84' start-row='30' start-col='5'>
+            <bounding-box x1='422' y1='340' x2='435' y2='348'/>
+            <content>120</content>
+         </cell>
+         <cell id='184' start-row='30' start-col='6'>
+            <bounding-box x1='475' y1='340' x2='494' y2='348'/>
+            <content>3,921</content>
+         </cell>
+         <cell id='242' start-row='30' start-col='7'>
+            <bounding-box x1='534' y1='340' x2='553' y2='348'/>
+            <content>3,190</content>
+         </cell>
+         <cell id='291' start-row='30' start-col='2'>
+            <bounding-box x1='245' y1='340' x2='258' y2='348'/>
+            <content>145</content>
+         </cell>
+         <cell id='343' start-row='30' start-col='1'>
+            <bounding-box x1='186' y1='340' x2='199' y2='348'/>
+            <content>150</content>
+         </cell>
+         <cell id='372' start-row='30' start-col='3'>
+            <bounding-box x1='308' y1='340' x2='317' y2='348'/>
+            <content>85</content>
+         </cell>
+         <cell id='376' start-row='30' start-col='4'>
+            <bounding-box x1='367' y1='340' x2='376' y2='348'/>
+            <content>35</content>
+         </cell>
+         <cell id='115' start-row='31' start-col='2'>
+            <bounding-box x1='245' y1='329' x2='258' y2='337'/>
+            <content>333</content>
+         </cell>
+         <cell id='126' start-row='31' start-col='7'>
+            <bounding-box x1='530' y1='329' x2='553' y2='337'/>
+            <content>10,394</content>
+         </cell>
+         <cell id='152' start-row='31' start-col='1'>
+            <bounding-box x1='186' y1='329' x2='199' y2='337'/>
+            <content>338</content>
+         </cell>
+         <cell id='173' start-row='31' start-col='3'>
+            <bounding-box x1='304' y1='329' x2='317' y2='337'/>
+            <content>327</content>
+         </cell>
+         <cell id='194' start-row='31' start-col='5'>
+            <bounding-box x1='422' y1='329' x2='435' y2='337'/>
+            <content>327</content>
+         </cell>
+         <cell id='210' start-row='31' start-col='6'>
+            <bounding-box x1='471' y1='329' x2='494' y2='337'/>
+            <content>10,840</content>
+         </cell>
+         <cell id='248' start-row='31' start-col='4'>
+            <bounding-box x1='371' y1='329' x2='376' y2='337'/>
+            <content>0</content>
+         </cell>
+         <cell id='310' start-row='31' start-col='0'>
+            <bounding-box x1='38' y1='329' x2='60' y2='338'/>
+            <content>Oman</content>
+         </cell>
+         <cell id='128' start-row='32' start-col='0'>
+            <bounding-box x1='38' y1='318' x2='63' y2='327'/>
+            <content>Poland</content>
+         </cell>
+         <cell id='132' start-row='32' start-col='1'>
+            <bounding-box x1='186' y1='318' x2='199' y2='326'/>
+            <content>150</content>
+         </cell>
+         <cell id='154' start-row='32' start-col='3'>
+            <bounding-box x1='304' y1='318' x2='317' y2='326'/>
+            <content>150</content>
+         </cell>
+         <cell id='251' start-row='32' start-col='4'>
+            <bounding-box x1='371' y1='318' x2='376' y2='326'/>
+            <content>0</content>
+         </cell>
+         <cell id='285' start-row='32' start-col='7'>
+            <bounding-box x1='534' y1='318' x2='553' y2='326'/>
+            <content>5,005</content>
+         </cell>
+         <cell id='292' start-row='32' start-col='2'>
+            <bounding-box x1='245' y1='318' x2='258' y2='326'/>
+            <content>150</content>
+         </cell>
+         <cell id='348' start-row='32' start-col='5'>
+            <bounding-box x1='422' y1='318' x2='435' y2='326'/>
+            <content>150</content>
+         </cell>
+         <cell id='349' start-row='32' start-col='6'>
+            <bounding-box x1='475' y1='318' x2='494' y2='326'/>
+            <content>5,316</content>
+         </cell>
+         <cell id='57' start-row='33' start-col='7'>
+            <bounding-box x1='534' y1='307' x2='553' y2='316'/>
+            <content>4,085</content>
+         </cell>
+         <cell id='89' start-row='33' start-col='4'>
+            <bounding-box x1='367' y1='307' x2='376' y2='316'/>
+            <content>15</content>
+         </cell>
+         <cell id='105' start-row='33' start-col='1'>
+            <bounding-box x1='186' y1='307' x2='199' y2='316'/>
+            <content>150</content>
+         </cell>
+         <cell id='161' start-row='33' start-col='2'>
+            <bounding-box x1='245' y1='307' x2='258' y2='316'/>
+            <content>150</content>
+         </cell>
+         <cell id='313' start-row='33' start-col='0'>
+            <bounding-box x1='38' y1='307' x2='68' y2='316'/>
+            <content>Portugal</content>
+         </cell>
+         <cell id='329' start-row='33' start-col='3'>
+            <bounding-box x1='304' y1='307' x2='317' y2='316'/>
+            <content>133</content>
+         </cell>
+         <cell id='356' start-row='33' start-col='5'>
+            <bounding-box x1='422' y1='307' x2='435' y2='316'/>
+            <content>148</content>
+         </cell>
+         <cell id='366' start-row='33' start-col='6'>
+            <bounding-box x1='475' y1='307' x2='494' y2='316'/>
+            <content>4,428</content>
+         </cell>
+         <cell id='79' start-row='34' start-col='2'>
+            <bounding-box x1='245' y1='297' x2='258' y2='305'/>
+            <content>167</content>
+         </cell>
+         <cell id='96' start-row='34' start-col='7'>
+            <bounding-box x1='534' y1='297' x2='553' y2='305'/>
+            <content>4,120</content>
+         </cell>
+         <cell id='201' start-row='34' start-col='5'>
+            <bounding-box x1='422' y1='297' x2='435' y2='305'/>
+            <content>166</content>
+         </cell>
+         <cell id='215' start-row='34' start-col='6'>
+            <bounding-box x1='475' y1='297' x2='494' y2='305'/>
+            <content>4,394</content>
+         </cell>
+         <cell id='235' start-row='34' start-col='3'>
+            <bounding-box x1='304' y1='297' x2='317' y2='305'/>
+            <content>166</content>
+         </cell>
+         <cell id='325' start-row='34' start-col='1'>
+            <bounding-box x1='186' y1='297' x2='199' y2='305'/>
+            <content>175</content>
+         </cell>
+         <cell id='371' start-row='34' start-col='4'>
+            <bounding-box x1='371' y1='297' x2='376' y2='305'/>
+            <content>0</content>
+         </cell>
+         <cell id='27' start-row='34' start-col='0'>
+            <bounding-box x1='38' y1='296' x2='58' y2='305'/>
+            <content>Qatar</content>
+         </cell>
+         <cell id='41' start-row='35' start-col='6'>
+            <bounding-box x1='475' y1='286' x2='494' y2='294'/>
+            <content>4,879</content>
+         </cell>
+         <cell id='133' start-row='35' start-col='0'>
+            <bounding-box x1='38' y1='286' x2='70' y2='294'/>
+            <content>Romania</content>
+         </cell>
+         <cell id='192' start-row='35' start-col='5'>
+            <bounding-box x1='422' y1='286' x2='435' y2='294'/>
+            <content>148</content>
+         </cell>
+         <cell id='232' start-row='35' start-col='3'>
+            <bounding-box x1='304' y1='286' x2='317' y2='294'/>
+            <content>147</content>
+         </cell>
+         <cell id='244' start-row='35' start-col='2'>
+            <bounding-box x1='245' y1='286' x2='258' y2='294'/>
+            <content>148</content>
+         </cell>
+         <cell id='295' start-row='35' start-col='7'>
+            <bounding-box x1='534' y1='286' x2='553' y2='294'/>
+            <content>4,665</content>
+         </cell>
+         <cell id='360' start-row='35' start-col='4'>
+            <bounding-box x1='371' y1='286' x2='376' y2='294'/>
+            <content>1</content>
+         </cell>
+         <cell id='364' start-row='35' start-col='1'>
+            <bounding-box x1='186' y1='286' x2='199' y2='294'/>
+            <content>150</content>
+         </cell>
+         <cell id='3' start-row='36' start-col='3'>
+            <bounding-box x1='304' y1='275' x2='317' y2='283'/>
+            <content>202</content>
+         </cell>
+         <cell id='5' start-row='36' start-col='0'>
+            <bounding-box x1='38' y1='275' x2='106' y2='284'/>
+            <content>RussianFederation</content>
+         </cell>
+         <cell id='34' start-row='36' start-col='2'>
+            <bounding-box x1='245' y1='275' x2='258' y2='283'/>
+            <content>202</content>
+         </cell>
+         <cell id='85' start-row='36' start-col='5'>
+            <bounding-box x1='422' y1='275' x2='435' y2='283'/>
+            <content>202</content>
+         </cell>
+         <cell id='113' start-row='36' start-col='6'>
+            <bounding-box x1='475' y1='275' x2='494' y2='283'/>
+            <content>4,693</content>
+         </cell>
+         <cell id='259' start-row='36' start-col='1'>
+            <bounding-box x1='186' y1='275' x2='199' y2='283'/>
+            <content>202</content>
+         </cell>
+         <cell id='297' start-row='36' start-col='7'>
+            <bounding-box x1='534' y1='275' x2='553' y2='283'/>
+            <content>4,461</content>
+         </cell>
+         <cell id='373' start-row='36' start-col='4'>
+            <bounding-box x1='371' y1='275' x2='376' y2='283'/>
+            <content>0</content>
+         </cell>
+         <cell id='6' start-row='37' start-col='2'>
+            <bounding-box x1='245' y1='264' x2='258' y2='272'/>
+            <content>171</content>
+         </cell>
+         <cell id='25' start-row='37' start-col='0'>
+            <bounding-box x1='38' y1='264' x2='83' y2='273'/>
+            <content>SaudiArabia</content>
+         </cell>
+         <cell id='42' start-row='37' start-col='1'>
+            <bounding-box x1='186' y1='264' x2='199' y2='272'/>
+            <content>175</content>
+         </cell>
+         <cell id='108' start-row='37' start-col='5'>
+            <bounding-box x1='422' y1='264' x2='435' y2='272'/>
+            <content>171</content>
+         </cell>
+         <cell id='234' start-row='37' start-col='4'>
+            <bounding-box x1='371' y1='264' x2='376' y2='272'/>
+            <content>8</content>
+         </cell>
+         <cell id='247' start-row='37' start-col='7'>
+            <bounding-box x1='534' y1='264' x2='553' y2='272'/>
+            <content>4,507</content>
+         </cell>
+         <cell id='250' start-row='37' start-col='6'>
+            <bounding-box x1='475' y1='264' x2='494' y2='272'/>
+            <content>4,625</content>
+         </cell>
+         <cell id='318' start-row='37' start-col='3'>
+            <bounding-box x1='304' y1='264' x2='317' y2='272'/>
+            <content>163</content>
+         </cell>
+         <cell id='74' start-row='38' start-col='6'>
+            <bounding-box x1='475' y1='253' x2='494' y2='262'/>
+            <content>6,687</content>
+         </cell>
+         <cell id='158' start-row='38' start-col='5'>
+            <bounding-box x1='422' y1='253' x2='435' y2='262'/>
+            <content>176</content>
+         </cell>
+         <cell id='170' start-row='38' start-col='4'>
+            <bounding-box x1='371' y1='253' x2='376' y2='262'/>
+            <content>0</content>
+         </cell>
+         <cell id='196' start-row='38' start-col='1'>
+            <bounding-box x1='186' y1='253' x2='199' y2='262'/>
+            <content>176</content>
+         </cell>
+         <cell id='209' start-row='38' start-col='0'>
+            <bounding-box x1='38' y1='253' x2='74' y2='262'/>
+            <content>Singapore</content>
+         </cell>
+         <cell id='223' start-row='38' start-col='7'>
+            <bounding-box x1='534' y1='253' x2='553' y2='262'/>
+            <content>6,367</content>
+         </cell>
+         <cell id='284' start-row='38' start-col='2'>
+            <bounding-box x1='245' y1='253' x2='258' y2='262'/>
+            <content>176</content>
+         </cell>
+         <cell id='379' start-row='38' start-col='3'>
+            <bounding-box x1='304' y1='253' x2='317' y2='262'/>
+            <content>176</content>
+         </cell>
+         <cell id='193' start-row='39' start-col='6'>
+            <bounding-box x1='475' y1='243' x2='494' y2='251'/>
+            <content>5,933</content>
+         </cell>
+         <cell id='228' start-row='39' start-col='2'>
+            <bounding-box x1='245' y1='243' x2='258' y2='251'/>
+            <content>198</content>
+         </cell>
+         <cell id='302' start-row='39' start-col='5'>
+            <bounding-box x1='422' y1='243' x2='435' y2='251'/>
+            <content>197</content>
+         </cell>
+         <cell id='321' start-row='39' start-col='4'>
+            <bounding-box x1='367' y1='243' x2='376' y2='251'/>
+            <content>10</content>
+         </cell>
+         <cell id='351' start-row='39' start-col='3'>
+            <bounding-box x1='304' y1='243' x2='317' y2='251'/>
+            <content>187</content>
+         </cell>
+         <cell id='362' start-row='39' start-col='7'>
+            <bounding-box x1='534' y1='243' x2='553' y2='251'/>
+            <content>5,630</content>
+         </cell>
+         <cell id='368' start-row='39' start-col='1'>
+            <bounding-box x1='186' y1='243' x2='199' y2='251'/>
+            <content>200</content>
+         </cell>
+         <cell id='46' start-row='39' start-col='0'>
+            <bounding-box x1='38' y1='242' x2='94' y2='251'/>
+            <content>SlovakRepublic</content>
+         </cell>
+         <cell id='54' start-row='40' start-col='0'>
+            <bounding-box x1='38' y1='232' x2='68' y2='240'/>
+            <content>Slovenia</content>
+         </cell>
+         <cell id='68' start-row='40' start-col='6'>
+            <bounding-box x1='475' y1='232' x2='494' y2='240'/>
+            <content>4,674</content>
+         </cell>
+         <cell id='72' start-row='40' start-col='4'>
+            <bounding-box x1='371' y1='232' x2='376' y2='240'/>
+            <content>2</content>
+         </cell>
+         <cell id='80' start-row='40' start-col='7'>
+            <bounding-box x1='534' y1='232' x2='553' y2='240'/>
+            <content>4,512</content>
+         </cell>
+         <cell id='142' start-row='40' start-col='5'>
+            <bounding-box x1='422' y1='232' x2='435' y2='240'/>
+            <content>195</content>
+         </cell>
+         <cell id='268' start-row='40' start-col='2'>
+            <bounding-box x1='245' y1='232' x2='258' y2='240'/>
+            <content>201</content>
+         </cell>
+         <cell id='298' start-row='40' start-col='1'>
+            <bounding-box x1='186' y1='232' x2='199' y2='240'/>
+            <content>202</content>
+         </cell>
+         <cell id='305' start-row='40' start-col='3'>
+            <bounding-box x1='304' y1='232' x2='317' y2='240'/>
+            <content>193</content>
+         </cell>
+         <cell id='35' start-row='41' start-col='2'>
+            <bounding-box x1='245' y1='221' x2='258' y2='229'/>
+            <content>314</content>
+         </cell>
+         <cell id='36' start-row='41' start-col='7'>
+            <bounding-box x1='534' y1='221' x2='553' y2='229'/>
+            <content>8,580</content>
+         </cell>
+         <cell id='114' start-row='41' start-col='3'>
+            <bounding-box x1='304' y1='221' x2='317' y2='229'/>
+            <content>308</content>
+         </cell>
+         <cell id='149' start-row='41' start-col='0'>
+            <bounding-box x1='38' y1='221' x2='58' y2='230'/>
+            <content>Spain</content>
+         </cell>
+         <cell id='157' start-row='41' start-col='1'>
+            <bounding-box x1='186' y1='221' x2='199' y2='229'/>
+            <content>314</content>
+         </cell>
+         <cell id='181' start-row='41' start-col='6'>
+            <bounding-box x1='475' y1='221' x2='494' y2='229'/>
+            <content>9,223</content>
+         </cell>
+         <cell id='333' start-row='41' start-col='5'>
+            <bounding-box x1='422' y1='221' x2='435' y2='229'/>
+            <content>312</content>
+         </cell>
+         <cell id='382' start-row='41' start-col='4'>
+            <bounding-box x1='371' y1='221' x2='376' y2='229'/>
+            <content>4</content>
+         </cell>
+         <cell id='30' start-row='42' start-col='0'>
+            <bounding-box x1='38' y1='210' x2='67' y2='219'/>
+            <content>Sweden</content>
+         </cell>
+         <cell id='45' start-row='42' start-col='3'>
+            <bounding-box x1='304' y1='210' x2='317' y2='218'/>
+            <content>148</content>
+         </cell>
+         <cell id='109' start-row='42' start-col='4'>
+            <bounding-box x1='371' y1='210' x2='376' y2='218'/>
+            <content>4</content>
+         </cell>
+         <cell id='137' start-row='42' start-col='6'>
+            <bounding-box x1='475' y1='210' x2='494' y2='218'/>
+            <content>5,209</content>
+         </cell>
+         <cell id='166' start-row='42' start-col='5'>
+            <bounding-box x1='422' y1='210' x2='435' y2='218'/>
+            <content>152</content>
+         </cell>
+         <cell id='233' start-row='42' start-col='1'>
+            <bounding-box x1='186' y1='210' x2='199' y2='218'/>
+            <content>161</content>
+         </cell>
+         <cell id='236' start-row='42' start-col='7'>
+            <bounding-box x1='534' y1='210' x2='553' y2='218'/>
+            <content>4,622</content>
+         </cell>
+         <cell id='339' start-row='42' start-col='2'>
+            <bounding-box x1='245' y1='210' x2='258' y2='218'/>
+            <content>153</content>
+         </cell>
+         <cell id='19' start-row='43' start-col='2'>
+            <bounding-box x1='245' y1='199' x2='258' y2='208'/>
+            <content>150</content>
+         </cell>
+         <cell id='86' start-row='43' start-col='4'>
+            <bounding-box x1='371' y1='199' x2='376' y2='208'/>
+            <content>0</content>
+         </cell>
+         <cell id='130' start-row='43' start-col='7'>
+            <bounding-box x1='534' y1='199' x2='553' y2='208'/>
+            <content>3,948</content>
+         </cell>
+         <cell id='160' start-row='43' start-col='1'>
+            <bounding-box x1='186' y1='199' x2='199' y2='208'/>
+            <content>150</content>
+         </cell>
+         <cell id='190' start-row='43' start-col='0'>
+            <bounding-box x1='38' y1='199' x2='109' y2='208'/>
+            <content>Trinidad andTobago</content>
+         </cell>
+         <cell id='340' start-row='43' start-col='6'>
+            <bounding-box x1='475' y1='199' x2='494' y2='208'/>
+            <content>4,190</content>
+         </cell>
+         <cell id='341' start-row='43' start-col='3'>
+            <bounding-box x1='304' y1='199' x2='317' y2='208'/>
+            <content>149</content>
+         </cell>
+         <cell id='342' start-row='43' start-col='5'>
+            <bounding-box x1='422' y1='199' x2='435' y2='208'/>
+            <content>149</content>
+         </cell>
+         <cell id='29' start-row='44' start-col='2'>
+            <bounding-box x1='245' y1='189' x2='258' y2='197'/>
+            <content>460</content>
+         </cell>
+         <cell id='174' start-row='44' start-col='7'>
+            <bounding-box x1='530' y1='189' x2='553' y2='197'/>
+            <content>14,618</content>
+         </cell>
+         <cell id='257' start-row='44' start-col='5'>
+            <bounding-box x1='422' y1='189' x2='435' y2='197'/>
+            <content>458</content>
+         </cell>
+         <cell id='264' start-row='44' start-col='3'>
+            <bounding-box x1='304' y1='189' x2='317' y2='197'/>
+            <content>458</content>
+         </cell>
+         <cell id='309' start-row='44' start-col='1'>
+            <bounding-box x1='186' y1='189' x2='199' y2='197'/>
+            <content>478</content>
+         </cell>
+         <cell id='314' start-row='44' start-col='6'>
+            <bounding-box x1='471' y1='189' x2='494' y2='197'/>
+            <content>15,372</content>
+         </cell>
+         <cell id='357' start-row='44' start-col='4'>
+            <bounding-box x1='371' y1='189' x2='376' y2='197'/>
+            <content>0</content>
+         </cell>
+         <cell id='32' start-row='44' start-col='0'>
+            <bounding-box x1='38' y1='188' x2='112' y2='197'/>
+            <content>UnitedArabEmirates</content>
+         </cell>
+         <cell id='26' start-row='45' start-col='7'>
+            <bounding-box x1='530' y1='177' x2='553' y2='186'/>
+            <content>12,726</content>
+         </cell>
+         <cell id='62' start-row='45' start-col='6'>
+            <bounding-box x1='471' y1='177' x2='494' y2='186'/>
+            <content>14,253</content>
+         </cell>
+         <cell id='186' start-row='45' start-col='0'>
+            <bounding-box x1='38' y1='177' x2='85' y2='186'/>
+            <content>UnitedStates</content>
+         </cell>
+         <cell id='198' start-row='45' start-col='4'>
+            <bounding-box x1='367' y1='177' x2='376' y2='186'/>
+            <content>21</content>
+         </cell>
+         <cell id='262' start-row='45' start-col='3'>
+            <bounding-box x1='304' y1='177' x2='317' y2='186'/>
+            <content>349</content>
+         </cell>
+         <cell id='263' start-row='45' start-col='2'>
+            <bounding-box x1='245' y1='177' x2='258' y2='186'/>
+            <content>437</content>
+         </cell>
+         <cell id='299' start-row='45' start-col='1'>
+            <bounding-box x1='186' y1='177' x2='199' y2='186'/>
+            <content>450</content>
+         </cell>
+         <cell id='365' start-row='45' start-col='5'>
+            <bounding-box x1='422' y1='177' x2='435' y2='186'/>
+            <content>370</content>
+         </cell>
+         <cell id='363' start-row='0' start-col='1'>
+            <bounding-box x1='146' y1='664' x2='198' y2='681'/>
+            <content>Schools in
+original sample</content>
+            <instruction instr-id='597' subinstr-id='0'/>
+            <instruction instr-id='597' subinstr-id='2'/>
+            <instruction instr-id='597' subinstr-id='4'/>
+            <instruction instr-id='597' subinstr-id='6'/>
+            <instruction instr-id='597' subinstr-id='8'/>
+            <instruction instr-id='597' subinstr-id='10'/>
+            <instruction instr-id='597' subinstr-id='12'/>
+            <instruction instr-id='599' subinstr-id='0'/>
+            <instruction instr-id='599' subinstr-id='2'/>
+            <instruction instr-id='599' subinstr-id='4'/>
+            <instruction instr-id='599' subinstr-id='6'/>
+            <instruction instr-id='599' subinstr-id='8'/>
+            <instruction instr-id='599' subinstr-id='10'/>
+            <instruction instr-id='599' subinstr-id='12'/>
+            <instruction instr-id='599' subinstr-id='16'/>
+            <instruction instr-id='599' subinstr-id='18'/>
+            <instruction instr-id='599' subinstr-id='20'/>
+            <instruction instr-id='599' subinstr-id='22'/>
+         </cell>
+         <cell id='364' start-row='0' start-col='2'>
+            <bounding-box x1='204' y1='664' x2='257' y2='690'/>
+            <content>Eligible schools
+in original
+sample</content>
+            <instruction instr-id='601' subinstr-id='0'/>
+            <instruction instr-id='601' subinstr-id='2'/>
+            <instruction instr-id='601' subinstr-id='4'/>
+            <instruction instr-id='601' subinstr-id='6'/>
+            <instruction instr-id='601' subinstr-id='8'/>
+            <instruction instr-id='601' subinstr-id='10'/>
+            <instruction instr-id='601' subinstr-id='12'/>
+            <instruction instr-id='601' subinstr-id='16'/>
+            <instruction instr-id='601' subinstr-id='18'/>
+            <instruction instr-id='601' subinstr-id='20'/>
+            <instruction instr-id='601' subinstr-id='22'/>
+            <instruction instr-id='601' subinstr-id='24'/>
+            <instruction instr-id='603' subinstr-id='0'/>
+            <instruction instr-id='603' subinstr-id='2'/>
+            <instruction instr-id='603' subinstr-id='6'/>
+            <instruction instr-id='603' subinstr-id='8'/>
+            <instruction instr-id='603' subinstr-id='10'/>
+            <instruction instr-id='603' subinstr-id='12'/>
+            <instruction instr-id='603' subinstr-id='14'/>
+            <instruction instr-id='603' subinstr-id='16'/>
+            <instruction instr-id='603' subinstr-id='18'/>
+            <instruction instr-id='605' subinstr-id='0'/>
+            <instruction instr-id='605' subinstr-id='2'/>
+            <instruction instr-id='605' subinstr-id='4'/>
+            <instruction instr-id='605' subinstr-id='6'/>
+         </cell>
+         <cell id='365' start-row='0' start-col='3'>
+            <bounding-box x1='276' y1='664' x2='316' y2='700'/>
+            <content>Schools
+in original
+sample that
+participated</content>
+            <instruction instr-id='607' subinstr-id='0'/>
+            <instruction instr-id='607' subinstr-id='2'/>
+            <instruction instr-id='607' subinstr-id='4'/>
+            <instruction instr-id='607' subinstr-id='6'/>
+            <instruction instr-id='607' subinstr-id='8'/>
+            <instruction instr-id='609' subinstr-id='0'/>
+            <instruction instr-id='609' subinstr-id='2'/>
+            <instruction instr-id='609' subinstr-id='6'/>
+            <instruction instr-id='609' subinstr-id='8'/>
+            <instruction instr-id='609' subinstr-id='10'/>
+            <instruction instr-id='609' subinstr-id='12'/>
+            <instruction instr-id='609' subinstr-id='14'/>
+            <instruction instr-id='609' subinstr-id='16'/>
+            <instruction instr-id='609' subinstr-id='18'/>
+            <instruction instr-id='611' subinstr-id='0'/>
+            <instruction instr-id='611' subinstr-id='2'/>
+            <instruction instr-id='611' subinstr-id='4'/>
+            <instruction instr-id='611' subinstr-id='6'/>
+            <instruction instr-id='611' subinstr-id='10'/>
+            <instruction instr-id='611' subinstr-id='12'/>
+            <instruction instr-id='611' subinstr-id='14'/>
+            <instruction instr-id='611' subinstr-id='16'/>
+            <instruction instr-id='615' subinstr-id='0'/>
+            <instruction instr-id='615' subinstr-id='2'/>
+            <instruction instr-id='615' subinstr-id='4'/>
+            <instruction instr-id='615' subinstr-id='6'/>
+            <instruction instr-id='615' subinstr-id='8'/>
+            <instruction instr-id='615' subinstr-id='10'/>
+            <instruction instr-id='615' subinstr-id='12'/>
+            <instruction instr-id='615' subinstr-id='14'/>
+            <instruction instr-id='615' subinstr-id='16'/>
+            <instruction instr-id='615' subinstr-id='18'/>
+         </cell>
+         <cell id='366' start-row='0' start-col='4'>
+            <bounding-box x1='341' y1='664' x2='375' y2='681'/>
+            <content>Substitute
+schools</content>
+            <instruction instr-id='617' subinstr-id='0'/>
+            <instruction instr-id='617' subinstr-id='2'/>
+            <instruction instr-id='617' subinstr-id='4'/>
+            <instruction instr-id='617' subinstr-id='6'/>
+            <instruction instr-id='617' subinstr-id='8'/>
+            <instruction instr-id='617' subinstr-id='10'/>
+            <instruction instr-id='617' subinstr-id='12'/>
+            <instruction instr-id='617' subinstr-id='14'/>
+            <instruction instr-id='619' subinstr-id='0'/>
+            <instruction instr-id='619' subinstr-id='2'/>
+            <instruction instr-id='619' subinstr-id='4'/>
+            <instruction instr-id='619' subinstr-id='6'/>
+            <instruction instr-id='619' subinstr-id='8'/>
+         </cell>
+         <cell id='367' start-row='0' start-col='5'>
+            <bounding-box x1='393' y1='664' x2='434' y2='690'/>
+            <content>Total
+schools that
+participated</content>
+            <instruction instr-id='621' subinstr-id='0'/>
+            <instruction instr-id='621' subinstr-id='2'/>
+            <instruction instr-id='621' subinstr-id='4'/>
+            <instruction instr-id='621' subinstr-id='6'/>
+            <instruction instr-id='621' subinstr-id='8'/>
+            <instruction instr-id='623' subinstr-id='0'/>
+            <instruction instr-id='623' subinstr-id='2'/>
+            <instruction instr-id='623' subinstr-id='4'/>
+            <instruction instr-id='623' subinstr-id='6'/>
+            <instruction instr-id='623' subinstr-id='8'/>
+            <instruction instr-id='623' subinstr-id='10'/>
+            <instruction instr-id='623' subinstr-id='12'/>
+            <instruction instr-id='623' subinstr-id='14'/>
+            <instruction instr-id='623' subinstr-id='16'/>
+            <instruction instr-id='625' subinstr-id='0'/>
+            <instruction instr-id='625' subinstr-id='2'/>
+            <instruction instr-id='625' subinstr-id='4'/>
+            <instruction instr-id='625' subinstr-id='6'/>
+            <instruction instr-id='625' subinstr-id='8'/>
+            <instruction instr-id='625' subinstr-id='10'/>
+            <instruction instr-id='625' subinstr-id='12'/>
+            <instruction instr-id='625' subinstr-id='14'/>
+            <instruction instr-id='625' subinstr-id='16'/>
+            <instruction instr-id='625' subinstr-id='18'/>
+         </cell>
+         <cell id='368' start-row='0' start-col='6'>
+            <bounding-box x1='452' y1='664' x2='493' y2='700'/>
+            <content>Sampled
+students in
+participating
+schools</content>
+            <instruction instr-id='627' subinstr-id='0'/>
+            <instruction instr-id='627' subinstr-id='2'/>
+            <instruction instr-id='627' subinstr-id='4'/>
+            <instruction instr-id='627' subinstr-id='6'/>
+            <instruction instr-id='627' subinstr-id='8'/>
+            <instruction instr-id='629' subinstr-id='0'/>
+            <instruction instr-id='629' subinstr-id='2'/>
+            <instruction instr-id='629' subinstr-id='4'/>
+            <instruction instr-id='629' subinstr-id='6'/>
+            <instruction instr-id='629' subinstr-id='8'/>
+            <instruction instr-id='629' subinstr-id='10'/>
+            <instruction instr-id='629' subinstr-id='12'/>
+            <instruction instr-id='629' subinstr-id='14'/>
+            <instruction instr-id='629' subinstr-id='16'/>
+            <instruction instr-id='631' subinstr-id='0'/>
+            <instruction instr-id='631' subinstr-id='2'/>
+            <instruction instr-id='631' subinstr-id='4'/>
+            <instruction instr-id='631' subinstr-id='6'/>
+            <instruction instr-id='631' subinstr-id='8'/>
+            <instruction instr-id='631' subinstr-id='10'/>
+            <instruction instr-id='631' subinstr-id='12'/>
+            <instruction instr-id='631' subinstr-id='14'/>
+            <instruction instr-id='631' subinstr-id='16'/>
+            <instruction instr-id='631' subinstr-id='18'/>
+            <instruction instr-id='631' subinstr-id='20'/>
+            <instruction instr-id='633' subinstr-id='0'/>
+            <instruction instr-id='633' subinstr-id='2'/>
+            <instruction instr-id='633' subinstr-id='4'/>
+            <instruction instr-id='633' subinstr-id='6'/>
+            <instruction instr-id='633' subinstr-id='8'/>
+         </cell>
+         <cell id='369' start-row='0' start-col='7'>
+            <bounding-box x1='520' y1='664' x2='552' y2='681'/>
+            <content>Students
+assessed</content>
+            <instruction instr-id='635' subinstr-id='0'/>
+            <instruction instr-id='635' subinstr-id='2'/>
+            <instruction instr-id='635' subinstr-id='4'/>
+            <instruction instr-id='635' subinstr-id='6'/>
+            <instruction instr-id='635' subinstr-id='8'/>
+            <instruction instr-id='635' subinstr-id='10'/>
+            <instruction instr-id='635' subinstr-id='12'/>
+            <instruction instr-id='637' subinstr-id='0'/>
+            <instruction instr-id='637' subinstr-id='2'/>
+            <instruction instr-id='637' subinstr-id='4'/>
+            <instruction instr-id='637' subinstr-id='6'/>
+         </cell>
+      </region>
+   </table>
+   <table id='4'>
+      <region id='1' col-increment='0' row-increment='0' page='5'>
+         <cell id='8' start-row='1' start-col='0'>
+            <bounding-box x1='56' y1='653' x2='100' y2='661'/>
+            <content>Alberta-CAN</content>
+         </cell>
+         <cell id='18' start-row='1' start-col='3'>
+            <bounding-box x1='322' y1='653' x2='335' y2='661'/>
+            <content>143</content>
+         </cell>
+         <cell id='37' start-row='1' start-col='1'>
+            <bounding-box x1='204' y1='653' x2='217' y2='661'/>
+            <content>150</content>
+         </cell>
+         <cell id='38' start-row='1' start-col='2'>
+            <bounding-box x1='263' y1='653' x2='276' y2='661'/>
+            <content>147</content>
+         </cell>
+         <cell id='48' start-row='1' start-col='7'>
+            <bounding-box x1='552' y1='653' x2='571' y2='661'/>
+            <content>3,789</content>
+         </cell>
+         <cell id='59' start-row='1' start-col='5'>
+            <bounding-box x1='440' y1='653' x2='453' y2='661'/>
+            <content>145</content>
+         </cell>
+         <cell id='61' start-row='1' start-col='6'>
+            <bounding-box x1='493' y1='653' x2='512' y2='661'/>
+            <content>4,292</content>
+         </cell>
+         <cell id='81' start-row='1' start-col='4'>
+            <bounding-box x1='389' y1='653' x2='394' y2='661'/>
+            <content>2</content>
+         </cell>
+         <cell id='1' start-row='2' start-col='6'>
+            <bounding-box x1='493' y1='642' x2='512' y2='650'/>
+            <content>4,932</content>
+         </cell>
+         <cell id='24' start-row='2' start-col='1'>
+            <bounding-box x1='204' y1='642' x2='217' y2='650'/>
+            <content>200</content>
+         </cell>
+         <cell id='28' start-row='2' start-col='0'>
+            <bounding-box x1='56' y1='642' x2='101' y2='651'/>
+            <content>Ontario-CAN</content>
+         </cell>
+         <cell id='55' start-row='2' start-col='3'>
+            <bounding-box x1='322' y1='642' x2='335' y2='650'/>
+            <content>188</content>
+         </cell>
+         <cell id='57' start-row='2' start-col='7'>
+            <bounding-box x1='552' y1='642' x2='571' y2='650'/>
+            <content>4,561</content>
+         </cell>
+         <cell id='66' start-row='2' start-col='2'>
+            <bounding-box x1='263' y1='642' x2='276' y2='650'/>
+            <content>191</content>
+         </cell>
+         <cell id='73' start-row='2' start-col='5'>
+            <bounding-box x1='440' y1='642' x2='453' y2='650'/>
+            <content>189</content>
+         </cell>
+         <cell id='84' start-row='2' start-col='4'>
+            <bounding-box x1='389' y1='642' x2='394' y2='650'/>
+            <content>1</content>
+         </cell>
+         <cell id='13' start-row='3' start-col='5'>
+            <bounding-box x1='440' y1='631' x2='453' y2='640'/>
+            <content>190</content>
+         </cell>
+         <cell id='35' start-row='3' start-col='6'>
+            <bounding-box x1='493' y1='631' x2='512' y2='640'/>
+            <content>4,529</content>
+         </cell>
+         <cell id='44' start-row='3' start-col='3'>
+            <bounding-box x1='322' y1='631' x2='335' y2='640'/>
+            <content>189</content>
+         </cell>
+         <cell id='45' start-row='3' start-col='0'>
+            <bounding-box x1='56' y1='631' x2='103' y2='640'/>
+            <content>Quebec-CAN</content>
+         </cell>
+         <cell id='58' start-row='3' start-col='2'>
+            <bounding-box x1='263' y1='631' x2='276' y2='640'/>
+            <content>197</content>
+         </cell>
+         <cell id='62' start-row='3' start-col='7'>
+            <bounding-box x1='552' y1='631' x2='571' y2='640'/>
+            <content>4,244</content>
+         </cell>
+         <cell id='68' start-row='3' start-col='1'>
+            <bounding-box x1='204' y1='631' x2='217' y2='640'/>
+            <content>200</content>
+         </cell>
+         <cell id='86' start-row='3' start-col='4'>
+            <bounding-box x1='389' y1='631' x2='394' y2='640'/>
+            <content>1</content>
+         </cell>
+         <cell id='15' start-row='4' start-col='1'>
+            <bounding-box x1='208' y1='621' x2='217' y2='629'/>
+            <content>99</content>
+         </cell>
+         <cell id='16' start-row='4' start-col='7'>
+            <bounding-box x1='552' y1='621' x2='571' y2='629'/>
+            <content>3,548</content>
+         </cell>
+         <cell id='27' start-row='4' start-col='5'>
+            <bounding-box x1='444' y1='621' x2='453' y2='629'/>
+            <content>95</content>
+         </cell>
+         <cell id='30' start-row='4' start-col='6'>
+            <bounding-box x1='493' y1='621' x2='512' y2='629'/>
+            <content>3,942</content>
+         </cell>
+         <cell id='43' start-row='4' start-col='2'>
+            <bounding-box x1='267' y1='621' x2='276' y2='629'/>
+            <content>95</content>
+         </cell>
+         <cell id='46' start-row='4' start-col='4'>
+            <bounding-box x1='389' y1='621' x2='394' y2='629'/>
+            <content>0</content>
+         </cell>
+         <cell id='83' start-row='4' start-col='3'>
+            <bounding-box x1='326' y1='621' x2='335' y2='629'/>
+            <content>95</content>
+         </cell>
+         <cell id='54' start-row='4' start-col='0'>
+            <bounding-box x1='56' y1='620' x2='101' y2='629'/>
+            <content>Maltese-MLT</content>
+         </cell>
+         <cell id='10' start-row='5' start-col='0'>
+            <bounding-box x1='56' y1='610' x2='109' y2='618'/>
+            <content>Andalusia-ESP</content>
+         </cell>
+         <cell id='14' start-row='5' start-col='3'>
+            <bounding-box x1='322' y1='610' x2='335' y2='618'/>
+            <content>149</content>
+         </cell>
+         <cell id='29' start-row='5' start-col='6'>
+            <bounding-box x1='493' y1='610' x2='512' y2='618'/>
+            <content>4,652</content>
+         </cell>
+         <cell id='32' start-row='5' start-col='7'>
+            <bounding-box x1='552' y1='610' x2='571' y2='618'/>
+            <content>4,333</content>
+         </cell>
+         <cell id='34' start-row='5' start-col='5'>
+            <bounding-box x1='440' y1='610' x2='453' y2='618'/>
+            <content>149</content>
+         </cell>
+         <cell id='50' start-row='5' start-col='4'>
+            <bounding-box x1='389' y1='610' x2='394' y2='618'/>
+            <content>0</content>
+         </cell>
+         <cell id='71' start-row='5' start-col='1'>
+            <bounding-box x1='204' y1='610' x2='217' y2='618'/>
+            <content>150</content>
+         </cell>
+         <cell id='82' start-row='5' start-col='2'>
+            <bounding-box x1='263' y1='610' x2='276' y2='618'/>
+            <content>150</content>
+         </cell>
+         <cell id='36' start-row='6' start-col='2'>
+            <bounding-box x1='263' y1='599' x2='276' y2='607'/>
+            <content>165</content>
+         </cell>
+         <cell id='47' start-row='6' start-col='0'>
+            <bounding-box x1='56' y1='599' x2='111' y2='608'/>
+            <content>AbuDhabi-UAE</content>
+         </cell>
+         <cell id='51' start-row='6' start-col='6'>
+            <bounding-box x1='493' y1='599' x2='512' y2='607'/>
+            <content>4,308</content>
+         </cell>
+         <cell id='60' start-row='6' start-col='4'>
+            <bounding-box x1='389' y1='599' x2='394' y2='607'/>
+            <content>0</content>
+         </cell>
+         <cell id='67' start-row='6' start-col='5'>
+            <bounding-box x1='440' y1='599' x2='453' y2='607'/>
+            <content>164</content>
+         </cell>
+         <cell id='70' start-row='6' start-col='1'>
+            <bounding-box x1='204' y1='599' x2='217' y2='607'/>
+            <content>168</content>
+         </cell>
+         <cell id='72' start-row='6' start-col='7'>
+            <bounding-box x1='552' y1='599' x2='571' y2='607'/>
+            <content>4,146</content>
+         </cell>
+         <cell id='80' start-row='6' start-col='3'>
+            <bounding-box x1='322' y1='599' x2='335' y2='607'/>
+            <content>164</content>
+         </cell>
+         <cell id='22' start-row='7' start-col='6'>
+            <bounding-box x1='493' y1='588' x2='512' y2='596'/>
+            <content>6,497</content>
+         </cell>
+         <cell id='33' start-row='7' start-col='3'>
+            <bounding-box x1='322' y1='588' x2='335' y2='596'/>
+            <content>138</content>
+         </cell>
+         <cell id='52' start-row='7' start-col='2'>
+            <bounding-box x1='263' y1='588' x2='276' y2='596'/>
+            <content>139</content>
+         </cell>
+         <cell id='65' start-row='7' start-col='0'>
+            <bounding-box x1='56' y1='588' x2='95' y2='597'/>
+            <content>Dubai-UAE</content>
+         </cell>
+         <cell id='69' start-row='7' start-col='7'>
+            <bounding-box x1='552' y1='588' x2='571' y2='596'/>
+            <content>6,061</content>
+         </cell>
+         <cell id='74' start-row='7' start-col='1'>
+            <bounding-box x1='204' y1='588' x2='217' y2='596'/>
+            <content>152</content>
+         </cell>
+         <cell id='76' start-row='7' start-col='5'>
+            <bounding-box x1='440' y1='588' x2='453' y2='596'/>
+            <content>138</content>
+         </cell>
+         <cell id='77' start-row='7' start-col='4'>
+            <bounding-box x1='389' y1='588' x2='394' y2='596'/>
+            <content>0</content>
+         </cell>
+         <cell id='2' start-row='8' start-col='0'>
+            <bounding-box x1='56' y1='578' x2='99' y2='586'/>
+            <content>Florida-USA</content>
+         </cell>
+         <cell id='19' start-row='8' start-col='6'>
+            <bounding-box x1='493' y1='578' x2='512' y2='586'/>
+            <content>3,052</content>
+         </cell>
+         <cell id='21' start-row='8' start-col='7'>
+            <bounding-box x1='551' y1='578' x2='571' y2='586'/>
+            <content>2,598</content>
+         </cell>
+         <cell id='63' start-row='8' start-col='3'>
+            <bounding-box x1='326' y1='578' x2='335' y2='586'/>
+            <content>77</content>
+         </cell>
+         <cell id='75' start-row='8' start-col='5'>
+            <bounding-box x1='444' y1='578' x2='453' y2='586'/>
+            <content>77</content>
+         </cell>
+         <cell id='78' start-row='8' start-col='1'>
+            <bounding-box x1='208' y1='578' x2='217' y2='586'/>
+            <content>81</content>
+         </cell>
+         <cell id='79' start-row='8' start-col='2'>
+            <bounding-box x1='267' y1='578' x2='276' y2='586'/>
+            <content>80</content>
+         </cell>
+         <cell id='85' start-row='8' start-col='4'>
+            <bounding-box x1='389' y1='578' x2='394' y2='586'/>
+            <content>0</content>
+         </cell>
+         <cell id='65' start-row='0' start-col='0'>
+            <bounding-box x1='56' y1='664' x2='120' y2='681'/>
+            <content>Benchmarking
+education systems</content>
+            <instruction instr-id='227' subinstr-id='0'/>
+            <instruction instr-id='227' subinstr-id='2'/>
+            <instruction instr-id='227' subinstr-id='4'/>
+            <instruction instr-id='227' subinstr-id='6'/>
+            <instruction instr-id='227' subinstr-id='8'/>
+            <instruction instr-id='227' subinstr-id='10'/>
+            <instruction instr-id='227' subinstr-id='12'/>
+            <instruction instr-id='231' subinstr-id='0'/>
+            <instruction instr-id='231' subinstr-id='2'/>
+            <instruction instr-id='231' subinstr-id='4'/>
+            <instruction instr-id='231' subinstr-id='6'/>
+            <instruction instr-id='231' subinstr-id='8'/>
+            <instruction instr-id='231' subinstr-id='10'/>
+            <instruction instr-id='231' subinstr-id='12'/>
+            <instruction instr-id='231' subinstr-id='14'/>
+            <instruction instr-id='231' subinstr-id='18'/>
+            <instruction instr-id='231' subinstr-id='20'/>
+            <instruction instr-id='231' subinstr-id='22'/>
+         </cell>
+         <cell id='66' start-row='0' start-col='1'>
+            <bounding-box x1='164' y1='664' x2='216' y2='681'/>
+            <content>Schools in
+original sample</content>
+            <instruction instr-id='233' subinstr-id='0'/>
+            <instruction instr-id='233' subinstr-id='2'/>
+            <instruction instr-id='233' subinstr-id='4'/>
+            <instruction instr-id='233' subinstr-id='6'/>
+            <instruction instr-id='233' subinstr-id='8'/>
+            <instruction instr-id='233' subinstr-id='10'/>
+            <instruction instr-id='233' subinstr-id='12'/>
+            <instruction instr-id='235' subinstr-id='0'/>
+            <instruction instr-id='235' subinstr-id='2'/>
+            <instruction instr-id='235' subinstr-id='4'/>
+            <instruction instr-id='235' subinstr-id='6'/>
+            <instruction instr-id='235' subinstr-id='8'/>
+            <instruction instr-id='235' subinstr-id='10'/>
+            <instruction instr-id='235' subinstr-id='12'/>
+            <instruction instr-id='235' subinstr-id='16'/>
+            <instruction instr-id='235' subinstr-id='18'/>
+            <instruction instr-id='235' subinstr-id='20'/>
+            <instruction instr-id='235' subinstr-id='22'/>
+         </cell>
+         <cell id='67' start-row='0' start-col='2'>
+            <bounding-box x1='222' y1='664' x2='275' y2='690'/>
+            <content>Eligible schools
+in original
+sample</content>
+            <instruction instr-id='237' subinstr-id='0'/>
+            <instruction instr-id='237' subinstr-id='2'/>
+            <instruction instr-id='237' subinstr-id='4'/>
+            <instruction instr-id='237' subinstr-id='6'/>
+            <instruction instr-id='237' subinstr-id='8'/>
+            <instruction instr-id='237' subinstr-id='10'/>
+            <instruction instr-id='237' subinstr-id='12'/>
+            <instruction instr-id='237' subinstr-id='16'/>
+            <instruction instr-id='237' subinstr-id='18'/>
+            <instruction instr-id='237' subinstr-id='20'/>
+            <instruction instr-id='237' subinstr-id='22'/>
+            <instruction instr-id='237' subinstr-id='24'/>
+            <instruction instr-id='239' subinstr-id='0'/>
+            <instruction instr-id='239' subinstr-id='2'/>
+            <instruction instr-id='239' subinstr-id='6'/>
+            <instruction instr-id='239' subinstr-id='8'/>
+            <instruction instr-id='239' subinstr-id='10'/>
+            <instruction instr-id='239' subinstr-id='12'/>
+            <instruction instr-id='239' subinstr-id='14'/>
+            <instruction instr-id='239' subinstr-id='16'/>
+            <instruction instr-id='239' subinstr-id='18'/>
+            <instruction instr-id='241' subinstr-id='0'/>
+            <instruction instr-id='241' subinstr-id='2'/>
+            <instruction instr-id='241' subinstr-id='4'/>
+            <instruction instr-id='241' subinstr-id='6'/>
+         </cell>
+         <cell id='68' start-row='0' start-col='3'>
+            <bounding-box x1='294' y1='664' x2='334' y2='700'/>
+            <content>Schools
+in original
+sample that
+participated</content>
+            <instruction instr-id='243' subinstr-id='0'/>
+            <instruction instr-id='243' subinstr-id='2'/>
+            <instruction instr-id='243' subinstr-id='4'/>
+            <instruction instr-id='243' subinstr-id='6'/>
+            <instruction instr-id='243' subinstr-id='8'/>
+            <instruction instr-id='245' subinstr-id='0'/>
+            <instruction instr-id='245' subinstr-id='2'/>
+            <instruction instr-id='245' subinstr-id='6'/>
+            <instruction instr-id='245' subinstr-id='8'/>
+            <instruction instr-id='245' subinstr-id='10'/>
+            <instruction instr-id='245' subinstr-id='12'/>
+            <instruction instr-id='245' subinstr-id='14'/>
+            <instruction instr-id='245' subinstr-id='16'/>
+            <instruction instr-id='245' subinstr-id='18'/>
+            <instruction instr-id='247' subinstr-id='0'/>
+            <instruction instr-id='247' subinstr-id='2'/>
+            <instruction instr-id='247' subinstr-id='4'/>
+            <instruction instr-id='247' subinstr-id='6'/>
+            <instruction instr-id='247' subinstr-id='10'/>
+            <instruction instr-id='247' subinstr-id='12'/>
+            <instruction instr-id='247' subinstr-id='14'/>
+            <instruction instr-id='247' subinstr-id='16'/>
+            <instruction instr-id='250' subinstr-id='0'/>
+            <instruction instr-id='250' subinstr-id='2'/>
+            <instruction instr-id='250' subinstr-id='4'/>
+            <instruction instr-id='250' subinstr-id='6'/>
+            <instruction instr-id='250' subinstr-id='8'/>
+            <instruction instr-id='250' subinstr-id='10'/>
+            <instruction instr-id='250' subinstr-id='12'/>
+            <instruction instr-id='250' subinstr-id='14'/>
+            <instruction instr-id='250' subinstr-id='16'/>
+            <instruction instr-id='250' subinstr-id='18'/>
+         </cell>
+         <cell id='69' start-row='0' start-col='4'>
+            <bounding-box x1='359' y1='664' x2='393' y2='681'/>
+            <content>Substitute
+schools</content>
+            <instruction instr-id='252' subinstr-id='0'/>
+            <instruction instr-id='252' subinstr-id='2'/>
+            <instruction instr-id='252' subinstr-id='4'/>
+            <instruction instr-id='252' subinstr-id='6'/>
+            <instruction instr-id='252' subinstr-id='8'/>
+            <instruction instr-id='252' subinstr-id='10'/>
+            <instruction instr-id='252' subinstr-id='12'/>
+            <instruction instr-id='252' subinstr-id='14'/>
+            <instruction instr-id='254' subinstr-id='0'/>
+            <instruction instr-id='254' subinstr-id='2'/>
+            <instruction instr-id='254' subinstr-id='4'/>
+            <instruction instr-id='254' subinstr-id='6'/>
+            <instruction instr-id='254' subinstr-id='8'/>
+         </cell>
+         <cell id='70' start-row='0' start-col='5'>
+            <bounding-box x1='411' y1='664' x2='452' y2='690'/>
+            <content>Total
+schools that
+participated</content>
+            <instruction instr-id='256' subinstr-id='0'/>
+            <instruction instr-id='256' subinstr-id='2'/>
+            <instruction instr-id='256' subinstr-id='4'/>
+            <instruction instr-id='256' subinstr-id='6'/>
+            <instruction instr-id='256' subinstr-id='8'/>
+            <instruction instr-id='258' subinstr-id='0'/>
+            <instruction instr-id='258' subinstr-id='2'/>
+            <instruction instr-id='258' subinstr-id='4'/>
+            <instruction instr-id='258' subinstr-id='6'/>
+            <instruction instr-id='258' subinstr-id='8'/>
+            <instruction instr-id='258' subinstr-id='10'/>
+            <instruction instr-id='258' subinstr-id='12'/>
+            <instruction instr-id='258' subinstr-id='14'/>
+            <instruction instr-id='258' subinstr-id='16'/>
+            <instruction instr-id='260' subinstr-id='0'/>
+            <instruction instr-id='260' subinstr-id='2'/>
+            <instruction instr-id='260' subinstr-id='4'/>
+            <instruction instr-id='260' subinstr-id='6'/>
+            <instruction instr-id='260' subinstr-id='8'/>
+            <instruction instr-id='260' subinstr-id='10'/>
+            <instruction instr-id='260' subinstr-id='12'/>
+            <instruction instr-id='260' subinstr-id='14'/>
+            <instruction instr-id='260' subinstr-id='16'/>
+            <instruction instr-id='260' subinstr-id='18'/>
+         </cell>
+         <cell id='71' start-row='0' start-col='6'>
+            <bounding-box x1='470' y1='664' x2='511' y2='700'/>
+            <content>Sampled
+students in
+participating
+schools</content>
+            <instruction instr-id='262' subinstr-id='0'/>
+            <instruction instr-id='262' subinstr-id='2'/>
+            <instruction instr-id='262' subinstr-id='4'/>
+            <instruction instr-id='262' subinstr-id='6'/>
+            <instruction instr-id='262' subinstr-id='8'/>
+            <instruction instr-id='264' subinstr-id='0'/>
+            <instruction instr-id='264' subinstr-id='2'/>
+            <instruction instr-id='264' subinstr-id='4'/>
+            <instruction instr-id='264' subinstr-id='6'/>
+            <instruction instr-id='264' subinstr-id='8'/>
+            <instruction instr-id='264' subinstr-id='10'/>
+            <instruction instr-id='264' subinstr-id='12'/>
+            <instruction instr-id='264' subinstr-id='14'/>
+            <instruction instr-id='264' subinstr-id='16'/>
+            <instruction instr-id='266' subinstr-id='0'/>
+            <instruction instr-id='266' subinstr-id='2'/>
+            <instruction instr-id='266' subinstr-id='4'/>
+            <instruction instr-id='266' subinstr-id='6'/>
+            <instruction instr-id='266' subinstr-id='8'/>
+            <instruction instr-id='266' subinstr-id='10'/>
+            <instruction instr-id='266' subinstr-id='12'/>
+            <instruction instr-id='266' subinstr-id='14'/>
+            <instruction instr-id='266' subinstr-id='16'/>
+            <instruction instr-id='266' subinstr-id='18'/>
+            <instruction instr-id='266' subinstr-id='20'/>
+            <instruction instr-id='268' subinstr-id='0'/>
+            <instruction instr-id='268' subinstr-id='2'/>
+            <instruction instr-id='268' subinstr-id='4'/>
+            <instruction instr-id='268' subinstr-id='6'/>
+            <instruction instr-id='268' subinstr-id='8'/>
+         </cell>
+         <cell id='72' start-row='0' start-col='7'>
+            <bounding-box x1='538' y1='664' x2='570' y2='681'/>
+            <content>Students
+assessed</content>
+            <instruction instr-id='270' subinstr-id='0'/>
+            <instruction instr-id='270' subinstr-id='2'/>
+            <instruction instr-id='270' subinstr-id='4'/>
+            <instruction instr-id='270' subinstr-id='6'/>
+            <instruction instr-id='270' subinstr-id='8'/>
+            <instruction instr-id='270' subinstr-id='10'/>
+            <instruction instr-id='270' subinstr-id='12'/>
+            <instruction instr-id='272' subinstr-id='0'/>
+            <instruction instr-id='272' subinstr-id='2'/>
+            <instruction instr-id='272' subinstr-id='4'/>
+            <instruction instr-id='272' subinstr-id='6'/>
+         </cell>
+      </region>
+   </table>
+</document>

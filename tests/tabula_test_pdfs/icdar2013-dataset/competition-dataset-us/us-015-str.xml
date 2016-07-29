@@ -1,0 +1,1223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-015-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='2'>
+         <cell id='1' start-row='0' start-col='0' >
+            <bounding-box x1='116' y1='467' x2='189' y2='479'/>
+            <content>Item Property</content>
+            <instruction instr-id='156' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1' >
+            <bounding-box x1='294' y1='467' x2='452' y2='479'/>
+            <content>Reason for Change or Deletion</content>
+            <instruction instr-id='156' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0' >
+            <bounding-box x1='90' y1='448' x2='177' y2='459'/>
+            <content>Clarity or relevance</content>
+            <instruction instr-id='178' subinstr-id='0'/>
+            <instruction instr-id='178' subinstr-id='2'/>
+            <instruction instr-id='178' subinstr-id='4'/>
+            <instruction instr-id='178' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0' >
+            <bounding-box x1='90' y1='367' x2='159' y2='378'/>
+            <content>Response range</content>
+            <instruction instr-id='273' subinstr-id='0'/>
+            <instruction instr-id='273' subinstr-id='2'/>
+            <instruction instr-id='273' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0' >
+            <bounding-box x1='90' y1='308' x2='137' y2='319'/>
+            <content>Variability</content>
+            <instruction instr-id='347' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0' >
+            <bounding-box x1='90' y1='255' x2='159' y2='266'/>
+            <content>Reproducibility</content>
+            <instruction instr-id='414' subinstr-id='0'/>
+            <instruction instr-id='414' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0' >
+            <bounding-box x1='90' y1='230' x2='184' y2='241'/>
+            <content>Inter-item correlation</content>
+            <instruction instr-id='452' subinstr-id='0'/>
+            <instruction instr-id='452' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0' >
+            <bounding-box x1='90' y1='205' x2='196' y2='216'/>
+            <content>Ability to detect change</content>
+            <instruction instr-id='491' subinstr-id='0'/>
+            <instruction instr-id='491' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='0' >
+            <bounding-box x1='90' y1='181' x2='176' y2='192'/>
+            <content>Item discrimination</content>
+            <instruction instr-id='530' subinstr-id='0'/>
+            <instruction instr-id='530' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='0' >
+            <bounding-box x1='90' y1='121' x2='144' y2='132'/>
+            <content>Redundancy</content>
+            <instruction instr-id='602' subinstr-id='0'/>
+            <instruction instr-id='602' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='0' >
+            <bounding-box x1='90' y1='96' x2='148' y2='107'/>
+            <content>Recall period</content>
+            <instruction instr-id='645' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1' >
+            <bounding-box x1='225' y1='384' x2='515' y2='458'/>
+            <content>• Reported as not relevant by a large segment of the target population
+• Generates an unacceptably large amount of missing data points
+• Generates many questions or requests for clarification from patients as they
+complete the PRO instrument
+• Patients interpret items and responses in a way that is inconsistent with the
+PRO instrument’s conceptual framework</content>
+            <instruction instr-id='182' subinstr-id='-1'/>
+            <instruction instr-id='191' subinstr-id='0'/>
+            <instruction instr-id='191' subinstr-id='2'/>
+            <instruction instr-id='191' subinstr-id='4'/>
+            <instruction instr-id='191' subinstr-id='6'/>
+            <instruction instr-id='191' subinstr-id='8'/>
+            <instruction instr-id='191' subinstr-id='10'/>
+            <instruction instr-id='191' subinstr-id='12'/>
+            <instruction instr-id='191' subinstr-id='16'/>
+            <instruction instr-id='191' subinstr-id='18'/>
+            <instruction instr-id='195' subinstr-id='0'/>
+            <instruction instr-id='195' subinstr-id='2'/>
+            <instruction instr-id='199' subinstr-id='-1'/>
+            <instruction instr-id='208' subinstr-id='0'/>
+            <instruction instr-id='208' subinstr-id='2'/>
+            <instruction instr-id='208' subinstr-id='4'/>
+            <instruction instr-id='208' subinstr-id='6'/>
+            <instruction instr-id='208' subinstr-id='8'/>
+            <instruction instr-id='208' subinstr-id='12'/>
+            <instruction instr-id='208' subinstr-id='14'/>
+            <instruction instr-id='212' subinstr-id='0'/>
+            <instruction instr-id='212' subinstr-id='2'/>
+            <instruction instr-id='216' subinstr-id='-1'/>
+            <instruction instr-id='225' subinstr-id='0'/>
+            <instruction instr-id='225' subinstr-id='2'/>
+            <instruction instr-id='225' subinstr-id='6'/>
+            <instruction instr-id='225' subinstr-id='8'/>
+            <instruction instr-id='225' subinstr-id='10'/>
+            <instruction instr-id='225' subinstr-id='12'/>
+            <instruction instr-id='229' subinstr-id='0'/>
+            <instruction instr-id='229' subinstr-id='2'/>
+            <instruction instr-id='229' subinstr-id='4'/>
+            <instruction instr-id='229' subinstr-id='6'/>
+            <instruction instr-id='229' subinstr-id='8'/>
+            <instruction instr-id='229' subinstr-id='10'/>
+            <instruction instr-id='229' subinstr-id='12'/>
+            <instruction instr-id='229' subinstr-id='14'/>
+            <instruction instr-id='229' subinstr-id='16'/>
+            <instruction instr-id='229' subinstr-id='18'/>
+            <instruction instr-id='229' subinstr-id='20'/>
+            <instruction instr-id='229' subinstr-id='22'/>
+            <instruction instr-id='233' subinstr-id='0'/>
+            <instruction instr-id='233' subinstr-id='2'/>
+            <instruction instr-id='233' subinstr-id='4'/>
+            <instruction instr-id='233' subinstr-id='6'/>
+            <instruction instr-id='233' subinstr-id='8'/>
+            <instruction instr-id='233' subinstr-id='10'/>
+            <instruction instr-id='233' subinstr-id='12'/>
+            <instruction instr-id='233' subinstr-id='14'/>
+            <instruction instr-id='237' subinstr-id='-1'/>
+            <instruction instr-id='246' subinstr-id='0'/>
+            <instruction instr-id='246' subinstr-id='2'/>
+            <instruction instr-id='246' subinstr-id='4'/>
+            <instruction instr-id='246' subinstr-id='6'/>
+            <instruction instr-id='246' subinstr-id='8'/>
+            <instruction instr-id='246' subinstr-id='10'/>
+            <instruction instr-id='246' subinstr-id='12'/>
+            <instruction instr-id='246' subinstr-id='14'/>
+            <instruction instr-id='246' subinstr-id='16'/>
+            <instruction instr-id='246' subinstr-id='18'/>
+            <instruction instr-id='246' subinstr-id='20'/>
+            <instruction instr-id='246' subinstr-id='22'/>
+            <instruction instr-id='246' subinstr-id='24'/>
+            <instruction instr-id='246' subinstr-id='26'/>
+            <instruction instr-id='246' subinstr-id='28'/>
+            <instruction instr-id='246' subinstr-id='30'/>
+            <instruction instr-id='246' subinstr-id='32'/>
+            <instruction instr-id='246' subinstr-id='34'/>
+            <instruction instr-id='250' subinstr-id='0'/>
+            <instruction instr-id='250' subinstr-id='2'/>
+            <instruction instr-id='250' subinstr-id='4'/>
+            <instruction instr-id='250' subinstr-id='6'/>
+            <instruction instr-id='250' subinstr-id='8'/>
+            <instruction instr-id='250' subinstr-id='10'/>
+            <instruction instr-id='250' subinstr-id='12'/>
+            <instruction instr-id='250' subinstr-id='14'/>
+            <instruction instr-id='250' subinstr-id='16'/>
+            <instruction instr-id='250' subinstr-id='18'/>
+            <instruction instr-id='250' subinstr-id='20'/>
+            <instruction instr-id='250' subinstr-id='22'/>
+            <instruction instr-id='250' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1' >
+            <bounding-box x1='225' y1='327' x2='513' y2='377'/>
+            <content>• A high percent of patients respond at the floor (response scale’s worst end)
+or ceiling (response scale’s optimal end)
+• Patients note that none of the response choices applies to them
+• Distribution of item responses is highly skewed</content>
+            <instruction instr-id='277' subinstr-id='-1'/>
+            <instruction instr-id='286' subinstr-id='0'/>
+            <instruction instr-id='286' subinstr-id='2'/>
+            <instruction instr-id='286' subinstr-id='4'/>
+            <instruction instr-id='286' subinstr-id='6'/>
+            <instruction instr-id='286' subinstr-id='8'/>
+            <instruction instr-id='286' subinstr-id='10'/>
+            <instruction instr-id='286' subinstr-id='12'/>
+            <instruction instr-id='290' subinstr-id='0'/>
+            <instruction instr-id='290' subinstr-id='2'/>
+            <instruction instr-id='290' subinstr-id='4'/>
+            <instruction instr-id='290' subinstr-id='6'/>
+            <instruction instr-id='294' subinstr-id='0'/>
+            <instruction instr-id='294' subinstr-id='2'/>
+            <instruction instr-id='294' subinstr-id='4'/>
+            <instruction instr-id='298' subinstr-id='-1'/>
+            <instruction instr-id='307' subinstr-id='0'/>
+            <instruction instr-id='307' subinstr-id='2'/>
+            <instruction instr-id='307' subinstr-id='4'/>
+            <instruction instr-id='307' subinstr-id='6'/>
+            <instruction instr-id='311' subinstr-id='0'/>
+            <instruction instr-id='311' subinstr-id='2'/>
+            <instruction instr-id='311' subinstr-id='4'/>
+            <instruction instr-id='311' subinstr-id='6'/>
+            <instruction instr-id='311' subinstr-id='8'/>
+            <instruction instr-id='311' subinstr-id='10'/>
+            <instruction instr-id='315' subinstr-id='-1'/>
+            <instruction instr-id='324' subinstr-id='0'/>
+            <instruction instr-id='324' subinstr-id='2'/>
+            <instruction instr-id='324' subinstr-id='4'/>
+            <instruction instr-id='324' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1' >
+            <bounding-box x1='225' y1='268' x2='516' y2='318'/>
+            <content>• All patients give the same answer (i.e., no variance)
+• Most patients choose only one response choice
+• Differences among patients are not detected when important differences are
+known</content>
+            <instruction instr-id='351' subinstr-id='-1'/>
+            <instruction instr-id='360' subinstr-id='0'/>
+            <instruction instr-id='360' subinstr-id='2'/>
+            <instruction instr-id='360' subinstr-id='4'/>
+            <instruction instr-id='360' subinstr-id='6'/>
+            <instruction instr-id='360' subinstr-id='8'/>
+            <instruction instr-id='360' subinstr-id='10'/>
+            <instruction instr-id='360' subinstr-id='12'/>
+            <instruction instr-id='360' subinstr-id='14'/>
+            <instruction instr-id='360' subinstr-id='16'/>
+            <instruction instr-id='364' subinstr-id='-1'/>
+            <instruction instr-id='373' subinstr-id='0'/>
+            <instruction instr-id='373' subinstr-id='2'/>
+            <instruction instr-id='373' subinstr-id='4'/>
+            <instruction instr-id='373' subinstr-id='6'/>
+            <instruction instr-id='373' subinstr-id='8'/>
+            <instruction instr-id='373' subinstr-id='10'/>
+            <instruction instr-id='373' subinstr-id='12'/>
+            <instruction instr-id='377' subinstr-id='-1'/>
+            <instruction instr-id='386' subinstr-id='0'/>
+            <instruction instr-id='386' subinstr-id='2'/>
+            <instruction instr-id='386' subinstr-id='4'/>
+            <instruction instr-id='386' subinstr-id='6'/>
+            <instruction instr-id='386' subinstr-id='8'/>
+            <instruction instr-id='386' subinstr-id='10'/>
+            <instruction instr-id='386' subinstr-id='12'/>
+            <instruction instr-id='386' subinstr-id='16'/>
+            <instruction instr-id='386' subinstr-id='18'/>
+            <instruction instr-id='386' subinstr-id='20'/>
+            <instruction instr-id='386' subinstr-id='22'/>
+            <instruction instr-id='386' subinstr-id='24'/>
+            <instruction instr-id='386' subinstr-id='26'/>
+            <instruction instr-id='386' subinstr-id='28'/>
+            <instruction instr-id='386' subinstr-id='30'/>
+            <instruction instr-id='386' subinstr-id='32'/>
+            <instruction instr-id='386' subinstr-id='34'/>
+            <instruction instr-id='386' subinstr-id='36'/>
+            <instruction instr-id='386' subinstr-id='38'/>
+            <instruction instr-id='386' subinstr-id='40'/>
+            <instruction instr-id='386' subinstr-id='44'/>
+            <instruction instr-id='392' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1' >
+            <bounding-box x1='225' y1='243' x2='517' y2='265'/>
+            <content>• Unstable scores over time when there is no logical reason for variation from
+one assessment to the next</content>
+            <instruction instr-id='418' subinstr-id='-1'/>
+            <instruction instr-id='426' subinstr-id='0'/>
+            <instruction instr-id='426' subinstr-id='2'/>
+            <instruction instr-id='426' subinstr-id='4'/>
+            <instruction instr-id='426' subinstr-id='6'/>
+            <instruction instr-id='426' subinstr-id='8'/>
+            <instruction instr-id='426' subinstr-id='10'/>
+            <instruction instr-id='426' subinstr-id='14'/>
+            <instruction instr-id='426' subinstr-id='16'/>
+            <instruction instr-id='426' subinstr-id='18'/>
+            <instruction instr-id='426' subinstr-id='20'/>
+            <instruction instr-id='426' subinstr-id='22'/>
+            <instruction instr-id='426' subinstr-id='24'/>
+            <instruction instr-id='426' subinstr-id='26'/>
+            <instruction instr-id='426' subinstr-id='28'/>
+            <instruction instr-id='430' subinstr-id='0'/>
+            <instruction instr-id='430' subinstr-id='2'/>
+            <instruction instr-id='430' subinstr-id='4'/>
+            <instruction instr-id='430' subinstr-id='6'/>
+            <instruction instr-id='434' subinstr-id='0'/>
+            <instruction instr-id='434' subinstr-id='2'/>
+            <instruction instr-id='434' subinstr-id='4'/>
+            <instruction instr-id='434' subinstr-id='6'/>
+            <instruction instr-id='434' subinstr-id='8'/>
+            <instruction instr-id='434' subinstr-id='10'/>
+            <instruction instr-id='434' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1' >
+            <bounding-box x1='225' y1='218' x2='512' y2='241'/>
+            <content>• Item highly correlated (redundant) withother items in the same concept of
+interest</content>
+            <instruction instr-id='456' subinstr-id='-1'/>
+            <instruction instr-id='465' subinstr-id='0'/>
+            <instruction instr-id='465' subinstr-id='4'/>
+            <instruction instr-id='465' subinstr-id='6'/>
+            <instruction instr-id='465' subinstr-id='8'/>
+            <instruction instr-id='465' subinstr-id='10'/>
+            <instruction instr-id='465' subinstr-id='12'/>
+            <instruction instr-id='465' subinstr-id='14'/>
+            <instruction instr-id='469' subinstr-id='-1'/>
+            <instruction instr-id='473' subinstr-id='0'/>
+            <instruction instr-id='473' subinstr-id='2'/>
+            <instruction instr-id='473' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1' >
+            <bounding-box x1='225' y1='193' x2='515' y2='216'/>
+            <content>• Item is not sensitive (i.e., does not change when there is a known change in
+the concepts of interest)</content>
+            <instruction instr-id='495' subinstr-id='-1'/>
+            <instruction instr-id='504' subinstr-id='0'/>
+            <instruction instr-id='504' subinstr-id='2'/>
+            <instruction instr-id='504' subinstr-id='4'/>
+            <instruction instr-id='508' subinstr-id='0'/>
+            <instruction instr-id='508' subinstr-id='2'/>
+            <instruction instr-id='508' subinstr-id='4'/>
+            <instruction instr-id='508' subinstr-id='6'/>
+            <instruction instr-id='508' subinstr-id='8'/>
+            <instruction instr-id='508' subinstr-id='10'/>
+            <instruction instr-id='508' subinstr-id='12'/>
+            <instruction instr-id='508' subinstr-id='14'/>
+            <instruction instr-id='512' subinstr-id='0'/>
+            <instruction instr-id='512' subinstr-id='2'/>
+            <instruction instr-id='512' subinstr-id='4'/>
+            <instruction instr-id='512' subinstr-id='6'/>
+            <instruction instr-id='512' subinstr-id='8'/>
+            <instruction instr-id='512' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1' >
+            <bounding-box x1='225' y1='134' x2='521' y2='191'/>
+            <content>• Item is highly correlated with measures of concepts other than the one it is
+intended to measure
+• Item does not show variability in relation to some known population
+characteristics (i.e., severity level, classification of condition, or other known
+characteristic)</content>
+            <instruction instr-id='534' subinstr-id='-1'/>
+            <instruction instr-id='543' subinstr-id='0'/>
+            <instruction instr-id='543' subinstr-id='2'/>
+            <instruction instr-id='543' subinstr-id='4'/>
+            <instruction instr-id='543' subinstr-id='6'/>
+            <instruction instr-id='543' subinstr-id='10'/>
+            <instruction instr-id='543' subinstr-id='12'/>
+            <instruction instr-id='543' subinstr-id='14'/>
+            <instruction instr-id='543' subinstr-id='16'/>
+            <instruction instr-id='543' subinstr-id='18'/>
+            <instruction instr-id='543' subinstr-id='20'/>
+            <instruction instr-id='547' subinstr-id='0'/>
+            <instruction instr-id='547' subinstr-id='2'/>
+            <instruction instr-id='547' subinstr-id='4'/>
+            <instruction instr-id='547' subinstr-id='6'/>
+            <instruction instr-id='547' subinstr-id='8'/>
+            <instruction instr-id='547' subinstr-id='10'/>
+            <instruction instr-id='547' subinstr-id='12'/>
+            <instruction instr-id='551' subinstr-id='0'/>
+            <instruction instr-id='551' subinstr-id='2'/>
+            <instruction instr-id='551' subinstr-id='4'/>
+            <instruction instr-id='551' subinstr-id='6'/>
+            <instruction instr-id='551' subinstr-id='8'/>
+            <instruction instr-id='555' subinstr-id='-1'/>
+            <instruction instr-id='564' subinstr-id='0'/>
+            <instruction instr-id='564' subinstr-id='2'/>
+            <instruction instr-id='564' subinstr-id='4'/>
+            <instruction instr-id='564' subinstr-id='6'/>
+            <instruction instr-id='564' subinstr-id='10'/>
+            <instruction instr-id='568' subinstr-id='0'/>
+            <instruction instr-id='568' subinstr-id='2'/>
+            <instruction instr-id='568' subinstr-id='4'/>
+            <instruction instr-id='572' subinstr-id='-1'/>
+            <instruction instr-id='576' subinstr-id='0'/>
+            <instruction instr-id='576' subinstr-id='2'/>
+            <instruction instr-id='576' subinstr-id='4'/>
+            <instruction instr-id='576' subinstr-id='6'/>
+            <instruction instr-id='580' subinstr-id='0'/>
+            <instruction instr-id='580' subinstr-id='2'/>
+            <instruction instr-id='580' subinstr-id='4'/>
+            <instruction instr-id='584' subinstr-id='0'/>
+            <instruction instr-id='584' subinstr-id='2'/>
+            <instruction instr-id='584' subinstr-id='4'/>
+            <instruction instr-id='584' subinstr-id='6'/>
+            <instruction instr-id='584' subinstr-id='8'/>
+            <instruction instr-id='584' subinstr-id='10'/>
+            <instruction instr-id='584' subinstr-id='12'/>
+            <instruction instr-id='584' subinstr-id='14'/>
+            <instruction instr-id='584' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='1' >
+            <bounding-box x1='225' y1='109' x2='505' y2='131'/>
+            <content>• Item duplicates information collected with other items that have equal or
+better measurement properties</content>
+            <instruction instr-id='606' subinstr-id='-1'/>
+            <instruction instr-id='615' subinstr-id='-1'/>
+            <instruction instr-id='619' subinstr-id='0'/>
+            <instruction instr-id='619' subinstr-id='2'/>
+            <instruction instr-id='619' subinstr-id='4'/>
+            <instruction instr-id='619' subinstr-id='6'/>
+            <instruction instr-id='623' subinstr-id='0'/>
+            <instruction instr-id='623' subinstr-id='2'/>
+            <instruction instr-id='623' subinstr-id='4'/>
+            <instruction instr-id='623' subinstr-id='6'/>
+            <instruction instr-id='627' subinstr-id='0'/>
+            <instruction instr-id='627' subinstr-id='2'/>
+            <instruction instr-id='627' subinstr-id='4'/>
+            <instruction instr-id='627' subinstr-id='6'/>
+            <instruction instr-id='627' subinstr-id='8'/>
+            <instruction instr-id='627' subinstr-id='10'/>
+            <instruction instr-id='627' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='1' >
+            <bounding-box x1='225' y1='84' x2='516' y2='106'/>
+            <content>• The population, disease state, or application of the instrument can affect the
+appropriateness of the recall period</content>
+            <instruction instr-id='649' subinstr-id='-1'/>
+            <instruction instr-id='658' subinstr-id='0'/>
+            <instruction instr-id='658' subinstr-id='2'/>
+            <instruction instr-id='658' subinstr-id='4'/>
+            <instruction instr-id='658' subinstr-id='6'/>
+            <instruction instr-id='661' subinstr-id='0'/>
+            <instruction instr-id='661' subinstr-id='2'/>
+            <instruction instr-id='661' subinstr-id='4'/>
+            <instruction instr-id='661' subinstr-id='6'/>
+            <instruction instr-id='665' subinstr-id='0'/>
+            <instruction instr-id='665' subinstr-id='2'/>
+            <instruction instr-id='665' subinstr-id='4'/>
+            <instruction instr-id='665' subinstr-id='6'/>
+         </cell>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' col-increment='0' row-increment='0' page='4'>
+         <cell id='1' start-row='0' start-col='0' >
+            <bounding-box x1='82' y1='504' x2='141' y2='526'/>
+            <content>Measurement
+Property</content>
+            <instruction instr-id='25' subinstr-id='-1'/>
+            <instruction instr-id='28' subinstr-id='0'/>
+            <instruction instr-id='28' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1' >
+            <bounding-box x1='211' y1='516' x2='233' y2='526'/>
+            <content>Type</content>
+            <instruction instr-id='32' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2' >
+            <bounding-box x1='345' y1='516' x2='424' y2='526'/>
+            <content>What Is Assessed?</content>
+            <instruction instr-id='32' subinstr-id='2'/>
+            <instruction instr-id='32' subinstr-id='4'/>
+            <instruction instr-id='32' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='3' >
+            <bounding-box x1='549' y1='516' x2='670' y2='526'/>
+            <content>FDA Review Considerations</content>
+            <instruction instr-id='32' subinstr-id='8'/>
+            <instruction instr-id='32' subinstr-id='10'/>
+            <instruction instr-id='32' subinstr-id='12'/>
+            <instruction instr-id='32' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'  end-row='3'>
+            <bounding-box x1='72' y1='492' x2='114' y2='502'/>
+            <content>Reliability</content>
+            <instruction instr-id='230' subinstr-id='0'/>
+            <instruction instr-id='230' subinstr-id='2'/>
+            <instruction instr-id='230' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'  end-row='5'>
+            <bounding-box x1='72' y1='327' x2='104' y2='337'/>
+            <content>Validity</content>
+            <instruction instr-id='451' subinstr-id='0'/>
+            <instruction instr-id='451' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0'>
+            <bounding-box x1='72' y1='142' x2='137' y2='163'/>
+            <content>Ability to detect
+change</content>
+            <instruction instr-id='589' subinstr-id='0'/>
+            <instruction instr-id='589' subinstr-id='2'/>
+            <instruction instr-id='589' subinstr-id='4'/>
+            <instruction instr-id='596' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1' >
+            <bounding-box x1='162' y1='327' x2='227' y2='337'/>
+            <content>Content validity</content>
+            <instruction instr-id='298' subinstr-id='0'/>
+            <instruction instr-id='298' subinstr-id='2'/>
+            <instruction instr-id='298' subinstr-id='4'/>
+            <instruction instr-id='298' subinstr-id='6'/>
+            <instruction instr-id='298' subinstr-id='8'/>
+            <instruction instr-id='298' subinstr-id='10'/>
+            <instruction instr-id='298' subinstr-id='12'/>
+            <instruction instr-id='298' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1' >
+            <bounding-box x1='162' y1='223' x2='234' y2='233'/>
+            <content>Construct validity</content>
+            <instruction instr-id='461' subinstr-id='0'/>
+            <instruction instr-id='461' subinstr-id='2'/>
+            <instruction instr-id='461' subinstr-id='4'/>
+            <instruction instr-id='461' subinstr-id='6'/>
+            <instruction instr-id='461' subinstr-id='8'/>
+            <instruction instr-id='461' subinstr-id='10'/>
+            <instruction instr-id='461' subinstr-id='12'/>
+            <instruction instr-id='461' subinstr-id='14'/>
+            <instruction instr-id='461' subinstr-id='16'/>
+            <instruction instr-id='461' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1' >
+            <bounding-box x1='162' y1='363' x2='280' y2='396'/>
+            <content>Inter-interviewer reliability
+(for interviewer-administered
+PROs only)</content>
+            <instruction instr-id='235' subinstr-id='0'/>
+            <instruction instr-id='235' subinstr-id='2'/>
+            <instruction instr-id='235' subinstr-id='4'/>
+            <instruction instr-id='235' subinstr-id='6'/>
+            <instruction instr-id='235' subinstr-id='8'/>
+            <instruction instr-id='239' subinstr-id='0'/>
+            <instruction instr-id='239' subinstr-id='2'/>
+            <instruction instr-id='239' subinstr-id='4'/>
+            <instruction instr-id='239' subinstr-id='6'/>
+            <instruction instr-id='239' subinstr-id='8'/>
+            <instruction instr-id='239' subinstr-id='10'/>
+            <instruction instr-id='239' subinstr-id='12'/>
+            <instruction instr-id='239' subinstr-id='14'/>
+            <instruction instr-id='246' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1' >
+            <bounding-box x1='162' y1='458' x2='267' y2='503'/>
+            <content>Test-retest or intra-
+interviewer reliability (for
+interviewer-administered
+PROs only)</content>
+            <instruction instr-id='58' subinstr-id='0'/>
+            <instruction instr-id='58' subinstr-id='2'/>
+            <instruction instr-id='58' subinstr-id='4'/>
+            <instruction instr-id='58' subinstr-id='6'/>
+            <instruction instr-id='64' subinstr-id='0'/>
+            <instruction instr-id='64' subinstr-id='2'/>
+            <instruction instr-id='64' subinstr-id='4'/>
+            <instruction instr-id='64' subinstr-id='6'/>
+            <instruction instr-id='64' subinstr-id='8'/>
+            <instruction instr-id='70' subinstr-id='0'/>
+            <instruction instr-id='70' subinstr-id='2'/>
+            <instruction instr-id='70' subinstr-id='4'/>
+            <instruction instr-id='70' subinstr-id='6'/>
+            <instruction instr-id='70' subinstr-id='8'/>
+            <instruction instr-id='76' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1' >
+            <bounding-box x1='162' y1='446' x2='243' y2='456'/>
+            <content>Internal consistency</content>
+            <instruction instr-id='133' subinstr-id='0'/>
+            <instruction instr-id='133' subinstr-id='2'/>
+            <instruction instr-id='133' subinstr-id='4'/>
+            <instruction instr-id='133' subinstr-id='6'/>
+            <instruction instr-id='133' subinstr-id='8'/>
+            <instruction instr-id='133' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2' >
+            <bounding-box x1='293' y1='481' x2='473' y2='503'/>
+            <content>Stability of scores over time when no change
+is expected in the concept of interest</content>
+            <instruction instr-id='80' subinstr-id='0'/>
+            <instruction instr-id='80' subinstr-id='2'/>
+            <instruction instr-id='80' subinstr-id='4'/>
+            <instruction instr-id='80' subinstr-id='6'/>
+            <instruction instr-id='80' subinstr-id='8'/>
+            <instruction instr-id='80' subinstr-id='10'/>
+            <instruction instr-id='80' subinstr-id='12'/>
+            <instruction instr-id='80' subinstr-id='14'/>
+            <instruction instr-id='80' subinstr-id='16'/>
+            <instruction instr-id='80' subinstr-id='18'/>
+            <instruction instr-id='80' subinstr-id='20'/>
+            <instruction instr-id='80' subinstr-id='24'/>
+            <instruction instr-id='80' subinstr-id='26'/>
+            <instruction instr-id='80' subinstr-id='28'/>
+            <instruction instr-id='86' subinstr-id='0'/>
+            <instruction instr-id='86' subinstr-id='2'/>
+            <instruction instr-id='86' subinstr-id='4'/>
+            <instruction instr-id='86' subinstr-id='6'/>
+            <instruction instr-id='86' subinstr-id='8'/>
+            <instruction instr-id='86' subinstr-id='10'/>
+            <instruction instr-id='86' subinstr-id='12'/>
+            <instruction instr-id='86' subinstr-id='14'/>
+            <instruction instr-id='86' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3' >
+            <bounding-box x1='486' y1='480' x2='634' y2='502'/>
+            <content>• Intraclass correlation coefficient
+• Time period of assessment</content>
+            <instruction instr-id='90' subinstr-id='-1'/>
+            <instruction instr-id='99' subinstr-id='0'/>
+            <instruction instr-id='99' subinstr-id='2'/>
+            <instruction instr-id='99' subinstr-id='4'/>
+            <instruction instr-id='103' subinstr-id='-1'/>
+            <instruction instr-id='111' subinstr-id='0'/>
+            <instruction instr-id='111' subinstr-id='2'/>
+            <instruction instr-id='111' subinstr-id='4'/>
+            <instruction instr-id='111' subinstr-id='6'/>
+            <instruction instr-id='111' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2' >
+            <bounding-box x1='293' y1='398' x2='475' y2='455'/>
+            <content>• Extent to which items comprising a scale
+measure the same concept
+• Intercorrelation of items that contribute
+to a score
+• Internal consistency</content>
+            <instruction instr-id='137' subinstr-id='-1'/>
+            <instruction instr-id='146' subinstr-id='0'/>
+            <instruction instr-id='146' subinstr-id='2'/>
+            <instruction instr-id='146' subinstr-id='6'/>
+            <instruction instr-id='146' subinstr-id='8'/>
+            <instruction instr-id='146' subinstr-id='10'/>
+            <instruction instr-id='146' subinstr-id='12'/>
+            <instruction instr-id='146' subinstr-id='14'/>
+            <instruction instr-id='146' subinstr-id='16'/>
+            <instruction instr-id='150' subinstr-id='0'/>
+            <instruction instr-id='150' subinstr-id='2'/>
+            <instruction instr-id='150' subinstr-id='4'/>
+            <instruction instr-id='150' subinstr-id='6'/>
+            <instruction instr-id='150' subinstr-id='8'/>
+            <instruction instr-id='154' subinstr-id='-1'/>
+            <instruction instr-id='163' subinstr-id='0'/>
+            <instruction instr-id='163' subinstr-id='2'/>
+            <instruction instr-id='163' subinstr-id='6'/>
+            <instruction instr-id='163' subinstr-id='8'/>
+            <instruction instr-id='163' subinstr-id='10'/>
+            <instruction instr-id='163' subinstr-id='12'/>
+            <instruction instr-id='163' subinstr-id='14'/>
+            <instruction instr-id='163' subinstr-id='16'/>
+            <instruction instr-id='163' subinstr-id='18'/>
+            <instruction instr-id='163' subinstr-id='20'/>
+            <instruction instr-id='163' subinstr-id='22'/>
+            <instruction instr-id='163' subinstr-id='24'/>
+            <instruction instr-id='163' subinstr-id='26'/>
+            <instruction instr-id='168' subinstr-id='0'/>
+            <instruction instr-id='168' subinstr-id='2'/>
+            <instruction instr-id='172' subinstr-id='-1'/>
+            <instruction instr-id='181' subinstr-id='0'/>
+            <instruction instr-id='181' subinstr-id='2'/>
+            <instruction instr-id='181' subinstr-id='4'/>
+            <instruction instr-id='181' subinstr-id='6'/>
+            <instruction instr-id='181' subinstr-id='8'/>
+            <instruction instr-id='181' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='3' >
+            <bounding-box x1='486' y1='433' x2='656' y2='455'/>
+            <content>• Cronbach’s alpha for summary scores
+• Item-total correlations</content>
+            <instruction instr-id='185' subinstr-id='-1'/>
+            <instruction instr-id='194' subinstr-id='0'/>
+            <instruction instr-id='194' subinstr-id='2'/>
+            <instruction instr-id='194' subinstr-id='4'/>
+            <instruction instr-id='194' subinstr-id='6'/>
+            <instruction instr-id='194' subinstr-id='8'/>
+            <instruction instr-id='194' subinstr-id='10'/>
+            <instruction instr-id='194' subinstr-id='12'/>
+            <instruction instr-id='194' subinstr-id='14'/>
+            <instruction instr-id='194' subinstr-id='16'/>
+            <instruction instr-id='194' subinstr-id='18'/>
+            <instruction instr-id='194' subinstr-id='20'/>
+            <instruction instr-id='194' subinstr-id='22'/>
+            <instruction instr-id='194' subinstr-id='24'/>
+            <instruction instr-id='194' subinstr-id='26'/>
+            <instruction instr-id='194' subinstr-id='28'/>
+            <instruction instr-id='198' subinstr-id='-1'/>
+            <instruction instr-id='207' subinstr-id='0'/>
+            <instruction instr-id='207' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2' >
+            <bounding-box x1='293' y1='363' x2='469' y2='396'/>
+            <content>Agreement among responses when the PRO
+is administered by two or more different
+interviewers</content>
+            <instruction instr-id='250' subinstr-id='0'/>
+            <instruction instr-id='250' subinstr-id='2'/>
+            <instruction instr-id='250' subinstr-id='4'/>
+            <instruction instr-id='250' subinstr-id='6'/>
+            <instruction instr-id='250' subinstr-id='8'/>
+            <instruction instr-id='250' subinstr-id='10'/>
+            <instruction instr-id='250' subinstr-id='12'/>
+            <instruction instr-id='250' subinstr-id='16'/>
+            <instruction instr-id='250' subinstr-id='18'/>
+            <instruction instr-id='250' subinstr-id='20'/>
+            <instruction instr-id='250' subinstr-id='22'/>
+            <instruction instr-id='250' subinstr-id='24'/>
+            <instruction instr-id='250' subinstr-id='26'/>
+            <instruction instr-id='256' subinstr-id='0'/>
+            <instruction instr-id='256' subinstr-id='2'/>
+            <instruction instr-id='256' subinstr-id='4'/>
+            <instruction instr-id='256' subinstr-id='6'/>
+            <instruction instr-id='256' subinstr-id='8'/>
+            <instruction instr-id='256' subinstr-id='10'/>
+            <instruction instr-id='256' subinstr-id='12'/>
+            <instruction instr-id='256' subinstr-id='14'/>
+            <instruction instr-id='256' subinstr-id='16'/>
+            <instruction instr-id='256' subinstr-id='18'/>
+            <instruction instr-id='256' subinstr-id='20'/>
+            <instruction instr-id='256' subinstr-id='22'/>
+            <instruction instr-id='256' subinstr-id='24'/>
+            <instruction instr-id='256' subinstr-id='26'/>
+            <instruction instr-id='256' subinstr-id='28'/>
+            <instruction instr-id='256' subinstr-id='30'/>
+            <instruction instr-id='256' subinstr-id='32'/>
+            <instruction instr-id='256' subinstr-id='34'/>
+            <instruction instr-id='256' subinstr-id='36'/>
+            <instruction instr-id='256' subinstr-id='38'/>
+            <instruction instr-id='262' subinstr-id='0'/>
+            <instruction instr-id='262' subinstr-id='2'/>
+            <instruction instr-id='262' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='3' >
+            <bounding-box x1='486' y1='385' x2='634' y2='395'/>
+            <content>• Interclass correlation coefficient</content>
+            <instruction instr-id='266' subinstr-id='-1'/>
+            <instruction instr-id='274' subinstr-id='0'/>
+            <instruction instr-id='274' subinstr-id='2'/>
+            <instruction instr-id='274' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2' >
+            <bounding-box x1='293' y1='235' x2='475' y2='337'/>
+            <content>Evidence that the instrument measures the
+concept of interest including evidence from
+qualitative studies that the items and domains
+of an instrument are appropriate and
+comprehensive relative to its intended
+measurement concept, population, and use.
+Testing other measurement properties will
+not replace or rectify problems with content
+validity.</content>
+            <instruction instr-id='298' subinstr-id='16'/>
+            <instruction instr-id='298' subinstr-id='18'/>
+            <instruction instr-id='298' subinstr-id='20'/>
+            <instruction instr-id='298' subinstr-id='22'/>
+            <instruction instr-id='298' subinstr-id='24'/>
+            <instruction instr-id='298' subinstr-id='26'/>
+            <instruction instr-id='302' subinstr-id='0'/>
+            <instruction instr-id='302' subinstr-id='2'/>
+            <instruction instr-id='302' subinstr-id='4'/>
+            <instruction instr-id='302' subinstr-id='6'/>
+            <instruction instr-id='302' subinstr-id='8'/>
+            <instruction instr-id='306' subinstr-id='0'/>
+            <instruction instr-id='306' subinstr-id='2'/>
+            <instruction instr-id='306' subinstr-id='4'/>
+            <instruction instr-id='306' subinstr-id='6'/>
+            <instruction instr-id='306' subinstr-id='8'/>
+            <instruction instr-id='306' subinstr-id='10'/>
+            <instruction instr-id='306' subinstr-id='14'/>
+            <instruction instr-id='306' subinstr-id='16'/>
+            <instruction instr-id='306' subinstr-id='18'/>
+            <instruction instr-id='306' subinstr-id='20'/>
+            <instruction instr-id='306' subinstr-id='22'/>
+            <instruction instr-id='306' subinstr-id='24'/>
+            <instruction instr-id='306' subinstr-id='26'/>
+            <instruction instr-id='306' subinstr-id='28'/>
+            <instruction instr-id='306' subinstr-id='30'/>
+            <instruction instr-id='306' subinstr-id='32'/>
+            <instruction instr-id='306' subinstr-id='34'/>
+            <instruction instr-id='312' subinstr-id='0'/>
+            <instruction instr-id='312' subinstr-id='2'/>
+            <instruction instr-id='312' subinstr-id='4'/>
+            <instruction instr-id='312' subinstr-id='6'/>
+            <instruction instr-id='312' subinstr-id='8'/>
+            <instruction instr-id='312' subinstr-id='10'/>
+            <instruction instr-id='312' subinstr-id='12'/>
+            <instruction instr-id='312' subinstr-id='14'/>
+            <instruction instr-id='312' subinstr-id='16'/>
+            <instruction instr-id='312' subinstr-id='18'/>
+            <instruction instr-id='312' subinstr-id='20'/>
+            <instruction instr-id='312' subinstr-id='22'/>
+            <instruction instr-id='312' subinstr-id='24'/>
+            <instruction instr-id='312' subinstr-id='26'/>
+            <instruction instr-id='312' subinstr-id='28'/>
+            <instruction instr-id='317' subinstr-id='0'/>
+            <instruction instr-id='317' subinstr-id='2'/>
+            <instruction instr-id='317' subinstr-id='4'/>
+            <instruction instr-id='317' subinstr-id='6'/>
+            <instruction instr-id='317' subinstr-id='8'/>
+            <instruction instr-id='323' subinstr-id='0'/>
+            <instruction instr-id='323' subinstr-id='2'/>
+            <instruction instr-id='323' subinstr-id='4'/>
+            <instruction instr-id='323' subinstr-id='6'/>
+            <instruction instr-id='323' subinstr-id='8'/>
+            <instruction instr-id='323' subinstr-id='10'/>
+            <instruction instr-id='323' subinstr-id='12'/>
+            <instruction instr-id='323' subinstr-id='14'/>
+            <instruction instr-id='323' subinstr-id='16'/>
+            <instruction instr-id='323' subinstr-id='18'/>
+            <instruction instr-id='323' subinstr-id='20'/>
+            <instruction instr-id='323' subinstr-id='22'/>
+            <instruction instr-id='329' subinstr-id='0'/>
+            <instruction instr-id='329' subinstr-id='2'/>
+            <instruction instr-id='329' subinstr-id='4'/>
+            <instruction instr-id='329' subinstr-id='6'/>
+            <instruction instr-id='329' subinstr-id='8'/>
+            <instruction instr-id='329' subinstr-id='10'/>
+            <instruction instr-id='329' subinstr-id='12'/>
+            <instruction instr-id='329' subinstr-id='14'/>
+            <instruction instr-id='329' subinstr-id='16'/>
+            <instruction instr-id='329' subinstr-id='18'/>
+            <instruction instr-id='329' subinstr-id='20'/>
+            <instruction instr-id='329' subinstr-id='22'/>
+            <instruction instr-id='329' subinstr-id='24'/>
+            <instruction instr-id='329' subinstr-id='26'/>
+            <instruction instr-id='329' subinstr-id='28'/>
+            <instruction instr-id='329' subinstr-id='30'/>
+            <instruction instr-id='329' subinstr-id='32'/>
+            <instruction instr-id='329' subinstr-id='34'/>
+            <instruction instr-id='329' subinstr-id='36'/>
+            <instruction instr-id='334' subinstr-id='0'/>
+            <instruction instr-id='334' subinstr-id='2'/>
+            <instruction instr-id='334' subinstr-id='4'/>
+            <instruction instr-id='334' subinstr-id='6'/>
+            <instruction instr-id='334' subinstr-id='8'/>
+            <instruction instr-id='334' subinstr-id='10'/>
+            <instruction instr-id='334' subinstr-id='12'/>
+            <instruction instr-id='334' subinstr-id='14'/>
+            <instruction instr-id='334' subinstr-id='16'/>
+            <instruction instr-id='334' subinstr-id='18'/>
+            <instruction instr-id='334' subinstr-id='20'/>
+            <instruction instr-id='340' subinstr-id='0'/>
+            <instruction instr-id='340' subinstr-id='2'/>
+            <instruction instr-id='340' subinstr-id='4'/>
+            <instruction instr-id='340' subinstr-id='6'/>
+            <instruction instr-id='340' subinstr-id='8'/>
+            <instruction instr-id='346' subinstr-id='0'/>
+            <instruction instr-id='346' subinstr-id='2'/>
+            <instruction instr-id='346' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3' >
+            <bounding-box x1='486' y1='253' x2='704' y2='336'/>
+            <content>• Derivation of all items
+• Qualitative interview schedule
+• Interview or focus group transcripts
+• Items derived from the transcripts
+• Composition of patients used to develop content
+• Cognitive interview transcripts to evaluate patient
+understanding</content>
+            <instruction instr-id='350' subinstr-id='-1'/>
+            <instruction instr-id='359' subinstr-id='0'/>
+            <instruction instr-id='359' subinstr-id='2'/>
+            <instruction instr-id='359' subinstr-id='4'/>
+            <instruction instr-id='359' subinstr-id='6'/>
+            <instruction instr-id='359' subinstr-id='8'/>
+            <instruction instr-id='359' subinstr-id='10'/>
+            <instruction instr-id='359' subinstr-id='12'/>
+            <instruction instr-id='363' subinstr-id='-1'/>
+            <instruction instr-id='372' subinstr-id='0'/>
+            <instruction instr-id='372' subinstr-id='2'/>
+            <instruction instr-id='372' subinstr-id='4'/>
+            <instruction instr-id='372' subinstr-id='6'/>
+            <instruction instr-id='372' subinstr-id='8'/>
+            <instruction instr-id='372' subinstr-id='10'/>
+            <instruction instr-id='372' subinstr-id='12'/>
+            <instruction instr-id='372' subinstr-id='14'/>
+            <instruction instr-id='372' subinstr-id='16'/>
+            <instruction instr-id='376' subinstr-id='-1'/>
+            <instruction instr-id='385' subinstr-id='0'/>
+            <instruction instr-id='385' subinstr-id='2'/>
+            <instruction instr-id='385' subinstr-id='4'/>
+            <instruction instr-id='385' subinstr-id='6'/>
+            <instruction instr-id='385' subinstr-id='8'/>
+            <instruction instr-id='385' subinstr-id='10'/>
+            <instruction instr-id='385' subinstr-id='12'/>
+            <instruction instr-id='385' subinstr-id='14'/>
+            <instruction instr-id='385' subinstr-id='16'/>
+            <instruction instr-id='385' subinstr-id='18'/>
+            <instruction instr-id='385' subinstr-id='20'/>
+            <instruction instr-id='385' subinstr-id='22'/>
+            <instruction instr-id='385' subinstr-id='24'/>
+            <instruction instr-id='385' subinstr-id='26'/>
+            <instruction instr-id='385' subinstr-id='28'/>
+            <instruction instr-id='385' subinstr-id='30'/>
+            <instruction instr-id='389' subinstr-id='-1'/>
+            <instruction instr-id='398' subinstr-id='0'/>
+            <instruction instr-id='398' subinstr-id='2'/>
+            <instruction instr-id='398' subinstr-id='4'/>
+            <instruction instr-id='398' subinstr-id='6'/>
+            <instruction instr-id='398' subinstr-id='8'/>
+            <instruction instr-id='398' subinstr-id='10'/>
+            <instruction instr-id='398' subinstr-id='12'/>
+            <instruction instr-id='398' subinstr-id='14'/>
+            <instruction instr-id='398' subinstr-id='16'/>
+            <instruction instr-id='398' subinstr-id='18'/>
+            <instruction instr-id='398' subinstr-id='20'/>
+            <instruction instr-id='398' subinstr-id='22'/>
+            <instruction instr-id='398' subinstr-id='24'/>
+            <instruction instr-id='398' subinstr-id='26'/>
+            <instruction instr-id='398' subinstr-id='28'/>
+            <instruction instr-id='398' subinstr-id='30'/>
+            <instruction instr-id='402' subinstr-id='-1'/>
+            <instruction instr-id='411' subinstr-id='0'/>
+            <instruction instr-id='411' subinstr-id='2'/>
+            <instruction instr-id='411' subinstr-id='4'/>
+            <instruction instr-id='411' subinstr-id='6'/>
+            <instruction instr-id='411' subinstr-id='8'/>
+            <instruction instr-id='411' subinstr-id='10'/>
+            <instruction instr-id='411' subinstr-id='12'/>
+            <instruction instr-id='411' subinstr-id='14'/>
+            <instruction instr-id='411' subinstr-id='16'/>
+            <instruction instr-id='411' subinstr-id='18'/>
+            <instruction instr-id='411' subinstr-id='20'/>
+            <instruction instr-id='411' subinstr-id='22'/>
+            <instruction instr-id='411' subinstr-id='24'/>
+            <instruction instr-id='411' subinstr-id='26'/>
+            <instruction instr-id='411' subinstr-id='28'/>
+            <instruction instr-id='411' subinstr-id='30'/>
+            <instruction instr-id='411' subinstr-id='32'/>
+            <instruction instr-id='411' subinstr-id='36'/>
+            <instruction instr-id='411' subinstr-id='38'/>
+            <instruction instr-id='411' subinstr-id='40'/>
+            <instruction instr-id='411' subinstr-id='42'/>
+            <instruction instr-id='411' subinstr-id='44'/>
+            <instruction instr-id='411' subinstr-id='46'/>
+            <instruction instr-id='411' subinstr-id='48'/>
+            <instruction instr-id='411' subinstr-id='50'/>
+            <instruction instr-id='411' subinstr-id='52'/>
+            <instruction instr-id='415' subinstr-id='-1'/>
+            <instruction instr-id='424' subinstr-id='0'/>
+            <instruction instr-id='424' subinstr-id='2'/>
+            <instruction instr-id='424' subinstr-id='4'/>
+            <instruction instr-id='424' subinstr-id='6'/>
+            <instruction instr-id='424' subinstr-id='8'/>
+            <instruction instr-id='424' subinstr-id='10'/>
+            <instruction instr-id='424' subinstr-id='12'/>
+            <instruction instr-id='424' subinstr-id='14'/>
+            <instruction instr-id='424' subinstr-id='16'/>
+            <instruction instr-id='424' subinstr-id='18'/>
+            <instruction instr-id='424' subinstr-id='20'/>
+            <instruction instr-id='424' subinstr-id='22'/>
+            <instruction instr-id='424' subinstr-id='24'/>
+            <instruction instr-id='424' subinstr-id='26'/>
+            <instruction instr-id='424' subinstr-id='28'/>
+            <instruction instr-id='424' subinstr-id='30'/>
+            <instruction instr-id='424' subinstr-id='32'/>
+            <instruction instr-id='430' subinstr-id='0'/>
+            <instruction instr-id='430' subinstr-id='2'/>
+            <instruction instr-id='430' subinstr-id='4'/>
+            <instruction instr-id='430' subinstr-id='6'/>
+            <instruction instr-id='430' subinstr-id='8'/>
+            <instruction instr-id='430' subinstr-id='10'/>
+            <instruction instr-id='430' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2' >
+            <bounding-box x1='293' y1='165' x2='468' y2='233'/>
+            <content>Evidence that relationships among items,
+domains, and concepts conform to a priori
+hypotheses concerning logical relationships
+that should exist with measures of related
+concepts or scores produced in similar or
+diverse patient groups</content>
+            <instruction instr-id='470' subinstr-id='0'/>
+            <instruction instr-id='470' subinstr-id='2'/>
+            <instruction instr-id='470' subinstr-id='4'/>
+            <instruction instr-id='470' subinstr-id='6'/>
+            <instruction instr-id='470' subinstr-id='8'/>
+            <instruction instr-id='470' subinstr-id='10'/>
+            <instruction instr-id='470' subinstr-id='12'/>
+            <instruction instr-id='470' subinstr-id='14'/>
+            <instruction instr-id='470' subinstr-id='16'/>
+            <instruction instr-id='470' subinstr-id='18'/>
+            <instruction instr-id='470' subinstr-id='20'/>
+            <instruction instr-id='470' subinstr-id='22'/>
+            <instruction instr-id='470' subinstr-id='24'/>
+            <instruction instr-id='470' subinstr-id='26'/>
+            <instruction instr-id='470' subinstr-id='28'/>
+            <instruction instr-id='470' subinstr-id='30'/>
+            <instruction instr-id='470' subinstr-id='32'/>
+            <instruction instr-id='470' subinstr-id='34'/>
+            <instruction instr-id='470' subinstr-id='36'/>
+            <instruction instr-id='470' subinstr-id='38'/>
+            <instruction instr-id='470' subinstr-id='40'/>
+            <instruction instr-id='470' subinstr-id='42'/>
+            <instruction instr-id='476' subinstr-id='0'/>
+            <instruction instr-id='476' subinstr-id='2'/>
+            <instruction instr-id='476' subinstr-id='4'/>
+            <instruction instr-id='476' subinstr-id='6'/>
+            <instruction instr-id='476' subinstr-id='8'/>
+            <instruction instr-id='476' subinstr-id='10'/>
+            <instruction instr-id='476' subinstr-id='12'/>
+            <instruction instr-id='476' subinstr-id='14'/>
+            <instruction instr-id='476' subinstr-id='16'/>
+            <instruction instr-id='476' subinstr-id='18'/>
+            <instruction instr-id='476' subinstr-id='20'/>
+            <instruction instr-id='476' subinstr-id='22'/>
+            <instruction instr-id='476' subinstr-id='24'/>
+            <instruction instr-id='476' subinstr-id='26'/>
+            <instruction instr-id='476' subinstr-id='28'/>
+            <instruction instr-id='476' subinstr-id='32'/>
+            <instruction instr-id='476' subinstr-id='34'/>
+            <instruction instr-id='481' subinstr-id='0'/>
+            <instruction instr-id='481' subinstr-id='2'/>
+            <instruction instr-id='481' subinstr-id='4'/>
+            <instruction instr-id='490' subinstr-id='0'/>
+            <instruction instr-id='490' subinstr-id='2'/>
+            <instruction instr-id='490' subinstr-id='4'/>
+            <instruction instr-id='490' subinstr-id='6'/>
+            <instruction instr-id='490' subinstr-id='8'/>
+            <instruction instr-id='490' subinstr-id='10'/>
+            <instruction instr-id='490' subinstr-id='12'/>
+            <instruction instr-id='490' subinstr-id='14'/>
+            <instruction instr-id='490' subinstr-id='16'/>
+            <instruction instr-id='490' subinstr-id='18'/>
+            <instruction instr-id='490' subinstr-id='20'/>
+            <instruction instr-id='490' subinstr-id='22'/>
+            <instruction instr-id='490' subinstr-id='24'/>
+            <instruction instr-id='490' subinstr-id='26'/>
+            <instruction instr-id='490' subinstr-id='28'/>
+            <instruction instr-id='490' subinstr-id='30'/>
+            <instruction instr-id='490' subinstr-id='32'/>
+            <instruction instr-id='490' subinstr-id='34'/>
+            <instruction instr-id='490' subinstr-id='36'/>
+            <instruction instr-id='490' subinstr-id='38'/>
+            <instruction instr-id='490' subinstr-id='40'/>
+            <instruction instr-id='495' subinstr-id='0'/>
+            <instruction instr-id='495' subinstr-id='2'/>
+            <instruction instr-id='495' subinstr-id='4'/>
+            <instruction instr-id='495' subinstr-id='6'/>
+            <instruction instr-id='495' subinstr-id='8'/>
+            <instruction instr-id='495' subinstr-id='10'/>
+            <instruction instr-id='495' subinstr-id='12'/>
+            <instruction instr-id='495' subinstr-id='14'/>
+            <instruction instr-id='495' subinstr-id='16'/>
+            <instruction instr-id='495' subinstr-id='18'/>
+            <instruction instr-id='495' subinstr-id='20'/>
+            <instruction instr-id='495' subinstr-id='22'/>
+            <instruction instr-id='501' subinstr-id='0'/>
+            <instruction instr-id='501' subinstr-id='2'/>
+            <instruction instr-id='501' subinstr-id='4'/>
+            <instruction instr-id='501' subinstr-id='6'/>
+            <instruction instr-id='501' subinstr-id='10'/>
+            <instruction instr-id='501' subinstr-id='12'/>
+            <instruction instr-id='501' subinstr-id='14'/>
+            <instruction instr-id='501' subinstr-id='16'/>
+            <instruction instr-id='501' subinstr-id='18'/>
+            <instruction instr-id='501' subinstr-id='20'/>
+            <instruction instr-id='501' subinstr-id='22'/>
+            <instruction instr-id='501' subinstr-id='24'/>
+            <instruction instr-id='501' subinstr-id='28'/>
+            <instruction instr-id='501' subinstr-id='30'/>
+            <instruction instr-id='501' subinstr-id='32'/>
+            <instruction instr-id='501' subinstr-id='34'/>
+            <instruction instr-id='501' subinstr-id='36'/>
+            <instruction instr-id='501' subinstr-id='38'/>
+            <instruction instr-id='501' subinstr-id='40'/>
+            <instruction instr-id='501' subinstr-id='42'/>
+            <instruction instr-id='507' subinstr-id='0'/>
+            <instruction instr-id='507' subinstr-id='2'/>
+            <instruction instr-id='507' subinstr-id='4'/>
+            <instruction instr-id='507' subinstr-id='6'/>
+            <instruction instr-id='507' subinstr-id='8'/>
+            <instruction instr-id='507' subinstr-id='10'/>
+            <instruction instr-id='507' subinstr-id='12'/>
+            <instruction instr-id='507' subinstr-id='14'/>
+            <instruction instr-id='507' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='3' >
+            <bounding-box x1='486' y1='175' x2='715' y2='232'/>
+            <content>• Strength of correlation testing a priori hypotheses
+(discriminant and convergent validity)
+• Degree to which the PRO instrument can distinguish
+among groups hypothesized a priori to be different
+(known groups validity)</content>
+            <instruction instr-id='511' subinstr-id='-1'/>
+            <instruction instr-id='520' subinstr-id='0'/>
+            <instruction instr-id='520' subinstr-id='2'/>
+            <instruction instr-id='520' subinstr-id='4'/>
+            <instruction instr-id='520' subinstr-id='6'/>
+            <instruction instr-id='520' subinstr-id='8'/>
+            <instruction instr-id='525' subinstr-id='0'/>
+            <instruction instr-id='525' subinstr-id='2'/>
+            <instruction instr-id='525' subinstr-id='4'/>
+            <instruction instr-id='529' subinstr-id='0'/>
+            <instruction instr-id='529' subinstr-id='2'/>
+            <instruction instr-id='529' subinstr-id='4'/>
+            <instruction instr-id='533' subinstr-id='0'/>
+            <instruction instr-id='533' subinstr-id='2'/>
+            <instruction instr-id='533' subinstr-id='4'/>
+            <instruction instr-id='533' subinstr-id='6'/>
+            <instruction instr-id='533' subinstr-id='8'/>
+            <instruction instr-id='533' subinstr-id='10'/>
+            <instruction instr-id='533' subinstr-id='12'/>
+            <instruction instr-id='533' subinstr-id='14'/>
+            <instruction instr-id='533' subinstr-id='16'/>
+            <instruction instr-id='533' subinstr-id='18'/>
+            <instruction instr-id='533' subinstr-id='20'/>
+            <instruction instr-id='533' subinstr-id='22'/>
+            <instruction instr-id='533' subinstr-id='24'/>
+            <instruction instr-id='537' subinstr-id='-1'/>
+            <instruction instr-id='546' subinstr-id='0'/>
+            <instruction instr-id='546' subinstr-id='2'/>
+            <instruction instr-id='546' subinstr-id='4'/>
+            <instruction instr-id='546' subinstr-id='6'/>
+            <instruction instr-id='546' subinstr-id='10'/>
+            <instruction instr-id='546' subinstr-id='12'/>
+            <instruction instr-id='546' subinstr-id='14'/>
+            <instruction instr-id='546' subinstr-id='16'/>
+            <instruction instr-id='546' subinstr-id='18'/>
+            <instruction instr-id='546' subinstr-id='20'/>
+            <instruction instr-id='546' subinstr-id='22'/>
+            <instruction instr-id='546' subinstr-id='24'/>
+            <instruction instr-id='546' subinstr-id='26'/>
+            <instruction instr-id='546' subinstr-id='28'/>
+            <instruction instr-id='546' subinstr-id='30'/>
+            <instruction instr-id='546' subinstr-id='32'/>
+            <instruction instr-id='546' subinstr-id='34'/>
+            <instruction instr-id='546' subinstr-id='36'/>
+            <instruction instr-id='546' subinstr-id='38'/>
+            <instruction instr-id='546' subinstr-id='40'/>
+            <instruction instr-id='546' subinstr-id='42'/>
+            <instruction instr-id='546' subinstr-id='44'/>
+            <instruction instr-id='546' subinstr-id='46'/>
+            <instruction instr-id='546' subinstr-id='48'/>
+            <instruction instr-id='551' subinstr-id='0'/>
+            <instruction instr-id='551' subinstr-id='2'/>
+            <instruction instr-id='551' subinstr-id='4'/>
+            <instruction instr-id='551' subinstr-id='6'/>
+            <instruction instr-id='551' subinstr-id='8'/>
+            <instruction instr-id='551' subinstr-id='10'/>
+            <instruction instr-id='551' subinstr-id='12'/>
+            <instruction instr-id='551' subinstr-id='14'/>
+            <instruction instr-id='551' subinstr-id='16'/>
+            <instruction instr-id='551' subinstr-id='18'/>
+            <instruction instr-id='551' subinstr-id='20'/>
+            <instruction instr-id='551' subinstr-id='22'/>
+            <instruction instr-id='551' subinstr-id='24'/>
+            <instruction instr-id='556' subinstr-id='0'/>
+            <instruction instr-id='556' subinstr-id='2'/>
+            <instruction instr-id='556' subinstr-id='4'/>
+            <instruction instr-id='556' subinstr-id='6'/>
+            <instruction instr-id='556' subinstr-id='8'/>
+            <instruction instr-id='561' subinstr-id='2'/>
+            <instruction instr-id='561' subinstr-id='4'/>
+            <instruction instr-id='561' subinstr-id='6'/>
+            <instruction instr-id='561' subinstr-id='8'/>
+            <instruction instr-id='561' subinstr-id='10'/>
+            <instruction instr-id='565' subinstr-id='0'/>
+            <instruction instr-id='565' subinstr-id='2'/>
+            <instruction instr-id='565' subinstr-id='4'/>
+            <instruction instr-id='565' subinstr-id='6'/>
+            <instruction instr-id='565' subinstr-id='8'/>
+            <instruction instr-id='565' subinstr-id='10'/>
+            <instruction instr-id='565' subinstr-id='12'/>
+            <instruction instr-id='565' subinstr-id='14'/>
+            <instruction instr-id='565' subinstr-id='18'/>
+            <instruction instr-id='565' subinstr-id='20'/>
+            <instruction instr-id='565' subinstr-id='22'/>
+            <instruction instr-id='565' subinstr-id='24'/>
+            <instruction instr-id='565' subinstr-id='26'/>
+            <instruction instr-id='565' subinstr-id='28'/>
+            <instruction instr-id='565' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2' >
+            <bounding-box x1='293' y1='107' x2='473' y2='163'/>
+            <content>Evidence that a PRO instrument can identify
+differences in scores over time in individuals
+or groups (similar to those in the clinical
+trials) who have changed with respect to the
+measurement concept</content>
+            <instruction instr-id='600' subinstr-id='2'/>
+            <instruction instr-id='600' subinstr-id='4'/>
+            <instruction instr-id='600' subinstr-id='6'/>
+            <instruction instr-id='600' subinstr-id='8'/>
+            <instruction instr-id='600' subinstr-id='10'/>
+            <instruction instr-id='600' subinstr-id='12'/>
+            <instruction instr-id='600' subinstr-id='14'/>
+            <instruction instr-id='600' subinstr-id='16'/>
+            <instruction instr-id='600' subinstr-id='18'/>
+            <instruction instr-id='600' subinstr-id='20'/>
+            <instruction instr-id='604' subinstr-id='0'/>
+            <instruction instr-id='604' subinstr-id='2'/>
+            <instruction instr-id='604' subinstr-id='4'/>
+            <instruction instr-id='604' subinstr-id='6'/>
+            <instruction instr-id='604' subinstr-id='8'/>
+            <instruction instr-id='604' subinstr-id='10'/>
+            <instruction instr-id='604' subinstr-id='12'/>
+            <instruction instr-id='604' subinstr-id='14'/>
+            <instruction instr-id='608' subinstr-id='0'/>
+            <instruction instr-id='608' subinstr-id='2'/>
+            <instruction instr-id='608' subinstr-id='4'/>
+            <instruction instr-id='608' subinstr-id='6'/>
+            <instruction instr-id='608' subinstr-id='8'/>
+            <instruction instr-id='608' subinstr-id='10'/>
+            <instruction instr-id='608' subinstr-id='12'/>
+            <instruction instr-id='612' subinstr-id='0'/>
+            <instruction instr-id='612' subinstr-id='2'/>
+            <instruction instr-id='612' subinstr-id='4'/>
+            <instruction instr-id='612' subinstr-id='6'/>
+            <instruction instr-id='612' subinstr-id='8'/>
+            <instruction instr-id='612' subinstr-id='10'/>
+            <instruction instr-id='612' subinstr-id='12'/>
+            <instruction instr-id='612' subinstr-id='14'/>
+            <instruction instr-id='612' subinstr-id='16'/>
+            <instruction instr-id='612' subinstr-id='18'/>
+            <instruction instr-id='612' subinstr-id='20'/>
+            <instruction instr-id='612' subinstr-id='22'/>
+            <instruction instr-id='612' subinstr-id='24'/>
+            <instruction instr-id='612' subinstr-id='26'/>
+            <instruction instr-id='612' subinstr-id='28'/>
+            <instruction instr-id='617' subinstr-id='0'/>
+            <instruction instr-id='617' subinstr-id='4'/>
+            <instruction instr-id='617' subinstr-id='6'/>
+            <instruction instr-id='617' subinstr-id='8'/>
+            <instruction instr-id='617' subinstr-id='10'/>
+            <instruction instr-id='617' subinstr-id='12'/>
+            <instruction instr-id='617' subinstr-id='14'/>
+            <instruction instr-id='617' subinstr-id='18'/>
+            <instruction instr-id='617' subinstr-id='20'/>
+            <instruction instr-id='617' subinstr-id='22'/>
+            <instruction instr-id='617' subinstr-id='24'/>
+            <instruction instr-id='617' subinstr-id='26'/>
+            <instruction instr-id='622' subinstr-id='0'/>
+            <instruction instr-id='622' subinstr-id='2'/>
+            <instruction instr-id='622' subinstr-id='4'/>
+            <instruction instr-id='622' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3' >
+            <bounding-box x1='486' y1='140' x2='633' y2='163'/>
+            <content>• Within person change over time
+• Effect size statistic</content>
+            <instruction instr-id='626' subinstr-id='-1'/>
+            <instruction instr-id='635' subinstr-id='0'/>
+            <instruction instr-id='635' subinstr-id='2'/>
+            <instruction instr-id='635' subinstr-id='4'/>
+            <instruction instr-id='635' subinstr-id='6'/>
+            <instruction instr-id='635' subinstr-id='8'/>
+            <instruction instr-id='635' subinstr-id='10'/>
+            <instruction instr-id='635' subinstr-id='12'/>
+            <instruction instr-id='639' subinstr-id='-1'/>
+            <instruction instr-id='648' subinstr-id='0'/>
+            <instruction instr-id='648' subinstr-id='2'/>
+         </cell>
+      </region>
+   </table>
+</document>

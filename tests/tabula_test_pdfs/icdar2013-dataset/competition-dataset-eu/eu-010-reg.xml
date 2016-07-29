@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_eu-010-reg.xml'>
+   <table id='1'>
+      <region id='1' page='1'>
+         <instruction instr-id='128'/>
+         <instruction instr-id='128' subinstr-id='2'/>
+         <instruction instr-id='128' subinstr-id='4'/>
+         <instruction instr-id='163'/>
+         <instruction instr-id='177'/>
+         <instruction instr-id='177' subinstr-id='2'/>
+         <instruction instr-id='177' subinstr-id='4'/>
+         <instruction instr-id='177' subinstr-id='6'/>
+         <instruction instr-id='198'/>
+         <instruction instr-id='204'/>
+         <instruction instr-id='221'/>
+         <instruction instr-id='227'/>
+         <instruction instr-id='244'/>
+         <instruction instr-id='244' subinstr-id='2'/>
+         <instruction instr-id='244' subinstr-id='4'/>
+         <instruction instr-id='250'/>
+         <instruction instr-id='267'/>
+         <instruction instr-id='273'/>
+         <instruction instr-id='289'/>
+         <instruction instr-id='289' subinstr-id='2'/>
+         <instruction instr-id='294'/>
+         <instruction instr-id='310'/>
+         <instruction instr-id='315'/>
+         <instruction instr-id='332'/>
+         <instruction instr-id='332' subinstr-id='2'/>
+         <instruction instr-id='338'/>
+         <instruction instr-id='355'/>
+         <instruction instr-id='361'/>
+         <instruction instr-id='377'/>
+         <instruction instr-id='377' subinstr-id='2'/>
+         <instruction instr-id='382'/>
+         <instruction instr-id='399'/>
+         <instruction instr-id='402'/>
+         <bounding-box x1='216' y1='512' x2='376' y2='659'/>
+      </region>
+   </table>
+</document>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-005-reg.xml'>
+   <table id='1'>
+      <region id='1' page='1'>
+         <instruction instr-id='208'/>
+         <instruction instr-id='211'/>
+         <instruction instr-id='211' subinstr-id='2'/>
+         <instruction instr-id='211' subinstr-id='6'/>
+         <instruction instr-id='211' subinstr-id='8'/>
+         <instruction instr-id='233'/>
+         <instruction instr-id='233' subinstr-id='2'/>
+         <instruction instr-id='233' subinstr-id='4'/>
+         <instruction instr-id='251'/>
+         <instruction instr-id='251' subinstr-id='2'/>
+         <instruction instr-id='269'/>
+         <instruction instr-id='269' subinstr-id='2'/>
+         <instruction instr-id='269' subinstr-id='4'/>
+         <instruction instr-id='269' subinstr-id='6'/>
+         <instruction instr-id='287'/>
+         <instruction instr-id='287' subinstr-id='2'/>
+         <bounding-box x1='77' y1='389' x2='482' y2='458'/>
+      </region>
+   </table>
+</document>

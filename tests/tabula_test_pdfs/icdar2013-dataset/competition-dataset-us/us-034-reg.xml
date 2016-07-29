@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_us-034-reg.xml'>
+   <table id='1'>
+      <region id='1' page='2'>
+         <instruction instr-id='23'/>
+         <instruction instr-id='28'/>
+         <instruction instr-id='32'/>
+         <instruction instr-id='36'/>
+         <instruction instr-id='40'/>
+         <instruction instr-id='44'/>
+         <instruction instr-id='48'/>
+         <instruction instr-id='52'/>
+         <instruction instr-id='56'/>
+         <instruction instr-id='60'/>
+         <instruction instr-id='64'/>
+         <instruction instr-id='68'/>
+         <instruction instr-id='72'/>
+         <instruction instr-id='76'/>
+         <instruction instr-id='80'/>
+         <instruction instr-id='84'/>
+         <instruction instr-id='88'/>
+         <instruction instr-id='92'/>
+         <instruction instr-id='96'/>
+         <instruction instr-id='100'/>
+         <bounding-box x1='72' y1='430' x2='540' y2='684'/>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='2' page='2'>
+         <instruction instr-id='105'/>
+         <instruction instr-id='110'/>
+         <instruction instr-id='114'/>
+         <instruction instr-id='118'/>
+         <instruction instr-id='122'/>
+         <instruction instr-id='126'/>
+         <instruction instr-id='130'/>
+         <instruction instr-id='134'/>
+         <instruction instr-id='138'/>
+         <instruction instr-id='142'/>
+         <instruction instr-id='146'/>
+         <instruction instr-id='150'/>
+         <instruction instr-id='154'/>
+         <instruction instr-id='158'/>
+         <instruction instr-id='162'/>
+         <instruction instr-id='166'/>
+         <instruction instr-id='170'/>
+         <instruction instr-id='174'/>
+         <instruction instr-id='178'/>
+         <instruction instr-id='182'/>
+         <bounding-box x1='72' y1='163' x2='540' y2='417'/>
+      </region>
+   </table>
+</document>

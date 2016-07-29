@@ -1,0 +1,2966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-002-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='1'>
+         <cell id='1' start-row='0' start-col='3' end-col='7'>
+            <bounding-box x1='400' y1='571' x2='473' y2='581'/>
+            <content>Amount borrowed</content>
+            <instruction instr-id='890' subinstr-id='0'/>
+            <instruction instr-id='890' subinstr-id='2'/>
+            <instruction instr-id='890' subinstr-id='4'/>
+            <instruction instr-id='890' subinstr-id='6'/>
+            <instruction instr-id='890' subinstr-id='8'/>
+            <instruction instr-id='890' subinstr-id='10'/>
+            <instruction instr-id='890' subinstr-id='12'/>
+            <instruction instr-id='890' subinstr-id='14'/>
+            <instruction instr-id='890' subinstr-id='16'/>
+            <instruction instr-id='890' subinstr-id='18'/>
+            <instruction instr-id='890' subinstr-id='20'/>
+            <instruction instr-id='890' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='0' end-row='1' start-col='0'>
+            <bounding-box x1='74' y1='547' x2='231' y2='557'/>
+            <content>Student and institutional characteristics</content>
+            <instruction instr-id='192' subinstr-id='0'/>
+            <instruction instr-id='192' subinstr-id='2'/>
+            <instruction instr-id='192' subinstr-id='4'/>
+            <instruction instr-id='192' subinstr-id='6'/>
+            <instruction instr-id='192' subinstr-id='8'/>
+            <instruction instr-id='192' subinstr-id='10'/>
+            <instruction instr-id='192' subinstr-id='12'/>
+            <instruction instr-id='192' subinstr-id='14'/>
+            <instruction instr-id='192' subinstr-id='16'/>
+            <instruction instr-id='192' subinstr-id='18'/>
+            <instruction instr-id='192' subinstr-id='20'/>
+            <instruction instr-id='192' subinstr-id='22'/>
+            <instruction instr-id='192' subinstr-id='24'/>
+            <instruction instr-id='192' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1' end-row='1'>
+            <bounding-box x1='239' y1='547' x2='277' y2='581'/>
+            <content>Percent
+who
+borrowed</content>
+            <instruction instr-id='184' subinstr-id='0'/>
+            <instruction instr-id='184' subinstr-id='2'/>
+            <instruction instr-id='184' subinstr-id='4'/>
+            <instruction instr-id='184' subinstr-id='6'/>
+            <instruction instr-id='188' subinstr-id='0'/>
+            <instruction instr-id='188' subinstr-id='2'/>
+            <instruction instr-id='188' subinstr-id='4'/>
+            <instruction instr-id='192' subinstr-id='28'/>
+            <instruction instr-id='192' subinstr-id='30'/>
+            <instruction instr-id='192' subinstr-id='32'/>
+            <instruction instr-id='192' subinstr-id='34'/>
+            <instruction instr-id='192' subinstr-id='36'/>
+            <instruction instr-id='192' subinstr-id='38'/>
+            <instruction instr-id='192' subinstr-id='40'/>
+            <instruction instr-id='192' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2' end-row='1'>
+            <bounding-box x1='294' y1='547' x2='327' y2='569'/>
+            <content>Average
+amount</content>
+            <instruction instr-id='188' subinstr-id='6'/>
+            <instruction instr-id='188' subinstr-id='8'/>
+            <instruction instr-id='188' subinstr-id='10'/>
+            <instruction instr-id='188' subinstr-id='12'/>
+            <instruction instr-id='188' subinstr-id='14'/>
+            <instruction instr-id='192' subinstr-id='44'/>
+            <instruction instr-id='192' subinstr-id='46'/>
+            <instruction instr-id='192' subinstr-id='48'/>
+            <instruction instr-id='192' subinstr-id='50'/>
+            <instruction instr-id='192' subinstr-id='52'/>
+            <instruction instr-id='208' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3'>
+            <bounding-box x1='335' y1='547' x2='373' y2='569'/>
+            <content>Less than
+$10,000</content>
+            <instruction instr-id='188' subinstr-id='16'/>
+            <instruction instr-id='188' subinstr-id='18'/>
+            <instruction instr-id='188' subinstr-id='20'/>
+            <instruction instr-id='188' subinstr-id='22'/>
+            <instruction instr-id='188' subinstr-id='24'/>
+            <instruction instr-id='188' subinstr-id='26'/>
+            <instruction instr-id='188' subinstr-id='28'/>
+            <instruction instr-id='219' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='4'>
+            <bounding-box x1='376' y1='547' x2='414' y2='569'/>
+            <content>$10,000–
+14,999</content>
+            <instruction instr-id='188' subinstr-id='30'/>
+            <instruction instr-id='219' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='5'>
+            <bounding-box x1='417' y1='547' x2='455' y2='569'/>
+            <content>$15,000–
+29,999</content>
+            <instruction instr-id='188' subinstr-id='32'/>
+            <instruction instr-id='219' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='6'>
+            <bounding-box x1='458' y1='547' x2='496' y2='569'/>
+            <content>$30,000–
+54,999</content>
+            <instruction instr-id='188' subinstr-id='34'/>
+            <instruction instr-id='219' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='7'>
+            <bounding-box x1='501' y1='547' x2='537' y2='569'/>
+            <content>$55,000
+or more</content>
+            <instruction instr-id='188' subinstr-id='36'/>
+            <instruction instr-id='219' subinstr-id='8'/>
+            <instruction instr-id='219' subinstr-id='10'/>
+            <instruction instr-id='219' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='86' y1='525' x2='108' y2='535'/>
+            <content>Total</content>
+            <instruction instr-id='223' subinstr-id='0'/>
+            <instruction instr-id='223' subinstr-id='2'/>
+            <instruction instr-id='223' subinstr-id='4'/>
+            <instruction instr-id='223' subinstr-id='6'/>
+            <instruction instr-id='223' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='259' y1='525' x2='277' y2='535'/>
+            <content>44.8</content>
+            <instruction instr-id='223' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2'>
+            <bounding-box x1='294' y1='525' x2='327' y2='535'/>
+            <content>$33,200</content>
+            <instruction instr-id='223' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='3'>
+            <bounding-box x1='355' y1='525' x2='373' y2='535'/>
+            <content>23.2</content>
+            <instruction instr-id='223' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='4'>
+            <bounding-box x1='396' y1='525' x2='414' y2='535'/>
+            <content>10.3</content>
+            <instruction instr-id='223' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='5'>
+            <bounding-box x1='437' y1='525' x2='455' y2='535'/>
+            <content>27.0</content>
+            <instruction instr-id='223' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='6'>
+            <bounding-box x1='478' y1='525' x2='496' y2='535'/>
+            <content>20.1</content>
+            <instruction instr-id='223' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='7'>
+            <bounding-box x1='519' y1='525' x2='537' y2='535'/>
+            <content>19.4</content>
+            <instruction instr-id='223' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='74' y1='504' x2='213' y2='514'/>
+            <content>Type of degree-granting institution</content>
+            <instruction instr-id='229' subinstr-id='0'/>
+            <instruction instr-id='229' subinstr-id='2'/>
+            <instruction instr-id='229' subinstr-id='4'/>
+            <instruction instr-id='229' subinstr-id='6'/>
+            <instruction instr-id='229' subinstr-id='8'/>
+            <instruction instr-id='229' subinstr-id='10'/>
+            <instruction instr-id='229' subinstr-id='12'/>
+            <instruction instr-id='229' subinstr-id='14'/>
+            <instruction instr-id='229' subinstr-id='16'/>
+            <instruction instr-id='229' subinstr-id='18'/>
+            <instruction instr-id='229' subinstr-id='20'/>
+            <instruction instr-id='229' subinstr-id='22'/>
+            <instruction instr-id='229' subinstr-id='24'/>
+            <instruction instr-id='229' subinstr-id='26'/>
+            <instruction instr-id='229' subinstr-id='28'/>
+            <instruction instr-id='229' subinstr-id='30'/>
+            <instruction instr-id='229' subinstr-id='32'/>
+            <instruction instr-id='229' subinstr-id='34'/>
+            <instruction instr-id='229' subinstr-id='36'/>
+            <instruction instr-id='229' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='79' y1='493' x2='132' y2='503'/>
+            <content>Public 4-year</content>
+            <instruction instr-id='235' subinstr-id='0'/>
+            <instruction instr-id='235' subinstr-id='2'/>
+            <instruction instr-id='235' subinstr-id='4'/>
+            <instruction instr-id='235' subinstr-id='6'/>
+            <instruction instr-id='235' subinstr-id='8'/>
+            <instruction instr-id='235' subinstr-id='10'/>
+            <instruction instr-id='235' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='259' y1='493' x2='277' y2='503'/>
+            <content>44.4</content>
+            <instruction instr-id='235' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2'>
+            <bounding-box x1='300' y1='493' x2='327' y2='503'/>
+            <content>31,200</content>
+            <instruction instr-id='235' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3'>
+            <bounding-box x1='355' y1='493' x2='373' y2='503'/>
+            <content>25.5</content>
+            <instruction instr-id='235' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='4'>
+            <bounding-box x1='396' y1='493' x2='414' y2='503'/>
+            <content>10.2</content>
+            <instruction instr-id='235' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='5'>
+            <bounding-box x1='437' y1='493' x2='455' y2='503'/>
+            <content>26.9</content>
+            <instruction instr-id='235' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='6'>
+            <bounding-box x1='478' y1='493' x2='496' y2='503'/>
+            <content>19.3</content>
+            <instruction instr-id='235' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='7'>
+            <bounding-box x1='519' y1='493' x2='537' y2='503'/>
+            <content>18.1</content>
+            <instruction instr-id='235' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='84' y1='483' x2='178' y2='493'/>
+            <content>Non-doctorate-granting</content>
+            <instruction instr-id='240' subinstr-id='0'/>
+            <instruction instr-id='240' subinstr-id='2'/>
+            <instruction instr-id='240' subinstr-id='4'/>
+            <instruction instr-id='240' subinstr-id='6'/>
+            <instruction instr-id='240' subinstr-id='8'/>
+            <instruction instr-id='240' subinstr-id='10'/>
+            <instruction instr-id='240' subinstr-id='12'/>
+            <instruction instr-id='240' subinstr-id='14'/>
+            <instruction instr-id='240' subinstr-id='16'/>
+            <instruction instr-id='240' subinstr-id='18'/>
+            <instruction instr-id='240' subinstr-id='20'/>
+            <instruction instr-id='240' subinstr-id='22'/>
+            <instruction instr-id='240' subinstr-id='24'/>
+            <instruction instr-id='240' subinstr-id='26'/>
+            <instruction instr-id='240' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1'>
+            <bounding-box x1='259' y1='483' x2='277' y2='493'/>
+            <content>40.0</content>
+            <instruction instr-id='240' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2'>
+            <bounding-box x1='300' y1='483' x2='327' y2='493'/>
+            <content>25,000</content>
+            <instruction instr-id='240' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='3'>
+            <bounding-box x1='355' y1='483' x2='373' y2='493'/>
+            <content>27.3</content>
+            <instruction instr-id='240' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='4'>
+            <bounding-box x1='396' y1='483' x2='414' y2='493'/>
+            <content>11.3</content>
+            <instruction instr-id='240' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='5'>
+            <bounding-box x1='437' y1='483' x2='455' y2='493'/>
+            <content>32.4</content>
+            <instruction instr-id='240' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='6'>
+            <bounding-box x1='478' y1='483' x2='496' y2='493'/>
+            <content>18.3</content>
+            <instruction instr-id='240' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='7'>
+            <bounding-box x1='519' y1='483' x2='537' y2='493'/>
+            <content>10.7</content>
+            <instruction instr-id='240' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0'>
+            <bounding-box x1='84' y1='472' x2='160' y2='482'/>
+            <content>Doctorate-granting</content>
+            <instruction instr-id='245' subinstr-id='0'/>
+            <instruction instr-id='245' subinstr-id='2'/>
+            <instruction instr-id='245' subinstr-id='4'/>
+            <instruction instr-id='245' subinstr-id='6'/>
+            <instruction instr-id='245' subinstr-id='8'/>
+            <instruction instr-id='245' subinstr-id='10'/>
+            <instruction instr-id='245' subinstr-id='12'/>
+            <instruction instr-id='245' subinstr-id='14'/>
+            <instruction instr-id='245' subinstr-id='16'/>
+            <instruction instr-id='245' subinstr-id='18'/>
+            <instruction instr-id='245' subinstr-id='20'/>
+            <instruction instr-id='245' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1'>
+            <bounding-box x1='259' y1='472' x2='277' y2='482'/>
+            <content>46.5</content>
+            <instruction instr-id='245' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2'>
+            <bounding-box x1='300' y1='472' x2='327' y2='482'/>
+            <content>33,900</content>
+            <instruction instr-id='245' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3'>
+            <bounding-box x1='355' y1='472' x2='373' y2='482'/>
+            <content>24.7</content>
+            <instruction instr-id='245' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='4'>
+            <bounding-box x1='401' y1='472' x2='414' y2='482'/>
+            <content>9.7</content>
+            <instruction instr-id='245' subinstr-id='30'/>
+            <instruction instr-id='245' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='5'>
+            <bounding-box x1='437' y1='472' x2='455' y2='482'/>
+            <content>24.6</content>
+            <instruction instr-id='245' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='6'>
+            <bounding-box x1='478' y1='472' x2='496' y2='482'/>
+            <content>19.8</content>
+            <instruction instr-id='245' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='7'>
+            <bounding-box x1='519' y1='472' x2='537' y2='482'/>
+            <content>21.2</content>
+            <instruction instr-id='245' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='0'>
+            <bounding-box x1='79' y1='461' x2='191' y2='471'/>
+            <content>Private not-for-profit 4-year</content>
+            <instruction instr-id='250' subinstr-id='0'/>
+            <instruction instr-id='250' subinstr-id='2'/>
+            <instruction instr-id='250' subinstr-id='4'/>
+            <instruction instr-id='250' subinstr-id='6'/>
+            <instruction instr-id='250' subinstr-id='8'/>
+            <instruction instr-id='250' subinstr-id='10'/>
+            <instruction instr-id='250' subinstr-id='12'/>
+            <instruction instr-id='250' subinstr-id='14'/>
+            <instruction instr-id='250' subinstr-id='16'/>
+            <instruction instr-id='250' subinstr-id='18'/>
+            <instruction instr-id='250' subinstr-id='20'/>
+            <instruction instr-id='250' subinstr-id='22'/>
+            <instruction instr-id='250' subinstr-id='24'/>
+            <instruction instr-id='250' subinstr-id='26'/>
+            <instruction instr-id='250' subinstr-id='28'/>
+            <instruction instr-id='250' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1'>
+            <bounding-box x1='259' y1='461' x2='277' y2='471'/>
+            <content>45.9</content>
+            <instruction instr-id='250' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2'>
+            <bounding-box x1='300' y1='461' x2='327' y2='471'/>
+            <content>36,600</content>
+            <instruction instr-id='250' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='3'>
+            <bounding-box x1='355' y1='461' x2='373' y2='471'/>
+            <content>20.3</content>
+            <instruction instr-id='250' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='4'>
+            <bounding-box x1='396' y1='461' x2='414' y2='471'/>
+            <content>10.3</content>
+            <instruction instr-id='250' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='5'>
+            <bounding-box x1='437' y1='461' x2='455' y2='471'/>
+            <content>25.7</content>
+            <instruction instr-id='250' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='6'>
+            <bounding-box x1='478' y1='461' x2='496' y2='471'/>
+            <content>21.8</content>
+            <instruction instr-id='250' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='7'>
+            <bounding-box x1='519' y1='461' x2='537' y2='471'/>
+            <content>21.8</content>
+            <instruction instr-id='250' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='0'>
+            <bounding-box x1='84' y1='451' x2='178' y2='460'/>
+            <content>Non-doctorate-granting</content>
+            <instruction instr-id='254' subinstr-id='0'/>
+            <instruction instr-id='254' subinstr-id='2'/>
+            <instruction instr-id='254' subinstr-id='4'/>
+            <instruction instr-id='254' subinstr-id='6'/>
+            <instruction instr-id='254' subinstr-id='8'/>
+            <instruction instr-id='254' subinstr-id='10'/>
+            <instruction instr-id='254' subinstr-id='12'/>
+            <instruction instr-id='254' subinstr-id='14'/>
+            <instruction instr-id='254' subinstr-id='16'/>
+            <instruction instr-id='254' subinstr-id='18'/>
+            <instruction instr-id='254' subinstr-id='20'/>
+            <instruction instr-id='254' subinstr-id='22'/>
+            <instruction instr-id='254' subinstr-id='24'/>
+            <instruction instr-id='254' subinstr-id='26'/>
+            <instruction instr-id='254' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='1'>
+            <bounding-box x1='259' y1='451' x2='277' y2='460'/>
+            <content>46.1</content>
+            <instruction instr-id='254' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='2'>
+            <bounding-box x1='300' y1='451' x2='327' y2='460'/>
+            <content>31,300</content>
+            <instruction instr-id='254' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='3'>
+            <bounding-box x1='355' y1='451' x2='373' y2='460'/>
+            <content>24.8</content>
+            <instruction instr-id='254' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='4'>
+            <bounding-box x1='401' y1='451' x2='414' y2='460'/>
+            <content>8.9</content>
+            <instruction instr-id='254' subinstr-id='36'/>
+            <instruction instr-id='254' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='5'>
+            <bounding-box x1='437' y1='451' x2='455' y2='460'/>
+            <content>27.5</content>
+            <instruction instr-id='254' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='6'>
+            <bounding-box x1='478' y1='451' x2='496' y2='460'/>
+            <content>21.6</content>
+            <instruction instr-id='254' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='7'>
+            <bounding-box x1='519' y1='451' x2='537' y2='460'/>
+            <content>17.1</content>
+            <instruction instr-id='254' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='0'>
+            <bounding-box x1='84' y1='440' x2='160' y2='450'/>
+            <content>Doctorate-granting</content>
+            <instruction instr-id='259' subinstr-id='0'/>
+            <instruction instr-id='259' subinstr-id='2'/>
+            <instruction instr-id='259' subinstr-id='4'/>
+            <instruction instr-id='259' subinstr-id='6'/>
+            <instruction instr-id='259' subinstr-id='8'/>
+            <instruction instr-id='259' subinstr-id='10'/>
+            <instruction instr-id='259' subinstr-id='12'/>
+            <instruction instr-id='259' subinstr-id='14'/>
+            <instruction instr-id='259' subinstr-id='16'/>
+            <instruction instr-id='259' subinstr-id='18'/>
+            <instruction instr-id='259' subinstr-id='20'/>
+            <instruction instr-id='259' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='1'>
+            <bounding-box x1='259' y1='440' x2='277' y2='450'/>
+            <content>45.7</content>
+            <instruction instr-id='259' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='2'>
+            <bounding-box x1='300' y1='440' x2='327' y2='450'/>
+            <content>42,300</content>
+            <instruction instr-id='259' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='3'>
+            <bounding-box x1='355' y1='440' x2='373' y2='450'/>
+            <content>15.5</content>
+            <instruction instr-id='259' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='4'>
+            <bounding-box x1='396' y1='440' x2='414' y2='450'/>
+            <content>11.8</content>
+            <instruction instr-id='259' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='5'>
+            <bounding-box x1='437' y1='440' x2='455' y2='450'/>
+            <content>23.8</content>
+            <instruction instr-id='259' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='6'>
+            <bounding-box x1='478' y1='440' x2='496' y2='450'/>
+            <content>22.1</content>
+            <instruction instr-id='259' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='7'>
+            <bounding-box x1='519' y1='440' x2='537' y2='450'/>
+            <content>26.8</content>
+            <instruction instr-id='259' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='0'>
+            <bounding-box x1='79' y1='429' x2='101' y2='439'/>
+            <content>Other</content>
+            <instruction instr-id='264' subinstr-id='0'/>
+            <instruction instr-id='264' subinstr-id='2'/>
+            <instruction instr-id='264' subinstr-id='4'/>
+            <instruction instr-id='264' subinstr-id='6'/>
+            <instruction instr-id='264' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='1'>
+            <bounding-box x1='259' y1='429' x2='277' y2='439'/>
+            <content>41.3</content>
+            <instruction instr-id='264' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='2'>
+            <bounding-box x1='300' y1='429' x2='327' y2='439'/>
+            <content>31,900</content>
+            <instruction instr-id='264' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='3'>
+            <bounding-box x1='355' y1='429' x2='373' y2='439'/>
+            <content>11.2</content>
+            <instruction instr-id='264' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='4'>
+            <bounding-box x1='396' y1='429' x2='414' y2='439'/>
+            <content>11.2</content>
+            <instruction instr-id='264' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='5'>
+            <bounding-box x1='437' y1='429' x2='455' y2='439'/>
+            <content>43.2</content>
+            <instruction instr-id='264' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='6'>
+            <bounding-box x1='478' y1='429' x2='496' y2='439'/>
+            <content>15.7</content>
+            <instruction instr-id='264' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='7'>
+            <bounding-box x1='519' y1='429' x2='537' y2='439'/>
+            <content>18.8</content>
+            <instruction instr-id='264' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='0'>
+            <bounding-box x1='74' y1='408' x2='159' y2='418'/>
+            <content>Undergraduate major</content>
+            <instruction instr-id='270' subinstr-id='0'/>
+            <instruction instr-id='270' subinstr-id='2'/>
+            <instruction instr-id='270' subinstr-id='4'/>
+            <instruction instr-id='270' subinstr-id='6'/>
+            <instruction instr-id='270' subinstr-id='8'/>
+            <instruction instr-id='270' subinstr-id='10'/>
+            <instruction instr-id='270' subinstr-id='12'/>
+            <instruction instr-id='270' subinstr-id='14'/>
+            <instruction instr-id='270' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='0'>
+            <bounding-box x1='81' y1='397' x2='187' y2='407'/>
+            <content>Business and management</content>
+            <instruction instr-id='276' subinstr-id='0'/>
+            <instruction instr-id='276' subinstr-id='2'/>
+            <instruction instr-id='276' subinstr-id='4'/>
+            <instruction instr-id='276' subinstr-id='6'/>
+            <instruction instr-id='276' subinstr-id='8'/>
+            <instruction instr-id='276' subinstr-id='10'/>
+            <instruction instr-id='276' subinstr-id='12'/>
+            <instruction instr-id='276' subinstr-id='14'/>
+            <instruction instr-id='276' subinstr-id='16'/>
+            <instruction instr-id='276' subinstr-id='18'/>
+            <instruction instr-id='276' subinstr-id='20'/>
+            <instruction instr-id='276' subinstr-id='22'/>
+            <instruction instr-id='276' subinstr-id='24'/>
+            <instruction instr-id='276' subinstr-id='26'/>
+            <instruction instr-id='292' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='1'>
+            <bounding-box x1='259' y1='397' x2='277' y2='407'/>
+            <content>34.3</content>
+            <instruction instr-id='302' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='2'>
+            <bounding-box x1='300' y1='397' x2='327' y2='407'/>
+            <content>28,700</content>
+            <instruction instr-id='302' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='3'>
+            <bounding-box x1='355' y1='397' x2='373' y2='407'/>
+            <content>28.1</content>
+            <instruction instr-id='302' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='4'>
+            <bounding-box x1='401' y1='397' x2='414' y2='407'/>
+            <content>7.1</content>
+            <instruction instr-id='302' subinstr-id='6'/>
+            <instruction instr-id='302' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='5'>
+            <bounding-box x1='437' y1='397' x2='455' y2='407'/>
+            <content>28.9</content>
+            <instruction instr-id='302' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='6'>
+            <bounding-box x1='478' y1='397' x2='496' y2='407'/>
+            <content>19.4</content>
+            <instruction instr-id='302' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='7'>
+            <bounding-box x1='519' y1='397' x2='537' y2='407'/>
+            <content>16.5</content>
+            <instruction instr-id='302' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='0'>
+            <bounding-box x1='81' y1='386' x2='122' y2='396'/>
+            <content>Education</content>
+            <instruction instr-id='306' subinstr-id='0'/>
+            <instruction instr-id='306' subinstr-id='2'/>
+            <instruction instr-id='306' subinstr-id='4'/>
+            <instruction instr-id='306' subinstr-id='6'/>
+            <instruction instr-id='306' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='1'>
+            <bounding-box x1='259' y1='386' x2='277' y2='396'/>
+            <content>34.3</content>
+            <instruction instr-id='306' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='2'>
+            <bounding-box x1='300' y1='386' x2='327' y2='396'/>
+            <content>23,000</content>
+            <instruction instr-id='306' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='3'>
+            <bounding-box x1='355' y1='386' x2='373' y2='396'/>
+            <content>37.4</content>
+            <instruction instr-id='306' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='4'>
+            <bounding-box x1='396' y1='386' x2='414' y2='396'/>
+            <content>12.5</content>
+            <instruction instr-id='306' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='5'>
+            <bounding-box x1='437' y1='386' x2='455' y2='396'/>
+            <content>25.5</content>
+            <instruction instr-id='306' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='6'>
+            <bounding-box x1='478' y1='386' x2='496' y2='396'/>
+            <content>12.9</content>
+            <instruction instr-id='306' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='7'>
+            <bounding-box x1='519' y1='386' x2='537' y2='396'/>
+            <content>11.8</content>
+            <instruction instr-id='306' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='0'>
+            <bounding-box x1='81' y1='376' x2='230' y2='386'/>
+            <content>Engineering, mathematics, or science</content>
+            <instruction instr-id='312' subinstr-id='0'/>
+            <instruction instr-id='312' subinstr-id='2'/>
+            <instruction instr-id='312' subinstr-id='4'/>
+            <instruction instr-id='312' subinstr-id='6'/>
+            <instruction instr-id='312' subinstr-id='8'/>
+            <instruction instr-id='312' subinstr-id='10'/>
+            <instruction instr-id='312' subinstr-id='12'/>
+            <instruction instr-id='312' subinstr-id='14'/>
+            <instruction instr-id='312' subinstr-id='16'/>
+            <instruction instr-id='312' subinstr-id='18'/>
+            <instruction instr-id='312' subinstr-id='20'/>
+            <instruction instr-id='312' subinstr-id='22'/>
+            <instruction instr-id='312' subinstr-id='24'/>
+            <instruction instr-id='312' subinstr-id='26'/>
+            <instruction instr-id='312' subinstr-id='28'/>
+            <instruction instr-id='312' subinstr-id='30'/>
+            <instruction instr-id='312' subinstr-id='32'/>
+            <instruction instr-id='312' subinstr-id='34'/>
+            <instruction instr-id='312' subinstr-id='36'/>
+            <instruction instr-id='312' subinstr-id='38'/>
+            <instruction instr-id='312' subinstr-id='40'/>
+            <instruction instr-id='312' subinstr-id='42'/>
+            <instruction instr-id='312' subinstr-id='44'/>
+            <instruction instr-id='312' subinstr-id='46'/>
+            <instruction instr-id='312' subinstr-id='48'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='1'>
+            <bounding-box x1='259' y1='376' x2='277' y2='386'/>
+            <content>47.1</content>
+            <instruction instr-id='312' subinstr-id='50'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='2'>
+            <bounding-box x1='300' y1='376' x2='327' y2='386'/>
+            <content>47,400</content>
+            <instruction instr-id='312' subinstr-id='52'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='3'>
+            <bounding-box x1='355' y1='376' x2='373' y2='386'/>
+            <content>19.1</content>
+            <instruction instr-id='312' subinstr-id='54'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='4'>
+            <bounding-box x1='401' y1='376' x2='414' y2='386'/>
+            <content>8.7</content>
+            <instruction instr-id='312' subinstr-id='56'/>
+            <instruction instr-id='312' subinstr-id='58'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='5'>
+            <bounding-box x1='437' y1='376' x2='455' y2='386'/>
+            <content>19.2</content>
+            <instruction instr-id='312' subinstr-id='60'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='6'>
+            <bounding-box x1='478' y1='376' x2='496' y2='386'/>
+            <content>19.7</content>
+            <instruction instr-id='312' subinstr-id='62'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='7'>
+            <bounding-box x1='519' y1='376' x2='537' y2='386'/>
+            <content>33.4</content>
+            <instruction instr-id='312' subinstr-id='64'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='0'>
+            <bounding-box x1='81' y1='365' x2='199' y2='375'/>
+            <content>Humanities or social sciences</content>
+            <instruction instr-id='317' subinstr-id='0'/>
+            <instruction instr-id='317' subinstr-id='2'/>
+            <instruction instr-id='317' subinstr-id='4'/>
+            <instruction instr-id='317' subinstr-id='6'/>
+            <instruction instr-id='317' subinstr-id='8'/>
+            <instruction instr-id='317' subinstr-id='10'/>
+            <instruction instr-id='317' subinstr-id='12'/>
+            <instruction instr-id='317' subinstr-id='14'/>
+            <instruction instr-id='317' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='1'>
+            <bounding-box x1='259' y1='365' x2='277' y2='375'/>
+            <content>52.8</content>
+            <instruction instr-id='317' subinstr-id='18'/>
+            <instruction instr-id='317' subinstr-id='20'/>
+            <instruction instr-id='317' subinstr-id='22'/>
+            <instruction instr-id='317' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='2'>
+            <bounding-box x1='300' y1='365' x2='327' y2='375'/>
+            <content>32,800</content>
+            <instruction instr-id='317' subinstr-id='26'/>
+            <instruction instr-id='317' subinstr-id='28'/>
+            <instruction instr-id='317' subinstr-id='30'/>
+            <instruction instr-id='317' subinstr-id='32'/>
+            <instruction instr-id='317' subinstr-id='34'/>
+            <instruction instr-id='317' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='3'>
+            <bounding-box x1='355' y1='365' x2='373' y2='375'/>
+            <content>20.0</content>
+            <instruction instr-id='317' subinstr-id='38'/>
+            <instruction instr-id='317' subinstr-id='40'/>
+            <instruction instr-id='317' subinstr-id='42'/>
+            <instruction instr-id='317' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='4'>
+            <bounding-box x1='402' y1='365' x2='414' y2='375'/>
+            <content>8.5</content>
+            <instruction instr-id='317' subinstr-id='46'/>
+            <instruction instr-id='317' subinstr-id='48'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='5'>
+            <bounding-box x1='437' y1='365' x2='455' y2='375'/>
+            <content>31.3</content>
+            <instruction instr-id='317' subinstr-id='50'/>
+            <instruction instr-id='317' subinstr-id='52'/>
+            <instruction instr-id='317' subinstr-id='54'/>
+            <instruction instr-id='317' subinstr-id='56'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='6'>
+            <bounding-box x1='479' y1='365' x2='496' y2='375'/>
+            <content>21.5</content>
+            <instruction instr-id='317' subinstr-id='58'/>
+            <instruction instr-id='317' subinstr-id='60'/>
+            <instruction instr-id='317' subinstr-id='62'/>
+            <instruction instr-id='317' subinstr-id='64'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='7'>
+            <bounding-box x1='520' y1='365' x2='537' y2='375'/>
+            <content>18.7</content>
+            <instruction instr-id='317' subinstr-id='66'/>
+            <instruction instr-id='317' subinstr-id='68'/>
+            <instruction instr-id='317' subinstr-id='70'/>
+            <instruction instr-id='317' subinstr-id='72'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='0'>
+            <bounding-box x1='81' y1='354' x2='104' y2='364'/>
+            <content>Other</content>
+            <instruction instr-id='322' subinstr-id='0'/>
+            <instruction instr-id='322' subinstr-id='2'/>
+            <instruction instr-id='322' subinstr-id='4'/>
+            <instruction instr-id='322' subinstr-id='6'/>
+            <instruction instr-id='322' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='1'>
+            <bounding-box x1='259' y1='354' x2='277' y2='364'/>
+            <content>47.4</content>
+            <instruction instr-id='322' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='2'>
+            <bounding-box x1='300' y1='354' x2='327' y2='364'/>
+            <content>28,100</content>
+            <instruction instr-id='322' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='3'>
+            <bounding-box x1='355' y1='354' x2='373' y2='364'/>
+            <content>21.6</content>
+            <instruction instr-id='322' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='4'>
+            <bounding-box x1='396' y1='354' x2='414' y2='364'/>
+            <content>14.3</content>
+            <instruction instr-id='322' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='5'>
+            <bounding-box x1='437' y1='354' x2='455' y2='364'/>
+            <content>28.0</content>
+            <instruction instr-id='322' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='6'>
+            <bounding-box x1='478' y1='354' x2='496' y2='364'/>
+            <content>22.9</content>
+            <instruction instr-id='322' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='7'>
+            <bounding-box x1='519' y1='354' x2='537' y2='364'/>
+            <content>13.2</content>
+            <instruction instr-id='322' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='17' start-col='0'>
+            <bounding-box x1='74' y1='333' x2='213' y2='343'/>
+            <content>Amount borrowed (undergraduate)</content>
+            <instruction instr-id='328' subinstr-id='0'/>
+            <instruction instr-id='328' subinstr-id='2'/>
+            <instruction instr-id='328' subinstr-id='4'/>
+            <instruction instr-id='328' subinstr-id='6'/>
+            <instruction instr-id='328' subinstr-id='8'/>
+            <instruction instr-id='328' subinstr-id='10'/>
+            <instruction instr-id='328' subinstr-id='12'/>
+            <instruction instr-id='328' subinstr-id='14'/>
+            <instruction instr-id='328' subinstr-id='16'/>
+            <instruction instr-id='328' subinstr-id='18'/>
+            <instruction instr-id='328' subinstr-id='20'/>
+            <instruction instr-id='328' subinstr-id='22'/>
+            <instruction instr-id='328' subinstr-id='24'/>
+            <instruction instr-id='328' subinstr-id='26'/>
+            <instruction instr-id='328' subinstr-id='28'/>
+            <instruction instr-id='328' subinstr-id='30'/>
+            <instruction instr-id='328' subinstr-id='32'/>
+            <instruction instr-id='328' subinstr-id='34'/>
+            <instruction instr-id='328' subinstr-id='36'/>
+            <instruction instr-id='328' subinstr-id='38'/>
+            <instruction instr-id='328' subinstr-id='40'/>
+            <instruction instr-id='328' subinstr-id='42'/>
+            <instruction instr-id='328' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='0'>
+            <bounding-box x1='79' y1='322' x2='141' y2='332'/>
+            <content>Did not borrow</content>
+            <instruction instr-id='334' subinstr-id='0'/>
+            <instruction instr-id='334' subinstr-id='2'/>
+            <instruction instr-id='334' subinstr-id='4'/>
+            <instruction instr-id='334' subinstr-id='6'/>
+            <instruction instr-id='334' subinstr-id='8'/>
+            <instruction instr-id='334' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='1'>
+            <bounding-box x1='259' y1='322' x2='277' y2='332'/>
+            <content>36.0</content>
+            <instruction instr-id='334' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='2'>
+            <bounding-box x1='300' y1='322' x2='327' y2='332'/>
+            <content>36,900</content>
+            <instruction instr-id='334' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='3'>
+            <bounding-box x1='355' y1='322' x2='373' y2='332'/>
+            <content>19.3</content>
+            <instruction instr-id='334' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='4'>
+            <bounding-box x1='401' y1='322' x2='414' y2='332'/>
+            <content>7.7</content>
+            <instruction instr-id='334' subinstr-id='18'/>
+            <instruction instr-id='334' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='5'>
+            <bounding-box x1='437' y1='322' x2='455' y2='332'/>
+            <content>26.5</content>
+            <instruction instr-id='334' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='6'>
+            <bounding-box x1='478' y1='322' x2='496' y2='332'/>
+            <content>22.7</content>
+            <instruction instr-id='334' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='7'>
+            <bounding-box x1='519' y1='322' x2='537' y2='332'/>
+            <content>23.9</content>
+            <instruction instr-id='334' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='0'>
+            <bounding-box x1='79' y1='312' x2='147' y2='322'/>
+            <content>Less than $5,000</content>
+            <instruction instr-id='339' subinstr-id='0'/>
+            <instruction instr-id='339' subinstr-id='2'/>
+            <instruction instr-id='339' subinstr-id='4'/>
+            <instruction instr-id='339' subinstr-id='6'/>
+            <instruction instr-id='339' subinstr-id='8'/>
+            <instruction instr-id='339' subinstr-id='10'/>
+            <instruction instr-id='339' subinstr-id='12'/>
+            <instruction instr-id='339' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='1'>
+            <bounding-box x1='259' y1='312' x2='277' y2='322'/>
+            <content>45.7</content>
+            <instruction instr-id='339' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='2'>
+            <bounding-box x1='300' y1='312' x2='327' y2='322'/>
+            <content>30,300</content>
+            <instruction instr-id='339' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='3'>
+            <bounding-box x1='355' y1='312' x2='373' y2='322'/>
+            <content>29.7</content>
+            <instruction instr-id='339' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='4'>
+            <bounding-box x1='401' y1='312' x2='414' y2='322'/>
+            <content>9.5</content>
+            <instruction instr-id='339' subinstr-id='22'/>
+            <instruction instr-id='339' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='5'>
+            <bounding-box x1='437' y1='312' x2='455' y2='322'/>
+            <content>28.4</content>
+            <instruction instr-id='339' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='6'>
+            <bounding-box x1='478' y1='312' x2='496' y2='322'/>
+            <content>17.3</content>
+            <instruction instr-id='339' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='7'>
+            <bounding-box x1='519' y1='312' x2='537' y2='322'/>
+            <content>15.2</content>
+            <instruction instr-id='339' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='0'>
+            <bounding-box x1='79' y1='301' x2='134' y2='311'/>
+            <content>$5,000–9,999</content>
+            <instruction instr-id='344' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='1'>
+            <bounding-box x1='259' y1='301' x2='277' y2='311'/>
+            <content>56.3</content>
+            <instruction instr-id='344' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='2'>
+            <bounding-box x1='300' y1='301' x2='327' y2='311'/>
+            <content>29,200</content>
+            <instruction instr-id='344' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='3'>
+            <bounding-box x1='355' y1='301' x2='373' y2='311'/>
+            <content>28.0</content>
+            <instruction instr-id='344' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='4'>
+            <bounding-box x1='396' y1='301' x2='414' y2='311'/>
+            <content>13.0</content>
+            <instruction instr-id='344' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='5'>
+            <bounding-box x1='437' y1='301' x2='455' y2='311'/>
+            <content>31.0</content>
+            <instruction instr-id='344' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='6'>
+            <bounding-box x1='478' y1='301' x2='496' y2='311'/>
+            <content>12.9</content>
+            <instruction instr-id='344' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='7'>
+            <bounding-box x1='519' y1='301' x2='537' y2='311'/>
+            <content>15.1</content>
+            <instruction instr-id='344' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='0'>
+            <bounding-box x1='79' y1='290' x2='144' y2='300'/>
+            <content>$10,000–14,999</content>
+            <instruction instr-id='348' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='1'>
+            <bounding-box x1='259' y1='290' x2='277' y2='300'/>
+            <content>54.7</content>
+            <instruction instr-id='348' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='2'>
+            <bounding-box x1='299' y1='290' x2='327' y2='300'/>
+            <content>28,700</content>
+            <instruction instr-id='348' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='3'>
+            <bounding-box x1='355' y1='290' x2='373' y2='300'/>
+            <content>25.7</content>
+            <instruction instr-id='348' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='4'>
+            <bounding-box x1='396' y1='290' x2='414' y2='300'/>
+            <content>16.1</content>
+            <instruction instr-id='348' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='5'>
+            <bounding-box x1='437' y1='290' x2='455' y2='300'/>
+            <content>23.6</content>
+            <instruction instr-id='348' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='6'>
+            <bounding-box x1='478' y1='290' x2='496' y2='300'/>
+            <content>19.4</content>
+            <instruction instr-id='348' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='7'>
+            <bounding-box x1='519' y1='290' x2='537' y2='300'/>
+            <content>15.3</content>
+            <instruction instr-id='348' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='0'>
+            <bounding-box x1='79' y1='280' x2='145' y2='290'/>
+            <content>$15,000 or more</content>
+            <instruction instr-id='353' subinstr-id='0'/>
+            <instruction instr-id='353' subinstr-id='2'/>
+            <instruction instr-id='353' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='1'>
+            <bounding-box x1='259' y1='280' x2='277' y2='290'/>
+            <content>58.4</content>
+            <instruction instr-id='353' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='2'>
+            <bounding-box x1='299' y1='280' x2='327' y2='290'/>
+            <content>35,100</content>
+            <instruction instr-id='353' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='3'>
+            <bounding-box x1='355' y1='280' x2='373' y2='290'/>
+            <content>18.7</content>
+            <instruction instr-id='353' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='4'>
+            <bounding-box x1='401' y1='280' x2='414' y2='290'/>
+            <content>9.9</content>
+            <instruction instr-id='353' subinstr-id='12'/>
+            <instruction instr-id='353' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='5'>
+            <bounding-box x1='437' y1='280' x2='455' y2='290'/>
+            <content>25.3</content>
+            <instruction instr-id='353' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='6'>
+            <bounding-box x1='478' y1='280' x2='496' y2='290'/>
+            <content>24.9</content>
+            <instruction instr-id='353' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='7'>
+            <bounding-box x1='519' y1='280' x2='537' y2='290'/>
+            <content>21.3</content>
+            <instruction instr-id='353' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='23' start-col='0'>
+            <bounding-box x1='74' y1='248' x2='215' y2='268'/>
+            <content>Highest enrollment after bachelor’s
+degree by 2003</content>
+            <instruction instr-id='359' subinstr-id='0'/>
+            <instruction instr-id='359' subinstr-id='2'/>
+            <instruction instr-id='359' subinstr-id='4'/>
+            <instruction instr-id='359' subinstr-id='6'/>
+            <instruction instr-id='359' subinstr-id='8'/>
+            <instruction instr-id='359' subinstr-id='10'/>
+            <instruction instr-id='359' subinstr-id='12'/>
+            <instruction instr-id='359' subinstr-id='14'/>
+            <instruction instr-id='359' subinstr-id='16'/>
+            <instruction instr-id='359' subinstr-id='18'/>
+            <instruction instr-id='359' subinstr-id='20'/>
+            <instruction instr-id='365' subinstr-id='0'/>
+            <instruction instr-id='365' subinstr-id='2'/>
+            <instruction instr-id='365' subinstr-id='4'/>
+            <instruction instr-id='365' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='0'>
+            <bounding-box x1='79' y1='237' x2='143' y2='247'/>
+            <content>Master’s degree</content>
+            <instruction instr-id='370' subinstr-id='0'/>
+            <instruction instr-id='370' subinstr-id='2'/>
+            <instruction instr-id='370' subinstr-id='4'/>
+            <instruction instr-id='370' subinstr-id='6'/>
+            <instruction instr-id='370' subinstr-id='8'/>
+            <instruction instr-id='370' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='1'>
+            <bounding-box x1='259' y1='237' x2='277' y2='247'/>
+            <content>37.9</content>
+            <instruction instr-id='370' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='2'>
+            <bounding-box x1='300' y1='237' x2='327' y2='247'/>
+            <content>19,900</content>
+            <instruction instr-id='370' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='3'>
+            <bounding-box x1='355' y1='237' x2='373' y2='247'/>
+            <content>30.0</content>
+            <instruction instr-id='370' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='4'>
+            <bounding-box x1='396' y1='237' x2='414' y2='247'/>
+            <content>13.2</content>
+            <instruction instr-id='370' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='5'>
+            <bounding-box x1='437' y1='237' x2='455' y2='247'/>
+            <content>33.5</content>
+            <instruction instr-id='370' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='6'>
+            <bounding-box x1='478' y1='237' x2='496' y2='247'/>
+            <content>18.9</content>
+            <instruction instr-id='370' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='7'>
+            <bounding-box x1='524' y1='237' x2='537' y2='247'/>
+            <content>4.5</content>
+            <instruction instr-id='370' subinstr-id='24'/>
+            <instruction instr-id='370' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='0'>
+            <bounding-box x1='79' y1='226' x2='143' y2='236'/>
+            <content>Doctoral degree</content>
+            <instruction instr-id='374' subinstr-id='0'/>
+            <instruction instr-id='374' subinstr-id='2'/>
+            <instruction instr-id='374' subinstr-id='4'/>
+            <instruction instr-id='374' subinstr-id='6'/>
+            <instruction instr-id='374' subinstr-id='8'/>
+            <instruction instr-id='374' subinstr-id='10'/>
+            <instruction instr-id='374' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='1'>
+            <bounding-box x1='259' y1='226' x2='277' y2='236'/>
+            <content>63.1</content>
+            <instruction instr-id='374' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='2'>
+            <bounding-box x1='300' y1='226' x2='327' y2='236'/>
+            <content>43,700</content>
+            <instruction instr-id='374' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='3'>
+            <bounding-box x1='355' y1='226' x2='373' y2='236'/>
+            <content>18.3</content>
+            <instruction instr-id='374' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='4'>
+            <bounding-box x1='401' y1='226' x2='414' y2='236'/>
+            <content>7.6</content>
+            <instruction instr-id='374' subinstr-id='20'/>
+            <instruction instr-id='374' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='5'>
+            <bounding-box x1='437' y1='226' x2='455' y2='236'/>
+            <content>21.6</content>
+            <instruction instr-id='374' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='6'>
+            <bounding-box x1='478' y1='226' x2='496' y2='236'/>
+            <content>21.1</content>
+            <instruction instr-id='374' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='7'>
+            <bounding-box x1='519' y1='226' x2='537' y2='236'/>
+            <content>31.5</content>
+            <instruction instr-id='374' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='0'>
+            <bounding-box x1='79' y1='216' x2='178' y2='226'/>
+            <content>First-professional degree</content>
+            <instruction instr-id='378' subinstr-id='0'/>
+            <instruction instr-id='378' subinstr-id='2'/>
+            <instruction instr-id='378' subinstr-id='4'/>
+            <instruction instr-id='378' subinstr-id='6'/>
+            <instruction instr-id='378' subinstr-id='8'/>
+            <instruction instr-id='378' subinstr-id='10'/>
+            <instruction instr-id='378' subinstr-id='12'/>
+            <instruction instr-id='378' subinstr-id='14'/>
+            <instruction instr-id='378' subinstr-id='16'/>
+            <instruction instr-id='378' subinstr-id='18'/>
+            <instruction instr-id='378' subinstr-id='20'/>
+            <instruction instr-id='378' subinstr-id='22'/>
+            <instruction instr-id='378' subinstr-id='24'/>
+            <instruction instr-id='378' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='1'>
+            <bounding-box x1='259' y1='216' x2='277' y2='226'/>
+            <content>71.8</content>
+            <instruction instr-id='378' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='2'>
+            <bounding-box x1='300' y1='216' x2='327' y2='226'/>
+            <content>69,200</content>
+            <instruction instr-id='378' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='3'>
+            <bounding-box x1='360' y1='216' x2='373' y2='226'/>
+            <content>4.6</content>
+            <instruction instr-id='378' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='4'>
+            <bounding-box x1='401' y1='216' x2='414' y2='226'/>
+            <content>2.6</content>
+            <instruction instr-id='378' subinstr-id='34'/>
+            <instruction instr-id='378' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='5'>
+            <bounding-box x1='442' y1='216' x2='455' y2='226'/>
+            <content>9.4</content>
+            <instruction instr-id='378' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='6'>
+            <bounding-box x1='478' y1='216' x2='496' y2='226'/>
+            <content>23.6</content>
+            <instruction instr-id='378' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='7'>
+
+            <bounding-box x1='519' y1='216' x2='537' y2='226'/>
+            <content>59.9</content>
+            <instruction instr-id='378' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='27' start-col='0'>
+            <bounding-box x1='74' y1='194' x2='198' y2='204'/>
+            <content>Highest degree earned by 2003</content>
+            <instruction instr-id='383' subinstr-id='0'/>
+            <instruction instr-id='383' subinstr-id='2'/>
+            <instruction instr-id='383' subinstr-id='4'/>
+            <instruction instr-id='383' subinstr-id='6'/>
+            <instruction instr-id='383' subinstr-id='8'/>
+            <instruction instr-id='383' subinstr-id='10'/>
+            <instruction instr-id='383' subinstr-id='12'/>
+            <instruction instr-id='383' subinstr-id='14'/>
+            <instruction instr-id='383' subinstr-id='16'/>
+            <instruction instr-id='383' subinstr-id='18'/>
+            <instruction instr-id='383' subinstr-id='20'/>
+            <instruction instr-id='383' subinstr-id='22'/>
+            <instruction instr-id='383' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='0'>
+            <bounding-box x1='79' y1='184' x2='151' y2='193'/>
+            <content>Bachelor’s degree</content>
+            <instruction instr-id='388' subinstr-id='0'/>
+            <instruction instr-id='388' subinstr-id='2'/>
+            <instruction instr-id='388' subinstr-id='4'/>
+            <instruction instr-id='388' subinstr-id='6'/>
+            <instruction instr-id='388' subinstr-id='8'/>
+            <instruction instr-id='388' subinstr-id='10'/>
+            <instruction instr-id='388' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='1'>
+            <bounding-box x1='259' y1='184' x2='277' y2='193'/>
+            <content>32.3</content>
+            <instruction instr-id='388' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='2'>
+            <bounding-box x1='300' y1='184' x2='327' y2='193'/>
+            <content>23,300</content>
+            <instruction instr-id='388' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='3'>
+            <bounding-box x1='355' y1='184' x2='373' y2='193'/>
+            <content>36.2</content>
+            <instruction instr-id='388' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='4'>
+            <bounding-box x1='396' y1='184' x2='414' y2='193'/>
+            <content>11.6</content>
+            <instruction instr-id='388' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='5'>
+            <bounding-box x1='437' y1='184' x2='455' y2='193'/>
+            <content>26.6</content>
+            <instruction instr-id='388' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='6'>
+            <bounding-box x1='478' y1='184' x2='496' y2='193'/>
+            <content>14.4</content>
+            <instruction instr-id='388' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='7'>
+            <bounding-box x1='519' y1='184' x2='537' y2='193'/>
+            <content>11.4</content>
+            <instruction instr-id='388' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='0'>
+            <bounding-box x1='79' y1='173' x2='143' y2='183'/>
+            <content>Master’s degree</content>
+            <instruction instr-id='391' subinstr-id='0'/>
+            <instruction instr-id='391' subinstr-id='2'/>
+            <instruction instr-id='391' subinstr-id='4'/>
+            <instruction instr-id='391' subinstr-id='6'/>
+            <instruction instr-id='391' subinstr-id='8'/>
+            <instruction instr-id='391' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='1'>
+            <bounding-box x1='259' y1='173' x2='277' y2='183'/>
+            <content>45.4</content>
+            <instruction instr-id='391' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='2'>
+            <bounding-box x1='300' y1='173' x2='327' y2='183'/>
+            <content>22,900</content>
+            <instruction instr-id='391' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='3'>
+            <bounding-box x1='355' y1='173' x2='373' y2='183'/>
+            <content>23.9</content>
+            <instruction instr-id='391' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='4'>
+            <bounding-box x1='396' y1='173' x2='414' y2='183'/>
+            <content>12.6</content>
+            <instruction instr-id='391' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='5'>
+            <bounding-box x1='437' y1='173' x2='455' y2='183'/>
+            <content>34.9</content>
+            <instruction instr-id='391' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='6'>
+            <bounding-box x1='478' y1='173' x2='496' y2='183'/>
+            <content>22.7</content>
+            <instruction instr-id='391' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='7'>
+            <bounding-box x1='525' y1='173' x2='537' y2='183'/>
+            <content>5.9</content>
+            <instruction instr-id='391' subinstr-id='24'/>
+            <instruction instr-id='391' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='0'>
+            <bounding-box x1='79' y1='162' x2='143' y2='172'/>
+            <content>Doctoral degree</content>
+            <instruction instr-id='395' subinstr-id='0'/>
+            <instruction instr-id='395' subinstr-id='2'/>
+            <instruction instr-id='395' subinstr-id='4'/>
+            <instruction instr-id='395' subinstr-id='6'/>
+            <instruction instr-id='395' subinstr-id='8'/>
+            <instruction instr-id='395' subinstr-id='10'/>
+            <instruction instr-id='395' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='1'>
+            <bounding-box x1='259' y1='162' x2='277' y2='172'/>
+            <content>64.3</content>
+            <instruction instr-id='395' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='2'>
+            <bounding-box x1='300' y1='162' x2='327' y2='172'/>
+            <content>44,100</content>
+            <instruction instr-id='395' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='3'>
+            <bounding-box x1='355' y1='162' x2='373' y2='172'/>
+            <content>21.4</content>
+            <instruction instr-id='395' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='4'>
+            <bounding-box x1='401' y1='162' x2='414' y2='172'/>
+            <content>9.6</content>
+            <instruction instr-id='395' subinstr-id='20'/>
+            <instruction instr-id='395' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='5'>
+            <bounding-box x1='437' y1='162' x2='455' y2='172'/>
+            <content>14.7</content>
+            <instruction instr-id='395' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='6'>
+            <bounding-box x1='478' y1='162' x2='496' y2='172'/>
+            <content>19.1</content>
+            <instruction instr-id='395' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='7'>
+            <bounding-box x1='519' y1='162' x2='537' y2='172'/>
+            <content>35.2</content>
+            <instruction instr-id='395' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='0'>
+            <bounding-box x1='79' y1='152' x2='178' y2='162'/>
+            <content>First-professional degree</content>
+            <instruction instr-id='419' subinstr-id='-1'/>
+            <instruction instr-id='429' subinstr-id='0'/>
+            <instruction instr-id='429' subinstr-id='2'/>
+            <instruction instr-id='429' subinstr-id='4'/>
+            <instruction instr-id='429' subinstr-id='6'/>
+            <instruction instr-id='445' subinstr-id='-1'/>
+            <instruction instr-id='455' subinstr-id='0'/>
+            <instruction instr-id='455' subinstr-id='2'/>
+            <instruction instr-id='471' subinstr-id='-1'/>
+            <instruction instr-id='481' subinstr-id='0'/>
+            <instruction instr-id='481' subinstr-id='2'/>
+            <instruction instr-id='497' subinstr-id='-1'/>
+            <instruction instr-id='522' subinstr-id='-1'/>
+            <instruction instr-id='532' subinstr-id='0'/>
+            <instruction instr-id='532' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='1'>
+            <bounding-box x1='259' y1='152' x2='277' y2='162'/>
+            <content>78.8</content>
+            <instruction instr-id='549' subinstr-id='-1'/>
+            <instruction instr-id='558' subinstr-id='-1'/>
+            <instruction instr-id='574' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='2'>
+            <bounding-box x1='300' y1='152' x2='327' y2='162'/>
+            <content>75,500</content>
+            <instruction instr-id='592' subinstr-id='-1'/>
+            <instruction instr-id='601' subinstr-id='-1'/>
+            <instruction instr-id='618' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='3'>
+            <bounding-box x1='360' y1='152' x2='373' y2='162'/>
+            <content>2.0</content>
+            <instruction instr-id='635' subinstr-id='-1'/>
+            <instruction instr-id='644' subinstr-id='-1'/>
+            <instruction instr-id='660' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='4'>
+            <bounding-box x1='401' y1='152' x2='414' y2='162'/>
+            <content>1.1</content>
+            <instruction instr-id='677' subinstr-id='-1'/>
+            <instruction instr-id='686' subinstr-id='-1'/>
+            <instruction instr-id='702' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='5'>
+            <bounding-box x1='442' y1='152' x2='455' y2='162'/>
+            <content>8.2</content>
+            <instruction instr-id='719' subinstr-id='-1'/>
+            <instruction instr-id='728' subinstr-id='-1'/>
+            <instruction instr-id='744' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='6'>
+            <bounding-box x1='478' y1='152' x2='496' y2='162'/>
+            <content>21.6</content>
+            <instruction instr-id='762' subinstr-id='-1'/>
+            <instruction instr-id='771' subinstr-id='-1'/>
+            <instruction instr-id='787' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='7'>
+            <bounding-box x1='520' y1='152' x2='537' y2='162'/>
+            <content>67.1</content>
+            <instruction instr-id='805' subinstr-id='-1'/>
+            <instruction instr-id='814' subinstr-id='-1'/>
+            <instruction instr-id='830' subinstr-id='-1'/>
+         </cell>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' col-increment='0' row-increment='0' page='3'>
+         <cell id='1' start-row='0' start-col='1' end-col='4'>
+            <bounding-box x1='287' y1='649' x2='377' y2='659'/>
+            <content>Percent who borrowed</content>
+            <instruction instr-id='383' subinstr-id='0'/>
+            <instruction instr-id='383' subinstr-id='2'/>
+            <instruction instr-id='383' subinstr-id='4'/>
+            <instruction instr-id='383' subinstr-id='6'/>
+            <instruction instr-id='383' subinstr-id='8'/>
+            <instruction instr-id='383' subinstr-id='10'/>
+            <instruction instr-id='383' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='5' end-col='7'>
+            <bounding-box x1='425' y1='649' x2='531' y2='670'/>
+            <content>Average amount borrowed
+(by borrowers)</content>
+            <instruction instr-id='129' subinstr-id='0'/>
+            <instruction instr-id='129' subinstr-id='2'/>
+            <instruction instr-id='129' subinstr-id='4'/>
+            <instruction instr-id='129' subinstr-id='6'/>
+            <instruction instr-id='129' subinstr-id='8'/>
+            <instruction instr-id='129' subinstr-id='10'/>
+            <instruction instr-id='129' subinstr-id='12'/>
+            <instruction instr-id='129' subinstr-id='14'/>
+            <instruction instr-id='129' subinstr-id='16'/>
+            <instruction instr-id='129' subinstr-id='18'/>
+            <instruction instr-id='379' subinstr-id='0'/>
+            <instruction instr-id='379' subinstr-id='2'/>
+            <instruction instr-id='379' subinstr-id='4'/>
+            <instruction instr-id='379' subinstr-id='6'/>
+            <instruction instr-id='379' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='0' end-row='1' start-col='0'>
+            <bounding-box x1='74' y1='614' x2='231' y2='624'/>
+            <content>Student and institutional characteristics</content>
+            <instruction instr-id='139' subinstr-id='0'/>
+            <instruction instr-id='139' subinstr-id='2'/>
+            <instruction instr-id='139' subinstr-id='4'/>
+            <instruction instr-id='139' subinstr-id='6'/>
+            <instruction instr-id='139' subinstr-id='8'/>
+            <instruction instr-id='139' subinstr-id='10'/>
+            <instruction instr-id='139' subinstr-id='12'/>
+            <instruction instr-id='139' subinstr-id='14'/>
+            <instruction instr-id='139' subinstr-id='16'/>
+            <instruction instr-id='139' subinstr-id='18'/>
+            <instruction instr-id='139' subinstr-id='20'/>
+            <instruction instr-id='139' subinstr-id='22'/>
+            <instruction instr-id='139' subinstr-id='24'/>
+            <instruction instr-id='139' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='256' y1='614' x2='285' y2='624'/>
+            <content>Neither</content>
+            <instruction instr-id='139' subinstr-id='28'/>
+            <instruction instr-id='139' subinstr-id='30'/>
+            <instruction instr-id='139' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2'>
+            <bounding-box x1='291' y1='614' x2='326' y2='647'/>
+            <content>Under-
+graduate
+only</content>
+            <instruction instr-id='132' subinstr-id='0'/>
+            <instruction instr-id='132' subinstr-id='2'/>
+            <instruction instr-id='132' subinstr-id='4'/>
+            <instruction instr-id='132' subinstr-id='6'/>
+            <instruction instr-id='135' subinstr-id='0'/>
+            <instruction instr-id='135' subinstr-id='2'/>
+            <instruction instr-id='135' subinstr-id='4'/>
+            <instruction instr-id='135' subinstr-id='6'/>
+            <instruction instr-id='135' subinstr-id='8'/>
+            <instruction instr-id='135' subinstr-id='10'/>
+            <instruction instr-id='139' subinstr-id='34'/>
+            <instruction instr-id='139' subinstr-id='36'/>
+            <instruction instr-id='139' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3'>
+            <bounding-box x1='329' y1='614' x2='366' y2='635'/>
+            <content>Graduate
+only</content>
+            <instruction instr-id='135' subinstr-id='12'/>
+            <instruction instr-id='135' subinstr-id='14'/>
+            <instruction instr-id='135' subinstr-id='16'/>
+            <instruction instr-id='135' subinstr-id='18'/>
+            <instruction instr-id='135' subinstr-id='20'/>
+            <instruction instr-id='135' subinstr-id='22'/>
+            <instruction instr-id='135' subinstr-id='24'/>
+            <instruction instr-id='139' subinstr-id='40'/>
+            <instruction instr-id='139' subinstr-id='42'/>
+            <instruction instr-id='139' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='4'>
+            <bounding-box x1='387' y1='614' x2='406' y2='624'/>
+            <content>Both</content>
+            <instruction instr-id='139' subinstr-id='46'/>
+            <instruction instr-id='139' subinstr-id='48'/>
+            <instruction instr-id='139' subinstr-id='50'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='5'>
+            <bounding-box x1='421' y1='614' x2='456' y2='647'/>
+            <content>Under-
+graduate
+only</content>
+            <instruction instr-id='132' subinstr-id='8'/>
+            <instruction instr-id='132' subinstr-id='10'/>
+            <instruction instr-id='132' subinstr-id='12'/>
+            <instruction instr-id='132' subinstr-id='14'/>
+            <instruction instr-id='135' subinstr-id='26'/>
+            <instruction instr-id='135' subinstr-id='28'/>
+            <instruction instr-id='135' subinstr-id='30'/>
+            <instruction instr-id='135' subinstr-id='32'/>
+            <instruction instr-id='135' subinstr-id='34'/>
+            <instruction instr-id='135' subinstr-id='36'/>
+            <instruction instr-id='139' subinstr-id='52'/>
+            <instruction instr-id='139' subinstr-id='54'/>
+            <instruction instr-id='139' subinstr-id='56'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='6'>
+            <bounding-box x1='459' y1='614' x2='496' y2='635'/>
+            <content>Graduate
+only</content>
+            <instruction instr-id='135' subinstr-id='38'/>
+            <instruction instr-id='135' subinstr-id='40'/>
+            <instruction instr-id='135' subinstr-id='42'/>
+            <instruction instr-id='135' subinstr-id='44'/>
+            <instruction instr-id='135' subinstr-id='46'/>
+            <instruction instr-id='135' subinstr-id='48'/>
+            <instruction instr-id='135' subinstr-id='50'/>
+            <instruction instr-id='139' subinstr-id='58'/>
+            <instruction instr-id='139' subinstr-id='60'/>
+            <instruction instr-id='139' subinstr-id='62'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='7'>
+            <bounding-box x1='517' y1='614' x2='536' y2='624'/>
+            <content>Both</content>
+            <instruction instr-id='139' subinstr-id='64'/>
+            <instruction instr-id='139' subinstr-id='66'/>
+            <instruction instr-id='139' subinstr-id='68'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='86' y1='592' x2='108' y2='602'/>
+            <content>Total</content>
+            <instruction instr-id='145' subinstr-id='0'/>
+            <instruction instr-id='145' subinstr-id='2'/>
+            <instruction instr-id='145' subinstr-id='4'/>
+            <instruction instr-id='145' subinstr-id='6'/>
+            <instruction instr-id='145' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='268' y1='592' x2='285' y2='602'/>
+            <content>31.4</content>
+            <instruction instr-id='145' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2'>
+            <bounding-box x1='308' y1='592' x2='326' y2='602'/>
+            <content>23.7</content>
+            <instruction instr-id='145' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='3'>
+            <bounding-box x1='348' y1='592' x2='366' y2='602'/>
+            <content>17.7</content>
+            <instruction instr-id='145' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='4'>
+            <bounding-box x1='388' y1='592' x2='406' y2='602'/>
+            <content>27.2</content>
+            <instruction instr-id='145' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='5'>
+            <bounding-box x1='428' y1='592' x2='456' y2='602'/>
+            <content>$9,600</content>
+            <instruction instr-id='145' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='6'>
+            <bounding-box x1='463' y1='592' x2='496' y2='602'/>
+            <content>$36,900</content>
+            <instruction instr-id='145' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='7'>
+            <bounding-box x1='503' y1='592' x2='536' y2='602'/>
+            <content>$41,700</content>
+            <instruction instr-id='145' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0' col-end='7'>
+            <bounding-box x1='74' y1='571' x2='213' y2='581'/>
+            <content>Type of degree-granting institution</content>
+            <instruction instr-id='150' subinstr-id='0'/>
+            <instruction instr-id='150' subinstr-id='2'/>
+            <instruction instr-id='150' subinstr-id='4'/>
+            <instruction instr-id='150' subinstr-id='6'/>
+            <instruction instr-id='150' subinstr-id='8'/>
+            <instruction instr-id='150' subinstr-id='10'/>
+            <instruction instr-id='150' subinstr-id='12'/>
+            <instruction instr-id='150' subinstr-id='14'/>
+            <instruction instr-id='150' subinstr-id='16'/>
+            <instruction instr-id='150' subinstr-id='18'/>
+            <instruction instr-id='150' subinstr-id='20'/>
+            <instruction instr-id='150' subinstr-id='22'/>
+            <instruction instr-id='150' subinstr-id='24'/>
+            <instruction instr-id='150' subinstr-id='26'/>
+            <instruction instr-id='150' subinstr-id='28'/>
+            <instruction instr-id='150' subinstr-id='30'/>
+            <instruction instr-id='150' subinstr-id='32'/>
+            <instruction instr-id='150' subinstr-id='34'/>
+            <instruction instr-id='150' subinstr-id='36'/>
+            <instruction instr-id='150' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='79' y1='559' x2='132' y2='569'/>
+            <content>Public 4-year</content>
+            <instruction instr-id='156' subinstr-id='0'/>
+            <instruction instr-id='156' subinstr-id='2'/>
+            <instruction instr-id='156' subinstr-id='4'/>
+            <instruction instr-id='156' subinstr-id='6'/>
+            <instruction instr-id='156' subinstr-id='8'/>
+            <instruction instr-id='156' subinstr-id='10'/>
+            <instruction instr-id='156' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='268' y1='559' x2='285' y2='569'/>
+            <content>32.6</content>
+            <instruction instr-id='156' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2'>
+            <bounding-box x1='308' y1='559' x2='326' y2='569'/>
+            <content>23.0</content>
+            <instruction instr-id='156' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3'>
+            <bounding-box x1='348' y1='559' x2='366' y2='569'/>
+            <content>19.5</content>
+            <instruction instr-id='156' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='4'>
+            <bounding-box x1='388' y1='559' x2='406' y2='569'/>
+            <content>24.9</content>
+            <instruction instr-id='156' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='5'>
+            <bounding-box x1='433' y1='559' x2='456' y2='569'/>
+            <content>8,100</content>
+            <instruction instr-id='156' subinstr-id='22'/>
+            <instruction instr-id='156' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='6'>
+            <bounding-box x1='468' y1='559' x2='496' y2='569'/>
+            <content>36,500</content>
+            <instruction instr-id='156' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='7'>
+            <bounding-box x1='508' y1='559' x2='536' y2='569'/>
+            <content>36,900</content>
+            <instruction instr-id='156' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='84' y1='547' x2='178' y2='557'/>
+            <content>Non-doctorate-granting</content>
+            <instruction instr-id='161' subinstr-id='0'/>
+            <instruction instr-id='161' subinstr-id='2'/>
+            <instruction instr-id='161' subinstr-id='4'/>
+            <instruction instr-id='161' subinstr-id='6'/>
+            <instruction instr-id='161' subinstr-id='8'/>
+            <instruction instr-id='161' subinstr-id='10'/>
+            <instruction instr-id='161' subinstr-id='12'/>
+            <instruction instr-id='161' subinstr-id='14'/>
+            <instruction instr-id='161' subinstr-id='16'/>
+            <instruction instr-id='161' subinstr-id='18'/>
+            <instruction instr-id='161' subinstr-id='20'/>
+            <instruction instr-id='161' subinstr-id='22'/>
+            <instruction instr-id='161' subinstr-id='24'/>
+            <instruction instr-id='161' subinstr-id='26'/>
+            <instruction instr-id='161' subinstr-id='28'/>
+            <instruction instr-id='161' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1'>
+            <bounding-box x1='268' y1='547' x2='285' y2='557'/>
+            <content>34.4</content>
+            <instruction instr-id='164' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2'>
+            <bounding-box x1='308' y1='547' x2='326' y2='557'/>
+            <content>25.6</content>
+            <instruction instr-id='164' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='3'>
+            <bounding-box x1='348' y1='547' x2='366' y2='557'/>
+            <content>15.9</content>
+            <instruction instr-id='164' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='4'>
+            <bounding-box x1='388' y1='547' x2='406' y2='557'/>
+            <content>24.1</content>
+            <instruction instr-id='164' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='5'>
+            <bounding-box x1='433' y1='547' x2='456' y2='557'/>
+            <content>7,800</content>
+            <instruction instr-id='164' subinstr-id='8'/>
+            <instruction instr-id='164' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='6'>
+            <bounding-box x1='468' y1='547' x2='496' y2='557'/>
+            <content>29,100</content>
+            <instruction instr-id='164' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='7'>
+            <bounding-box x1='508' y1='547' x2='536' y2='557'/>
+            <content>31,900</content>
+            <instruction instr-id='164' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0'>
+            <bounding-box x1='84' y1='534' x2='160' y2='544'/>
+            <content>Doctorate-granting</content>
+            <instruction instr-id='168' subinstr-id='0'/>
+            <instruction instr-id='168' subinstr-id='2'/>
+            <instruction instr-id='168' subinstr-id='4'/>
+            <instruction instr-id='168' subinstr-id='6'/>
+            <instruction instr-id='168' subinstr-id='8'/>
+            <instruction instr-id='168' subinstr-id='10'/>
+            <instruction instr-id='168' subinstr-id='12'/>
+            <instruction instr-id='168' subinstr-id='14'/>
+            <instruction instr-id='168' subinstr-id='16'/>
+            <instruction instr-id='168' subinstr-id='18'/>
+            <instruction instr-id='168' subinstr-id='20'/>
+            <instruction instr-id='168' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1'>
+            <bounding-box x1='268' y1='534' x2='286' y2='544'/>
+            <content>31.7</content>
+            <instruction instr-id='168' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2'>
+            <bounding-box x1='308' y1='534' x2='326' y2='544'/>
+            <content>21.7</content>
+            <instruction instr-id='168' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3'>
+            <bounding-box x1='348' y1='534' x2='366' y2='544'/>
+            <content>21.3</content>
+            <instruction instr-id='168' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='4'>
+            <bounding-box x1='388' y1='534' x2='406' y2='544'/>
+            <content>25.2</content>
+            <instruction instr-id='168' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='5'>
+            <bounding-box x1='433' y1='534' x2='456' y2='544'/>
+            <content>8,200</content>
+            <instruction instr-id='168' subinstr-id='32'/>
+            <instruction instr-id='168' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='6'>
+            <bounding-box x1='468' y1='534' x2='496' y2='544'/>
+            <content>39,300</content>
+            <instruction instr-id='168' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='7'>
+            <bounding-box x1='508' y1='534' x2='536' y2='544'/>
+            <content>39,300</content>
+            <instruction instr-id='168' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='0'>
+            <bounding-box x1='79' y1='522' x2='191' y2='532'/>
+            <content>Private not-for-profit 4-year</content>
+            <instruction instr-id='173' subinstr-id='0'/>
+            <instruction instr-id='173' subinstr-id='2'/>
+            <instruction instr-id='173' subinstr-id='4'/>
+            <instruction instr-id='173' subinstr-id='6'/>
+            <instruction instr-id='173' subinstr-id='8'/>
+            <instruction instr-id='173' subinstr-id='10'/>
+            <instruction instr-id='173' subinstr-id='12'/>
+            <instruction instr-id='173' subinstr-id='14'/>
+            <instruction instr-id='173' subinstr-id='16'/>
+            <instruction instr-id='173' subinstr-id='18'/>
+            <instruction instr-id='173' subinstr-id='20'/>
+            <instruction instr-id='173' subinstr-id='22'/>
+            <instruction instr-id='173' subinstr-id='24'/>
+            <instruction instr-id='173' subinstr-id='26'/>
+            <instruction instr-id='173' subinstr-id='28'/>
+            <instruction instr-id='173' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1'>
+            <bounding-box x1='268' y1='522' x2='285' y2='532'/>
+            <content>29.7</content>
+            <instruction instr-id='173' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2'>
+            <bounding-box x1='308' y1='522' x2='326' y2='532'/>
+            <content>24.2</content>
+            <instruction instr-id='173' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='3'>
+            <bounding-box x1='348' y1='522' x2='366' y2='532'/>
+            <content>15.3</content>
+            <instruction instr-id='173' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='4'>
+            <bounding-box x1='388' y1='522' x2='406' y2='532'/>
+            <content>30.8</content>
+            <instruction instr-id='173' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='5'>
+            <bounding-box x1='428' y1='522' x2='456' y2='532'/>
+            <content>12,500</content>
+            <instruction instr-id='173' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='6'>
+            <bounding-box x1='468' y1='522' x2='496' y2='532'/>
+            <content>37,500</content>
+            <instruction instr-id='173' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='7'>
+            <bounding-box x1='508' y1='522' x2='536' y2='532'/>
+            <content>48,900</content>
+            <instruction instr-id='173' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='0'>
+            <bounding-box x1='84' y1='510' x2='178' y2='520'/>
+            <content>Non-doctorate-granting</content>
+            <instruction instr-id='178' subinstr-id='0'/>
+            <instruction instr-id='178' subinstr-id='2'/>
+            <instruction instr-id='178' subinstr-id='4'/>
+            <instruction instr-id='178' subinstr-id='6'/>
+            <instruction instr-id='178' subinstr-id='8'/>
+            <instruction instr-id='178' subinstr-id='10'/>
+            <instruction instr-id='178' subinstr-id='12'/>
+            <instruction instr-id='178' subinstr-id='14'/>
+            <instruction instr-id='178' subinstr-id='16'/>
+            <instruction instr-id='178' subinstr-id='18'/>
+            <instruction instr-id='178' subinstr-id='20'/>
+            <instruction instr-id='178' subinstr-id='22'/>
+            <instruction instr-id='178' subinstr-id='24'/>
+            <instruction instr-id='178' subinstr-id='26'/>
+            <instruction instr-id='178' subinstr-id='28'/>
+            <instruction instr-id='178' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='1'>
+            <bounding-box x1='268' y1='510' x2='285' y2='520'/>
+            <content>27.5</content>
+            <instruction instr-id='181' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='2'>
+            <bounding-box x1='308' y1='510' x2='326' y2='520'/>
+            <content>26.1</content>
+            <instruction instr-id='181' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='3'>
+            <bounding-box x1='348' y1='510' x2='366' y2='520'/>
+            <content>14.5</content>
+            <instruction instr-id='181' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='4'>
+            <bounding-box x1='388' y1='510' x2='406' y2='520'/>
+            <content>32.0</content>
+            <instruction instr-id='181' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='5'>
+            <bounding-box x1='428' y1='510' x2='456' y2='520'/>
+            <content>12,000</content>
+            <instruction instr-id='181' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='6'>
+            <bounding-box x1='468' y1='510' x2='496' y2='520'/>
+            <content>31,500</content>
+            <instruction instr-id='181' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='7'>
+            <bounding-box x1='508' y1='510' x2='536' y2='520'/>
+            <content>43,200</content>
+            <instruction instr-id='181' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='0'>
+            <bounding-box x1='84' y1='498' x2='160' y2='508'/>
+            <content>Doctorate-granting</content>
+            <instruction instr-id='185' subinstr-id='0'/>
+            <instruction instr-id='185' subinstr-id='2'/>
+            <instruction instr-id='185' subinstr-id='4'/>
+            <instruction instr-id='185' subinstr-id='6'/>
+            <instruction instr-id='185' subinstr-id='8'/>
+            <instruction instr-id='185' subinstr-id='10'/>
+            <instruction instr-id='185' subinstr-id='12'/>
+            <instruction instr-id='185' subinstr-id='14'/>
+            <instruction instr-id='185' subinstr-id='16'/>
+            <instruction instr-id='185' subinstr-id='18'/>
+            <instruction instr-id='185' subinstr-id='20'/>
+            <instruction instr-id='185' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='1'>
+            <bounding-box x1='268' y1='498' x2='286' y2='508'/>
+            <content>32.1</content>
+            <instruction instr-id='185' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='2'>
+            <bounding-box x1='308' y1='498' x2='326' y2='508'/>
+            <content>22.3</content>
+            <instruction instr-id='185' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='3'>
+            <bounding-box x1='348' y1='498' x2='366' y2='508'/>
+            <content>16.1</content>
+            <instruction instr-id='185' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='4'>
+            <bounding-box x1='388' y1='498' x2='406' y2='508'/>
+            <content>29.5</content>
+            <instruction instr-id='185' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='5'>
+            <bounding-box x1='428' y1='498' x2='456' y2='508'/>
+            <content>13,000</content>
+            <instruction instr-id='185' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='6'>
+            <bounding-box x1='468' y1='498' x2='496' y2='508'/>
+            <content>43,200</content>
+            <instruction instr-id='185' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='7'>
+            <bounding-box x1='508' y1='498' x2='536' y2='508'/>
+            <content>55,500</content>
+            <instruction instr-id='185' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='0'>
+            <bounding-box x1='76' y1='486' x2='99' y2='496'/>
+            <content>Other</content>
+            <instruction instr-id='190' subinstr-id='0'/>
+            <instruction instr-id='190' subinstr-id='2'/>
+            <instruction instr-id='190' subinstr-id='4'/>
+            <instruction instr-id='190' subinstr-id='6'/>
+            <instruction instr-id='190' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='1'>
+            <bounding-box x1='268' y1='486' x2='285' y2='496'/>
+            <content>26.9</content>
+            <instruction instr-id='192' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='2'>
+            <bounding-box x1='308' y1='486' x2='326' y2='496'/>
+            <content>31.8</content>
+            <instruction instr-id='192' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='3'>
+            <bounding-box x1='353' y1='486' x2='366' y2='496'/>
+            <content>7.1</content>
+            <instruction instr-id='192' subinstr-id='4'/>
+            <instruction instr-id='192' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='4'>
+            <bounding-box x1='388' y1='486' x2='406' y2='496'/>
+            <content>34.2</content>
+            <instruction instr-id='192' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='5'>
+            <bounding-box x1='451' y1='486' x2='456' y2='496'/>
+            <content>‡</content>
+            <instruction instr-id='192' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='6'>
+            <bounding-box x1='491' y1='486' x2='496' y2='496'/>
+            <content>‡</content>
+            <instruction instr-id='192' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='7'>
+            <bounding-box x1='508' y1='486' x2='536' y2='496'/>
+            <content>39,600</content>
+            <instruction instr-id='192' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='0'>
+            <bounding-box x1='74' y1='464' x2='159' y2='474'/>
+            <content>Undergraduate major</content>
+            <instruction instr-id='196' subinstr-id='0'/>
+            <instruction instr-id='196' subinstr-id='2'/>
+            <instruction instr-id='196' subinstr-id='4'/>
+            <instruction instr-id='196' subinstr-id='6'/>
+            <instruction instr-id='196' subinstr-id='8'/>
+            <instruction instr-id='196' subinstr-id='10'/>
+            <instruction instr-id='196' subinstr-id='12'/>
+            <instruction instr-id='196' subinstr-id='14'/>
+            <instruction instr-id='196' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='0'>
+            <bounding-box x1='81' y1='452' x2='187' y2='462'/>
+            <content>Business and management</content>
+            <instruction instr-id='201' subinstr-id='0'/>
+            <instruction instr-id='201' subinstr-id='2'/>
+            <instruction instr-id='201' subinstr-id='4'/>
+            <instruction instr-id='201' subinstr-id='6'/>
+            <instruction instr-id='201' subinstr-id='8'/>
+            <instruction instr-id='201' subinstr-id='10'/>
+            <instruction instr-id='201' subinstr-id='12'/>
+            <instruction instr-id='201' subinstr-id='14'/>
+            <instruction instr-id='201' subinstr-id='16'/>
+            <instruction instr-id='201' subinstr-id='18'/>
+            <instruction instr-id='201' subinstr-id='20'/>
+            <instruction instr-id='201' subinstr-id='22'/>
+            <instruction instr-id='201' subinstr-id='24'/>
+            <instruction instr-id='201' subinstr-id='26'/>
+            <instruction instr-id='217' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='1'>
+            <bounding-box x1='268' y1='452' x2='285' y2='462'/>
+            <content>39.6</content>
+            <instruction instr-id='227' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='2'>
+            <bounding-box x1='308' y1='452' x2='326' y2='462'/>
+            <content>26.4</content>
+            <instruction instr-id='227' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='3'>
+            <bounding-box x1='348' y1='452' x2='366' y2='462'/>
+            <content>13.0</content>
+            <instruction instr-id='227' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='4'>
+            <bounding-box x1='388' y1='452' x2='406' y2='462'/>
+            <content>21.1</content>
+            <instruction instr-id='227' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='5'>
+            <bounding-box x1='433' y1='452' x2='456' y2='462'/>
+            <content>8,900</content>
+            <instruction instr-id='227' subinstr-id='8'/>
+            <instruction instr-id='227' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='6'>
+            <bounding-box x1='468' y1='452' x2='496' y2='462'/>
+            <content>33,000</content>
+            <instruction instr-id='227' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='7'>
+            <bounding-box x1='508' y1='452' x2='536' y2='462'/>
+            <content>38,800</content>
+            <instruction instr-id='227' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='0'>
+            <bounding-box x1='81' y1='440' x2='122' y2='450'/>
+            <content>Education</content>
+            <instruction instr-id='231' subinstr-id='0'/>
+            <instruction instr-id='231' subinstr-id='2'/>
+            <instruction instr-id='231' subinstr-id='4'/>
+            <instruction instr-id='231' subinstr-id='6'/>
+            <instruction instr-id='231' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='1'>
+            <bounding-box x1='268' y1='440' x2='286' y2='450'/>
+            <content>34.6</content>
+            <instruction instr-id='231' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='2'>
+            <bounding-box x1='308' y1='440' x2='326' y2='450'/>
+            <content>31.0</content>
+            <instruction instr-id='231' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='3'>
+            <bounding-box x1='348' y1='440' x2='366' y2='450'/>
+            <content>12.8</content>
+            <instruction instr-id='231' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='4'>
+            <bounding-box x1='389' y1='440' x2='406' y2='450'/>
+            <content>21.7</content>
+            <instruction instr-id='231' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='5'>
+            <bounding-box x1='428' y1='440' x2='456' y2='450'/>
+            <content>10,100</content>
+            <instruction instr-id='231' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='6'>
+            <bounding-box x1='468' y1='440' x2='496' y2='450'/>
+            <content>28,600</content>
+            <instruction instr-id='231' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='13' start-col='7'>
+            <bounding-box x1='508' y1='440' x2='536' y2='450'/>
+            <content>30,800</content>
+            <instruction instr-id='231' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='0'>
+            <bounding-box x1='81' y1='428' x2='230' y2='438'/>
+            <content>Engineering, mathematics, or science</content>
+            <instruction instr-id='237' subinstr-id='0'/>
+            <instruction instr-id='237' subinstr-id='2'/>
+            <instruction instr-id='237' subinstr-id='4'/>
+            <instruction instr-id='237' subinstr-id='6'/>
+            <instruction instr-id='237' subinstr-id='8'/>
+            <instruction instr-id='237' subinstr-id='10'/>
+            <instruction instr-id='237' subinstr-id='12'/>
+            <instruction instr-id='237' subinstr-id='14'/>
+            <instruction instr-id='237' subinstr-id='16'/>
+            <instruction instr-id='237' subinstr-id='18'/>
+            <instruction instr-id='237' subinstr-id='20'/>
+            <instruction instr-id='237' subinstr-id='22'/>
+            <instruction instr-id='237' subinstr-id='24'/>
+            <instruction instr-id='237' subinstr-id='26'/>
+            <instruction instr-id='237' subinstr-id='28'/>
+            <instruction instr-id='237' subinstr-id='30'/>
+            <instruction instr-id='237' subinstr-id='32'/>
+            <instruction instr-id='237' subinstr-id='34'/>
+            <instruction instr-id='237' subinstr-id='36'/>
+            <instruction instr-id='237' subinstr-id='38'/>
+            <instruction instr-id='237' subinstr-id='40'/>
+            <instruction instr-id='237' subinstr-id='42'/>
+            <instruction instr-id='237' subinstr-id='44'/>
+            <instruction instr-id='237' subinstr-id='46'/>
+            <instruction instr-id='237' subinstr-id='48'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='1'>
+            <bounding-box x1='268' y1='428' x2='286' y2='438'/>
+            <content>29.4</content>
+            <instruction instr-id='237' subinstr-id='50'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='2'>
+            <bounding-box x1='308' y1='428' x2='326' y2='438'/>
+            <content>23.3</content>
+            <instruction instr-id='237' subinstr-id='52'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='3'>
+            <bounding-box x1='348' y1='428' x2='366' y2='438'/>
+            <content>19.1</content>
+            <instruction instr-id='237' subinstr-id='54'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='4'>
+            <bounding-box x1='389' y1='428' x2='406' y2='438'/>
+            <content>28.2</content>
+            <instruction instr-id='237' subinstr-id='56'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='5'>
+            <bounding-box x1='428' y1='428' x2='456' y2='438'/>
+            <content>10,000</content>
+            <instruction instr-id='237' subinstr-id='58'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='6'>
+            <bounding-box x1='468' y1='428' x2='496' y2='438'/>
+            <content>47,200</content>
+            <instruction instr-id='237' subinstr-id='60'/>
+         </cell>
+         <cell id='1' start-row='14' start-col='7'>
+            <bounding-box x1='508' y1='428' x2='536' y2='438'/>
+            <content>57,400</content>
+            <instruction instr-id='237' subinstr-id='62'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='0'>
+            <bounding-box x1='81' y1='416' x2='199' y2='426'/>
+            <content>Humanities or social sciences</content>
+            <instruction instr-id='242' subinstr-id='0'/>
+            <instruction instr-id='242' subinstr-id='2'/>
+            <instruction instr-id='242' subinstr-id='4'/>
+            <instruction instr-id='242' subinstr-id='6'/>
+            <instruction instr-id='242' subinstr-id='8'/>
+            <instruction instr-id='242' subinstr-id='10'/>
+            <instruction instr-id='242' subinstr-id='12'/>
+            <instruction instr-id='242' subinstr-id='14'/>
+            <instruction instr-id='242' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='1'>
+            <bounding-box x1='268' y1='416' x2='286' y2='426'/>
+            <content>28.6</content>
+            <instruction instr-id='242' subinstr-id='18'/>
+            <instruction instr-id='242' subinstr-id='20'/>
+            <instruction instr-id='242' subinstr-id='22'/>
+            <instruction instr-id='242' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='2'>
+            <bounding-box x1='308' y1='416' x2='326' y2='426'/>
+            <content>18.4</content>
+            <instruction instr-id='242' subinstr-id='26'/>
+            <instruction instr-id='242' subinstr-id='28'/>
+            <instruction instr-id='242' subinstr-id='30'/>
+            <instruction instr-id='242' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='3'>
+            <bounding-box x1='348' y1='416' x2='366' y2='426'/>
+            <content>21.8</content>
+            <instruction instr-id='242' subinstr-id='34'/>
+            <instruction instr-id='242' subinstr-id='36'/>
+            <instruction instr-id='242' subinstr-id='38'/>
+            <instruction instr-id='242' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='4'>
+            <bounding-box x1='389' y1='416' x2='406' y2='426'/>
+            <content>31.1</content>
+            <instruction instr-id='242' subinstr-id='42'/>
+            <instruction instr-id='242' subinstr-id='44'/>
+            <instruction instr-id='242' subinstr-id='46'/>
+            <instruction instr-id='242' subinstr-id='48'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='5'>
+            <bounding-box x1='433' y1='416' x2='456' y2='426'/>
+            <content>9,600</content>
+            <instruction instr-id='242' subinstr-id='50'/>
+            <instruction instr-id='242' subinstr-id='52'/>
+            <instruction instr-id='242' subinstr-id='54'/>
+            <instruction instr-id='242' subinstr-id='56'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='6'>
+            <bounding-box x1='468' y1='416' x2='496' y2='426'/>
+            <content>38,200</content>
+            <instruction instr-id='242' subinstr-id='58'/>
+            <instruction instr-id='242' subinstr-id='60'/>
+            <instruction instr-id='242' subinstr-id='62'/>
+            <instruction instr-id='242' subinstr-id='64'/>
+            <instruction instr-id='242' subinstr-id='66'/>
+            <instruction instr-id='242' subinstr-id='68'/>
+         </cell>
+         <cell id='1' start-row='15' start-col='7'>
+            <bounding-box x1='509' y1='416' x2='536' y2='426'/>
+            <content>40,000</content>
+            <instruction instr-id='242' subinstr-id='70'/>
+            <instruction instr-id='242' subinstr-id='72'/>
+            <instruction instr-id='242' subinstr-id='74'/>
+            <instruction instr-id='242' subinstr-id='76'/>
+            <instruction instr-id='242' subinstr-id='78'/>
+            <instruction instr-id='242' subinstr-id='80'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='0'>
+            <bounding-box x1='81' y1='404' x2='104' y2='414'/>
+            <content>Other</content>
+            <instruction instr-id='247' subinstr-id='0'/>
+            <instruction instr-id='247' subinstr-id='2'/>
+            <instruction instr-id='247' subinstr-id='4'/>
+            <instruction instr-id='247' subinstr-id='6'/>
+            <instruction instr-id='247' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='1'>
+            <bounding-box x1='268' y1='404' x2='285' y2='414'/>
+            <content>29.3</content>
+            <instruction instr-id='249' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='2'>
+            <bounding-box x1='308' y1='404' x2='326' y2='414'/>
+            <content>23.4</content>
+            <instruction instr-id='249' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='3'>
+            <bounding-box x1='348' y1='404' x2='366' y2='414'/>
+            <content>17.8</content>
+            <instruction instr-id='249' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='4'>
+            <bounding-box x1='388' y1='404' x2='406' y2='414'/>
+            <content>29.5</content>
+            <instruction instr-id='249' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='5'>
+            <bounding-box x1='433' y1='404' x2='456' y2='414'/>
+            <content>9,500</content>
+            <instruction instr-id='249' subinstr-id='8'/>
+            <instruction instr-id='249' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='6'>
+            <bounding-box x1='468' y1='404' x2='496' y2='414'/>
+            <content>31,000</content>
+            <instruction instr-id='249' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='16' start-col='7'>
+            <bounding-box x1='508' y1='404' x2='536' y2='414'/>
+            <content>37,400</content>
+            <instruction instr-id='249' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='17' start-col='0'>
+            <bounding-box x1='74' y1='382' x2='213' y2='392'/>
+            <content>Amount borrowed (undergraduate)</content>
+            <instruction instr-id='253' subinstr-id='0'/>
+            <instruction instr-id='253' subinstr-id='2'/>
+            <instruction instr-id='253' subinstr-id='4'/>
+            <instruction instr-id='253' subinstr-id='6'/>
+            <instruction instr-id='253' subinstr-id='8'/>
+            <instruction instr-id='253' subinstr-id='10'/>
+            <instruction instr-id='253' subinstr-id='12'/>
+            <instruction instr-id='253' subinstr-id='14'/>
+            <instruction instr-id='253' subinstr-id='16'/>
+            <instruction instr-id='253' subinstr-id='18'/>
+            <instruction instr-id='253' subinstr-id='20'/>
+            <instruction instr-id='253' subinstr-id='22'/>
+            <instruction instr-id='253' subinstr-id='24'/>
+            <instruction instr-id='253' subinstr-id='26'/>
+            <instruction instr-id='253' subinstr-id='28'/>
+            <instruction instr-id='253' subinstr-id='30'/>
+            <instruction instr-id='253' subinstr-id='32'/>
+            <instruction instr-id='253' subinstr-id='34'/>
+            <instruction instr-id='253' subinstr-id='36'/>
+            <instruction instr-id='253' subinstr-id='38'/>
+            <instruction instr-id='253' subinstr-id='40'/>
+            <instruction instr-id='253' subinstr-id='42'/>
+            <instruction instr-id='253' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='0'>
+            <bounding-box x1='79' y1='370' x2='141' y2='380'/>
+            <content>Did not borrow</content>
+            <instruction instr-id='258' subinstr-id='0'/>
+            <instruction instr-id='258' subinstr-id='2'/>
+            <instruction instr-id='258' subinstr-id='4'/>
+            <instruction instr-id='258' subinstr-id='6'/>
+            <instruction instr-id='258' subinstr-id='8'/>
+            <instruction instr-id='258' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='1'>
+            <bounding-box x1='268' y1='370' x2='285' y2='380'/>
+            <content>64.0</content>
+            <instruction instr-id='258' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='2'>
+            <bounding-box x1='321' y1='370' x2='326' y2='380'/>
+            <content> †</content>
+            <instruction instr-id='258' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='3'>
+            <bounding-box x1='348' y1='370' x2='366' y2='380'/>
+            <content>36.0</content>
+            <instruction instr-id='258' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='4'>
+            <bounding-box x1='401' y1='370' x2='406' y2='380'/>
+            <content> †</content>
+            <instruction instr-id='258' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='5'>
+            <bounding-box x1='451' y1='370' x2='456' y2='380'/>
+            <content> †</content>
+            <instruction instr-id='258' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='6'>
+            <bounding-box x1='468' y1='370' x2='496' y2='380'/>
+            <content>36,900</content>
+            <instruction instr-id='258' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='18' start-col='7'>
+            <bounding-box x1='531' y1='370' x2='536' y2='380'/>
+            <content> †</content>
+            <instruction instr-id='258' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='0'>
+            <bounding-box x1='79' y1='358' x2='147' y2='368'/>
+            <content>Less than $5,000</content>
+            <instruction instr-id='263' subinstr-id='0'/>
+            <instruction instr-id='263' subinstr-id='2'/>
+            <instruction instr-id='263' subinstr-id='4'/>
+            <instruction instr-id='263' subinstr-id='6'/>
+            <instruction instr-id='263' subinstr-id='8'/>
+            <instruction instr-id='263' subinstr-id='10'/>
+            <instruction instr-id='263' subinstr-id='12'/>
+            <instruction instr-id='263' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='1'>
+            <bounding-box x1='280' y1='358' x2='285' y2='368'/>
+            <content> †</content>
+            <instruction instr-id='263' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='2'>
+            <bounding-box x1='308' y1='358' x2='326' y2='368'/>
+            <content>54.4</content>
+            <instruction instr-id='263' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='3'>
+            <bounding-box x1='361' y1='358' x2='366' y2='368'/>
+            <content> †</content>
+            <instruction instr-id='263' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='4'>
+            <bounding-box x1='388' y1='358' x2='406' y2='368'/>
+            <content>45.7</content>
+            <instruction instr-id='263' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='5'>
+            <bounding-box x1='433' y1='358' x2='456' y2='368'/>
+            <content>2,700</content>
+            <instruction instr-id='263' subinstr-id='24'/>
+            <instruction instr-id='263' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='6'>
+            <bounding-box x1='491' y1='358' x2='496' y2='368'/>
+            <content> †</content>
+            <instruction instr-id='263' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='19' start-col='7'>
+            <bounding-box x1='508' y1='358' x2='536' y2='368'/>
+            <content>32,700</content>
+            <instruction instr-id='263' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='0'>
+            <bounding-box x1='79' y1='346' x2='134' y2='356'/>
+            <content>$5,000–9,999</content>
+            <instruction instr-id='268' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='1'>
+            <bounding-box x1='280' y1='346' x2='285' y2='356'/>
+            <content> †</content>
+            <instruction instr-id='268' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='2'>
+            <bounding-box x1='308' y1='346' x2='326' y2='356'/>
+            <content>43.7</content>
+            <instruction instr-id='268' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='3'>
+            <bounding-box x1='361' y1='346' x2='366' y2='356'/>
+            <content> †</content>
+            <instruction instr-id='268' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='4'>
+            <bounding-box x1='388' y1='346' x2='406' y2='356'/>
+            <content>56.3</content>
+            <instruction instr-id='268' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='5'>
+            <bounding-box x1='433' y1='346' x2='456' y2='356'/>
+            <content>6,900</content>
+            <instruction instr-id='268' subinstr-id='10'/>
+            <instruction instr-id='268' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='6'>
+            <bounding-box x1='491' y1='346' x2='496' y2='356'/>
+            <content> †</content>
+            <instruction instr-id='268' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='20' start-col='7'>
+            <bounding-box x1='508' y1='346' x2='536' y2='356'/>
+            <content>36,200</content>
+            <instruction instr-id='268' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='0'>
+            <bounding-box x1='79' y1='334' x2='144' y2='344'/>
+            <content>$10,000–14,999</content>
+            <instruction instr-id='272' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='1'>
+            <bounding-box x1='280' y1='334' x2='285' y2='344'/>
+            <content> †</content>
+            <instruction instr-id='272' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='2'>
+            <bounding-box x1='308' y1='334' x2='326' y2='344'/>
+            <content>45.3</content>
+            <instruction instr-id='272' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='3'>
+            <bounding-box x1='361' y1='334' x2='366' y2='344'/>
+            <content> †</content>
+            <instruction instr-id='272' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='4'>
+            <bounding-box x1='388' y1='334' x2='406' y2='344'/>
+            <content>54.7</content>
+            <instruction instr-id='272' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='5'>
+            <bounding-box x1='428' y1='334' x2='456' y2='344'/>
+            <content>11,300</content>
+            <instruction instr-id='272' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='6'>
+            <bounding-box x1='491' y1='334' x2='496' y2='344'/>
+            <content> †</content>
+            <instruction instr-id='272' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='21' start-col='7'>
+            <bounding-box x1='508' y1='334' x2='536' y2='344'/>
+            <content>40,200</content>
+            <instruction instr-id='272' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='0'>
+            <bounding-box x1='79' y1='322' x2='145' y2='332'/>
+            <content>$15,000 or more</content>
+            <instruction instr-id='276' subinstr-id='0'/>
+            <instruction instr-id='276' subinstr-id='2'/>
+            <instruction instr-id='276' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='1'>
+            <bounding-box x1='280' y1='322' x2='285' y2='332'/>
+            <content> †</content>
+            <instruction instr-id='276' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='2'>
+            <bounding-box x1='308' y1='322' x2='326' y2='332'/>
+            <content>41.6</content>
+            <instruction instr-id='276' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='3'>
+            <bounding-box x1='361' y1='322' x2='366' y2='332'/>
+            <content> †</content>
+            <instruction instr-id='276' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='4'>
+            <bounding-box x1='388' y1='322' x2='406' y2='332'/>
+            <content>58.4</content>
+            <instruction instr-id='276' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='5'>
+            <bounding-box x1='428' y1='322' x2='456' y2='332'/>
+            <content>22,400</content>
+            <instruction instr-id='276' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='6'>
+            <bounding-box x1='491' y1='322' x2='496' y2='332'/>
+            <content> †</content>
+            <instruction instr-id='276' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='22' start-col='7'>
+            <bounding-box x1='508' y1='322' x2='536' y2='332'/>
+            <content>57,700</content>
+            <instruction instr-id='276' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='23' start-col='0'>
+            <bounding-box x1='74' y1='300' x2='279' y2='310'/>
+            <content>Highest enrollment after bachelor’s degree by 2003</content>
+            <instruction instr-id='282' subinstr-id='0'/>
+            <instruction instr-id='282' subinstr-id='2'/>
+            <instruction instr-id='282' subinstr-id='4'/>
+            <instruction instr-id='282' subinstr-id='6'/>
+            <instruction instr-id='282' subinstr-id='8'/>
+            <instruction instr-id='282' subinstr-id='10'/>
+            <instruction instr-id='282' subinstr-id='12'/>
+            <instruction instr-id='282' subinstr-id='14'/>
+            <instruction instr-id='282' subinstr-id='16'/>
+            <instruction instr-id='282' subinstr-id='18'/>
+            <instruction instr-id='282' subinstr-id='20'/>
+            <instruction instr-id='282' subinstr-id='22'/>
+            <instruction instr-id='282' subinstr-id='24'/>
+            <instruction instr-id='282' subinstr-id='26'/>
+            <instruction instr-id='282' subinstr-id='28'/>
+            <instruction instr-id='282' subinstr-id='30'/>
+            <instruction instr-id='282' subinstr-id='32'/>
+            <instruction instr-id='282' subinstr-id='34'/>
+            <instruction instr-id='282' subinstr-id='36'/>
+            <instruction instr-id='282' subinstr-id='38'/>
+            <instruction instr-id='282' subinstr-id='40'/>
+            <instruction instr-id='282' subinstr-id='42'/>
+            <instruction instr-id='282' subinstr-id='44'/>
+            <instruction instr-id='282' subinstr-id='46'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='0'>
+            <bounding-box x1='79' y1='288' x2='143' y2='298'/>
+            <content>Master’s degree</content>
+            <instruction instr-id='288' subinstr-id='0'/>
+            <instruction instr-id='288' subinstr-id='2'/>
+            <instruction instr-id='288' subinstr-id='4'/>
+            <instruction instr-id='288' subinstr-id='6'/>
+            <instruction instr-id='288' subinstr-id='8'/>
+            <instruction instr-id='288' subinstr-id='10'/>
+            <instruction instr-id='288' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='1'>
+            <bounding-box x1='268' y1='288' x2='286' y2='298'/>
+            <content>34.3</content>
+            <instruction instr-id='288' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='2'>
+            <bounding-box x1='308' y1='288' x2='326' y2='298'/>
+            <content>27.8</content>
+            <instruction instr-id='288' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='3'>
+            <bounding-box x1='348' y1='288' x2='366' y2='298'/>
+            <content>13.6</content>
+            <instruction instr-id='288' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='4'>
+            <bounding-box x1='389' y1='288' x2='406' y2='298'/>
+            <content>24.3</content>
+            <instruction instr-id='288' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='5'>
+            <bounding-box x1='433' y1='288' x2='456' y2='298'/>
+            <content>9,500</content>
+            <instruction instr-id='288' subinstr-id='22'/>
+            <instruction instr-id='288' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='6'>
+            <bounding-box x1='468' y1='288' x2='496' y2='298'/>
+            <content>22,600</content>
+            <instruction instr-id='288' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='24' start-col='7'>
+            <bounding-box x1='508' y1='288' x2='536' y2='298'/>
+            <content>29,000</content>
+            <instruction instr-id='288' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='0'>
+            <bounding-box x1='79' y1='276' x2='143' y2='286'/>
+            <content>Doctoral degree</content>
+            <instruction instr-id='291' subinstr-id='0'/>
+            <instruction instr-id='291' subinstr-id='2'/>
+            <instruction instr-id='291' subinstr-id='4'/>
+            <instruction instr-id='291' subinstr-id='6'/>
+            <instruction instr-id='291' subinstr-id='8'/>
+            <instruction instr-id='291' subinstr-id='10'/>
+            <instruction instr-id='291' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='1'>
+            <bounding-box x1='268' y1='276' x2='286' y2='286'/>
+            <content>23.6</content>
+            <instruction instr-id='291' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='2'>
+            <bounding-box x1='308' y1='276' x2='326' y2='286'/>
+            <content>13.2</content>
+            <instruction instr-id='291' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='3'>
+            <bounding-box x1='348' y1='276' x2='366' y2='286'/>
+            <content>28.3</content>
+            <instruction instr-id='291' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='4'>
+            <bounding-box x1='389' y1='276' x2='406' y2='286'/>
+            <content>34.9</content>
+            <instruction instr-id='291' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='5'>
+            <bounding-box x1='428' y1='276' x2='456' y2='286'/>
+            <content>10,400</content>
+            <instruction instr-id='291' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='6'>
+            <bounding-box x1='468' y1='276' x2='496' y2='286'/>
+            <content>44,300</content>
+            <instruction instr-id='291' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='25' start-col='7'>
+            <bounding-box x1='508' y1='276' x2='536' y2='286'/>
+            <content>54,900</content>
+            <instruction instr-id='291' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='0'>
+            <bounding-box x1='79' y1='264' x2='178' y2='274'/>
+            <content>First-professional degree</content>
+            <instruction instr-id='295' subinstr-id='0'/>
+            <instruction instr-id='295' subinstr-id='2'/>
+            <instruction instr-id='295' subinstr-id='4'/>
+            <instruction instr-id='295' subinstr-id='6'/>
+            <instruction instr-id='295' subinstr-id='8'/>
+            <instruction instr-id='295' subinstr-id='10'/>
+            <instruction instr-id='295' subinstr-id='12'/>
+            <instruction instr-id='295' subinstr-id='14'/>
+            <instruction instr-id='295' subinstr-id='16'/>
+            <instruction instr-id='295' subinstr-id='18'/>
+            <instruction instr-id='295' subinstr-id='20'/>
+            <instruction instr-id='295' subinstr-id='22'/>
+            <instruction instr-id='295' subinstr-id='24'/>
+            <instruction instr-id='295' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='1'>
+            <bounding-box x1='268' y1='264' x2='285' y2='274'/>
+            <content>20.4</content>
+            <instruction instr-id='295' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='2'>
+            <bounding-box x1='313' y1='264' x2='326' y2='274'/>
+            <content>7.6</content>
+            <instruction instr-id='295' subinstr-id='30'/>
+            <instruction instr-id='295' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='3'>
+            <bounding-box x1='348' y1='264' x2='366' y2='274'/>
+            <content>33.6</content>
+            <instruction instr-id='295' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='4'>
+            <bounding-box x1='388' y1='264' x2='406' y2='274'/>
+            <content>38.5</content>
+            <instruction instr-id='295' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='5'>
+            <bounding-box x1='451' y1='264' x2='456' y2='274'/>
+            <content>‡</content>
+            <instruction instr-id='295' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='6'>
+            <bounding-box x1='468' y1='264' x2='496' y2='274'/>
+            <content>68,000</content>
+            <instruction instr-id='295' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='26' start-col='7'>
+            <bounding-box x1='508' y1='264' x2='536' y2='274'/>
+            <content>82,000</content>
+            <instruction instr-id='295' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='27' start-col='0'>
+            <bounding-box x1='74' y1='242' x2='198' y2='252'/>
+            <content>Highest degree earned by 2003</content>
+            <instruction instr-id='301' subinstr-id='0'/>
+            <instruction instr-id='301' subinstr-id='2'/>
+            <instruction instr-id='301' subinstr-id='4'/>
+            <instruction instr-id='301' subinstr-id='6'/>
+            <instruction instr-id='301' subinstr-id='8'/>
+            <instruction instr-id='301' subinstr-id='10'/>
+            <instruction instr-id='301' subinstr-id='12'/>
+            <instruction instr-id='301' subinstr-id='14'/>
+            <instruction instr-id='301' subinstr-id='16'/>
+            <instruction instr-id='301' subinstr-id='18'/>
+            <instruction instr-id='301' subinstr-id='20'/>
+            <instruction instr-id='301' subinstr-id='22'/>
+            <instruction instr-id='301' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='0'>
+            <bounding-box x1='79' y1='230' x2='151' y2='240'/>
+            <content>Bachelor’s degree</content>
+            <instruction instr-id='307' subinstr-id='0'/>
+            <instruction instr-id='307' subinstr-id='2'/>
+            <instruction instr-id='307' subinstr-id='4'/>
+            <instruction instr-id='307' subinstr-id='6'/>
+            <instruction instr-id='307' subinstr-id='8'/>
+            <instruction instr-id='307' subinstr-id='10'/>
+            <instruction instr-id='307' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='1'>
+            <bounding-box x1='268' y1='230' x2='285' y2='240'/>
+            <content>35.5</content>
+            <instruction instr-id='307' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='2'>
+            <bounding-box x1='308' y1='230' x2='326' y2='240'/>
+            <content>32.0</content>
+            <instruction instr-id='307' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='3'>
+            <bounding-box x1='348' y1='230' x2='366' y2='240'/>
+            <content>10.8</content>
+            <instruction instr-id='307' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='4'>
+            <bounding-box x1='388' y1='230' x2='406' y2='240'/>
+            <content>21.7</content>
+            <instruction instr-id='307' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='5'>
+            <bounding-box x1='433' y1='230' x2='456' y2='240'/>
+            <content>9,500</content>
+            <instruction instr-id='307' subinstr-id='22'/>
+            <instruction instr-id='307' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='6'>
+            <bounding-box x1='468' y1='230' x2='496' y2='240'/>
+            <content>25,500</content>
+            <instruction instr-id='307' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='28' start-col='7'>
+            <bounding-box x1='508' y1='230' x2='536' y2='240'/>
+            <content>32,500</content>
+            <instruction instr-id='307' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='0'>
+            <bounding-box x1='79' y1='218' x2='143' y2='228'/>
+            <content>Master’s degree</content>
+            <instruction instr-id='311' subinstr-id='0'/>
+            <instruction instr-id='311' subinstr-id='2'/>
+            <instruction instr-id='311' subinstr-id='4'/>
+            <instruction instr-id='311' subinstr-id='6'/>
+            <instruction instr-id='311' subinstr-id='8'/>
+            <instruction instr-id='311' subinstr-id='10'/>
+            <instruction instr-id='311' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='1'>
+            <bounding-box x1='268' y1='218' x2='286' y2='228'/>
+            <content>31.8</content>
+            <instruction instr-id='311' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='2'>
+            <bounding-box x1='308' y1='218' x2='326' y2='228'/>
+            <content>22.8</content>
+            <instruction instr-id='311' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='3'>
+            <bounding-box x1='348' y1='218' x2='366' y2='228'/>
+            <content>17.5</content>
+            <instruction instr-id='311' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='4'>
+            <bounding-box x1='389' y1='218' x2='406' y2='228'/>
+            <content>27.9</content>
+            <instruction instr-id='311' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='5'>
+            <bounding-box x1='433' y1='218' x2='456' y2='228'/>
+            <content>9,500</content>
+            <instruction instr-id='311' subinstr-id='22'/>
+            <instruction instr-id='311' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='6'>
+            <bounding-box x1='468' y1='218' x2='496' y2='228'/>
+            <content>25,200</content>
+            <instruction instr-id='311' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='29' start-col='7'>
+            <bounding-box x1='508' y1='218' x2='536' y2='228'/>
+            <content>32,500</content>
+            <instruction instr-id='311' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='0'>
+            <bounding-box x1='79' y1='206' x2='143' y2='216'/>
+            <content>Doctoral degree</content>
+            <instruction instr-id='316' subinstr-id='0'/>
+            <instruction instr-id='316' subinstr-id='2'/>
+            <instruction instr-id='316' subinstr-id='4'/>
+            <instruction instr-id='316' subinstr-id='6'/>
+            <instruction instr-id='316' subinstr-id='8'/>
+            <instruction instr-id='316' subinstr-id='10'/>
+            <instruction instr-id='316' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='1'>
+            <bounding-box x1='268' y1='206' x2='285' y2='216'/>
+            <content>23.7</content>
+            <instruction instr-id='316' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='2'>
+            <bounding-box x1='308' y1='206' x2='326' y2='216'/>
+            <content>11.8</content>
+            <instruction instr-id='316' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='3'>
+            <bounding-box x1='348' y1='206' x2='366' y2='216'/>
+            <content>31.2</content>
+            <instruction instr-id='316' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='4'>
+            <bounding-box x1='388' y1='206' x2='406' y2='216'/>
+            <content>33.3</content>
+            <instruction instr-id='316' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='5'>
+            <bounding-box x1='451' y1='206' x2='456' y2='216'/>
+            <content>‡</content>
+            <instruction instr-id='316' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='6'>
+            <bounding-box x1='468' y1='206' x2='496' y2='216'/>
+            <content>46,600</content>
+            <instruction instr-id='316' subinstr-id='24'/>
+         </cell>
+         <cell id='1' start-row='30' start-col='7'>
+            <bounding-box x1='508' y1='206' x2='536' y2='216'/>
+            <content>52,900</content>
+            <instruction instr-id='316' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='0'>
+            <bounding-box x1='79' y1='195' x2='178' y2='205'/>
+            <content>First-professional degree</content>
+            <instruction instr-id='321' subinstr-id='0'/>
+            <instruction instr-id='321' subinstr-id='2'/>
+            <instruction instr-id='321' subinstr-id='4'/>
+            <instruction instr-id='321' subinstr-id='6'/>
+            <instruction instr-id='321' subinstr-id='8'/>
+            <instruction instr-id='321' subinstr-id='10'/>
+            <instruction instr-id='321' subinstr-id='12'/>
+            <instruction instr-id='321' subinstr-id='14'/>
+            <instruction instr-id='321' subinstr-id='16'/>
+            <instruction instr-id='321' subinstr-id='18'/>
+            <instruction instr-id='321' subinstr-id='20'/>
+            <instruction instr-id='321' subinstr-id='22'/>
+            <instruction instr-id='321' subinstr-id='24'/>
+            <instruction instr-id='321' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='1'>
+            <bounding-box x1='268' y1='195' x2='285' y2='205'/>
+            <content>17.8</content>
+            <instruction instr-id='321' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='2'>
+            <bounding-box x1='313' y1='195' x2='326' y2='205'/>
+            <content>3.5</content>
+            <instruction instr-id='321' subinstr-id='30'/>
+            <instruction instr-id='321' subinstr-id='32'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='3'>
+            <bounding-box x1='348' y1='195' x2='366' y2='205'/>
+            <content>37.6</content>
+            <instruction instr-id='321' subinstr-id='34'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='4'>
+            <bounding-box x1='388' y1='195' x2='406' y2='205'/>
+            <content>41.1</content>
+            <instruction instr-id='321' subinstr-id='36'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='5'>
+            <bounding-box x1='451' y1='195' x2='456' y2='205'/>
+            <content>‡</content>
+            <instruction instr-id='321' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='6'>
+            <bounding-box x1='468' y1='195' x2='496' y2='205'/>
+            <content>73,900</content>
+            <instruction instr-id='321' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='31' start-col='7'>
+            <bounding-box x1='508' y1='195' x2='536' y2='205'/>
+            <content>88,900</content>
+            <instruction instr-id='321' subinstr-id='42'/>
+         </cell>
+      </region>
+   </table>
+</document>

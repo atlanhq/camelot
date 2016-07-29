@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_us-027-reg.xml'>
+   <table id='1'>
+      <region id='1' page='2'>
+         <instruction instr-id='548'/>
+         <instruction instr-id='588'/>
+         <instruction instr-id='588' subinstr-id='2'/>
+         <instruction instr-id='588' subinstr-id='4'/>
+         <instruction instr-id='588' subinstr-id='6'/>
+         <instruction instr-id='588' subinstr-id='8'/>
+         <instruction instr-id='627'/>
+         <instruction instr-id='649'/>
+         <instruction instr-id='649' subinstr-id='2'/>
+         <instruction instr-id='649' subinstr-id='4'/>
+         <instruction instr-id='649' subinstr-id='6'/>
+         <instruction instr-id='649' subinstr-id='8'/>
+         <instruction instr-id='649' subinstr-id='10'/>
+         <instruction instr-id='649' subinstr-id='12'/>
+         <instruction instr-id='649' subinstr-id='14'/>
+         <instruction instr-id='669'/>
+         <instruction instr-id='669' subinstr-id='2'/>
+         <instruction instr-id='669' subinstr-id='4'/>
+         <instruction instr-id='669' subinstr-id='6'/>
+         <instruction instr-id='669' subinstr-id='8'/>
+         <instruction instr-id='669' subinstr-id='10'/>
+         <instruction instr-id='669' subinstr-id='12'/>
+         <instruction instr-id='669' subinstr-id='14'/>
+         <instruction instr-id='669' subinstr-id='16'/>
+         <instruction instr-id='689'/>
+         <instruction instr-id='689' subinstr-id='2'/>
+         <instruction instr-id='689' subinstr-id='4'/>
+         <instruction instr-id='689' subinstr-id='6'/>
+         <instruction instr-id='689' subinstr-id='8'/>
+         <instruction instr-id='689' subinstr-id='10'/>
+         <instruction instr-id='689' subinstr-id='12'/>
+         <instruction instr-id='689' subinstr-id='14'/>
+         <instruction instr-id='689' subinstr-id='16'/>
+         <instruction instr-id='709'/>
+         <instruction instr-id='709' subinstr-id='2'/>
+         <instruction instr-id='709' subinstr-id='4'/>
+         <instruction instr-id='709' subinstr-id='6'/>
+         <instruction instr-id='709' subinstr-id='8'/>
+         <instruction instr-id='709' subinstr-id='10'/>
+         <instruction instr-id='709' subinstr-id='12'/>
+         <instruction instr-id='709' subinstr-id='14'/>
+         <instruction instr-id='709' subinstr-id='16'/>
+         <instruction instr-id='729'/>
+         <instruction instr-id='729' subinstr-id='2'/>
+         <instruction instr-id='729' subinstr-id='4'/>
+         <instruction instr-id='729' subinstr-id='6'/>
+         <instruction instr-id='729' subinstr-id='8'/>
+         <instruction instr-id='729' subinstr-id='10'/>
+         <instruction instr-id='729' subinstr-id='12'/>
+         <instruction instr-id='729' subinstr-id='14'/>
+         <instruction instr-id='729' subinstr-id='16'/>
+         <instruction instr-id='749'/>
+         <instruction instr-id='749' subinstr-id='2'/>
+         <instruction instr-id='749' subinstr-id='4'/>
+         <instruction instr-id='749' subinstr-id='6'/>
+         <instruction instr-id='749' subinstr-id='8'/>
+         <instruction instr-id='749' subinstr-id='10'/>
+         <instruction instr-id='749' subinstr-id='12'/>
+         <instruction instr-id='749' subinstr-id='14'/>
+         <instruction instr-id='749' subinstr-id='16'/>
+         <instruction instr-id='769'/>
+         <instruction instr-id='769' subinstr-id='2'/>
+         <instruction instr-id='769' subinstr-id='4'/>
+         <instruction instr-id='769' subinstr-id='6'/>
+         <instruction instr-id='769' subinstr-id='10'/>
+         <instruction instr-id='769' subinstr-id='12'/>
+         <instruction instr-id='769' subinstr-id='14'/>
+         <instruction instr-id='769' subinstr-id='16'/>
+         <instruction instr-id='769' subinstr-id='18'/>
+         <instruction instr-id='769' subinstr-id='20'/>
+         <instruction instr-id='769' subinstr-id='22'/>
+         <instruction instr-id='820'/>
+         <instruction instr-id='820' subinstr-id='2'/>
+         <instruction instr-id='860'/>
+         <instruction instr-id='860' subinstr-id='2'/>
+         <instruction instr-id='860' subinstr-id='4'/>
+         <instruction instr-id='860' subinstr-id='6'/>
+         <instruction instr-id='860' subinstr-id='8'/>
+         <instruction instr-id='900'/>
+         <instruction instr-id='900' subinstr-id='2'/>
+         <bounding-box x1='408' y1='538' x2='540' y2='649'/>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' page='3'>
+         <instruction instr-id='571'/>
+         <instruction instr-id='571' subinstr-id='2'/>
+         <instruction instr-id='571' subinstr-id='4'/>
+         <instruction instr-id='584'/>
+         <instruction instr-id='584' subinstr-id='2'/>
+         <instruction instr-id='597'/>
+         <instruction instr-id='597' subinstr-id='2'/>
+         <instruction instr-id='597' subinstr-id='4'/>
+         <instruction instr-id='597' subinstr-id='6'/>
+         <instruction instr-id='610'/>
+         <instruction instr-id='610' subinstr-id='2'/>
+         <instruction instr-id='610' subinstr-id='4'/>
+         <instruction instr-id='610' subinstr-id='6'/>
+         <instruction instr-id='610' subinstr-id='8'/>
+         <instruction instr-id='610' subinstr-id='10'/>
+         <instruction instr-id='610' subinstr-id='12'/>
+         <instruction instr-id='610' subinstr-id='14'/>
+         <instruction instr-id='650'/>
+         <instruction instr-id='650' subinstr-id='2'/>
+         <instruction instr-id='650' subinstr-id='4'/>
+         <instruction instr-id='650' subinstr-id='6'/>
+         <instruction instr-id='663'/>
+         <instruction instr-id='663' subinstr-id='2'/>
+         <instruction instr-id='663' subinstr-id='4'/>
+         <instruction instr-id='663' subinstr-id='6'/>
+         <instruction instr-id='663' subinstr-id='8'/>
+         <instruction instr-id='663' subinstr-id='10'/>
+         <instruction instr-id='663' subinstr-id='12'/>
+         <instruction instr-id='663' subinstr-id='14'/>
+         <instruction instr-id='703'/>
+         <instruction instr-id='703' subinstr-id='2'/>
+         <instruction instr-id='703' subinstr-id='4'/>
+         <instruction instr-id='716'/>
+         <instruction instr-id='729'/>
+         <instruction instr-id='729' subinstr-id='2'/>
+         <instruction instr-id='729' subinstr-id='4'/>
+         <instruction instr-id='769'/>
+         <instruction instr-id='769' subinstr-id='2'/>
+         <instruction instr-id='782'/>
+         <instruction instr-id='782' subinstr-id='2'/>
+         <instruction instr-id='782' subinstr-id='4'/>
+         <instruction instr-id='795'/>
+         <instruction instr-id='808'/>
+         <instruction instr-id='808' subinstr-id='2'/>
+         <instruction instr-id='808' subinstr-id='4'/>
+         <instruction instr-id='848'/>
+         <instruction instr-id='848' subinstr-id='2'/>
+         <instruction instr-id='848' subinstr-id='4'/>
+         <instruction instr-id='848' subinstr-id='6'/>
+         <instruction instr-id='888'/>
+         <instruction instr-id='888' subinstr-id='2'/>
+         <instruction instr-id='901'/>
+         <instruction instr-id='901' subinstr-id='2'/>
+         <instruction instr-id='941'/>
+         <instruction instr-id='941' subinstr-id='2'/>
+         <instruction instr-id='941' subinstr-id='4'/>
+         <instruction instr-id='981'/>
+         <instruction instr-id='981' subinstr-id='2'/>
+         <instruction instr-id='981' subinstr-id='4'/>
+         <instruction instr-id='994'/>
+         <instruction instr-id='1007'/>
+         <instruction instr-id='1047'/>
+         <instruction instr-id='1047' subinstr-id='2'/>
+         <instruction instr-id='1047' subinstr-id='4'/>
+         <instruction instr-id='1083'/>
+         <instruction instr-id='1083' subinstr-id='2'/>
+         <instruction instr-id='1083' subinstr-id='4'/>
+         <instruction instr-id='1083' subinstr-id='6'/>
+         <instruction instr-id='1083' subinstr-id='8'/>
+         <instruction instr-id='1085'/>
+         <instruction instr-id='1085' subinstr-id='2'/>
+         <instruction instr-id='1085' subinstr-id='4'/>
+         <instruction instr-id='1087'/>
+         <instruction instr-id='1089'/>
+         <instruction instr-id='1089' subinstr-id='2'/>
+         <instruction instr-id='1089' subinstr-id='4'/>
+         <instruction instr-id='1091'/>
+         <instruction instr-id='1091' subinstr-id='2'/>
+         <instruction instr-id='1091' subinstr-id='4'/>
+         <instruction instr-id='1093'/>
+         <instruction instr-id='1093' subinstr-id='2'/>
+         <instruction instr-id='1093' subinstr-id='4'/>
+         <instruction instr-id='1093' subinstr-id='6'/>
+         <instruction instr-id='1095'/>
+         <instruction instr-id='1095' subinstr-id='2'/>
+         <instruction instr-id='1095' subinstr-id='4'/>
+         <instruction instr-id='1095' subinstr-id='6'/>
+         <instruction instr-id='1097'/>
+         <instruction instr-id='1097' subinstr-id='2'/>
+         <instruction instr-id='1097' subinstr-id='4'/>
+         <instruction instr-id='1131'/>
+         <instruction instr-id='1131' subinstr-id='2'/>
+         <instruction instr-id='1131' subinstr-id='4'/>
+         <instruction instr-id='1131' subinstr-id='6'/>
+         <instruction instr-id='1133'/>
+         <instruction instr-id='1133' subinstr-id='2'/>
+         <instruction instr-id='1133' subinstr-id='4'/>
+         <instruction instr-id='1135'/>
+         <instruction instr-id='1137'/>
+         <instruction instr-id='1137' subinstr-id='2'/>
+         <instruction instr-id='1137' subinstr-id='4'/>
+         <instruction instr-id='1139'/>
+         <instruction instr-id='1139' subinstr-id='2'/>
+         <instruction instr-id='1139' subinstr-id='4'/>
+         <instruction instr-id='1141'/>
+         <instruction instr-id='1141' subinstr-id='2'/>
+         <instruction instr-id='1141' subinstr-id='4'/>
+         <instruction instr-id='1141' subinstr-id='6'/>
+         <instruction instr-id='1143'/>
+         <instruction instr-id='1143' subinstr-id='2'/>
+         <instruction instr-id='1143' subinstr-id='4'/>
+         <instruction instr-id='1145'/>
+         <instruction instr-id='1145' subinstr-id='2'/>
+         <instruction instr-id='1145' subinstr-id='4'/>
+         <instruction instr-id='1179'/>
+         <instruction instr-id='1179' subinstr-id='2'/>
+         <instruction instr-id='1179' subinstr-id='4'/>
+         <instruction instr-id='1179' subinstr-id='6'/>
+         <instruction instr-id='1181'/>
+         <instruction instr-id='1181' subinstr-id='2'/>
+         <instruction instr-id='1181' subinstr-id='4'/>
+         <instruction instr-id='1183'/>
+         <instruction instr-id='1185'/>
+         <instruction instr-id='1185' subinstr-id='2'/>
+         <instruction instr-id='1185' subinstr-id='4'/>
+         <instruction instr-id='1187'/>
+         <instruction instr-id='1187' subinstr-id='2'/>
+         <instruction instr-id='1187' subinstr-id='4'/>
+         <instruction instr-id='1189'/>
+         <instruction instr-id='1189' subinstr-id='2'/>
+         <instruction instr-id='1189' subinstr-id='4'/>
+         <instruction instr-id='1189' subinstr-id='6'/>
+         <instruction instr-id='1191'/>
+         <instruction instr-id='1191' subinstr-id='2'/>
+         <instruction instr-id='1191' subinstr-id='4'/>
+         <instruction instr-id='1193'/>
+         <instruction instr-id='1193' subinstr-id='2'/>
+         <instruction instr-id='1227'/>
+         <instruction instr-id='1227' subinstr-id='2'/>
+         <instruction instr-id='1227' subinstr-id='4'/>
+         <instruction instr-id='1227' subinstr-id='6'/>
+         <instruction instr-id='1229'/>
+         <instruction instr-id='1229' subinstr-id='2'/>
+         <instruction instr-id='1229' subinstr-id='4'/>
+         <instruction instr-id='1231'/>
+         <instruction instr-id='1233'/>
+         <instruction instr-id='1233' subinstr-id='2'/>
+         <instruction instr-id='1233' subinstr-id='4'/>
+         <instruction instr-id='1235'/>
+         <instruction instr-id='1235' subinstr-id='2'/>
+         <instruction instr-id='1235' subinstr-id='4'/>
+         <instruction instr-id='1237'/>
+         <instruction instr-id='1237' subinstr-id='2'/>
+         <instruction instr-id='1237' subinstr-id='4'/>
+         <instruction instr-id='1237' subinstr-id='6'/>
+         <instruction instr-id='1239'/>
+         <instruction instr-id='1239' subinstr-id='2'/>
+         <instruction instr-id='1239' subinstr-id='4'/>
+         <instruction instr-id='1241'/>
+         <instruction instr-id='1241' subinstr-id='2'/>
+         <instruction instr-id='1345'/>
+         <instruction instr-id='1345' subinstr-id='2'/>
+         <instruction instr-id='1385'/>
+         <instruction instr-id='1385' subinstr-id='2'/>
+         <instruction instr-id='1425'/>
+         <instruction instr-id='1465'/>
+         <instruction instr-id='1465' subinstr-id='2'/>
+         <instruction instr-id='1465' subinstr-id='4'/>
+         <instruction instr-id='1505'/>
+         <instruction instr-id='1505' subinstr-id='2'/>
+         <instruction instr-id='1545'/>
+         <instruction instr-id='1545' subinstr-id='2'/>
+         <instruction instr-id='1545' subinstr-id='4'/>
+         <instruction instr-id='1585'/>
+         <instruction instr-id='1585' subinstr-id='2'/>
+         <instruction instr-id='1585' subinstr-id='4'/>
+         <instruction instr-id='1625'/>
+         <instruction instr-id='1625' subinstr-id='2'/>
+         <instruction instr-id='1625' subinstr-id='4'/>
+         <instruction instr-id='1625' subinstr-id='6'/>
+         <instruction instr-id='1665'/>
+         <instruction instr-id='1665' subinstr-id='2'/>
+         <instruction instr-id='1665' subinstr-id='4'/>
+         <instruction instr-id='1705'/>
+         <instruction instr-id='1705' subinstr-id='2'/>
+         <instruction instr-id='1705' subinstr-id='4'/>
+         <bounding-box x1='72' y1='259' x2='539' y2='367'/>
+      </region>
+   </table>
+</document>

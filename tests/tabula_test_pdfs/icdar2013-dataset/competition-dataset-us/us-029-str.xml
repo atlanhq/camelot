@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-029-str.xml'>
+   <table id='1'>
+      <region page='2' id='1' col-increment='0' row-increment='0'>
+         <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
+            <bounding-box x1='154' y1='293' x2='197' y2='303'/>
+            <content>Categories</content>
+            <instruction instr-id='299' subinstr-id='0'/>
+            <instruction instr-id='299' subinstr-id='2'/>
+            <instruction instr-id='299' subinstr-id='4'/>
+            <instruction instr-id='299' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2' end-row='1' end-col='2'>
+            <bounding-box x1='399' y1='293' x2='412' y2='303'/>
+            <content>n =</content>
+            <instruction instr-id='339' subinstr-id='-1'/>
+            <instruction instr-id='343' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3' end-row='1' end-col='3'>
+            <bounding-box x1='448' y1='293' x2='457' y2='303'/>
+            <content>%</content>
+            <instruction instr-id='383' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1' end-row='2' end-col='1'>
+            <bounding-box x1='155' y1='276' x2='296' y2='286'/>
+            <content>Related to an Intimate Relationship</content>
+            <instruction instr-id='436' subinstr-id='0'/>
+            <instruction instr-id='436' subinstr-id='2'/>
+            <instruction instr-id='436' subinstr-id='4'/>
+            <instruction instr-id='436' subinstr-id='8'/>
+            <instruction instr-id='436' subinstr-id='10'/>
+            <instruction instr-id='436' subinstr-id='12'/>
+            <instruction instr-id='436' subinstr-id='14'/>
+            <instruction instr-id='436' subinstr-id='16'/>
+            <instruction instr-id='436' subinstr-id='18'/>
+            <instruction instr-id='436' subinstr-id='20'/>
+            <instruction instr-id='436' subinstr-id='22'/>
+            <instruction instr-id='436' subinstr-id='24'/>
+            <instruction instr-id='436' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2' end-row='2' end-col='2'>
+            <bounding-box x1='401' y1='276' x2='411' y2='286'/>
+            <content>77</content>
+            <instruction instr-id='476' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='3' end-row='2' end-col='3'>
+            <bounding-box x1='439' y1='276' x2='456' y2='286'/>
+            <content>33.9</content>
+            <instruction instr-id='516' subinstr-id='0'/>
+            <instruction instr-id='516' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1' end-row='3' end-col='1'>
+            <bounding-box x1='155' y1='264' x2='288' y2='274'/>
+            <content>Retaliation for Specific Action(s)</content>
+            <instruction instr-id='567' subinstr-id='0'/>
+            <instruction instr-id='567' subinstr-id='2'/>
+            <instruction instr-id='567' subinstr-id='4'/>
+            <instruction instr-id='567' subinstr-id='6'/>
+            <instruction instr-id='567' subinstr-id='8'/>
+            <instruction instr-id='567' subinstr-id='10'/>
+            <instruction instr-id='567' subinstr-id='12'/>
+            <instruction instr-id='567' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2' end-row='3' end-col='2'>
+            <bounding-box x1='401' y1='264' x2='411' y2='274'/>
+            <content>31</content>
+            <instruction instr-id='607' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='3' end-row='3' end-col='3'>
+            <bounding-box x1='439' y1='264' x2='456' y2='274'/>
+            <content>13.7</content>
+            <instruction instr-id='647' subinstr-id='0'/>
+            <instruction instr-id='647' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1' end-row='4' end-col='1'>
+            <bounding-box x1='155' y1='251' x2='347' y2='261'/>
+            <content>Refused Advances or Obsession with the Target</content>
+            <instruction instr-id='698' subinstr-id='0'/>
+            <instruction instr-id='698' subinstr-id='2'/>
+            <instruction instr-id='698' subinstr-id='4'/>
+            <instruction instr-id='698' subinstr-id='6'/>
+            <instruction instr-id='698' subinstr-id='8'/>
+            <instruction instr-id='698' subinstr-id='10'/>
+            <instruction instr-id='698' subinstr-id='14'/>
+            <instruction instr-id='698' subinstr-id='16'/>
+            <instruction instr-id='698' subinstr-id='18'/>
+            <instruction instr-id='698' subinstr-id='20'/>
+            <instruction instr-id='698' subinstr-id='22'/>
+            <instruction instr-id='698' subinstr-id='24'/>
+            <instruction instr-id='698' subinstr-id='26'/>
+            <instruction instr-id='698' subinstr-id='30'/>
+            <instruction instr-id='698' subinstr-id='32'/>
+            <instruction instr-id='698' subinstr-id='34'/>
+            <instruction instr-id='698' subinstr-id='36'/>
+            <instruction instr-id='698' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2' end-row='4' end-col='2'>
+            <bounding-box x1='401' y1='251' x2='411' y2='261'/>
+            <content>23</content>
+            <instruction instr-id='738' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3' end-row='4' end-col='3'>
+            <bounding-box x1='439' y1='251' x2='456' y2='261'/>
+            <content>10.1</content>
+            <instruction instr-id='778' subinstr-id='0'/>
+            <instruction instr-id='778' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1' end-row='5' end-col='1'>
+            <bounding-box x1='155' y1='239' x2='304' y2='249'/>
+            <content>Response to Academic Stress/Failure</content>
+            <instruction instr-id='829' subinstr-id='0'/>
+            <instruction instr-id='829' subinstr-id='2'/>
+            <instruction instr-id='829' subinstr-id='4'/>
+            <instruction instr-id='829' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2' end-row='5' end-col='2'>
+            <bounding-box x1='401' y1='239' x2='411' y2='249'/>
+            <content>23</content>
+            <instruction instr-id='869' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='3' end-row='5' end-col='3'>
+            <bounding-box x1='439' y1='239' x2='456' y2='249'/>
+            <content>10.1</content>
+            <instruction instr-id='909' subinstr-id='0'/>
+            <instruction instr-id='909' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1' end-row='6' end-col='1'>
+            <bounding-box x1='155' y1='226' x2='341' y2='237'/>
+            <content>Acquaintance/Stranger Based Sexual Violence</content>
+            <instruction instr-id='960' subinstr-id='0'/>
+            <instruction instr-id='960' subinstr-id='2'/>
+            <instruction instr-id='960' subinstr-id='4'/>
+            <instruction instr-id='960' subinstr-id='6'/>
+            <instruction instr-id='960' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2' end-row='6' end-col='2'>
+            <bounding-box x1='401' y1='226' x2='411' y2='237'/>
+            <content>22</content>
+            <instruction instr-id='1000' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3' end-row='6' end-col='3'>
+            <bounding-box x1='444' y1='226' x2='456' y2='237'/>
+            <content>9.7</content>
+            <instruction instr-id='1040' subinstr-id='0'/>
+            <instruction instr-id='1040' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1' end-row='7' end-col='1'>
+            <bounding-box x1='155' y1='214' x2='227' y2='224'/>
+            <content>Psychotic Actions</content>
+            <instruction instr-id='1091' subinstr-id='0'/>
+            <instruction instr-id='1091' subinstr-id='2'/>
+            <instruction instr-id='1091' subinstr-id='4'/>
+            <instruction instr-id='1091' subinstr-id='6'/>
+            <instruction instr-id='1091' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2' end-row='7' end-col='2'>
+            <bounding-box x1='401' y1='214' x2='411' y2='224'/>
+            <content>18</content>
+            <instruction instr-id='1131' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='3' end-row='7' end-col='3'>
+            <bounding-box x1='444' y1='214' x2='456' y2='224'/>
+            <content>7.9</content>
+            <instruction instr-id='1171' subinstr-id='0'/>
+            <instruction instr-id='1171' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='1' end-row='8' end-col='1'>
+            <bounding-box x1='155' y1='202' x2='278' y2='212'/>
+            <content>Workplace Dismissal/Sanction</content>
+            <instruction instr-id='1222' subinstr-id='0'/>
+            <instruction instr-id='1222' subinstr-id='2'/>
+            <instruction instr-id='1222' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='2' end-row='8' end-col='2'>
+            <bounding-box x1='401' y1='202' x2='411' y2='212'/>
+            <content>14</content>
+            <instruction instr-id='1262' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='3' end-row='8' end-col='3'>
+            <bounding-box x1='444' y1='202' x2='456' y2='212'/>
+            <content>6.2</content>
+            <instruction instr-id='1302' subinstr-id='0'/>
+            <instruction instr-id='1302' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='1' end-row='9' end-col='1'>
+            <bounding-box x1='155' y1='189' x2='298' y2='199'/>
+            <content>Need to Kill / Specific Victimology</content>
+            <instruction instr-id='1353' subinstr-id='0'/>
+            <instruction instr-id='1353' subinstr-id='2'/>
+            <instruction instr-id='1353' subinstr-id='4'/>
+            <instruction instr-id='1353' subinstr-id='6'/>
+            <instruction instr-id='1353' subinstr-id='8'/>
+            <instruction instr-id='1353' subinstr-id='10'/>
+            <instruction instr-id='1353' subinstr-id='12'/>
+            <instruction instr-id='1353' subinstr-id='14'/>
+            <instruction instr-id='1353' subinstr-id='16'/>
+            <instruction instr-id='1353' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='2' end-row='9' end-col='2'>
+            <bounding-box x1='406' y1='189' x2='411' y2='199'/>
+            <content>7</content>
+            <instruction instr-id='1392' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='3' end-row='9' end-col='3'>
+            <bounding-box x1='444' y1='189' x2='456' y2='199'/>
+            <content>3.1</content>
+            <instruction instr-id='1432' subinstr-id='0'/>
+            <instruction instr-id='1432' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='1' end-row='10' end-col='1'>
+            <bounding-box x1='155' y1='177' x2='280' y2='187'/>
+            <content>Draw Attention to Self/Issue(s)</content>
+            <instruction instr-id='1483' subinstr-id='0'/>
+            <instruction instr-id='1483' subinstr-id='2'/>
+            <instruction instr-id='1483' subinstr-id='4'/>
+            <instruction instr-id='1483' subinstr-id='6'/>
+            <instruction instr-id='1483' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='2' end-row='10' end-col='2'>
+            <bounding-box x1='406' y1='177' x2='411' y2='187'/>
+            <content>7</content>
+            <instruction instr-id='1522' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='3' end-row='10' end-col='3'>
+            <bounding-box x1='444' y1='177' x2='456' y2='187'/>
+            <content>3.1</content>
+            <instruction instr-id='1562' subinstr-id='0'/>
+            <instruction instr-id='1562' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='1' end-row='11' end-col='1'>
+            <bounding-box x1='155' y1='164' x2='205' y2='174'/>
+            <content>Bias Related</content>
+            <instruction instr-id='1613' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='2' end-row='11' end-col='2'>
+            <bounding-box x1='406' y1='164' x2='411' y2='174'/>
+            <content>5</content>
+            <instruction instr-id='1652' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='3' end-row='11' end-col='3'>
+            <bounding-box x1='444' y1='164' x2='456' y2='174'/>
+            <content>2.2</content>
+            <instruction instr-id='1692' subinstr-id='0'/>
+            <instruction instr-id='1692' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='1' end-row='12' end-col='1'>
+            <bounding-box x1='352' y1='151' x2='373' y2='161'/>
+            <content>Total</content>
+            <instruction instr-id='1742' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='2' end-row='12' end-col='2'>
+            <bounding-box x1='396' y1='151' x2='411' y2='161'/>
+            <content>227</content>
+            <instruction instr-id='1782' subinstr-id='0'/>
+            <instruction instr-id='1782' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='12' start-col='3' end-row='12' end-col='3'>
+            <bounding-box x1='441' y1='151' x2='456' y2='161'/>
+            <content>100</content>
+            <instruction instr-id='1822' subinstr-id='0'/>
+            <instruction instr-id='1822' subinstr-id='2'/>
+         </cell>
+      </region>
+   </table>
+</document>

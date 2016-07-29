@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_us-040-reg.xml'>
+   <table id='1'>
+      <region id='1' page='2'>
+         <instruction instr-id='169'/>
+         <instruction instr-id='185'/>
+         <instruction instr-id='195'/>
+         <instruction instr-id='198'/>
+         <instruction instr-id='200'/>
+         <instruction instr-id='216'/>
+         <instruction instr-id='226'/>
+         <instruction instr-id='229'/>
+         <instruction instr-id='229' subinstr-id='2'/>
+         <instruction instr-id='229' subinstr-id='4'/>
+         <instruction instr-id='245'/>
+         <instruction instr-id='254'/>
+         <instruction instr-id='270'/>
+         <instruction instr-id='279'/>
+         <instruction instr-id='295'/>
+         <instruction instr-id='304'/>
+         <instruction instr-id='320'/>
+         <instruction instr-id='329'/>
+         <instruction instr-id='331'/>
+         <instruction instr-id='333'/>
+         <instruction instr-id='333' subinstr-id='2'/>
+         <instruction instr-id='335'/>
+         <instruction instr-id='337'/>
+         <instruction instr-id='337' subinstr-id='2'/>
+         <instruction instr-id='339'/>
+         <instruction instr-id='355'/>
+         <instruction instr-id='364'/>
+         <instruction instr-id='366'/>
+         <instruction instr-id='366' subinstr-id='2'/>
+         <instruction instr-id='369'/>
+         <instruction instr-id='386'/>
+         <instruction instr-id='395'/>
+         <instruction instr-id='411'/>
+         <instruction instr-id='420'/>
+         <instruction instr-id='420' subinstr-id='2'/>
+         <instruction instr-id='423'/>
+         <instruction instr-id='440'/>
+         <instruction instr-id='449'/>
+         <instruction instr-id='451'/>
+         <instruction instr-id='451' subinstr-id='2'/>
+         <bounding-box x1='61' y1='534' x2='506' y2='671'/>
+      </region>
+   </table>
+</document>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-032-str.xml'>
+   <table id='1'>
+      <region page='1' id='1' col-increment='0' row-increment='0'>
+         <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
+            <bounding-box x1='174' y1='559' x2='208' y2='569'/>
+            <content>Source</content>
+            <instruction instr-id='499' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2' end-row='1' end-col='2'>
+            <bounding-box x1='299' y1='559' x2='345' y2='569'/>
+            <content>Definition</content>
+            <instruction instr-id='503' subinstr-id='0'/>
+            <instruction instr-id='503' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3' end-row='1' end-col='3'>
+            <bounding-box x1='453' y1='559' x2='500' y2='569'/>
+            <content>Examples</content>
+            <instruction instr-id='506' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1' end-row='2' end-col='1'>
+            <bounding-box x1='149' y1='544' x2='201' y2='554'/>
+            <content>Stationary:</content>
+            <instruction instr-id='515' subinstr-id='0'/>
+            <instruction instr-id='515' subinstr-id='2'/>
+            <instruction instr-id='515' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1' end-row='3' end-col='1'>
+            <bounding-box x1='199' y1='521' x2='226' y2='531'/>
+            <content>Major</content>
+            <instruction instr-id='519' subinstr-id='0'/>
+            <instruction instr-id='519' subinstr-id='2'/>
+            <instruction instr-id='519' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2' end-row='3' end-col='2'>
+            <bounding-box x1='245' y1='486' x2='388' y2='531'/>
+            <content>Emissions of 10 tons per year or
+more of any one air toxic, or 25
+tons per year or more of any
+combination of air toxics</content>
+            <instruction instr-id='528' subinstr-id='0'/>
+            <instruction instr-id='528' subinstr-id='2'/>
+            <instruction instr-id='528' subinstr-id='4'/>
+            <instruction instr-id='528' subinstr-id='6'/>
+            <instruction instr-id='528' subinstr-id='8'/>
+            <instruction instr-id='534' subinstr-id='0'/>
+            <instruction instr-id='534' subinstr-id='2'/>
+            <instruction instr-id='534' subinstr-id='4'/>
+            <instruction instr-id='534' subinstr-id='6'/>
+            <instruction instr-id='538' subinstr-id='0'/>
+            <instruction instr-id='538' subinstr-id='2'/>
+            <instruction instr-id='538' subinstr-id='4'/>
+            <instruction instr-id='538' subinstr-id='6'/>
+            <instruction instr-id='544' subinstr-id='0'/>
+            <instruction instr-id='544' subinstr-id='2'/>
+            <instruction instr-id='544' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='3' end-row='3' end-col='3'>
+            <bounding-box x1='410' y1='498' x2='519' y2='531'/>
+            <content>Utilities, refineries, steel
+manufacturers, chemical
+manufacturers</content>
+            <instruction instr-id='571' subinstr-id='-1'/>
+            <instruction instr-id='577' subinstr-id='0'/>
+            <instruction instr-id='577' subinstr-id='2'/>
+            <instruction instr-id='577' subinstr-id='4'/>
+            <instruction instr-id='577' subinstr-id='6'/>
+            <instruction instr-id='583' subinstr-id='0'/>
+            <instruction instr-id='583' subinstr-id='2'/>
+            <instruction instr-id='583' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1' end-row='4' end-col='1'>
+            <bounding-box x1='204' y1='463' x2='227' y2='473'/>
+            <content>Area</content>
+            <instruction instr-id='523' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2' end-row='4' end-col='2'>
+            <bounding-box x1='245' y1='429' x2='397' y2='473'/>
+            <content>Emissions of less than 10 tons per
+year of any one air toxic pollutant,
+or less than 25 tons per year of
+any combination of air toxics</content>
+            <instruction instr-id='550' subinstr-id='0'/>
+            <instruction instr-id='550' subinstr-id='2'/>
+            <instruction instr-id='550' subinstr-id='4'/>
+            <instruction instr-id='550' subinstr-id='6'/>
+            <instruction instr-id='550' subinstr-id='8'/>
+            <instruction instr-id='556' subinstr-id='0'/>
+            <instruction instr-id='556' subinstr-id='2'/>
+            <instruction instr-id='556' subinstr-id='4'/>
+            <instruction instr-id='561' subinstr-id='0'/>
+            <instruction instr-id='561' subinstr-id='2'/>
+            <instruction instr-id='561' subinstr-id='4'/>
+            <instruction instr-id='561' subinstr-id='6'/>
+            <instruction instr-id='567' subinstr-id='0'/>
+            <instruction instr-id='567' subinstr-id='2'/>
+            <instruction instr-id='567' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3' end-row='4' end-col='3'>
+            <bounding-box x1='410' y1='429' x2='535' y2='473'/>
+            <content>Dry cleaners, gas stations,
+auto body refinishing paint
+shops, decorative chromium
+electroplating operations</content>
+            <instruction instr-id='589' subinstr-id='0'/>
+            <instruction instr-id='589' subinstr-id='2'/>
+            <instruction instr-id='589' subinstr-id='4'/>
+            <instruction instr-id='589' subinstr-id='6'/>
+            <instruction instr-id='593' subinstr-id='0'/>
+            <instruction instr-id='593' subinstr-id='2'/>
+            <instruction instr-id='593' subinstr-id='4'/>
+            <instruction instr-id='598' subinstr-id='0'/>
+            <instruction instr-id='598' subinstr-id='2'/>
+            <instruction instr-id='598' subinstr-id='4'/>
+            <instruction instr-id='598' subinstr-id='6'/>
+            <instruction instr-id='598' subinstr-id='8'/>
+            <instruction instr-id='598' subinstr-id='10'/>
+            <instruction instr-id='598' subinstr-id='12'/>
+            <instruction instr-id='598' subinstr-id='14'/>
+            <instruction instr-id='598' subinstr-id='16'/>
+            <instruction instr-id='598' subinstr-id='18'/>
+            <instruction instr-id='598' subinstr-id='20'/>
+            <instruction instr-id='598' subinstr-id='22'/>
+            <instruction instr-id='598' subinstr-id='24'/>
+            <instruction instr-id='598' subinstr-id='26'/>
+            <instruction instr-id='604' subinstr-id='0'/>
+            <instruction instr-id='604' subinstr-id='2'/>
+            <instruction instr-id='604' subinstr-id='4'/>
+            <instruction instr-id='604' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1' end-row='5' end-col='1'>
+            <bounding-box x1='149' y1='414' x2='184' y2='424'/>
+            <content>Mobile:</content>
+            <instruction instr-id='609' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1' end-row='6' end-col='1'>
+            <bounding-box x1='187' y1='391' x2='226' y2='401'/>
+            <content>On-road</content>
+            <instruction instr-id='613' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2' end-row='6' end-col='2'>
+            <bounding-box x1='245' y1='368' x2='399' y2='401'/>
+            <content>Emissions from motorized vehicles
+normally operated on public
+roadways</content>
+            <instruction instr-id='622' subinstr-id='0'/>
+            <instruction instr-id='622' subinstr-id='2'/>
+            <instruction instr-id='622' subinstr-id='4'/>
+            <instruction instr-id='622' subinstr-id='6'/>
+            <instruction instr-id='622' subinstr-id='8'/>
+            <instruction instr-id='622' subinstr-id='10'/>
+            <instruction instr-id='622' subinstr-id='12'/>
+            <instruction instr-id='622' subinstr-id='14'/>
+            <instruction instr-id='628' subinstr-id='0'/>
+            <instruction instr-id='628' subinstr-id='2'/>
+            <instruction instr-id='628' subinstr-id='4'/>
+            <instruction instr-id='628' subinstr-id='6'/>
+            <instruction instr-id='628' subinstr-id='8'/>
+            <instruction instr-id='634' subinstr-id='0'/>
+            <instruction instr-id='634' subinstr-id='2'/>
+            <instruction instr-id='634' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3' end-row='6' end-col='3'>
+            <bounding-box x1='410' y1='368' x2='525' y2='401'/>
+            <content>Cars, buses, sport-utility
+vehicles, light- and heavy-
+duty trucks</content>
+            <instruction instr-id='662' subinstr-id='-1'/>
+            <instruction instr-id='668' subinstr-id='0'/>
+            <instruction instr-id='668' subinstr-id='2'/>
+            <instruction instr-id='668' subinstr-id='4'/>
+            <instruction instr-id='668' subinstr-id='6'/>
+            <instruction instr-id='668' subinstr-id='8'/>
+            <instruction instr-id='675' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1' end-row='7' end-col='1'>
+            <bounding-box x1='182' y1='345' x2='226' y2='355'/>
+            <content>Non-road</content>
+            <instruction instr-id='617' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2' end-row='7' end-col='2'>
+            <bounding-box x1='245' y1='311' x2='395' y2='355'/>
+            <content>Emissions from a diverse
+collection of engines, equipment,
+vehicles, and vessels operated off
+public roads</content>
+            <instruction instr-id='640' subinstr-id='0'/>
+            <instruction instr-id='640' subinstr-id='2'/>
+            <instruction instr-id='640' subinstr-id='4'/>
+            <instruction instr-id='640' subinstr-id='6'/>
+            <instruction instr-id='640' subinstr-id='8'/>
+            <instruction instr-id='646' subinstr-id='0'/>
+            <instruction instr-id='646' subinstr-id='2'/>
+            <instruction instr-id='646' subinstr-id='4'/>
+            <instruction instr-id='646' subinstr-id='6'/>
+            <instruction instr-id='646' subinstr-id='8'/>
+            <instruction instr-id='646' subinstr-id='10'/>
+            <instruction instr-id='646' subinstr-id='12'/>
+            <instruction instr-id='652' subinstr-id='0'/>
+            <instruction instr-id='652' subinstr-id='2'/>
+            <instruction instr-id='652' subinstr-id='4'/>
+            <instruction instr-id='652' subinstr-id='6'/>
+            <instruction instr-id='652' subinstr-id='8'/>
+            <instruction instr-id='658' subinstr-id='0'/>
+            <instruction instr-id='658' subinstr-id='2'/>
+            <instruction instr-id='658' subinstr-id='4'/>
+            <instruction instr-id='658' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='3' end-row='7' end-col='3'>
+            <bounding-box x1='410' y1='310' x2='537' y2='355'/>
+            <content>Construction and agricultural
+equipment, personal
+watercraft, lawn and garden
+equipment</content>
+            <instruction instr-id='680' subinstr-id='0'/>
+            <instruction instr-id='680' subinstr-id='2'/>
+            <instruction instr-id='680' subinstr-id='4'/>
+            <instruction instr-id='680' subinstr-id='6'/>
+            <instruction instr-id='680' subinstr-id='8'/>
+            <instruction instr-id='680' subinstr-id='10'/>
+            <instruction instr-id='680' subinstr-id='12'/>
+            <instruction instr-id='685' subinstr-id='0'/>
+            <instruction instr-id='685' subinstr-id='2'/>
+            <instruction instr-id='692' subinstr-id='-1'/>
+            <instruction instr-id='698' subinstr-id='0'/>
+            <instruction instr-id='698' subinstr-id='2'/>
+         </cell>
+      </region>
+   </table>
+</document>

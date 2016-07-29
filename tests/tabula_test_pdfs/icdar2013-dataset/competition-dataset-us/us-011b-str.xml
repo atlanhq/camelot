@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-011-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='2'>
+         <cell id='1' start-row='0' start-col='0'>
+            <bounding-box x1='85' y1='500' x2='135' y2='512'/>
+            <content>Program</content>
+            <instruction instr-id='229' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='85' y1='471' x2='183' y2='483'/>
+            <content>Performance.gov</content>
+            <instruction instr-id='288' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='85' y1='428' x2='392' y2='456'/>
+            <content>Federal Risk Authorization and Management Program
+(FedRAMP)</content>
+            <instruction instr-id='330' subinstr-id='-1'/>
+            <instruction instr-id='344' subinstr-id='0'/>
+            <instruction instr-id='344' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='85' y1='401' x2='386' y2='413'/>
+            <content>Federal Cloud Computing/Data Center Consolidation</content>
+            <instruction instr-id='404' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='85' y1='374' x2='162' y2='386'/>
+            <content>IT Dashboard</content>
+            <instruction instr-id='463' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='85' y1='347' x2='136' y2='359'/>
+            <content>Data.gov</content>
+            <instruction instr-id='522' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0'>
+            <bounding-box x1='85' y1='321' x2='201' y2='333'/>
+            <content>Challenges Platform</content>
+            <instruction instr-id='582' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='0'>
+            <bounding-box x1='85' y1='294' x2='318' y2='306'/>
+            <content>Citizen Engagement Platform (Apps.gov)</content>
+            <instruction instr-id='642' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='0'>
+            <bounding-box x1='85' y1='267' x2='195' y2='279'/>
+            <content>USASpending.gov*</content>
+            <instruction instr-id='700' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='0'>
+            <bounding-box x1='85' y1='240' x2='245' y2='252'/>
+            <content>Small Business Dashboard*</content>
+            <instruction instr-id='760' subinstr-id='0'/>
+            <instruction instr-id='760' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='0'>
+            <bounding-box x1='85' y1='213' x2='369' y2='225'/>
+            <content>FFATA Subawards Reporting System Assistance*</content>
+            <instruction instr-id='820' subinstr-id='0'/>
+            <instruction instr-id='820' subinstr-id='2'/>
+            <instruction instr-id='820' subinstr-id='4'/>
+            <instruction instr-id='820' subinstr-id='6'/>
+            <instruction instr-id='820' subinstr-id='8'/>
+            <instruction instr-id='820' subinstr-id='10'/>
+            <instruction instr-id='820' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='0'>
+            <bounding-box x1='85' y1='186' x2='114' y2='198'/>
+            <content>Total</content>
+            <instruction instr-id='879' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='11' start-col='1'>
+            <bounding-box x1='469' y1='186' x2='492' y2='198'/>
+            <content>$8M</content>
+            <instruction instr-id='895' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='10' start-col='1'>
+            <bounding-box x1='469' y1='213' x2='509' y2='225'/>
+            <content>$2.88M</content>
+            <instruction instr-id='836' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='1'>
+            <bounding-box x1='469' y1='240' x2='502' y2='252'/>
+            <content>$0.1M</content>
+            <instruction instr-id='776' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='1'>
+            <bounding-box x1='469' y1='267' x2='502' y2='279'/>
+            <content>$1.2M</content>
+            <instruction instr-id='716' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1'>
+            <bounding-box x1='469' y1='294' x2='482' y2='306'/>
+            <content>$0</content>
+            <instruction instr-id='658' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1'>
+            <bounding-box x1='469' y1='321' x2='482' y2='333'/>
+            <content>$0</content>
+            <instruction instr-id='598' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1'>
+            <bounding-box x1='469' y1='347' x2='502' y2='359'/>
+            <content>$0.9M</content>
+            <instruction instr-id='538' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='469' y1='374' x2='509' y2='386'/>
+            <content>$1.06M</content>
+            <instruction instr-id='479' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='469' y1='401' x2='509' y2='413'/>
+            <content>$0.44M</content>
+            <instruction instr-id='420' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='469' y1='428' x2='502' y2='440'/>
+            <content>$0.3M</content>
+            <instruction instr-id='360' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='469' y1='471' x2='502' y2='483'/>
+            <content>$1.1M</content>
+            <instruction instr-id='304' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='469' y1='500' x2='510' y2='512'/>
+            <content>Budget</content>
+            <instruction instr-id='245' subinstr-id='0'/>
+         </cell>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' col-increment='0' row-increment='0' page='3'>
+         <cell id='1' start-row='0' start-col='0'>
+            <bounding-box x1='85' y1='585' x2='135' y2='597'/>
+            <content>Program</content>
+            <instruction instr-id='182' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='85' y1='556' x2='224' y2='568'/>
+            <content>Contact Center Services</content>
+            <instruction instr-id='243' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='85' y1='529' x2='377' y2='541'/>
+            <content>Printed Publications Services and Citizen Outreach</content>
+            <instruction instr-id='285' subinstr-id='-1'/>
+            <instruction instr-id='289' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='85' y1='502' x2='441' y2='514'/>
+            <content>Web Management and Content (USA.gov &amp; GobiernoUSA.gov)</content>
+
+            <instruction instr-id='349' subinstr-id='-1'/>
+            <instruction instr-id='352' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='85' y1='476' x2='382' y2='488'/>
+            <content>Center for Excellence in Digital Government (CEDG)</content>
+            <instruction instr-id='412' subinstr-id='-1'/>
+            <instruction instr-id='416' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='85' y1='449' x2='371' y2='461'/>
+            <content>Information Technology Services Solutions (ITSS)</content>
+            <instruction instr-id='476' subinstr-id='0'/>
+            <instruction instr-id='476' subinstr-id='2'/>
+            <instruction instr-id='480' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0'>
+            <bounding-box x1='85' y1='422' x2='114' y2='434'/>
+            <content>Total</content>
+            <instruction instr-id='539' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='469' y1='585' x2='510' y2='597'/>
+            <content>Budget</content>
+            <instruction instr-id='198' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='469' y1='556' x2='502' y2='568'/>
+            <content>$8.6M</content>
+            <instruction instr-id='259' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='469' y1='529' x2='502' y2='541'/>
+            <content>$3.9M</content>
+            <instruction instr-id='305' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='469' y1='503' x2='502' y2='515'/>
+            <content>$6.1M</content>
+            <instruction instr-id='368' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='469' y1='476' x2='502' y2='488'/>
+            <content>$4.6M</content>
+            <instruction instr-id='432' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1'>
+            <bounding-box x1='469' y1='449' x2='509' y2='461'/>
+            <content>$10.8M</content>
+            <instruction instr-id='496' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1'>
+            <bounding-box x1='469' y1='422' x2='499' y2='434'/>
+            <content>$34M</content>
+            <instruction instr-id='555' subinstr-id='-1'/>
+         </cell>
+      </region>
+   </table>
+</document>

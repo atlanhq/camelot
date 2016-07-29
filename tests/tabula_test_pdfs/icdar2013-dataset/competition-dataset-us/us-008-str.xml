@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-008-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='1'>
+         <cell id='1' start-row='0' start-col='0'>
+            <bounding-box x1='98' y1='667' x2='153' y2='678'/>
+            <content>Age Cohort</content>
+            <instruction instr-id='45' subinstr-id='0'/>
+            <instruction instr-id='45' subinstr-id='2'/>
+            <instruction instr-id='45' subinstr-id='4'/>
+            <instruction instr-id='45' subinstr-id='6'/>
+            <instruction instr-id='45' subinstr-id='8'/>
+            <instruction instr-id='48' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='191' y1='667' x2='276' y2='678'/>
+            <content>Head Start Group</content>
+            <instruction instr-id='69' subinstr-id='0'/>
+            <instruction instr-id='69' subinstr-id='2'/>
+            <instruction instr-id='69' subinstr-id='4'/>
+            <instruction instr-id='69' subinstr-id='6'/>
+            <instruction instr-id='69' subinstr-id='8'/>
+            <instruction instr-id='69' subinstr-id='10'/>
+            <instruction instr-id='69' subinstr-id='12'/>
+            <instruction instr-id='69' subinstr-id='14'/>
+            <instruction instr-id='69' subinstr-id='16'/>
+            <instruction instr-id='69' subinstr-id='18'/>
+            <instruction instr-id='69' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2'>
+            <bounding-box x1='306' y1='667' x2='377' y2='678'/>
+            <content>Control Group</content>
+            <instruction instr-id='86' subinstr-id='0'/>
+            <instruction instr-id='86' subinstr-id='2'/>
+            <instruction instr-id='86' subinstr-id='4'/>
+            <instruction instr-id='86' subinstr-id='6'/>
+            <instruction instr-id='86' subinstr-id='8'/>
+            <instruction instr-id='86' subinstr-id='10'/>
+            <instruction instr-id='86' subinstr-id='12'/>
+            <instruction instr-id='86' subinstr-id='14'/>
+            <instruction instr-id='86' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='3'>
+            <bounding-box x1='418' y1='667' x2='481' y2='678'/>
+            <content>Total Sample</content>
+            <instruction instr-id='103' subinstr-id='0'/>
+            <instruction instr-id='103' subinstr-id='2'/>
+            <instruction instr-id='103' subinstr-id='4'/>
+            <instruction instr-id='103' subinstr-id='6'/>
+            <instruction instr-id='103' subinstr-id='8'/>
+            <instruction instr-id='103' subinstr-id='10'/>
+            <instruction instr-id='103' subinstr-id='12'/>
+            <instruction instr-id='103' subinstr-id='14'/>
+            <instruction instr-id='103' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='77' y1='654' x2='127' y2='666'/>
+            <content>3-year-olds</content>
+            <instruction instr-id='152' subinstr-id='-1'/>
+            <instruction instr-id='155' subinstr-id='0'/>
+            <instruction instr-id='155' subinstr-id='2'/>
+            <instruction instr-id='158' subinstr-id='0'/>
+            <instruction instr-id='158' subinstr-id='2'/>
+            <instruction instr-id='158' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='221' y1='654' x2='246' y2='666'/>
+            <content>1,530</content>
+            <instruction instr-id='175' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2'>
+            <bounding-box x1='329' y1='654' x2='354' y2='666'/>
+            <content>1,029</content>
+            <instruction instr-id='192' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3'>
+            <bounding-box x1='437' y1='654' x2='462' y2='666'/>
+            <content>2,559</content>
+            <instruction instr-id='209' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='77' y1='640' x2='127' y2='651'/>
+            <content>4-year-olds</content>
+            <instruction instr-id='254' subinstr-id='-1'/>
+            <instruction instr-id='257' subinstr-id='0'/>
+            <instruction instr-id='257' subinstr-id='2'/>
+            <instruction instr-id='260' subinstr-id='0'/>
+            <instruction instr-id='260' subinstr-id='2'/>
+            <instruction instr-id='260' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='221' y1='640' x2='246' y2='651'/>
+            <content>1,253</content>
+            <instruction instr-id='277' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2'>
+            <bounding-box x1='337' y1='640' x2='353' y2='651'/>
+            <content>855</content>
+            <instruction instr-id='294' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='3'>
+            <bounding-box x1='437' y1='640' x2='462' y2='651'/>
+            <content>2,108</content>
+            <instruction instr-id='311' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='77' y1='626' x2='102' y2='637'/>
+            <content>Total</content>
+            <instruction instr-id='338' subinstr-id='0'/>
+            <instruction instr-id='338' subinstr-id='2'/>
+            <instruction instr-id='338' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='221' y1='626' x2='246' y2='637'/>
+            <content>2,783</content>
+            <instruction instr-id='355' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2'>
+            <bounding-box x1='329' y1='626' x2='354' y2='637'/>
+            <content>1,884</content>
+            <instruction instr-id='372' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='3'>
+            <bounding-box x1='437' y1='626' x2='462' y2='637'/>
+            <content>4,667</content>
+            <instruction instr-id='389' subinstr-id='0'/>
+         </cell>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' col-increment='0' row-increment='0' page='3'>
+         <cell id='1' start-row='0' start-col='0'>
+            <bounding-box x1='127' y1='642' x2='196' y2='653'/>
+            <content>Sample Group</content>
+            <instruction instr-id='52' subinstr-id='0'/>
+            <instruction instr-id='52' subinstr-id='2'/>
+            <instruction instr-id='52' subinstr-id='4'/>
+            <instruction instr-id='52' subinstr-id='6'/>
+            <instruction instr-id='52' subinstr-id='8'/>
+            <instruction instr-id='52' subinstr-id='10'/>
+            <instruction instr-id='52' subinstr-id='12'/>
+            <instruction instr-id='52' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='268' y1='642' x2='330' y2='678'/>
+            <content>Some Year 1
+Head Start
+Participation</content>
+            <instruction instr-id='75' subinstr-id='0'/>
+            <instruction instr-id='75' subinstr-id='2'/>
+            <instruction instr-id='75' subinstr-id='4'/>
+            <instruction instr-id='75' subinstr-id='6'/>
+            <instruction instr-id='75' subinstr-id='8'/>
+            <instruction instr-id='75' subinstr-id='10'/>
+            <instruction instr-id='75' subinstr-id='12'/>
+            <instruction instr-id='84' subinstr-id='0'/>
+            <instruction instr-id='84' subinstr-id='2'/>
+            <instruction instr-id='84' subinstr-id='4'/>
+            <instruction instr-id='84' subinstr-id='6'/>
+            <instruction instr-id='84' subinstr-id='8'/>
+            <instruction instr-id='84' subinstr-id='10'/>
+            <instruction instr-id='84' subinstr-id='12'/>
+            <instruction instr-id='101' subinstr-id='0'/>
+            <instruction instr-id='101' subinstr-id='2'/>
+            <instruction instr-id='101' subinstr-id='4'/>
+            <instruction instr-id='101' subinstr-id='6'/>
+            <instruction instr-id='101' subinstr-id='8'/>
+            <instruction instr-id='101' subinstr-id='10'/>
+            <instruction instr-id='101' subinstr-id='12'/>
+            <instruction instr-id='101' subinstr-id='14'/>
+            <instruction instr-id='101' subinstr-id='16'/>
+            <instruction instr-id='101' subinstr-id='18'/>
+            <instruction instr-id='101' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2'>
+            <bounding-box x1='364' y1='642' x2='426' y2='678'/>
+            <content>No Year 1
+Head Start
+Participation</content>
+            <instruction instr-id='121' subinstr-id='0'/>
+            <instruction instr-id='121' subinstr-id='2'/>
+            <instruction instr-id='121' subinstr-id='4'/>
+            <instruction instr-id='121' subinstr-id='6'/>
+            <instruction instr-id='121' subinstr-id='8'/>
+            <instruction instr-id='121' subinstr-id='10'/>
+            <instruction instr-id='130' subinstr-id='0'/>
+            <instruction instr-id='130' subinstr-id='2'/>
+            <instruction instr-id='130' subinstr-id='4'/>
+            <instruction instr-id='130' subinstr-id='6'/>
+            <instruction instr-id='130' subinstr-id='8'/>
+            <instruction instr-id='130' subinstr-id='10'/>
+            <instruction instr-id='130' subinstr-id='12'/>
+            <instruction instr-id='147' subinstr-id='0'/>
+            <instruction instr-id='147' subinstr-id='2'/>
+            <instruction instr-id='147' subinstr-id='4'/>
+            <instruction instr-id='147' subinstr-id='6'/>
+            <instruction instr-id='147' subinstr-id='8'/>
+            <instruction instr-id='147' subinstr-id='10'/>
+            <instruction instr-id='147' subinstr-id='12'/>
+            <instruction instr-id='147' subinstr-id='14'/>
+            <instruction instr-id='147' subinstr-id='16'/>
+            <instruction instr-id='147' subinstr-id='18'/>
+            <instruction instr-id='147' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='3'>
+            <bounding-box x1='479' y1='642' x2='504' y2='653'/>
+            <content>Total</content>
+            <instruction instr-id='167' subinstr-id='0'/>
+            <instruction instr-id='167' subinstr-id='2'/>
+            <instruction instr-id='167' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='77' y1='629' x2='240' y2='640'/>
+            <content>All Randomly Assigned (N=4,667):</content>
+            <instruction instr-id='208' subinstr-id='0'/>
+            <instruction instr-id='208' subinstr-id='2'/>
+            <instruction instr-id='208' subinstr-id='4'/>
+            <instruction instr-id='208' subinstr-id='6'/>
+            <instruction instr-id='208' subinstr-id='8'/>
+            <instruction instr-id='208' subinstr-id='10'/>
+            <instruction instr-id='208' subinstr-id='12'/>
+            <instruction instr-id='208' subinstr-id='14'/>
+            <instruction instr-id='208' subinstr-id='16'/>
+            <instruction instr-id='208' subinstr-id='18'/>
+            <instruction instr-id='208' subinstr-id='20'/>
+            <instruction instr-id='208' subinstr-id='22'/>
+            <instruction instr-id='208' subinstr-id='24'/>
+            <instruction instr-id='208' subinstr-id='26'/>
+            <instruction instr-id='208' subinstr-id='28'/>
+            <instruction instr-id='208' subinstr-id='30'/>
+            <instruction instr-id='208' subinstr-id='32'/>
+            <instruction instr-id='208' subinstr-id='36'/>
+            <instruction instr-id='208' subinstr-id='38'/>
+            <instruction instr-id='208' subinstr-id='40'/>
+            <instruction instr-id='208' subinstr-id='42'/>
+            <instruction instr-id='208' subinstr-id='44'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='113' y1='616' x2='203' y2='627'/>
+            <content>3-Year-Old Cohort</content>
+            <instruction instr-id='210' subinstr-id='-1'/>
+            <instruction instr-id='213' subinstr-id='0'/>
+            <instruction instr-id='213' subinstr-id='2'/>
+            <instruction instr-id='213' subinstr-id='4'/>
+            <instruction instr-id='216' subinstr-id='-1'/>
+            <instruction instr-id='220' subinstr-id='0'/>
+            <instruction instr-id='220' subinstr-id='2'/>
+            <instruction instr-id='220' subinstr-id='4'/>
+            <instruction instr-id='220' subinstr-id='6'/>
+            <instruction instr-id='220' subinstr-id='8'/>
+            <instruction instr-id='220' subinstr-id='10'/>
+            <instruction instr-id='220' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='168' y1='604' x2='246' y2='615'/>
+            <content>Head Start Group</content>
+            <instruction instr-id='227' subinstr-id='0'/>
+            <instruction instr-id='227' subinstr-id='2'/>
+            <instruction instr-id='227' subinstr-id='4'/>
+            <instruction instr-id='227' subinstr-id='6'/>
+            <instruction instr-id='227' subinstr-id='8'/>
+            <instruction instr-id='227' subinstr-id='10'/>
+            <instruction instr-id='227' subinstr-id='12'/>
+            <instruction instr-id='227' subinstr-id='14'/>
+            <instruction instr-id='227' subinstr-id='16'/>
+            <instruction instr-id='227' subinstr-id='18'/>
+            <instruction instr-id='227' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='285' y1='604' x2='313' y2='615'/>
+            <content>85.1%</content>
+            <instruction instr-id='271' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2'>
+            <bounding-box x1='381' y1='604' x2='410' y2='615'/>
+            <content>14.9%</content>
+            <instruction instr-id='315' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='3'>
+            <bounding-box x1='479' y1='604' x2='504' y2='615'/>
+            <content>100%</content>
+            <instruction instr-id='359' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='181' y1='591' x2='246' y2='602'/>
+            <content>Control Group</content>
+            <instruction instr-id='243' subinstr-id='0'/>
+            <instruction instr-id='243' subinstr-id='2'/>
+            <instruction instr-id='243' subinstr-id='4'/>
+            <instruction instr-id='243' subinstr-id='6'/>
+            <instruction instr-id='243' subinstr-id='8'/>
+            <instruction instr-id='243' subinstr-id='10'/>
+            <instruction instr-id='243' subinstr-id='12'/>
+            <instruction instr-id='243' subinstr-id='14'/>
+            <instruction instr-id='243' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='285' y1='591' x2='313' y2='602'/>
+            <content>17.3%</content>
+            <instruction instr-id='287' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2'>
+            <bounding-box x1='381' y1='591' x2='409' y2='602'/>
+            <content>82.7%</content>
+            <instruction instr-id='331' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3'>
+            <bounding-box x1='479' y1='591' x2='504' y2='602'/>
+            <content>100%</content>
+            <instruction instr-id='375' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='113' y1='578' x2='203' y2='589'/>
+            <content>4-Year-Old Cohort</content>
+            <instruction instr-id='420' subinstr-id='-1'/>
+            <instruction instr-id='423' subinstr-id='0'/>
+            <instruction instr-id='423' subinstr-id='2'/>
+            <instruction instr-id='423' subinstr-id='4'/>
+            <instruction instr-id='426' subinstr-id='-1'/>
+            <instruction instr-id='430' subinstr-id='0'/>
+            <instruction instr-id='430' subinstr-id='2'/>
+            <instruction instr-id='430' subinstr-id='4'/>
+            <instruction instr-id='430' subinstr-id='6'/>
+            <instruction instr-id='430' subinstr-id='8'/>
+            <instruction instr-id='430' subinstr-id='10'/>
+            <instruction instr-id='430' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0'>
+            <bounding-box x1='168' y1='566' x2='246' y2='577'/>
+            <content>Head Start Group</content>
+            <instruction instr-id='443' subinstr-id='0'/>
+            <instruction instr-id='443' subinstr-id='2'/>
+            <instruction instr-id='443' subinstr-id='4'/>
+            <instruction instr-id='443' subinstr-id='6'/>
+            <instruction instr-id='443' subinstr-id='8'/>
+            <instruction instr-id='443' subinstr-id='10'/>
+            <instruction instr-id='443' subinstr-id='12'/>
+            <instruction instr-id='443' subinstr-id='14'/>
+            <instruction instr-id='443' subinstr-id='16'/>
+            <instruction instr-id='443' subinstr-id='18'/>
+            <instruction instr-id='443' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1'>
+            <bounding-box x1='285' y1='566' x2='313' y2='577'/>
+            <content>79.8%</content>
+            <instruction instr-id='485' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2'>
+            <bounding-box x1='381' y1='566' x2='409' y2='577'/>
+            <content>20.2%</content>
+            <instruction instr-id='527' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='3'>
+            <bounding-box x1='479' y1='566' x2='504' y2='577'/>
+            <content>100%</content>
+            <instruction instr-id='569' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='0'>
+            <bounding-box x1='181' y1='553' x2='246' y2='564'/>
+            <content>Control Group</content>
+            <instruction instr-id='459' subinstr-id='0'/>
+            <instruction instr-id='459' subinstr-id='2'/>
+            <instruction instr-id='459' subinstr-id='4'/>
+            <instruction instr-id='459' subinstr-id='6'/>
+            <instruction instr-id='459' subinstr-id='8'/>
+            <instruction instr-id='459' subinstr-id='10'/>
+            <instruction instr-id='459' subinstr-id='12'/>
+            <instruction instr-id='459' subinstr-id='14'/>
+            <instruction instr-id='459' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1'>
+            <bounding-box x1='285' y1='553' x2='313' y2='564'/>
+            <content>13.9%</content>
+            <instruction instr-id='501' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2'>
+            <bounding-box x1='381' y1='553' x2='409' y2='564'/>
+            <content>86.1%</content>
+            <instruction instr-id='543' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='3'>
+            <bounding-box x1='479' y1='553' x2='504' y2='564'/>
+            <content>100%</content>
+            <instruction instr-id='585' subinstr-id='0'/>
+         </cell>
+      </region>
+   </table>
+</document>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-010-reg.xml'>
+   <table id='1'>
+      <region id='1' page='2'>
+         <instruction instr-id='280'/>
+         <instruction instr-id='295'/>
+         <instruction instr-id='308'/>
+         <instruction instr-id='323'/>
+         <instruction instr-id='335'/>
+         <instruction instr-id='401'/>
+         <instruction instr-id='420'/>
+         <instruction instr-id='434'/>
+         <instruction instr-id='447'/>
+         <instruction instr-id='480'/>
+         <instruction instr-id='493'/>
+         <instruction instr-id='493' subinstr-id='2'/>
+         <instruction instr-id='493' subinstr-id='4'/>
+         <instruction instr-id='493' subinstr-id='6'/>
+         <instruction instr-id='506'/>
+         <instruction instr-id='524'/>
+         <instruction instr-id='538'/>
+         <instruction instr-id='552'/>
+         <instruction instr-id='617'/>
+         <instruction instr-id='617' subinstr-id='2'/>
+         <instruction instr-id='617' subinstr-id='4'/>
+         <instruction instr-id='636'/>
+         <instruction instr-id='650'/>
+         <instruction instr-id='663'/>
+         <instruction instr-id='728'/>
+         <instruction instr-id='741'/>
+         <instruction instr-id='759'/>
+         <instruction instr-id='772'/>
+         <instruction instr-id='785'/>
+         <instruction instr-id='850'/>
+         <instruction instr-id='850' subinstr-id='2'/>
+         <instruction instr-id='869'/>
+         <instruction instr-id='882'/>
+         <instruction instr-id='895'/>
+         <instruction instr-id='960'/>
+         <instruction instr-id='960' subinstr-id='2'/>
+         <instruction instr-id='960' subinstr-id='4'/>
+         <instruction instr-id='973'/>
+         <instruction instr-id='992'/>
+         <instruction instr-id='1005'/>
+         <instruction instr-id='1018'/>
+         <instruction instr-id='1080'/>
+         <bounding-box x1='72' y1='94' x2='520' y2='359'/>
+      </region>
+   </table>
+</document>

@@ -1,0 +1,1535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-019-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='1' page='2'>
+         <cell id='18' start-row='-1' start-col='0'>
+            <bounding-box x1='40' y1='729' x2='72' y2='739'/>
+            <content>Variable</content>
+         </cell>
+         <cell id='22' start-row='-1' start-col='1'>
+            <bounding-box x1='517' y1='729' x2='566' y2='739'/>
+            <content>Assumption</content>
+         </cell>
+         <cell id='34' start-row='0' start-col='0'>
+            <bounding-box x1='40' y1='714' x2='156' y2='724'/>
+            <content>Demographic assumptions</content>
+         </cell>
+         <cell id='13' start-row='1' start-col='1'>
+            <bounding-box x1='318' y1='704' x2='563' y2='714'/>
+            <content>Projections are consistent with the Census Bureau estimates</content>
+         </cell>
+         <cell id='38' start-row='1' start-col='0'>
+            <bounding-box x1='40' y1='704' x2='84' y2='714'/>
+            <content>Population</content>
+         </cell>
+         <cell id='10' start-row='2' start-col='0'>
+            <bounding-box x1='40' y1='692' x2='158' y2='702'/>
+            <content>18- to 24-year-old population</content>
+         </cell>
+         <cell id='14' start-row='2' start-col='1'>
+            <bounding-box x1='312' y1='692' x2='566' y2='702'/>
+            <content>Census Bureau projection: average annual growth rate of 0.1%</content>
+         </cell>
+         <cell id='2' start-row='3' start-col='1'>
+            <bounding-box x1='312' y1='681' x2='566' y2='691'/>
+            <content>Census Bureau projection: average annual growth rate of 0.6%</content>
+         </cell>
+         <cell id='15' start-row='3' start-col='0'>
+            <bounding-box x1='40' y1='681' x2='158' y2='691'/>
+            <content>25- to 29-year-old population</content>
+         </cell>
+         <cell id='26' start-row='4' start-col='0'>
+            <bounding-box x1='40' y1='670' x2='158' y2='680'/>
+            <content>30- to 34-year-old population</content>
+         </cell>
+         <cell id='31' start-row='4' start-col='1'>
+            <bounding-box x1='312' y1='670' x2='566' y2='680'/>
+            <content>Census Bureau projection: average annual growth rate of 1.3%</content>
+         </cell>
+         <cell id='9' start-row='5' start-col='1'>
+            <bounding-box x1='312' y1='659' x2='566' y2='669'/>
+            <content>Census Bureau projection: average annual growth rate of 0.6%</content>
+         </cell>
+         <cell id='25' start-row='5' start-col='0'>
+            <bounding-box x1='40' y1='659' x2='158' y2='669'/>
+            <content>35- to 44-year-old population</content>
+         </cell>
+         <cell id='11' start-row='6' start-col='0'>
+            <bounding-box x1='40' y1='637' x2='141' y2='647'/>
+            <content>Economic assumptions</content>
+         </cell>
+         <cell id='8' start-row='7' start-col='1'>
+            <bounding-box x1='336' y1='615' x2='566' y2='636'/>
+            <content>Annual percent changes range between -1.9% and 2.2%
+with an annual growth rate of 1.4%</content>
+         </cell>
+         <cell id='7' start-row='7' start-col='0'>
+            <bounding-box x1='40' y1='615' x2='170' y2='635'/>
+            <content>Disposable income per capita in
+constant dollars</content>
+         </cell>
+         <cell id='30' start-row='8' start-col='1'>
+            <bounding-box x1='336' y1='593' x2='566' y2='614'/>
+            <content>Annual percent changes range between -2.4% and 2.3%
+with an annual growth rate of 1.3%</content>
+         </cell>
+         <cell id='23' start-row='8' start-col='0'>
+            <bounding-box x1='40' y1='593' x2='203' y2='613'/>
+            <content>Education revenue receipts from state
+sources per capita in constant dollars</content>
+         </cell>
+         <cell id='3' start-row='9' start-col='0'>
+            <bounding-box x1='40' y1='582' x2='90' y2='592'/>
+            <content>Inflation rate</content>
+         </cell>
+         <cell id='19' start-row='9' start-col='1'>
+            <bounding-box x1='382' y1='582' x2='566' y2='592'/>
+            <content>Inflation rate ranges between 1.0% and 2.0%</content>
+         </cell>
+         <cell id='29' start-row='10' start-col='0'>
+            <bounding-box x1='40' y1='560' x2='152' y2='570'/>
+            <content>Unemployment rate (men)</content>
+         </cell>
+         <cell id='36' start-row='11' start-col='1'>
+            <bounding-box x1='417' y1='549' x2='566' y2='559'/>
+            <content>Remains between 17.7% and 26.8%</content>
+         </cell>
+         <cell id='37' start-row='11' start-col='0'>
+            <bounding-box x1='40' y1='549' x2='104' y2='559'/>
+            <content>Ages 18 and 19</content>
+         </cell>
+         <cell id='20' start-row='12' start-col='0'>
+            <bounding-box x1='40' y1='538' x2='96' y2='548'/>
+            <content>Ages 20 to 24</content>
+         </cell>
+         <cell id='27' start-row='12' start-col='1'>
+            <bounding-box x1='417' y1='538' x2='566' y2='548'/>
+            <content>Remains between 10.8% and 15.6%</content>
+         </cell>
+         <cell id='1' start-row='13' start-col='0'>
+            <bounding-box x1='40' y1='526' x2='107' y2='536'/>
+            <content>Age 25 and over</content>
+         </cell>
+         <cell id='24' start-row='13' start-col='1'>
+            <bounding-box x1='427' y1='526' x2='566' y2='536'/>
+            <content>Remains between 5.3% and 7.9%</content>
+         </cell>
+         <cell id='17' start-row='14' start-col='0'>
+            <bounding-box x1='40' y1='504' x2='164' y2='514'/>
+            <content>Unemployment rate (women)</content>
+         </cell>
+         <cell id='4' start-row='15' start-col='0'>
+            <bounding-box x1='40' y1='493' x2='104' y2='503'/>
+            <content>Ages 18 and 19</content>
+         </cell>
+         <cell id='5' start-row='15' start-col='1'>
+            <bounding-box x1='417' y1='493' x2='566' y2='503'/>
+            <content>Remains between 14.3% and 19.6%</content>
+         </cell>
+         <cell id='12' start-row='16' start-col='1'>
+            <bounding-box x1='422' y1='482' x2='566' y2='492'/>
+            <content>Remains between 9.3% and 13.1%</content>
+         </cell>
+         <cell id='33' start-row='16' start-col='0'>
+            <bounding-box x1='40' y1='482' x2='96' y2='492'/>
+            <content>Ages 20 to 24</content>
+         </cell>
+         <cell id='21' start-row='17' start-col='1'>
+            <bounding-box x1='427' y1='471' x2='566' y2='481'/>
+            <content>Remains between 5.0% and 7.3%</content>
+         </cell>
+         <cell id='28' start-row='17' start-col='0'>
+            <bounding-box x1='40' y1='471' x2='107' y2='481'/>
+            <content>Age 25 and over</content>
+         </cell>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' col-increment='0' row-increment='0' page='3'>
+         <cell id='63' start-row='0' start-col='1' end-col='10'>
+            <bounding-box x1='385' y1='719' x2='454' y2='729'/>
+            <content>Leadtime(years)</content>
+         </cell>
+         <cell id='84' start-row='0' end-row='1' start-col='0'>
+            <bounding-box x1='44' y1='705' x2='77' y2='715'/>
+            <content>Statistic</content>
+         </cell>
+         <cell id='235' start-row='1' start-col='1'>
+            <bounding-box x1='274' y1='705' x2='280' y2='715'/>
+            <content>1</content>
+         </cell>
+         <cell id='184' start-row='1' start-col='2'>
+            <bounding-box x1='306' y1='705' x2='312' y2='715'/>
+            <content>2</content>
+         </cell>
+         <cell id='222' start-row='1' start-col='3'>
+            <bounding-box x1='339' y1='705' x2='345' y2='715'/>
+            <content>3</content>
+         </cell>
+         <cell id='250' start-row='1' start-col='4'>
+            <bounding-box x1='372' y1='705' x2='378' y2='715'/>
+            <content>4</content>
+         </cell>
+         <cell id='257' start-row='1' start-col='5'>
+            <bounding-box x1='405' y1='705' x2='411' y2='715'/>
+            <content>5</content>
+         </cell>
+         <cell id='198' start-row='1' start-col='6'>
+            <bounding-box x1='437' y1='705' x2='443' y2='715'/>
+            <content>6</content>
+         </cell>
+         <cell id='154' start-row='1' start-col='7'>
+            <bounding-box x1='470' y1='705' x2='476' y2='715'/>
+            <content>7</content>
+         </cell>
+         <cell id='147' start-row='1' start-col='8'>
+            <bounding-box x1='503' y1='705' x2='509' y2='715'/>
+            <content>8</content>
+         </cell>
+         <cell id='256' start-row='1' start-col='9'>
+            <bounding-box x1='536' y1='705' x2='542' y2='715'/>
+            <content>9</content>
+         </cell>
+         <cell id='5' start-row='1' start-col='10'>
+            <bounding-box x1='563' y1='705' x2='574' y2='715'/>
+            <content>10</content>
+         </cell>
+         <cell id='36' start-row='2' start-col='0'>
+            <bounding-box x1='44' y1='690' x2='224' y2='700'/>
+            <content>Publicelementaryandsecondaryschools</content>
+         </cell>
+         <cell id='9' start-row='3' start-col='0'>
+            <bounding-box x1='44' y1='679' x2='168' y2='689'/>
+            <content>Prekindergarten–12enrollment</content>
+         </cell>
+         <cell id='137' start-row='3' start-col='1'>
+            <bounding-box x1='266' y1='679' x2='280' y2='689'/>
+            <content>0.3</content>
+         </cell>
+         <cell id='199' start-row='3' start-col='2'>
+            <bounding-box x1='299' y1='679' x2='312' y2='689'/>
+            <content>0.6</content>
+         </cell>
+         <cell id='90' start-row='3' start-col='3'>
+            <bounding-box x1='332' y1='679' x2='345' y2='689'/>
+            <content>0.8</content>
+         </cell>
+         <cell id='109' start-row='3' start-col='4'>
+            <bounding-box x1='364' y1='679' x2='378' y2='689'/>
+            <content>1.1</content>
+         </cell>
+         <cell id='127' start-row='3' start-col='5'>
+            <bounding-box x1='397' y1='679' x2='411' y2='689'/>
+            <content>1.3</content>
+         </cell>
+         <cell id='121' start-row='3' start-col='6'>
+            <bounding-box x1='430' y1='679' x2='443' y2='689'/>
+            <content>1.4</content>
+         </cell>
+         <cell id='6' start-row='3' start-col='7'>
+            <bounding-box x1='463' y1='679' x2='476' y2='689'/>
+            <content>1.6</content>
+         </cell>
+         <cell id='240' start-row='3' start-col='8'>
+            <bounding-box x1='495' y1='679' x2='509' y2='689'/>
+            <content>1.9</content>
+         </cell>
+         <cell id='149' start-row='3' start-col='9'>
+            <bounding-box x1='528' y1='679' x2='542' y2='689'/>
+            <content>2.3</content>
+         </cell>
+         <cell id='16' start-row='3' start-col='10'>
+            <bounding-box x1='561' y1='679' x2='574' y2='689'/>
+            <content>2.6</content>
+         </cell>
+         <cell id='24' start-row='4' start-col='0'>
+            <bounding-box x1='53' y1='668' x2='172' y2='678'/>
+            <content>Prekindergarten–8enrollment</content>
+         </cell>
+         <cell id='106' start-row='4' start-col='1'>
+            <bounding-box x1='266' y1='668' x2='280' y2='678'/>
+            <content>0.3</content>
+         </cell>
+         <cell id='59' start-row='4' start-col='2'>
+            <bounding-box x1='299' y1='668' x2='312' y2='678'/>
+            <content>0.6</content>
+         </cell>
+         <cell id='125' start-row='4' start-col='3'>
+            <bounding-box x1='332' y1='668' x2='345' y2='678'/>
+            <content>1.0</content>
+         </cell>
+         <cell id='62' start-row='4' start-col='4'>
+            <bounding-box x1='364' y1='668' x2='378' y2='678'/>
+            <content>1.3</content>
+         </cell>
+         <cell id='64' start-row='4' start-col='5'>
+            <bounding-box x1='397' y1='668' x2='411' y2='678'/>
+            <content>1.4</content>
+         </cell>
+         <cell id='156' start-row='4' start-col='6'>
+            <bounding-box x1='430' y1='668' x2='443' y2='678'/>
+            <content>1.6</content>
+         </cell>
+         <cell id='185' start-row='4' start-col='7'>
+            <bounding-box x1='463' y1='668' x2='476' y2='678'/>
+            <content>1.9</content>
+         </cell>
+         <cell id='150' start-row='4' start-col='8'>
+            <bounding-box x1='495' y1='668' x2='509' y2='678'/>
+            <content>2.4</content>
+         </cell>
+         <cell id='217' start-row='4' start-col='9'>
+            <bounding-box x1='528' y1='668' x2='542' y2='678'/>
+            <content>2.8</content>
+         </cell>
+         <cell id='183' start-row='4' start-col='10'>
+            <bounding-box x1='561' y1='668' x2='574' y2='678'/>
+            <content>3.3</content>
+         </cell>
+         <cell id='56' start-row='5' start-col='0'>
+            <bounding-box x1='53' y1='657' x2='118' y2='667'/>
+            <content>9–12enrollment</content>
+         </cell>
+         <cell id='138' start-row='5' start-col='1'>
+            <bounding-box x1='266' y1='657' x2='280' y2='667'/>
+            <content>0.4</content>
+         </cell>
+         <cell id='200' start-row='5' start-col='2'>
+            <bounding-box x1='299' y1='657' x2='312' y2='667'/>
+            <content>0.7</content>
+         </cell>
+         <cell id='249' start-row='5' start-col='3'>
+            <bounding-box x1='332' y1='657' x2='345' y2='667'/>
+            <content>0.9</content>
+         </cell>
+         <cell id='126' start-row='5' start-col='4'>
+            <bounding-box x1='364' y1='657' x2='378' y2='667'/>
+            <content>1.1</content>
+         </cell>
+         <cell id='202' start-row='5' start-col='5'>
+            <bounding-box x1='397' y1='657' x2='411' y2='667'/>
+            <content>1.2</content>
+         </cell>
+         <cell id='167' start-row='5' start-col='6'>
+            <bounding-box x1='430' y1='657' x2='443' y2='667'/>
+            <content>1.5</content>
+         </cell>
+         <cell id='53' start-row='5' start-col='7'>
+            <bounding-box x1='463' y1='657' x2='476' y2='667'/>
+            <content>1.8</content>
+         </cell>
+         <cell id='241' start-row='5' start-col='8'>
+            <bounding-box x1='495' y1='657' x2='509' y2='667'/>
+            <content>2.2</content>
+         </cell>
+         <cell id='115' start-row='5' start-col='9'>
+            <bounding-box x1='528' y1='657' x2='542' y2='667'/>
+            <content>2.4</content>
+         </cell>
+         <cell id='205' start-row='5' start-col='10'>
+            <bounding-box x1='561' y1='657' x2='574' y2='667'/>
+            <content>2.5</content>
+         </cell>
+         <cell id='79' start-row='6' start-col='0'>
+            <bounding-box x1='44' y1='646' x2='135' y2='656'/>
+            <content>Highschoolgraduates</content>
+         </cell>
+         <cell id='123' start-row='6' start-col='1'>
+            <bounding-box x1='266' y1='646' x2='280' y2='656'/>
+            <content>1.0</content>
+         </cell>
+         <cell id='159' start-row='6' start-col='2'>
+            <bounding-box x1='299' y1='646' x2='312' y2='656'/>
+            <content>1.0</content>
+         </cell>
+         <cell id='161' start-row='6' start-col='3'>
+            <bounding-box x1='332' y1='646' x2='345' y2='656'/>
+            <content>1.5</content>
+         </cell>
+         <cell id='70' start-row='6' start-col='4'>
+            <bounding-box x1='364' y1='646' x2='378' y2='656'/>
+            <content>1.6</content>
+         </cell>
+         <cell id='173' start-row='6' start-col='5'>
+            <bounding-box x1='397' y1='646' x2='411' y2='656'/>
+            <content>1.5</content>
+         </cell>
+         <cell id='188' start-row='6' start-col='6'>
+            <bounding-box x1='430' y1='646' x2='443' y2='656'/>
+            <content>2.0</content>
+         </cell>
+         <cell id='116' start-row='6' start-col='7'>
+            <bounding-box x1='463' y1='646' x2='476' y2='656'/>
+            <content>2.7</content>
+         </cell>
+         <cell id='104' start-row='6' start-col='8'>
+            <bounding-box x1='495' y1='646' x2='509' y2='656'/>
+            <content>3.7</content>
+         </cell>
+         <cell id='110' start-row='6' start-col='9'>
+            <bounding-box x1='528' y1='646' x2='542' y2='656'/>
+            <content>4.3</content>
+         </cell>
+         <cell id='133' start-row='6' start-col='10'>
+            <bounding-box x1='561' y1='646' x2='574' y2='656'/>
+            <content>4.3</content>
+         </cell>
+         <cell id='57' start-row='7' start-col='0'>
+            <bounding-box x1='44' y1='635' x2='189' y2='645'/>
+            <content>Elementaryandsecondaryteachers</content>
+         </cell>
+         <cell id='223' start-row='7' start-col='1'>
+            <bounding-box x1='266' y1='635' x2='280' y2='645'/>
+            <content>0.8</content>
+         </cell>
+         <cell id='243' start-row='7' start-col='2'>
+            <bounding-box x1='299' y1='635' x2='312' y2='645'/>
+            <content>1.4</content>
+         </cell>
+         <cell id='108' start-row='7' start-col='3'>
+            <bounding-box x1='332' y1='635' x2='345' y2='645'/>
+            <content>1.7</content>
+         </cell>
+         <cell id='186' start-row='7' start-col='4'>
+            <bounding-box x1='364' y1='635' x2='378' y2='645'/>
+            <content>2.2</content>
+         </cell>
+         <cell id='74' start-row='7' start-col='5'>
+            <bounding-box x1='397' y1='635' x2='411' y2='645'/>
+            <content>2.8</content>
+         </cell>
+         <cell id='244' start-row='7' start-col='6'>
+            <bounding-box x1='430' y1='635' x2='443' y2='645'/>
+            <content>3.4</content>
+         </cell>
+         <cell id='153' start-row='7' start-col='7'>
+            <bounding-box x1='463' y1='635' x2='476' y2='645'/>
+            <content>3.9</content>
+         </cell>
+         <cell id='201' start-row='7' start-col='8'>
+            <bounding-box x1='495' y1='635' x2='509' y2='645'/>
+            <content>4.3</content>
+         </cell>
+         <cell id='83' start-row='7' start-col='9'>
+            <bounding-box x1='528' y1='635' x2='542' y2='645'/>
+            <content>5.0</content>
+         </cell>
+         <cell id='164' start-row='7' start-col='10'>
+            <bounding-box x1='561' y1='635' x2='574' y2='645'/>
+            <content>5.9</content>
+         </cell>
+         <cell id='46' start-row='8' start-col='0'>
+            <bounding-box x1='44' y1='624' x2='149' y2='634'/>
+            <content>Totalcurrentexpenditures</content>
+         </cell>
+         <cell id='141' start-row='8' start-col='1'>
+            <bounding-box x1='266' y1='624' x2='280' y2='634'/>
+            <content>1.3</content>
+         </cell>
+         <cell id='218' start-row='8' start-col='2'>
+            <bounding-box x1='299' y1='624' x2='312' y2='634'/>
+            <content>2.1</content>
+         </cell>
+         <cell id='221' start-row='8' start-col='3'>
+            <bounding-box x1='332' y1='624' x2='345' y2='634'/>
+            <content>2.0</content>
+         </cell>
+         <cell id='238' start-row='8' start-col='4'>
+            <bounding-box x1='364' y1='624' x2='378' y2='634'/>
+            <content>2.1</content>
+         </cell>
+         <cell id='25' start-row='8' start-col='5'>
+            <bounding-box x1='397' y1='624' x2='411' y2='634'/>
+            <content>2.6</content>
+         </cell>
+         <cell id='119' start-row='8' start-col='6'>
+            <bounding-box x1='430' y1='624' x2='443' y2='634'/>
+            <content>3.3</content>
+         </cell>
+         <cell id='80' start-row='8' start-col='7'>
+            <bounding-box x1='463' y1='624' x2='476' y2='634'/>
+            <content>3.9</content>
+         </cell>
+         <cell id='113' start-row='8' start-col='8'>
+            <bounding-box x1='495' y1='624' x2='509' y2='634'/>
+            <content>4.1</content>
+         </cell>
+         <cell id='169' start-row='8' start-col='9'>
+            <bounding-box x1='528' y1='624' x2='542' y2='634'/>
+            <content>4.0</content>
+         </cell>
+         <cell id='76' start-row='8' start-col='10'>
+            <bounding-box x1='561' y1='624' x2='574' y2='634'/>
+            <content>4.0</content>
+         </cell>
+         <cell id='10' start-row='9' start-col='0'>
+            <bounding-box x1='44' y1='613' x2='235' y2='623'/>
+            <content>Currentexpendituresperpupilinfallenrollment</content>
+         </cell>
+         <cell id='32' start-row='9' start-col='1'>
+            <bounding-box x1='266' y1='613' x2='280' y2='623'/>
+            <content>1.3</content>
+         </cell>
+         <cell id='209' start-row='9' start-col='2'>
+            <bounding-box x1='299' y1='613' x2='312' y2='623'/>
+            <content>2.1</content>
+         </cell>
+         <cell id='87' start-row='9' start-col='3'>
+            <bounding-box x1='332' y1='613' x2='345' y2='623'/>
+            <content>2.0</content>
+         </cell>
+         <cell id='212' start-row='9' start-col='4'>
+            <bounding-box x1='364' y1='613' x2='378' y2='623'/>
+            <content>2.0</content>
+         </cell>
+         <cell id='228' start-row='9' start-col='5'>
+            <bounding-box x1='397' y1='613' x2='411' y2='623'/>
+            <content>2.9</content>
+         </cell>
+         <cell id='166' start-row='9' start-col='6'>
+            <bounding-box x1='430' y1='613' x2='443' y2='623'/>
+            <content>3.6</content>
+         </cell>
+         <cell id='82' start-row='9' start-col='7'>
+            <bounding-box x1='463' y1='613' x2='476' y2='623'/>
+            <content>4.3</content>
+         </cell>
+         <cell id='191' start-row='9' start-col='8'>
+            <bounding-box x1='495' y1='613' x2='509' y2='623'/>
+            <content>4.6</content>
+         </cell>
+         <cell id='195' start-row='9' start-col='9'>
+            <bounding-box x1='528' y1='613' x2='542' y2='623'/>
+            <content>5.2</content>
+         </cell>
+         <cell id='232' start-row='9' start-col='10'>
+            <bounding-box x1='561' y1='613' x2='574' y2='623'/>
+            <content>5.2</content>
+         </cell>
+         <cell id='67' start-row='10' start-col='0'>
+            <bounding-box x1='44' y1='591' x2='227' y2='601'/>
+            <content>Privateelementaryandsecondaryschools</content>
+         </cell>
+         <cell id='61' start-row='11' start-col='0'>
+            <bounding-box x1='44' y1='580' x2='168' y2='590'/>
+            <content>Prekindergarten–12enrollment</content>
+         </cell>
+         <cell id='190' start-row='11' start-col='1'>
+            <bounding-box x1='266' y1='580' x2='280' y2='590'/>
+            <content>3.4</content>
+         </cell>
+         <cell id='81' start-row='11' start-col='2'>
+            <bounding-box x1='299' y1='580' x2='312' y2='590'/>
+            <content>4.6</content>
+         </cell>
+         <cell id='29' start-row='11' start-col='3'>
+            <bounding-box x1='332' y1='580' x2='345' y2='590'/>
+            <content>3.7</content>
+         </cell>
+         <cell id='54' start-row='11' start-col='4'>
+            <bounding-box x1='364' y1='580' x2='378' y2='590'/>
+            <content>7.2</content>
+         </cell>
+         <cell id='211' start-row='11' start-col='5'>
+            <bounding-box x1='397' y1='580' x2='411' y2='590'/>
+            <content>7.7</content>
+         </cell>
+         <cell id='18' start-row='11' start-col='6'>
+            <bounding-box x1='425' y1='580' x2='443' y2='590'/>
+            <content>10.6</content>
+         </cell>
+         <cell id='145' start-row='11' start-col='7'>
+            <bounding-box x1='463' y1='580' x2='476' y2='590'/>
+            <content>9.3</content>
+         </cell>
+         <cell id='4' start-row='11' start-col='8'>
+            <bounding-box x1='495' y1='580' x2='509' y2='590'/>
+            <content>9.4</content>
+         </cell>
+         <cell id='68' start-row='11' start-col='9'>
+            <bounding-box x1='528' y1='580' x2='542' y2='590'/>
+            <content>8.1</content>
+         </cell>
+         <cell id='143' start-row='11' start-col='10'>
+            <bounding-box x1='561' y1='580' x2='574' y2='590'/>
+            <content>6.3</content>
+         </cell>
+         <cell id='7' start-row='12' start-col='0'>
+            <bounding-box x1='53' y1='568' x2='172' y2='578'/>
+            <content>Prekindergarten–8enrollment</content>
+         </cell>
+         <cell id='124' start-row='12' start-col='1'>
+            <bounding-box x1='266' y1='568' x2='280' y2='578'/>
+            <content>3.5</content>
+         </cell>
+         <cell id='208' start-row='12' start-col='2'>
+            <bounding-box x1='299' y1='568' x2='312' y2='578'/>
+            <content>4.9</content>
+         </cell>
+         <cell id='178' start-row='12' start-col='3'>
+            <bounding-box x1='332' y1='568' x2='345' y2='578'/>
+            <content>4.1</content>
+         </cell>
+         <cell id='27' start-row='12' start-col='4'>
+            <bounding-box x1='364' y1='568' x2='378' y2='578'/>
+            <content>8.0</content>
+         </cell>
+         <cell id='227' start-row='12' start-col='5'>
+            <bounding-box x1='397' y1='568' x2='411' y2='578'/>
+            <content>9.2</content>
+         </cell>
+         <cell id='2' start-row='12' start-col='6'>
+            <bounding-box x1='425' y1='568' x2='443' y2='578'/>
+            <content>12.1</content>
+         </cell>
+         <cell id='192' start-row='12' start-col='7'>
+            <bounding-box x1='458' y1='568' x2='476' y2='578'/>
+            <content>10.6</content>
+         </cell>
+         <cell id='179' start-row='12' start-col='8'>
+            <bounding-box x1='490' y1='568' x2='509' y2='578'/>
+            <content>10.4</content>
+         </cell>
+         <cell id='174' start-row='12' start-col='9'>
+            <bounding-box x1='523' y1='568' x2='542' y2='578'/>
+            <content>10.2</content>
+         </cell>
+         <cell id='151' start-row='12' start-col='10'>
+            <bounding-box x1='561' y1='568' x2='574' y2='578'/>
+            <content>7.9</content>
+         </cell>
+         <cell id='14' start-row='13' start-col='0'>
+            <bounding-box x1='53' y1='557' x2='118' y2='567'/>
+            <content>9–12enrollment</content>
+         </cell>
+         <cell id='203' start-row='13' start-col='1'>
+            <bounding-box x1='266' y1='557' x2='280' y2='567'/>
+            <content>3.0</content>
+         </cell>
+         <cell id='136' start-row='13' start-col='2'>
+            <bounding-box x1='299' y1='557' x2='312' y2='567'/>
+            <content>3.8</content>
+         </cell>
+         <cell id='98' start-row='13' start-col='3'>
+            <bounding-box x1='332' y1='557' x2='345' y2='567'/>
+            <content>2.3</content>
+         </cell>
+         <cell id='120' start-row='13' start-col='4'>
+            <bounding-box x1='364' y1='557' x2='378' y2='567'/>
+            <content>4.3</content>
+         </cell>
+         <cell id='252' start-row='13' start-col='5'>
+            <bounding-box x1='397' y1='557' x2='411' y2='567'/>
+            <content>2.8</content>
+         </cell>
+         <cell id='11' start-row='13' start-col='6'>
+            <bounding-box x1='430' y1='557' x2='443' y2='567'/>
+            <content>5.8</content>
+         </cell>
+         <cell id='219' start-row='13' start-col='7'>
+            <bounding-box x1='463' y1='557' x2='476' y2='567'/>
+            <content>5.7</content>
+         </cell>
+         <cell id='144' start-row='13' start-col='8'>
+            <bounding-box x1='495' y1='557' x2='509' y2='567'/>
+            <content>6.1</content>
+         </cell>
+         <cell id='69' start-row='13' start-col='9'>
+            <bounding-box x1='528' y1='557' x2='542' y2='567'/>
+            <content>1.3</content>
+         </cell>
+         <cell id='206' start-row='13' start-col='10'>
+            <bounding-box x1='561' y1='557' x2='574' y2='567'/>
+            <content>1.3</content>
+         </cell>
+         <cell id='26' start-row='14' start-col='0'>
+            <bounding-box x1='44' y1='546' x2='135' y2='556'/>
+            <content>Highschoolgraduates</content>
+         </cell>
+         <cell id='114' start-row='14' start-col='1'>
+            <bounding-box x1='266' y1='546' x2='280' y2='556'/>
+            <content>0.9</content>
+         </cell>
+         <cell id='242' start-row='14' start-col='2'>
+            <bounding-box x1='299' y1='546' x2='312' y2='556'/>
+            <content>0.9</content>
+         </cell>
+         <cell id='216' start-row='14' start-col='3'>
+            <bounding-box x1='332' y1='546' x2='345' y2='556'/>
+            <content>1.6</content>
+         </cell>
+         <cell id='85' start-row='14' start-col='4'>
+            <bounding-box x1='364' y1='546' x2='378' y2='556'/>
+            <content>2.8</content>
+         </cell>
+         <cell id='23' start-row='14' start-col='5'>
+            <bounding-box x1='397' y1='546' x2='411' y2='556'/>
+            <content>5.0</content>
+         </cell>
+         <cell id='175' start-row='14' start-col='6'>
+            <bounding-box x1='430' y1='546' x2='443' y2='556'/>
+            <content>6.2</content>
+         </cell>
+         <cell id='73' start-row='14' start-col='7'>
+            <bounding-box x1='463' y1='546' x2='476' y2='556'/>
+            <content>4.9</content>
+         </cell>
+         <cell id='142' start-row='14' start-col='8'>
+            <bounding-box x1='495' y1='546' x2='509' y2='556'/>
+            <content>4.8</content>
+         </cell>
+         <cell id='165' start-row='14' start-col='9'>
+            <bounding-box x1='528' y1='546' x2='542' y2='556'/>
+            <content>1.6</content>
+         </cell>
+         <cell id='47' start-row='14' start-col='10'>
+            <bounding-box x1='561' y1='546' x2='574' y2='556'/>
+            <content>1.6</content>
+         </cell>
+         <cell id='41' start-row='15' start-col='0'>
+            <bounding-box x1='44' y1='525' x2='231' y2='535'/>
+            <content>Postsecondarydegree-grantinginstitutions</content>
+         </cell>
+         <cell id='42' start-row='16' start-col='0'>
+            <bounding-box x1='44' y1='513' x2='109' y2='523'/>
+            <content>Totalenrollment</content>
+         </cell>
+         <cell id='52' start-row='16' start-col='1'>
+            <bounding-box x1='266' y1='513' x2='280' y2='523'/>
+            <content>1.7</content>
+         </cell>
+         <cell id='43' start-row='16' start-col='2'>
+            <bounding-box x1='299' y1='513' x2='312' y2='523'/>
+            <content>2.6</content>
+         </cell>
+         <cell id='65' start-row='16' start-col='3'>
+            <bounding-box x1='332' y1='513' x2='345' y2='523'/>
+            <content>3.6</content>
+         </cell>
+         <cell id='172' start-row='16' start-col='4'>
+            <bounding-box x1='364' y1='513' x2='378' y2='523'/>
+            <content>4.7</content>
+         </cell>
+         <cell id='239' start-row='16' start-col='5'>
+            <bounding-box x1='397' y1='513' x2='411' y2='523'/>
+            <content>5.3</content>
+         </cell>
+         <cell id='128' start-row='16' start-col='6'>
+            <bounding-box x1='430' y1='513' x2='443' y2='523'/>
+            <content>6.2</content>
+         </cell>
+         <cell id='176' start-row='16' start-col='7'>
+            <bounding-box x1='463' y1='513' x2='476' y2='523'/>
+            <content>7.6</content>
+         </cell>
+         <cell id='214' start-row='16' start-col='8'>
+            <bounding-box x1='495' y1='513' x2='509' y2='523'/>
+            <content>9.4</content>
+         </cell>
+         <cell id='158' start-row='16' start-col='9'>
+            <bounding-box x1='523' y1='513' x2='542' y2='523'/>
+            <content>11.7</content>
+         </cell>
+         <cell id='97' start-row='16' start-col='10'>
+            <bounding-box x1='556' y1='513' x2='574' y2='523'/>
+            <content>13.1</content>
+         </cell>
+         <cell id='230' start-row='17' start-col='0'>
+            <bounding-box x1='53' y1='502' x2='71' y2='512'/>
+            <content>Men</content>
+         </cell>
+         <cell id='152' start-row='17' start-col='1'>
+            <bounding-box x1='266' y1='502' x2='280' y2='512'/>
+            <content>1.7</content>
+         </cell>
+         <cell id='234' start-row='17' start-col='2'>
+            <bounding-box x1='299' y1='502' x2='312' y2='512'/>
+            <content>3.0</content>
+         </cell>
+         <cell id='181' start-row='17' start-col='3'>
+            <bounding-box x1='332' y1='502' x2='345' y2='512'/>
+            <content>4.2</content>
+         </cell>
+         <cell id='78' start-row='17' start-col='4'>
+            <bounding-box x1='364' y1='502' x2='378' y2='512'/>
+            <content>5.5</content>
+         </cell>
+         <cell id='101' start-row='17' start-col='5'>
+            <bounding-box x1='397' y1='502' x2='411' y2='512'/>
+            <content>6.3</content>
+         </cell>
+         <cell id='93' start-row='17' start-col='6'>
+            <bounding-box x1='430' y1='502' x2='443' y2='512'/>
+            <content>7.0</content>
+         </cell>
+         <cell id='39' start-row='17' start-col='7'>
+            <bounding-box x1='463' y1='502' x2='476' y2='512'/>
+            <content>8.1</content>
+         </cell>
+         <cell id='55' start-row='17' start-col='8'>
+            <bounding-box x1='495' y1='502' x2='509' y2='512'/>
+            <content>9.8</content>
+         </cell>
+         <cell id='75' start-row='17' start-col='9'>
+            <bounding-box x1='523' y1='502' x2='542' y2='512'/>
+            <content>11.7</content>
+         </cell>
+         <cell id='48' start-row='17' start-col='10'>
+            <bounding-box x1='556' y1='502' x2='574' y2='512'/>
+            <content>13.3</content>
+         </cell>
+         <cell id='88' start-row='18' start-col='0'>
+            <bounding-box x1='53' y1='491' x2='84' y2='501'/>
+            <content>Women</content>
+         </cell>
+         <cell id='162' start-row='18' start-col='1'>
+            <bounding-box x1='266' y1='491' x2='280' y2='501'/>
+            <content>1.8</content>
+         </cell>
+         <cell id='96' start-row='18' start-col='2'>
+            <bounding-box x1='299' y1='491' x2='312' y2='501'/>
+            <content>2.6</content>
+         </cell>
+         <cell id='134' start-row='18' start-col='3'>
+            <bounding-box x1='332' y1='491' x2='345' y2='501'/>
+            <content>3.7</content>
+         </cell>
+         <cell id='17' start-row='18' start-col='4'>
+            <bounding-box x1='364' y1='491' x2='378' y2='501'/>
+            <content>4.3</content>
+         </cell>
+         <cell id='103' start-row='18' start-col='5'>
+            <bounding-box x1='397' y1='491' x2='411' y2='501'/>
+            <content>4.6</content>
+         </cell>
+         <cell id='157' start-row='18' start-col='6'>
+            <bounding-box x1='430' y1='491' x2='443' y2='501'/>
+            <content>5.6</content>
+         </cell>
+         <cell id='100' start-row='18' start-col='7'>
+            <bounding-box x1='463' y1='491' x2='476' y2='501'/>
+            <content>7.2</content>
+         </cell>
+         <cell id='229' start-row='18' start-col='8'>
+            <bounding-box x1='495' y1='491' x2='509' y2='501'/>
+            <content>9.0</content>
+         </cell>
+         <cell id='34' start-row='18' start-col='9'>
+            <bounding-box x1='523' y1='491' x2='542' y2='501'/>
+            <content>11.7</content>
+         </cell>
+         <cell id='15' start-row='18' start-col='10'>
+            <bounding-box x1='556' y1='491' x2='574' y2='501'/>
+            <content>12.9</content>
+         </cell>
+         <cell id='60' start-row='19' start-col='0'>
+            <bounding-box x1='53' y1='480' x2='126' y2='490'/>
+            <content>4-yearinstitutions</content>
+         </cell>
+         <cell id='155' start-row='19' start-col='1'>
+            <bounding-box x1='266' y1='480' x2='279' y2='490'/>
+            <content>1.8</content>
+         </cell>
+         <cell id='180' start-row='19' start-col='2'>
+            <bounding-box x1='299' y1='480' x2='312' y2='490'/>
+            <content>3.0</content>
+         </cell>
+         <cell id='204' start-row='19' start-col='3'>
+            <bounding-box x1='331' y1='480' x2='345' y2='490'/>
+            <content>4.0</content>
+         </cell>
+         <cell id='129' start-row='19' start-col='4'>
+            <bounding-box x1='364' y1='480' x2='378' y2='490'/>
+            <content>5.4</content>
+         </cell>
+         <cell id='139' start-row='19' start-col='5'>
+            <bounding-box x1='397' y1='480' x2='410' y2='490'/>
+            <content>6.0</content>
+         </cell>
+         <cell id='92' start-row='19' start-col='6'>
+            <bounding-box x1='430' y1='480' x2='443' y2='490'/>
+            <content>7.0</content>
+         </cell>
+         <cell id='112' start-row='19' start-col='7'>
+            <bounding-box x1='462' y1='480' x2='476' y2='490'/>
+            <content>8.5</content>
+         </cell>
+         <cell id='77' start-row='19' start-col='8'>
+            <bounding-box x1='490' y1='480' x2='509' y2='490'/>
+            <content>10.6</content>
+         </cell>
+         <cell id='22' start-row='19' start-col='9'>
+            <bounding-box x1='523' y1='480' x2='541' y2='490'/>
+            <content>13.1</content>
+         </cell>
+         <cell id='95' start-row='19' start-col='10'>
+            <bounding-box x1='556' y1='480' x2='574' y2='490'/>
+            <content>14.8</content>
+         </cell>
+         <cell id='8' start-row='20' start-col='0'>
+            <bounding-box x1='53' y1='469' x2='126' y2='479'/>
+            <content>2-yearinstitutions</content>
+         </cell>
+         <cell id='21' start-row='20' start-col='1'>
+            <bounding-box x1='266' y1='469' x2='279' y2='479'/>
+            <content>2.2</content>
+         </cell>
+         <cell id='130' start-row='20' start-col='2'>
+            <bounding-box x1='299' y1='469' x2='312' y2='479'/>
+            <content>3.2</content>
+         </cell>
+         <cell id='111' start-row='20' start-col='3'>
+            <bounding-box x1='331' y1='469' x2='345' y2='479'/>
+            <content>4.2</content>
+         </cell>
+         <cell id='51' start-row='20' start-col='4'>
+            <bounding-box x1='364' y1='469' x2='378' y2='479'/>
+            <content>4.8</content>
+         </cell>
+         <cell id='171' start-row='20' start-col='5'>
+            <bounding-box x1='397' y1='469' x2='410' y2='479'/>
+            <content>5.0</content>
+         </cell>
+         <cell id='196' start-row='20' start-col='6'>
+            <bounding-box x1='430' y1='469' x2='443' y2='479'/>
+            <content>5.0</content>
+         </cell>
+         <cell id='226' start-row='20' start-col='7'>
+            <bounding-box x1='462' y1='469' x2='476' y2='479'/>
+            <content>5.9</content>
+         </cell>
+         <cell id='20' start-row='20' start-col='8'>
+            <bounding-box x1='495' y1='469' x2='509' y2='479'/>
+            <content>7.1</content>
+         </cell>
+         <cell id='3' start-row='20' start-col='9'>
+            <bounding-box x1='528' y1='469' x2='541' y2='479'/>
+            <content>9.4</content>
+         </cell>
+         <cell id='28' start-row='20' start-col='10'>
+            <bounding-box x1='556' y1='469' x2='574' y2='479'/>
+            <content>10.1</content>
+         </cell>
+         <cell id='86' start-row='21' start-col='0'>
+            <bounding-box x1='53' y1='458' x2='77' y2='468'/>
+            <content>White</content>
+         </cell>
+         <cell id='213' start-row='21' start-col='1'>
+            <bounding-box x1='266' y1='458' x2='279' y2='468'/>
+            <content>1.1</content>
+         </cell>
+         <cell id='193' start-row='21' start-col='2'>
+            <bounding-box x1='299' y1='458' x2='312' y2='468'/>
+            <content>2.4</content>
+         </cell>
+         <cell id='38' start-row='21' start-col='3'>
+            <bounding-box x1='331' y1='458' x2='345' y2='468'/>
+            <content>3.9</content>
+         </cell>
+         <cell id='13' start-row='21' start-col='4'>
+            <bounding-box x1='364' y1='458' x2='378' y2='468'/>
+            <content>5.5</content>
+         </cell>
+         <cell id='50' start-row='21' start-col='5'>
+            <bounding-box x1='397' y1='458' x2='410' y2='468'/>
+            <content>6.7</content>
+         </cell>
+         <cell id='91' start-row='21' start-col='6'>
+            <bounding-box x1='430' y1='458' x2='443' y2='468'/>
+            <content>7.4</content>
+         </cell>
+         <cell id='253' start-row='21' start-col='7'>
+            <bounding-box x1='466' y1='458' x2='476' y2='468'/>
+            <content>—</content>
+         </cell>
+         <cell id='45' start-row='21' start-col='8'>
+            <bounding-box x1='499' y1='458' x2='509' y2='468'/>
+            <content>—</content>
+         </cell>
+         <cell id='160' start-row='21' start-col='9'>
+            <bounding-box x1='531' y1='458' x2='541' y2='468'/>
+            <content>—</content>
+         </cell>
+         <cell id='71' start-row='21' start-col='10'>
+            <bounding-box x1='564' y1='458' x2='574' y2='468'/>
+            <content>—</content>
+         </cell>
+         <cell id='12' start-row='22' start-col='0'>
+            <bounding-box x1='53' y1='447' x2='158' y2='457'/>
+            <content>BlackorAfricanAmerican</content>
+         </cell>
+         <cell id='148' start-row='22' start-col='1'>
+            <bounding-box x1='266' y1='447' x2='279' y2='457'/>
+            <content>4.2</content>
+         </cell>
+         <cell id='225' start-row='22' start-col='2'>
+            <bounding-box x1='299' y1='447' x2='312' y2='457'/>
+            <content>8.8</content>
+         </cell>
+         <cell id='30' start-row='22' start-col='3'>
+            <bounding-box x1='326' y1='447' x2='345' y2='457'/>
+            <content>12.5</content>
+         </cell>
+         <cell id='117' start-row='22' start-col='4'>
+            <bounding-box x1='359' y1='447' x2='378' y2='457'/>
+            <content>15.8</content>
+         </cell>
+         <cell id='99' start-row='22' start-col='5'>
+            <bounding-box x1='392' y1='447' x2='410' y2='457'/>
+            <content>19.0</content>
+         </cell>
+         <cell id='1' start-row='22' start-col='6'>
+            <bounding-box x1='425' y1='447' x2='443' y2='457'/>
+            <content>20.5</content>
+         </cell>
+         <cell id='140' start-row='22' start-col='7'>
+            <bounding-box x1='466' y1='447' x2='476' y2='457'/>
+            <content>—</content>
+         </cell>
+         <cell id='189' start-row='22' start-col='8'>
+            <bounding-box x1='499' y1='447' x2='509' y2='457'/>
+            <content>—</content>
+         </cell>
+         <cell id='132' start-row='22' start-col='9'>
+            <bounding-box x1='531' y1='447' x2='541' y2='457'/>
+            <content>—</content>
+         </cell>
+         <cell id='246' start-row='22' start-col='10'>
+            <bounding-box x1='564' y1='447' x2='574' y2='457'/>
+            <content>—</content>
+         </cell>
+         <cell id='107' start-row='23' start-col='0'>
+            <bounding-box x1='53' y1='436' x2='127' y2='446'/>
+            <content>HispanicorLatino</content>
+         </cell>
+         <cell id='89' start-row='23' start-col='1'>
+            <bounding-box x1='266' y1='436' x2='279' y2='446'/>
+            <content>4.2</content>
+         </cell>
+         <cell id='118' start-row='23' start-col='2'>
+            <bounding-box x1='299' y1='436' x2='312' y2='446'/>
+            <content>8.6</content>
+         </cell>
+         <cell id='122' start-row='23' start-col='3'>
+            <bounding-box x1='326' y1='436' x2='345' y2='446'/>
+            <content>12.1</content>
+         </cell>
+         <cell id='248' start-row='23' start-col='4'>
+            <bounding-box x1='359' y1='436' x2='378' y2='446'/>
+            <content>15.5</content>
+         </cell>
+         <cell id='168' start-row='23' start-col='5'>
+            <bounding-box x1='392' y1='436' x2='410' y2='446'/>
+            <content>18.9</content>
+         </cell>
+         <cell id='19' start-row='23' start-col='6'>
+            <bounding-box x1='425' y1='436' x2='443' y2='446'/>
+            <content>22.1</content>
+         </cell>
+         <cell id='170' start-row='23' start-col='7'>
+            <bounding-box x1='466' y1='436' x2='476' y2='446'/>
+            <content>—</content>
+         </cell>
+         <cell id='237' start-row='23' start-col='8'>
+            <bounding-box x1='499' y1='436' x2='509' y2='446'/>
+            <content>—</content>
+         </cell>
+         <cell id='247' start-row='23' start-col='9'>
+            <bounding-box x1='531' y1='436' x2='541' y2='446'/>
+            <content>—</content>
+         </cell>
+         <cell id='254' start-row='23' start-col='10'>
+            <bounding-box x1='564' y1='436' x2='574' y2='446'/>
+            <content>—</content>
+         </cell>
+         <cell id='31' start-row='24' start-col='0'>
+            <bounding-box x1='53' y1='425' x2='140' y2='435'/>
+            <content>Asian/PacificIslander</content>
+         </cell>
+         <cell id='163' start-row='24' start-col='1'>
+            <bounding-box x1='266' y1='425' x2='279' y2='435'/>
+            <content>2.6</content>
+         </cell>
+         <cell id='224' start-row='24' start-col='2'>
+            <bounding-box x1='299' y1='425' x2='312' y2='435'/>
+            <content>5.0</content>
+         </cell>
+         <cell id='245' start-row='24' start-col='3'>
+            <bounding-box x1='331' y1='425' x2='345' y2='435'/>
+            <content>5.7</content>
+         </cell>
+         <cell id='49' start-row='24' start-col='4'>
+            <bounding-box x1='364' y1='425' x2='378' y2='435'/>
+            <content>7.0</content>
+         </cell>
+         <cell id='72' start-row='24' start-col='5'>
+            <bounding-box x1='397' y1='425' x2='410' y2='435'/>
+            <content>6.0</content>
+         </cell>
+         <cell id='33' start-row='24' start-col='6'>
+            <bounding-box x1='430' y1='425' x2='443' y2='435'/>
+            <content>4.7</content>
+         </cell>
+         <cell id='194' start-row='24' start-col='7'>
+            <bounding-box x1='466' y1='425' x2='476' y2='435'/>
+            <content>—</content>
+         </cell>
+         <cell id='58' start-row='24' start-col='8'>
+            <bounding-box x1='499' y1='425' x2='509' y2='435'/>
+            <content>—</content>
+         </cell>
+         <cell id='255' start-row='24' start-col='9'>
+            <bounding-box x1='531' y1='425' x2='541' y2='435'/>
+            <content>—</content>
+         </cell>
+         <cell id='236' start-row='24' start-col='10'>
+            <bounding-box x1='564' y1='425' x2='574' y2='435'/>
+            <content>—</content>
+         </cell>
+         <cell id='40' start-row='25' start-col='0'>
+            <bounding-box x1='52' y1='414' x2='176' y2='424'/>
+            <content>AmericanIndian/AlaskaNative</content>
+         </cell>
+         <cell id='102' start-row='25' start-col='1'>
+            <bounding-box x1='266' y1='414' x2='279' y2='424'/>
+            <content>5.2</content>
+         </cell>
+         <cell id='131' start-row='25' start-col='2'>
+            <bounding-box x1='299' y1='414' x2='312' y2='424'/>
+            <content>4.1</content>
+         </cell>
+         <cell id='105' start-row='25' start-col='3'>
+            <bounding-box x1='331' y1='414' x2='345' y2='424'/>
+            <content>5.6</content>
+         </cell>
+         <cell id='197' start-row='25' start-col='4'>
+            <bounding-box x1='364' y1='414' x2='378' y2='424'/>
+            <content>3.3</content>
+         </cell>
+         <cell id='66' start-row='25' start-col='5'>
+            <bounding-box x1='397' y1='414' x2='410' y2='424'/>
+            <content>2.4</content>
+         </cell>
+         <cell id='215' start-row='25' start-col='6'>
+            <bounding-box x1='430' y1='414' x2='443' y2='424'/>
+            <content>5.0</content>
+         </cell>
+         <cell id='231' start-row='25' start-col='7'>
+            <bounding-box x1='466' y1='414' x2='476' y2='424'/>
+            <content>—</content>
+         </cell>
+         <cell id='251' start-row='25' start-col='8'>
+            <bounding-box x1='499' y1='414' x2='509' y2='424'/>
+            <content>—</content>
+         </cell>
+         <cell id='210' start-row='25' start-col='9'>
+            <bounding-box x1='531' y1='414' x2='541' y2='424'/>
+            <content>—</content>
+         </cell>
+         <cell id='182' start-row='25' start-col='10'>
+            <bounding-box x1='564' y1='414' x2='574' y2='424'/>
+            <content>—</content>
+         </cell>
+         <cell id='44' start-row='26' start-col='0'>
+            <bounding-box x1='52' y1='402' x2='123' y2='412'/>
+            <content>Nonresidentalien</content>
+         </cell>
+         <cell id='135' start-row='26' start-col='1'>
+            <bounding-box x1='266' y1='402' x2='279' y2='412'/>
+            <content>2.7</content>
+         </cell>
+         <cell id='187' start-row='26' start-col='2'>
+            <bounding-box x1='298' y1='402' x2='312' y2='412'/>
+            <content>4.8</content>
+         </cell>
+         <cell id='94' start-row='26' start-col='3'>
+            <bounding-box x1='331' y1='402' x2='345' y2='412'/>
+            <content>7.8</content>
+         </cell>
+         <cell id='146' start-row='26' start-col='4'>
+            <bounding-box x1='364' y1='402' x2='377' y2='412'/>
+            <content>9.5</content>
+         </cell>
+         <cell id='220' start-row='26' start-col='5'>
+            <bounding-box x1='397' y1='402' x2='410' y2='412'/>
+            <content>7.3</content>
+         </cell>
+         <cell id='207' start-row='26' start-col='6'>
+            <bounding-box x1='429' y1='402' x2='443' y2='412'/>
+            <content>2.1</content>
+         </cell>
+         <cell id='35' start-row='26' start-col='7'>
+            <bounding-box x1='466' y1='402' x2='476' y2='412'/>
+            <content>—</content>
+         </cell>
+         <cell id='37' start-row='26' start-col='8'>
+            <bounding-box x1='498' y1='402' x2='508' y2='412'/>
+            <content>—</content>
+         </cell>
+         <cell id='233' start-row='26' start-col='9'>
+            <bounding-box x1='531' y1='402' x2='541' y2='412'/>
+            <content>—</content>
+         </cell>
+         <cell id='177' start-row='26' start-col='10'>
+            <bounding-box x1='564' y1='402' x2='574' y2='412'/>
+            <content>—</content>
+         </cell>
+      </region>
+   </table>
+   <table id='3'>
+      <region id='1' col-increment='0' row-increment='0' page='4'>
+         <cell id='27' start-row='0' start-col='1' end-col='4'>
+            <bounding-box x1='376' y1='732' x2='425' y2='742'/>
+            <content>Yearofdata</content>
+         </cell>
+         <cell id='40' start-row='0' end-row='1' start-col='0'>
+            <bounding-box x1='36' y1='718' x2='65' y2='728'/>
+            <content>Source</content>
+         </cell>
+         <cell id='26' start-row='1' start-col='1'>
+            <bounding-box x1='233' y1='718' x2='269' y2='728'/>
+            <content>2007–08</content>
+         </cell>
+         <cell id='41' start-row='1' start-col='2'>
+            <bounding-box x1='333' y1='718' x2='369' y2='728'/>
+            <content>2008–09</content>
+         </cell>
+         <cell id='16' start-row='1' start-col='3'>
+            <bounding-box x1='434' y1='718' x2='469' y2='728'/>
+            <content>2009–10</content>
+         </cell>
+         <cell id='37' start-row='1' start-col='4'>
+            <bounding-box x1='534' y1='718' x2='570' y2='728'/>
+            <content>2010–11</content>
+         </cell>
+         <cell id='14' start-row='2' start-col='1' end-col='4'>
+            <bounding-box x1='351' y1='703' x2='452' y2='713'/>
+            <content>Enrollment,inthousands</content>
+         </cell>
+         <cell id='30' start-row='3' start-col='0'>
+            <bounding-box x1='36' y1='692' x2='62' y2='702'/>
+            <content>Actual</content>
+         </cell>
+         <cell id='12' start-row='3' start-col='1'>
+            <bounding-box x1='240' y1='692' x2='269' y2='702'/>
+            <content>49,293</content>
+         </cell>
+         <cell id='24' start-row='3' start-col='2'>
+            <bounding-box x1='341' y1='692' x2='369' y2='702'/>
+            <content>49,266</content>
+         </cell>
+         <cell id='1' start-row='3' start-col='3'>
+            <bounding-box x1='441' y1='692' x2='469' y2='702'/>
+            <content>49,373</content>
+         </cell>
+         <cell id='22' start-row='3' start-col='4'>
+            <bounding-box x1='541' y1='692' x2='570' y2='702'/>
+            <content>49,484</content>
+         </cell>
+         <cell id='7' start-row='4' start-col='1' end-col='4'>
+            <bounding-box x1='331' y1='670' x2='472' y2='680'/>
+            <content>Projectedenrollment,inthousands</content>
+         </cell>
+         <cell id='15' start-row='5' start-col='0'>
+            <bounding-box x1='35' y1='659' x2='207' y2='669'/>
+            <content>ProjectionsofEducationStatisticsto2017</content>
+         </cell>
+         <cell id='44' start-row='5' start-col='1'>
+            <bounding-box x1='240' y1='659' x2='269' y2='669'/>
+            <content>49,644</content>
+         </cell>
+         <cell id='39' start-row='5' start-col='2'>
+            <bounding-box x1='340' y1='659' x2='369' y2='669'/>
+            <content>49,825</content>
+         </cell>
+         <cell id='19' start-row='5' start-col='3'>
+            <bounding-box x1='441' y1='659' x2='469' y2='669'/>
+            <content>50,067</content>
+         </cell>
+         <cell id='25' start-row='5' start-col='4'>
+            <bounding-box x1='541' y1='659' x2='570' y2='669'/>
+            <content>50,353</content>
+         </cell>
+         <cell id='5' start-row='6' start-col='0'>
+            <bounding-box x1='35' y1='648' x2='207' y2='658'/>
+            <content>ProjectionsofEducationStatisticsto2018</content>
+         </cell>
+         <cell id='28' start-row='6' start-col='1'>
+            <bounding-box x1='240' y1='648' x2='269' y2='658'/>
+            <content>49,470</content>
+         </cell>
+         <cell id='11' start-row='6' start-col='2'>
+            <bounding-box x1='340' y1='648' x2='369' y2='658'/>
+            <content>49,623</content>
+         </cell>
+         <cell id='32' start-row='6' start-col='3'>
+            <bounding-box x1='441' y1='648' x2='469' y2='658'/>
+            <content>49,788</content>
+         </cell>
+         <cell id='23' start-row='6' start-col='4'>
+            <bounding-box x1='541' y1='648' x2='570' y2='658'/>
+            <content>50,034</content>
+         </cell>
+         <cell id='20' start-row='7' start-col='0'>
+            <bounding-box x1='35' y1='637' x2='207' y2='647'/>
+            <content>ProjectionsofEducationStatisticsto2019</content>
+         </cell>
+         <cell id='52' start-row='7' start-col='1'>
+            <bounding-box x1='263' y1='637' x2='269' y2='647'/>
+            <content>†</content>
+         </cell>
+         <cell id='33' start-row='7' start-col='2'>
+            <bounding-box x1='340' y1='637' x2='369' y2='647'/>
+            <content>49,265</content>
+         </cell>
+         <cell id='17' start-row='7' start-col='3'>
+            <bounding-box x1='441' y1='637' x2='469' y2='647'/>
+            <content>49,312</content>
+         </cell>
+         <cell id='34' start-row='7' start-col='4'>
+            <bounding-box x1='541' y1='637' x2='570' y2='647'/>
+            <content>49,386</content>
+         </cell>
+         <cell id='10' start-row='8' start-col='0'>
+            <bounding-box x1='35' y1='626' x2='207' y2='636'/>
+            <content>ProjectionsofEducationStatisticsto2020</content>
+         </cell>
+         <cell id='29' start-row='8' start-col='1'>
+            <bounding-box x1='263' y1='626' x2='269' y2='636'/>
+            <content>†</content>
+         </cell>
+         <cell id='55' start-row='8' start-col='2'>
+            <bounding-box x1='363' y1='626' x2='369' y2='636'/>
+            <content>†</content>
+         </cell>
+         <cell id='8' start-row='8' start-col='3'>
+            <bounding-box x1='441' y1='626' x2='469' y2='636'/>
+            <content>49,282</content>
+         </cell>
+         <cell id='6' start-row='8' start-col='4'>
+            <bounding-box x1='541' y1='626' x2='570' y2='636'/>
+            <content>49,306</content>
+         </cell>
+         <cell id='3' start-row='9' start-col='1' end-col='4'>
+            <bounding-box x1='282' y1='604' x2='521' y2='614'/>
+            <content>Percentagedifferencebetweenactualandprojectedvalues</content>
+         </cell>
+         <cell id='2' start-row='10' start-col='0'>
+            <bounding-box x1='35' y1='592' x2='207' y2='602'/>
+            <content>ProjectionsofEducationStatisticsto2017</content>
+         </cell>
+         <cell id='49' start-row='10' start-col='1'>
+            <bounding-box x1='255' y1='592' x2='269' y2='602'/>
+            <content>0.7</content>
+         </cell>
+         <cell id='43' start-row='10' start-col='2'>
+            <bounding-box x1='355' y1='592' x2='369' y2='602'/>
+            <content>1.1</content>
+         </cell>
+         <cell id='46' start-row='10' start-col='3'>
+            <bounding-box x1='456' y1='592' x2='469' y2='602'/>
+            <content>1.4</content>
+         </cell>
+         <cell id='13' start-row='10' start-col='4'>
+            <bounding-box x1='556' y1='592' x2='570' y2='602'/>
+            <content>1.8</content>
+         </cell>
+         <cell id='4' start-row='11' start-col='0'>
+            <bounding-box x1='35' y1='581' x2='207' y2='591'/>
+            <content>ProjectionsofEducationStatisticsto2018</content>
+         </cell>
+         <cell id='48' start-row='11' start-col='1'>
+            <bounding-box x1='255' y1='581' x2='268' y2='591'/>
+            <content>0.4</content>
+         </cell>
+         <cell id='47' start-row='11' start-col='2'>
+            <bounding-box x1='355' y1='581' x2='369' y2='591'/>
+            <content>0.7</content>
+         </cell>
+         <cell id='36' start-row='11' start-col='3'>
+            <bounding-box x1='456' y1='581' x2='469' y2='591'/>
+            <content>0.8</content>
+         </cell>
+         <cell id='42' start-row='11' start-col='4'>
+            <bounding-box x1='556' y1='581' x2='570' y2='591'/>
+            <content>1.1</content>
+         </cell>
+         <cell id='18' start-row='12' start-col='0'>
+            <bounding-box x1='35' y1='570' x2='207' y2='580'/>
+            <content>ProjectionsofEducationStatisticsto2019</content>
+         </cell>
+         <cell id='45' start-row='12' start-col='1'>
+            <bounding-box x1='262' y1='570' x2='268' y2='580'/>
+            <content>†</content>
+         </cell>
+         <cell id='50' start-row='12' start-col='2'>
+            <bounding-box x1='363' y1='570' x2='369' y2='580'/>
+            <content>#</content>
+         </cell>
+         <cell id='21' start-row='12' start-col='3'>
+            <bounding-box x1='452' y1='570' x2='469' y2='580'/>
+            <content>-0.1</content>
+         </cell>
+         <cell id='31' start-row='12' start-col='4'>
+            <bounding-box x1='553' y1='570' x2='570' y2='580'/>
+            <content>-0.2</content>
+         </cell>
+         <cell id='9' start-row='13' start-col='0'>
+            <bounding-box x1='35' y1='559' x2='207' y2='569'/>
+            <content>ProjectionsofEducationStatisticsto2020</content>
+         </cell>
+         <cell id='54' start-row='13' start-col='1'>
+            <bounding-box x1='262' y1='559' x2='268' y2='569'/>
+            <content>†</content>
+         </cell>
+         <cell id='53' start-row='13' start-col='2'>
+            <bounding-box x1='363' y1='559' x2='369' y2='569'/>
+            <content>†</content>
+         </cell>
+         <cell id='35' start-row='13' start-col='3'>
+            <bounding-box x1='452' y1='559' x2='469' y2='569'/>
+            <content>-0.2</content>
+         </cell>
+         <cell id='38' start-row='13' start-col='4'>
+            <bounding-box x1='553' y1='559' x2='570' y2='569'/>
+            <content>-0.4</content>
+         </cell>
+      </region>
+   </table>
+   <table id='4'>
+      <region id='1' col-increment='0' row-increment='0' page='4'>
+         <cell id='3' start-row='0' start-col='1' end-col='4'>
+            <bounding-box x1='367' y1='444' x2='436' y2='454'/>
+            <content>Leadtime(years)</content>
+         </cell>
+         <cell id='15' start-row='0' end-row='1' start-col='0'>
+            <bounding-box x1='36' y1='430' x2='65' y2='440'/>
+            <content>Source</content>
+         </cell>
+         <cell id='31' start-row='1' start-col='1'>
+            <bounding-box x1='247' y1='430' x2='253' y2='440'/>
+            <content>1</content>
+         </cell>
+         <cell id='28' start-row='1' start-col='2'>
+            <bounding-box x1='353' y1='430' x2='359' y2='440'/>
+            <content>2</content>
+         </cell>
+         <cell id='22' start-row='1' start-col='3'>
+            <bounding-box x1='458' y1='430' x2='464' y2='440'/>
+            <content>3</content>
+         </cell>
+         <cell id='17' start-row='1' start-col='4'>
+            <bounding-box x1='563' y1='430' x2='569' y2='440'/>
+            <content>4</content>
+         </cell>
+         <cell id='7' start-row='2' start-col='1' end-col='4'>
+            <bounding-box x1='246' y1='415' x2='557' y2='425'/>
+            <content>Absolutevalueofpercentagedifferencebetweenactualandprojectedvalues</content>
+         </cell>
+         <cell id='4' start-row='3' start-col='0'>
+            <bounding-box x1='35' y1='404' x2='207' y2='414'/>
+            <content>ProjectionsofEducationStatisticsto2017</content>
+         </cell>
+         <cell id='32' start-row='3' start-col='1'>
+            <bounding-box x1='247' y1='404' x2='253' y2='414'/>
+            <content>†</content>
+         </cell>
+         <cell id='14' start-row='3' start-col='2'>
+            <bounding-box x1='345' y1='404' x2='359' y2='414'/>
+            <content>0.7</content>
+         </cell>
+         <cell id='20' start-row='3' start-col='3'>
+            <bounding-box x1='451' y1='404' x2='464' y2='414'/>
+            <content>1.1</content>
+         </cell>
+         <cell id='18' start-row='3' start-col='4'>
+            <bounding-box x1='556' y1='404' x2='569' y2='414'/>
+            <content>1.4</content>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='35' y1='393' x2='207' y2='403'/>
+            <content>ProjectionsofEducationStatisticsto2018</content>
+         </cell>
+         <cell id='26' start-row='4' start-col='1'>
+            <bounding-box x1='240' y1='393' x2='253' y2='403'/>
+            <content>0.4</content>
+         </cell>
+         <cell id='23' start-row='4' start-col='2'>
+            <bounding-box x1='345' y1='393' x2='359' y2='403'/>
+            <content>0.7</content>
+         </cell>
+         <cell id='11' start-row='4' start-col='3'>
+            <bounding-box x1='451' y1='393' x2='464' y2='403'/>
+            <content>0.8</content>
+         </cell>
+         <cell id='5' start-row='4' start-col='4'>
+            <bounding-box x1='556' y1='393' x2='569' y2='403'/>
+            <content>1.1</content>
+         </cell>
+         <cell id='6' start-row='5' start-col='0'>
+            <bounding-box x1='35' y1='382' x2='207' y2='392'/>
+            <content>ProjectionsofEducationStatisticsto2019</content>
+         </cell>
+         <cell id='21' start-row='5' start-col='1'>
+            <bounding-box x1='247' y1='382' x2='253' y2='392'/>
+            <content>#</content>
+         </cell>
+         <cell id='30' start-row='5' start-col='2'>
+            <bounding-box x1='345' y1='382' x2='359' y2='392'/>
+            <content>0.1</content>
+         </cell>
+         <cell id='27' start-row='5' start-col='3'>
+            <bounding-box x1='451' y1='382' x2='464' y2='392'/>
+            <content>0.2</content>
+         </cell>
+         <cell id='13' start-row='5' start-col='4'>
+            <bounding-box x1='563' y1='382' x2='569' y2='392'/>
+            <content>†</content>
+         </cell>
+         <cell id='2' start-row='6' start-col='0'>
+            <bounding-box x1='35' y1='371' x2='207' y2='381'/>
+            <content>ProjectionsofEducationStatisticsto2020</content>
+         </cell>
+         <cell id='29' start-row='6' start-col='1'>
+            <bounding-box x1='240' y1='371' x2='253' y2='381'/>
+            <content>0.2</content>
+         </cell>
+         <cell id='25' start-row='6' start-col='2'>
+            <bounding-box x1='345' y1='371' x2='359' y2='381'/>
+            <content>0.4</content>
+         </cell>
+         <cell id='10' start-row='6' start-col='3'>
+            <bounding-box x1='458' y1='371' x2='464' y2='381'/>
+            <content>†</content>
+         </cell>
+         <cell id='9' start-row='6' start-col='4'>
+            <bounding-box x1='563' y1='371' x2='569' y2='381'/>
+            <content>†</content>
+         </cell>
+         <cell id='8' start-row='7' start-col='1' end-col='4'>
+            <bounding-box x1='337' y1='348' x2='466' y2='358'/>
+            <content>Meanabsolutepercentageerror</content>
+         </cell>
+         <cell id='19' start-row='8' start-col='0'>
+            <bounding-box x1='35' y1='337' x2='71' y2='347'/>
+            <content>Example</content>
+         </cell>
+         <cell id='16' start-row='8' start-col='1'>
+            <bounding-box x1='240' y1='337' x2='253' y2='347'/>
+            <content>0.2</content>
+         </cell>
+         <cell id='12' start-row='8' start-col='2'>
+            <bounding-box x1='345' y1='337' x2='359' y2='347'/>
+            <content>0.5</content>
+         </cell>
+         <cell id='33' start-row='8' start-col='3'>
+            <bounding-box x1='451' y1='337' x2='464' y2='347'/>
+            <content>0.7</content>
+         </cell>
+         <cell id='24' start-row='8' start-col='4'>
+            <bounding-box x1='556' y1='337' x2='569' y2='347'/>
+            <content>1.3</content>
+         </cell>
+      </region>
+   </table>
+</document>

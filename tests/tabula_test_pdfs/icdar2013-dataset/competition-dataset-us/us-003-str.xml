@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-003-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='1'>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='185' y1='483' x2='205' y2='493'/>
+            <content>1994</content>
+            <instruction instr-id='174' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2'>
+            <bounding-box x1='293' y1='483' x2='313' y2='493'/>
+            <content>1997</content>
+            <instruction instr-id='176' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='3'>
+            <bounding-box x1='419' y1='483' x2='439' y2='493'/>
+            <content>2003</content>
+            <instruction instr-id='176' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='77' y1='459' x2='106' y2='469'/>
+            <content>Lowest</content>
+            <instruction instr-id='192' subinstr-id='0'/>
+            <instruction instr-id='192' subinstr-id='2'/>
+            <instruction instr-id='192' subinstr-id='4'/>
+            <instruction instr-id='192' subinstr-id='6'/>
+            <instruction instr-id='192' subinstr-id='8'/>
+            <instruction instr-id='192' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='185' y1='459' x2='241' y2='469'/>
+            <content>$9,594 or less</content>
+            <instruction instr-id='192' subinstr-id='14'/>
+            <instruction instr-id='192' subinstr-id='16'/>
+            <instruction instr-id='192' subinstr-id='18'/>
+            <instruction instr-id='192' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2'>
+            <bounding-box x1='293' y1='459' x2='354' y2='469'/>
+            <content>$22,400 or less</content>
+            <instruction instr-id='192' subinstr-id='24'/>
+            <instruction instr-id='192' subinstr-id='26'/>
+            <instruction instr-id='192' subinstr-id='28'/>
+            <instruction instr-id='192' subinstr-id='30'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='3'>
+            <bounding-box x1='419' y1='459' x2='480' y2='469'/>
+            <content>$34,000 or less</content>
+            <instruction instr-id='192' subinstr-id='34'/>
+            <instruction instr-id='192' subinstr-id='36'/>
+            <instruction instr-id='192' subinstr-id='38'/>
+            <instruction instr-id='192' subinstr-id='40'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='77' y1='448' x2='133' y2='458'/>
+            <content>Lower middle</content>
+            <instruction instr-id='198' subinstr-id='0'/>
+            <instruction instr-id='198' subinstr-id='2'/>
+            <instruction instr-id='198' subinstr-id='4'/>
+            <instruction instr-id='198' subinstr-id='6'/>
+            <instruction instr-id='198' subinstr-id='8'/>
+            <instruction instr-id='198' subinstr-id='10'/>
+            <instruction instr-id='198' subinstr-id='12'/>
+            <instruction instr-id='198' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='185' y1='448' x2='250' y2='458'/>
+            <content>$9,595–$17,992</content>
+            <instruction instr-id='198' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2'>
+            <bounding-box x1='293' y1='448' x2='363' y2='458'/>
+            <content>$22,401–$29,992</content>
+            <instruction instr-id='198' subinstr-id='18'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='3'>
+            <bounding-box x1='419' y1='448' x2='489' y2='458'/>
+            <content>$34,001–$48,000</content>
+            <instruction instr-id='198' subinstr-id='20'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='77' y1='436' x2='132' y2='446'/>
+            <content>Upper middle</content>
+            <instruction instr-id='201' subinstr-id='0'/>
+            <instruction instr-id='201' subinstr-id='2'/>
+            <instruction instr-id='201' subinstr-id='4'/>
+            <instruction instr-id='201' subinstr-id='6'/>
+            <instruction instr-id='201' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='185' y1='436' x2='255' y2='446'/>
+            <content>$17,993–$25,771</content>
+            <instruction instr-id='201' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2'>
+            <bounding-box x1='293' y1='436' x2='363' y2='446'/>
+            <content>$29,993–$40,888</content>
+            <instruction instr-id='201' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='3'>
+            <bounding-box x1='419' y1='436' x2='489' y2='446'/>
+            <content>$48,001–$66,900</content>
+            <instruction instr-id='201' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='77' y1='424' x2='108' y2='434'/>
+            <content>Highest</content>
+            <instruction instr-id='206' subinstr-id='0'/>
+            <instruction instr-id='206' subinstr-id='2'/>
+            <instruction instr-id='206' subinstr-id='4'/>
+            <instruction instr-id='206' subinstr-id='6'/>
+            <instruction instr-id='206' subinstr-id='8'/>
+            <instruction instr-id='206' subinstr-id='10'/>
+            <instruction instr-id='206' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='185' y1='424' x2='270' y2='434'/>
+            <content>Greater than $25,771</content>
+            <instruction instr-id='206' subinstr-id='16'/>
+            <instruction instr-id='206' subinstr-id='18'/>
+            <instruction instr-id='206' subinstr-id='20'/>
+            <instruction instr-id='206' subinstr-id='22'/>
+            <instruction instr-id='206' subinstr-id='24'/>
+            <instruction instr-id='206' subinstr-id='26'/>
+            <instruction instr-id='206' subinstr-id='28'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2'>
+            <bounding-box x1='293' y1='424' x2='378' y2='434'/>
+            <content>Greater than $40,888</content>
+            <instruction instr-id='206' subinstr-id='30'/>
+            <instruction instr-id='206' subinstr-id='32'/>
+            <instruction instr-id='206' subinstr-id='34'/>
+            <instruction instr-id='206' subinstr-id='36'/>
+            <instruction instr-id='206' subinstr-id='38'/>
+            <instruction instr-id='206' subinstr-id='40'/>
+            <instruction instr-id='206' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='3'>
+            <bounding-box x1='419' y1='424' x2='504' y2='434'/>
+            <content>Greater than $66,900</content>
+            <instruction instr-id='206' subinstr-id='44'/>
+            <instruction instr-id='206' subinstr-id='46'/>
+            <instruction instr-id='206' subinstr-id='48'/>
+            <instruction instr-id='206' subinstr-id='50'/>
+            <instruction instr-id='206' subinstr-id='52'/>
+            <instruction instr-id='206' subinstr-id='54'/>
+            <instruction instr-id='206' subinstr-id='56'/>
+         </cell>
+      </region>
+   </table>
+</document>

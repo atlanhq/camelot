@@ -1,0 +1,8 @@
+docopt
+matplotlib
+nose
+pdfminer
+pyexcel-xlsx
+PyPDF2
+Sphinx
+Wand

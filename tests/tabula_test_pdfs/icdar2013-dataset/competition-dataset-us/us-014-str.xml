@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-014-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='2'>
+         <cell id='1' start-row='0' start-col='0'>
+            <bounding-box x1='74' y1='423' x2='288' y2='442'/>
+            <content>Designation Under State or District Accountability
+Initiative</content>
+            <instruction instr-id='248' subinstr-id='0'/>
+            <instruction instr-id='248' subinstr-id='2'/>
+            <instruction instr-id='248' subinstr-id='4'/>
+            <instruction instr-id='248' subinstr-id='6'/>
+            <instruction instr-id='248' subinstr-id='8'/>
+            <instruction instr-id='248' subinstr-id='10'/>
+            <instruction instr-id='248' subinstr-id='12'/>
+            <instruction instr-id='254' subinstr-id='0'/>
+            <instruction instr-id='254' subinstr-id='2'/>
+            <instruction instr-id='254' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='74' y1='403' x2='137' y2='412'/>
+            <content>Low-performing</content>
+            <instruction instr-id='338' subinstr-id='0'/>
+            <instruction instr-id='338' subinstr-id='2'/>
+            <instruction instr-id='338' subinstr-id='4'/>
+            <instruction instr-id='338' subinstr-id='6'/>
+            <instruction instr-id='338' subinstr-id='8'/>
+            <instruction instr-id='338' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='74' y1='380' x2='165' y2='389'/>
+            <content>No special designation</content>
+            <instruction instr-id='372' subinstr-id='0'/>
+            <instruction instr-id='372' subinstr-id='2'/>
+            <instruction instr-id='372' subinstr-id='4'/>
+            <instruction instr-id='372' subinstr-id='6'/>
+            <instruction instr-id='372' subinstr-id='8'/>
+            <instruction instr-id='372' subinstr-id='10'/>
+            <instruction instr-id='372' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='74' y1='358' x2='139' y2='367'/>
+            <content>High-performing</content>
+            <instruction instr-id='404' subinstr-id='0'/>
+            <instruction instr-id='404' subinstr-id='2'/>
+            <instruction instr-id='404' subinstr-id='4'/>
+            <instruction instr-id='404' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='74' y1='335' x2='132' y2='344'/>
+            <content>Other/not sure</content>
+            <instruction instr-id='436' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='74' y1='313' x2='215' y2='322'/>
+            <content>No other system (other than NCLB)</content>
+            <instruction instr-id='468' subinstr-id='0'/>
+            <instruction instr-id='468' subinstr-id='2'/>
+            <instruction instr-id='468' subinstr-id='4'/>
+            <instruction instr-id='468' subinstr-id='6'/>
+            <instruction instr-id='468' subinstr-id='8'/>
+            <instruction instr-id='472' subinstr-id='-1'/>
+            <instruction instr-id='477' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='333' y1='423' x2='410' y2='452'/>
+            <content>Schools Identified
+Under NCLB
+(n = 469)</content>
+            <instruction instr-id='258' subinstr-id='0'/>
+            <instruction instr-id='258' subinstr-id='2'/>
+            <instruction instr-id='258' subinstr-id='4'/>
+            <instruction instr-id='258' subinstr-id='6'/>
+            <instruction instr-id='258' subinstr-id='8'/>
+            <instruction instr-id='258' subinstr-id='10'/>
+            <instruction instr-id='258' subinstr-id='12'/>
+            <instruction instr-id='258' subinstr-id='14'/>
+            <instruction instr-id='258' subinstr-id='16'/>
+            <instruction instr-id='258' subinstr-id='18'/>
+            <instruction instr-id='262' subinstr-id='0'/>
+            <instruction instr-id='262' subinstr-id='2'/>
+            <instruction instr-id='266' subinstr-id='0'/>
+            <instruction instr-id='270' subinstr-id='-1'/>
+            <instruction instr-id='275' subinstr-id='0'/>
+            <instruction instr-id='278' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2'>
+            <bounding-box x1='438' y1='423' x2='533' y2='452'/>
+            <content>Schools Not Identified
+Under NCLB
+(n = 918)</content>
+            <instruction instr-id='287' subinstr-id='0'/>
+            <instruction instr-id='287' subinstr-id='2'/>
+            <instruction instr-id='287' subinstr-id='4'/>
+            <instruction instr-id='287' subinstr-id='6'/>
+            <instruction instr-id='287' subinstr-id='8'/>
+            <instruction instr-id='287' subinstr-id='10'/>
+            <instruction instr-id='287' subinstr-id='12'/>
+            <instruction instr-id='287' subinstr-id='14'/>
+            <instruction instr-id='287' subinstr-id='16'/>
+            <instruction instr-id='291' subinstr-id='0'/>
+            <instruction instr-id='291' subinstr-id='2'/>
+            <instruction instr-id='295' subinstr-id='0'/>
+            <instruction instr-id='299' subinstr-id='-1'/>
+            <instruction instr-id='304' subinstr-id='0'/>
+            <instruction instr-id='308' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='362' y1='403' x2='380' y2='412'/>
+            <content>34%</content>
+            <instruction instr-id='338' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2'>
+            <bounding-box x1='481' y1='403' x2='494' y2='412'/>
+            <content>3%</content>
+            <instruction instr-id='342' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='362' y1='380' x2='380' y2='389'/>
+            <content>11%</content>
+            <instruction instr-id='374' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2'>
+            <bounding-box x1='477' y1='380' x2='495' y2='389'/>
+            <content>33%</content>
+            <instruction instr-id='374' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='365' y1='358' x2='378' y2='367'/>
+            <content>2%</content>
+            <instruction instr-id='404' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2'>
+            <bounding-box x1='477' y1='358' x2='495' y2='367'/>
+            <content>18%</content>
+            <instruction instr-id='406' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='362' y1='335' x2='380' y2='344'/>
+            <content>14%</content>
+            <instruction instr-id='438' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2'>
+            <bounding-box x1='481' y1='335' x2='494' y2='344'/>
+            <content>9%</content>
+            <instruction instr-id='438' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1'>
+            <bounding-box x1='362' y1='313' x2='380' y2='322'/>
+            <content>39%</content>
+            <instruction instr-id='477' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2'>
+            <bounding-box x1='477' y1='313' x2='495' y2='322'/>
+            <content>37%</content>
+            <instruction instr-id='479' subinstr-id='0'/>
+         </cell>
+      </region>
+   </table>
+   <table id='2'>
+      <region id='1' col-increment='0' row-increment='0' page='3'>
+         <cell id='1' start-row='0' start-col='0'>
+            <bounding-box x1='72' y1='401' x2='211' y2='410'/>
+            <content>Perceived Benefit and Drawback</content>
+            <instruction instr-id='287' subinstr-id='0'/>
+            <instruction instr-id='287' subinstr-id='2'/>
+            <instruction instr-id='287' subinstr-id='4'/>
+            <instruction instr-id='287' subinstr-id='6'/>
+            <instruction instr-id='287' subinstr-id='8'/>
+            <instruction instr-id='287' subinstr-id='10'/>
+            <instruction instr-id='287' subinstr-id='12'/>
+            <instruction instr-id='287' subinstr-id='14'/>
+            <instruction instr-id='287' subinstr-id='16'/>
+            <instruction instr-id='287' subinstr-id='18'/>
+            <instruction instr-id='287' subinstr-id='20'/>
+            <instruction instr-id='287' subinstr-id='22'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0'>
+            <bounding-box x1='72' y1='381' x2='429' y2='390'/>
+            <content>Gives us a more complete picture of our effectiveness than a single accountability system</content>
+            <instruction instr-id='365' subinstr-id='0'/>
+            <instruction instr-id='365' subinstr-id='2'/>
+            <instruction instr-id='365' subinstr-id='4'/>
+            <instruction instr-id='365' subinstr-id='6'/>
+            <instruction instr-id='365' subinstr-id='8'/>
+            <instruction instr-id='365' subinstr-id='10'/>
+            <instruction instr-id='365' subinstr-id='12'/>
+            <instruction instr-id='365' subinstr-id='14'/>
+            <instruction instr-id='365' subinstr-id='16'/>
+            <instruction instr-id='365' subinstr-id='18'/>
+            <instruction instr-id='365' subinstr-id='20'/>
+            <instruction instr-id='365' subinstr-id='22'/>
+            <instruction instr-id='365' subinstr-id='24'/>
+            <instruction instr-id='365' subinstr-id='26'/>
+            <instruction instr-id='365' subinstr-id='28'/>
+            <instruction instr-id='365' subinstr-id='30'/>
+            <instruction instr-id='365' subinstr-id='32'/>
+            <instruction instr-id='365' subinstr-id='34'/>
+            <instruction instr-id='365' subinstr-id='36'/>
+            <instruction instr-id='365' subinstr-id='38'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0'>
+            <bounding-box x1='72' y1='356' x2='341' y2='365'/>
+            <content>Results in staff confusion about our targets for student achievement</content>
+            <instruction instr-id='395' subinstr-id='0'/>
+            <instruction instr-id='395' subinstr-id='2'/>
+            <instruction instr-id='395' subinstr-id='4'/>
+            <instruction instr-id='395' subinstr-id='6'/>
+            <instruction instr-id='395' subinstr-id='8'/>
+            <instruction instr-id='395' subinstr-id='10'/>
+            <instruction instr-id='395' subinstr-id='12'/>
+            <instruction instr-id='399' subinstr-id='0'/>
+            <instruction instr-id='399' subinstr-id='2'/>
+            <instruction instr-id='399' subinstr-id='4'/>
+            <instruction instr-id='399' subinstr-id='6'/>
+            <instruction instr-id='399' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0'>
+            <bounding-box x1='72' y1='331' x2='258' y2='340'/>
+            <content>Reduces community support for public schools</content>
+            <instruction instr-id='429' subinstr-id='0'/>
+            <instruction instr-id='429' subinstr-id='2'/>
+            <instruction instr-id='429' subinstr-id='4'/>
+            <instruction instr-id='429' subinstr-id='6'/>
+            <instruction instr-id='429' subinstr-id='8'/>
+            <instruction instr-id='429' subinstr-id='10'/>
+            <instruction instr-id='429' subinstr-id='12'/>
+            <instruction instr-id='429' subinstr-id='14'/>
+            <instruction instr-id='429' subinstr-id='16'/>
+            <instruction instr-id='429' subinstr-id='18'/>
+            <instruction instr-id='429' subinstr-id='20'/>
+            <instruction instr-id='429' subinstr-id='22'/>
+            <instruction instr-id='429' subinstr-id='24'/>
+            <instruction instr-id='429' subinstr-id='26'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0'>
+            <bounding-box x1='72' y1='306' x2='313' y2='315'/>
+            <content>Allows us to focus on the goals that are most important to us</content>
+            <instruction instr-id='461' subinstr-id='0'/>
+            <instruction instr-id='461' subinstr-id='2'/>
+            <instruction instr-id='461' subinstr-id='4'/>
+            <instruction instr-id='461' subinstr-id='8'/>
+            <instruction instr-id='461' subinstr-id='10'/>
+            <instruction instr-id='461' subinstr-id='12'/>
+            <instruction instr-id='465' subinstr-id='0'/>
+            <instruction instr-id='465' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0'>
+            <bounding-box x1='72' y1='281' x2='382' y2='290'/>
+            <content>Helps us make effective decisions about how to improve student achievement</content>
+            <instruction instr-id='495' subinstr-id='0'/>
+            <instruction instr-id='495' subinstr-id='2'/>
+            <instruction instr-id='495' subinstr-id='4'/>
+            <instruction instr-id='495' subinstr-id='6'/>
+            <instruction instr-id='495' subinstr-id='8'/>
+            <instruction instr-id='495' subinstr-id='10'/>
+            <instruction instr-id='495' subinstr-id='12'/>
+            <instruction instr-id='495' subinstr-id='14'/>
+            <instruction instr-id='499' subinstr-id='0'/>
+            <instruction instr-id='499' subinstr-id='2'/>
+            <instruction instr-id='499' subinstr-id='4'/>
+            <instruction instr-id='499' subinstr-id='6'/>
+            <instruction instr-id='499' subinstr-id='8'/>
+            <instruction instr-id='499' subinstr-id='10'/>
+            <instruction instr-id='499' subinstr-id='12'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1'>
+            <bounding-box x1='440' y1='401' x2='484' y2='441'/>
+            <content>Percent of
+Districts
+Agreeing
+(n = 154)</content>
+            <instruction instr-id='291' subinstr-id='-1'/>
+            <instruction instr-id='295' subinstr-id='-1'/>
+            <instruction instr-id='297' subinstr-id='0'/>
+            <instruction instr-id='297' subinstr-id='2'/>
+            <instruction instr-id='297' subinstr-id='4'/>
+            <instruction instr-id='297' subinstr-id='6'/>
+            <instruction instr-id='297' subinstr-id='8'/>
+            <instruction instr-id='301' subinstr-id='-1'/>
+            <instruction instr-id='306' subinstr-id='0'/>
+            <instruction instr-id='310' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='2'>
+            <bounding-box x1='492' y1='401' x2='536' y2='441'/>
+            <content>Percent of
+Schools
+Agreeing
+(n = 832)</content>
+            <instruction instr-id='315' subinstr-id='-1'/>
+            <instruction instr-id='319' subinstr-id='0'/>
+            <instruction instr-id='319' subinstr-id='2'/>
+            <instruction instr-id='322' subinstr-id='0'/>
+            <instruction instr-id='322' subinstr-id='2'/>
+            <instruction instr-id='322' subinstr-id='4'/>
+            <instruction instr-id='322' subinstr-id='6'/>
+            <instruction instr-id='322' subinstr-id='8'/>
+            <instruction instr-id='326' subinstr-id='-1'/>
+            <instruction instr-id='331' subinstr-id='0'/>
+            <instruction instr-id='335' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='1'>
+            <bounding-box x1='453' y1='381' x2='471' y2='390'/>
+            <content>69%</content>
+            <instruction instr-id='365' subinstr-id='42'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2'>
+            <bounding-box x1='505' y1='381' x2='523' y2='390'/>
+            <content>65%</content>
+            <instruction instr-id='365' subinstr-id='46'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1'>
+            <bounding-box x1='453' y1='356' x2='471' y2='365'/>
+            <content>46%</content>
+            <instruction instr-id='399' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2'>
+            <bounding-box x1='505' y1='356' x2='523' y2='365'/>
+            <content>37%</content>
+            <instruction instr-id='399' subinstr-id='14'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1'>
+            <bounding-box x1='453' y1='331' x2='471' y2='340'/>
+            <content>23%</content>
+            <instruction instr-id='431' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2'>
+            <bounding-box x1='505' y1='331' x2='523' y2='340'/>
+            <content>24%</content>
+            <instruction instr-id='431' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1'>
+            <bounding-box x1='453' y1='306' x2='471' y2='315'/>
+            <content>56%</content>
+            <instruction instr-id='465' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2'>
+            <bounding-box x1='505' y1='306' x2='523' y2='315'/>
+            <content>52%</content>
+            <instruction instr-id='465' subinstr-id='10'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1'>
+            <bounding-box x1='453' y1='281' x2='471' y2='290'/>
+            <content>71%</content>
+            <instruction instr-id='499' subinstr-id='16'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2'>
+            <bounding-box x1='505' y1='281' x2='523' y2='290'/>
+            <content>60%</content>
+            <instruction instr-id='499' subinstr-id='20'/>
+         </cell>
+      </region>
+   </table>
+</document> 

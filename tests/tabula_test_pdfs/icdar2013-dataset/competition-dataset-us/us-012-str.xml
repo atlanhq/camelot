@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename='bm_us-012-str.xml'>
+   <table id='1'>
+      <region id='1' col-increment='0' row-increment='0' page='1'>
+         <cell id='21' start-row='0' start-col='1' end-col='2'>
+            <bounding-box x1='141' y1='661' x2='261' y2='670'/>
+            <content>AYP Based on 2003–04 Testing</content>
+         </cell>
+         <cell id='32' start-row='0' start-col='3' end-col='5'>
+            <bounding-box x1='354' y1='661' x2='474' y2='670'/>
+            <content>AYP Based on 2005–06 Testing</content>
+         </cell>
+         <cell id='50' start-row='2' start-col='5'>
+            <bounding-box x1='502' y1='600' x2='507' y2='609'/>
+            <content>5</content>
+         </cell>
+         <cell id='64' start-row='2' start-col='1'>
+            <bounding-box x1='155' y1='600' x2='169' y2='609'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='101' start-row='2' start-col='4'>
+            <bounding-box x1='430' y1='600' x2='444' y2='609'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='120' start-row='2' start-col='2'>
+            <bounding-box x1='249' y1='600' x2='260' y2='609'/>
+            <content>No</content>
+         </cell>
+         <cell id='134' start-row='2' start-col='3'>
+            <bounding-box x1='339' y1='600' x2='354' y2='609'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='140' start-row='2' start-col='0'>
+            <bounding-box x1='82' y1='600' x2='95' y2='609'/>
+            <content>NC</content>
+         </cell>
+         <cell id='11' start-row='3' start-col='1'>
+            <bounding-box x1='155' y1='585' x2='169' y2='594'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='17' start-row='3' start-col='5'>
+            <bounding-box x1='500' y1='585' x2='510' y2='594'/>
+            <content>na</content>
+         </cell>
+         <cell id='33' start-row='3' start-col='0'>
+            <bounding-box x1='82' y1='585' x2='95' y2='594'/>
+            <content>ND</content>
+         </cell>
+         <cell id='78' start-row='3' start-col='3'>
+            <bounding-box x1='339' y1='585' x2='354' y2='594'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='95' start-row='3' start-col='2'>
+            <bounding-box x1='249' y1='585' x2='260' y2='594'/>
+            <content>No</content>
+         </cell>
+         <cell id='141' start-row='3' start-col='4'>
+            <bounding-box x1='432' y1='585' x2='443' y2='594'/>
+            <content>No</content>
+         </cell>
+         <cell id='34' start-row='4' start-col='4'>
+            <bounding-box x1='430' y1='570' x2='444' y2='579'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='74' start-row='4' start-col='1'>
+            <bounding-box x1='155' y1='570' x2='169' y2='579'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='80' start-row='4' start-col='3'>
+            <bounding-box x1='339' y1='570' x2='354' y2='579'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='106' start-row='4' start-col='2'>
+            <bounding-box x1='247' y1='570' x2='262' y2='579'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='112' start-row='4' start-col='5'>
+            <bounding-box x1='495' y1='570' x2='514' y2='579'/>
+            <content>~100</content>
+         </cell>
+         <cell id='114' start-row='4' start-col='0'>
+            <bounding-box x1='82' y1='570' x2='95' y2='579'/>
+            <content>OH</content>
+         </cell>
+         <cell id='3' start-row='5' start-col='4'>
+            <bounding-box x1='432' y1='555' x2='443' y2='564'/>
+            <content>No</content>
+         </cell>
+         <cell id='14' start-row='5' start-col='0'>
+            <bounding-box x1='82' y1='555' x2='95' y2='564'/>
+            <content>OK</content>
+         </cell>
+         <cell id='39' start-row='5' start-col='5'>
+            <bounding-box x1='500' y1='555' x2='510' y2='564'/>
+            <content>na</content>
+         </cell>
+         <cell id='118' start-row='5' start-col='1'>
+            <bounding-box x1='155' y1='555' x2='169' y2='564'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='135' start-row='5' start-col='3'>
+            <bounding-box x1='339' y1='555' x2='354' y2='564'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='139' start-row='5' start-col='2'>
+            <bounding-box x1='249' y1='555' x2='260' y2='564'/>
+            <content>No</content>
+         </cell>
+         <cell id='38' start-row='6' start-col='3'>
+            <bounding-box x1='339' y1='538' x2='354' y2='547'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='115' start-row='6' start-col='0'>
+            <bounding-box x1='82' y1='538' x2='95' y2='547'/>
+            <content>OR</content>
+         </cell>
+         <cell id='117' start-row='6' start-col='5'>
+            <bounding-box x1='500' y1='538' x2='510' y2='547'/>
+            <content>na</content>
+         </cell>
+         <cell id='126' start-row='6' start-col='1'>
+            <bounding-box x1='155' y1='538' x2='169' y2='547'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='133' start-row='6' start-col='2'>
+            <bounding-box x1='249' y1='538' x2='260' y2='547'/>
+            <content>No</content>
+         </cell>
+         <cell id='13' start-row='7' start-col='3'>
+            <bounding-box x1='339' y1='521' x2='354' y2='530'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='46' start-row='7' start-col='0'>
+            <bounding-box x1='82' y1='521' x2='94' y2='530'/>
+            <content>PA</content>
+         </cell>
+         <cell id='69' start-row='7' start-col='4'>
+            <bounding-box x1='432' y1='521' x2='443' y2='530'/>
+            <content>No</content>
+         </cell>
+         <cell id='84' start-row='7' start-col='1'>
+            <bounding-box x1='155' y1='521' x2='169' y2='530'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='90' start-row='7' start-col='2'>
+            <bounding-box x1='249' y1='521' x2='260' y2='530'/>
+            <content>No</content>
+         </cell>
+         <cell id='103' start-row='7' start-col='5'>
+            <bounding-box x1='500' y1='521' x2='510' y2='530'/>
+            <content>na</content>
+         </cell>
+         <cell id='10' start-row='8' start-col='3'>
+            <bounding-box x1='339' y1='506' x2='354' y2='515'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='28' start-row='8' start-col='5'>
+            <bounding-box x1='500' y1='506' x2='510' y2='515'/>
+            <content>na</content>
+         </cell>
+         <cell id='43' start-row='8' start-col='4'>
+            <bounding-box x1='432' y1='506' x2='443' y2='515'/>
+            <content>No</content>
+         </cell>
+         <cell id='108' start-row='8' start-col='1'>
+            <bounding-box x1='155' y1='506' x2='169' y2='515'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='119' start-row='8' start-col='0'>
+            <bounding-box x1='82' y1='506' x2='94' y2='515'/>
+            <content>PR</content>
+         </cell>
+         <cell id='122' start-row='8' start-col='2'>
+            <bounding-box x1='249' y1='506' x2='260' y2='515'/>
+            <content>No</content>
+         </cell>
+         <cell id='55' start-row='9' start-col='1'>
+            <bounding-box x1='155' y1='492' x2='169' y2='500'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='75' start-row='9' start-col='4'>
+            <bounding-box x1='432' y1='492' x2='443' y2='500'/>
+            <content>No</content>
+         </cell>
+         <cell id='83' start-row='9' start-col='0'>
+            <bounding-box x1='82' y1='492' x2='91' y2='500'/>
+            <content>RI</content>
+         </cell>
+         <cell id='98' start-row='9' start-col='3'>
+            <bounding-box x1='339' y1='492' x2='354' y2='500'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='110' start-row='9' start-col='5'>
+            <bounding-box x1='500' y1='492' x2='510' y2='500'/>
+            <content>na</content>
+         </cell>
+         <cell id='131' start-row='9' start-col='2'>
+            <bounding-box x1='249' y1='492' x2='260' y2='500'/>
+            <content>No</content>
+         </cell>
+         <cell id='62' start-row='10' start-col='3'>
+            <bounding-box x1='339' y1='477' x2='354' y2='486'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='87' start-row='10' start-col='1'>
+            <bounding-box x1='155' y1='477' x2='169' y2='486'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='89' start-row='10' start-col='5'>
+            <bounding-box x1='500' y1='477' x2='510' y2='486'/>
+            <content>na</content>
+         </cell>
+         <cell id='111' start-row='10' start-col='0'>
+            <bounding-box x1='82' y1='477' x2='94' y2='486'/>
+            <content>SC</content>
+         </cell>
+         <cell id='125' start-row='10' start-col='4'>
+            <bounding-box x1='432' y1='477' x2='443' y2='486'/>
+            <content>No</content>
+         </cell>
+         <cell id='142' start-row='10' start-col='2'>
+            <bounding-box x1='249' y1='477' x2='260' y2='486'/>
+            <content>No</content>
+         </cell>
+         <cell id='48' start-row='11' start-col='2'>
+            <bounding-box x1='249' y1='463' x2='260' y2='472'/>
+            <content>No</content>
+         </cell>
+         <cell id='73' start-row='11' start-col='4'>
+            <bounding-box x1='430' y1='463' x2='444' y2='472'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='99' start-row='11' start-col='3'>
+            <bounding-box x1='339' y1='463' x2='354' y2='472'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='113' start-row='11' start-col='5'>
+            <bounding-box x1='498' y1='463' x2='508' y2='472'/>
+            <content>14</content>
+         </cell>
+         <cell id='128' start-row='11' start-col='1'>
+            <bounding-box x1='155' y1='463' x2='169' y2='472'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='132' start-row='11' start-col='0'>
+            <bounding-box x1='82' y1='463' x2='94' y2='472'/>
+            <content>SD</content>
+         </cell>
+         <cell id='15' start-row='12' start-col='1'>
+            <bounding-box x1='155' y1='448' x2='169' y2='457'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='23' start-row='12' start-col='0'>
+            <bounding-box x1='82' y1='448' x2='94' y2='457'/>
+            <content>TN</content>
+         </cell>
+         <cell id='42' start-row='12' start-col='4'>
+            <bounding-box x1='432' y1='448' x2='443' y2='457'/>
+            <content>No</content>
+         </cell>
+         <cell id='58' start-row='12' start-col='3'>
+            <bounding-box x1='339' y1='448' x2='354' y2='457'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='68' start-row='12' start-col='2'>
+            <bounding-box x1='249' y1='448' x2='260' y2='457'/>
+            <content>No</content>
+         </cell>
+         <cell id='104' start-row='12' start-col='5'>
+            <bounding-box x1='500' y1='448' x2='510' y2='457'/>
+            <content>na</content>
+         </cell>
+         <cell id='7' start-row='13' start-col='2'>
+            <bounding-box x1='247' y1='430' x2='262' y2='439'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='16' start-row='13' start-col='4'>
+            <bounding-box x1='430' y1='430' x2='444' y2='439'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='45' start-row='13' start-col='0'>
+            <bounding-box x1='82' y1='430' x2='93' y2='439'/>
+            <content>TX</content>
+         </cell>
+         <cell id='91' start-row='13' start-col='3'>
+            <bounding-box x1='339' y1='430' x2='354' y2='439'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='109' start-row='13' start-col='1'>
+            <bounding-box x1='155' y1='430' x2='169' y2='439'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='22' start-row='14' start-col='1'>
+            <bounding-box x1='155' y1='413' x2='169' y2='422'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='54' start-row='14' start-col='0'>
+            <bounding-box x1='82' y1='413' x2='94' y2='422'/>
+            <content>UT</content>
+         </cell>
+         <cell id='59' start-row='14' start-col='3'>
+            <bounding-box x1='339' y1='413' x2='354' y2='422'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='105' start-row='14' start-col='2'>
+            <bounding-box x1='249' y1='413' x2='260' y2='422'/>
+            <content>No</content>
+         </cell>
+         <cell id='129' start-row='14' start-col='4'>
+            <bounding-box x1='432' y1='413' x2='443' y2='422'/>
+            <content>No</content>
+         </cell>
+         <cell id='137' start-row='14' start-col='5'>
+            <bounding-box x1='500' y1='413' x2='510' y2='422'/>
+            <content>na</content>
+         </cell>
+         <cell id='47' start-row='15' start-col='5'>
+            <bounding-box x1='500' y1='398' x2='510' y2='407'/>
+            <content>na</content>
+         </cell>
+         <cell id='92' start-row='15' start-col='3'>
+            <bounding-box x1='339' y1='398' x2='354' y2='407'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='123' start-row='15' start-col='4'>
+            <bounding-box x1='432' y1='398' x2='443' y2='407'/>
+            <content>No</content>
+         </cell>
+         <cell id='124' start-row='15' start-col='0'>
+            <bounding-box x1='82' y1='398' x2='93' y2='407'/>
+            <content>VT</content>
+         </cell>
+         <cell id='127' start-row='15' start-col='1'>
+            <bounding-box x1='155' y1='398' x2='169' y2='407'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='130' start-row='15' start-col='2'>
+            <bounding-box x1='249' y1='398' x2='260' y2='407'/>
+            <content>No</content>
+         </cell>
+         <cell id='2' start-row='16' start-col='4'>
+            <bounding-box x1='430' y1='383' x2='444' y2='392'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='51' start-row='16' start-col='0'>
+            <bounding-box x1='82' y1='383' x2='94' y2='392'/>
+            <content>VA</content>
+         </cell>
+         <cell id='60' start-row='16' start-col='1'>
+            <bounding-box x1='155' y1='383' x2='169' y2='392'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='81' start-row='16' start-col='5'>
+            <bounding-box x1='500' y1='383' x2='510' y2='392'/>
+            <content>53</content>
+         </cell>
+         <cell id='82' start-row='16' start-col='3'>
+            <bounding-box x1='339' y1='383' x2='354' y2='392'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='100' start-row='16' start-col='2'>
+            <bounding-box x1='247' y1='383' x2='262' y2='392'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='53' start-row='17' start-col='0'>
+            <bounding-box x1='82' y1='366' x2='96' y2='375'/>
+            <content>WA</content>
+         </cell>
+         <cell id='57' start-row='17' start-col='3'>
+            <bounding-box x1='339' y1='366' x2='354' y2='375'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='67' start-row='17' start-col='1'>
+            <bounding-box x1='155' y1='366' x2='169' y2='375'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='85' start-row='17' start-col='2'>
+            <bounding-box x1='249' y1='366' x2='260' y2='375'/>
+            <content>No</content>
+         </cell>
+         <cell id='136' start-row='17' start-col='4'>
+            <bounding-box x1='430' y1='366' x2='444' y2='375'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='94' start-row='18' start-col='1'>
+            <bounding-box x1='155' y1='349' x2='169' y2='358'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='97' start-row='18' start-col='4'>
+            <bounding-box x1='432' y1='349' x2='443' y2='358'/>
+            <content>No</content>
+         </cell>
+         <cell id='102' start-row='18' start-col='3'>
+            <bounding-box x1='339' y1='349' x2='354' y2='358'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='107' start-row='18' start-col='2'>
+            <bounding-box x1='249' y1='349' x2='259' y2='358'/>
+            <content>na</content>
+         </cell>
+         <cell id='121' start-row='18' start-col='0'>
+            <bounding-box x1='82' y1='349' x2='96' y2='358'/>
+            <content>WV</content>
+         </cell>
+         <cell id='138' start-row='18' start-col='5'>
+            <bounding-box x1='500' y1='349' x2='510' y2='358'/>
+            <content>na</content>
+         </cell>
+         <cell id='31' start-row='19' start-col='1'>
+            <bounding-box x1='155' y1='333' x2='169' y2='342'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='72' start-row='19' start-col='0'>
+            <bounding-box x1='82' y1='333' x2='93' y2='342'/>
+            <content>WI</content>
+         </cell>
+         <cell id='76' start-row='19' start-col='4'>
+            <bounding-box x1='430' y1='333' x2='444' y2='342'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='77' start-row='19' start-col='3'>
+            <bounding-box x1='339' y1='333' x2='354' y2='342'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='93' start-row='19' start-col='2'>
+            <bounding-box x1='249' y1='333' x2='260' y2='342'/>
+            <content>No</content>
+         </cell>
+         <cell id='5' start-row='20' start-col='3'>
+            <bounding-box x1='339' y1='316' x2='354' y2='325'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='37' start-row='20' start-col='4'>
+            <bounding-box x1='432' y1='316' x2='443' y2='325'/>
+            <content>No</content>
+         </cell>
+         <cell id='70' start-row='20' start-col='1'>
+            <bounding-box x1='155' y1='316' x2='169' y2='325'/>
+            <content>Yes</content>
+         </cell>
+         <cell id='88' start-row='20' start-col='0'>
+            <bounding-box x1='82' y1='316' x2='96' y2='325'/>
+            <content>WY</content>
+         </cell>
+         <cell id='96' start-row='20' start-col='2'>
+            <bounding-box x1='249' y1='316' x2='260' y2='325'/>
+            <content>No</content>
+         </cell>
+         <cell id='116' start-row='20' start-col='5'>
+            <bounding-box x1='500' y1='316' x2='510' y2='325'/>
+            <content>na</content>
+         </cell>
+         <cell id='121' start-row='1' start-col='1'>
+            <bounding-box x1='114' y1='612' x2='209' y2='657'/>
+            <content>State included scores of
+students taking alternate
+assessments based on
+alternate achievement
+standards</content>
+            <instruction instr-id='124' subinstr-id='0'/>
+            <instruction instr-id='124' subinstr-id='2'/>
+            <instruction instr-id='124' subinstr-id='4'/>
+            <instruction instr-id='124' subinstr-id='6'/>
+            <instruction instr-id='124' subinstr-id='8'/>
+            <instruction instr-id='124' subinstr-id='10'/>
+            <instruction instr-id='124' subinstr-id='12'/>
+            <instruction instr-id='124' subinstr-id='14'/>
+            <instruction instr-id='128' subinstr-id='0'/>
+            <instruction instr-id='128' subinstr-id='2'/>
+            <instruction instr-id='128' subinstr-id='4'/>
+            <instruction instr-id='128' subinstr-id='6'/>
+            <instruction instr-id='128' subinstr-id='8'/>
+            <instruction instr-id='128' subinstr-id='10'/>
+            <instruction instr-id='128' subinstr-id='12'/>
+            <instruction instr-id='128' subinstr-id='14'/>
+            <instruction instr-id='132' subinstr-id='0'/>
+            <instruction instr-id='132' subinstr-id='2'/>
+            <instruction instr-id='132' subinstr-id='4'/>
+            <instruction instr-id='132' subinstr-id='6'/>
+            <instruction instr-id='132' subinstr-id='8'/>
+            <instruction instr-id='132' subinstr-id='10'/>
+            <instruction instr-id='136' subinstr-id='0'/>
+            <instruction instr-id='136' subinstr-id='2'/>
+            <instruction instr-id='136' subinstr-id='4'/>
+            <instruction instr-id='136' subinstr-id='6'/>
+            <instruction instr-id='136' subinstr-id='8'/>
+            <instruction instr-id='136' subinstr-id='10'/>
+            <instruction instr-id='136' subinstr-id='12'/>
+            <instruction instr-id='139' subinstr-id='0'/>
+            <instruction instr-id='139' subinstr-id='2'/>
+         </cell>
+         <cell id='122' start-row='1' start-col='2'>
+            <bounding-box x1='225' y1='612' x2='282' y2='648'/>
+            <content>State granted
+exceptions to
+districts to
+exceed 1%cap</content>
+            <instruction instr-id='143' subinstr-id='0'/>
+            <instruction instr-id='143' subinstr-id='2'/>
+            <instruction instr-id='143' subinstr-id='4'/>
+            <instruction instr-id='147' subinstr-id='0'/>
+            <instruction instr-id='147' subinstr-id='2'/>
+            <instruction instr-id='147' subinstr-id='4'/>
+            <instruction instr-id='151' subinstr-id='0'/>
+            <instruction instr-id='151' subinstr-id='2'/>
+            <instruction instr-id='151' subinstr-id='4'/>
+            <instruction instr-id='151' subinstr-id='6'/>
+            <instruction instr-id='155' subinstr-id='0'/>
+            <instruction instr-id='155' subinstr-id='2'/>
+            <instruction instr-id='155' subinstr-id='6'/>
+            <instruction instr-id='155' subinstr-id='8'/>
+         </cell>
+         <cell id='123' start-row='1' start-col='3'>
+            <bounding-box x1='299' y1='612' x2='393' y2='657'/>
+            <content>State included scores of
+students taking alternate
+assessments based on
+alternate achievement
+standards</content>
+            <instruction instr-id='159' subinstr-id='0'/>
+            <instruction instr-id='159' subinstr-id='2'/>
+            <instruction instr-id='159' subinstr-id='4'/>
+            <instruction instr-id='159' subinstr-id='6'/>
+            <instruction instr-id='159' subinstr-id='8'/>
+            <instruction instr-id='159' subinstr-id='10'/>
+            <instruction instr-id='159' subinstr-id='12'/>
+            <instruction instr-id='159' subinstr-id='14'/>
+            <instruction instr-id='163' subinstr-id='0'/>
+            <instruction instr-id='163' subinstr-id='2'/>
+            <instruction instr-id='163' subinstr-id='4'/>
+            <instruction instr-id='163' subinstr-id='6'/>
+            <instruction instr-id='163' subinstr-id='8'/>
+            <instruction instr-id='163' subinstr-id='10'/>
+            <instruction instr-id='163' subinstr-id='12'/>
+            <instruction instr-id='163' subinstr-id='14'/>
+            <instruction instr-id='167' subinstr-id='0'/>
+            <instruction instr-id='167' subinstr-id='2'/>
+            <instruction instr-id='167' subinstr-id='4'/>
+            <instruction instr-id='167' subinstr-id='6'/>
+            <instruction instr-id='167' subinstr-id='8'/>
+            <instruction instr-id='167' subinstr-id='10'/>
+            <instruction instr-id='171' subinstr-id='0'/>
+            <instruction instr-id='171' subinstr-id='2'/>
+            <instruction instr-id='171' subinstr-id='4'/>
+            <instruction instr-id='171' subinstr-id='6'/>
+            <instruction instr-id='171' subinstr-id='8'/>
+            <instruction instr-id='171' subinstr-id='10'/>
+            <instruction instr-id='171' subinstr-id='12'/>
+            <instruction instr-id='174' subinstr-id='0'/>
+            <instruction instr-id='174' subinstr-id='2'/>
+         </cell>
+         <cell id='124' start-row='1' start-col='4'>
+            <bounding-box x1='408' y1='612' x2='465' y2='648'/>
+            <content>State granted
+exceptions to
+districts to
+exceed 1%cap</content>
+            <instruction instr-id='178' subinstr-id='0'/>
+            <instruction instr-id='178' subinstr-id='2'/>
+            <instruction instr-id='178' subinstr-id='4'/>
+            <instruction instr-id='182' subinstr-id='0'/>
+            <instruction instr-id='182' subinstr-id='2'/>
+            <instruction instr-id='182' subinstr-id='4'/>
+            <instruction instr-id='186' subinstr-id='0'/>
+            <instruction instr-id='186' subinstr-id='2'/>
+            <instruction instr-id='186' subinstr-id='4'/>
+            <instruction instr-id='186' subinstr-id='6'/>
+            <instruction instr-id='190' subinstr-id='0'/>
+            <instruction instr-id='190' subinstr-id='2'/>
+            <instruction instr-id='190' subinstr-id='6'/>
+            <instruction instr-id='190' subinstr-id='8'/>
+         </cell>
+         <cell id='125' start-row='1' start-col='5'>
+            <bounding-box x1='483' y1='612' x2='525' y2='648'/>
+            <content>Number of
+districts
+granted
+exceptions</content>
+            <instruction instr-id='192' subinstr-id='0'/>
+            <instruction instr-id='192' subinstr-id='2'/>
+            <instruction instr-id='192' subinstr-id='4'/>
+            <instruction instr-id='192' subinstr-id='6'/>
+            <instruction instr-id='196' subinstr-id='0'/>
+            <instruction instr-id='196' subinstr-id='2'/>
+            <instruction instr-id='196' subinstr-id='4'/>
+            <instruction instr-id='199' subinstr-id='0'/>
+            <instruction instr-id='199' subinstr-id='2'/>
+            <instruction instr-id='202' subinstr-id='0'/>
+            <instruction instr-id='202' subinstr-id='2'/>
+            <instruction instr-id='202' subinstr-id='4'/>
+         </cell>
+         <cell id='118' start-row='6' start-col='4'>
+            <bounding-box x1='415' y1='534' x2='458' y2='551'/>
+            <content>Respondent
+unsure</content>
+            <instruction instr-id='407' subinstr-id='-1'/>
+            <instruction instr-id='410' subinstr-id='0'/>
+         </cell>
+         <cell id='119' start-row='13' start-col='5'>
+            <bounding-box x1='483' y1='425' x2='526' y2='442'/>
+            <content>Respondent
+unsure</content>
+            <instruction instr-id='672' subinstr-id='-1'/>
+            <instruction instr-id='675' subinstr-id='0'/>
+         </cell>
+         <cell id='120' start-row='17' start-col='5'>
+            <bounding-box x1='483' y1='362' x2='526' y2='379'/>
+            <content>Respondent
+unsure</content>
+            <instruction instr-id='839' subinstr-id='-1'/>
+            <instruction instr-id='842' subinstr-id='0'/>
+         </cell>
+         <cell id='121' start-row='19' start-col='5'>
+            <bounding-box x1='483' y1='328' x2='526' y2='345'/>
+            <content>Respondent
+unsure</content>
+            <instruction instr-id='926' subinstr-id='-1'/>
+            <instruction instr-id='929' subinstr-id='0'/>
+         </cell>
+      </region>
+   </table>
+</document>

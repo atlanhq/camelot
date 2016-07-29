@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename="bm_eu-003-str.xml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
+    <table id="1">
+        <region col-increment="0" id="1" page="1" row-increment="0">
+            <cell id="1" start-col="1" start-row="0">
+                <bounding-box x1="238" x2="337" y1="641" y2="651"/>
+                <content>All companies analysed</content>
+                <instruction instr-id="92" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="0">
+                <bounding-box x1="383" x2="519" y1="630" y2="651"/>
+                <content>FTSE Eurotop 100 companies
+analysed</content>
+                <instruction instr-id="100" subinstr-id="0"/>
+                <instruction instr-id="100" subinstr-id="2"/>
+                <instruction instr-id="100" subinstr-id="4"/>
+                <instruction instr-id="100" subinstr-id="6"/>
+                <instruction instr-id="100" subinstr-id="8"/>
+                <instruction instr-id="100" subinstr-id="10"/>
+                <instruction instr-id="100" subinstr-id="12"/>
+                <instruction instr-id="100" subinstr-id="14"/>
+                <instruction instr-id="100" subinstr-id="16"/>
+                <instruction instr-id="100" subinstr-id="18"/>
+                <instruction instr-id="106" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="1">
+                <bounding-box x1="92" x2="228" y1="608" y2="629"/>
+                <content>Number of member states in
+the analysis</content>
+                <instruction instr-id="127" subinstr-id="0"/>
+                <instruction instr-id="127" subinstr-id="2"/>
+                <instruction instr-id="127" subinstr-id="4"/>
+                <instruction instr-id="127" subinstr-id="6"/>
+                <instruction instr-id="127" subinstr-id="8"/>
+                <instruction instr-id="127" subinstr-id="10"/>
+                <instruction instr-id="127" subinstr-id="12"/>
+                <instruction instr-id="127" subinstr-id="14"/>
+                <instruction instr-id="133" subinstr-id="0"/>
+                <instruction instr-id="133" subinstr-id="2"/>
+                <instruction instr-id="133" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="238" x2="249" y1="619" y2="629"/>
+                <content>21</content>
+                <instruction instr-id="137" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="383" x2="389" y1="619" y2="629"/>
+                <content>8</content>
+                <instruction instr-id="137" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="92" x2="228" y1="564" y2="607"/>
+                <content>Number of member states
+where one or more of the
+financial companies applied the
+amendment</content>
+                <instruction instr-id="154" subinstr-id="0"/>
+                <instruction instr-id="154" subinstr-id="2"/>
+                <instruction instr-id="154" subinstr-id="4"/>
+                <instruction instr-id="154" subinstr-id="6"/>
+                <instruction instr-id="154" subinstr-id="8"/>
+                <instruction instr-id="154" subinstr-id="10"/>
+                <instruction instr-id="154" subinstr-id="12"/>
+                <instruction instr-id="154" subinstr-id="14"/>
+                <instruction instr-id="160" subinstr-id="0"/>
+                <instruction instr-id="160" subinstr-id="4"/>
+                <instruction instr-id="160" subinstr-id="6"/>
+                <instruction instr-id="160" subinstr-id="8"/>
+                <instruction instr-id="160" subinstr-id="10"/>
+                <instruction instr-id="160" subinstr-id="14"/>
+                <instruction instr-id="160" subinstr-id="16"/>
+                <instruction instr-id="160" subinstr-id="20"/>
+                <instruction instr-id="166" subinstr-id="-1"/>
+                <instruction instr-id="171" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="238" x2="249" y1="596" y2="607"/>
+                <content>11</content>
+                <instruction instr-id="175" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="383" x2="389" y1="596" y2="607"/>
+                <content>3</content>
+                <instruction instr-id="175" subinstr-id="-1"/>
+            </cell>
+        </region>
+    </table>
+    <table id="2">
+        <region col-increment="0" id="1" page="1" row-increment="0">
+            <cell id="1" start-col="1" start-row="0">
+                <bounding-box x1="209" x2="279" y1="497" y2="529"/>
+                <content>Number of
+financial
+companies</content>
+                <instruction instr-id="222" subinstr-id="0"/>
+                <instruction instr-id="222" subinstr-id="2"/>
+                <instruction instr-id="222" subinstr-id="6"/>
+                <instruction instr-id="226" subinstr-id="0"/>
+                <instruction instr-id="226" subinstr-id="2"/>
+                <instruction instr-id="232" subinstr-id="0"/>
+                <instruction instr-id="232" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="0">
+                <bounding-box x1="289" x2="359" y1="497" y2="529"/>
+                <content>Pct of all
+companies
+analysed</content>
+                <instruction instr-id="236" subinstr-id="0"/>
+                <instruction instr-id="236" subinstr-id="2"/>
+                <instruction instr-id="236" subinstr-id="4"/>
+                <instruction instr-id="242" subinstr-id="0"/>
+                <instruction instr-id="242" subinstr-id="2"/>
+                <instruction instr-id="242" subinstr-id="4"/>
+                <instruction instr-id="247" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="0">
+                <bounding-box x1="369" x2="439" y1="475" y2="529"/>
+                <content>Number of
+financial
+companies on
+FTSE Eurotop
+100</content>
+                <instruction instr-id="251" subinstr-id="0"/>
+                <instruction instr-id="251" subinstr-id="2"/>
+                <instruction instr-id="251" subinstr-id="4"/>
+                <instruction instr-id="257" subinstr-id="-1"/>
+                <instruction instr-id="263" subinstr-id="0"/>
+                <instruction instr-id="263" subinstr-id="2"/>
+                <instruction instr-id="268" subinstr-id="0"/>
+                <instruction instr-id="268" subinstr-id="2"/>
+                <instruction instr-id="268" subinstr-id="4"/>
+                <instruction instr-id="268" subinstr-id="6"/>
+                <instruction instr-id="268" subinstr-id="8"/>
+                <instruction instr-id="274" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="0">
+                <bounding-box x1="449" x2="519" y1="497" y2="529"/>
+                <content>Pct of FTSE
+Eurotop 100
+companies</content>
+                <instruction instr-id="278" subinstr-id="0"/>
+                <instruction instr-id="278" subinstr-id="4"/>
+                <instruction instr-id="278" subinstr-id="6"/>
+                <instruction instr-id="278" subinstr-id="8"/>
+                <instruction instr-id="283" subinstr-id="0"/>
+                <instruction instr-id="283" subinstr-id="2"/>
+                <instruction instr-id="283" subinstr-id="4"/>
+                <instruction instr-id="288" subinstr-id="0"/>
+                <instruction instr-id="288" subinstr-id="2"/>
+                <instruction instr-id="288" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="1">
+                <bounding-box x1="92" x2="168" y1="464" y2="474"/>
+                <content>0 reclassifications</content>
+                <instruction instr-id="320" subinstr-id="0"/>
+                <instruction instr-id="320" subinstr-id="2"/>
+                <instruction instr-id="320" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="209" x2="220" y1="464" y2="474"/>
+                <content>52</content>
+                <instruction instr-id="320" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="289" x2="308" y1="464" y2="474"/>
+                <content>52%</content>
+                <instruction instr-id="320" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="369" x2="380" y1="464" y2="474"/>
+                <content>14</content>
+                <instruction instr-id="320" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="1">
+                <bounding-box x1="449" x2="468" y1="464" y2="474"/>
+                <content>64%</content>
+                <instruction instr-id="320" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="92" x2="164" y1="452" y2="463"/>
+                <content>1 reclassification</content>
+                <instruction instr-id="348" subinstr-id="0"/>
+                <instruction instr-id="348" subinstr-id="2"/>
+                <instruction instr-id="348" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="209" x2="220" y1="452" y2="463"/>
+                <content>28</content>
+                <instruction instr-id="348" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="289" x2="308" y1="452" y2="463"/>
+                <content>28%</content>
+                <instruction instr-id="348" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="369" x2="375" y1="452" y2="463"/>
+                <content>4</content>
+                <instruction instr-id="348" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="2">
+                <bounding-box x1="449" x2="468" y1="452" y2="463"/>
+                <content>18%</content>
+                <instruction instr-id="348" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="92" x2="168" y1="441" y2="451"/>
+                <content>2 reclassifications</content>
+                <instruction instr-id="376" subinstr-id="0"/>
+                <instruction instr-id="376" subinstr-id="2"/>
+                <instruction instr-id="376" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="209" x2="220" y1="441" y2="451"/>
+                <content>11</content>
+                <instruction instr-id="376" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="289" x2="308" y1="441" y2="451"/>
+                <content>11%</content>
+                <instruction instr-id="376" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="369" x2="375" y1="441" y2="451"/>
+                <content>2</content>
+                <instruction instr-id="376" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="3">
+                <bounding-box x1="449" x2="462" y1="441" y2="451"/>
+                <content>9%</content>
+                <instruction instr-id="376" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="92" x2="168" y1="430" y2="440"/>
+                <content>3 reclassifications</content>
+                <instruction instr-id="404" subinstr-id="0"/>
+                <instruction instr-id="404" subinstr-id="2"/>
+                <instruction instr-id="404" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="209" x2="215" y1="430" y2="440"/>
+                <content>8</content>
+                <instruction instr-id="404" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="289" x2="302" y1="430" y2="440"/>
+                <content>8%</content>
+                <instruction instr-id="404" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="369" x2="375" y1="430" y2="440"/>
+                <content>2</content>
+                <instruction instr-id="404" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="4">
+                <bounding-box x1="449" x2="462" y1="430" y2="440"/>
+                <content>9%</content>
+                <instruction instr-id="404" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="92" x2="168" y1="418" y2="429"/>
+                <content>4 reclassifications</content>
+                <instruction instr-id="430" subinstr-id="0"/>
+                <instruction instr-id="430" subinstr-id="2"/>
+                <instruction instr-id="430" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="209" x2="215" y1="418" y2="429"/>
+                <content>1</content>
+                <instruction instr-id="430" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="289" x2="302" y1="418" y2="429"/>
+                <content>1%</content>
+                <instruction instr-id="430" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="369" x2="375" y1="418" y2="429"/>
+                <content>0</content>
+                <instruction instr-id="430" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="5">
+                <bounding-box x1="449" x2="462" y1="418" y2="429"/>
+                <content>0%</content>
+                <instruction instr-id="430" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="92" x2="113" y1="407" y2="417"/>
+                <content>Total</content>
+                <instruction instr-id="457" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="209" x2="226" y1="407" y2="417"/>
+                <content>100</content>
+                <instruction instr-id="457" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="369" x2="380" y1="407" y2="417"/>
+                <content>22</content>
+                <instruction instr-id="457" subinstr-id="4"/>
+            </cell>
+        </region>
+    </table>
+    <table id="3">
+        <region col-increment="0" id="1" page="1" row-increment="0">
+            <cell id="1" start-col="1" start-row="0">
+                <bounding-box x1="164" x2="229" y1="308" y2="373"/>
+                <content>Reclassification
+from Fair value
+through profit
+and loss to
+loans and
+receivables</content>
+                <instruction instr-id="519" subinstr-id="0"/>
+                <instruction instr-id="519" subinstr-id="2"/>
+                <instruction instr-id="519" subinstr-id="4"/>
+                <instruction instr-id="519" subinstr-id="6"/>
+                <instruction instr-id="523" subinstr-id="0"/>
+                <instruction instr-id="523" subinstr-id="2"/>
+                <instruction instr-id="529" subinstr-id="0"/>
+                <instruction instr-id="529" subinstr-id="2"/>
+                <instruction instr-id="529" subinstr-id="4"/>
+                <instruction instr-id="529" subinstr-id="6"/>
+                <instruction instr-id="529" subinstr-id="8"/>
+                <instruction instr-id="534" subinstr-id="0"/>
+                <instruction instr-id="534" subinstr-id="2"/>
+                <instruction instr-id="534" subinstr-id="4"/>
+                <instruction instr-id="539" subinstr-id="-1"/>
+                <instruction instr-id="545" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="0">
+                <bounding-box x1="239" x2="304" y1="319" y2="373"/>
+                <content>Reclassification
+from Available
+for Sale to
+loans and
+receivables</content>
+                <instruction instr-id="553" subinstr-id="0"/>
+                <instruction instr-id="553" subinstr-id="2"/>
+                <instruction instr-id="558" subinstr-id="0"/>
+                <instruction instr-id="558" subinstr-id="2"/>
+                <instruction instr-id="558" subinstr-id="4"/>
+                <instruction instr-id="563" subinstr-id="0"/>
+                <instruction instr-id="563" subinstr-id="2"/>
+                <instruction instr-id="568" subinstr-id="-1"/>
+                <instruction instr-id="573" subinstr-id="0"/>
+                <instruction instr-id="573" subinstr-id="2"/>
+                <instruction instr-id="573" subinstr-id="4"/>
+                <instruction instr-id="573" subinstr-id="6"/>
+                <instruction instr-id="573" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="0">
+                <bounding-box x1="314" x2="379" y1="308" y2="373"/>
+                <content>Reclassification
+from Fair value
+through profit
+and loss to
+Available for
+sale</content>
+                <instruction instr-id="580" subinstr-id="-1"/>
+                <instruction instr-id="585" subinstr-id="0"/>
+                <instruction instr-id="585" subinstr-id="2"/>
+                <instruction instr-id="585" subinstr-id="4"/>
+                <instruction instr-id="585" subinstr-id="6"/>
+                <instruction instr-id="585" subinstr-id="8"/>
+                <instruction instr-id="585" subinstr-id="12"/>
+                <instruction instr-id="585" subinstr-id="14"/>
+                <instruction instr-id="585" subinstr-id="16"/>
+                <instruction instr-id="585" subinstr-id="18"/>
+                <instruction instr-id="590" subinstr-id="0"/>
+                <instruction instr-id="590" subinstr-id="2"/>
+                <instruction instr-id="595" subinstr-id="0"/>
+                <instruction instr-id="595" subinstr-id="2"/>
+                <instruction instr-id="595" subinstr-id="4"/>
+                <instruction instr-id="600" subinstr-id="0"/>
+                <instruction instr-id="600" subinstr-id="2"/>
+                <instruction instr-id="600" subinstr-id="4"/>
+                <instruction instr-id="606" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="0">
+                <bounding-box x1="389" x2="454" y1="308" y2="373"/>
+                <content>Reclassification
+from Fair value
+through profit
+and loss to
+Held to
+Maturity</content>
+                <instruction instr-id="614" subinstr-id="0"/>
+                <instruction instr-id="614" subinstr-id="2"/>
+                <instruction instr-id="614" subinstr-id="4"/>
+                <instruction instr-id="614" subinstr-id="6"/>
+                <instruction instr-id="619" subinstr-id="0"/>
+                <instruction instr-id="619" subinstr-id="2"/>
+                <instruction instr-id="624" subinstr-id="0"/>
+                <instruction instr-id="624" subinstr-id="2"/>
+                <instruction instr-id="624" subinstr-id="4"/>
+                <instruction instr-id="624" subinstr-id="6"/>
+                <instruction instr-id="624" subinstr-id="8"/>
+                <instruction instr-id="629" subinstr-id="-1"/>
+                <instruction instr-id="634" subinstr-id="0"/>
+                <instruction instr-id="639" subinstr-id="0"/>
+                <instruction instr-id="639" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="0">
+                <bounding-box x1="464" x2="485" y1="362" y2="373"/>
+                <content>Total</content>
+                <instruction instr-id="646" subinstr-id="0"/>
+                <instruction instr-id="646" subinstr-id="2"/>
+                <instruction instr-id="646" subinstr-id="4"/>
+                <instruction instr-id="646" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="1">
+                <bounding-box x1="92" x2="154" y1="231" y2="296"/>
+                <content>Number of
+financial
+companies
+who applied
+the option for
+this category</content>
+                <instruction instr-id="673" subinstr-id="0"/>
+                <instruction instr-id="673" subinstr-id="2"/>
+                <instruction instr-id="673" subinstr-id="4"/>
+                <instruction instr-id="679" subinstr-id="-1"/>
+                <instruction instr-id="683" subinstr-id="-1"/>
+                <instruction instr-id="689" subinstr-id="0"/>
+                <instruction instr-id="695" subinstr-id="0"/>
+                <instruction instr-id="695" subinstr-id="2"/>
+                <instruction instr-id="695" subinstr-id="4"/>
+                <instruction instr-id="695" subinstr-id="6"/>
+                <instruction instr-id="701" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="164" x2="175" y1="285" y2="296"/>
+                <content>27</content>
+                <instruction instr-id="705" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="239" x2="250" y1="285" y2="296"/>
+                <content>16</content>
+                <instruction instr-id="705" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="314" x2="325" y1="285" y2="296"/>
+                <content>23</content>
+                <instruction instr-id="705" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="1">
+                <bounding-box x1="389" x2="400" y1="285" y2="296"/>
+                <content>15</content>
+                <instruction instr-id="705" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="1">
+                <bounding-box x1="464" x2="475" y1="285" y2="296"/>
+                <content>81</content>
+                <instruction instr-id="705" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="92" x2="154" y1="154" y2="230"/>
+                <content>Percentage of
+all financial
+companies
+analysed who
+applied the
+option for this
+category</content>
+                <instruction instr-id="728" subinstr-id="0"/>
+                <instruction instr-id="728" subinstr-id="2"/>
+                <instruction instr-id="728" subinstr-id="4"/>
+                <instruction instr-id="728" subinstr-id="6"/>
+                <instruction instr-id="734" subinstr-id="-1"/>
+                <instruction instr-id="740" subinstr-id="-1"/>
+                <instruction instr-id="746" subinstr-id="0"/>
+                <instruction instr-id="746" subinstr-id="2"/>
+                <instruction instr-id="752" subinstr-id="0"/>
+                <instruction instr-id="752" subinstr-id="2"/>
+                <instruction instr-id="752" subinstr-id="4"/>
+                <instruction instr-id="758" subinstr-id="0"/>
+                <instruction instr-id="758" subinstr-id="2"/>
+                <instruction instr-id="758" subinstr-id="4"/>
+                <instruction instr-id="758" subinstr-id="6"/>
+                <instruction instr-id="758" subinstr-id="8"/>
+                <instruction instr-id="764" subinstr-id="0"/>
+                <instruction instr-id="764" subinstr-id="2"/>
+                <instruction instr-id="764" subinstr-id="4"/>
+                <instruction instr-id="764" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="164" x2="183" y1="219" y2="230"/>
+                <content>33%</content>
+                <instruction instr-id="768" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="239" x2="258" y1="219" y2="230"/>
+                <content>20%</content>
+                <instruction instr-id="768" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="314" x2="333" y1="219" y2="230"/>
+                <content>28%</content>
+                <instruction instr-id="768" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="2">
+                <bounding-box x1="389" x2="408" y1="219" y2="230"/>
+                <content>19%</content>
+                <instruction instr-id="768" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="2">
+                <bounding-box x1="464" x2="489" y1="219" y2="230"/>
+                <content>100%</content>
+                <instruction instr-id="768" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="92" x2="154" y1="77" y2="153"/>
+                <content>Number of
+financial
+companies
+where the
+disclosure
+requirements
+were stricter</content>
+                <instruction instr-id="791" subinstr-id="0"/>
+                <instruction instr-id="791" subinstr-id="2"/>
+                <instruction instr-id="791" subinstr-id="4"/>
+                <instruction instr-id="797" subinstr-id="-1"/>
+                <instruction instr-id="801" subinstr-id="-1"/>
+                <instruction instr-id="807" subinstr-id="0"/>
+                <instruction instr-id="807" subinstr-id="2"/>
+                <instruction instr-id="813" subinstr-id="0"/>
+                <instruction instr-id="813" subinstr-id="2"/>
+                <instruction instr-id="818" subinstr-id="0"/>
+                <instruction instr-id="818" subinstr-id="2"/>
+                <instruction instr-id="823" subinstr-id="0"/>
+                <instruction instr-id="823" subinstr-id="2"/>
+                <instruction instr-id="826" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="164" x2="169" y1="142" y2="153"/>
+                <content>8</content>
+                <instruction instr-id="834" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="239" x2="245" y1="142" y2="153"/>
+                <content>3</content>
+                <instruction instr-id="834" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="314" x2="320" y1="142" y2="153"/>
+                <content>6</content>
+                <instruction instr-id="834" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="4" start-row="3">
+                <bounding-box x1="389" x2="395" y1="142" y2="153"/>
+                <content>2</content>
+                <instruction instr-id="834" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="5" start-row="3">
+                <bounding-box x1="464" x2="475" y1="142" y2="153"/>
+                <content>19</content>
+                <instruction instr-id="834" subinstr-id="2"/>
+            </cell>
+        </region>
+    </table>
+</document>

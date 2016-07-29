@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-039-str.xml'>
+   <table id='1'>
+      <region page='2' id='1' col-increment='0' row-increment='0'>
+         <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
+            <bounding-box x1='204' y1='624' x2='248' y2='635'/>
+            <content>Organism</content>
+            <instruction instr-id='142' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='2' end-row='1' end-col='2'>
+            <bounding-box x1='330' y1='624' x2='441' y2='635'/>
+            <content>Wildlife Criterion (pg/L)</content>
+            <instruction instr-id='142' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1' end-row='2' end-col='1'>
+            <bounding-box x1='151' y1='600' x2='175' y2='611'/>
+            <content>Mink</content>
+            <instruction instr-id='144' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='2' end-row='2' end-col='2'>
+            <bounding-box x1='380' y1='600' x2='391' y2='611'/>
+            <content>57</content>
+            <instruction instr-id='146' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1' end-row='3' end-col='1'>
+            <bounding-box x1='151' y1='579' x2='199' y2='590'/>
+            <content>River otter</content>
+            <instruction instr-id='148' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='2' end-row='3' end-col='2'>
+            <bounding-box x1='380' y1='579' x2='391' y2='590'/>
+            <content>42</content>
+            <instruction instr-id='150' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='1' end-row='4' end-col='1'>
+            <bounding-box x1='151' y1='557' x2='199' y2='568'/>
+            <content>Kingfisher</content>
+            <instruction instr-id='152' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='2' end-row='4' end-col='2'>
+            <bounding-box x1='380' y1='557' x2='391' y2='568'/>
+            <content>33</content>
+            <instruction instr-id='154' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1' end-row='5' end-col='1'>
+            <bounding-box x1='151' y1='536' x2='175' y2='547'/>
+            <content>Loon</content>
+            <instruction instr-id='156' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='2' end-row='5' end-col='2'>
+            <bounding-box x1='380' y1='536' x2='391' y2='547'/>
+            <content>82</content>
+            <instruction instr-id='158' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1' end-row='6' end-col='1'>
+            <bounding-box x1='151' y1='514' x2='183' y2='525'/>
+            <content>Osprey</content>
+            <instruction instr-id='160' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='2' end-row='6' end-col='2'>
+            <bounding-box x1='380' y1='514' x2='391' y2='525'/>
+            <content>82</content>
+            <instruction instr-id='162' subinstr-id='-1'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='1' end-row='7' end-col='1'>
+            <bounding-box x1='151' y1='493' x2='198' y2='504'/>
+            <content>Bald eagle</content>
+            <instruction instr-id='166' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='2' end-row='7' end-col='2'>
+            <bounding-box x1='377' y1='493' x2='394' y2='504'/>
+            <content>100</content>
+            <instruction instr-id='166' subinstr-id='2'/>
+         </cell>
+      </region>
+   </table>
+</document>

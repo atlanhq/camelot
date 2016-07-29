@@ -1,0 +1,2929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document filename="bm_eu-001-str.xml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
+    <table id="1">
+        <region col-increment="0" id="1" page="1" row-increment="0">
+            <cell end-col="3" id="1" start-col="1" start-row="0">
+                <bounding-box x1="316" x2="441" y1="533" y2="543"/>
+                <content>THRESHOLD FOR RELEASES</content>
+                <instruction instr-id="325" subinstr-id="-1"/>
+                <instruction instr-id="328" subinstr-id="0"/>
+                <instruction instr-id="328" subinstr-id="2"/>
+                <instruction instr-id="328" subinstr-id="4"/>
+                <instruction instr-id="328" subinstr-id="6"/>
+                <instruction instr-id="328" subinstr-id="8"/>
+                <instruction instr-id="328" subinstr-id="10"/>
+                <instruction instr-id="328" subinstr-id="12"/>
+                <instruction instr-id="328" subinstr-id="14"/>
+                <instruction instr-id="328" subinstr-id="16"/>
+                <instruction instr-id="328" subinstr-id="18"/>
+                <instruction instr-id="328" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="280" x2="316" y1="512" y2="530"/>
+                <content>to air
+kg/year</content>
+                <instruction instr-id="379" subinstr-id="0"/>
+                <instruction instr-id="379" subinstr-id="2"/>
+                <instruction instr-id="389" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="365" x2="403" y1="512" y2="530"/>
+                <content>to water
+kg/year</content>
+                <instruction instr-id="415" subinstr-id="0"/>
+                <instruction instr-id="415" subinstr-id="2"/>
+                <instruction instr-id="415" subinstr-id="4"/>
+                <instruction instr-id="415" subinstr-id="6"/>
+                <instruction instr-id="415" subinstr-id="8"/>
+                <instruction instr-id="415" subinstr-id="10"/>
+                <instruction instr-id="425" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="446" x2="482" y1="512" y2="530"/>
+                <content>to land
+kg/year</content>
+                <instruction instr-id="451" subinstr-id="0"/>
+                <instruction instr-id="451" subinstr-id="2"/>
+                <instruction instr-id="451" subinstr-id="4"/>
+                <instruction instr-id="451" subinstr-id="6"/>
+                <instruction instr-id="451" subinstr-id="8"/>
+                <instruction instr-id="461" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="100" x2="197" y1="502" y2="510"/>
+                <content>Carbon dioxide (CO2)</content>
+                <instruction instr-id="497" subinstr-id="0"/>
+                <instruction instr-id="497" subinstr-id="2"/>
+                <instruction instr-id="497" subinstr-id="4"/>
+                <instruction instr-id="497" subinstr-id="6"/>
+                <instruction instr-id="497" subinstr-id="8"/>
+                <instruction instr-id="497" subinstr-id="10"/>
+                <instruction instr-id="497" subinstr-id="12"/>
+                <instruction instr-id="497" subinstr-id="14"/>
+                <instruction instr-id="497" subinstr-id="16"/>
+                <instruction instr-id="497" subinstr-id="18"/>
+                <instruction instr-id="497" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="276" x2="320" y1="502" y2="510"/>
+                <content>100 million</content>
+                <instruction instr-id="505" subinstr-id="0"/>
+                <instruction instr-id="505" subinstr-id="2"/>
+                <instruction instr-id="505" subinstr-id="4"/>
+                <instruction instr-id="505" subinstr-id="6"/>
+                <instruction instr-id="505" subinstr-id="8"/>
+                <instruction instr-id="505" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="382" x2="385" y1="502" y2="510"/>
+                <content>-</content>
+                <instruction instr-id="505" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="462" x2="465" y1="502" y2="510"/>
+                <content>-</content>
+                <instruction instr-id="505" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="100" x2="227" y1="492" y2="500"/>
+                <content>Hydro-fluorocarbons (HFCs)</content>
+                <instruction instr-id="543" subinstr-id="0"/>
+                <instruction instr-id="543" subinstr-id="2"/>
+                <instruction instr-id="543" subinstr-id="4"/>
+                <instruction instr-id="543" subinstr-id="6"/>
+                <instruction instr-id="543" subinstr-id="8"/>
+                <instruction instr-id="543" subinstr-id="10"/>
+                <instruction instr-id="543" subinstr-id="12"/>
+                <instruction instr-id="543" subinstr-id="14"/>
+                <instruction instr-id="543" subinstr-id="16"/>
+                <instruction instr-id="543" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="290" x2="306" y1="492" y2="500"/>
+                <content>100</content>
+                <instruction instr-id="551" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="382" x2="385" y1="492" y2="500"/>
+                <content>-</content>
+                <instruction instr-id="551" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="462" x2="465" y1="492" y2="500"/>
+                <content>-</content>
+                <instruction instr-id="551" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="100" x2="168" y1="482" y2="490"/>
+                <content>Methane (CH4)</content>
+                <instruction instr-id="592" subinstr-id="0"/>
+                <instruction instr-id="592" subinstr-id="2"/>
+                <instruction instr-id="592" subinstr-id="4"/>
+                <instruction instr-id="592" subinstr-id="6"/>
+                <instruction instr-id="592" subinstr-id="8"/>
+                <instruction instr-id="592" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="281" x2="315" y1="482" y2="490"/>
+                <content>100 000</content>
+                <instruction instr-id="600" subinstr-id="0"/>
+                <instruction instr-id="600" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="382" x2="385" y1="482" y2="490"/>
+                <content>-</content>
+                <instruction instr-id="600" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="462" x2="466" y1="482" y2="490"/>
+                <content>-</content>
+                <instruction instr-id="600" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="100" x2="191" y1="471" y2="479"/>
+                <content>Nitrous oxide (N2O)</content>
+                <instruction instr-id="637" subinstr-id="0"/>
+                <instruction instr-id="637" subinstr-id="2"/>
+                <instruction instr-id="637" subinstr-id="4"/>
+                <instruction instr-id="637" subinstr-id="6"/>
+                <instruction instr-id="637" subinstr-id="8"/>
+                <instruction instr-id="637" subinstr-id="10"/>
+                <instruction instr-id="637" subinstr-id="12"/>
+                <instruction instr-id="637" subinstr-id="14"/>
+                <instruction instr-id="637" subinstr-id="16"/>
+                <instruction instr-id="637" subinstr-id="18"/>
+                <instruction instr-id="637" subinstr-id="20"/>
+                <instruction instr-id="637" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="284" x2="312" y1="471" y2="479"/>
+                <content>10 000</content>
+                <instruction instr-id="644" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="382" x2="385" y1="471" y2="479"/>
+                <content>-</content>
+                <instruction instr-id="644" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="462" x2="466" y1="471" y2="479"/>
+                <content>-</content>
+                <instruction instr-id="644" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="100" x2="210" y1="461" y2="469"/>
+                <content>Perfluorocarbons (PFCs)</content>
+                <instruction instr-id="685" subinstr-id="0"/>
+                <instruction instr-id="685" subinstr-id="2"/>
+                <instruction instr-id="685" subinstr-id="4"/>
+                <instruction instr-id="685" subinstr-id="6"/>
+                <instruction instr-id="685" subinstr-id="8"/>
+                <instruction instr-id="685" subinstr-id="10"/>
+                <instruction instr-id="685" subinstr-id="12"/>
+                <instruction instr-id="685" subinstr-id="14"/>
+                <instruction instr-id="685" subinstr-id="16"/>
+                <instruction instr-id="685" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="290" x2="306" y1="461" y2="469"/>
+                <content>100</content>
+                <instruction instr-id="693" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="382" x2="385" y1="461" y2="469"/>
+                <content>-</content>
+                <instruction instr-id="693" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="462" x2="465" y1="461" y2="469"/>
+                <content>-</content>
+                <instruction instr-id="693" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="100" x2="222" y1="451" y2="459"/>
+                <content>Sulphur hexafluoride (SF6)</content>
+                <instruction instr-id="731" subinstr-id="0"/>
+                <instruction instr-id="731" subinstr-id="2"/>
+                <instruction instr-id="731" subinstr-id="4"/>
+                <instruction instr-id="731" subinstr-id="6"/>
+                <instruction instr-id="731" subinstr-id="8"/>
+                <instruction instr-id="731" subinstr-id="10"/>
+                <instruction instr-id="731" subinstr-id="12"/>
+                <instruction instr-id="731" subinstr-id="14"/>
+                <instruction instr-id="731" subinstr-id="16"/>
+                <instruction instr-id="731" subinstr-id="18"/>
+                <instruction instr-id="731" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="293" x2="303" y1="451" y2="459"/>
+                <content>50</content>
+                <instruction instr-id="739" subinstr-id="0"/>
+                <instruction instr-id="739" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="382" x2="385" y1="451" y2="459"/>
+                <content>-</content>
+                <instruction instr-id="739" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="462" x2="465" y1="451" y2="459"/>
+                <content>-</content>
+                <instruction instr-id="739" subinstr-id="6"/>
+            </cell>
+        </region>
+    </table>
+    <table id="2">
+        <region col-increment="0" id="1" page="1" row-increment="0">
+            <cell end-col="3" id="1" start-col="1" start-row="0">
+                <bounding-box x1="326" x2="451" y1="405" y2="415"/>
+                <content>THRESHOLD FOR RELEASES</content>
+                <instruction instr-id="818" subinstr-id="-1"/>
+                <instruction instr-id="821" subinstr-id="0"/>
+                <instruction instr-id="821" subinstr-id="2"/>
+                <instruction instr-id="821" subinstr-id="4"/>
+                <instruction instr-id="821" subinstr-id="6"/>
+                <instruction instr-id="821" subinstr-id="8"/>
+                <instruction instr-id="821" subinstr-id="10"/>
+                <instruction instr-id="821" subinstr-id="12"/>
+                <instruction instr-id="821" subinstr-id="14"/>
+                <instruction instr-id="821" subinstr-id="16"/>
+                <instruction instr-id="821" subinstr-id="18"/>
+                <instruction instr-id="821" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="296" x2="333" y1="385" y2="402"/>
+                <content>to air
+kg/year</content>
+                <instruction instr-id="873" subinstr-id="0"/>
+                <instruction instr-id="873" subinstr-id="2"/>
+                <instruction instr-id="883" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="372" x2="410" y1="385" y2="402"/>
+                <content>to water
+kg/year</content>
+                <instruction instr-id="910" subinstr-id="0"/>
+                <instruction instr-id="910" subinstr-id="2"/>
+                <instruction instr-id="910" subinstr-id="4"/>
+                <instruction instr-id="910" subinstr-id="6"/>
+                <instruction instr-id="910" subinstr-id="8"/>
+                <instruction instr-id="910" subinstr-id="10"/>
+                <instruction instr-id="923" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="447" x2="483" y1="385" y2="402"/>
+                <content>to land
+kg/year</content>
+                <instruction instr-id="945" subinstr-id="0"/>
+                <instruction instr-id="945" subinstr-id="2"/>
+                <instruction instr-id="945" subinstr-id="4"/>
+                <instruction instr-id="945" subinstr-id="6"/>
+                <instruction instr-id="955" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="101" x2="174" y1="374" y2="382"/>
+                <content>Ammonia (NH3)</content>
+                <instruction instr-id="993" subinstr-id="0"/>
+                <instruction instr-id="993" subinstr-id="2"/>
+                <instruction instr-id="993" subinstr-id="4"/>
+                <instruction instr-id="993" subinstr-id="6"/>
+                <instruction instr-id="993" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="300" x2="329" y1="374" y2="382"/>
+                <content>10 000</content>
+                <instruction instr-id="1001" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="389" x2="393" y1="374" y2="382"/>
+                <content>-</content>
+                <instruction instr-id="1001" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="463" x2="467" y1="374" y2="382"/>
+                <content>-</content>
+                <instruction instr-id="1001" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="101" x2="204" y1="364" y2="372"/>
+                <content>Carbon monoxide (CO)</content>
+                <instruction instr-id="1038" subinstr-id="0"/>
+                <instruction instr-id="1038" subinstr-id="2"/>
+                <instruction instr-id="1038" subinstr-id="4"/>
+                <instruction instr-id="1038" subinstr-id="6"/>
+                <instruction instr-id="1038" subinstr-id="8"/>
+                <instruction instr-id="1038" subinstr-id="10"/>
+                <instruction instr-id="1038" subinstr-id="14"/>
+                <instruction instr-id="1038" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="298" x2="331" y1="364" y2="372"/>
+                <content>500 000</content>
+                <instruction instr-id="1046" subinstr-id="0"/>
+                <instruction instr-id="1046" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="389" x2="393" y1="364" y2="372"/>
+                <content>-</content>
+                <instruction instr-id="1046" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="463" x2="467" y1="364" y2="372"/>
+                <content>-</content>
+                <instruction instr-id="1046" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="101" x2="257" y1="344" y2="362"/>
+                <content>Chlorine and inorganic compounds
+(as HCl)</content>
+                <instruction instr-id="1083" subinstr-id="0"/>
+                <instruction instr-id="1083" subinstr-id="2"/>
+                <instruction instr-id="1083" subinstr-id="4"/>
+                <instruction instr-id="1083" subinstr-id="8"/>
+                <instruction instr-id="1083" subinstr-id="10"/>
+                <instruction instr-id="1083" subinstr-id="12"/>
+                <instruction instr-id="1093" subinstr-id="0"/>
+                <instruction instr-id="1093" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="300" x2="329" y1="349" y2="357"/>
+                <content>10 000</content>
+                <instruction instr-id="1101" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="389" x2="393" y1="349" y2="357"/>
+                <content>-</content>
+                <instruction instr-id="1101" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="463" x2="467" y1="349" y2="357"/>
+                <content>-</content>
+                <instruction instr-id="1101" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="101" x2="226" y1="334" y2="342"/>
+                <content>Chlorofluorocarbons (CFCs)</content>
+                <instruction instr-id="1141" subinstr-id="0"/>
+                <instruction instr-id="1141" subinstr-id="2"/>
+                <instruction instr-id="1141" subinstr-id="4"/>
+                <instruction instr-id="1141" subinstr-id="6"/>
+                <instruction instr-id="1141" subinstr-id="8"/>
+                <instruction instr-id="1141" subinstr-id="10"/>
+                <instruction instr-id="1141" subinstr-id="12"/>
+                <instruction instr-id="1141" subinstr-id="14"/>
+                <instruction instr-id="1141" subinstr-id="16"/>
+                <instruction instr-id="1141" subinstr-id="18"/>
+                <instruction instr-id="1141" subinstr-id="20"/>
+                <instruction instr-id="1141" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="312" x2="317" y1="334" y2="342"/>
+                <content>1</content>
+                <instruction instr-id="1149" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="389" x2="393" y1="334" y2="342"/>
+                <content>-</content>
+                <instruction instr-id="1149" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="463" x2="467" y1="334" y2="342"/>
+                <content>-</content>
+                <instruction instr-id="1149" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="101" x2="256" y1="314" y2="332"/>
+                <content>Flourine and inorganic compounds
+(as HF)</content>
+                <instruction instr-id="1186" subinstr-id="0"/>
+                <instruction instr-id="1186" subinstr-id="2"/>
+                <instruction instr-id="1186" subinstr-id="4"/>
+                <instruction instr-id="1186" subinstr-id="6"/>
+                <instruction instr-id="1186" subinstr-id="8"/>
+                <instruction instr-id="1186" subinstr-id="10"/>
+                <instruction instr-id="1186" subinstr-id="12"/>
+                <instruction instr-id="1196" subinstr-id="0"/>
+                <instruction instr-id="1196" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="303" x2="326" y1="319" y2="327"/>
+                <content>5 000</content>
+                <instruction instr-id="1204" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="389" x2="393" y1="319" y2="327"/>
+                <content>-</content>
+                <instruction instr-id="1204" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="463" x2="467" y1="319" y2="327"/>
+                <content>-</content>
+                <instruction instr-id="1204" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="101" x2="132" y1="304" y2="312"/>
+                <content>Halons</content>
+                <instruction instr-id="1244" subinstr-id="0"/>
+                <instruction instr-id="1244" subinstr-id="2"/>
+                <instruction instr-id="1244" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="312" x2="317" y1="304" y2="312"/>
+                <content>1</content>
+                <instruction instr-id="1252" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="389" x2="393" y1="304" y2="312"/>
+                <content>-</content>
+                <instruction instr-id="1252" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="463" x2="467" y1="304" y2="312"/>
+                <content>-</content>
+                <instruction instr-id="1252" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="101" x2="258" y1="294" y2="302"/>
+                <content>Hydrochlorofluorocarbons (HCFCs)</content>
+                <instruction instr-id="1289" subinstr-id="0"/>
+                <instruction instr-id="1289" subinstr-id="2"/>
+                <instruction instr-id="1289" subinstr-id="4"/>
+                <instruction instr-id="1289" subinstr-id="6"/>
+                <instruction instr-id="1289" subinstr-id="8"/>
+                <instruction instr-id="1289" subinstr-id="10"/>
+                <instruction instr-id="1289" subinstr-id="12"/>
+                <instruction instr-id="1289" subinstr-id="14"/>
+                <instruction instr-id="1289" subinstr-id="16"/>
+                <instruction instr-id="1289" subinstr-id="18"/>
+                <instruction instr-id="1289" subinstr-id="20"/>
+                <instruction instr-id="1289" subinstr-id="22"/>
+                <instruction instr-id="1289" subinstr-id="24"/>
+                <instruction instr-id="1289" subinstr-id="26"/>
+                <instruction instr-id="1289" subinstr-id="28"/>
+                <instruction instr-id="1289" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="312" x2="317" y1="294" y2="302"/>
+                <content>1</content>
+                <instruction instr-id="1297" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="389" x2="393" y1="294" y2="302"/>
+                <content>-</content>
+                <instruction instr-id="1297" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="463" x2="467" y1="294" y2="302"/>
+                <content>-</content>
+                <instruction instr-id="1297" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9">
+                <bounding-box x1="101" x2="214" y1="283" y2="291"/>
+                <content>Hydrogen Cyanide (HCN)</content>
+                <instruction instr-id="1334" subinstr-id="0"/>
+                <instruction instr-id="1334" subinstr-id="2"/>
+                <instruction instr-id="1334" subinstr-id="4"/>
+                <instruction instr-id="1334" subinstr-id="6"/>
+                <instruction instr-id="1334" subinstr-id="8"/>
+                <instruction instr-id="1334" subinstr-id="10"/>
+                <instruction instr-id="1334" subinstr-id="12"/>
+                <instruction instr-id="1334" subinstr-id="14"/>
+                <instruction instr-id="1334" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="307" x2="322" y1="283" y2="291"/>
+                <content>200</content>
+                <instruction instr-id="1342" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="389" x2="393" y1="283" y2="291"/>
+                <content>-</content>
+                <instruction instr-id="1342" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="463" x2="467" y1="283" y2="291"/>
+                <content>-</content>
+                <instruction instr-id="1342" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="10">
+                <bounding-box x1="101" x2="228" y1="273" y2="281"/>
+                <content>Nitrogen oxides (NOx/NO2)</content>
+                <instruction instr-id="1382" subinstr-id="0"/>
+                <instruction instr-id="1382" subinstr-id="2"/>
+                <instruction instr-id="1382" subinstr-id="4"/>
+                <instruction instr-id="1382" subinstr-id="6"/>
+                <instruction instr-id="1382" subinstr-id="8"/>
+                <instruction instr-id="1382" subinstr-id="10"/>
+                <instruction instr-id="1382" subinstr-id="12"/>
+                <instruction instr-id="1382" subinstr-id="14"/>
+                <instruction instr-id="1382" subinstr-id="16"/>
+                <instruction instr-id="1382" subinstr-id="18"/>
+                <instruction instr-id="1382" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="298" x2="331" y1="273" y2="281"/>
+                <content>100 000</content>
+                <instruction instr-id="1390" subinstr-id="0"/>
+                <instruction instr-id="1390" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="389" x2="393" y1="273" y2="281"/>
+                <content>-</content>
+                <instruction instr-id="1390" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="463" x2="467" y1="273" y2="281"/>
+                <content>-</content>
+                <instruction instr-id="1390" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="11">
+                <bounding-box x1="101" x2="235" y1="253" y2="271"/>
+                <content>Non-methane volatile organic
+compounds (NMVOC)</content>
+                <instruction instr-id="1427" subinstr-id="0"/>
+                <instruction instr-id="1427" subinstr-id="2"/>
+                <instruction instr-id="1427" subinstr-id="4"/>
+                <instruction instr-id="1427" subinstr-id="6"/>
+                <instruction instr-id="1427" subinstr-id="8"/>
+                <instruction instr-id="1427" subinstr-id="10"/>
+                <instruction instr-id="1427" subinstr-id="12"/>
+                <instruction instr-id="1427" subinstr-id="14"/>
+                <instruction instr-id="1437" subinstr-id="0"/>
+                <instruction instr-id="1437" subinstr-id="2"/>
+                <instruction instr-id="1437" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="298" x2="331" y1="258" y2="266"/>
+                <content>100 000</content>
+                <instruction instr-id="1445" subinstr-id="0"/>
+                <instruction instr-id="1445" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="389" x2="393" y1="258" y2="266"/>
+                <content>-</content>
+                <instruction instr-id="1445" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="11">
+                <bounding-box x1="463" x2="467" y1="258" y2="266"/>
+                <content>-</content>
+                <instruction instr-id="1445" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="12">
+                <bounding-box x1="101" x2="221" y1="243" y2="251"/>
+                <content>Sulphur oxides (SOx/SO2)</content>
+                <instruction instr-id="1485" subinstr-id="0"/>
+                <instruction instr-id="1485" subinstr-id="2"/>
+                <instruction instr-id="1485" subinstr-id="4"/>
+                <instruction instr-id="1485" subinstr-id="6"/>
+                <instruction instr-id="1485" subinstr-id="8"/>
+                <instruction instr-id="1485" subinstr-id="10"/>
+                <instruction instr-id="1485" subinstr-id="12"/>
+                <instruction instr-id="1485" subinstr-id="14"/>
+                <instruction instr-id="1485" subinstr-id="16"/>
+                <instruction instr-id="1485" subinstr-id="18"/>
+                <instruction instr-id="1485" subinstr-id="20"/>
+                <instruction instr-id="1485" subinstr-id="22"/>
+                <instruction instr-id="1485" subinstr-id="24"/>
+                <instruction instr-id="1485" subinstr-id="26"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="298" x2="331" y1="243" y2="251"/>
+                <content>150 000</content>
+                <instruction instr-id="1493" subinstr-id="0"/>
+                <instruction instr-id="1493" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="389" x2="393" y1="243" y2="251"/>
+                <content>-</content>
+                <instruction instr-id="1493" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="12">
+                <bounding-box x1="463" x2="467" y1="243" y2="251"/>
+                <content>-</content>
+                <instruction instr-id="1493" subinstr-id="8"/>
+            </cell>
+        </region>
+    </table>
+    <table id="3">
+        <region col-increment="0" id="1" page="1" row-increment="0">
+            <cell end-col="3" id="1" start-col="1" start-row="0">
+                <bounding-box x1="320" x2="445" y1="197" y2="207"/>
+                <content>THRESHOLD FOR RELEASES</content>
+                <instruction instr-id="1569" subinstr-id="-1"/>
+                <instruction instr-id="1572" subinstr-id="0"/>
+                <instruction instr-id="1572" subinstr-id="2"/>
+                <instruction instr-id="1572" subinstr-id="4"/>
+                <instruction instr-id="1572" subinstr-id="6"/>
+                <instruction instr-id="1572" subinstr-id="8"/>
+                <instruction instr-id="1572" subinstr-id="10"/>
+                <instruction instr-id="1572" subinstr-id="12"/>
+                <instruction instr-id="1572" subinstr-id="14"/>
+                <instruction instr-id="1572" subinstr-id="16"/>
+                <instruction instr-id="1572" subinstr-id="18"/>
+                <instruction instr-id="1572" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="292" x2="329" y1="177" y2="195"/>
+                <content>to air
+kg/year</content>
+                <instruction instr-id="1626" subinstr-id="0"/>
+                <instruction instr-id="1626" subinstr-id="2"/>
+                <instruction instr-id="1636" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="367" x2="405" y1="177" y2="195"/>
+                <content>to water
+kg/year</content>
+                <instruction instr-id="1661" subinstr-id="0"/>
+                <instruction instr-id="1661" subinstr-id="2"/>
+                <instruction instr-id="1661" subinstr-id="4"/>
+                <instruction instr-id="1661" subinstr-id="6"/>
+                <instruction instr-id="1661" subinstr-id="8"/>
+                <instruction instr-id="1661" subinstr-id="10"/>
+                <instruction instr-id="1671" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="440" x2="476" y1="177" y2="195"/>
+                <content>to land
+kg/year</content>
+                <instruction instr-id="1696" subinstr-id="0"/>
+                <instruction instr-id="1696" subinstr-id="2"/>
+                <instruction instr-id="1696" subinstr-id="4"/>
+                <instruction instr-id="1696" subinstr-id="6"/>
+                <instruction instr-id="1696" subinstr-id="8"/>
+                <instruction instr-id="1706" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="102" x2="244" y1="167" y2="175"/>
+                <content>Arsenic and compounds (as As)</content>
+                <instruction instr-id="1741" subinstr-id="0"/>
+                <instruction instr-id="1741" subinstr-id="2"/>
+                <instruction instr-id="1741" subinstr-id="4"/>
+                <instruction instr-id="1741" subinstr-id="6"/>
+                <instruction instr-id="1741" subinstr-id="8"/>
+                <instruction instr-id="1741" subinstr-id="10"/>
+                <instruction instr-id="1741" subinstr-id="12"/>
+                <instruction instr-id="1741" subinstr-id="14"/>
+                <instruction instr-id="1741" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="305" x2="316" y1="167" y2="175"/>
+                <content>20</content>
+                <instruction instr-id="1749" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="383" x2="388" y1="167" y2="175"/>
+                <content>5</content>
+                <instruction instr-id="1749" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="455" x2="460" y1="167" y2="175"/>
+                <content>5</content>
+                <instruction instr-id="1749" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="102" x2="253" y1="156" y2="164"/>
+                <content>Cadmium and compounds (as Cd)</content>
+                <instruction instr-id="1789" subinstr-id="0"/>
+                <instruction instr-id="1789" subinstr-id="2"/>
+                <instruction instr-id="1789" subinstr-id="4"/>
+                <instruction instr-id="1789" subinstr-id="6"/>
+                <instruction instr-id="1789" subinstr-id="8"/>
+                <instruction instr-id="1789" subinstr-id="10"/>
+                <instruction instr-id="1789" subinstr-id="12"/>
+                <instruction instr-id="1789" subinstr-id="14"/>
+                <instruction instr-id="1789" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="305" x2="316" y1="156" y2="164"/>
+                <content>10</content>
+                <instruction instr-id="1797" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="383" x2="388" y1="156" y2="164"/>
+                <content>5</content>
+                <instruction instr-id="1797" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="455" x2="460" y1="156" y2="164"/>
+                <content>5</content>
+                <instruction instr-id="1797" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="102" x2="255" y1="146" y2="154"/>
+                <content>Chromium and compounds (as Cr)</content>
+                <instruction instr-id="1834" subinstr-id="0"/>
+                <instruction instr-id="1834" subinstr-id="2"/>
+                <instruction instr-id="1834" subinstr-id="4"/>
+                <instruction instr-id="1834" subinstr-id="6"/>
+                <instruction instr-id="1834" subinstr-id="8"/>
+                <instruction instr-id="1834" subinstr-id="10"/>
+                <instruction instr-id="1834" subinstr-id="12"/>
+                <instruction instr-id="1834" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="303" x2="318" y1="146" y2="154"/>
+                <content>100</content>
+                <instruction instr-id="1842" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="381" x2="391" y1="146" y2="154"/>
+                <content>50</content>
+                <instruction instr-id="1842" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="453" x2="463" y1="146" y2="154"/>
+                <content>50</content>
+                <instruction instr-id="1842" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="102" x2="243" y1="136" y2="144"/>
+                <content>Copper and compounds (as Cu)</content>
+                <instruction instr-id="1879" subinstr-id="0"/>
+                <instruction instr-id="1879" subinstr-id="2"/>
+                <instruction instr-id="1879" subinstr-id="4"/>
+                <instruction instr-id="1879" subinstr-id="6"/>
+                <instruction instr-id="1879" subinstr-id="8"/>
+                <instruction instr-id="1879" subinstr-id="10"/>
+                <instruction instr-id="1879" subinstr-id="12"/>
+                <instruction instr-id="1879" subinstr-id="14"/>
+                <instruction instr-id="1879" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="303" x2="318" y1="136" y2="144"/>
+                <content>100</content>
+                <instruction instr-id="1887" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="381" x2="391" y1="136" y2="144"/>
+                <content>50</content>
+                <instruction instr-id="1887" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="453" x2="463" y1="136" y2="144"/>
+                <content>50</content>
+                <instruction instr-id="1887" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="102" x2="232" y1="126" y2="134"/>
+                <content>Lead and compounds (as Pb)</content>
+                <instruction instr-id="1927" subinstr-id="0"/>
+                <instruction instr-id="1927" subinstr-id="2"/>
+                <instruction instr-id="1927" subinstr-id="4"/>
+                <instruction instr-id="1927" subinstr-id="6"/>
+                <instruction instr-id="1927" subinstr-id="10"/>
+                <instruction instr-id="1927" subinstr-id="12"/>
+                <instruction instr-id="1927" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="303" x2="318" y1="126" y2="134"/>
+                <content>200</content>
+                <instruction instr-id="1935" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="381" x2="391" y1="126" y2="134"/>
+                <content>20</content>
+                <instruction instr-id="1935" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="453" x2="463" y1="126" y2="134"/>
+                <content>20</content>
+                <instruction instr-id="1935" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="102" x2="248" y1="116" y2="123"/>
+                <content>Mercury and compounds (as Hg)</content>
+                <instruction instr-id="1972" subinstr-id="0"/>
+                <instruction instr-id="1972" subinstr-id="4"/>
+                <instruction instr-id="1972" subinstr-id="6"/>
+                <instruction instr-id="1972" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="305" x2="316" y1="116" y2="123"/>
+                <content>10</content>
+                <instruction instr-id="1980" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="383" x2="388" y1="116" y2="123"/>
+                <content>1</content>
+                <instruction instr-id="1980" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="455" x2="460" y1="116" y2="123"/>
+                <content>1</content>
+                <instruction instr-id="1980" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="102" x2="236" y1="105" y2="113"/>
+                <content>Nickel and compounds (as Ni)</content>
+                <instruction instr-id="2017" subinstr-id="0"/>
+                <instruction instr-id="2017" subinstr-id="2"/>
+                <instruction instr-id="2017" subinstr-id="4"/>
+                <instruction instr-id="2017" subinstr-id="6"/>
+                <instruction instr-id="2017" subinstr-id="8"/>
+                <instruction instr-id="2017" subinstr-id="10"/>
+                <instruction instr-id="2017" subinstr-id="12"/>
+                <instruction instr-id="2017" subinstr-id="14"/>
+                <instruction instr-id="2017" subinstr-id="16"/>
+                <instruction instr-id="2017" subinstr-id="18"/>
+                <instruction instr-id="2017" subinstr-id="20"/>
+                <instruction instr-id="2017" subinstr-id="22"/>
+                <instruction instr-id="2017" subinstr-id="24"/>
+                <instruction instr-id="2017" subinstr-id="26"/>
+                <instruction instr-id="2017" subinstr-id="28"/>
+                <instruction instr-id="2017" subinstr-id="30"/>
+                <instruction instr-id="2017" subinstr-id="32"/>
+                <instruction instr-id="2017" subinstr-id="34"/>
+                <instruction instr-id="2017" subinstr-id="36"/>
+                <instruction instr-id="2017" subinstr-id="38"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="305" x2="316" y1="105" y2="113"/>
+                <content>50</content>
+                <instruction instr-id="2025" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="381" x2="391" y1="105" y2="113"/>
+                <content>20</content>
+                <instruction instr-id="2025" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="453" x2="463" y1="105" y2="113"/>
+                <content>20</content>
+                <instruction instr-id="2025" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9">
+                <bounding-box x1="102" x2="229" y1="95" y2="103"/>
+                <content>Zinc and compounds (as Zn)</content>
+                <instruction instr-id="2065" subinstr-id="0"/>
+                <instruction instr-id="2065" subinstr-id="2"/>
+                <instruction instr-id="2065" subinstr-id="4"/>
+                <instruction instr-id="2065" subinstr-id="6"/>
+                <instruction instr-id="2065" subinstr-id="8"/>
+                <instruction instr-id="2065" subinstr-id="10"/>
+                <instruction instr-id="2065" subinstr-id="12"/>
+                <instruction instr-id="2065" subinstr-id="14"/>
+                <instruction instr-id="2065" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="303" x2="318" y1="95" y2="103"/>
+                <content>200</content>
+                <instruction instr-id="2073" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="378" x2="393" y1="95" y2="103"/>
+                <content>100</content>
+                <instruction instr-id="2073" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="450" x2="465" y1="95" y2="103"/>
+                <content>100</content>
+                <instruction instr-id="2073" subinstr-id="2"/>
+            </cell>
+        </region>
+    </table>
+    <table id="4">
+        <region col-increment="0" id="1" page="2" row-increment="0">
+            <cell end-col="3" id="1" start-col="1" start-row="0">
+                <bounding-box x1="333" x2="458" y1="737" y2="747"/>
+                <content>THRESHOLD FOR RELEASES</content>
+                <instruction instr-id="46" subinstr-id="-1"/>
+                <instruction instr-id="49" subinstr-id="0"/>
+                <instruction instr-id="49" subinstr-id="2"/>
+                <instruction instr-id="49" subinstr-id="4"/>
+                <instruction instr-id="49" subinstr-id="6"/>
+                <instruction instr-id="49" subinstr-id="8"/>
+                <instruction instr-id="49" subinstr-id="10"/>
+                <instruction instr-id="49" subinstr-id="12"/>
+                <instruction instr-id="49" subinstr-id="14"/>
+                <instruction instr-id="49" subinstr-id="16"/>
+                <instruction instr-id="49" subinstr-id="18"/>
+                <instruction instr-id="49" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="305" x2="342" y1="716" y2="734"/>
+                <content>to air
+kg/year</content>
+                <instruction instr-id="104" subinstr-id="0"/>
+                <instruction instr-id="104" subinstr-id="2"/>
+                <instruction instr-id="114" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="371" x2="409" y1="716" y2="734"/>
+                <content>to water
+kg/year</content>
+                <instruction instr-id="140" subinstr-id="0"/>
+                <instruction instr-id="140" subinstr-id="2"/>
+                <instruction instr-id="140" subinstr-id="4"/>
+                <instruction instr-id="140" subinstr-id="6"/>
+                <instruction instr-id="140" subinstr-id="8"/>
+                <instruction instr-id="140" subinstr-id="10"/>
+                <instruction instr-id="150" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="444" x2="480" y1="716" y2="734"/>
+                <content>to land
+kg/year</content>
+                <instruction instr-id="176" subinstr-id="0"/>
+                <instruction instr-id="176" subinstr-id="2"/>
+                <instruction instr-id="176" subinstr-id="4"/>
+                <instruction instr-id="176" subinstr-id="6"/>
+                <instruction instr-id="186" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="102" x2="262" y1="696" y2="714"/>
+                <content>1,2,3,4,5,6- hexachlorocyclohexane
+(HCH)</content>
+                <instruction instr-id="222" subinstr-id="0"/>
+                <instruction instr-id="222" subinstr-id="2"/>
+                <instruction instr-id="222" subinstr-id="4"/>
+                <instruction instr-id="222" subinstr-id="6"/>
+                <instruction instr-id="222" subinstr-id="8"/>
+                <instruction instr-id="222" subinstr-id="10"/>
+                <instruction instr-id="222" subinstr-id="12"/>
+                <instruction instr-id="222" subinstr-id="14"/>
+                <instruction instr-id="222" subinstr-id="16"/>
+                <instruction instr-id="222" subinstr-id="18"/>
+                <instruction instr-id="222" subinstr-id="20"/>
+                <instruction instr-id="222" subinstr-id="22"/>
+                <instruction instr-id="222" subinstr-id="24"/>
+                <instruction instr-id="232" subinstr-id="0"/>
+                <instruction instr-id="232" subinstr-id="2"/>
+                <instruction instr-id="232" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="318" x2="329" y1="701" y2="709"/>
+                <content>10</content>
+                <instruction instr-id="240" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="388" x2="393" y1="701" y2="709"/>
+                <content>1</content>
+                <instruction instr-id="240" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="460" x2="465" y1="701" y2="709"/>
+                <content>1</content>
+                <instruction instr-id="240" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="102" x2="138" y1="686" y2="694"/>
+                <content>Alachlor</content>
+                <instruction instr-id="281" subinstr-id="0"/>
+                <instruction instr-id="281" subinstr-id="2"/>
+                <instruction instr-id="281" subinstr-id="4"/>
+                <instruction instr-id="281" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="322" x2="325" y1="686" y2="694"/>
+                <content>-</content>
+                <instruction instr-id="289" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="388" x2="393" y1="686" y2="694"/>
+                <content>1</content>
+                <instruction instr-id="289" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="460" x2="465" y1="686" y2="694"/>
+                <content>1</content>
+                <instruction instr-id="289" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="102" x2="128" y1="676" y2="684"/>
+                <content>Aldrin</content>
+                <instruction instr-id="327" subinstr-id="0"/>
+                <instruction instr-id="327" subinstr-id="2"/>
+                <instruction instr-id="327" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="321" x2="326" y1="676" y2="684"/>
+                <content>1</content>
+                <instruction instr-id="335" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="388" x2="393" y1="676" y2="684"/>
+                <content>1</content>
+                <instruction instr-id="335" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="460" x2="465" y1="676" y2="684"/>
+                <content>1</content>
+                <instruction instr-id="335" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="102" x2="139" y1="666" y2="674"/>
+                <content>Atrazine</content>
+                <instruction instr-id="373" subinstr-id="0"/>
+                <instruction instr-id="373" subinstr-id="2"/>
+                <instruction instr-id="373" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="322" x2="325" y1="666" y2="674"/>
+                <content>-</content>
+                <instruction instr-id="381" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="388" x2="393" y1="666" y2="674"/>
+                <content>1</content>
+                <instruction instr-id="381" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="460" x2="465" y1="666" y2="674"/>
+                <content>1</content>
+                <instruction instr-id="381" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="102" x2="147" y1="656" y2="664"/>
+                <content>Chlordane</content>
+                <instruction instr-id="422" subinstr-id="0"/>
+                <instruction instr-id="422" subinstr-id="2"/>
+                <instruction instr-id="422" subinstr-id="4"/>
+                <instruction instr-id="422" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="321" x2="326" y1="656" y2="664"/>
+                <content>1</content>
+                <instruction instr-id="430" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="388" x2="393" y1="656" y2="664"/>
+                <content>1</content>
+                <instruction instr-id="430" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="460" x2="465" y1="656" y2="664"/>
+                <content>1</content>
+                <instruction instr-id="430" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="102" x2="157" y1="645" y2="653"/>
+                <content>Chlordecone</content>
+                <instruction instr-id="468" subinstr-id="0"/>
+                <instruction instr-id="468" subinstr-id="2"/>
+                <instruction instr-id="468" subinstr-id="4"/>
+                <instruction instr-id="468" subinstr-id="6"/>
+                <instruction instr-id="468" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="321" x2="326" y1="645" y2="653"/>
+                <content>1</content>
+                <instruction instr-id="476" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="388" x2="393" y1="645" y2="653"/>
+                <content>1</content>
+                <instruction instr-id="476" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="460" x2="465" y1="645" y2="653"/>
+                <content>1</content>
+                <instruction instr-id="476" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="102" x2="175" y1="635" y2="643"/>
+                <content>Chlorfenvinphos</content>
+                <instruction instr-id="514" subinstr-id="0"/>
+                <instruction instr-id="514" subinstr-id="2"/>
+                <instruction instr-id="514" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="322" x2="325" y1="635" y2="643"/>
+                <content>-</content>
+                <instruction instr-id="522" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="388" x2="393" y1="635" y2="643"/>
+                <content>1</content>
+                <instruction instr-id="522" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="460" x2="465" y1="635" y2="643"/>
+                <content>1</content>
+                <instruction instr-id="522" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9">
+                <bounding-box x1="102" x2="156" y1="625" y2="633"/>
+                <content>Chlorpyrifos</content>
+                <instruction instr-id="563" subinstr-id="0"/>
+                <instruction instr-id="563" subinstr-id="2"/>
+                <instruction instr-id="563" subinstr-id="4"/>
+                <instruction instr-id="563" subinstr-id="6"/>
+                <instruction instr-id="563" subinstr-id="8"/>
+                <instruction instr-id="563" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="322" x2="325" y1="625" y2="633"/>
+                <content>-</content>
+                <instruction instr-id="571" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="388" x2="393" y1="625" y2="633"/>
+                <content>1</content>
+                <instruction instr-id="571" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="460" x2="465" y1="625" y2="633"/>
+                <content>1</content>
+                <instruction instr-id="571" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="10">
+                <bounding-box x1="102" x2="120" y1="615" y2="623"/>
+                <content>DDT</content>
+                <instruction instr-id="609" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="321" x2="326" y1="615" y2="623"/>
+                <content>1</content>
+                <instruction instr-id="617" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="388" x2="393" y1="615" y2="623"/>
+                <content>1</content>
+                <instruction instr-id="617" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="460" x2="465" y1="615" y2="623"/>
+                <content>1</content>
+                <instruction instr-id="617" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="11">
+                <bounding-box x1="102" x2="132" y1="604" y2="612"/>
+                <content>Diuron</content>
+                <instruction instr-id="658" subinstr-id="0"/>
+                <instruction instr-id="658" subinstr-id="2"/>
+                <instruction instr-id="658" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="322" x2="325" y1="604" y2="612"/>
+                <content>-</content>
+                <instruction instr-id="666" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="388" x2="393" y1="604" y2="612"/>
+                <content>1</content>
+                <instruction instr-id="666" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="11">
+                <bounding-box x1="460" x2="465" y1="604" y2="612"/>
+                <content>1</content>
+                <instruction instr-id="666" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="12">
+                <bounding-box x1="102" x2="159" y1="594" y2="602"/>
+                <content>Endosulphan</content>
+                <instruction instr-id="704" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="322" x2="325" y1="594" y2="602"/>
+                <content>-</content>
+                <instruction instr-id="712" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="388" x2="393" y1="594" y2="602"/>
+                <content>1</content>
+                <instruction instr-id="712" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="12">
+                <bounding-box x1="460" x2="465" y1="594" y2="602"/>
+                <content>1</content>
+                <instruction instr-id="712" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="13">
+                <bounding-box x1="102" x2="131" y1="584" y2="592"/>
+                <content>Endrin</content>
+                <instruction instr-id="750" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="13">
+                <bounding-box x1="321" x2="326" y1="584" y2="592"/>
+                <content>1</content>
+                <instruction instr-id="758" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="13">
+                <bounding-box x1="388" x2="393" y1="584" y2="592"/>
+                <content>1</content>
+                <instruction instr-id="758" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="13">
+                <bounding-box x1="460" x2="465" y1="584" y2="592"/>
+                <content>1</content>
+                <instruction instr-id="758" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="14">
+                <bounding-box x1="102" x2="151" y1="574" y2="582"/>
+                <content>Heptachlor</content>
+                <instruction instr-id="799" subinstr-id="0"/>
+                <instruction instr-id="799" subinstr-id="2"/>
+                <instruction instr-id="799" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="14">
+                <bounding-box x1="321" x2="326" y1="574" y2="582"/>
+                <content>1</content>
+                <instruction instr-id="807" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="14">
+                <bounding-box x1="388" x2="393" y1="574" y2="582"/>
+                <content>1</content>
+                <instruction instr-id="807" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="14">
+                <bounding-box x1="460" x2="465" y1="574" y2="582"/>
+                <content>1</content>
+                <instruction instr-id="807" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="15">
+                <bounding-box x1="102" x2="134" y1="564" y2="572"/>
+                <content>Isodrin</content>
+                <instruction instr-id="845" subinstr-id="0"/>
+                <instruction instr-id="845" subinstr-id="2"/>
+                <instruction instr-id="845" subinstr-id="4"/>
+                <instruction instr-id="845" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="15">
+                <bounding-box x1="322" x2="325" y1="564" y2="572"/>
+                <content>-</content>
+                <instruction instr-id="853" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="15">
+                <bounding-box x1="388" x2="393" y1="564" y2="572"/>
+                <content>1</content>
+                <instruction instr-id="853" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="15">
+                <bounding-box x1="460" x2="464" y1="564" y2="572"/>
+                <content>-</content>
+                <instruction instr-id="853" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="16">
+                <bounding-box x1="102" x2="156" y1="553" y2="561"/>
+                <content>Isoproturon</content>
+                <instruction instr-id="891" subinstr-id="0"/>
+                <instruction instr-id="891" subinstr-id="2"/>
+                <instruction instr-id="891" subinstr-id="4"/>
+                <instruction instr-id="891" subinstr-id="6"/>
+                <instruction instr-id="891" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="16">
+                <bounding-box x1="322" x2="325" y1="553" y2="561"/>
+                <content>-</content>
+                <instruction instr-id="899" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="16">
+                <bounding-box x1="388" x2="393" y1="553" y2="561"/>
+                <content>1</content>
+                <instruction instr-id="899" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="16">
+                <bounding-box x1="460" x2="465" y1="553" y2="561"/>
+                <content>1</content>
+                <instruction instr-id="899" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="17">
+                <bounding-box x1="102" x2="137" y1="543" y2="551"/>
+                <content>Lindane</content>
+                <instruction instr-id="940" subinstr-id="0"/>
+                <instruction instr-id="940" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="17">
+                <bounding-box x1="321" x2="326" y1="543" y2="551"/>
+                <content>1</content>
+                <instruction instr-id="948" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="17">
+                <bounding-box x1="388" x2="393" y1="543" y2="551"/>
+                <content>1</content>
+                <instruction instr-id="948" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="17">
+                <bounding-box x1="460" x2="465" y1="543" y2="551"/>
+                <content>1</content>
+                <instruction instr-id="948" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="18">
+                <bounding-box x1="102" x2="126" y1="533" y2="541"/>
+                <content>Mirex</content>
+                <instruction instr-id="986" subinstr-id="0"/>
+                <instruction instr-id="986" subinstr-id="2"/>
+                <instruction instr-id="986" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="18">
+                <bounding-box x1="321" x2="326" y1="533" y2="541"/>
+                <content>1</content>
+                <instruction instr-id="994" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="18">
+                <bounding-box x1="388" x2="393" y1="533" y2="541"/>
+                <content>1</content>
+                <instruction instr-id="994" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="18">
+                <bounding-box x1="460" x2="465" y1="533" y2="541"/>
+                <content>1</content>
+                <instruction instr-id="994" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="19">
+                <bounding-box x1="102" x2="142" y1="523" y2="531"/>
+                <content>Simazine</content>
+                <instruction instr-id="1035" subinstr-id="0"/>
+                <instruction instr-id="1035" subinstr-id="2"/>
+                <instruction instr-id="1035" subinstr-id="4"/>
+                <instruction instr-id="1035" subinstr-id="6"/>
+                <instruction instr-id="1035" subinstr-id="8"/>
+                <instruction instr-id="1035" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="19">
+                <bounding-box x1="322" x2="325" y1="523" y2="531"/>
+                <content>-</content>
+                <instruction instr-id="1043" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="19">
+                <bounding-box x1="388" x2="393" y1="523" y2="531"/>
+                <content>1</content>
+                <instruction instr-id="1043" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="19">
+                <bounding-box x1="460" x2="465" y1="523" y2="531"/>
+                <content>1</content>
+                <instruction instr-id="1043" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="20">
+                <bounding-box x1="102" x2="151" y1="512" y2="520"/>
+                <content>Toxaphene</content>
+                <instruction instr-id="1081" subinstr-id="0"/>
+                <instruction instr-id="1081" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="20">
+                <bounding-box x1="321" x2="326" y1="512" y2="520"/>
+                <content>1</content>
+                <instruction instr-id="1089" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="20">
+                <bounding-box x1="388" x2="393" y1="512" y2="520"/>
+                <content>1</content>
+                <instruction instr-id="1089" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="20">
+                <bounding-box x1="460" x2="465" y1="512" y2="520"/>
+                <content>1</content>
+                <instruction instr-id="1089" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="21">
+                <bounding-box x1="102" x2="218" y1="502" y2="510"/>
+                <content>Tributylin and compounds</content>
+                <instruction instr-id="1127" subinstr-id="0"/>
+                <instruction instr-id="1127" subinstr-id="2"/>
+                <instruction instr-id="1127" subinstr-id="4"/>
+                <instruction instr-id="1127" subinstr-id="6"/>
+                <instruction instr-id="1127" subinstr-id="8"/>
+                <instruction instr-id="1127" subinstr-id="10"/>
+                <instruction instr-id="1127" subinstr-id="12"/>
+                <instruction instr-id="1127" subinstr-id="14"/>
+                <instruction instr-id="1127" subinstr-id="16"/>
+                <instruction instr-id="1127" subinstr-id="18"/>
+                <instruction instr-id="1127" subinstr-id="20"/>
+                <instruction instr-id="1127" subinstr-id="22"/>
+                <instruction instr-id="1127" subinstr-id="24"/>
+                <instruction instr-id="1127" subinstr-id="26"/>
+                <instruction instr-id="1127" subinstr-id="28"/>
+                <instruction instr-id="1127" subinstr-id="30"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="21">
+                <bounding-box x1="322" x2="325" y1="502" y2="510"/>
+                <content>-</content>
+                <instruction instr-id="1135" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="21">
+                <bounding-box x1="388" x2="393" y1="502" y2="510"/>
+                <content>1</content>
+                <instruction instr-id="1135" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="21">
+                <bounding-box x1="460" x2="465" y1="502" y2="510"/>
+                <content>1</content>
+                <instruction instr-id="1135" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="22">
+                <bounding-box x1="102" x2="146" y1="492" y2="500"/>
+                <content>Trifluralin</content>
+                <instruction instr-id="1176" subinstr-id="0"/>
+                <instruction instr-id="1176" subinstr-id="2"/>
+                <instruction instr-id="1176" subinstr-id="4"/>
+                <instruction instr-id="1176" subinstr-id="6"/>
+                <instruction instr-id="1176" subinstr-id="8"/>
+                <instruction instr-id="1176" subinstr-id="10"/>
+                <instruction instr-id="1176" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="22">
+                <bounding-box x1="322" x2="325" y1="492" y2="500"/>
+                <content>-</content>
+                <instruction instr-id="1184" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="22">
+                <bounding-box x1="388" x2="393" y1="492" y2="500"/>
+                <content>1</content>
+                <instruction instr-id="1184" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="22">
+                <bounding-box x1="460" x2="465" y1="492" y2="500"/>
+                <content>1</content>
+                <instruction instr-id="1184" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="23">
+                <bounding-box x1="102" x2="230" y1="482" y2="490"/>
+                <content>Triphenyltin and compounds</content>
+                <instruction instr-id="1222" subinstr-id="0"/>
+                <instruction instr-id="1222" subinstr-id="2"/>
+                <instruction instr-id="1222" subinstr-id="4"/>
+                <instruction instr-id="1222" subinstr-id="6"/>
+                <instruction instr-id="1222" subinstr-id="8"/>
+                <instruction instr-id="1222" subinstr-id="10"/>
+                <instruction instr-id="1222" subinstr-id="12"/>
+                <instruction instr-id="1222" subinstr-id="14"/>
+                <instruction instr-id="1222" subinstr-id="16"/>
+                <instruction instr-id="1222" subinstr-id="18"/>
+                <instruction instr-id="1222" subinstr-id="20"/>
+                <instruction instr-id="1222" subinstr-id="22"/>
+                <instruction instr-id="1222" subinstr-id="24"/>
+                <instruction instr-id="1222" subinstr-id="26"/>
+                <instruction instr-id="1222" subinstr-id="28"/>
+                <instruction instr-id="1222" subinstr-id="30"/>
+                <instruction instr-id="1222" subinstr-id="32"/>
+                <instruction instr-id="1222" subinstr-id="34"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="23">
+                <bounding-box x1="322" x2="325" y1="482" y2="490"/>
+                <content>-</content>
+                <instruction instr-id="1230" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="23">
+                <bounding-box x1="388" x2="393" y1="482" y2="490"/>
+                <content>1</content>
+                <instruction instr-id="1230" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="23">
+                <bounding-box x1="460" x2="465" y1="482" y2="490"/>
+                <content>1</content>
+                <instruction instr-id="1230" subinstr-id="4"/>
+            </cell>
+        </region>
+    </table>
+    <table id="5">
+        <region col-increment="0" id="1" page="2" row-increment="0">
+            <cell end-col="3" id="1" start-col="1" start-row="0">
+                <bounding-box x1="332" x2="457" y1="436" y2="446"/>
+                <content>THRESHOLD FOR RELEASES</content>
+                <instruction instr-id="1304" subinstr-id="-1"/>
+                <instruction instr-id="1307" subinstr-id="0"/>
+                <instruction instr-id="1307" subinstr-id="2"/>
+                <instruction instr-id="1307" subinstr-id="4"/>
+                <instruction instr-id="1307" subinstr-id="6"/>
+                <instruction instr-id="1307" subinstr-id="8"/>
+                <instruction instr-id="1307" subinstr-id="10"/>
+                <instruction instr-id="1307" subinstr-id="12"/>
+                <instruction instr-id="1307" subinstr-id="14"/>
+                <instruction instr-id="1307" subinstr-id="16"/>
+                <instruction instr-id="1307" subinstr-id="18"/>
+                <instruction instr-id="1307" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="307" x2="343" y1="416" y2="433"/>
+                <content>to air
+kg/year</content>
+                <instruction instr-id="1359" subinstr-id="0"/>
+                <instruction instr-id="1359" subinstr-id="2"/>
+                <instruction instr-id="1369" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="377" x2="415" y1="416" y2="433"/>
+                <content>to water
+kg/year</content>
+                <instruction instr-id="1392" subinstr-id="0"/>
+                <instruction instr-id="1392" subinstr-id="2"/>
+                <instruction instr-id="1392" subinstr-id="4"/>
+                <instruction instr-id="1392" subinstr-id="6"/>
+                <instruction instr-id="1392" subinstr-id="8"/>
+                <instruction instr-id="1392" subinstr-id="10"/>
+                <instruction instr-id="1402" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="447" x2="483" y1="416" y2="433"/>
+                <content>to land
+kg/year</content>
+                <instruction instr-id="1425" subinstr-id="0"/>
+                <instruction instr-id="1425" subinstr-id="2"/>
+                <instruction instr-id="1425" subinstr-id="4"/>
+                <instruction instr-id="1425" subinstr-id="6"/>
+                <instruction instr-id="1425" subinstr-id="8"/>
+                <instruction instr-id="1435" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="101" x2="197" y1="405" y2="413"/>
+                <content>1,1,1-trichloroethane</content>
+                <instruction instr-id="1473" subinstr-id="0"/>
+                <instruction instr-id="1473" subinstr-id="2"/>
+                <instruction instr-id="1473" subinstr-id="4"/>
+                <instruction instr-id="1473" subinstr-id="6"/>
+                <instruction instr-id="1473" subinstr-id="8"/>
+                <instruction instr-id="1473" subinstr-id="10"/>
+                <instruction instr-id="1473" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="318" x2="333" y1="405" y2="413"/>
+                <content>100</content>
+                <instruction instr-id="1481" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="394" x2="398" y1="405" y2="413"/>
+                <content>-</content>
+                <instruction instr-id="1481" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="463" x2="467" y1="405" y2="413"/>
+                <content>-</content>
+                <instruction instr-id="1481" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="101" x2="217" y1="395" y2="403"/>
+                <content>1,1,2,2-tetrachloroethane</content>
+                <instruction instr-id="1519" subinstr-id="0"/>
+                <instruction instr-id="1519" subinstr-id="2"/>
+                <instruction instr-id="1519" subinstr-id="4"/>
+                <instruction instr-id="1519" subinstr-id="6"/>
+                <instruction instr-id="1519" subinstr-id="8"/>
+                <instruction instr-id="1519" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="320" x2="330" y1="395" y2="403"/>
+                <content>50</content>
+                <instruction instr-id="1527" subinstr-id="0"/>
+                <instruction instr-id="1527" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="394" x2="398" y1="395" y2="403"/>
+                <content>-</content>
+                <instruction instr-id="1527" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="463" x2="467" y1="395" y2="403"/>
+                <content>-</content>
+                <instruction instr-id="1527" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="101" x2="216" y1="385" y2="393"/>
+                <content>1,2-dichloroethane (EDC)</content>
+                <instruction instr-id="1568" subinstr-id="0"/>
+                <instruction instr-id="1568" subinstr-id="2"/>
+                <instruction instr-id="1568" subinstr-id="4"/>
+                <instruction instr-id="1568" subinstr-id="6"/>
+                <instruction instr-id="1568" subinstr-id="8"/>
+                <instruction instr-id="1568" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="314" x2="337" y1="385" y2="393"/>
+                <content>1 000</content>
+                <instruction instr-id="1576" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="391" x2="401" y1="385" y2="393"/>
+                <content>10</content>
+                <instruction instr-id="1576" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="460" x2="470" y1="385" y2="393"/>
+                <content>10</content>
+                <instruction instr-id="1576" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="101" x2="259" y1="375" y2="383"/>
+                <content>Brominated diphenylethers (PBDE)</content>
+                <instruction instr-id="1614" subinstr-id="0"/>
+                <instruction instr-id="1614" subinstr-id="2"/>
+                <instruction instr-id="1614" subinstr-id="4"/>
+                <instruction instr-id="1614" subinstr-id="6"/>
+                <instruction instr-id="1614" subinstr-id="8"/>
+                <instruction instr-id="1614" subinstr-id="10"/>
+                <instruction instr-id="1614" subinstr-id="12"/>
+                <instruction instr-id="1614" subinstr-id="14"/>
+                <instruction instr-id="1614" subinstr-id="16"/>
+                <instruction instr-id="1614" subinstr-id="18"/>
+                <instruction instr-id="1614" subinstr-id="20"/>
+                <instruction instr-id="1614" subinstr-id="22"/>
+                <instruction instr-id="1614" subinstr-id="24"/>
+                <instruction instr-id="1614" subinstr-id="26"/>
+                <instruction instr-id="1614" subinstr-id="28"/>
+                <instruction instr-id="1614" subinstr-id="30"/>
+                <instruction instr-id="1614" subinstr-id="32"/>
+                <instruction instr-id="1614" subinstr-id="34"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="323" x2="327" y1="375" y2="383"/>
+                <content>-</content>
+                <instruction instr-id="1622" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="393" x2="398" y1="375" y2="383"/>
+                <content>1</content>
+                <instruction instr-id="1622" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="463" x2="468" y1="375" y2="383"/>
+                <content>1</content>
+                <instruction instr-id="1622" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="101" x2="212" y1="364" y2="372"/>
+                <content>Chloro-alkanes, C10-C13</content>
+                <instruction instr-id="1660" subinstr-id="0"/>
+                <instruction instr-id="1660" subinstr-id="2"/>
+                <instruction instr-id="1660" subinstr-id="4"/>
+                <instruction instr-id="1660" subinstr-id="6"/>
+                <instruction instr-id="1660" subinstr-id="8"/>
+                <instruction instr-id="1660" subinstr-id="10"/>
+                <instruction instr-id="1660" subinstr-id="12"/>
+                <instruction instr-id="1660" subinstr-id="14"/>
+                <instruction instr-id="1660" subinstr-id="16"/>
+                <instruction instr-id="1660" subinstr-id="18"/>
+                <instruction instr-id="1660" subinstr-id="20"/>
+                <instruction instr-id="1660" subinstr-id="22"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="323" x2="327" y1="364" y2="372"/>
+                <content>-</content>
+                <instruction instr-id="1668" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="393" x2="398" y1="364" y2="372"/>
+                <content>1</content>
+                <instruction instr-id="1668" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="463" x2="468" y1="364" y2="372"/>
+                <content>1</content>
+                <instruction instr-id="1668" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="101" x2="209" y1="354" y2="362"/>
+                <content>Dichloromethane (DCM)</content>
+                <instruction instr-id="1709" subinstr-id="0"/>
+                <instruction instr-id="1709" subinstr-id="2"/>
+                <instruction instr-id="1709" subinstr-id="4"/>
+                <instruction instr-id="1709" subinstr-id="6"/>
+                <instruction instr-id="1709" subinstr-id="8"/>
+                <instruction instr-id="1709" subinstr-id="10"/>
+                <instruction instr-id="1709" subinstr-id="12"/>
+                <instruction instr-id="1709" subinstr-id="14"/>
+                <instruction instr-id="1709" subinstr-id="16"/>
+                <instruction instr-id="1709" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="314" x2="337" y1="354" y2="362"/>
+                <content>1 000</content>
+                <instruction instr-id="1717" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="391" x2="401" y1="354" y2="362"/>
+                <content>10</content>
+                <instruction instr-id="1717" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="460" x2="470" y1="354" y2="362"/>
+                <content>10</content>
+                <instruction instr-id="1717" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="101" x2="136" y1="344" y2="352"/>
+                <content>Dieldrin</content>
+                <instruction instr-id="1755" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="323" x2="328" y1="344" y2="352"/>
+                <content>1</content>
+                <instruction instr-id="1763" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="393" x2="398" y1="344" y2="352"/>
+                <content>1</content>
+                <instruction instr-id="1763" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="463" x2="468" y1="344" y2="352"/>
+                <content>1</content>
+                <instruction instr-id="1763" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9">
+                <bounding-box x1="101" x2="281" y1="334" y2="342"/>
+                <content>Halogenated Organic Compounds (AOX)</content>
+                <instruction instr-id="1801" subinstr-id="0"/>
+                <instruction instr-id="1801" subinstr-id="2"/>
+                <instruction instr-id="1801" subinstr-id="4"/>
+                <instruction instr-id="1801" subinstr-id="6"/>
+                <instruction instr-id="1801" subinstr-id="8"/>
+                <instruction instr-id="1801" subinstr-id="10"/>
+                <instruction instr-id="1801" subinstr-id="14"/>
+                <instruction instr-id="1801" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="323" x2="327" y1="334" y2="342"/>
+                <content>-</content>
+                <instruction instr-id="1809" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="384" x2="407" y1="334" y2="342"/>
+                <content>1 000</content>
+                <instruction instr-id="1809" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="454" x2="477" y1="334" y2="342"/>
+                <content>1 000</content>
+                <instruction instr-id="1809" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="10">
+                <bounding-box x1="101" x2="183" y1="324" y2="332"/>
+                <content>Hexabromobifenyl</content>
+                <instruction instr-id="1850" subinstr-id="0"/>
+                <instruction instr-id="1850" subinstr-id="2"/>
+                <instruction instr-id="1850" subinstr-id="4"/>
+                <instruction instr-id="1850" subinstr-id="6"/>
+                <instruction instr-id="1850" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="319" x2="332" y1="324" y2="332"/>
+                <content>0,1</content>
+                <instruction instr-id="1858" subinstr-id="0"/>
+                <instruction instr-id="1858" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="389" x2="402" y1="324" y2="332"/>
+                <content>0,1</content>
+                <instruction instr-id="1858" subinstr-id="2"/>
+                <instruction instr-id="1858" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="459" x2="472" y1="324" y2="332"/>
+                <content>0,1</content>
+                <instruction instr-id="1858" subinstr-id="6"/>
+                <instruction instr-id="1858" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="11">
+                <bounding-box x1="101" x2="219" y1="313" y2="321"/>
+                <content>Hexachlorobenzene (HCB)</content>
+                <instruction instr-id="1896" subinstr-id="0"/>
+                <instruction instr-id="1896" subinstr-id="2"/>
+                <instruction instr-id="1896" subinstr-id="4"/>
+                <instruction instr-id="1896" subinstr-id="6"/>
+                <instruction instr-id="1896" subinstr-id="8"/>
+                <instruction instr-id="1896" subinstr-id="10"/>
+                <instruction instr-id="1896" subinstr-id="12"/>
+                <instruction instr-id="1896" subinstr-id="14"/>
+                <instruction instr-id="1896" subinstr-id="16"/>
+                <instruction instr-id="1896" subinstr-id="18"/>
+                <instruction instr-id="1896" subinstr-id="20"/>
+                <instruction instr-id="1896" subinstr-id="22"/>
+                <instruction instr-id="1896" subinstr-id="24"/>
+                <instruction instr-id="1896" subinstr-id="26"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="320" x2="330" y1="313" y2="321"/>
+                <content>10</content>
+                <instruction instr-id="1904" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="393" x2="398" y1="313" y2="321"/>
+                <content>1</content>
+                <instruction instr-id="1904" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="11">
+                <bounding-box x1="463" x2="468" y1="313" y2="321"/>
+                <content>1</content>
+                <instruction instr-id="1904" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="12">
+                <bounding-box x1="101" x2="233" y1="303" y2="311"/>
+                <content>Hexachlorobutadiene (HCBD)</content>
+                <instruction instr-id="1945" subinstr-id="0"/>
+                <instruction instr-id="1945" subinstr-id="2"/>
+                <instruction instr-id="1945" subinstr-id="4"/>
+                <instruction instr-id="1945" subinstr-id="6"/>
+                <instruction instr-id="1945" subinstr-id="8"/>
+                <instruction instr-id="1945" subinstr-id="10"/>
+                <instruction instr-id="1945" subinstr-id="12"/>
+                <instruction instr-id="1945" subinstr-id="14"/>
+                <instruction instr-id="1945" subinstr-id="16"/>
+                <instruction instr-id="1945" subinstr-id="18"/>
+                <instruction instr-id="1945" subinstr-id="20"/>
+                <instruction instr-id="1945" subinstr-id="22"/>
+                <instruction instr-id="1945" subinstr-id="24"/>
+                <instruction instr-id="1945" subinstr-id="26"/>
+                <instruction instr-id="1945" subinstr-id="28"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="323" x2="327" y1="303" y2="311"/>
+                <content>-</content>
+                <instruction instr-id="1953" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="393" x2="398" y1="303" y2="311"/>
+                <content>1</content>
+                <instruction instr-id="1953" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="12">
+                <bounding-box x1="463" x2="468" y1="303" y2="311"/>
+                <content>1</content>
+                <instruction instr-id="1953" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="13">
+                <bounding-box x1="101" x2="277" y1="293" y2="301"/>
+                <content>PCDD+PCFD (Dioxins+furans) (as Teq)</content>
+                <instruction instr-id="1991" subinstr-id="0"/>
+                <instruction instr-id="1991" subinstr-id="2"/>
+                <instruction instr-id="1991" subinstr-id="4"/>
+                <instruction instr-id="1991" subinstr-id="6"/>
+                <instruction instr-id="1991" subinstr-id="8"/>
+                <instruction instr-id="1991" subinstr-id="10"/>
+                <instruction instr-id="1991" subinstr-id="12"/>
+                <instruction instr-id="1991" subinstr-id="14"/>
+                <instruction instr-id="1991" subinstr-id="16"/>
+                <instruction instr-id="1991" subinstr-id="18"/>
+                <instruction instr-id="1991" subinstr-id="20"/>
+                <instruction instr-id="1991" subinstr-id="22"/>
+                <instruction instr-id="1991" subinstr-id="24"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="13">
+                <bounding-box x1="311" x2="339" y1="293" y2="301"/>
+                <content>0,0001</content>
+                <instruction instr-id="1999" subinstr-id="0"/>
+                <instruction instr-id="1999" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="13">
+                <bounding-box x1="382" x2="410" y1="293" y2="301"/>
+                <content>0,0001</content>
+                <instruction instr-id="1999" subinstr-id="2"/>
+                <instruction instr-id="1999" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="13">
+                <bounding-box x1="451" x2="480" y1="293" y2="301"/>
+                <content>0,0001</content>
+                <instruction instr-id="1999" subinstr-id="6"/>
+                <instruction instr-id="1999" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="14">
+                <bounding-box x1="101" x2="193" y1="283" y2="291"/>
+                <content>Pentachlorobenzene</content>
+                <instruction instr-id="2037" subinstr-id="0"/>
+                <instruction instr-id="2037" subinstr-id="2"/>
+                <instruction instr-id="2037" subinstr-id="4"/>
+                <instruction instr-id="2037" subinstr-id="6"/>
+                <instruction instr-id="2037" subinstr-id="8"/>
+                <instruction instr-id="2037" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="14">
+                <bounding-box x1="323" x2="328" y1="283" y2="291"/>
+                <content>1</content>
+                <instruction instr-id="2045" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="14">
+                <bounding-box x1="393" x2="398" y1="283" y2="291"/>
+                <content>1</content>
+                <instruction instr-id="2045" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="14">
+                <bounding-box x1="463" x2="468" y1="283" y2="291"/>
+                <content>1</content>
+                <instruction instr-id="2045" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="15">
+                <bounding-box x1="101" x2="214" y1="272" y2="280"/>
+                <content>Pentachlorophenol (PCP)</content>
+                <instruction instr-id="2086" subinstr-id="0"/>
+                <instruction instr-id="2086" subinstr-id="2"/>
+                <instruction instr-id="2086" subinstr-id="4"/>
+                <instruction instr-id="2086" subinstr-id="6"/>
+                <instruction instr-id="2086" subinstr-id="8"/>
+                <instruction instr-id="2086" subinstr-id="10"/>
+                <instruction instr-id="2086" subinstr-id="12"/>
+                <instruction instr-id="2086" subinstr-id="14"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="15">
+                <bounding-box x1="320" x2="330" y1="272" y2="280"/>
+                <content>10</content>
+                <instruction instr-id="2094" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="15">
+                <bounding-box x1="393" x2="398" y1="272" y2="280"/>
+                <content>1</content>
+                <instruction instr-id="2094" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="15">
+                <bounding-box x1="463" x2="468" y1="272" y2="280"/>
+                <content>1</content>
+                <instruction instr-id="2094" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="16">
+                <bounding-box x1="101" x2="246" y1="262" y2="270"/>
+                <content>Polychlorinated biphenyls (PCB)</content>
+                <instruction instr-id="2132" subinstr-id="0"/>
+                <instruction instr-id="2132" subinstr-id="2"/>
+                <instruction instr-id="2132" subinstr-id="4"/>
+                <instruction instr-id="2132" subinstr-id="6"/>
+                <instruction instr-id="2132" subinstr-id="8"/>
+                <instruction instr-id="2132" subinstr-id="10"/>
+                <instruction instr-id="2132" subinstr-id="12"/>
+                <instruction instr-id="2132" subinstr-id="14"/>
+                <instruction instr-id="2132" subinstr-id="16"/>
+                <instruction instr-id="2132" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="16">
+                <bounding-box x1="319" x2="332" y1="262" y2="270"/>
+                <content>0,1</content>
+                <instruction instr-id="2140" subinstr-id="0"/>
+                <instruction instr-id="2140" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="16">
+                <bounding-box x1="389" x2="402" y1="262" y2="270"/>
+                <content>0,1</content>
+                <instruction instr-id="2140" subinstr-id="2"/>
+                <instruction instr-id="2140" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="16">
+                <bounding-box x1="459" x2="472" y1="262" y2="270"/>
+                <content>0,1</content>
+                <instruction instr-id="2140" subinstr-id="6"/>
+                <instruction instr-id="2140" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="17">
+                <bounding-box x1="101" x2="221" y1="252" y2="260"/>
+                <content>Tetrachloroethylene (PER)</content>
+                <instruction instr-id="2178" subinstr-id="0"/>
+                <instruction instr-id="2178" subinstr-id="2"/>
+                <instruction instr-id="2178" subinstr-id="4"/>
+                <instruction instr-id="2178" subinstr-id="6"/>
+                <instruction instr-id="2178" subinstr-id="8"/>
+                <instruction instr-id="2178" subinstr-id="10"/>
+                <instruction instr-id="2178" subinstr-id="12"/>
+                <instruction instr-id="2178" subinstr-id="14"/>
+                <instruction instr-id="2178" subinstr-id="16"/>
+                <instruction instr-id="2178" subinstr-id="18"/>
+                <instruction instr-id="2178" subinstr-id="20"/>
+                <instruction instr-id="2178" subinstr-id="22"/>
+                <instruction instr-id="2178" subinstr-id="24"/>
+                <instruction instr-id="2178" subinstr-id="26"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="17">
+                <bounding-box x1="314" x2="337" y1="252" y2="260"/>
+                <content>2 000</content>
+                <instruction instr-id="2186" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="17">
+                <bounding-box x1="391" x2="401" y1="252" y2="260"/>
+                <content>10</content>
+                <instruction instr-id="2186" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="17">
+                <bounding-box x1="464" x2="467" y1="252" y2="260"/>
+                <content>-</content>
+                <instruction instr-id="2186" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="18">
+                <bounding-box x1="101" x2="222" y1="242" y2="250"/>
+                <content>Tetrachloromethane (TCM)</content>
+                <instruction instr-id="2227" subinstr-id="0"/>
+                <instruction instr-id="2227" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="18">
+                <bounding-box x1="318" x2="333" y1="242" y2="250"/>
+                <content>100</content>
+                <instruction instr-id="2235" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="18">
+                <bounding-box x1="393" x2="398" y1="242" y2="250"/>
+                <content>1</content>
+                <instruction instr-id="2235" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="18">
+                <bounding-box x1="463" x2="467" y1="242" y2="250"/>
+                <content>-</content>
+                <instruction instr-id="2235" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="19">
+                <bounding-box x1="101" x2="277" y1="232" y2="240"/>
+                <content>Trichlorobenzenes (TCBs) (all isomers)</content>
+                <instruction instr-id="2273" subinstr-id="0"/>
+                <instruction instr-id="2273" subinstr-id="2"/>
+                <instruction instr-id="2273" subinstr-id="4"/>
+                <instruction instr-id="2273" subinstr-id="6"/>
+                <instruction instr-id="2273" subinstr-id="8"/>
+                <instruction instr-id="2273" subinstr-id="10"/>
+                <instruction instr-id="2273" subinstr-id="12"/>
+                <instruction instr-id="2273" subinstr-id="14"/>
+                <instruction instr-id="2273" subinstr-id="16"/>
+                <instruction instr-id="2273" subinstr-id="18"/>
+                <instruction instr-id="2273" subinstr-id="20"/>
+                <instruction instr-id="2273" subinstr-id="22"/>
+                <instruction instr-id="2273" subinstr-id="24"/>
+                <instruction instr-id="2273" subinstr-id="26"/>
+                <instruction instr-id="2273" subinstr-id="28"/>
+                <instruction instr-id="2273" subinstr-id="30"/>
+                <instruction instr-id="2273" subinstr-id="32"/>
+                <instruction instr-id="2273" subinstr-id="34"/>
+                <instruction instr-id="2273" subinstr-id="36"/>
+                <instruction instr-id="2273" subinstr-id="38"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="19">
+                <bounding-box x1="320" x2="330" y1="232" y2="240"/>
+                <content>10</content>
+                <instruction instr-id="2281" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="19">
+                <bounding-box x1="393" x2="398" y1="232" y2="240"/>
+                <content>1</content>
+                <instruction instr-id="2281" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="19">
+                <bounding-box x1="463" x2="467" y1="232" y2="240"/>
+                <content>-</content>
+                <instruction instr-id="2281" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="20">
+                <bounding-box x1="101" x2="180" y1="221" y2="229"/>
+                <content>Trichloroethylene</content>
+                <instruction instr-id="2322" subinstr-id="0"/>
+                <instruction instr-id="2322" subinstr-id="2"/>
+                <instruction instr-id="2322" subinstr-id="4"/>
+                <instruction instr-id="2322" subinstr-id="6"/>
+                <instruction instr-id="2322" subinstr-id="8"/>
+                <instruction instr-id="2322" subinstr-id="10"/>
+                <instruction instr-id="2322" subinstr-id="12"/>
+                <instruction instr-id="2322" subinstr-id="14"/>
+                <instruction instr-id="2322" subinstr-id="16"/>
+                <instruction instr-id="2322" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="20">
+                <bounding-box x1="314" x2="337" y1="221" y2="229"/>
+                <content>2 000</content>
+                <instruction instr-id="2330" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="20">
+                <bounding-box x1="391" x2="401" y1="221" y2="229"/>
+                <content>10</content>
+                <instruction instr-id="2330" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="20">
+                <bounding-box x1="464" x2="467" y1="221" y2="229"/>
+                <content>-</content>
+                <instruction instr-id="2330" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="21">
+                <bounding-box x1="101" x2="181" y1="211" y2="219"/>
+                <content>Trichloromethane</content>
+                <instruction instr-id="2368" subinstr-id="0"/>
+                <instruction instr-id="2368" subinstr-id="2"/>
+                <instruction instr-id="2368" subinstr-id="4"/>
+                <instruction instr-id="2368" subinstr-id="6"/>
+                <instruction instr-id="2368" subinstr-id="8"/>
+                <instruction instr-id="2368" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="21">
+                <bounding-box x1="318" x2="333" y1="211" y2="219"/>
+                <content>500</content>
+                <instruction instr-id="2376" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="21">
+                <bounding-box x1="391" x2="401" y1="211" y2="219"/>
+                <content>10</content>
+                <instruction instr-id="2376" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="21">
+                <bounding-box x1="463" x2="467" y1="211" y2="219"/>
+                <content>-</content>
+                <instruction instr-id="2376" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="22">
+                <bounding-box x1="101" x2="162" y1="201" y2="209"/>
+                <content>Vynil chloride</content>
+                <instruction instr-id="2414" subinstr-id="0"/>
+                <instruction instr-id="2414" subinstr-id="2"/>
+                <instruction instr-id="2414" subinstr-id="4"/>
+                <instruction instr-id="2414" subinstr-id="6"/>
+                <instruction instr-id="2414" subinstr-id="8"/>
+                <instruction instr-id="2414" subinstr-id="10"/>
+                <instruction instr-id="2414" subinstr-id="12"/>
+                <instruction instr-id="2414" subinstr-id="14"/>
+                <instruction instr-id="2414" subinstr-id="16"/>
+                <instruction instr-id="2414" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="22">
+                <bounding-box x1="314" x2="337" y1="201" y2="209"/>
+                <content>1 000</content>
+                <instruction instr-id="2422" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="22">
+                <bounding-box x1="391" x2="401" y1="201" y2="209"/>
+                <content>10</content>
+                <instruction instr-id="2422" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="22">
+                <bounding-box x1="460" x2="470" y1="201" y2="209"/>
+                <content>10</content>
+                <instruction instr-id="2422" subinstr-id="4"/>
+            </cell>
+        </region>
+    </table>
+    <table id="6">
+        <region col-increment="0" id="1" page="3" row-increment="0">
+            <cell end-col="3" id="1" start-col="1" start-row="0">
+                <bounding-box x1="346" x2="471" y1="737" y2="747"/>
+                <content>THRESHOLD FOR RELEASES</content>
+                <instruction instr-id="55" subinstr-id="-1"/>
+                <instruction instr-id="58" subinstr-id="0"/>
+                <instruction instr-id="58" subinstr-id="2"/>
+                <instruction instr-id="58" subinstr-id="4"/>
+                <instruction instr-id="58" subinstr-id="6"/>
+                <instruction instr-id="58" subinstr-id="8"/>
+                <instruction instr-id="58" subinstr-id="10"/>
+                <instruction instr-id="58" subinstr-id="12"/>
+                <instruction instr-id="58" subinstr-id="14"/>
+                <instruction instr-id="58" subinstr-id="16"/>
+                <instruction instr-id="58" subinstr-id="18"/>
+                <instruction instr-id="58" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="332" x2="368" y1="716" y2="734"/>
+                <content>to air
+kg/year</content>
+                <instruction instr-id="113" subinstr-id="0"/>
+                <instruction instr-id="113" subinstr-id="2"/>
+                <instruction instr-id="123" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="388" x2="426" y1="716" y2="734"/>
+                <content>to water
+kg/year</content>
+                <instruction instr-id="149" subinstr-id="0"/>
+                <instruction instr-id="149" subinstr-id="2"/>
+                <instruction instr-id="149" subinstr-id="4"/>
+                <instruction instr-id="149" subinstr-id="6"/>
+                <instruction instr-id="149" subinstr-id="8"/>
+                <instruction instr-id="149" subinstr-id="10"/>
+                <instruction instr-id="159" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="448" x2="484" y1="716" y2="734"/>
+                <content>to land
+kg/year</content>
+                <instruction instr-id="185" subinstr-id="0"/>
+                <instruction instr-id="185" subinstr-id="2"/>
+                <instruction instr-id="185" subinstr-id="4"/>
+                <instruction instr-id="185" subinstr-id="6"/>
+                <instruction instr-id="195" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="103" x2="154" y1="706" y2="714"/>
+                <content>Anthracene</content>
+                <instruction instr-id="230" subinstr-id="0"/>
+                <instruction instr-id="230" subinstr-id="2"/>
+                <instruction instr-id="230" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="345" x2="355" y1="706" y2="714"/>
+                <content>50</content>
+                <instruction instr-id="238" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="405" x2="410" y1="706" y2="714"/>
+                <content>1</content>
+                <instruction instr-id="238" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="463" x2="468" y1="706" y2="714"/>
+                <content>1</content>
+                <instruction instr-id="238" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="103" x2="141" y1="691" y2="699"/>
+                <content>Benzene</content>
+                <instruction instr-id="276" subinstr-id="0"/>
+                <instruction instr-id="276" subinstr-id="2"/>
+                <instruction instr-id="276" subinstr-id="4"/>
+                <instruction instr-id="276" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="338" x2="362" y1="691" y2="699"/>
+                <content>1 000</content>
+                <instruction instr-id="284" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="392" x2="422" y1="686" y2="704"/>
+                <content>200 (as
+BTEX)</content>
+                <instruction instr-id="288" subinstr-id="0"/>
+                <instruction instr-id="288" subinstr-id="2"/>
+                <instruction instr-id="288" subinstr-id="4"/>
+                <instruction instr-id="294" subinstr-id="0"/>
+                <instruction instr-id="294" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="450" x2="481" y1="686" y2="704"/>
+                <content>200 (as
+BTEX)</content>
+                <instruction instr-id="300" subinstr-id="0"/>
+                <instruction instr-id="300" subinstr-id="2"/>
+                <instruction instr-id="300" subinstr-id="4"/>
+                <instruction instr-id="306" subinstr-id="0"/>
+                <instruction instr-id="306" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="103" x2="197" y1="676" y2="684"/>
+                <content>Benzo(g,h,i)perylene</content>
+                <instruction instr-id="343" subinstr-id="0"/>
+                <instruction instr-id="343" subinstr-id="2"/>
+                <instruction instr-id="343" subinstr-id="4"/>
+                <instruction instr-id="343" subinstr-id="6"/>
+                <instruction instr-id="343" subinstr-id="8"/>
+                <instruction instr-id="343" subinstr-id="10"/>
+                <instruction instr-id="343" subinstr-id="12"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="348" x2="352" y1="676" y2="684"/>
+                <content>-</content>
+                <instruction instr-id="351" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="405" x2="410" y1="676" y2="684"/>
+                <content>1</content>
+                <instruction instr-id="351" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="464" x2="467" y1="676" y2="684"/>
+                <content>-</content>
+                <instruction instr-id="351" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="103" x2="265" y1="666" y2="674"/>
+                <content>Di-(2-ethyl hexyl) phthalate (DEHP)</content>
+                <instruction instr-id="389" subinstr-id="0"/>
+                <instruction instr-id="389" subinstr-id="2"/>
+                <instruction instr-id="389" subinstr-id="4"/>
+                <instruction instr-id="389" subinstr-id="6"/>
+                <instruction instr-id="389" subinstr-id="8"/>
+                <instruction instr-id="389" subinstr-id="10"/>
+                <instruction instr-id="389" subinstr-id="12"/>
+                <instruction instr-id="389" subinstr-id="14"/>
+                <instruction instr-id="389" subinstr-id="16"/>
+                <instruction instr-id="389" subinstr-id="18"/>
+                <instruction instr-id="389" subinstr-id="20"/>
+                <instruction instr-id="389" subinstr-id="22"/>
+                <instruction instr-id="389" subinstr-id="24"/>
+                <instruction instr-id="389" subinstr-id="26"/>
+                <instruction instr-id="389" subinstr-id="28"/>
+                <instruction instr-id="389" subinstr-id="30"/>
+                <instruction instr-id="389" subinstr-id="32"/>
+                <instruction instr-id="389" subinstr-id="34"/>
+                <instruction instr-id="389" subinstr-id="36"/>
+                <instruction instr-id="389" subinstr-id="38"/>
+                <instruction instr-id="389" subinstr-id="40"/>
+                <instruction instr-id="389" subinstr-id="42"/>
+                <instruction instr-id="389" subinstr-id="44"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="345" x2="355" y1="666" y2="674"/>
+                <content>10</content>
+                <instruction instr-id="397" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="405" x2="410" y1="666" y2="674"/>
+                <content>1</content>
+                <instruction instr-id="397" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="463" x2="468" y1="666" y2="674"/>
+                <content>1</content>
+                <instruction instr-id="397" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="103" x2="166" y1="651" y2="659"/>
+                <content>Ethyl benzene</content>
+                <instruction instr-id="435" subinstr-id="0"/>
+                <instruction instr-id="435" subinstr-id="2"/>
+                <instruction instr-id="435" subinstr-id="4"/>
+                <instruction instr-id="435" subinstr-id="6"/>
+                <instruction instr-id="435" subinstr-id="8"/>
+                <instruction instr-id="435" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="348" x2="352" y1="651" y2="659"/>
+                <content>-</content>
+                <instruction instr-id="443" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="392" x2="422" y1="646" y2="664"/>
+                <content>200 (as
+BTEX)</content>
+                <instruction instr-id="449" subinstr-id="0"/>
+                <instruction instr-id="449" subinstr-id="2"/>
+                <instruction instr-id="449" subinstr-id="4"/>
+                <instruction instr-id="455" subinstr-id="0"/>
+                <instruction instr-id="455" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="450" x2="481" y1="646" y2="664"/>
+                <content>200 (as
+BTEX)</content>
+                <instruction instr-id="461" subinstr-id="0"/>
+                <instruction instr-id="461" subinstr-id="2"/>
+                <instruction instr-id="461" subinstr-id="4"/>
+                <instruction instr-id="467" subinstr-id="0"/>
+                <instruction instr-id="467" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="103" x2="169" y1="636" y2="644"/>
+                <content>Ethylene oxide</content>
+                <instruction instr-id="505" subinstr-id="0"/>
+                <instruction instr-id="505" subinstr-id="2"/>
+                <instruction instr-id="505" subinstr-id="4"/>
+                <instruction instr-id="505" subinstr-id="6"/>
+                <instruction instr-id="505" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="338" x2="362" y1="636" y2="644"/>
+                <content>1 000</content>
+                <instruction instr-id="513" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="402" x2="412" y1="636" y2="644"/>
+                <content>10</content>
+                <instruction instr-id="513" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="461" x2="471" y1="636" y2="644"/>
+                <content>10</content>
+                <instruction instr-id="513" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="103" x2="162" y1="625" y2="633"/>
+                <content>Fluoranthene</content>
+                <instruction instr-id="551" subinstr-id="0"/>
+                <instruction instr-id="551" subinstr-id="2"/>
+                <instruction instr-id="551" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="348" x2="352" y1="625" y2="633"/>
+                <content>-</content>
+                <instruction instr-id="559" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="405" x2="410" y1="625" y2="633"/>
+                <content>1</content>
+                <instruction instr-id="559" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="464" x2="467" y1="625" y2="633"/>
+                <content>-</content>
+                <instruction instr-id="559" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="9">
+                <bounding-box x1="103" x2="160" y1="615" y2="623"/>
+                <content>Naphthalene</content>
+                <instruction instr-id="597" subinstr-id="0"/>
+                <instruction instr-id="597" subinstr-id="2"/>
+                <instruction instr-id="597" subinstr-id="4"/>
+                <instruction instr-id="597" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="9">
+                <bounding-box x1="342" x2="358" y1="615" y2="623"/>
+                <content>100</content>
+                <instruction instr-id="605" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="9">
+                <bounding-box x1="402" x2="412" y1="615" y2="623"/>
+                <content>10</content>
+                <instruction instr-id="605" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="9">
+                <bounding-box x1="461" x2="471" y1="615" y2="623"/>
+                <content>10</content>
+                <instruction instr-id="605" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="10">
+                <bounding-box x1="103" x2="293" y1="595" y2="613"/>
+                <content>Nonylphenol and Nonylphenol ethoxylates
+(NP/NPEs)</content>
+                <instruction instr-id="643" subinstr-id="0"/>
+                <instruction instr-id="643" subinstr-id="2"/>
+                <instruction instr-id="643" subinstr-id="4"/>
+                <instruction instr-id="643" subinstr-id="6"/>
+                <instruction instr-id="643" subinstr-id="8"/>
+                <instruction instr-id="643" subinstr-id="10"/>
+                <instruction instr-id="643" subinstr-id="12"/>
+                <instruction instr-id="643" subinstr-id="14"/>
+                <instruction instr-id="643" subinstr-id="16"/>
+                <instruction instr-id="643" subinstr-id="18"/>
+                <instruction instr-id="643" subinstr-id="20"/>
+                <instruction instr-id="643" subinstr-id="22"/>
+                <instruction instr-id="643" subinstr-id="24"/>
+                <instruction instr-id="643" subinstr-id="26"/>
+                <instruction instr-id="643" subinstr-id="28"/>
+                <instruction instr-id="643" subinstr-id="30"/>
+                <instruction instr-id="653" subinstr-id="0"/>
+                <instruction instr-id="653" subinstr-id="2"/>
+                <instruction instr-id="653" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="10">
+                <bounding-box x1="348" x2="352" y1="600" y2="608"/>
+                <content>-</content>
+                <instruction instr-id="661" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="10">
+                <bounding-box x1="405" x2="410" y1="600" y2="608"/>
+                <content>1</content>
+                <instruction instr-id="661" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="10">
+                <bounding-box x1="463" x2="468" y1="600" y2="608"/>
+                <content>1</content>
+                <instruction instr-id="661" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="11">
+                <bounding-box x1="103" x2="291" y1="585" y2="593"/>
+                <content>Octylphenols and octylphenol ethoxylates</content>
+                <instruction instr-id="702" subinstr-id="0"/>
+                <instruction instr-id="702" subinstr-id="2"/>
+                <instruction instr-id="702" subinstr-id="4"/>
+                <instruction instr-id="702" subinstr-id="6"/>
+                <instruction instr-id="702" subinstr-id="8"/>
+                <instruction instr-id="702" subinstr-id="10"/>
+                <instruction instr-id="702" subinstr-id="12"/>
+                <instruction instr-id="702" subinstr-id="14"/>
+                <instruction instr-id="702" subinstr-id="16"/>
+                <instruction instr-id="702" subinstr-id="18"/>
+                <instruction instr-id="702" subinstr-id="20"/>
+                <instruction instr-id="702" subinstr-id="22"/>
+                <instruction instr-id="702" subinstr-id="24"/>
+                <instruction instr-id="702" subinstr-id="26"/>
+                <instruction instr-id="702" subinstr-id="28"/>
+                <instruction instr-id="702" subinstr-id="30"/>
+                <instruction instr-id="702" subinstr-id="32"/>
+                <instruction instr-id="702" subinstr-id="34"/>
+                <instruction instr-id="702" subinstr-id="36"/>
+                <instruction instr-id="702" subinstr-id="38"/>
+                <instruction instr-id="702" subinstr-id="40"/>
+                <instruction instr-id="702" subinstr-id="42"/>
+                <instruction instr-id="702" subinstr-id="44"/>
+                <instruction instr-id="702" subinstr-id="46"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="11">
+                <bounding-box x1="348" x2="352" y1="585" y2="593"/>
+                <content>-</content>
+                <instruction instr-id="710" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="11">
+                <bounding-box x1="405" x2="410" y1="585" y2="593"/>
+                <content>1</content>
+                <instruction instr-id="710" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="11">
+                <bounding-box x1="464" x2="467" y1="585" y2="593"/>
+                <content>-</content>
+                <instruction instr-id="710" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="12">
+                <bounding-box x1="103" x2="261" y1="575" y2="583"/>
+                <content>Organotin compounds (as total Sn)</content>
+                <instruction instr-id="748" subinstr-id="0"/>
+                <instruction instr-id="748" subinstr-id="2"/>
+                <instruction instr-id="748" subinstr-id="4"/>
+                <instruction instr-id="748" subinstr-id="8"/>
+                <instruction instr-id="748" subinstr-id="10"/>
+                <instruction instr-id="748" subinstr-id="12"/>
+                <instruction instr-id="748" subinstr-id="14"/>
+                <instruction instr-id="748" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="12">
+                <bounding-box x1="348" x2="352" y1="575" y2="583"/>
+                <content>-</content>
+                <instruction instr-id="756" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="12">
+                <bounding-box x1="402" x2="412" y1="575" y2="583"/>
+                <content>50</content>
+                <instruction instr-id="756" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="12">
+                <bounding-box x1="461" x2="471" y1="575" y2="583"/>
+                <content>50</content>
+                <instruction instr-id="756" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="13">
+                <bounding-box x1="103" x2="192" y1="565" y2="573"/>
+                <content>Phenols (as total C)</content>
+                <instruction instr-id="794" subinstr-id="0"/>
+                <instruction instr-id="794" subinstr-id="2"/>
+                <instruction instr-id="794" subinstr-id="4"/>
+                <instruction instr-id="794" subinstr-id="6"/>
+                <instruction instr-id="794" subinstr-id="8"/>
+                <instruction instr-id="794" subinstr-id="10"/>
+                <instruction instr-id="794" subinstr-id="12"/>
+                <instruction instr-id="794" subinstr-id="14"/>
+                <instruction instr-id="794" subinstr-id="16"/>
+                <instruction instr-id="794" subinstr-id="18"/>
+                <instruction instr-id="794" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="13">
+                <bounding-box x1="348" x2="352" y1="565" y2="573"/>
+                <content>-</content>
+                <instruction instr-id="802" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="13">
+                <bounding-box x1="402" x2="412" y1="565" y2="573"/>
+                <content>20</content>
+                <instruction instr-id="802" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="13">
+                <bounding-box x1="461" x2="471" y1="565" y2="573"/>
+                <content>20</content>
+                <instruction instr-id="802" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="14">
+                <bounding-box x1="103" x2="289" y1="554" y2="562"/>
+                <content>Polycyclic Aromatic hydrocarbons (PAHs)</content>
+                <instruction instr-id="843" subinstr-id="0"/>
+                <instruction instr-id="843" subinstr-id="2"/>
+                <instruction instr-id="843" subinstr-id="4"/>
+                <instruction instr-id="843" subinstr-id="6"/>
+                <instruction instr-id="843" subinstr-id="8"/>
+                <instruction instr-id="843" subinstr-id="10"/>
+                <instruction instr-id="843" subinstr-id="12"/>
+                <instruction instr-id="843" subinstr-id="14"/>
+                <instruction instr-id="843" subinstr-id="16"/>
+                <instruction instr-id="843" subinstr-id="18"/>
+                <instruction instr-id="843" subinstr-id="20"/>
+                <instruction instr-id="843" subinstr-id="24"/>
+                <instruction instr-id="843" subinstr-id="26"/>
+                <instruction instr-id="843" subinstr-id="28"/>
+                <instruction instr-id="843" subinstr-id="30"/>
+                <instruction instr-id="843" subinstr-id="32"/>
+                <instruction instr-id="843" subinstr-id="34"/>
+                <instruction instr-id="843" subinstr-id="36"/>
+                <instruction instr-id="843" subinstr-id="38"/>
+                <instruction instr-id="843" subinstr-id="40"/>
+                <instruction instr-id="843" subinstr-id="42"/>
+                <instruction instr-id="843" subinstr-id="44"/>
+                <instruction instr-id="843" subinstr-id="46"/>
+                <instruction instr-id="843" subinstr-id="48"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="14">
+                <bounding-box x1="345" x2="355" y1="554" y2="562"/>
+                <content>50</content>
+                <instruction instr-id="851" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="14">
+                <bounding-box x1="405" x2="410" y1="554" y2="562"/>
+                <content>5</content>
+                <instruction instr-id="851" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="14">
+                <bounding-box x1="463" x2="468" y1="554" y2="562"/>
+                <content>5</content>
+                <instruction instr-id="851" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="15">
+                <bounding-box x1="103" x2="138" y1="539" y2="547"/>
+                <content>Toluene</content>
+                <instruction instr-id="889" subinstr-id="0"/>
+                <instruction instr-id="889" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="15">
+                <bounding-box x1="348" x2="352" y1="539" y2="547"/>
+                <content>-</content>
+                <instruction instr-id="896" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="15">
+                <bounding-box x1="392" x2="422" y1="534" y2="552"/>
+                <content>200 (as
+BTEX)</content>
+                <instruction instr-id="902" subinstr-id="0"/>
+                <instruction instr-id="902" subinstr-id="2"/>
+                <instruction instr-id="902" subinstr-id="4"/>
+                <instruction instr-id="908" subinstr-id="0"/>
+                <instruction instr-id="908" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="15">
+                <bounding-box x1="450" x2="481" y1="534" y2="552"/>
+                <content>200 (as
+BTEX)</content>
+                <instruction instr-id="914" subinstr-id="0"/>
+                <instruction instr-id="914" subinstr-id="2"/>
+                <instruction instr-id="914" subinstr-id="4"/>
+                <instruction instr-id="920" subinstr-id="0"/>
+                <instruction instr-id="920" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="16">
+                <bounding-box x1="103" x2="288" y1="514" y2="532"/>
+                <content>Total Organic Carbon (TOC) (as total C or
+COD/3)</content>
+                <instruction instr-id="961" subinstr-id="0"/>
+                <instruction instr-id="961" subinstr-id="2"/>
+                <instruction instr-id="961" subinstr-id="6"/>
+                <instruction instr-id="961" subinstr-id="8"/>
+                <instruction instr-id="961" subinstr-id="10"/>
+                <instruction instr-id="961" subinstr-id="12"/>
+                <instruction instr-id="961" subinstr-id="14"/>
+                <instruction instr-id="961" subinstr-id="16"/>
+                <instruction instr-id="961" subinstr-id="18"/>
+                <instruction instr-id="961" subinstr-id="20"/>
+                <instruction instr-id="961" subinstr-id="22"/>
+                <instruction instr-id="961" subinstr-id="24"/>
+                <instruction instr-id="961" subinstr-id="28"/>
+                <instruction instr-id="961" subinstr-id="30"/>
+                <instruction instr-id="961" subinstr-id="32"/>
+                <instruction instr-id="971" subinstr-id="0"/>
+                <instruction instr-id="971" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="16">
+                <bounding-box x1="348" x2="352" y1="519" y2="527"/>
+                <content>-</content>
+                <instruction instr-id="979" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="16">
+                <bounding-box x1="393" x2="421" y1="519" y2="527"/>
+                <content>50 000</content>
+                <instruction instr-id="979" subinstr-id="2"/>
+                <instruction instr-id="979" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="16">
+                <bounding-box x1="464" x2="467" y1="519" y2="527"/>
+                <content>-</content>
+                <instruction instr-id="979" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="17">
+                <bounding-box x1="103" x2="138" y1="499" y2="507"/>
+                <content>Xylenes</content>
+                <instruction instr-id="1017" subinstr-id="0"/>
+                <instruction instr-id="1017" subinstr-id="2"/>
+                <instruction instr-id="1017" subinstr-id="4"/>
+                <instruction instr-id="1017" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="17">
+                <bounding-box x1="348" x2="352" y1="499" y2="507"/>
+                <content>-</content>
+                <instruction instr-id="1024" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="17">
+                <bounding-box x1="392" x2="422" y1="494" y2="512"/>
+                <content>200 (as
+BTEX)</content>
+                <instruction instr-id="1030" subinstr-id="0"/>
+                <instruction instr-id="1030" subinstr-id="2"/>
+                <instruction instr-id="1030" subinstr-id="4"/>
+                <instruction instr-id="1036" subinstr-id="0"/>
+                <instruction instr-id="1036" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="17">
+                <bounding-box x1="450" x2="481" y1="494" y2="512"/>
+                <content>200 (as
+BTEX)</content>
+                <instruction instr-id="1042" subinstr-id="0"/>
+                <instruction instr-id="1042" subinstr-id="2"/>
+                <instruction instr-id="1042" subinstr-id="4"/>
+                <instruction instr-id="1048" subinstr-id="0"/>
+                <instruction instr-id="1048" subinstr-id="2"/>
+            </cell>
+        </region>
+    </table>
+    <table id="7">
+        <region col-increment="0" id="1" page="3" row-increment="0">
+            <cell id="1" start-col="1" end-col="3" start-row="0">
+                <bounding-box x1="346" x2="471" y1="439" y2="449"/>
+                <content>THRESHOLD FOR RELEASES</content>
+                <instruction instr-id="1126" subinstr-id="-1"/>
+                <instruction instr-id="1129" subinstr-id="0"/>
+                <instruction instr-id="1129" subinstr-id="2"/>
+                <instruction instr-id="1129" subinstr-id="4"/>
+                <instruction instr-id="1129" subinstr-id="6"/>
+                <instruction instr-id="1129" subinstr-id="8"/>
+                <instruction instr-id="1129" subinstr-id="10"/>
+                <instruction instr-id="1129" subinstr-id="12"/>
+                <instruction instr-id="1129" subinstr-id="14"/>
+                <instruction instr-id="1129" subinstr-id="16"/>
+                <instruction instr-id="1129" subinstr-id="18"/>
+                <instruction instr-id="1129" subinstr-id="20"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="1">
+                <bounding-box x1="330" x2="366" y1="419" y2="436"/>
+                <content>to air
+kg/year</content>
+                <instruction instr-id="1181" subinstr-id="0"/>
+                <instruction instr-id="1181" subinstr-id="2"/>
+                <instruction instr-id="1191" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="1">
+                <bounding-box x1="381" x2="419" y1="419" y2="436"/>
+                <content>to water
+kg/year</content>
+                <instruction instr-id="1214" subinstr-id="0"/>
+                <instruction instr-id="1214" subinstr-id="2"/>
+                <instruction instr-id="1214" subinstr-id="4"/>
+                <instruction instr-id="1214" subinstr-id="6"/>
+                <instruction instr-id="1214" subinstr-id="8"/>
+                <instruction instr-id="1214" subinstr-id="10"/>
+                <instruction instr-id="1224" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="1">
+                <bounding-box x1="443" x2="479" y1="419" y2="436"/>
+                <content>to land
+kg/year</content>
+                <instruction instr-id="1247" subinstr-id="0"/>
+                <instruction instr-id="1247" subinstr-id="2"/>
+                <instruction instr-id="1247" subinstr-id="4"/>
+                <instruction instr-id="1247" subinstr-id="6"/>
+                <instruction instr-id="1247" subinstr-id="8"/>
+                <instruction instr-id="1257" subinstr-id="-1"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="2">
+                <bounding-box x1="105" x2="146" y1="408" y2="416"/>
+                <content>Asbestos</content>
+                <instruction instr-id="1295" subinstr-id="0"/>
+                <instruction instr-id="1295" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="2">
+                <bounding-box x1="345" x2="350" y1="408" y2="416"/>
+                <content>1</content>
+                <instruction instr-id="1303" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="2">
+                <bounding-box x1="398" x2="403" y1="408" y2="416"/>
+                <content>1</content>
+                <instruction instr-id="1303" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="2">
+                <bounding-box x1="458" x2="463" y1="408" y2="416"/>
+                <content>1</content>
+                <instruction instr-id="1303" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="3">
+                <bounding-box x1="105" x2="204" y1="398" y2="406"/>
+                <content>Chlorides (as total Cl)</content>
+                <instruction instr-id="1341" subinstr-id="0"/>
+                <instruction instr-id="1341" subinstr-id="2"/>
+                <instruction instr-id="1341" subinstr-id="4"/>
+                <instruction instr-id="1341" subinstr-id="6"/>
+                <instruction instr-id="1341" subinstr-id="8"/>
+                <instruction instr-id="1341" subinstr-id="10"/>
+                <instruction instr-id="1341" subinstr-id="12"/>
+                <instruction instr-id="1341" subinstr-id="14"/>
+                <instruction instr-id="1341" subinstr-id="16"/>
+                <instruction instr-id="1341" subinstr-id="18"/>
+                <instruction instr-id="1341" subinstr-id="20"/>
+                <instruction instr-id="1341" subinstr-id="22"/>
+                <instruction instr-id="1341" subinstr-id="24"/>
+                <instruction instr-id="1341" subinstr-id="26"/>
+                <instruction instr-id="1341" subinstr-id="28"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="3">
+                <bounding-box x1="346" x2="349" y1="398" y2="406"/>
+                <content>-</content>
+                <instruction instr-id="1349" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="3">
+                <bounding-box x1="383" x2="417" y1="398" y2="406"/>
+                <content>2 million</content>
+                <instruction instr-id="1349" subinstr-id="4"/>
+                <instruction instr-id="1349" subinstr-id="6"/>
+                <instruction instr-id="1349" subinstr-id="8"/>
+                <instruction instr-id="1349" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="3">
+                <bounding-box x1="444" x2="478" y1="398" y2="406"/>
+                <content>2 million</content>
+                <instruction instr-id="1349" subinstr-id="12"/>
+                <instruction instr-id="1349" subinstr-id="14"/>
+                <instruction instr-id="1349" subinstr-id="16"/>
+                <instruction instr-id="1349" subinstr-id="18"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="4">
+                <bounding-box x1="105" x2="206" y1="388" y2="396"/>
+                <content>Cyanides (as total CN)</content>
+                <instruction instr-id="1390" subinstr-id="0"/>
+                <instruction instr-id="1390" subinstr-id="2"/>
+                <instruction instr-id="1390" subinstr-id="4"/>
+                <instruction instr-id="1390" subinstr-id="6"/>
+                <instruction instr-id="1390" subinstr-id="8"/>
+                <instruction instr-id="1390" subinstr-id="10"/>
+                <instruction instr-id="1390" subinstr-id="12"/>
+                <instruction instr-id="1390" subinstr-id="14"/>
+                <instruction instr-id="1390" subinstr-id="16"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="4">
+                <bounding-box x1="346" x2="349" y1="388" y2="396"/>
+                <content>-</content>
+                <instruction instr-id="1398" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="4">
+                <bounding-box x1="395" x2="405" y1="388" y2="396"/>
+                <content>50</content>
+                <instruction instr-id="1398" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="4">
+                <bounding-box x1="456" x2="466" y1="388" y2="396"/>
+                <content>50</content>
+                <instruction instr-id="1398" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="5">
+                <bounding-box x1="105" x2="200" y1="378" y2="386"/>
+                <content>Fluorides (as total F)</content>
+                <instruction instr-id="1436" subinstr-id="0"/>
+                <instruction instr-id="1436" subinstr-id="2"/>
+                <instruction instr-id="1436" subinstr-id="4"/>
+                <instruction instr-id="1436" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="5">
+                <bounding-box x1="346" x2="349" y1="378" y2="386"/>
+                <content>-</content>
+                <instruction instr-id="1444" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="5">
+                <bounding-box x1="389" x2="412" y1="378" y2="386"/>
+                <content>2 000</content>
+                <instruction instr-id="1444" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="5">
+                <bounding-box x1="449" x2="472" y1="378" y2="386"/>
+                <content>2 000</content>
+                <instruction instr-id="1444" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="6">
+                <bounding-box x1="105" x2="224" y1="367" y2="375"/>
+                <content>Particulate matter (PM10)</content>
+                <instruction instr-id="1482" subinstr-id="0"/>
+                <instruction instr-id="1482" subinstr-id="2"/>
+                <instruction instr-id="1482" subinstr-id="4"/>
+                <instruction instr-id="1482" subinstr-id="6"/>
+                <instruction instr-id="1482" subinstr-id="8"/>
+                <instruction instr-id="1482" subinstr-id="10"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="6">
+                <bounding-box x1="333" x2="362" y1="367" y2="375"/>
+                <content>50 000</content>
+                <instruction instr-id="1490" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="6">
+                <bounding-box x1="399" x2="402" y1="367" y2="375"/>
+                <content>-</content>
+                <instruction instr-id="1490" subinstr-id="2"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="6">
+                <bounding-box x1="459" x2="463" y1="367" y2="375"/>
+                <content>-</content>
+                <instruction instr-id="1490" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="7">
+                <bounding-box x1="105" x2="170" y1="357" y2="365"/>
+                <content>Total Nitrogen</content>
+                <instruction instr-id="1531" subinstr-id="0"/>
+                <instruction instr-id="1531" subinstr-id="2"/>
+                <instruction instr-id="1531" subinstr-id="4"/>
+                <instruction instr-id="1531" subinstr-id="6"/>
+                <instruction instr-id="1531" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="7">
+                <bounding-box x1="346" x2="349" y1="357" y2="365"/>
+                <content>-</content>
+                <instruction instr-id="1539" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="7">
+                <bounding-box x1="386" x2="414" y1="357" y2="365"/>
+                <content>50 000</content>
+                <instruction instr-id="1539" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="7">
+                <bounding-box x1="447" x2="475" y1="357" y2="365"/>
+                <content>50 000</content>
+                <instruction instr-id="1539" subinstr-id="6"/>
+            </cell>
+            <cell id="1" start-col="0" start-row="8">
+                <bounding-box x1="105" x2="184" y1="347" y2="355"/>
+                <content>Total Phosphorus</content>
+                <instruction instr-id="1577" subinstr-id="0"/>
+                <instruction instr-id="1577" subinstr-id="2"/>
+                <instruction instr-id="1577" subinstr-id="4"/>
+                <instruction instr-id="1577" subinstr-id="6"/>
+                <instruction instr-id="1577" subinstr-id="8"/>
+            </cell>
+            <cell id="1" start-col="1" start-row="8">
+                <bounding-box x1="346" x2="349" y1="347" y2="355"/>
+                <content>-</content>
+                <instruction instr-id="1585" subinstr-id="0"/>
+            </cell>
+            <cell id="1" start-col="2" start-row="8">
+                <bounding-box x1="389" x2="412" y1="347" y2="355"/>
+                <content>5 000</content>
+                <instruction instr-id="1585" subinstr-id="4"/>
+            </cell>
+            <cell id="1" start-col="3" start-row="8">
+                <bounding-box x1="449" x2="472" y1="347" y2="355"/>
+                <content>5 000</content>
+                <instruction instr-id="1585" subinstr-id="6"/>
+            </cell>
+        </region>
+    </table>
+</document>

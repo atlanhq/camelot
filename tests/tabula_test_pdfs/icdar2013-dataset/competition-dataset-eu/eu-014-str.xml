@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_eu-014-str.xml'>
+   <table id='1'>
+      <region page='2'  id='1' col-increment='0' row-increment='0'>
+         <cell id='1' start-row='0' start-col='0' end-row='0' end-col='0'>
+            <bounding-box x1='184' y1='288' x2='233' y2='299'/>
+            <content>Indicators</content>
+            <instruction instr-id='354' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='0' start-col='1' end-row='0' end-col='1'>
+            <bounding-box x1='371' y1='288' x2='500' y2='299'/>
+            <content>Weight of indicator in 2006</content>
+            <instruction instr-id='354' subinstr-id='2'/>
+            <instruction instr-id='354' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='1' start-col='0' end-row="1" end-col='0'>
+            <bounding-box x1='76' y1='271' x2='137' y2='282'/>
+            <content>Effectiveness</content>
+            <instruction instr-id='364' subinstr-id='0'/>
+            <instruction instr-id='364' subinstr-id='2'/>
+            <instruction instr-id='364' subinstr-id='4'/>
+            <instruction instr-id='364' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='0' end-row='2' end-col='0'>
+            <bounding-box x1='92' y1='255' x2='148' y2='266'/>
+            <content>Employment</content>
+            <instruction instr-id='380' subinstr-id='0'/>
+            <instruction instr-id='380' subinstr-id='2'/>
+            <instruction instr-id='380' subinstr-id='4'/>
+            <instruction instr-id='380' subinstr-id='6'/>
+            <instruction instr-id='380' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='2' start-col='1' end-row='2' end-col='1'>
+            <bounding-box x1='430' y1='255' x2='441' y2='266'/>
+            <content>40</content>
+            <instruction instr-id='380' subinstr-id='8'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='0' end-row='3' end-col='0'>
+            <bounding-box x1='92' y1='238' x2='253' y2='249'/>
+            <content>Further studies (in higher education)</content>
+            <instruction instr-id='390' subinstr-id='-1'/>
+            <instruction instr-id='396' subinstr-id='0'/>
+            <instruction instr-id='396' subinstr-id='2'/>
+            <instruction instr-id='396' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='3' start-col='1' end-row='3' end-col='1'>
+            <bounding-box x1='430' y1='238' x2='441' y2='249'/>
+            <content>15</content>
+            <instruction instr-id='396' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='4' start-col='0' end-row='4' end-col='0'>
+            <bounding-box x1='76' y1='222' x2='121' y2='233'/>
+            <content>Processes</content>
+            <instruction instr-id='406' subinstr-id='0'/>
+            <instruction instr-id='406' subinstr-id='2'/>
+            <instruction instr-id='406' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='0' end-row='5' end-col='0'>
+            <bounding-box x1='92' y1='205' x2='151' y2='216'/>
+            <content>Dropping out</content>
+            <instruction instr-id='428' subinstr-id='0'/>
+            <instruction instr-id='428' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='5' start-col='1' end-row='5' end-col='1'>
+            <bounding-box x1='430' y1='205' x2='441' y2='216'/>
+            <content>15</content>
+            <instruction instr-id='428' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='0' end-row='6' end-col='0'>
+            <bounding-box x1='92' y1='189' x2='327' y2='200'/>
+            <content>% ratio of qualification certificate holders to entrants</content>
+            <instruction instr-id='438' subinstr-id='-1'/>
+            <instruction instr-id='444' subinstr-id='0'/>
+         </cell>
+         <cell id='1' start-row='6' start-col='1' end-row='6' end-col='1'>
+            <bounding-box x1='430' y1='189' x2='441' y2='200'/>
+            <content>13</content>
+            <instruction instr-id='444' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='7' start-col='0' end-row='7' end-col='0'>
+            <bounding-box x1='76' y1='172' x2='99' y2='184'/>
+            <content>Staff</content>
+            <instruction instr-id='455' subinstr-id='0'/>
+            <instruction instr-id='455' subinstr-id='2'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='0' end-row='8' end-col='0'>
+            <bounding-box x1='92' y1='156' x2='227' y2='167'/>
+            <content>Formal teaching qualifications</content>
+            <instruction instr-id='471' subinstr-id='0'/>
+            <instruction instr-id='471' subinstr-id='2'/>
+            <instruction instr-id='471' subinstr-id='4'/>
+         </cell>
+         <cell id='1' start-row='8' start-col='1' end-row='8' end-col='1'>
+            <bounding-box x1='430' y1='156' x2='441' y2='167'/>
+            <content>11</content>
+            <instruction instr-id='471' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='0' end-row='9' end-col='0'>
+            <bounding-box x1='92' y1='140' x2='173' y2='151'/>
+            <content>Staff development</content>
+            <instruction instr-id='481' subinstr-id='0'/>
+            <instruction instr-id='481' subinstr-id='2'/>
+            <instruction instr-id='481' subinstr-id='4'/>
+            <instruction instr-id='481' subinstr-id='6'/>
+         </cell>
+         <cell id='1' start-row='9' start-col='1' end-row='9' end-col='1'>
+            <bounding-box x1='433' y1='140' x2='438' y2='151'/>
+            <content>6</content>
+            <instruction instr-id='481' subinstr-id='8'/>
+         </cell>
+      </region>
+   </table>
+</document>
