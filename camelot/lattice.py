@@ -130,7 +130,7 @@ class Lattice:
 
     fill : None, 'h', 'v', 'hv'
         Fill data in horizontal and/or vertical spanning
-        cells. (optional)
+        cells. (optional, default: None)
 
     scale : int
         Scaling factor. Large scaling factor leads to smaller lines
@@ -150,6 +150,7 @@ class Lattice:
 
     debug : 'contour', 'line', 'joint', 'table'
         Debug by visualizing pdf geometry.
+        (optional, default: None)
 
     Attributes
     ----------
@@ -299,7 +300,6 @@ class Lattice:
                     cv2.rectangle(img, (t[0], t[1]),
                                   (t[2], t[3]), (255, 0, 0), 3)
                 plt.imshow(img)
-                plt.axis('off')
                 plt.show()
         elif geometry == 'joint':
             x_coord = []
@@ -314,7 +314,6 @@ class Lattice:
                 plt.plot(x_coord, y_coord, 'ro')
                 plt.axis([0, max_x + 100, max_y + 100, 0])
                 plt.imshow(img)
-                plt.axis('off')
                 plt.show()
         elif geometry == 'line':
             for pkey in self.debug_segments.keys():
@@ -323,7 +322,6 @@ class Lattice:
                     plt.plot([v[0], v[2]], [v[1], v[3]])
                 for h in h_s:
                     plt.plot([h[0], h[2]], [h[1], h[3]])
-                plt.axis('off')
                 plt.show()
         elif geometry == 'table':
             for pkey in self.debug_tables.keys():
@@ -350,5 +348,4 @@ class Lattice:
                                           table.cells[i][j].rb[0]],
                                          [table.cells[i][j].lb[1],
                                           table.cells[i][j].rb[1]])
-                plt.axis('off')
                 plt.show()

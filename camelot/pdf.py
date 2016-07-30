@@ -50,7 +50,7 @@ def _extract_text_objects(layout, LTObject, t=None):
     LTObject : object
         Text object, either LTChar or LTTextLineHorizontal.
 
-    t : list
+    t : list (optional, default: None)
 
     Returns
     -------
@@ -84,6 +84,7 @@ class Pdf:
 
     pagenos : list
         List of dicts which specify pdf page ranges.
+        (optional, default: [{'start': 1, 'end': 1}])
 
     char_margin : float
         Chars closer than char_margin are grouped together to form a
@@ -96,23 +97,6 @@ class Pdf:
     word_margin : float
         Insert blank spaces between chars if distance between words
         is greater than word_margin. (optional, default: 0.1)
-
-    Attributes
-    ----------
-    temp : string
-        Path to temporary directory.
-
-    lattice_objects : dict
-        List of text objects.
-
-    stream_objects : dict
-        List of text objects.
-
-    width : dict
-        List of dicts with width of each pdf page.
-
-    height : dict
-        List of dicts with height of each pdf page.
     """
 
     def __init__(self, pdfname, pagenos=[{'start': 1, 'end': 1}],

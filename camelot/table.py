@@ -39,9 +39,9 @@ class Table:
         horizontal : list
             List of horizontal line segments.
 
-        jtol : int, default: 2, optional
+        jtol : int
             Tolerance to account for when comparing joint and line
-            coordinates.
+            coordinates. (optional, default: 2)
         """
         for v in vertical:
             # find closest x coord

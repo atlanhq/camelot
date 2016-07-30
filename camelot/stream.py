@@ -18,7 +18,7 @@ def _group_rows(text, ytol=2):
 
     ytol : int
         Tolerance to account for when grouping rows
-        together. (default: 2, optional)
+        together. (optional, default: 2)
 
     Returns
     -------
@@ -206,5 +206,4 @@ class Stream:
                 )
             ax.set_xlim(min(xs) - 10, max(xs) + 10)
             ax.set_ylim(min(ys) - 10, max(ys) + 10)
-            plt.axis('off')
             plt.show()

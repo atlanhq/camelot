@@ -13,10 +13,10 @@ from camelot.stream import Stream
 
 
 doc = """
-camelot parses tables from PDFs!
+Camelot: PDF parsing made simpler!
 
 usage:
- camelot.py [options] <method> [<args>...]
+ camelot [options] <method> [<args>...]
 
 options:
  -h, --help                Show this screen.
@@ -38,7 +38,7 @@ lattice_doc = """
 Lattice method looks for lines between data to form a table.
 
 usage:
- camelot.py lattice [options] [--] <file>
+ camelot lattice [options] [--] <file>
 
 options:
  -F, --fill <fill>    Fill data in horizontal and/or vertical spanning
@@ -59,7 +59,7 @@ stream_doc = """
 Stream method looks for spaces between data to form a table.
 
 usage:
- camelot.py stream [options] [--] <file>
+ camelot stream [options] [--] <file>
 
 options:
  -n, --ncols <ncols>      Number of columns. [default: 0]
