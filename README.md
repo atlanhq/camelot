@@ -4,11 +4,39 @@
 
 Currently, camelot works under Python 2.7.
 
-The required dependencies include numpy, opencv, and imagemagick.
+The required dependencies include numpy, OpenCV, and ImageMagick.
 
 ## Install
 
-Make sure you have the required dependencies installed on your system. If you're working in a virtual environment, copy the `cv2.so` file from your system's site-packages to the virtualenv's site-packages. After that, `cd` into the project directory and issue the following command.
+We strongly recommend that you use a virtual environment to install Camelot.
+
+### Linux
+
+* Arch Linux
+
+<pre>
+pacman -S opencv imagemagick
+</pre>
+
+* Ubuntu
+
+<pre>
+sudo apt-get install libopencv-dev python-opencv imagemagick
+</pre>
+
+### OS X
+
+<pre>
+brew install homebrew/science/opencv imagemagick
+</pre>
+
+If you're working in a virtual environment... ::
+
+<pre>
+sudo ln -s /path/to/system/site-packages/cv2.so ~/.virtualenvs/site-packages/cv2.so
+</pre>
+
+Finally, `cd` into the project directory and execute this.
 
 <pre>
 python setup.py install

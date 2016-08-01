@@ -129,9 +129,9 @@ class Lattice:
     ----------
     pdfobject : camelot.pdf.Pdf
 
-    fill : None, 'h', 'v', 'hv'
+    fill : string
         Fill data in horizontal and/or vertical spanning
-        cells. (optional, default: None)
+        cells. (optional, default: None) {None, 'h', 'v', 'hv'}
 
     scale : int
         Scaling factor. Large scaling factor leads to smaller lines
@@ -149,9 +149,9 @@ class Lattice:
         Invert pdf image to make sure that lines are in foreground.
         (optional, default: False)
 
-    debug : 'contour', 'line', 'joint', 'table'
+    debug : string
         Debug by visualizing pdf geometry.
-        (optional, default: None)
+        (optional, default: None) {'contour', 'line', 'joint', 'table'}
 
     Attributes
     ----------
