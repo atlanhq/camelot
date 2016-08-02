@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 
 import cv2
@@ -160,7 +161,7 @@ class Lattice:
     """
 
     def __init__(self, pdfobject, fill=None, scale=15, jtol=2, mtol=2,
-                 invert=False, debug=None):
+                 invert=False, debug=None, verbose=False):
 
         self.pdfobject = pdfobject
         self.fill = fill
@@ -169,6 +170,7 @@ class Lattice:
         self.mtol = mtol
         self.invert = invert
         self.debug = debug
+        self.verbose = verbose
         self.tables = {}
         if self.debug is not None:
             self.debug_images = {}
@@ -184,6 +186,7 @@ class Lattice:
             Dictionary with page number as key and list of tables on that
             page as value.
         """
+        vprint = print if self.verbose else lambda *a, **k: None
         self.pdfobject.split()
         self.pdfobject.convert()
         for page in self.pdfobject.extract():
@@ -273,7 +276,7 @@ class Lattice:
                 ar = remove_empty(ar)
                 ar = [list(o) for o in ar]
                 page_tables.append(encode_list(ar))
-            print pkey  # verbose
+            vprint(pkey)
             self.tables[pkey] = page_tables
 
         if self.debug is not None:

@@ -114,6 +114,8 @@ class Pdf:
     def split(self):
         """Splits pdf into single page pdfs.
         """
+        if not self.pdfname.endswith('.pdf'):
+            raise TypeError("Only PDF format is supported.")
         infile = PdfFileReader(open(self.pdfname, 'rb'), strict=False)
         for p in self.pagenos:
             page = infile.getPage(p - 1)

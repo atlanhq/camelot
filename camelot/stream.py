@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 
 import numpy as np
@@ -105,13 +106,14 @@ class Stream:
     """
 
     def __init__(self, pdfobject, ncolumns=0, columns=None, ytol=2,
-                 debug=False):
+                 debug=False, verbose=False):
 
         self.pdfobject = pdfobject
         self.ncolumns = ncolumns
         self.columns = columns
         self.ytol = ytol
         self.debug = debug
+        self.verbose = verbose
         self.tables = {}
         if self.debug:
             self.debug_text = {}
@@ -125,6 +127,7 @@ class Stream:
             Dictionary with page number as key and list of tables on that
             page as value.
         """
+        vprint = print if self.verbose else lambda *a, **k: None
         self.pdfobject.split()
         for page in self.pdfobject.extract():
             p, __, text, __, __ = page
@@ -172,7 +175,7 @@ class Stream:
                             [ar[r_idx][c_idx], t.get_text().strip()])
                     else:
                         ar[r_idx][c_idx] = t.get_text().strip()
-            print pkey  # verbose
+            vprint(pkey)
             self.tables[pkey] = [encode_list(ar)]
 
         if self.pdfobject.clean:
