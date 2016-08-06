@@ -1,3 +1,5 @@
+from __future__ import division
+
 import numpy as np
 
 
@@ -243,15 +245,23 @@ def get_row_index(t, rows):
     ----------
     t : object
 
-    rows : list
+    rows : list, sorted in decreasing order
 
     Returns
     -------
     r : int
     """
+    offset1, offset2 = 0, 0
     for r in range(len(rows)):
         if (t.y0 + t.y1) / 2.0 < rows[r][0] and (t.y0 + t.y1) / 2.0 > rows[r][1]:
-            return r
+            if t.y0 > rows[r][0]:
+                offset1 = abs(t.y0 - rows[r][0])
+            if t.y1 < rows[r][1]:
+                offset2 = abs(t.y1 - rows[r][1])
+            X = abs(t.x0 - t.x1)
+            charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
+            error = (X * (offset1 + offset2)) / charea
+            return r, error
 
 
 def get_column_index(t, columns):
@@ -268,9 +278,46 @@ def get_column_index(t, columns):
     -------
     c : int
     """
+    offset1, offset2 = 0, 0
     for c in range(len(columns)):
         if (t.x0 + t.x1) / 2.0 > columns[c][0] and (t.x0 + t.x1) / 2.0 < columns[c][1]:
-            return c
+            if t.x0 < columns[c][0]:
+                offset1 = abs(t.x0 - columns[c][0])
+            if t.x1 > columns[c][1]:
+                offset2 = abs(t.x1 - columns[c][1])
+            Y = abs(t.y0 - t.y1)
+            charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
+            error = (Y * (offset1 + offset2)) / charea
+            return c, error
+
+
+def get_score(weights, errors):
+    """Calculates score based on weights assigned to various parameters,
+    and their error percentages. Length of both lists should be the same
+    with one to one mapping between indices.
+
+    Parameters
+    ----------
+    weights : list
+        List of weights assigned to parameters.
+        Sum of list should be equal to 100.
+    errors : list
+        List of error percentages for parameter.
+
+    Returns
+    -------
+    score : float
+    """
+    SCORE_VAL = 100
+    score = 0
+    if sum(weights) != SCORE_VAL:
+        raise ValueError("Please assign a valid weightage to each parameter"
+                         " such that their sum is equal to 100")
+    for w, e in zip(weights, errors):
+        weight = w / len(e)
+        for error_percentage in e:
+            score += weight * (1 - error_percentage)
+    return score
 
 
 def reduce_index(t, rotated, r_idx, c_idx):
@@ -395,5 +442,15 @@ def remove_empty(d):
 
 
 def encode_list(ar):
+    """Encodes list of text.
+
+    Parameters
+    ----------
+    ar : list
+
+    Returns
+    -------
+    ar : list
+    """
     ar = [[r.encode('utf-8') for r in row] for row in ar]
     return ar

@@ -69,6 +69,8 @@ options:
                           Example: -c 10.1,20.2,30.3
  -y, --ytol <ytol>        Tolerance to account for when grouping rows
                           together. [default: 2]
+ -m, --mtol <mtol>        Tolerance to account for when merging columns
+                          together. [default: 2]
  -M, --cmargin <cmargin>  Char margin. Chars closer than cmargin are
                           grouped together to form a word. [default: 2.0]
  -L, --lmargin <lmargin>  Line margin. Lines closer than lmargin are
@@ -199,6 +201,7 @@ if __name__ == '__main__':
                                ncolumns=int(args['--ncols']),
                                columns=args['--columns'],
                                ytol=int(args['--ytol']),
+                               mtol=int(args['--mtol']),
                                debug=args['--debug'],
                                verbose=args['--verbose'])
             data = extractor.get_tables()
@@ -215,5 +218,5 @@ if __name__ == '__main__':
         write_to_disk(data, f=args['--format'],
                       output=output, filename=filename)
 
-    vprint("finished in", time.time() - start_time, "seconds")
+    vprint("Time taken:", time.time() - start_time, "seconds")
     logging.info("Time taken: " + str(time.time() - start_time) + " seconds")

@@ -1,9 +1,12 @@
-from __future__ import print_function
+from __future__ import print_function, division
 import os
 
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
-from .utils import get_column_index, encode_list
+from .table import Table
+from .utils import get_row_index, get_column_index, get_score, encode_list
 
 
 __all__ = ['Stream']
@@ -26,7 +29,7 @@ def _group_rows(text, ytol=2):
     rows : list
         List of grouped text rows.
     """
-    row_y = 0
+    row_y = text[0].y0
     rows = []
     temp = []
     for t in text:
@@ -35,14 +38,16 @@ def _group_rows(text, ytol=2):
         # type(obj) is LTChar]):
         if t.get_text().strip():
             if not np.isclose(row_y, t.y0, atol=ytol):
-                row_y = t.y0
                 rows.append(temp)
                 temp = []
+                row_y = t.y0
             temp.append(t)
+    rows.append(temp)
+    __ = rows.pop(0) # hacky
     return rows
 
 
-def _merge_columns(l):
+def _merge_columns(l, mtol=2):
     """Merges overlapping columns and returns list with updated
     columns boundaries.
 
@@ -62,7 +67,8 @@ def _merge_columns(l):
             merged.append(higher)
         else:
             lower = merged[-1]
-            if higher[0] <= lower[1]:
+            if (higher[0] <= lower[1] or
+                    np.isclose(higher[0], lower[1], atol=mtol)):
                 upper_bound = max(lower[1], higher[1])
                 lower_bound = min(lower[0], higher[0])
                 merged[-1] = (lower_bound, upper_bound)
@@ -105,13 +111,14 @@ class Stream:
         page as value.
     """
 
-    def __init__(self, pdfobject, ncolumns=0, columns=None, ytol=2,
+    def __init__(self, pdfobject, ncolumns=0, columns=None, ytol=2, mtol=2,
                  debug=False, verbose=False):
 
         self.pdfobject = pdfobject
         self.ncolumns = ncolumns
         self.columns = columns
         self.ytol = ytol
+        self.mtol = mtol
         self.debug = debug
         self.verbose = verbose
         self.tables = {}
@@ -130,20 +137,28 @@ class Stream:
         vprint = print if self.verbose else lambda *a, **k: None
         self.pdfobject.split()
         for page in self.pdfobject.extract():
-            p, __, text, __, __ = page
+            p, __, text, width, height = page
             pkey = 'pg-{0}'.format(p)
             text.sort(key=lambda x: (-x.y0, x.x0))
 
             if self.debug:
                 self.debug_text[pkey] = text
 
-            rows = _group_rows(text, ytol=self.ytol)
-            elements = [len(r) for r in rows]
-            # a table can't have just 1 column, can it?
-            elements = filter(lambda x: x != 1, elements)
+            rows_grouped = _group_rows(text, ytol=self.ytol)
+            elements = [len(r) for r in rows_grouped]
+            row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
+                        if len(r) > 0 else 0 for r in rows_grouped]
+            rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
+            rows.insert(0, height) # or some tolerance
+            rows.append(0)
+            rows = [(rows[i], rows[i + 1])
+                    for i in range(0, len(rows) - 1)]
 
             guess = False
             if self.columns:
+                # user has to input boundary columns too
+                # take (0, width) by default
+                # similar to else condition
                 cols = self.columns.split(',')
                 cols = [(float(cols[i]), float(cols[i + 1]))
                         for i in range(0, len(cols) - 1)]
@@ -151,32 +166,49 @@ class Stream:
                 guess = True
                 ncols = self.ncolumns if self.ncolumns else max(
                     set(elements), key=elements.count)
-                if ncols == 0:
+                len_nomode = len(filter(lambda x: x != ncols, elements))
+                if ncols == 1 and not self.debug:
                     # no tables detected
-                    continue
+                    raise UserWarning("Only one column was detected, the PDF"
+                                      " may have no tables. Specify ncols if"
+                                      " the PDF has tables.")
                 cols = [(t.x0, t.x1)
-                        for r in rows for t in r if len(r) == ncols]
-                cols = _merge_columns(sorted(cols))
-                cols = [(c[0] + c[1]) / 2.0 for c in cols]
+                        for r in rows_grouped if len(r) == ncols for t in r]
+                cols = _merge_columns(sorted(cols), mtol=self.mtol)
+                if len(cols) != ncols:
+                    raise ValueError("The number of columns after merge"
+                                     " isn't the same as what you specified."
+                                     " Change the value of mtol.")
+                cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
+                cols.insert(0, 0)
+                cols.append(width) # or some tolerance
+                cols = [(cols[i], cols[i + 1])
+                        for i in range(0, len(cols) - 1)]
 
-            ar = [['' for c in cols] for r in rows]
-            for r_idx, r in enumerate(rows):
-                for t in r:
-                    if guess:
-                        cog = (t.x0 + t.x1) / 2.0
-                        diff = [abs(cog - c) for c in cols]
-                        c_idx = diff.index(min(diff))
-                    else:
-                        c_idx = get_column_index(t, cols)
-                    if None in [r_idx, c_idx]:  # couldn't assign LTTextLH to any cell
-                        continue
-                    if ar[r_idx][c_idx]:
-                        ar[r_idx][c_idx] = ' '.join(
-                            [ar[r_idx][c_idx], t.get_text().strip()])
-                    else:
-                        ar[r_idx][c_idx] = t.get_text().strip()
-            vprint(pkey)
+            table = Table(cols, rows)
+            error = []
+            for t in text:
+                try:
+                    r_idx, rass_error = get_row_index(t, rows)
+                except TypeError:
+                    # couldn't assign LTTextLH to any cell
+                    continue
+                try:
+                    c_idx, cass_error = get_column_index(t, cols)
+                except TypeError:
+                    # couldn't assign LTTextLH to any cell
+                    continue
+                error.append(rass_error + cass_error)
+                table.cells[r_idx][c_idx].add_text(
+                    t.get_text().strip('\n'))
+            if guess:
+                score = get_score([70, 30], [error, [len_nomode / len(elements)]])
+            else:
+                score = get_score([100], [error])
+            vprint("Assigned text to each cell with a score of {0:.2f}".format(score))
+            ar = table.get_list()
             self.tables[pkey] = [encode_list(ar)]
+            vprint("Finished processing {0}".format(pkey))
 
         if self.pdfobject.clean:
             self.pdfobject.remove_tempdir()

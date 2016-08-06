@@ -1,4 +1,4 @@
-from __future__ import print_function
+from __future__ import print_function, division
 import os
 
 import cv2
@@ -6,8 +6,8 @@ import numpy as np
 
 from .table import Table
 from .utils import (transform, elements_bbox, detect_vertical, merge_close_values,
-                    get_row_index, get_column_index, reduce_index, outline,
-                    fill_spanning, remove_empty, encode_list)
+                    get_row_index, get_column_index, get_score, reduce_index,
+                    outline, fill_spanning, remove_empty, encode_list)
 
 
 __all__ = ['Lattice']
@@ -65,8 +65,8 @@ def _morph_transform(imagename, scale=15, invert=False):
     vertical = threshold
     horizontal = threshold
 
-    verticalsize = vertical.shape[0] / scale
-    horizontalsize = horizontal.shape[1] / scale
+    verticalsize = vertical.shape[0] // scale
+    horizontalsize = horizontal.shape[1] // scale
 
     ver = cv2.getStructuringElement(cv2.MORPH_RECT, (1, verticalsize))
     hor = cv2.getStructuringElement(cv2.MORPH_RECT, (horizontalsize, 1))
@@ -216,11 +216,15 @@ class Lattice:
             if self.debug is not None:
                 debug_page_tables = []
             page_tables = []
+            table_no = 1
             # sort tables based on y-coord
             for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
                 # select edges which lie within table_bbox
                 text_bbox, v_s, h_s = elements_bbox(k, text, v_segments,
                                                     h_segments)
+                vprint("{2:.2f}% of the page text lies outside table-{0} on {1}".format(
+                    table_no, pkey, 100 * (1 - (len(text_bbox) / len(text)))))
+                table_no += 1
                 rotated = detect_vertical(text_bbox)
                 cols, rows = zip(*table_bbox[k])
                 cols, rows = list(cols), list(rows)
@@ -253,17 +257,26 @@ class Lattice:
                     text_bbox.sort(key=lambda x: (x.x0, x.y0))
                 elif rotated == 'right':
                     text_bbox.sort(key=lambda x: (-x.x0, -x.y0))
+
+                error = []
                 for t in text_bbox:
-                    r_idx = get_row_index(t, rows)
-                    c_idx = get_column_index(t, cols)
-                    if None in [r_idx, c_idx]:
+                    try:
+                        r_idx, rass_error = get_row_index(t, rows)
+                    except TypeError:
                         # couldn't assign LTChar to any cell
-                        pass
-                    else:
-                        r_idx, c_idx = reduce_index(
-                            table, rotated, r_idx, c_idx)
-                        table.cells[r_idx][c_idx].add_text(
-                            t.get_text().strip('\n'))
+                        continue
+                    try:
+                        c_idx, cass_error = get_column_index(t, cols)
+                    except TypeError:
+                        # couldn't assign LTChar to any cell
+                        continue
+                    error.append(rass_error + cass_error)
+                    r_idx, c_idx = reduce_index(
+                        table, rotated, r_idx, c_idx)
+                    table.cells[r_idx][c_idx].add_text(
+                        t.get_text().strip('\n'))
+                score = get_score([100], [error])
+                vprint("Assigned chars to each cell with a score of {0:.2f}".format(score))
 
                 if self.fill is not None:
                     table = fill_spanning(table, fill=self.fill)
@@ -276,8 +289,8 @@ class Lattice:
                 ar = remove_empty(ar)
                 ar = [list(o) for o in ar]
                 page_tables.append(encode_list(ar))
-            vprint(pkey)
             self.tables[pkey] = page_tables
+            vprint("Finished processing {0}".format(pkey))
 
         if self.debug is not None:
             self.debug_tables[pkey] = debug_page_tables
