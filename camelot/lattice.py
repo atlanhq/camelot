@@ -258,7 +258,8 @@ class Lattice:
                 elif rotated == 'right':
                     text_bbox.sort(key=lambda x: (-x.x0, -x.y0))
 
-                error = []
+                rerror = []
+                cerror = []
                 for t in text_bbox:
                     try:
                         r_idx, rass_error = get_row_index(t, rows)
@@ -270,12 +271,13 @@ class Lattice:
                     except TypeError:
                         # couldn't assign LTChar to any cell
                         continue
-                    error.append(rass_error + cass_error)
+                    rerror.append(rass_error)
+                    cerror.append(cass_error)
                     r_idx, c_idx = reduce_index(
                         table, rotated, r_idx, c_idx)
                     table.cells[r_idx][c_idx].add_text(
                         t.get_text().strip('\n'))
-                score = get_score([100], [error])
+                score = get_score({tuple(rerror): 50, tuple(cerror): 50})
                 vprint("Assigned chars to each cell with a score of {0:.2f}".format(score))
 
                 if self.fill is not None:

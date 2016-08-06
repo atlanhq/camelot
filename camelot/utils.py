@@ -291,18 +291,16 @@ def get_column_index(t, columns):
             return c, error
 
 
-def get_score(weights, errors):
+def get_score(error_weights):
     """Calculates score based on weights assigned to various parameters,
-    and their error percentages. Length of both lists should be the same
-    with one to one mapping between indices.
+    and their error percentages.
 
     Parameters
     ----------
-    weights : list
-        List of weights assigned to parameters.
-        Sum of list should be equal to 100.
-    errors : list
-        List of error percentages for parameter.
+    error_weights : dict
+        Dict with a tuple of error percentages as key and weightage
+        assigned to them as value. Sum of all values should be equal
+        to 100.
 
     Returns
     -------
@@ -310,12 +308,12 @@ def get_score(weights, errors):
     """
     SCORE_VAL = 100
     score = 0
-    if sum(weights) != SCORE_VAL:
+    if sum([v for k, v in error_weights.iteritems()]) != SCORE_VAL:
         raise ValueError("Please assign a valid weightage to each parameter"
                          " such that their sum is equal to 100")
-    for w, e in zip(weights, errors):
-        weight = w / len(e)
-        for error_percentage in e:
+    for k, v in error_weights.iteritems():
+        weight = v / len(k)
+        for error_percentage in k:
             score += weight * (1 - error_percentage)
     return score
 

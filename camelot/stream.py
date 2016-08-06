@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
 from .table import Table
-from .utils import get_row_index, get_column_index, get_score, encode_list
+from .utils import get_row_index, get_score, encode_list
 
 
 __all__ = ['Stream']
@@ -75,6 +75,33 @@ def _merge_columns(l, mtol=2):
             else:
                 merged.append(higher)
     return merged
+
+
+def _get_column_index(t, columns):
+    """Gets index of the column in which the given object falls by
+    comparing their co-ordinates.
+
+    Parameters
+    ----------
+    t : object
+
+    columns : list
+
+    Returns
+    -------
+    c : int
+    """
+    offset1, offset2 = 0, 0
+    for c in range(len(columns)):
+        if columns[c][0] < t.x0 < columns[c][1]:
+            if t.x0 < columns[c][0]:
+                offset1 = abs(t.x0 - columns[c][0])
+            if t.x1 > columns[c][1]:
+                offset2 = abs(t.x1 - columns[c][1])
+            Y = abs(t.y0 - t.y1)
+            charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
+            error = (Y * (offset1 + offset2)) / charea
+            return c, error
 
 
 class Stream:
@@ -163,15 +190,17 @@ class Stream:
                 cols = [(float(cols[i]), float(cols[i + 1]))
                         for i in range(0, len(cols) - 1)]
             else:
-                guess = True
-                ncols = self.ncolumns if self.ncolumns else max(
-                    set(elements), key=elements.count)
-                len_nomode = len(filter(lambda x: x != ncols, elements))
-                if ncols == 1 and not self.debug:
-                    # no tables detected
-                    raise UserWarning("Only one column was detected, the PDF"
-                                      " may have no tables. Specify ncols if"
-                                      " the PDF has tables.")
+                if self.ncolumns:
+                    ncols = self.ncolumns
+                else:
+                    guess = True
+                    ncols = max(set(elements), key=elements.count)
+                    len_nomode = len(filter(lambda x: x != ncols, elements))
+                    if ncols == 1 and not self.debug:
+                        # no tables detected
+                        raise UserWarning("Only one column was detected, the PDF"
+                                          " may have no tables. Specify ncols if"
+                                          " the PDF has tables.")
                 cols = [(t.x0, t.x1)
                         for r in rows_grouped if len(r) == ncols for t in r]
                 cols = _merge_columns(sorted(cols), mtol=self.mtol)
@@ -186,7 +215,8 @@ class Stream:
                         for i in range(0, len(cols) - 1)]
 
             table = Table(cols, rows)
-            error = []
+            rerror = []
+            cerror = []
             for t in text:
                 try:
                     r_idx, rass_error = get_row_index(t, rows)
@@ -194,19 +224,20 @@ class Stream:
                     # couldn't assign LTTextLH to any cell
                     continue
                 try:
-                    c_idx, cass_error = get_column_index(t, cols)
+                    c_idx, cass_error = _get_column_index(t, cols)
                 except TypeError:
                     # couldn't assign LTTextLH to any cell
                     continue
-                error.append(rass_error + cass_error)
+                rerror.append(rass_error)
+                cerror.append(cass_error)
                 table.cells[r_idx][c_idx].add_text(
                     t.get_text().strip('\n'))
-            if guess:
-                score = get_score([70, 30], [error, [len_nomode / len(elements)]])
-            else:
-                score = get_score([100], [error])
-            vprint("Assigned text to each cell with a score of {0:.2f}".format(score))
             ar = table.get_list()
+            if guess:
+                score = get_score({tuple(rerror): 33, tuple(cerror): 33, tuple([len_nomode / len(elements)]): 34})
+            else:
+                score = get_score({tuple(rerror): 50, tuple(cerror): 50})
+            vprint("Assigned text to each cell with a score of {0:.2f}".format(score))
             self.tables[pkey] = [encode_list(ar)]
             vprint("Finished processing {0}".format(pkey))
 
