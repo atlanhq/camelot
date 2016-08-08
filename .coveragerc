@@ -1,0 +1,6 @@
+[run]
+branch = True
+source = camelot
+include = */camelot/*
+omit = 
+    */setup.py
