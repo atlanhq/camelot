@@ -160,6 +160,7 @@ class Stream:
         self.debug = debug
         self.verbose = verbose
         self.tables = {}
+        self.scores_ = {}
         if self.debug:
             self.debug_text = {}
 
@@ -249,6 +250,7 @@ class Stream:
                 score = get_score([[33, rerror], [33, cerror], [34, [len_nomode / len(elements)]]])
             else:
                 score = get_score([[50, rerror], [50, cerror]])
+            self.scores_[pkey] = score
             vprint("Assigned text to each cell with a score of {0:.2f}".format(score))
             self.tables[pkey] = [encode_list(ar)]
             vprint("Finished processing {0}".format(pkey))

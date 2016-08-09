@@ -25,7 +25,8 @@ options:
  -p, --pages <pageno>      Comma-separated list of page numbers.
                            Example: -p 1,3-6,10  [default: 1]
  -f, --format <format>     Output format. (csv,tsv,html,json,xlsx) [default: csv]
- -l, --log                 Print log to file.
+ -l, --log                 Log to file.
+ -S, --score               Save parsing score for each page to a file.
  -V, --verbose             Verbose.
  -o, --output <directory>  Output directory.
 
@@ -151,7 +152,9 @@ if __name__ == '__main__':
     filename = args['<file>']
     filedir = os.path.dirname(args['<file>'])
     logname, __ = os.path.splitext(filename)
-    logname += '.log'
+    logname = ''.join([logname, '.log'])
+    scorename, __ = os.path.splitext(filename)
+    scorename = ''.join([scorename, '_scores.txt'])
 
     if args['--log']:
         if args['--output']:
@@ -188,7 +191,11 @@ if __name__ == '__main__':
                                 debug=args['--debug'],
                                 verbose=args['--verbose'])
             data = extractor.get_tables()
-            if args['--debug']:
+            if args['--score']:
+                with open(scorename, 'w') as score_file:
+                    for k, v in sorted(extractor.scores_.iteritems()):
+                        score_file.write('{0}: {1}'.format(k, v))
+            elif args['--debug']:
                 extractor.plot_geometry(args['--debug'])
         except Exception as e:
             logging.exception(e.message, exc_info=True)
@@ -208,7 +215,11 @@ if __name__ == '__main__':
                                debug=args['--debug'],
                                verbose=args['--verbose'])
             data = extractor.get_tables()
-            if args['--debug']:
+            if args['--score']:
+                with open(scorename, 'w') as score_file:
+                    for k, v in sorted(extractor.scores_.iteritems()):
+                        score_file.write('{0}: {1}'.format(k, v))
+            elif args['--debug']:
                 extractor.plot_text()
         except Exception as e:
             logging.exception(e.message, exc_info=True)

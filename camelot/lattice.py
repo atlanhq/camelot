@@ -172,6 +172,7 @@ class Lattice:
         self.debug = debug
         self.verbose = verbose
         self.tables = {}
+        self.scores_ = {}
         if self.debug is not None:
             self.debug_images = {}
             self.debug_segments = {}
@@ -278,6 +279,7 @@ class Lattice:
                     table.cells[r_idx][c_idx].add_text(
                         t.get_text().strip('\n'))
                 score = get_score([[50, rerror], [50, cerror]])
+                self.scores_[pkey] = score
                 vprint("Assigned chars to each cell with a score of {0:.2f}".format(score))
 
                 if self.fill is not None:
