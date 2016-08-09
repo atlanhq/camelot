@@ -1,27 +1,18 @@
 # camelot
 
-## Dependencies
-
-Currently, camelot works under Python 2.7.
-
-The required dependencies include numpy, opencv, and imagemagick.
-
-## Install
-
-Make sure you have the required dependencies installed on your system. If you're working in a virtual environment, copy the `cv2.so` file from your system's site-packages to the virtualenv's site-packages. After that, `cd` into the project directory and issue the following command.
-
-<pre>
-python setup.py install
-</pre>
+Camelot is a Python 2.7 library and command-line tool for getting tables out of PDF files.
 
 ## Usage
 
 <pre>
-from camelot import *
+from camelot.pdf import Pdf
+from camelot.lattice import Lattice
 
 extractor = Lattice(Pdf("/path/to/pdf", pagenos=[{'start': 2, 'end': 4}]))
 tables = extractor.get_tables()
 </pre>
+
+Camelot comes with a command-line tool in which you can specify the output format (csv, tsv, html, json, and xlsx), page numbers you want to parse and the output directory in which you want the output files to be placed. By default, the output files are placed in the same directory as the PDF.
 
 <pre>
 camelot parses tables from PDFs!
@@ -45,6 +36,92 @@ camelot methods:
 See 'camelot <method> -h' for more information on a specific method.
 </pre>
 
+## Dependencies
+
+Currently, camelot works under Python 2.7.
+
+The required dependencies include [numpy](http://www.numpy.org/), [OpenCV](http://opencv.org/) and [ImageMagick](http://www.imagemagick.org/script/index.php).
+
+## Installation
+
+Make sure you have the most updated versions for `pip` and `setuptools`. You can update them by
+
+<pre>
+pip install -U pip, setuptools
+</pre>
+
+We strongly recommend that you use a [virtual environment](http://virtualenvwrapper.readthedocs.io/en/latest/install.html#basic-installation) to install Camelot. If you don't want to use a virtual environment, then skip the next section.
+
+### Installing virtualenvwrapper
+
+You'll need to install [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/).
+
+<pre>
+pip install virtualenvwrapper
+</pre>
+
+or
+<pre>
+sudo pip install virtualenvwrapper
+</pre>
+
+After installing virtualenvwrapper, add the following lines to your `.bashrc` and source it.
+
+<pre>
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+</pre>
+
+The path to `virtualenvwrapper.sh` could be different on your system.
+
+Finally make a virtual environment using
+
+<pre>
+mkvirtualenv camelot
+</pre>
+
+### Installing dependencies
+
+numpy can be install using pip.
+
+<pre>
+pip install numpy
+</pre>
+
+OpenCV and imagemagick can be installed using your system's default package manager.
+
+#### Linux
+
+* Arch Linux
+
+<pre>
+sudo pacman -S opencv imagemagick
+</pre>
+
+* Ubuntu
+
+<pre>
+sudo apt-get install libopencv-dev python-opencv imagemagick
+</pre>
+
+#### OS X
+
+<pre>
+brew install homebrew/science/opencv imagemagick
+</pre>
+
+If you're working in a virtualenv, you'll need to create a symbolic link for the OpenCV shared object file
+
+<pre>
+sudo ln -s /path/to/system/site-packages/cv2.so ~/path/to/virtualenv/site-packages/cv2.so
+</pre>
+
+Finally, `cd` into the project directory and install by doing
+
+<pre>
+make install
+</pre>
+
 ## Development
 
 ### Code
@@ -57,28 +134,14 @@ git clone https://github.com/socialcopsdev/camelot.git
 
 ### Contributing
 
-The preferred way to contribute to camelot is to fork this repository, and then submit a "pull request" (PR):
-
-1. Create an account on GitHub if you don't already have one.
-2. Fork the project repository: click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub server.
-3. Clone this copy to your local disk.
-4. Create a branch to hold your changes:
-<pre>
-git checkout -b my-feature
-</pre>
-and start making changes. Never work in the `master` branch!
-5. Work on this copy, on your computer, using Git to do the version control. When you’re done editing, do:
-<pre>
-$ git add modified_files
-$ git commit
-</pre>
-to record your changes in Git, then push them to GitHub with:
-<pre>
-$ git push -u origin my-feature
-</pre>
-
-Finally, go to the web page of the your fork of the camelot repo, and click ‘Pull request’ to send your changes to the maintainers for review.
+See [Contributing doc]().
 
 ### Testing
 
+<pre>
+make test
+</pre>
+
 ## License
+
+BSD License
