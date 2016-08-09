@@ -71,6 +71,8 @@ options:
                           together. [default: 2]
  -m, --mtol <mtol>        Tolerance to account for when merging columns
                           together. [default: 2]
+ -C, --ctol <ctol>        Tolerance to account for when assigning text
+                          object to column. [default: 10]
  -M, --cmargin <cmargin>  Char margin. Chars closer than cmargin are
                           grouped together to form a word. [default: 2.0]
  -L, --lmargin <lmargin>  Line margin. Lines closer than lmargin are
@@ -202,6 +204,7 @@ if __name__ == '__main__':
                                columns=args['--columns'],
                                ytol=int(args['--ytol']),
                                mtol=int(args['--mtol']),
+                               ctol=int(args['--ctol']),
                                debug=args['--debug'],
                                verbose=args['--verbose'])
             data = extractor.get_tables()

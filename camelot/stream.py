@@ -77,7 +77,7 @@ def _merge_columns(l, mtol=2):
     return merged
 
 
-def _get_column_index(t, columns):
+def _get_column_index(t, columns, ctol=10):
     """Gets index of the column in which the given object falls by
     comparing their co-ordinates.
 
@@ -91,17 +91,27 @@ def _get_column_index(t, columns):
     -------
     c : int
     """
-    offset1, offset2 = 0, 0
+    offset = 0
     for c in range(len(columns)):
         if columns[c][0] < t.x0 < columns[c][1]:
-            if t.x0 < columns[c][0]:
-                offset1 = abs(t.x0 - columns[c][0])
             if t.x1 > columns[c][1]:
-                offset2 = abs(t.x1 - columns[c][1])
+                offset = abs(t.x1 - columns[c][1])
             Y = abs(t.y0 - t.y1)
             charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
-            error = (Y * (offset1 + offset2)) / charea
-            return c, error
+            error1 = (Y * offset) / charea
+            if abs(t.x0 - columns[c][1]) < ctol:
+                try:
+                    offset1, offset2 = 0, 0
+                    if t.x0 < columns[c + 1][0]:
+                        offset1 = abs(t.x0 - columns[c + 1][0])
+                    if t.x1 > columns[c + 1][1]:
+                        offset2 = abs(t.x1 - columns[c + 1][1])
+                    error2 = (Y * (offset1 + offset2)) / charea
+                    if error2 < error1:
+                        return c + 1, error2
+                except IndexError:
+                    pass
+            return c, error1
 
 
 class Stream:
@@ -139,13 +149,14 @@ class Stream:
     """
 
     def __init__(self, pdfobject, ncolumns=0, columns=None, ytol=2, mtol=2,
-                 debug=False, verbose=False):
+                 ctol=10, debug=False, verbose=False):
 
         self.pdfobject = pdfobject
         self.ncolumns = ncolumns
         self.columns = columns
         self.ytol = ytol
         self.mtol = mtol
+        self.ctol = ctol
         self.debug = debug
         self.verbose = verbose
         self.tables = {}
@@ -224,7 +235,7 @@ class Stream:
                     # couldn't assign LTTextLH to any cell
                     continue
                 try:
-                    c_idx, cass_error = _get_column_index(t, cols)
+                    c_idx, cass_error = _get_column_index(t, cols, ctol=self.ctol)
                 except TypeError:
                     # couldn't assign LTTextLH to any cell
                     continue
