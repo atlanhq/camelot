@@ -277,7 +277,7 @@ class Lattice:
                         table, rotated, r_idx, c_idx)
                     table.cells[r_idx][c_idx].add_text(
                         t.get_text().strip('\n'))
-                score = get_score({tuple(rerror): 50, tuple(cerror): 50})
+                score = get_score([[50, rerror], [50, cerror]])
                 vprint("Assigned chars to each cell with a score of {0:.2f}".format(score))
 
                 if self.fill is not None:

@@ -197,6 +197,7 @@ class Stream:
                 # user has to input boundary columns too
                 # take (0, width) by default
                 # similar to else condition
+                # len can't be 1
                 cols = self.columns.split(',')
                 cols = [(float(cols[i]), float(cols[i + 1]))
                         for i in range(0, len(cols) - 1)]
@@ -245,9 +246,9 @@ class Stream:
                     t.get_text().strip('\n'))
             ar = table.get_list()
             if guess:
-                score = get_score({tuple(rerror): 33, tuple(cerror): 33, tuple([len_nomode / len(elements)]): 34})
+                score = get_score([[33, rerror], [33, cerror], [34, [len_nomode / len(elements)]]])
             else:
-                score = get_score({tuple(rerror): 50, tuple(cerror): 50})
+                score = get_score([[50, rerror], [50, cerror]])
             vprint("Assigned text to each cell with a score of {0:.2f}".format(score))
             self.tables[pkey] = [encode_list(ar)]
             vprint("Finished processing {0}".format(pkey))
