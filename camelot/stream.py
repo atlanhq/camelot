@@ -180,6 +180,10 @@ class Stream:
             pkey = 'page-{0}'.format(p)
             text.sort(key=lambda x: (-x.y0, x.x0))
 
+            if not text:
+                vprint("{0} contains no text.".format(pkey))
+                continue
+
             if self.debug:
                 self.debug_text[pkey] = text
 
