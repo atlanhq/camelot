@@ -4,50 +4,62 @@
 Lattice
 =======
 
-Lattice method is designed to work on PDFs with well-defined grids.
+Lattice method is designed to work on PDFs which have tables with well-defined grids. It looks for lines on a page to form a table representation.
 
-Let's see how lattice processes this PDF, step by step. It works by converting the PDF into an image, binarizing it and then applying a set of morphological transformations (erosion and dilation) to find horizontal and vertical line segments in that image.
+Lattice uses OpenCV to apply a set of morphological transformations (erosion and dilation) to find horizontal and vertical line segments in a PDF page after converting it to an image using imagemagick.
 
-.. image:: images/line.png
+.. note:: Currently, Lattice only works on PDFs that contain text i.e. they are not composed of an image of the text. However, we plan to add `OCR support`_ in the future.
+
+.. _OCR support: https://github.com/socialcopsdev/camelot/issues/14
+
+Let's see how Lattice processes this PDF, step by step.
+
+Line segments are detected in the first step.
+
+.. .. _this: insert link for us-030.pdf
+
+.. image:: assets/line.png
    :height: 674
    :width: 1366
    :scale: 50%
    :align: left
 
-The detected line segments are overlapped by ``and``ing their pixel intensities to find intersections.
+The detected line segments are overlapped by `and` ing their pixel intensities to find intersections.
 
-.. image:: images/intersection.png
+.. image:: assets/intersection.png
    :height: 674
    :width: 1366
    :scale: 50%
    :align: left
 
-The detected line segments are overlapped again, this time by ``or``ing their pixel intensities and outermost contours are computed to identify potential table boundaries. This helps lattice in detecting more than one table on a single page.
+The detected line segments are overlapped again, this time by `or` ing their pixel intensities and outermost contours are computed to identify potential table boundaries. This helps Lattice in detecting more than one table on a single page.
 
-.. image:: images/contour.png
+.. image:: assets/contour.png
    :height: 674
    :width: 1366
    :scale: 50%
    :align: left
 
-Since dimensions of a PDF and its image vary; table contours, intersections and segments are scaled and translated to the PDF's coordinate space. A representation of the table grid is then created using these scaled coordinates.
+Since dimensions of a PDF and its image vary; table contours, intersections and segments are scaled and translated to the PDF's coordinate space. A representation of the table is then created using these scaled coordinates.
 
-.. image:: images/table.png
+.. image:: assets/table.png
    :height: 674
    :width: 1366
    :scale: 50%
    :align: left
 
-Spanning cells are then detected using the line segments and their intersections.
+Spanning cells are then detected using the line segments and intersections.
 
-.. image:: images/table_span.png
+.. image:: assets/table_span.png
    :height: 674
    :width: 1366
    :scale: 50%
    :align: left
 
 Finally, the characters found on the page are assigned to cells based on their x,y coordinates.
+
 ::
+
     >>> from camelot.pdf import Pdf
     >>> from camelot.lattice import Lattice
 
@@ -68,19 +80,21 @@ Finally, the characters found on the page are assigned to cells based on their x
 Scale
 -----
 
-The scale parameter is used to determine the length of the structuring element used for morphological transformations. The vertical structuring element's length is found by dividing the image's height by scale. Similarly, the horizontal structuring element is found by dividing the image's width by scale. Large scale will lead to a smaller structuring element, which means that smaller lines will be detected. The default value for scale is 15.
+The scale parameter is used to determine the length of the structuring element used for morphological transformations. The length of vertical and horizontal structuring elements are found by dividing the image's height and width respectively, by `scale`. Large `scale` will lead to a smaller structuring element, which means that smaller lines will be detected. The default value for scale is 15.
 
 Let's consider this PDF.
 
-.. image:: images/scale_1.png
+.. .. _this: insert link for row_span_1.pdf
+
+.. image:: assets/scale_1.png
    :height: 674
    :width: 1366
    :scale: 50%
    :align: left
 
-Clearly, it couldn't detected those small lines in the lower left part of the image. Hence, we need to increase the value of scale. Let's try a value of 40.
+Clearly, it couldn't detected those small lines in the lower left part. Therefore, we need to increase the value of scale. Let's try a value of 40.
 
-.. image:: images/scale_2.png
+.. image:: assets/scale_2.png
    :height: 674
    :width: 1366
    :scale: 50%
@@ -91,8 +105,10 @@ Voila! It detected the smaller lines.
 Fill
 ----
 
-In the PDF used above, you can see that some cells spanned a lot of rows, fill just "fills" a spanning cell with the same value for a consistent output. You can apply fill horizontally, vertically or both; and it'll fill horizontally spanning cells, vertically spanning cells or both. Let us fill the output for the PDF we used above, vertically.
+In the PDF used above, you can see that some cells spanned a lot of rows, `fill` just copies the same value to all rows/columns of a spanning cell. You can apply fill horizontally, vertically or both. Let us fill the output for the PDF we used above, vertically.
+
 ::
+
     >>> from camelot.pdf import Pdf
     >>> from camelot.lattice import Lattice
 
@@ -146,8 +162,12 @@ In the PDF used above, you can see that some cells spanned a lot of rows, fill j
 Invert
 ------
 
-To find line segments, lattice needs the lines of the PDF to be in foreground. So, if you encounter a PDF like this, just set invert to True.
+To find line segments, Lattice needs the lines of the PDF to be in foreground. So, if you encounter a PDF like this, just set invert to True.
+
+.. .. _this: insert link for lines_in_background_1.pdf
+
 ::
+
     >>> from camelot.pdf import Pdf
     >>> from camelot.lattice import Lattice
 
@@ -166,6 +186,8 @@ To find line segments, lattice needs the lines of the PDF to be in foreground. S
    "Kerala","23.2.2010 to 11.3.2010","9","17","1.42","3,559","2,173","855"
    "Total","","47","92","11.81","22,455","19,584","10,644"
 
-Lattice can also parse tables that are rotated clockwise/anti-clockwise by 90 degrees. Like this PDF. And you don't need to specify anything. Just the same old code.
+Lattice can also parse PDFs with tables like these that are rotated clockwise/anti-clockwise by 90 degrees.
 
-You can call Lattice with debug={'line', 'intersection', 'contour', 'table'}, and call `plot_geometry()` which will generate an image like the ones on this page, with the help of which you can modify various parameters. See :doc:`API docs <api>` for more information.
+.. .. _these: insert link for left_rotated_table.pdf
+
+You can call Lattice with debug={'line', 'intersection', 'contour', 'table'}, and call `plot_geometry()` which will generate an image like the ones on this page, with the help of which you can modify various parameters. See :doc:`API doc <api>` for more information.
