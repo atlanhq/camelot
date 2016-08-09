@@ -37,7 +37,7 @@ See 'camelot <method> -h' for more information on a specific method.
 """
 
 lattice_doc = """
-Lattice method looks for lines between data to form a table.
+Lattice method looks for lines between text to form a table.
 
 usage:
  camelot lattice [options] [--] <file>
@@ -58,7 +58,7 @@ options:
 """
 
 stream_doc = """
-Stream method looks for spaces between data to form a table.
+Stream method looks for whitespaces between text to form a table.
 
 usage:
  camelot stream [options] [--] <file>

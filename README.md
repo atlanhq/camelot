@@ -33,7 +33,7 @@ camelot methods:
  lattice  Looks for lines between data.
  stream   Looks for spaces between data.
 
-See 'camelot <method> -h' for more information on a specific method.
+See 'camelot &lt;method&gt; -h' for more information on a specific method.
 </pre>
 
 ## Dependencies
