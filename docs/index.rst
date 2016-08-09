@@ -90,8 +90,8 @@ The required dependencies include `numpy`_, `OpenCV`_ and `ImageMagick`_.
 
 We strongly recommend that you use a `virtual environment`_ to install Camelot. If you don't want to use a virtual environment, then skip the next section.
 
-Installation & Setup (virtualenv)
----------------------------------
+Installing virtualenvwrapper
+----------------------------
 
 You'll need to install `virtualenvwrapper`_.
 
@@ -105,7 +105,7 @@ or
 
     sudo pip install virtualenvwrapper
 
-Add the following lines to your `.bashrc` and source it.
+After installing virtualenvwrapper, add the following lines to your `.bashrc` and source it.
 
 ::
 
@@ -118,10 +118,10 @@ Finally make a virtual environment using::
 
     mkvirtualenv camelot
 
-Installation (dependencies)
----------------------------
+Installing dependencies
+-----------------------
 
-`numpy` can be install using `pip` itself.
+`numpy` can be install using `pip`.
 
 ::
 
@@ -155,7 +155,7 @@ If you're working in a virtualenv, you'll need to create a symbolic link for the
 
     sudo ln -s /path/to/system/site-packages/cv2.so ~/path/to/virtualenv/site-packages/cv2.so
 
-Finally, ``cd`` into the project directory and install by doing::
+Finally, `cd` into the project directory and install by doing::
 
     make install
 
