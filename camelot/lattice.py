@@ -191,7 +191,7 @@ class Lattice:
         self.pdfobject.convert()
         for page in self.pdfobject.extract():
             p, text, __, width, height = page
-            pkey = 'pg-{0}'.format(p)
+            pkey = 'page-{0}'.format(p)
             imagename = os.path.join(
                 self.pdfobject.temp, '{}.png'.format(pkey))
             pdf_x = width

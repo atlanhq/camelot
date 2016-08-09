@@ -62,7 +62,7 @@ def test_stream_basic():
     extractor = Stream(Pdf(pdfname, pagenos=[{'start': 1, 'end': 1}],
                            clean=True))
     tables = extractor.get_tables()
-    assert_equal(tables['pg-1'][0], data)
+    assert_equal(tables['page-1'][0], data)
 
 
 def test_stream_ncolumns():
@@ -117,7 +117,7 @@ def test_stream_ncolumns():
     extractor = Stream(Pdf(pdfname, char_margin=1.0, clean=True),
                        ncolumns=5)
     tables = extractor.get_tables()
-    assert_equal(tables['pg-1'][0], data)
+    assert_equal(tables['page-1'][0], data)
 
 
 def test_stream_columns():
@@ -171,4 +171,4 @@ def test_stream_columns():
     extractor = Stream(Pdf(pdfname, clean=True),
                        columns='28,67,180,230,425,475,700')
     tables = extractor.get_tables()
-    assert_equal(tables['pg-1'][0], data)
+    assert_equal(tables['page-1'][0], data)

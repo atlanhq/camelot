@@ -26,7 +26,7 @@ def test_lattice_basic():
     extractor = Lattice(Pdf(pdfname,
                             pagenos=[{'start': 2, 'end': 2}], clean=True))
     tables = extractor.get_tables()
-    assert_equal(tables['pg-2'][0], data)
+    assert_equal(tables['page-2'][0], data)
 
 
 def test_lattice_fill():
@@ -76,7 +76,7 @@ def test_lattice_fill():
     pdfname = os.path.join(testdir, 'row_span_1.pdf')
     extractor = Lattice(Pdf(pdfname, clean=True), fill='v', scale=40)
     tables = extractor.get_tables()
-    assert_equal(tables['pg-1'][0], data)
+    assert_equal(tables['pagea-1'][0], data)
 
 
 def test_lattice_invert():
@@ -94,4 +94,4 @@ def test_lattice_invert():
     pdfname = os.path.join(testdir, 'lines_in_background_1.pdf')
     extractor = Lattice(Pdf(pdfname, clean=True), invert=True)
     tables = extractor.get_tables()
-    assert_equal(tables['pg-1'][1], data)
+    assert_equal(tables['page-1'][1], data)

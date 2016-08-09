@@ -121,14 +121,14 @@ class Pdf:
             page = infile.getPage(p - 1)
             outfile = PdfFileWriter()
             outfile.addPage(page)
-            with open(os.path.join(self.temp, 'pg-{0}.pdf'.format(p)), 'wb') as f:
+            with open(os.path.join(self.temp, 'page-{0}.pdf'.format(p)), 'wb') as f:
                 outfile.write(f)
 
     def extract(self):
         """Extracts text objects, width, height from a pdf.
         """
         for p in self.pagenos:
-            pkey = 'pg-{0}'.format(p)
+            pkey = 'page-{0}'.format(p)
             pname = os.path.join(self.temp, '{}.pdf'.format(pkey))
             with open(pname, 'r') as f:
                 parser = PDFParser(f)
@@ -155,8 +155,8 @@ class Pdf:
         """Converts single page pdfs to images.
         """
         for p in self.pagenos:
-            pdfname = os.path.join(self.temp, 'pg-{0}.pdf'.format(p))
-            imagename = os.path.join(self.temp, 'pg-{0}.png'.format(p))
+            pdfname = os.path.join(self.temp, 'page-{0}.pdf'.format(p))
+            imagename = os.path.join(self.temp, 'page-{0}.png'.format(p))
             with Image(filename=pdfname, depth=8, resolution=300) as png:
                 png.save(filename=imagename)
 

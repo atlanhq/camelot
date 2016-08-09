@@ -39,7 +39,7 @@ Usage
 
     >>> extractor = Lattice(Pdf('us-030.pdf'))
     >>> tables = extractor.get_tables()
-    >>> print tables['pg-1']
+    >>> print tables['page-1'][0]
 
 .. csv-table::
    :header: "Cycle Name","KI (1/km)","Distance (mi)","Percent Fuel Savings","","",""

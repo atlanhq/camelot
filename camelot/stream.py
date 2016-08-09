@@ -176,7 +176,7 @@ class Stream:
         self.pdfobject.split()
         for page in self.pdfobject.extract():
             p, __, text, width, height = page
-            pkey = 'pg-{0}'.format(p)
+            pkey = 'page-{0}'.format(p)
             text.sort(key=lambda x: (-x.y0, x.x0))
 
             if self.debug:

@@ -17,7 +17,7 @@ Let's run it on this PDF.
 
     >>> extractor = Stream(Pdf('eu-027.pdf'))
     >>> tables = extractor.get_tables()
-    >>> print tables['pg-1']
+    >>> print tables['page-1'][0]
 
 .. .. _this: insert link for eu-027.pdf
 
@@ -68,7 +68,7 @@ But sometimes its guess could be incorrect, like in this case.
 
     >>> extractor = Stream(Pdf('missing_values.pdf'))
     >>> tables = extractor.get_tables()
-    >>> print tables['pg-1']
+    >>> print tables['page-1'][0]
 
 .. .. _this: insert link for missing_values.pdf
 
@@ -127,7 +127,7 @@ It guessed that the PDF has 3 columns, because there wasn't any data in the last
 
     >>> extractor = Stream(Pdf('missing_values.pdf'), ncolumns=5)
     >>> tables = extractor.get_tables()
-    >>> print tables['pg-1']
+    >>> print tables['page-1'][0]
 
 .. csv-table::
 
@@ -200,7 +200,7 @@ After getting the x-coordinates, we just need to pass them to Stream, like this.
 
     >>> extractor = Stream(Pdf('mexican_towns.pdf'), columns='28,67,180,230,425,475,700')
     >>> tables = extractor.get_tables()
-    >>> print tables['pg-1']
+    >>> print tables['page-1'][0]
 
 .. csv-table::
 

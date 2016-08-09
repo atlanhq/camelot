@@ -65,7 +65,7 @@ Finally, the characters found on the page are assigned to cells based on their x
 
     >>> extractor = Lattice(Pdf('us-030.pdf'))
     >>> tables = extractor.get_tables()
-    >>> print tables['pg-1']
+    >>> print tables['page-1'][0]
 
 .. csv-table::
    :header: "Cycle Name","KI (1/km)","Distance (mi)","Percent Fuel Savings","","",""
@@ -114,7 +114,7 @@ In the PDF used above, you can see that some cells spanned a lot of rows, `fill`
 
     >>> extractor = Lattice(Pdf('row_span_1.pdf'), fill='v', scale=40)
     >>> tables = extractor.get_tables()
-    >>> print tables['pg-1']
+    >>> print tables['page-1'][0]
 
 .. csv-table::
    :header: "Plan Type","County","Plan  Name","Totals"
@@ -173,7 +173,7 @@ To find line segments, Lattice needs the lines of the PDF to be in foreground. S
 
     >>> extractor = Lattice(Pdf('lines_in_background_1.pdf'), invert=True)
     >>> tables = extractor.get_tables()
-    >>> print tables['pg-1']
+    >>> print tables['page-1'][0]
 
 .. csv-table::
    :header: "State","Date","Halt stations","Halt days","Persons directly reached(in lakh)","Persons trained","Persons counseled","Persons testedfor HIV"
