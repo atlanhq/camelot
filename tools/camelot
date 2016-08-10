@@ -161,7 +161,7 @@ if __name__ == '__main__':
         if args['--output']:
             logname = os.path.join(args['--output'], os.path.basename(logname))
         logging.basicConfig(
-            filename=logname, filemode='a', format=FORMAT, level=logging.DEBUG)
+            filename=logname, filemode='w', format=FORMAT, level=logging.DEBUG)
 
     p = []
     if args['--pages'] == '1':
