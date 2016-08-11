@@ -29,7 +29,7 @@ def _group_rows(text, ytol=2):
     rows : list
         List of grouped text rows.
     """
-    row_y = text[0].y0
+    row_y = 0
     rows = []
     temp = []
     for t in text:
@@ -77,7 +77,7 @@ def _merge_columns(l, mtol=2):
     return merged
 
 
-def _get_column_index(t, columns, ctol=10):
+def _get_column_index(t, columns):
     """Gets index of the column in which the given object falls by
     comparing their co-ordinates.
 
@@ -91,27 +91,36 @@ def _get_column_index(t, columns, ctol=10):
     -------
     c : int
     """
-    offset = 0
-    for c in range(len(columns)):
-        if columns[c][0] < t.x0 < columns[c][1]:
-            if t.x1 > columns[c][1]:
-                offset = abs(t.x1 - columns[c][1])
-            Y = abs(t.y0 - t.y1)
-            charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
-            error1 = (Y * offset) / charea
-            if abs(t.x0 - columns[c][1]) < ctol:
-                try:
-                    offset1, offset2 = 0, 0
-                    if t.x0 < columns[c + 1][0]:
-                        offset1 = abs(t.x0 - columns[c + 1][0])
-                    if t.x1 > columns[c + 1][1]:
-                        offset2 = abs(t.x1 - columns[c + 1][1])
-                    error2 = (Y * (offset1 + offset2)) / charea
-                    if error2 < error1:
-                        return c + 1, error2
-                except IndexError:
-                    pass
-            return c, error1
+    offset1, offset2 = 0, 0
+    lt_col_overlap = []
+    for c in columns:
+        if c[0] <= t.x1 and c[1] >= t.x0:
+            left = t.x0 if c[0] <= t.x0 else c[0]
+            right = t.x1 if c[1] >= t.x1 else c[1]
+            lt_col_overlap.append(abs(left - right) / abs(c[0] - c[1]))
+        else:
+            lt_col_overlap.append(-1)
+    if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
+        raise ValueError("Text doesn't fit any column.")
+    c_idx = lt_col_overlap.index(max(lt_col_overlap))
+    if t.x0 < columns[c_idx][0]:
+        offset1 = abs(t.x0 - columns[c_idx][0])
+    if t.x1 > columns[c_idx][1]:
+        offset2 = abs(t.x1 - columns[c_idx][1])
+    Y = abs(t.y0 - t.y1)
+    charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
+    error = (Y * (offset1 + offset2)) / charea
+    return c_idx, error
+
+
+def _col_ops(cols, width):
+    cols = sorted(cols)
+    cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
+    cols.insert(0, 0)
+    cols.append(width) # or some tolerance
+    cols = [(cols[i], cols[i + 1])
+            for i in range(0, len(cols) - 1)]
+    return cols
 
 
 class Stream:
@@ -209,27 +218,34 @@ class Stream:
             else:
                 if self.ncolumns:
                     ncols = self.ncolumns
+                    cols = [(t.x0, t.x1)
+                        for r in rows_grouped if len(r) == ncols for t in r]
+                    cols = _merge_columns(sorted(cols), mtol=self.mtol)
+                    if len(cols) != self.ncolumns:
+                        raise ValueError("The number of columns after merge"
+                                         " isn't the same as what you specified."
+                                         " Change the value of mtol.")
+                    cols = _col_ops(cols, width)
                 else:
                     guess = True
                     ncols = max(set(elements), key=elements.count)
-                    len_nomode = len(filter(lambda x: x != ncols, elements))
+                    len_non_mode = len(filter(lambda x: x != ncols, elements))
                     if ncols == 1 and not self.debug:
                         # no tables detected
                         raise UserWarning("Only one column was detected, the PDF"
                                           " may have no tables. Specify ncols if"
                                           " the PDF has tables.")
-                cols = [(t.x0, t.x1)
+                    cols = [(t.x0, t.x1)
                         for r in rows_grouped if len(r) == ncols for t in r]
-                cols = _merge_columns(sorted(cols), mtol=self.mtol)
-                if len(cols) != ncols:
-                    raise ValueError("The number of columns after merge"
-                                     " isn't the same as what you specified."
-                                     " Change the value of mtol.")
-                cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
-                cols.insert(0, 0)
-                cols.append(width) # or some tolerance
-                cols = [(cols[i], cols[i + 1])
-                        for i in range(0, len(cols) - 1)]
+                    cols = _merge_columns(sorted(cols), mtol=self.mtol)
+                    outer_text = [t for t in text if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
+                    if outer_text:
+                        outer_text = _group_rows(outer_text, ytol=self.ytol)
+                        outer_elements = [len(r) for r in outer_text]
+                        outer_cols = [(t.x0, t.x1)
+                            for r in outer_text if len(r) == max(outer_elements) for t in r]
+                        cols.extend(_merge_columns(sorted(outer_cols)))
+                    cols = _col_ops(cols, width)
 
             table = Table(cols, rows)
             rerror = []
@@ -237,13 +253,15 @@ class Stream:
             for t in text:
                 try:
                     r_idx, rass_error = get_row_index(t, rows)
-                except TypeError:
+                except ValueError as e:
                     # couldn't assign LTTextLH to any cell
+                    vprint(e.message)
                     continue
                 try:
-                    c_idx, cass_error = _get_column_index(t, cols, ctol=self.ctol)
-                except TypeError:
+                    c_idx, cass_error = _get_column_index(t, cols)
+                except ValueError as e:
                     # couldn't assign LTTextLH to any cell
+                    vprint(e.message)
                     continue
                 rerror.append(rass_error)
                 cerror.append(cass_error)
@@ -251,7 +269,7 @@ class Stream:
                     t.get_text().strip('\n'))
             ar = table.get_list()
             if guess:
-                score = get_score([[33, rerror], [33, cerror], [34, [len_nomode / len(elements)]]])
+                score = get_score([[33, rerror], [33, cerror], [34, [len_non_mode / len(elements)]]])
             else:
                 score = get_score([[50, rerror], [50, cerror]])
             self.scores_[pkey] = score
