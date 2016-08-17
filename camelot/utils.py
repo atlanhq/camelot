@@ -1,6 +1,17 @@
 from __future__ import division
+import os
 
 import numpy as np
+
+from pdfminer.pdfparser import PDFParser
+from pdfminer.pdfdocument import PDFDocument
+from pdfminer.pdfpage import PDFPage
+from pdfminer.pdfpage import PDFTextExtractionNotAllowed
+from pdfminer.pdfinterp import PDFResourceManager
+from pdfminer.pdfinterp import PDFPageInterpreter
+from pdfminer.pdfdevice import PDFDevice
+from pdfminer.converter import PDFPageAggregator
+from pdfminer.layout import LAParams, LTChar, LTTextLineHorizontal
 
 
 def translate(x1, x2):
@@ -439,6 +450,36 @@ def remove_empty(d):
     return d
 
 
+def count_empty(d):
+    """Counts empty rows and columns from list of lists.
+
+    Parameters
+    ----------
+    d : list
+
+    Returns
+    -------
+    n_blank_rows : number of blank rows
+    n_blank_cols : number of blank columns
+    blank_p : percentage of blank cells
+    """
+    n_blank_rows, n_blank_cols, blank_p = 0, 0, 0
+    for i in d:
+        for j in i:
+            if j == '':
+                blank_p += 1
+    blank_p = 100 * (blank_p / float(len(d) * len(d[0])))
+    for i, row in enumerate(d):
+        if row == [''] * len(row):
+            n_blank_rows += 1
+    d = zip(*d)
+    d = [list(col) for col in d]
+    for i, col in enumerate(d):
+        if col == [''] * len(col):
+            n_blank_cols += 1
+    return n_blank_rows, n_blank_cols, blank_p
+
+
 def encode_list(ar):
     """Encodes list of text.
 
@@ -452,3 +493,60 @@ def encode_list(ar):
     """
     ar = [[r.encode('utf-8') for r in row] for row in ar]
     return ar
+
+
+def extract_text_objects(layout, LTObject, t=None):
+    """Recursively parses pdf layout to get a list of
+    text objects.
+
+    Parameters
+    ----------
+    layout : object
+        Layout object.
+
+    LTObject : object
+        Text object, either LTChar or LTTextLineHorizontal.
+
+    t : list (optional, default: None)
+
+    Returns
+    -------
+    t : list
+        List of text objects.
+    """
+    if t is None:
+        t = []
+    try:
+        for obj in layout._objs:
+            if isinstance(obj, LTObject):
+                t.append(obj)
+            else:
+                t += extract_text_objects(obj, LTObject)
+    except AttributeError:
+        pass
+    return t
+
+
+def pdf_to_text(pname, char_margin, line_margin, word_margin):
+    # pkey = 'page-{0}'.format(p)
+    # pname = os.path.join(self.temp, '{}.pdf'.format(pkey))
+    with open(pname, 'r') as f:
+        parser = PDFParser(f)
+        document = PDFDocument(parser)
+        if not document.is_extractable:
+            raise PDFTextExtractionNotAllowed
+        laparams = LAParams(char_margin=char_margin,
+                            line_margin=line_margin,
+                            word_margin=word_margin)
+        rsrcmgr = PDFResourceManager()
+        device = PDFPageAggregator(rsrcmgr, laparams=laparams)
+        interpreter = PDFPageInterpreter(rsrcmgr, device)
+        for page in PDFPage.create_pages(document):
+            interpreter.process_page(page)
+            layout = device.get_result()
+            lattice_objects = extract_text_objects(layout, LTChar)
+            stream_objects = extract_text_objects(
+                layout, LTTextLineHorizontal)
+            width = layout.bbox[2]
+            height = layout.bbox[3]
+        return lattice_objects, stream_objects, width, height

@@ -24,9 +24,17 @@ options:
  -v, --version             Show version.
  -p, --pages <pageno>      Comma-separated list of page numbers.
                            Example: -p 1,3-6,10  [default: 1]
+ -P, --parallel            Parallelize the parsing process.
+ -M, --cmargin <cmargin>   Char margin. Chars closer than cmargin are
+                           grouped together to form a word. [default: 2.0]
+ -L, --lmargin <lmargin>   Line margin. Lines closer than lmargin are
+                           grouped together to form a textbox. [default: 0.5]
+ -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
+                           if distance between words is greater than word
+                           margin. [default: 0.1]
  -f, --format <format>     Output format. (csv,tsv,html,json,xlsx) [default: csv]
  -l, --log                 Log to file.
- -S, --score               Save parsing score for each page to a file.
+ -I, --with-info               Save parsing info for each page to a file.
  -V, --verbose             Verbose.
  -o, --output <directory>  Output directory.
 
@@ -74,13 +82,6 @@ options:
                           together. [default: 2]
  -C, --ctol <ctol>        Tolerance to account for when assigning text
                           object to column. [default: 10]
- -M, --cmargin <cmargin>  Char margin. Chars closer than cmargin are
-                          grouped together to form a word. [default: 2.0]
- -L, --lmargin <lmargin>  Line margin. Lines closer than lmargin are
-                          grouped together to form a textbox. [default: 0.5]
- -W, --wmargin <wmargin>  Word margin. Insert blank spaces between chars
-                          if distance between words is greater than word
-                          margin. [default: 0.1]
  -d, --debug              Debug by visualizing textboxes.
 """
 
@@ -104,23 +105,23 @@ def write_to_disk(data, f='csv', output=None, filename=None):
     if f in ['csv', 'tsv']:
         import csv
         delimiter = ',' if f == 'csv' else '\t'
-        for page in sorted(data):
-            for table in range(len(data[page])):
-                dsvname = '{0}_table_{1}.{2}'.format(page, table + 1, f)
+        for page_number in sorted(data.keys()):
+            for table_number in sorted(data[page_number].keys()):
+                dsvname = '{0}.{1}'.format(''.join([page_number, '_', table_number]), f)
                 with open(os.path.join(output, dsvname), 'w') as outfile:
                     writer = csv.writer(
                         outfile, delimiter=delimiter, quoting=csv.QUOTE_ALL)
-                    for row in data[page][table]:
+                    for row in data[page_number][table_number]['data']:
                         writer.writerow(row)
     elif f == 'html':
-        htmlname = '{}.html'.format(froot)
-        for page in sorted(data):
-            for table in range(len(data[page])):
+        htmlname = '{0}.html'.format(froot)
+        for page_number in sorted(data.keys()):
+            for table_number in sorted(data[page_number].keys()):
                 with open(os.path.join(output, htmlname), 'a') as htmlfile:
-                    htmlfile.write(convert_to_html(data[page][table]))
+                    htmlfile.write(convert_to_html(data[page_number][table_number]['data']))
     elif f == 'json':
         import json
-        with open(os.path.join(output, '{}.json'.format(froot)), 'w') \
+        with open(os.path.join(output, '{0}.json'.format(froot)), 'w') \
                 as jsonfile:
             json.dump(data, jsonfile)
     elif f == 'xlsx':
@@ -128,12 +129,12 @@ def write_to_disk(data, f='csv', output=None, filename=None):
             from pyexcel_xlsx import save_data
             from collections import OrderedDict
             xlsx_data = OrderedDict()
-            for page in sorted(data):
-                for table in range(len(data[page])):
-                    sheet_name = '{0}_table_{1}'.format(page, table + 1)
+            for page_number in sorted(data.keys()):
+                for table_number in sorted(data[page_number].keys()):
+                    sheet_name = ''.join([page_number, '_', table_number])
                     xlsx_data.update({sheet_name:
-                                      [row for row in data[page][table]]})
-            save_data(os.path.join(output, '{}.xlsx'.format(froot)), xlsx_data)
+                                      [row for row in data[page_number][table_number]['data']]})
+            save_data(os.path.join(output, '{0}.xlsx'.format(froot)), xlsx_data)
         except ImportError:
             print("link to install docs")
 
@@ -154,7 +155,7 @@ if __name__ == '__main__':
     logname, __ = os.path.splitext(filename)
     logname = ''.join([logname, '.log'])
     scorename, __ = os.path.splitext(filename)
-    scorename = ''.join([scorename, '_scores.txt'])
+    scorename = ''.join([scorename, '_info.csv'])
 
     if args['--log']:
         FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
@@ -178,56 +179,82 @@ if __name__ == '__main__':
                 else:
                     p.append({'start': int(r), 'end': int(r)})
 
+    margin_tuple = (float(args['--cmargin']), float(args['--lmargin']),
+        float(args['--wmargin']))
     if args['<method>'] == 'lattice':
         try:
-            extractor = Lattice(Pdf(filename, pagenos=p, clean=True),
-                                fill=args['--fill'],
-                                scale=int(args['--scale']),
-                                jtol=int(args['--jtol']),
-                                mtol=int(args['--mtol']),
-                                invert=args['--invert'],
-                                debug=args['--debug'],
-                                verbose=args['--verbose'])
-            data = extractor.get_tables()
-            if args['--score']:
+            manager = Pdf(Lattice(
+                                  fill=args['--fill'],
+                                  scale=int(args['--scale']),
+                                  jtol=int(args['--jtol']),
+                                  mtol=int(args['--mtol']),
+                                  invert=args['--invert'],
+                                  pdf_margin=margin_tuple,
+                                  debug=args['--debug']),
+                          filename,
+                          pagenos=p,
+                          parallel=args['--parallel'],
+                          clean=True)
+            data = manager.extract()
+            if args['--with-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    for k, v in sorted(extractor.scores_.iteritems()):
-                        score_file.write('{0}, {1}\n'.format(k, v))
+                    score_file.write('table,nrows,ncols,n_blank_rows,n_blank_cols,blank_p,line_p,text_p,score\n')
+                    for page_number in sorted(data.keys()):
+                        for table_number in sorted(data[page_number].keys()):
+                            score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8}\n'.format(
+                                ''.join([page_number, '_', table_number]),
+                                data[page_number][table_number]['nrows'],
+                                data[page_number][table_number]['ncols'],
+                                data[page_number][table_number]['n_blank_rows'],
+                                data[page_number][table_number]['n_blank_cols'],
+                                data[page_number][table_number]['blank_p'],
+                                data[page_number][table_number]['line_p'],
+                                data[page_number][table_number]['text_p'],
+                                data[page_number][table_number]['score'],))
             elif args['--debug']:
-                extractor.plot_geometry(args['--debug'])
+                manager.debug(args['--debug'])
         except Exception as e:
             logging.exception(e.message, exc_info=True)
             sys.exit()
     elif args['<method>'] == 'stream':
         try:
-            extractor = Stream(Pdf(filename, pagenos=p,
-                                   char_margin=float(args['--cmargin']),
-                                   line_margin=float(args['--lmargin']),
-                                   word_margin=float(args['--wmargin']),
-                                   clean=True),
-                               ncolumns=int(args['--ncols']),
-                               columns=args['--columns'],
-                               ytol=int(args['--ytol']),
-                               mtol=int(args['--mtol']),
-                               ctol=int(args['--ctol']),
-                               debug=args['--debug'],
-                               verbose=args['--verbose'])
-            data = extractor.get_tables()
-            if args['--score']:
+            manager = Pdf(Stream(
+                                 ncolumns=int(args['--ncols']),
+                                 columns=args['--columns'],
+                                 ytol=int(args['--ytol']),
+                                 mtol=int(args['--mtol']),
+                                 ctol=int(args['--ctol']),
+                                 pdf_margin=margin_tuple,
+                                 debug=args['--debug']),
+                          filename,
+                          pagenos=p,
+                          parallel=args['--parallel'],
+                          clean=True)
+            data = manager.extract()
+            if args['--with-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    for k, v in sorted(extractor.scores_.iteritems()):
-                        score_file.write('{0}, {1}\n'.format(k, v))
+                    score_file.write('table,nrows,ncols,n_blank_rows,n_blank_cols,blank_p,score\n')
+                    for page_number in sorted(data.keys()):
+                        for table_number in sorted(data[page_number].keys()):
+                            score_file.write('{0},{1},{2},{3},{4},{5},{6}\n'.format(
+                                ''.join([page_number, '_', table_number]),
+                                data[page_number][table_number]['nrows'],
+                                data[page_number][table_number]['ncols'],
+                                data[page_number][table_number]['n_blank_rows'],
+                                data[page_number][table_number]['n_blank_cols'],
+                                data[page_number][table_number]['blank_p'],
+                                data[page_number][table_number]['score']))
             elif args['--debug']:
-                extractor.plot_text()
+                manager.debug(args['--debug'])
         except Exception as e:
             logging.exception(e.message, exc_info=True)
             sys.exit()
 
-    if data is None:
+    if args['--debug']:
         print("See 'camelot <method> -h' for various parameters you can tweak.")
     else:
         output = filedir if args['--output'] is None else args['--output']
