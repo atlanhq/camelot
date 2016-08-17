@@ -129,8 +129,8 @@ def write_to_disk(data, f='csv', output=None, filename=None):
             from pyexcel_xlsx import save_data
             from collections import OrderedDict
             xlsx_data = OrderedDict()
-            for page_number in sorted(data.keys()):
-                for table_number in sorted(data[page_number].keys()):
+            for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
+                for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
                     sheet_name = ''.join([page_number, '_', table_number])
                     xlsx_data.update({sheet_name:
                                       [row for row in data[page_number][table_number]['data']]})
@@ -201,8 +201,8 @@ if __name__ == '__main__':
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
                     score_file.write('table,nrows,ncols,n_blank_rows,n_blank_cols,blank_p,line_p,text_p,score\n')
-                    for page_number in sorted(data.keys()):
-                        for table_number in sorted(data[page_number].keys()):
+                    for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
+                        for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
                             score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8}\n'.format(
                                 ''.join([page_number, '_', table_number]),
                                 data[page_number][table_number]['nrows'],
@@ -238,8 +238,8 @@ if __name__ == '__main__':
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
                     score_file.write('table,nrows,ncols,n_blank_rows,n_blank_cols,blank_p,score\n')
-                    for page_number in sorted(data.keys()):
-                        for table_number in sorted(data[page_number].keys()):
+                    for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
+                        for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
                             score_file.write('{0},{1},{2},{3},{4},{5},{6}\n'.format(
                                 ''.join([page_number, '_', table_number]),
                                 data[page_number][table_number]['nrows'],
