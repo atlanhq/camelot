@@ -100,7 +100,8 @@ class Pdf:
             tables = {}
             for p in pages:
                 table = self.extractor.get_tables(p)
-                tables.update(table)
+                if table is not None:
+                    tables.update(table)
         if self.clean:
             self.remove_tempdir()
         return tables
