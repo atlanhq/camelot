@@ -95,7 +95,7 @@ class Pdf:
                  for p in self.pagenos]
         if self.parallel:
             tables = self.pool.map(self.extractor.get_tables, pages)
-            tables = {k: v for d in tables for k, v in d.items()}
+            tables = {k: v for d in tables if d is not None for k, v in d.items()}
         else:
             tables = {}
             for p in pages:
