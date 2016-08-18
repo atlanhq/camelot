@@ -321,7 +321,7 @@ if __name__ == '__main__':
                 for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                     page = data[page_number]
                     for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
-                        table = data[table_number]
+                        table = page[table_number]
                         plot_pagewise_barchart(table['r_empty_cells'],
                             table['c_empty_cells'], table['empty_p'])
             
