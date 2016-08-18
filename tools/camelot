@@ -250,37 +250,46 @@ if __name__ == '__main__':
                           parallel=args['--parallel'],
                           clean=True)
             data = manager.extract()
+            
             processing_time = time.time() - start_time
             vprint("Finished processing in", processing_time, "seconds")
             logging.info("Finished processing in " + str(processing_time) + " seconds")
+            
             if args['--plot-all']:
                 plot_overall_barchart(data)
+            
             if args['--plot-page']:
                 for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
-                    for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
-                        plot_pagewise_barchart(data[page_number][table_number]['r_empty_cells'],
-                            data[page_number][table_number]['c_empty_cells'],
-                            data[page_number][table_number]['empty_p'])
+                    page = data[page_number]
+                    for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
+                        table = page[table_number]
+                        plot_pagewise_barchart(table['r_empty_cells'],
+                            table['c_empty_cells'],
+                            table['empty_p'])
+            
             if args['--save-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,n_empty_rows,n_empty_cols,empty_p,r_empty_cells,c_empty_cells,line_p,text_p,score\n')
+                    score_file.write('table,nrows,ncols,n_empty_rows,n_empty_cols,'
+                        'empty_p,r_empty_cells,c_empty_cells,line_p,text_p,score\n')
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
-                        for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
+                        page = data[page_number]
+                        for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
+                            table = page[table_number]
                             score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}\n'.format(
                                 ''.join([page_number, '_', table_number]),
-                                data[page_number][table_number]['nrows'],
-                                data[page_number][table_number]['ncols'],
-                                data[page_number][table_number]['n_empty_rows'],
-                                data[page_number][table_number]['n_empty_cols'],
-                                data[page_number][table_number]['empty_p'],
-                                ':'.join([str(d) for d in data[page_number][table_number]['r_empty_cells']]),
-                                ':'.join([str(d) for d in data[page_number][table_number]['c_empty_cells']]),
-                                data[page_number][table_number]['line_p'],
-                                data[page_number][table_number]['text_p'],
-                                data[page_number][table_number]['score']))
-            elif args['--debug']:
+                                table['nrows'],
+                                table['ncols'],
+                                table['n_empty_rows'],
+                                table['n_empty_cols'],
+                                table['empty_p'],
+                                ':'.join([str(d) for d in table['r_empty_cells']]),
+                                ':'.join([str(d) for d in table['c_empty_cells']]),
+                                table['line_p'],
+                                table['text_p'],
+                                table['score']))
+            if args['--debug']:
                 manager.debug_plot()
         except Exception as e:
             logging.exception(e.message, exc_info=True)
@@ -300,35 +309,44 @@ if __name__ == '__main__':
                           parallel=args['--parallel'],
                           clean=True)
             data = manager.extract()
+            
             processing_time = time.time() - start_time
             vprint("Finished processing in", processing_time, "seconds")
             logging.info("Finished processing in " + str(processing_time) + " seconds")
+            
             if args['--plot-all']:
                 plot_overall_barchart(data)
+            
             if args['--plot-page']:
                 for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
-                    for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
-                        plot_pagewise_barchart(data[page_number][table_number]['r_empty_cells'],
-                            data[page_number][table_number]['c_empty_cells'],
-                            data[page_number][table_number]['empty_p'])
+                    page = data[page_number]
+                    for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
+                        table = data[table_number]
+                        plot_pagewise_barchart(table['r_empty_cells'],
+                            table['c_empty_cells'], table['empty_p'])
+            
             if args['--save-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,n_empty_rows,n_empty_cols,empty_p,r_empty_cells,c_empty_cells,score\n')
+                    score_file.write('table,nrows,ncols,n_empty_rows,n_empty_cols,'
+                        'empty_p,r_empty_cells,c_empty_cells,score\n')
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
-                        for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
+                        page = data[page_number]
+                        for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
+                            table = page[table_number]
                             score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8}\n'.format(
                                 ''.join([page_number, '_', table_number]),
-                                data[page_number][table_number]['nrows'],
-                                data[page_number][table_number]['ncols'],
-                                data[page_number][table_number]['n_empty_rows'],
-                                data[page_number][table_number]['n_empty_cols'],
-                                data[page_number][table_number]['empty_p'],
-                                ':'.join([str(d) for d in data[page_number][table_number]['r_empty_cells']]),
-                                ':'.join([str(d) for d in data[page_number][table_number]['c_empty_cells']]),
-                                data[page_number][table_number]['score']))
-            elif args['--debug']:
+                                table['nrows'],
+                                table['ncols'],
+                                table['n_empty_rows'],
+                                table['n_empty_cols'],
+                                table['empty_p'],
+                                ':'.join([str(d) for d in table['r_empty_cells']]),
+                                ':'.join([str(d) for d in table['c_empty_cells']]),
+                                table['score']))
+            
+            if args['--debug']:
                 manager.debug_plot()
         except Exception as e:
             logging.exception(e.message, exc_info=True)
