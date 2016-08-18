@@ -41,6 +41,7 @@ options:
                            empty cells in each row/column of a table.
  -Y, --plot-all            Plot a bar chart showing number of rows with a specific
                            percentage of empty cells.
+ -D, --describe            Describe the parsing process and final output.
 
 camelot methods:
  lattice  Looks for lines between data.
@@ -138,6 +139,10 @@ def plot_overall_barchart(data):
     ymax = max(c.values()) + 0.1 * max(c.values())
     plt.ylim(0, ymax)
     plt.show()
+
+
+def describe(data):
+    pass
 
 
 def convert_to_html(table):
@@ -267,6 +272,9 @@ if __name__ == '__main__':
                             table['c_empty_cells'],
                             table['empty_p'])
             
+            if args['--describe']:
+                describe(data)
+
             if args['--save-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
@@ -324,6 +332,9 @@ if __name__ == '__main__':
                         table = page[table_number]
                         plot_pagewise_barchart(table['r_empty_cells'],
                             table['c_empty_cells'], table['empty_p'])
+
+            if args['--describe']:
+                describe(data)
             
             if args['--save-info']:
                 if args['--output']:

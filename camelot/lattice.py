@@ -91,8 +91,12 @@ def _morph_transform(imagename, scale=15, invert=False):
 
     mask = vertical + horizontal
     joints = np.bitwise_and(vertical, horizontal)
-    __, contours, __ = cv2.findContours(
-        mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    try:
+        __, contours, __ = cv2.findContours(
+            mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    except ValueError:
+        contours, __ = cv2.findContours(
+            mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
 
     tables = {}
@@ -100,8 +104,12 @@ def _morph_transform(imagename, scale=15, invert=False):
         c_poly = cv2.approxPolyDP(c, 3, True)
         x, y, w, h = cv2.boundingRect(c_poly)
         roi = joints[y : y + h, x : x + w]
-        __, jc, __ = cv2.findContours(
-            roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+        try:
+            __, jc, __ = cv2.findContours(
+                roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+        except ValueError:
+            jc, __ = cv2.findContours(
+                roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
         if len(jc) <= 4:  # remove contours with less than <=4 joints
             continue
         joint_coords = []
@@ -112,16 +120,24 @@ def _morph_transform(imagename, scale=15, invert=False):
         tables[(x, y + h, x + w, y)] = joint_coords
 
     v_segments, h_segments = [], []
-    _, vcontours, _ = cv2.findContours(
-        vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    try:
+        _, vcontours, _ = cv2.findContours(
+            vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    except ValueError:
+        vcontours, _ = cv2.findContours(
+            vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for vc in vcontours:
         x, y, w, h = cv2.boundingRect(vc)
         x1, x2 = x, x + w
         y1, y2 = y, y + h
         v_segments.append(((x1 + x2) / 2, y2, (x1 + x2) / 2, y1))
 
-    _, hcontours, _ = cv2.findContours(
-        horizontal, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    try:
+        _, hcontours, _ = cv2.findContours(
+            horizontal, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    except ValueError:
+        hcontours, _ = cv2.findContours(
+            horizontal, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for hc in hcontours:
         x, y, w, h = cv2.boundingRect(hc)
         x1, x2 = x, x + w
