@@ -22,9 +22,13 @@ usage:
 options:
  -h, --help                Show this screen.
  -v, --version             Show version.
+ -V, --verbose             Verbose.
  -p, --pages <pageno>      Comma-separated list of page numbers.
                            Example: -p 1,3-6,10  [default: 1]
  -P, --parallel            Parallelize the parsing process.
+ -f, --format <format>     Output format. (csv,tsv,html,json,xlsx) [default: csv]
+ -l, --log                 Log to file.
+ -o, --output <directory>  Output directory.
  -M, --cmargin <cmargin>   Char margin. Chars closer than cmargin are
                            grouped together to form a word. [default: 2.0]
  -L, --lmargin <lmargin>   Line margin. Lines closer than lmargin are
@@ -32,11 +36,11 @@ options:
  -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
                            if distance between words is greater than word
                            margin. [default: 0.1]
- -f, --format <format>     Output format. (csv,tsv,html,json,xlsx) [default: csv]
- -l, --log                 Log to file.
- -I, --with-info               Save parsing info for each page to a file.
- -V, --verbose             Verbose.
- -o, --output <directory>  Output directory.
+ -S, --save-info           Save parsing info for each page to a file.
+ -X, --plot-page           Plot a bar chart for every page showing number of
+                           empty cells in each row/column of a table.
+ -Y, --plot-all            Plot a bar chart showing number of rows with a specific
+                           percentage of empty cells.
 
 camelot methods:
  lattice  Looks for lines between data.
@@ -84,6 +88,56 @@ options:
                           object to column. [default: 10]
  -d, --debug              Debug by visualizing textboxes.
 """
+
+
+def plot_pagewise_barchart(r, c, p):
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    row_idx = [i + 1 for i, row in enumerate(r)]
+    col_idx = [i + 1 for i, col in enumerate(c)]
+    r_index = np.arange(len(r))
+    c_index = np.arange(len(c))
+    width = 0.7
+
+    plt.subplot(2, 1, 1)
+    plt.title('Percentage of empty cells in table: {0:.2f}'.format(p))
+    plt.xlabel('row index')
+    plt.ylabel('number of empty cells in row')
+    plt.bar(r_index, r)
+    plt.xticks(r_index + width * 0.5, row_idx)
+    plt.ylim(0, len(c))
+
+    plt.subplot(2, 1, 2)
+    plt.xlabel('column index')
+    plt.ylabel('number of empty cells in column')
+    plt.bar(c_index, c)
+    plt.xticks(c_index + width * 0.5, col_idx)
+    plt.ylim(0, len(r))
+    plt.show()
+
+
+def plot_overall_barchart(data):
+    from collections import Counter
+    import matplotlib.pyplot as plt
+
+    r_empty_cells = []
+    for page_number in data.keys():
+        page = data[page_number]
+        for table_number in page.keys():
+            table = page[table_number]
+            r_empty_cells.extend([r / float(table['ncols']) for r in table['r_empty_cells']])
+    c = Counter(r_empty_cells)
+    if 0.0 not in c:
+        c.update({0.0: 0})
+    if 1.0 not in c:
+        c.update({1.0: 0})
+    plt.xlabel('percentage of empty cells in a row')
+    plt.ylabel('number of rows')
+    plt.bar(c.keys(), c.values(), align='center', width=0.1)
+    ymax = max(c.values()) + 0.1 * max(c.values())
+    plt.ylim(0, ymax)
+    plt.show()
 
 
 def convert_to_html(table):
@@ -196,25 +250,38 @@ if __name__ == '__main__':
                           parallel=args['--parallel'],
                           clean=True)
             data = manager.extract()
-            if args['--with-info']:
+            processing_time = time.time() - start_time
+            vprint("Finished processing in", processing_time, "seconds")
+            logging.info("Finished processing in " + str(processing_time) + " seconds")
+            if args['--plot-all']:
+                plot_overall_barchart(data)
+            if args['--plot-page']:
+                for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
+                    for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
+                        plot_pagewise_barchart(data[page_number][table_number]['r_empty_cells'],
+                            data[page_number][table_number]['c_empty_cells'],
+                            data[page_number][table_number]['empty_p'])
+            if args['--save-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,n_blank_rows,n_blank_cols,blank_p,line_p,text_p,score\n')
+                    score_file.write('table,nrows,ncols,n_empty_rows,n_empty_cols,empty_p,r_empty_cells,c_empty_cells,line_p,text_p,score\n')
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                         for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
-                            score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8}\n'.format(
+                            score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}\n'.format(
                                 ''.join([page_number, '_', table_number]),
                                 data[page_number][table_number]['nrows'],
                                 data[page_number][table_number]['ncols'],
-                                data[page_number][table_number]['n_blank_rows'],
-                                data[page_number][table_number]['n_blank_cols'],
-                                data[page_number][table_number]['blank_p'],
+                                data[page_number][table_number]['n_empty_rows'],
+                                data[page_number][table_number]['n_empty_cols'],
+                                data[page_number][table_number]['empty_p'],
+                                ':'.join([str(d) for d in data[page_number][table_number]['r_empty_cells']]),
+                                ':'.join([str(d) for d in data[page_number][table_number]['c_empty_cells']]),
                                 data[page_number][table_number]['line_p'],
                                 data[page_number][table_number]['text_p'],
-                                data[page_number][table_number]['score'],))
+                                data[page_number][table_number]['score']))
             elif args['--debug']:
-                manager.debug(args['--debug'])
+                manager.debug_plot()
         except Exception as e:
             logging.exception(e.message, exc_info=True)
             sys.exit()
@@ -233,23 +300,36 @@ if __name__ == '__main__':
                           parallel=args['--parallel'],
                           clean=True)
             data = manager.extract()
-            if args['--with-info']:
+            processing_time = time.time() - start_time
+            vprint("Finished processing in", processing_time, "seconds")
+            logging.info("Finished processing in " + str(processing_time) + " seconds")
+            if args['--plot-all']:
+                plot_overall_barchart(data)
+            if args['--plot-page']:
+                for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
+                    for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
+                        plot_pagewise_barchart(data[page_number][table_number]['r_empty_cells'],
+                            data[page_number][table_number]['c_empty_cells'],
+                            data[page_number][table_number]['empty_p'])
+            if args['--save-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,n_blank_rows,n_blank_cols,blank_p,score\n')
+                    score_file.write('table,nrows,ncols,n_empty_rows,n_empty_cols,empty_p,r_empty_cells,c_empty_cells,score\n')
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                         for table_number in sorted(data[page_number].keys(), key=lambda x: int(x[6:])):
-                            score_file.write('{0},{1},{2},{3},{4},{5},{6}\n'.format(
+                            score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8}\n'.format(
                                 ''.join([page_number, '_', table_number]),
                                 data[page_number][table_number]['nrows'],
                                 data[page_number][table_number]['ncols'],
-                                data[page_number][table_number]['n_blank_rows'],
-                                data[page_number][table_number]['n_blank_cols'],
-                                data[page_number][table_number]['blank_p'],
+                                data[page_number][table_number]['n_empty_rows'],
+                                data[page_number][table_number]['n_empty_cols'],
+                                data[page_number][table_number]['empty_p'],
+                                ':'.join([str(d) for d in data[page_number][table_number]['r_empty_cells']]),
+                                ':'.join([str(d) for d in data[page_number][table_number]['c_empty_cells']]),
                                 data[page_number][table_number]['score']))
             elif args['--debug']:
-                manager.debug(args['--debug'])
+                manager.debug_plot()
         except Exception as e:
             logging.exception(e.message, exc_info=True)
             sys.exit()
@@ -260,6 +340,3 @@ if __name__ == '__main__':
         output = filedir if args['--output'] is None else args['--output']
         write_to_disk(data, f=args['--format'],
                       output=output, filename=filename)
-
-    vprint("Time taken:", time.time() - start_time, "seconds")
-    logging.info("Time taken: " + str(time.time() - start_time) + " seconds")

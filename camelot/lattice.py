@@ -175,6 +175,7 @@ class Lattice:
     def __init__(self, fill=None, scale=15, jtol=2, mtol=2,
                  invert=False, pdf_margin=(2.0, 0.5, 0.1), debug=None):
 
+        self.method = 'lattice'
         self.fill = fill
         self.scale = scale
         self.jtol = jtol
@@ -293,13 +294,14 @@ class Lattice:
             elif rotated == 'right':
                 ar = zip(*ar[::1])
                 ar.reverse()
-            n_blank_rows, n_blank_cols, blank_p = count_empty(ar)
-            table_info['n_blank_rows'] = n_blank_rows
-            table_info['n_blank_cols'] = n_blank_cols
-            table_info['blank_p'] = blank_p
-            # ar = [list(o) for o in ar]
             ar = encode_list(ar)
             table_info['data'] = ar
+            n_empty_rows, n_empty_cols, empty_p, r_empty_cells, c_empty_cells = count_empty(ar)
+            table_info['n_empty_rows'] = n_empty_rows
+            table_info['n_empty_cols'] = n_empty_cols
+            table_info['empty_p'] = empty_p
+            table_info['r_empty_cells'] = r_empty_cells
+            table_info['c_empty_cells'] = c_empty_cells
             table_info['nrows'] = len(ar)
             table_info['ncols'] = len(ar[0])
             page_tables['table_{0}'.format(table_no)] = table_info
@@ -310,74 +312,3 @@ class Lattice:
             return None
 
         return pdf_page
-
-    def plot_geometry(self, geometry):
-        """Plots various pdf geometries that are detected so user can choose
-        tweak scale, jtol, mtol parameters.
-        """
-        import matplotlib.pyplot as plt
-
-        if geometry == 'contour':
-            try:
-                img, table_bbox = self.debug_images
-                for t in table_bbox.keys():
-                    cv2.rectangle(img, (t[0], t[1]),
-                                  (t[2], t[3]), (255, 0, 0), 3)
-                plt.imshow(img)
-                plt.show()
-            except AttributeError:
-                raise UserWarning("Please set debug='contour'.")
-        elif geometry == 'joint':
-            x_coord = []
-            y_coord = []
-            try:
-                img, table_bbox = self.debug_images
-                for k in table_bbox.keys():
-                    for coord in table_bbox[k]:
-                        x_coord.append(coord[0])
-                        y_coord.append(coord[1])
-                max_x, max_y = max(x_coord), max(y_coord)
-                plt.plot(x_coord, y_coord, 'ro')
-                plt.axis([0, max_x + 100, max_y + 100, 0])
-                plt.imshow(img)
-                plt.show()
-            except AttributeError:
-                raise UserWarning("Please set debug='joint'.")
-        elif geometry == 'line':
-            try:
-                v_s, h_s = self.debug_segments
-                for v in v_s:
-                    plt.plot([v[0], v[2]], [v[1], v[3]])
-                for h in h_s:
-                    plt.plot([h[0], h[2]], [h[1], h[3]])
-                plt.show()
-            except AttributeError:
-                raise UserWarning("Please set debug='line'.")
-        elif geometry == 'table':
-            try:
-                for table in self.debug_tables:
-                    for i in range(len(table.cells)):
-                        for j in range(len(table.cells[i])):
-                            if table.cells[i][j].left:
-                                plt.plot([table.cells[i][j].lb[0],
-                                          table.cells[i][j].lt[0]],
-                                         [table.cells[i][j].lb[1],
-                                          table.cells[i][j].lt[1]])
-                            if table.cells[i][j].right:
-                                plt.plot([table.cells[i][j].rb[0],
-                                          table.cells[i][j].rt[0]],
-                                         [table.cells[i][j].rb[1],
-                                          table.cells[i][j].rt[1]])
-                            if table.cells[i][j].top:
-                                plt.plot([table.cells[i][j].lt[0],
-                                          table.cells[i][j].rt[0]],
-                                         [table.cells[i][j].lt[1],
-                                          table.cells[i][j].rt[1]])
-                            if table.cells[i][j].bottom:
-                                plt.plot([table.cells[i][j].lb[0],
-                                          table.cells[i][j].rb[0]],
-                                         [table.cells[i][j].lb[1],
-                                          table.cells[i][j].rb[1]])
-                plt.show()
-            except AttributeError:
-                raise UserWarning("Please set debug='table'.")

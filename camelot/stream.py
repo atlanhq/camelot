@@ -168,6 +168,7 @@ class Stream:
     def __init__(self, ncolumns=0, columns=None, ytol=2, mtol=2,
                  ctol=10, pdf_margin=(2.0, 0.5, 0.1), debug=False):
 
+        self.method = 'stream'
         self.ncolumns = ncolumns
         self.columns = columns
         self.ytol = ytol
@@ -187,15 +188,15 @@ class Stream:
         """
         __, text, width, height = pdf_to_text(pdfname, self.char_margin,
             self.line_margin, self.word_margin)
-        bname, __ = os.path.splitext(pdfname)
-        text.sort(key=lambda x: (-x.y0, x.x0))
-
         if not text:
             print "PDF has no text. It may be an image-based PDF."
             return None
+        bname, __ = os.path.splitext(pdfname)
+        text.sort(key=lambda x: (-x.y0, x.x0))
 
         if self.debug:
-            self.debug_text = text
+            self.debug_text = [(t.x0, t.y0, t.x1, t.y1) for t in text]
+            return None
 
         rows_grouped = _group_rows(text, ytol=self.ytol)
         elements = [len(r) for r in rows_grouped]
@@ -283,51 +284,23 @@ class Stream:
             cerror.append(cass_error)
             table.cells[r_idx][c_idx].add_text(
                 t.get_text().strip('\n'))
-        ar = table.get_list()
-        ar = encode_list(ar)
-        table_info['data'] = ar
         if guess:
             score = get_score([[33, rerror], [33, cerror], [34, [len_non_mode / len(elements)]]])
         else:
             score = get_score([[50, rerror], [50, cerror]])
-        n_blank_rows, n_blank_cols, blank_p = count_empty(ar)
-        table_info['n_blank_rows'] = n_blank_rows
-        table_info['n_blank_cols'] = n_blank_cols
-        table_info['blank_p'] = blank_p
         table_info['score'] = score
+        ar = table.get_list()
+        ar = encode_list(ar)
+        table_info['data'] = ar
+        n_empty_rows, n_empty_cols, empty_p, r_empty_cells, c_empty_cells = count_empty(ar)
+        table_info['n_empty_rows'] = n_empty_rows
+        table_info['n_empty_cols'] = n_empty_cols
+        table_info['empty_p'] = empty_p
+        table_info['r_empty_cells'] = r_empty_cells
+        table_info['c_empty_cells'] = c_empty_cells
         table_info['nrows'] = len(ar)
         table_info['ncols'] = len(ar[0])
         page_tables['table_1'] = table_info
         pdf_page[os.path.basename(bname)] = page_tables
 
-        if self.debug:
-            return None
-
         return pdf_page
-
-    def plot_text(self):
-        """Plots all text objects so user can choose number of columns
-        or columns x-coordinates using the matplotlib interface.
-        """
-        import matplotlib.pyplot as plt
-        import matplotlib.patches as patches
-
-        fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
-        xs, ys = [], []
-        try:
-            for t in self.debug_text:
-                xs.extend([t.x0, t.x1])
-                ys.extend([t.y0, t.y1])
-                ax.add_patch(
-                    patches.Rectangle(
-                        (t.x0, t.y0),
-                        t.x1 - t.x0,
-                        t.y1 - t.y0
-                    )
-                )
-            ax.set_xlim(min(xs) - 10, max(xs) + 10)
-            ax.set_ylim(min(ys) - 10, max(ys) + 10)
-            plt.show()
-        except AttributeError:
-            raise UserWarning("Please set debug=True.")
