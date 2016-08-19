@@ -121,7 +121,17 @@ def _get_column_index(t, columns):
     return c_idx, error
 
 
-def _col_ops(cols, width):
+def _add_columns(cols, text, ytolerance):
+    if text:
+        text = _group_rows(text, ytol=ytolerance)
+        elements = [len(r) for r in text]
+        new_cols = [(t.x0, t.x1)
+            for r in text if len(r) == max(elements) for t in r]
+        cols.extend(_merge_columns(sorted(new_cols)))
+    return cols
+
+
+def _join_columns(cols, width):
     cols = sorted(cols)
     cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
     cols.insert(0, 0)
@@ -228,7 +238,7 @@ class Stream:
                     raise UserWarning("The number of columns after merge"
                                      " isn't the same as what you specified."
                                      " Change the value of mtol.")
-                cols = _col_ops(cols, width)
+                cols = _join_columns(cols, width)
             else:
                 guess = True
                 ncols = max(set(elements), key=elements.count)
@@ -241,26 +251,15 @@ class Stream:
                 cols = [(t.x0, t.x1)
                     for r in rows_grouped if len(r) == ncols for t in r]
                 cols = _merge_columns(sorted(cols), mtol=self.mtol)
-                col_diffs = [abs(cols[i][0] - cols[i - 1][1]) for i in range(1, len(cols))]
-                col_gaps = filter(lambda x: x > 50, col_diffs)
-                col_inner_indices = [col_diffs.index(c_gap) for c_gap in col_gaps]
-                for c_in_idx in col_inner_indices:
-                    left = cols[c_in_idx][1]
-                    right = cols[c_in_idx + 1][0]
-                    inner_text = [t for t in text if t.x0 > left and t.x1 < right]
-                    inner_text = _group_rows(inner_text, ytol=self.ytol)
-                    inner_elements = [len(r) for r in inner_text]
-                    inner_cols = [(t.x0, t.x1)
-                        for r in inner_text if len(r) == max(inner_elements) for t in r]
-                    cols.extend(_merge_columns(sorted(inner_cols)))
+                inner_text = []
+                for i in range(1, len(cols)):
+                    left = cols[i - 1][1]
+                    right = cols[i][0]
+                    inner_text.extend([t for t in text if t.x0 > left and t.x1 < right])
                 outer_text = [t for t in text if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
-                if outer_text:
-                    outer_text = _group_rows(outer_text, ytol=self.ytol)
-                    outer_elements = [len(r) for r in outer_text]
-                    outer_cols = [(t.x0, t.x1)
-                        for r in outer_text if len(r) == max(outer_elements) for t in r]
-                    cols.extend(_merge_columns(sorted(outer_cols)))
-                cols = _col_ops(cols, width)
+                inner_text.extend(outer_text)
+                cols = _add_columns(cols, inner_text, self.ytol)
+                cols = _join_columns(cols, width)
 
         pdf_page = {}
         page_tables = {}
