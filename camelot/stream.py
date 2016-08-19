@@ -189,7 +189,8 @@ class Stream:
         __, text, width, height = pdf_to_text(pdfname, self.char_margin,
             self.line_margin, self.word_margin)
         if not text:
-            print "PDF has no text. It may be an image-based PDF."
+            print "{0} has no text. It may be an image.".format(
+                os.path.basename(pdfname))
             return None
         bname, __ = os.path.splitext(pdfname)
         text.sort(key=lambda x: (-x.y0, x.x0))

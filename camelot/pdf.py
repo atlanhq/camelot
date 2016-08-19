@@ -66,7 +66,7 @@ class Pdf:
         self.extractor = extractor
         self.pdfname = pdfname
         if not self.pdfname.endswith('.pdf'):
-            raise TypeError("Only PDF format is supported.")
+            raise TypeError("Only PDF format is supported right now.")
         self.pagenos = _parse_page_numbers(pagenos)
         self.parallel = parallel
         self.cpu_count = mp.cpu_count()

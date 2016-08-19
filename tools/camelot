@@ -5,7 +5,10 @@ import sys
 import time
 import logging
 
+import numpy as np
 from docopt import docopt
+from collections import Counter
+import matplotlib.pyplot as plt
 from PyPDF2 import PdfFileReader
 
 from camelot.pdf import Pdf
@@ -37,11 +40,8 @@ options:
                            if distance between words is greater than word
                            margin. [default: 0.1]
  -S, --save-info           Save parsing info for each page to a file.
- -X, --plot-page           Plot a bar chart for every page showing number of
-                           empty cells in each row/column of a table.
- -Y, --plot-all            Plot a bar chart showing number of rows with a specific
-                           percentage of empty cells.
- -D, --describe            Describe the parsing process and final output.
+ -X, --plot <dist>         Plot distributions. (page,all,rc)
+ -Z, --summary             Summarize metrics.
 
 camelot methods:
  lattice  Looks for lines between data.
@@ -91,10 +91,7 @@ options:
 """
 
 
-def plot_pagewise_barchart(r, c, p):
-    import numpy as np
-    import matplotlib.pyplot as plt
-
+def plot_page_barchart(r, c, p):
     row_idx = [i + 1 for i, row in enumerate(r)]
     col_idx = [i + 1 for i, col in enumerate(c)]
     r_index = np.arange(len(r))
@@ -118,10 +115,7 @@ def plot_pagewise_barchart(r, c, p):
     plt.show()
 
 
-def plot_overall_barchart(data):
-    from collections import Counter
-    import matplotlib.pyplot as plt
-
+def plot_all_barchart(data):
     r_empty_cells = []
     for page_number in data.keys():
         page = data[page_number]
@@ -134,15 +128,79 @@ def plot_overall_barchart(data):
     if 1.0 not in c:
         c.update({1.0: 0})
     plt.xlabel('percentage of empty cells in a row')
-    plt.ylabel('number of rows')
-    plt.bar(c.keys(), c.values(), align='center', width=0.1)
-    ymax = max(c.values()) + 0.1 * max(c.values())
-    plt.ylim(0, ymax)
+    plt.ylabel('percentage of rows processed')
+    row_p = [count / float(sum(c.values())) for count in c.values()]
+    plt.bar(c.keys(), row_p, align='center', width=0.1)
+    plt.ylim(0, 1.0)
     plt.show()
 
 
-def describe(data):
-    pass
+def plot_rc_barchart(data):
+    from matplotlib import cm
+
+    tables = 0
+    rows, cols = [], []
+    for page_number in data.keys():
+        page = data[page_number]
+        for table_number in page.keys():
+            table = page[table_number]
+            tables += 1
+            rows.append(table['nrows'])
+            cols.append(table['ncols'])
+
+    r = Counter(rows)
+    c = Counter(cols)
+
+    cs1 = cm.Set1(np.arange(len(r)) / float(len(r)))
+    ax1 = plt.subplot(211, aspect='equal')
+    ax1.pie(r.values(), colors=cs1, labels=r.keys(), shadow=True, startangle=90)
+    ax1.set_title('row distribution across tables')
+
+    cs2 = cm.Set1(np.arange(len(c)) / float(len(c)))
+    ax2 = plt.subplot(212, aspect='equal')
+    ax2.pie(c.values(), colors=cs2, labels=c.keys(), shadow=True, startangle=90)
+    ax2.set_title('column distribution across tables')
+
+    plt.show()
+
+
+def summary(data, p_time):
+    from operator import itemgetter
+    from itertools import groupby
+
+    time_string = ("{0} {1} processed in {2:.2f} seconds.{3}".format(
+        len(data),
+        'page was' if len(data) == 1 else 'pages were', p_time,
+        " That's an average of {0:.2f} seconds per page.".format(
+        p_time / float(len(data))) if len(data) != 1 else ''))
+
+    scores = []
+    continuous_tables = []
+    for page_number in data.keys():
+        page = data[page_number]
+        for table_number in page.keys():
+            table = page[table_number]
+            continuous_tables.append((page_number, table_number, table['ncols']))
+            scores.append(table['score'])
+    avg_score = np.mean(scores)
+    score_string = ("Text was assigned to each cell with an average assignment"
+        " score of {0:.2f}, which is {1}.".format(
+        avg_score,
+        'pretty good' if avg_score > 90 else 'kind of, "average"'))
+
+    ct_pages = []
+    tables = sorted(continuous_tables, key=lambda x: (int(x[0][5:]), int(x[1][6:])))
+    for k, g in groupby(tables, key=itemgetter(2)):
+        g = list(g)
+        tables_same_ncols = set([int(t[0][5:]) for t in g])
+        tables_same_ncols = sorted(list(tables_same_ncols))
+        for K, G in groupby(enumerate(tables_same_ncols), key=lambda (i, x): i - x):
+            G = list(G)
+            ct_pages.append((str(G[0][1]), str(G[-1][1])))
+    table_string = "Tables on pages {0} can probably be appended.".format(
+        ', '.join(['-'.join(ct) for ct in ct_pages]))
+
+    print(' '.join([time_string, score_string, table_string]))
 
 
 def convert_to_html(table):
@@ -260,20 +318,23 @@ if __name__ == '__main__':
             vprint("Finished processing in", processing_time, "seconds")
             logging.info("Finished processing in " + str(processing_time) + " seconds")
             
-            if args['--plot-all']:
-                plot_overall_barchart(data)
-            
-            if args['--plot-page']:
+            if args['--plot'] == 'page':
                 for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                     page = data[page_number]
                     for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                         table = page[table_number]
-                        plot_pagewise_barchart(table['r_empty_cells'],
+                        plot_page_barchart(table['r_empty_cells'],
                             table['c_empty_cells'],
                             table['empty_p'])
+
+            if args['--plot'] == 'all':
+                plot_all_barchart(data)
+
+            if args['--plot'] == 'rc':
+                plot_rc_barchart(data)
             
-            if args['--describe']:
-                describe(data)
+            if args['--summary']:
+                summary(data, processing_time)
 
             if args['--save-info']:
                 if args['--output']:
@@ -322,19 +383,22 @@ if __name__ == '__main__':
             vprint("Finished processing in", processing_time, "seconds")
             logging.info("Finished processing in " + str(processing_time) + " seconds")
             
-            if args['--plot-all']:
-                plot_overall_barchart(data)
-            
-            if args['--plot-page']:
+            if args['--plot'] == 'page':
                 for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                     page = data[page_number]
                     for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                         table = page[table_number]
-                        plot_pagewise_barchart(table['r_empty_cells'],
+                        plot_page_barchart(table['r_empty_cells'],
                             table['c_empty_cells'], table['empty_p'])
 
-            if args['--describe']:
-                describe(data)
+            if args['--plot'] == 'all':
+                plot_all_barchart(data)
+
+            if args['--plot'] == 'rc':
+                plot_rc_barchart(data)
+
+            if args['--summary']:
+                summary(data, processing_time)
             
             if args['--save-info']:
                 if args['--output']:

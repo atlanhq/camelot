@@ -211,6 +211,10 @@ class Lattice:
         """
         text, __, width, height = pdf_to_text(pdfname, self.char_margin,
             self.line_margin, self.word_margin)
+        if not text:
+            print "{0} has no text. It may be an image.".format(
+                os.path.basename(pdfname))
+            return None
         bname, __ = os.path.splitext(pdfname)
         imagename = ''.join([bname, '.png'])
         with Image(filename=pdfname, depth=8, resolution=300) as png:
