@@ -135,7 +135,7 @@ def plot_all_barchart(data):
     plt.show()
 
 
-def plot_rc_barchart(data):
+def plot_rc_piechart(data):
     from matplotlib import cm
 
     tables = 0
@@ -331,7 +331,7 @@ if __name__ == '__main__':
                 plot_all_barchart(data)
 
             if args['--plot'] == 'rc':
-                plot_rc_barchart(data)
+                plot_rc_piechart(data)
             
             if args['--summary']:
                 summary(data, processing_time)
@@ -395,7 +395,7 @@ if __name__ == '__main__':
                 plot_all_barchart(data)
 
             if args['--plot'] == 'rc':
-                plot_rc_barchart(data)
+                plot_rc_piechart(data)
 
             if args['--summary']:
                 summary(data, processing_time)
