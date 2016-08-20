@@ -269,8 +269,9 @@ def get_row_index(t, rows):
                 offset1 = abs(t.y0 - rows[r][0])
             if t.y1 < rows[r][1]:
                 offset2 = abs(t.y1 - rows[r][1])
-            X = abs(t.x0 - t.x1)
-            charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
+            X = 1.0 if abs(t.x0 - t.x1) == 0.0 else abs(t.x0 - t.x1)
+            Y = 1.0 if abs(t.y0 - t.y1) == 0.0 else abs(t.y0 - t.y1)
+            charea = X * Y
             error = (X * (offset1 + offset2)) / charea
             return r, error
 
@@ -296,8 +297,9 @@ def get_column_index(t, columns):
                 offset1 = abs(t.x0 - columns[c][0])
             if t.x1 > columns[c][1]:
                 offset2 = abs(t.x1 - columns[c][1])
-            Y = abs(t.y0 - t.y1)
-            charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
+            X = 1.0 if abs(t.x0 - t.x1) == 0.0 else abs(t.x0 - t.x1)
+            Y = 1.0 if abs(t.y0 - t.y1) == 0.0 else abs(t.y0 - t.y1)
+            charea = X * Y
             error = (Y * (offset1 + offset2)) / charea
             return c, error
 
