@@ -2,6 +2,7 @@ from __future__ import division
 import os
 import types
 import copy_reg
+import warnings
 
 import numpy as np
 
@@ -46,11 +47,11 @@ def _group_rows(text, ytol=2):
         # type(obj) is LTChar]):
         if t.get_text().strip():
             if not np.isclose(row_y, t.y0, atol=ytol):
-                rows.append(temp)
+                rows.append(sorted(temp, key=lambda t: t.x0))
                 temp = []
                 row_y = t.y0
             temp.append(t)
-    rows.append(temp)
+    rows.append(sorted(temp, key=lambda t: t.x0))
     __ = rows.pop(0) # hacky
     return rows
 
@@ -109,7 +110,7 @@ def _get_column_index(t, columns):
         else:
             lt_col_overlap.append(-1)
     if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
-        raise ValueError("Text doesn't fit any column.")
+        warnings.warn("Text doesn't fit any column.", UserWarning)
     c_idx = lt_col_overlap.index(max(lt_col_overlap))
     if t.x0 < columns[c_idx][0]:
         offset1 = abs(t.x0 - columns[c_idx][0])
@@ -198,11 +199,11 @@ class Stream:
         """
         __, text, width, height = pdf_to_text(pdfname, self.char_margin,
             self.line_margin, self.word_margin)
-        if not text:
-            print "{0} has no text. It may be an image.".format(
-                os.path.basename(pdfname))
-            return None
         bname, __ = os.path.splitext(pdfname)
+        if not text:
+            warnings.warn_explicit("{0}: PDF has no text. It may be an image.".format(
+                os.path.basename(bname)), UserWarning)
+            return None
         text.sort(key=lambda x: (-x.y0, x.x0))
 
         if self.debug:
@@ -235,9 +236,10 @@ class Stream:
                     for r in rows_grouped if len(r) == ncols for t in r]
                 cols = _merge_columns(sorted(cols), mtol=self.mtol)
                 if len(cols) != self.ncolumns:
-                    raise UserWarning("The number of columns after merge"
-                                     " isn't the same as what you specified."
-                                     " Change the value of mtol.")
+                    warnings.warn("{}: The number of columns after merge"
+                                  " isn't the same as what you specified."
+                                  " Change the value of mtol.".format(
+                                  os.path.basename(bname)), UserWarning)
                 cols = _join_columns(cols, width)
             else:
                 guess = True
@@ -245,9 +247,10 @@ class Stream:
                 len_non_mode = len(filter(lambda x: x != ncols, elements))
                 if ncols == 1 and not self.debug:
                     # no tables detected
-                    raise UserWarning("Only one column was detected, the PDF"
-                                      " may have no tables. Specify ncols if"
-                                      " the PDF has tables.")
+                    warnings.warn("{}: Only one column was detected, the PDF"
+                                  " may have no tables. Specify ncols if"
+                                  " the PDF has tables.".format(
+                                  os.path.basename(bname)), UserWarning)
                 cols = [(t.x0, t.x1)
                     for r in rows_grouped if len(r) == ncols for t in r]
                 cols = _merge_columns(sorted(cols), mtol=self.mtol)
@@ -267,23 +270,24 @@ class Stream:
         table = Table(cols, rows)
         rerror = []
         cerror = []
-        for t in text:
-            try:
-                r_idx, rass_error = get_row_index(t, rows)
-            except ValueError as e:
-                # couldn't assign LTTextLH to any cell
-                vprint(e.message)
-                continue
-            try:
-                c_idx, cass_error = _get_column_index(t, cols)
-            except ValueError as e:
-                # couldn't assign LTTextLH to any cell
-                vprint(e.message)
-                continue
-            rerror.append(rass_error)
-            cerror.append(cass_error)
-            table.cells[r_idx][c_idx].add_text(
-                t.get_text().strip('\n'))
+        for row in rows_grouped:
+            for t in row:
+                try:
+                    r_idx, rass_error = get_row_index(t, rows)
+                except ValueError as e:
+                    # couldn't assign LTTextLH to any cell
+                    vprint(e.message)
+                    continue
+                try:
+                    c_idx, cass_error = _get_column_index(t, cols)
+                except ValueError as e:
+                    # couldn't assign LTTextLH to any cell
+                    vprint(e.message)
+                    continue
+                rerror.append(rass_error)
+                cerror.append(cass_error)
+                table.cells[r_idx][c_idx].add_text(
+                    t.get_text().strip('\n'))
         if guess:
             score = get_score([[33, rerror], [33, cerror], [34, [len_non_mode / len(elements)]]])
         else:
