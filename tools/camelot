@@ -356,7 +356,7 @@ if __name__ == '__main__':
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                             table = page[table_number]
-                            score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}\n'.format(
+                            score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8}\n'.format(
                                 ''.join([page_number, '_', table_number]),
                                 table['nrows'],
                                 table['ncols'],
@@ -423,7 +423,7 @@ if __name__ == '__main__':
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                             table = page[table_number]
-                            score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8}\n'.format(
+                            score_file.write('{0},{1},{2},{3},{4},{5},{6}\n'.format(
                                 ''.join([page_number, '_', table_number]),
                                 table['nrows'],
                                 table['ncols'],
