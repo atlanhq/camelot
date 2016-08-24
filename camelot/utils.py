@@ -465,32 +465,28 @@ def count_empty(d):
     n_empty_cols : number of empty columns
     empty_p : percentage of empty cells
     """
-    n_empty_rows, n_empty_cols, empty_p = 0, 0, 0
-    r_empty_cells, c_empty_cells = [], []
+    empty_p = 0
+    r_nempty_cells, c_nempty_cells = [], []
     for i in d:
         for j in i:
             if j.strip() == '':
                 empty_p += 1
     empty_p = 100 * (empty_p / float(len(d) * len(d[0])))
     for row in d:
-        r_empty_c = 0
+        r_nempty_c = 0
         for r in row:
-            if r.strip() == '':
-                r_empty_c += 1
-        r_empty_cells.append(r_empty_c)
-        if row == [''] * len(row):
-            n_empty_rows += 1
+            if r.strip() != '':
+                r_nempty_c += 1
+        r_nempty_cells.append(r_nempty_c)
     d = zip(*d)
     d = [list(col) for col in d]
     for col in d:
-        c_empty_c = 0
+        c_nempty_c = 0
         for c in col:
-            if c.strip() == '':
-                c_empty_c += 1
-        c_empty_cells.append(c_empty_c)
-        if col == [''] * len(col):
-            n_empty_cols += 1
-    return n_empty_rows, n_empty_cols, empty_p, r_empty_cells, c_empty_cells
+            if c.strip() != '':
+                c_nempty_c += 1
+        c_nempty_cells.append(c_nempty_c)
+    return empty_p, r_nempty_cells, c_nempty_cells
 
 
 def encode_list(ar):

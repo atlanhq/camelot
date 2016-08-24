@@ -317,12 +317,10 @@ class Lattice:
                 ar.reverse()
             ar = encode_list(ar)
             table_info['data'] = ar
-            n_empty_rows, n_empty_cols, empty_p, r_empty_cells, c_empty_cells = count_empty(ar)
-            table_info['n_empty_rows'] = n_empty_rows
-            table_info['n_empty_cols'] = n_empty_cols
+            empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
             table_info['empty_p'] = empty_p
-            table_info['r_empty_cells'] = r_empty_cells
-            table_info['c_empty_cells'] = c_empty_cells
+            table_info['r_nempty_cells'] = r_nempty_cells
+            table_info['c_nempty_cells'] = c_nempty_cells
             table_info['nrows'] = len(ar)
             table_info['ncols'] = len(ar[0])
             page_tables['table_{0}'.format(table_no)] = table_info

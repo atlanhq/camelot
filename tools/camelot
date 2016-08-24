@@ -86,8 +86,6 @@ options:
                           together. [default: 2]
  -m, --mtol <mtol>        Tolerance to account for when merging columns
                           together. [default: 2]
- -C, --ctol <ctol>        Tolerance to account for when assigning text
-                          object to column. [default: 10]
  -d, --debug              Debug by visualizing textboxes.
 """
 
@@ -102,14 +100,14 @@ def plot_page_barchart(r, c, p):
     plt.subplot(2, 1, 1)
     plt.title('Percentage of empty cells in table: {0:.2f}'.format(p))
     plt.xlabel('row index')
-    plt.ylabel('number of empty cells in row')
+    plt.ylabel('number of non-empty cells in row')
     plt.bar(r_index, r)
     plt.xticks(r_index + width * 0.5, row_idx)
     plt.ylim(0, len(c))
 
     plt.subplot(2, 1, 2)
     plt.xlabel('column index')
-    plt.ylabel('number of empty cells in column')
+    plt.ylabel('number of non-empty cells in column')
     plt.bar(c_index, c)
     plt.xticks(c_index + width * 0.5, col_idx)
     plt.ylim(0, len(r))
@@ -122,14 +120,14 @@ def plot_all_barchart(data):
         page = data[page_number]
         for table_number in page.keys():
             table = page[table_number]
-            r_empty_cells.extend([r / float(table['ncols']) for r in table['r_empty_cells']])
+            r_empty_cells.extend([r / float(table['ncols']) for r in table['r_nempty_cells']])
     c = Counter(r_empty_cells)
     if 0.0 not in c:
         c.update({0.0: 0})
     if 1.0 not in c:
         c.update({1.0: 0})
 
-    plt.xlabel('percentage of empty cells in a row')
+    plt.xlabel('percentage of non-empty cells in a row')
     plt.ylabel('percentage of rows processed')
     row_p = [count / float(sum(c.values())) for count in c.values()]
     plt.bar(c.keys(), row_p, align='center', width=0.05)
@@ -346,8 +344,8 @@ if __name__ == '__main__':
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,n_empty_rows,n_empty_cols,'
-                        'empty_p,r_empty_cells,c_empty_cells,line_p,text_p,score\n')
+                    score_file.write('table,nrows,ncols,'
+                        'empty_p,r_nempty_cells,c_nempty_cells,line_p,text_p,score\n')
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
@@ -356,11 +354,9 @@ if __name__ == '__main__':
                                 ''.join([page_number, '_', table_number]),
                                 table['nrows'],
                                 table['ncols'],
-                                table['n_empty_rows'],
-                                table['n_empty_cols'],
                                 table['empty_p'],
-                                ':'.join([str(d) for d in table['r_empty_cells']]),
-                                ':'.join([str(d) for d in table['c_empty_cells']]),
+                                ':'.join([str(d) for d in table['r_nempty_cells']]),
+                                ':'.join([str(d) for d in table['c_nempty_cells']]),
                                 table['line_p'],
                                 table['text_p'],
                                 table['score']))
@@ -376,7 +372,6 @@ if __name__ == '__main__':
                                  columns=args['--columns'],
                                  ytol=int(args['--ytol']),
                                  mtol=int(args['--mtol']),
-                                 ctol=int(args['--ctol']),
                                  pdf_margin=margin_tuple,
                                  debug=args['--debug']),
                           filename,
@@ -396,8 +391,8 @@ if __name__ == '__main__':
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                             table = page[table_number]
-                            plot_page_barchart(table['r_empty_cells'],
-                                table['c_empty_cells'], table['empty_p'])
+                            plot_page_barchart(table['r_nempty_cells'],
+                                table['c_nempty_cells'], table['empty_p'])
 
                 if 'all' in plot_type:
                     plot_all_barchart(data)
@@ -412,8 +407,8 @@ if __name__ == '__main__':
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,n_empty_rows,n_empty_cols,'
-                        'empty_p,r_empty_cells,c_empty_cells,score\n')
+                    score_file.write('table,nrows,ncols,'
+                        'empty_p,r_nempty_cells,c_nempty_cells,score\n')
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
@@ -422,11 +417,9 @@ if __name__ == '__main__':
                                 ''.join([page_number, '_', table_number]),
                                 table['nrows'],
                                 table['ncols'],
-                                table['n_empty_rows'],
-                                table['n_empty_cols'],
                                 table['empty_p'],
-                                ':'.join([str(d) for d in table['r_empty_cells']]),
-                                ':'.join([str(d) for d in table['c_empty_cells']]),
+                                ':'.join([str(d) for d in table['r_nempty_cells']]),
+                                ':'.join([str(d) for d in table['c_nempty_cells']]),
                                 table['score']))
             
             if args['--debug']:

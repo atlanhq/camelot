@@ -177,14 +177,13 @@ class Stream:
     """
 
     def __init__(self, ncolumns=0, columns=None, ytol=2, mtol=2,
-                 ctol=10, pdf_margin=(2.0, 0.5, 0.1), debug=False):
+                 pdf_margin=(2.0, 0.5, 0.1), debug=False):
 
         self.method = 'stream'
         self.ncolumns = ncolumns
         self.columns = columns
         self.ytol = ytol
         self.mtol = mtol
-        self.ctol = ctol
         self.char_margin, self.line_margin, self.word_margin = pdf_margin
         self.debug = debug
 
@@ -296,12 +295,10 @@ class Stream:
         ar = table.get_list()
         ar = encode_list(ar)
         table_info['data'] = ar
-        n_empty_rows, n_empty_cols, empty_p, r_empty_cells, c_empty_cells = count_empty(ar)
-        table_info['n_empty_rows'] = n_empty_rows
-        table_info['n_empty_cols'] = n_empty_cols
+        empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
         table_info['empty_p'] = empty_p
-        table_info['r_empty_cells'] = r_empty_cells
-        table_info['c_empty_cells'] = c_empty_cells
+        table_info['r_nempty_cells'] = r_nempty_cells
+        table_info['c_nempty_cells'] = c_nempty_cells
         table_info['nrows'] = len(ar)
         table_info['ncols'] = len(ar[0])
         page_tables['table_1'] = table_info
