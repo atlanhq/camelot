@@ -200,7 +200,7 @@ class Stream:
             self.line_margin, self.word_margin)
         bname, __ = os.path.splitext(pdfname)
         if not text:
-            warnings.warn_explicit("{0}: PDF has no text. It may be an image.".format(
+            warnings.warn("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)), UserWarning)
             return None
         text.sort(key=lambda x: (-x.y0, x.x0))
