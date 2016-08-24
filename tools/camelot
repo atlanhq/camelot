@@ -62,12 +62,12 @@ options:
                       cells. Example: -F h, -F v, -F hv
  -s, --scale <scale>  Scaling factor. Large scaling factor leads to
                       smaller lines being detected. [default: 15]
+ -i, --invert         Invert pdf image to make sure that lines are
+                      in foreground.
  -j, --jtol <jtol>    Tolerance to account for when comparing joint
                       and line coordinates. [default: 2]
  -m, --mtol <mtol>    Tolerance to account for when merging lines
                       which are very close. [default: 2]
- -i, --invert         Invert pdf image to make sure that lines are
-                      in foreground.
  -d, --debug <debug>  Debug by visualizing pdf geometry.
                       (contour,line,joint,table) Example: -d table
 """
@@ -90,13 +90,14 @@ options:
 """
 
 
-def plot_page_barchart(r, c, p):
+def plot_page_barchart(r, c, p, output):
     row_idx = [i + 1 for i, row in enumerate(r)]
     col_idx = [i + 1 for i, col in enumerate(c)]
     r_index = np.arange(len(r))
     c_index = np.arange(len(c))
     width = 0.7
 
+    plt.figure()
     plt.subplot(2, 1, 1)
     plt.title('Percentage of empty cells in table: {0:.2f}'.format(p))
     plt.xlabel('row index')
@@ -111,10 +112,10 @@ def plot_page_barchart(r, c, p):
     plt.bar(c_index, c)
     plt.xticks(c_index + width * 0.5, col_idx)
     plt.ylim(0, len(r))
-    plt.show()
+    plt.savefig(''.join([output, '_page.png']))
 
 
-def plot_all_barchart(data):
+def plot_all_barchart(data, output):
     r_empty_cells = []
     for page_number in data.keys():
         page = data[page_number]
@@ -127,15 +128,16 @@ def plot_all_barchart(data):
     if 1.0 not in c:
         c.update({1.0: 0})
 
+    plt.figure()
     plt.xlabel('percentage of non-empty cells in a row')
     plt.ylabel('percentage of rows processed')
     row_p = [count / float(sum(c.values())) for count in c.values()]
     plt.bar(c.keys(), row_p, align='center', width=0.05)
     plt.ylim(0, 1.0)
-    plt.show()
+    plt.savefig(''.join([output, '_all.png']))
 
 
-def plot_rc_piechart(data):
+def plot_rc_piechart(data, output):
     from matplotlib import cm
 
     tables = 0
@@ -151,6 +153,7 @@ def plot_rc_piechart(data):
     r = Counter(rows)
     c = Counter(cols)
 
+    plt.figure()
     cs1 = cm.Set1(np.arange(len(r)) / float(len(r)))
     ax1 = plt.subplot(211, aspect='equal')
     ax1.pie(r.values(), colors=cs1, labels=r.keys(), shadow=True, startangle=90)
@@ -160,8 +163,7 @@ def plot_rc_piechart(data):
     ax2 = plt.subplot(212, aspect='equal')
     ax2.pie(c.values(), colors=cs2, labels=c.keys(), shadow=True, startangle=90)
     ax2.set_title('column distribution across tables')
-
-    plt.show()
+    plt.savefig(''.join([output, '_rc.png']))
 
 
 def summary(data, p_time):
@@ -275,6 +277,7 @@ if __name__ == '__main__':
     logname = ''.join([logname, '.log'])
     scorename, __ = os.path.splitext(filename)
     scorename = ''.join([scorename, '_info.csv'])
+    pngname, __ = os.path.splitext(filename)
 
     if args['--log']:
         FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
@@ -305,9 +308,9 @@ if __name__ == '__main__':
             manager = Pdf(Lattice(
                                   fill=args['--fill'],
                                   scale=int(args['--scale']),
+                                  invert=args['--invert'],
                                   jtol=int(args['--jtol']),
                                   mtol=int(args['--mtol']),
-                                  invert=args['--invert'],
                                   pdf_margin=margin_tuple,
                                   debug=args['--debug']),
                           filename,
@@ -321,6 +324,8 @@ if __name__ == '__main__':
             logging.info("Finished processing in " + str(processing_time) + " seconds")
 
             if args['--plot']:
+                if args['--output']:
+                    pngname = os.path.join(args['--output'], os.path.basename(pngname))
                 plot_type = args['--plot'].split(',')
                 if 'page' in plot_type:
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
@@ -329,13 +334,14 @@ if __name__ == '__main__':
                             table = page[table_number]
                             plot_page_barchart(table['r_empty_cells'],
                                 table['c_empty_cells'],
-                                table['empty_p'])
+                                table['empty_p'],
+                                pngname)
 
                 if 'all' in plot_type:
-                    plot_all_barchart(data)
+                    plot_all_barchart(data, pngname)
 
                 if 'rc' in plot_type:
-                    plot_rc_piechart(data)
+                    plot_rc_piechart(data, pngname)
             
             if args['--summary']:
                 summary(data, processing_time)
@@ -385,6 +391,8 @@ if __name__ == '__main__':
             logging.info("Finished processing in " + str(processing_time) + " seconds")
             
             if args['--plot']:
+                if args['--output']:
+                    pngname = os.path.join(args['--output'], os.path.basename(pngname))
                 plot_type = args['--plot'].split(',')
                 if 'page' in plot_type:
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
@@ -392,13 +400,15 @@ if __name__ == '__main__':
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                             table = page[table_number]
                             plot_page_barchart(table['r_nempty_cells'],
-                                table['c_nempty_cells'], table['empty_p'])
+                                table['c_nempty_cells'],
+                                table['empty_p'],
+                                pngname)
 
                 if 'all' in plot_type:
-                    plot_all_barchart(data)
+                    plot_all_barchart(data, pngname)
 
                 if 'rc' in plot_type:
-                    plot_rc_piechart(data)
+                    plot_rc_piechart(data, pngname)
 
             if args['--summary']:
                 summary(data, processing_time)
