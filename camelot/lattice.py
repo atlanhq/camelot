@@ -2,7 +2,7 @@ from __future__ import division
 import os
 import types
 import copy_reg
-import warnings
+import logging
 
 import cv2
 import numpy as np
@@ -214,7 +214,7 @@ class Lattice:
             self.line_margin, self.word_margin)
         bname, __ = os.path.splitext(pdfname)
         if not text:
-            warnings.warn("{0}: PDF has no text. It may be an image.".format(
+            logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
         imagename = ''.join([bname, '.png'])

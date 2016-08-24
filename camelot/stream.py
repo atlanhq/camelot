@@ -2,7 +2,7 @@ from __future__ import division
 import os
 import types
 import copy_reg
-import warnings
+import logging
 
 import numpy as np
 
@@ -110,7 +110,7 @@ def _get_column_index(t, columns):
         else:
             lt_col_overlap.append(-1)
     if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
-        warnings.warn("Text doesn't fit any column.", UserWarning)
+        logging.warning("Text doesn't fit any column.")
     c_idx = lt_col_overlap.index(max(lt_col_overlap))
     if t.x0 < columns[c_idx][0]:
         offset1 = abs(t.x0 - columns[c_idx][0])
@@ -200,8 +200,8 @@ class Stream:
             self.line_margin, self.word_margin)
         bname, __ = os.path.splitext(pdfname)
         if not text:
-            warnings.warn("{0}: PDF has no text. It may be an image.".format(
-                os.path.basename(bname)), UserWarning)
+            logging.warning("{0}: PDF has no text. It may be an image.".format(
+                os.path.basename(bname)))
             return None
         text.sort(key=lambda x: (-x.y0, x.x0))
 
@@ -235,10 +235,10 @@ class Stream:
                     for r in rows_grouped if len(r) == ncols for t in r]
                 cols = _merge_columns(sorted(cols), mtol=self.mtol)
                 if len(cols) != self.ncolumns:
-                    warnings.warn("{}: The number of columns after merge"
+                    logging.warning("{}: The number of columns after merge"
                                   " isn't the same as what you specified."
                                   " Change the value of mtol.".format(
-                                  os.path.basename(bname)), UserWarning)
+                                  os.path.basename(bname)))
                 cols = _join_columns(cols, width)
             else:
                 guess = True
@@ -246,10 +246,10 @@ class Stream:
                 len_non_mode = len(filter(lambda x: x != ncols, elements))
                 if ncols == 1 and not self.debug:
                     # no tables detected
-                    warnings.warn("{}: Only one column was detected, the PDF"
+                    logging.warning("{}: Only one column was detected, the PDF"
                                   " may have no tables. Specify ncols if"
                                   " the PDF has tables.".format(
-                                  os.path.basename(bname)), UserWarning)
+                                  os.path.basename(bname)))
                 cols = [(t.x0, t.x1)
                     for r in rows_grouped if len(r) == ncols for t in r]
                 cols = _merge_columns(sorted(cols), mtol=self.mtol)
