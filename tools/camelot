@@ -201,10 +201,42 @@ def summary(data, p_time):
             for K, G in groupby(enumerate(tables_same_ncols), key=lambda (i, x): i - x):
                 G = list(G)
                 ct_pages.append((str(G[0][1]), str(G[-1][1])))
-        table_string = "Tables on pages {0} can probably be appended.".format(
-            ', '.join(['-'.join(ct) for ct in ct_pages]))
 
-    print(' '.join([time_string, score_string, table_string]))
+        result_headers = []
+        for ct in ct_pages:
+            header_idx = {}
+            possible_headers = []
+            ncols = 0
+            for page_number in range(int(ct[0]), int(ct[1]) + 1):
+                page = data['page-{0}'.format(page_number)]
+                for table_number in page.keys():
+                    table = page[table_number]
+                    ncols = table['ncols']
+                    for i, row in enumerate(table['data']):
+                        try:
+                            header_idx[tuple(row)].append(i)
+                        except KeyError:
+                            header_idx[tuple(row)] = [i]
+            possible_headers = sorted(header_idx, key=lambda k: len(header_idx[k]), reverse=True)[:10]
+            possible_headers = filter(lambda z: len(z) == ncols,
+                [filter(lambda x: x != '', p_h) for p_h in possible_headers])
+            modes = []
+            for p_h in possible_headers:
+                try:
+                    modes.append((p_h, max(set(header_idx[p_h]), key=header_idx[p_h].count)))
+                except KeyError:
+                    pass
+            header = modes[modes.index(min(modes, key=lambda x: x[1]))][0]
+            result_headers.append(header)
+
+        table_string = "Tables on pages {0} have the same number of columns.\n".format(
+        ', '.join(['-'.join(ct) for ct in ct_pages]))
+        header_string = "\bPossible headers:"
+        header_string = "\n".join([header_string, '\n'.join(['{0} -> {1}{2}{3}'.format(
+            '-'.join([cr[0][0], cr[0][1]]), '"', '","'.join(cr[1]), '"') for cr in zip(
+            ct_pages, result_headers)])])
+
+    print(' '.join([time_string, score_string, table_string, header_string]))
 
 
 def convert_to_html(table):
