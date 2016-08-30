@@ -1,4 +1,17 @@
+from __future__ import division
+import os
+
 import numpy as np
+
+from pdfminer.pdfparser import PDFParser
+from pdfminer.pdfdocument import PDFDocument
+from pdfminer.pdfpage import PDFPage
+from pdfminer.pdfpage import PDFTextExtractionNotAllowed
+from pdfminer.pdfinterp import PDFResourceManager
+from pdfminer.pdfinterp import PDFPageInterpreter
+from pdfminer.pdfdevice import PDFDevice
+from pdfminer.converter import PDFPageAggregator
+from pdfminer.layout import LAParams, LTChar, LTTextLineHorizontal
 
 
 def translate(x1, x2):
@@ -243,15 +256,24 @@ def get_row_index(t, rows):
     ----------
     t : object
 
-    rows : list
+    rows : list, sorted in decreasing order
 
     Returns
     -------
     r : int
     """
+    offset1, offset2 = 0, 0
     for r in range(len(rows)):
         if (t.y0 + t.y1) / 2.0 < rows[r][0] and (t.y0 + t.y1) / 2.0 > rows[r][1]:
-            return r
+            if t.y0 > rows[r][0]:
+                offset1 = abs(t.y0 - rows[r][0])
+            if t.y1 < rows[r][1]:
+                offset2 = abs(t.y1 - rows[r][1])
+            X = 1.0 if abs(t.x0 - t.x1) == 0.0 else abs(t.x0 - t.x1)
+            Y = 1.0 if abs(t.y0 - t.y1) == 0.0 else abs(t.y0 - t.y1)
+            charea = X * Y
+            error = (X * (offset1 + offset2)) / charea
+            return r, error
 
 
 def get_column_index(t, columns):
@@ -268,9 +290,45 @@ def get_column_index(t, columns):
     -------
     c : int
     """
+    offset1, offset2 = 0, 0
     for c in range(len(columns)):
         if (t.x0 + t.x1) / 2.0 > columns[c][0] and (t.x0 + t.x1) / 2.0 < columns[c][1]:
-            return c
+            if t.x0 < columns[c][0]:
+                offset1 = abs(t.x0 - columns[c][0])
+            if t.x1 > columns[c][1]:
+                offset2 = abs(t.x1 - columns[c][1])
+            X = 1.0 if abs(t.x0 - t.x1) == 0.0 else abs(t.x0 - t.x1)
+            Y = 1.0 if abs(t.y0 - t.y1) == 0.0 else abs(t.y0 - t.y1)
+            charea = X * Y
+            error = (Y * (offset1 + offset2)) / charea
+            return c, error
+
+
+def get_score(error_weights):
+    """Calculates score based on weights assigned to various parameters,
+    and their error percentages.
+
+    Parameters
+    ----------
+    error_weights : dict
+        Dict with a tuple of error percentages as key and weightage
+        assigned to them as value. Sum of all values should be equal
+        to 100.
+
+    Returns
+    -------
+    score : float
+    """
+    SCORE_VAL = 100
+    score = 0
+    if sum([ew[0] for ew in error_weights]) != SCORE_VAL:
+        raise ValueError("Please assign a valid weightage to each parameter"
+                         " such that their sum is equal to 100")
+    for ew in error_weights:
+        weight = ew[0] / len(ew[1])
+        for error_percentage in ew[1]:
+            score += weight * (1 - error_percentage)
+    return score
 
 
 def reduce_index(t, rotated, r_idx, c_idx):
@@ -394,6 +452,110 @@ def remove_empty(d):
     return d
 
 
+def count_empty(d):
+    """Counts empty rows and columns from list of lists.
+
+    Parameters
+    ----------
+    d : list
+
+    Returns
+    -------
+    n_empty_rows : number of empty rows
+    n_empty_cols : number of empty columns
+    empty_p : percentage of empty cells
+    """
+    empty_p = 0
+    r_nempty_cells, c_nempty_cells = [], []
+    for i in d:
+        for j in i:
+            if j.strip() == '':
+                empty_p += 1
+    empty_p = 100 * (empty_p / float(len(d) * len(d[0])))
+    for row in d:
+        r_nempty_c = 0
+        for r in row:
+            if r.strip() != '':
+                r_nempty_c += 1
+        r_nempty_cells.append(r_nempty_c)
+    d = zip(*d)
+    d = [list(col) for col in d]
+    for col in d:
+        c_nempty_c = 0
+        for c in col:
+            if c.strip() != '':
+                c_nempty_c += 1
+        c_nempty_cells.append(c_nempty_c)
+    return empty_p, r_nempty_cells, c_nempty_cells
+
+
 def encode_list(ar):
+    """Encodes list of text.
+
+    Parameters
+    ----------
+    ar : list
+
+    Returns
+    -------
+    ar : list
+    """
     ar = [[r.encode('utf-8') for r in row] for row in ar]
     return ar
+
+
+def extract_text_objects(layout, LTObject, t=None):
+    """Recursively parses pdf layout to get a list of
+    text objects.
+
+    Parameters
+    ----------
+    layout : object
+        Layout object.
+
+    LTObject : object
+        Text object, either LTChar or LTTextLineHorizontal.
+
+    t : list (optional, default: None)
+
+    Returns
+    -------
+    t : list
+        List of text objects.
+    """
+    if t is None:
+        t = []
+    try:
+        for obj in layout._objs:
+            if isinstance(obj, LTObject):
+                t.append(obj)
+            else:
+                t += extract_text_objects(obj, LTObject)
+    except AttributeError:
+        pass
+    return t
+
+
+def pdf_to_text(pname, char_margin, line_margin, word_margin):
+    # pkey = 'page-{0}'.format(p)
+    # pname = os.path.join(self.temp, '{}.pdf'.format(pkey))
+    with open(pname, 'r') as f:
+        parser = PDFParser(f)
+        document = PDFDocument(parser)
+        if not document.is_extractable:
+            raise PDFTextExtractionNotAllowed
+        laparams = LAParams(char_margin=char_margin,
+                            line_margin=line_margin,
+                            word_margin=word_margin)
+        rsrcmgr = PDFResourceManager()
+        device = PDFPageAggregator(rsrcmgr, laparams=laparams)
+        interpreter = PDFPageInterpreter(rsrcmgr, device)
+        for page in PDFPage.create_pages(document):
+            interpreter.process_page(page)
+            layout = device.get_result()
+            lattice_objects = extract_text_objects(layout, LTChar)
+            stream_objects = extract_text_objects(
+                layout, LTTextLineHorizontal)
+            width = layout.bbox[2]
+            height = layout.bbox[3]
+        return lattice_objects, stream_objects, width, height

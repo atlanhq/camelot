@@ -26,6 +26,7 @@ class Table:
         self.rows = rows
         self.cells = [[Cell(c[0], r[1], c[1], r[0])
                        for c in cols] for r in rows]
+        self.nocont_ = 0
 
     def set_edges(self, vertical, horizontal, jtol=2):
         """Sets cell edges to True if corresponding line segments
@@ -53,6 +54,7 @@ class Table:
             k = [k for k, t in enumerate(self.rows)
                  if np.isclose(v[1], t[0], atol=jtol)]
             if not j:
+                self.nocont_ += 1
                 continue
             J = j[0]
             if i == [0]:  # only left edge
@@ -104,6 +106,7 @@ class Table:
             k = [k for k, t in enumerate(self.cols)
                  if np.isclose(h[2], t[0], atol=jtol)]
             if not j:
+                self.nocont_ += 1
                 continue
             J = j[0]
             if i == [0]:  # only top edge
