@@ -90,14 +90,14 @@ options:
 """
 
 
-def plot_page_barchart(r, c, p, output):
+def plot_table_barchart(r, c, p, pno, tno):
     row_idx = [i + 1 for i, row in enumerate(r)]
     col_idx = [i + 1 for i, col in enumerate(c)]
     r_index = np.arange(len(r))
     c_index = np.arange(len(c))
     width = 0.7
 
-    plt.figure()
+    plt.figure(figsize=(8, 6))
     plt.subplot(2, 1, 1)
     plt.title('Percentage of empty cells in table: {0:.2f}'.format(p))
     plt.xlabel('row index')
@@ -112,7 +112,7 @@ def plot_page_barchart(r, c, p, output):
     plt.bar(c_index, c)
     plt.xticks(c_index + width * 0.5, col_idx)
     plt.ylim(0, len(r))
-    plt.savefig(''.join([output, '_page.png']))
+    plt.savefig(''.join([pno, '_', tno, '.png']), dpi=300)
 
 
 def plot_all_barchart(data, output):
@@ -128,13 +128,13 @@ def plot_all_barchart(data, output):
     if 1.0 not in c:
         c.update({1.0: 0})
 
-    plt.figure()
+    plt.figure(figsize=(8, 6))
     plt.xlabel('percentage of non-empty cells in a row')
     plt.ylabel('percentage of rows processed')
     row_p = [count / float(sum(c.values())) for count in c.values()]
     plt.bar(c.keys(), row_p, align='center', width=0.05)
     plt.ylim(0, 1.0)
-    plt.savefig(''.join([output, '_all.png']))
+    plt.savefig(''.join([output, '_all.png']), dpi=300)
 
 
 def plot_rc_piechart(data, output):
@@ -153,45 +153,37 @@ def plot_rc_piechart(data, output):
     r = Counter(rows)
     c = Counter(cols)
 
-    plt.figure()
+    plt.figure(figsize=(8, 6))
     cs1 = cm.Set1(np.arange(len(r)) / float(len(r)))
     ax1 = plt.subplot(211, aspect='equal')
-    ax1.pie(r.values(), colors=cs1, labels=r.keys(), shadow=True, startangle=90)
+    ax1.pie(r.values(), colors=cs1, labels=r.keys(), startangle=90)
     ax1.set_title('row distribution across tables')
 
     cs2 = cm.Set1(np.arange(len(c)) / float(len(c)))
     ax2 = plt.subplot(212, aspect='equal')
-    ax2.pie(c.values(), colors=cs2, labels=c.keys(), shadow=True, startangle=90)
+    ax2.pie(c.values(), colors=cs2, labels=c.keys(), startangle=90)
     ax2.set_title('column distribution across tables')
-    plt.savefig(''.join([output, '_rc.png']))
+    plt.savefig(''.join([output, '_rc.png']), dpi=300)
 
 
 def summary(data, p_time):
     from operator import itemgetter
     from itertools import groupby
 
-    time_string = ("{0} {1} processed in {2:.2f} seconds.{3}".format(
-        len(data),
-        'page was' if len(data) == 1 else 'pages were', p_time,
-        " That's an average of {0:.2f} seconds per page.".format(
-        p_time / float(len(data))) if len(data) != 1 else ''))
-
     scores = []
     continuous_tables = []
+    total_tables = 0
     for page_number in data.keys():
         page = data[page_number]
+        total_tables += len(page.keys())
         for table_number in page.keys():
             table = page[table_number]
             continuous_tables.append((page_number, table_number, table['ncols']))
             scores.append(table['score'])
     avg_score = np.mean(scores)
-    score_string = ("Text was assigned to each cell with an average assignment"
-        " score of {0:.2f}, which is {1}.".format(
-        avg_score,
-        'pretty good' if avg_score > 90 else 'kind of, "average"'))
 
     ct_pages = []
-    table_string = ""
+    header_string = ""
     if len(continuous_tables) > 1:
         tables = sorted(continuous_tables, key=lambda x: (int(x[0][5:]), int(x[1][6:])))
         for k, g in groupby(tables, key=itemgetter(2)):
@@ -229,14 +221,20 @@ def summary(data, p_time):
             header = modes[modes.index(min(modes, key=lambda x: x[1]))][0]
             result_headers.append(header)
 
-        table_string = "Tables on pages {0} have the same number of columns.\n".format(
-        ', '.join(['-'.join(ct) for ct in ct_pages]))
-        header_string = "\bPossible headers:"
-        header_string = "\n".join([header_string, '\n'.join(['{0} -> {1}{2}{3}'.format(
+        header_string = "Multi-page table headers*:\n"
+        header_string = ''.join([header_string, '\n'.join(['pages {0} -> {1}{2}{3}'.format(
             '-'.join([cr[0][0], cr[0][1]]), '"', '","'.join(cr[1]), '"') for cr in zip(
             ct_pages, result_headers)])])
 
-    print(' '.join([time_string, score_string, table_string, header_string]))
+    avg_time = "Time taken per page: {0:.2f} seconds\n".format(
+        p_time / float(len(data))) if len(data) != 1 else ""
+    equal_ncols = "\nMulti-page tables on*: {0}\n".format(
+        ', '.join(['-'.join(ct) for ct in ct_pages])) if len(data) != 1 else ""
+    stats = [len(data), p_time, avg_time, total_tables, avg_score, equal_ncols]
+    stat_string = ("Pages processed: {0}\nTime taken: {1:.2f} seconds\n"
+        "{2}Tables found: {3}\nAverage score: {4:.2f}{5}".format(*stats))
+
+    print(''.join([stat_string, header_string]))
 
 
 def convert_to_html(table):
@@ -364,10 +362,11 @@ if __name__ == '__main__':
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                             table = page[table_number]
-                            plot_page_barchart(table['r_empty_cells'],
-                                table['c_empty_cells'],
+                            plot_table_barchart(table['r_nempty_cells'],
+                                table['c_nempty_cells'],
                                 table['empty_p'],
-                                pngname)
+                                page_number,
+                                table_number)
 
                 if 'all' in plot_type:
                     plot_all_barchart(data, pngname)
@@ -382,19 +381,16 @@ if __name__ == '__main__':
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,'
-                        'empty_p,r_nempty_cells,c_nempty_cells,line_p,text_p,score\n')
+                    score_file.write('table,nrows,ncols,empty_p,line_p,text_p,score\n')
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                             table = page[table_number]
-                            score_file.write('{0},{1},{2},{3},{4},{5},{6},{7},{8}\n'.format(
+                            score_file.write('{0},{1},{2},{3},{4},{5},{6}\n'.format(
                                 ''.join([page_number, '_', table_number]),
                                 table['nrows'],
                                 table['ncols'],
                                 table['empty_p'],
-                                ':'.join([str(d) for d in table['r_nempty_cells']]),
-                                ':'.join([str(d) for d in table['c_nempty_cells']]),
                                 table['line_p'],
                                 table['text_p'],
                                 table['score']))
@@ -431,10 +427,11 @@ if __name__ == '__main__':
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                             table = page[table_number]
-                            plot_page_barchart(table['r_nempty_cells'],
+                            plot_table_barchart(table['r_nempty_cells'],
                                 table['c_nempty_cells'],
                                 table['empty_p'],
-                                pngname)
+                                page_number,
+                                table_number)
 
                 if 'all' in plot_type:
                     plot_all_barchart(data, pngname)
@@ -449,19 +446,16 @@ if __name__ == '__main__':
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,'
-                        'empty_p,r_nempty_cells,c_nempty_cells,score\n')
+                    score_file.write('table,nrows,ncols,empty_p,,score\n')
                     for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
                         page = data[page_number]
                         for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
                             table = page[table_number]
-                            score_file.write('{0},{1},{2},{3},{4},{5},{6}\n'.format(
+                            score_file.write('{0},{1},{2},{3},{4}\n'.format(
                                 ''.join([page_number, '_', table_number]),
                                 table['nrows'],
                                 table['ncols'],
                                 table['empty_p'],
-                                ':'.join([str(d) for d in table['r_nempty_cells']]),
-                                ':'.join([str(d) for d in table['c_nempty_cells']]),
                                 table['score']))
             
             if args['--debug']:
