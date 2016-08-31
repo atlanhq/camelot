@@ -297,18 +297,18 @@ class Lattice:
 
             for i in range(len(table.cells)):
                 for j in range(len(table.cells[i])):
-                    t_bbox = table.cells[i][j].text_objects
+                    t_bbox = table.cells[i][j].get_objects()
                     try:
-                        rotated = detect_vertical(t_bbox)
+                        cell_rotation = detect_vertical(t_bbox)
                     except ZeroDivisionError:
-                        rotated = ''
+                        cell_rotation = ''
                         pass
                     # fill text after sorting it
-                    if rotated == '':
+                    if cell_rotation == '':
                         t_bbox.sort(key=lambda x: (-x.y0, x.x0))
-                    elif rotated == 'left':
+                    elif cell_rotation == 'left':
                         t_bbox.sort(key=lambda x: (x.x0, x.y0))
-                    elif rotated == 'right':
+                    elif cell_rotation == 'right':
                         t_bbox.sort(key=lambda x: (-x.x0, -x.y0))
                     table.cells[i][j].add_text(''.join([t.get_text()
                         for t in t_bbox]))

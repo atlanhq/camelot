@@ -144,17 +144,17 @@ def detect_vertical(text):
 
     Returns
     -------
-    rotated : string
+    rotation : string
     """
     num_v = [t for t in text if (not t.upright) and t.get_text().strip()]
     num_h = [t for t in text if t.upright and t.get_text().strip()]
     vger = len(num_v) / float(len(num_v) + len(num_h))
-    rotated = ''
+    rotation = ''
     if vger > 0.8:
         clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in text)
         anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in text)
-        rotated = 'left' if clockwise < anticlockwise else 'right'
-    return rotated
+        rotation = 'left' if clockwise < anticlockwise else 'right'
+    return rotation
 
 
 def segments_bbox(bbox, v_segments, h_segments):
@@ -337,7 +337,7 @@ def get_score(error_weights):
     return score
 
 
-def reduce_index(t, rotated, r_idx, c_idx):
+def reduce_index(t, rotation, r_idx, c_idx):
     """Reduces index of a text object if it lies within a spanning
     cell taking in account table rotation.
 
@@ -345,7 +345,7 @@ def reduce_index(t, rotated, r_idx, c_idx):
     ----------
     t : object
 
-    rotated : string
+    rotation : string
 
     r_idx : int
 
@@ -357,21 +357,21 @@ def reduce_index(t, rotated, r_idx, c_idx):
 
     c_idx : int
     """
-    if not rotated:
+    if not rotation:
         if t.cells[r_idx][c_idx].spanning_h:
             while not t.cells[r_idx][c_idx].left:
                 c_idx -= 1
         if t.cells[r_idx][c_idx].spanning_v:
             while not t.cells[r_idx][c_idx].top:
                 r_idx -= 1
-    elif rotated == 'left':
+    elif rotation == 'left':
         if t.cells[r_idx][c_idx].spanning_h:
             while not t.cells[r_idx][c_idx].left:
                 c_idx -= 1
         if t.cells[r_idx][c_idx].spanning_v:
             while not t.cells[r_idx][c_idx].bottom:
                 r_idx += 1
-    elif rotated == 'right':
+    elif rotation == 'right':
         if t.cells[r_idx][c_idx].spanning_h:
             while not t.cells[r_idx][c_idx].right:
                 c_idx += 1
