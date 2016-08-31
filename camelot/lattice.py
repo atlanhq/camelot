@@ -293,7 +293,7 @@ class Lattice:
                 rerror.append(rass_error)
                 cerror.append(cass_error)
                 r_idx, c_idx = reduce_index(table, table_rotation, r_idx, c_idx)
-                table.cells[r_idx][c_idx].text_objects.append(t)
+                table.cells[r_idx][c_idx].add_object(t)
 
             for i in range(len(table.cells)):
                 for j in range(len(table.cells[i])):
