@@ -157,7 +157,7 @@ def detect_vertical(text):
     return rotated
 
 
-def elements_bbox(bbox, text, v_segments, h_segments):
+def segments_bbox(bbox, v_segments, h_segments):
     """Returns all text objects and line segments present inside a
     table's bounding box.
 
@@ -181,14 +181,20 @@ def elements_bbox(bbox, text, v_segments, h_segments):
     """
     lb = (bbox[0], bbox[1])
     rt = (bbox[2], bbox[3])
-    text_bbox = [t for t in text if lb[0] - 2 <= (t.x0 + t.x1) / 2.0
-                 <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
-                 <= rt[1] + 2]
     v_s = [v for v in v_segments if v[1] > lb[1] - 2 and
            v[3] < rt[1] + 2 and lb[0] - 2 <= v[0] <= rt[0] + 2]
     h_s = [h for h in h_segments if h[0] > lb[0] - 2 and
            h[2] < rt[0] + 2 and lb[1] - 2 <= h[1] <= rt[1] + 2]
-    return text_bbox, v_s, h_s
+    return v_s, h_s
+
+
+def text_bbox(bbox, text):
+    lb = (bbox[0], bbox[1])
+    rt = (bbox[2], bbox[3])
+    t_bbox = [t for t in text if lb[0] - 2 <= (t.x0 + t.x1) / 2.0
+                 <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
+                 <= rt[1] + 2]
+    return t_bbox
 
 
 def remove_close_values(ar, mtol=2):

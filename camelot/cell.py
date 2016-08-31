@@ -54,6 +54,7 @@ class Cell:
         self.top = False
         self.bottom = False
         self.text = ''
+        self.text_objects = []
         self.spanning_h = False
         self.spanning_v = False
 

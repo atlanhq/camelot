@@ -10,7 +10,7 @@ import numpy as np
 from wand.image import Image
 
 from .table import Table
-from .utils import (transform, elements_bbox, detect_vertical, merge_close_values,
+from .utils import (transform, segments_bbox, text_bbox, detect_vertical, merge_close_values,
                     get_row_index, get_column_index, get_score, reduce_index,
                     outline, fill_spanning, count_empty, encode_list, pdf_to_text)
 
@@ -247,10 +247,10 @@ class Lattice:
         for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
             # select edges which lie within table_bbox
             table_info = {}
-            text_bbox, v_s, h_s = elements_bbox(k, text, v_segments,
-                                                h_segments)
-            table_info['text_p'] = 100 * (1 - (len(text_bbox) / len(text)))
-            rotated = detect_vertical(text_bbox)
+            v_s, h_s = segments_bbox(k, v_segments, h_segments)
+            t_bbox = text_bbox(k, text)
+            table_info['text_p'] = 100 * (1 - (len(t_bbox) / len(text)))
+            table_rotation = detect_vertical(t_bbox)
             cols, rows = zip(*table_bbox[k])
             cols, rows = list(cols), list(rows)
             cols.extend([k[0], k[2]])
@@ -277,17 +277,9 @@ class Lattice:
             if self.debug:
                 self.debug_tables.append(table)
 
-            # fill text after sorting it
-            if rotated == '':
-                text_bbox.sort(key=lambda x: (-x.y0, x.x0))
-            elif rotated == 'left':
-                text_bbox.sort(key=lambda x: (x.x0, x.y0))
-            elif rotated == 'right':
-                text_bbox.sort(key=lambda x: (-x.x0, -x.y0))
-
             rerror = []
             cerror = []
-            for t in text_bbox:
+            for t in text:
                 try:
                     r_idx, rass_error = get_row_index(t, rows)
                 except TypeError:
@@ -300,19 +292,36 @@ class Lattice:
                     continue
                 rerror.append(rass_error)
                 cerror.append(cass_error)
-                r_idx, c_idx = reduce_index(
-                    table, rotated, r_idx, c_idx)
-                table.cells[r_idx][c_idx].add_text(
-                    t.get_text().strip('\n'))
+                r_idx, c_idx = reduce_index(table, table_rotation, r_idx, c_idx)
+                table.cells[r_idx][c_idx].text_objects.append(t)
+
+            for i in range(len(table.cells)):
+                for j in range(len(table.cells[i])):
+                    t_bbox = table.cells[i][j].text_objects
+                    try:
+                        rotated = detect_vertical(t_bbox)
+                    except ZeroDivisionError:
+                        rotated = ''
+                        pass
+                    # fill text after sorting it
+                    if rotated == '':
+                        t_bbox.sort(key=lambda x: (-x.y0, x.x0))
+                    elif rotated == 'left':
+                        t_bbox.sort(key=lambda x: (x.x0, x.y0))
+                    elif rotated == 'right':
+                        t_bbox.sort(key=lambda x: (-x.x0, -x.y0))
+                    table.cells[i][j].add_text(''.join([t.get_text()
+                        for t in t_bbox]))
+
             score = get_score([[50, rerror], [50, cerror]])
             table_info['score'] = score
 
             if self.fill is not None:
                 table = fill_spanning(table, fill=self.fill)
             ar = table.get_list()
-            if rotated == 'left':
+            if table_rotation == 'left':
                 ar = zip(*ar[::-1])
-            elif rotated == 'right':
+            elif table_rotation == 'right':
                 ar = zip(*ar[::1])
                 ar.reverse()
             ar = encode_list(ar)
