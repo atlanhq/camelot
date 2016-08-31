@@ -227,9 +227,9 @@ def summary(data, p_time):
             ct_pages, result_headers)])])
 
     avg_time = "Time taken per page: {0:.2f} seconds\n".format(
-        p_time / float(len(data))) if len(data) != 1 else ""
+        p_time / float(len(data))) if len(data) not in [0, 1] else ""
     equal_ncols = "\nMulti-page tables on*: {0}\n".format(
-        ', '.join(['-'.join(ct) for ct in ct_pages])) if len(data) != 1 else ""
+        ', '.join(['-'.join(ct) for ct in ct_pages])) if len(data) not in [0, 1] else ""
     stats = [len(data), p_time, avg_time, total_tables, avg_score, equal_ncols]
     stat_string = ("Pages processed: {0}\nTime taken: {1:.2f} seconds\n"
         "{2}Tables found: {3}\nAverage score: {4:.2f}{5}".format(*stats))
