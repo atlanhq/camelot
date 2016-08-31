@@ -54,6 +54,7 @@ class Cell:
         self.top = False
         self.bottom = False
         self.text = ''
+        self.text_objects = []
         self.spanning_h = False
         self.spanning_v = False
 
@@ -74,6 +75,12 @@ class Cell:
         text : string
         """
         return self.text
+
+    def add_object(self, t_object):
+        self.text_objects.append(t_object)
+
+    def get_objects(self):
+        return self.text_objects
 
     def get_bounded_edges(self):
         """Returns number of edges by which a cell is bounded.
