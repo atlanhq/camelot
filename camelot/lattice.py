@@ -249,6 +249,9 @@ class Lattice:
             table_info = {}
             text_bbox, v_s, h_s = elements_bbox(k, text, v_segments,
                                                 h_segments)
+            if not text_bbox:
+                # log warning
+                continue
             table_info['text_p'] = 100 * (1 - (len(text_bbox) / len(text)))
             rotated = detect_vertical(text_bbox)
             cols, rows = zip(*table_bbox[k])

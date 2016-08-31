@@ -18,7 +18,7 @@ from camelot.stream import Stream
 
 
 doc = """
-Camelot: PDF parsing made simpler!
+camelot: PDF parsing made simpler!
 
 usage:
  camelot [options] <method> [<args>...]
@@ -40,9 +40,9 @@ options:
  -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
                            if distance between words is greater than word
                            margin. [default: 0.1]
- -S, --save-info           Save parsing info for each page to a file.
+ -S, --with-info           Save parsing info for each page to a file.
  -X, --plot <dist>         Plot distributions. (page,all,rc)
- -Z, --summary             Summarize metrics.
+ -Z, --with-stats          Show stats.
 
 camelot methods:
  lattice  Looks for lines between data.
@@ -166,7 +166,7 @@ def plot_rc_piechart(data, output):
     plt.savefig(''.join([output, '_rc.png']), dpi=300)
 
 
-def summary(data, p_time):
+def show_stats(data, p_time):
     from operator import itemgetter
     from itertools import groupby
 
@@ -374,10 +374,10 @@ if __name__ == '__main__':
                 if 'rc' in plot_type:
                     plot_rc_piechart(data, pngname)
             
-            if args['--summary']:
-                summary(data, processing_time)
+            if args['--with-stats']:
+                show_stats(data, processing_time)
 
-            if args['--save-info']:
+            if args['--with-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
@@ -439,10 +439,10 @@ if __name__ == '__main__':
                 if 'rc' in plot_type:
                     plot_rc_piechart(data, pngname)
 
-            if args['--summary']:
-                summary(data, processing_time)
+            if args['--with-stats']:
+                show_stats(data, processing_time)
             
-            if args['--save-info']:
+            if args['--with-info']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
