@@ -56,7 +56,7 @@ def _group_rows(text, ytol=2):
     return rows
 
 
-def _merge_columns(l, mtol=2):
+def _merge_columns(l, mtol=0):
     """Merges overlapping columns and returns list with updated
     columns boundaries.
 
@@ -76,13 +76,24 @@ def _merge_columns(l, mtol=2):
             merged.append(higher)
         else:
             lower = merged[-1]
-            if (higher[0] <= lower[1] or
-                    np.isclose(higher[0], lower[1], atol=mtol)):
-                upper_bound = max(lower[1], higher[1])
-                lower_bound = min(lower[0], higher[0])
-                merged[-1] = (lower_bound, upper_bound)
-            else:
-                merged.append(higher)
+            if mtol > 0:
+                if (higher[0] <= lower[1] or
+                        np.isclose(higher[0], lower[1], atol=mtol)):
+                    upper_bound = max(lower[1], higher[1])
+                    lower_bound = min(lower[0], higher[0])
+                    merged[-1] = (lower_bound, upper_bound)
+                else:
+                    merged.append(higher)
+            elif mtol < 0:
+                if higher[0] <= lower[1]:
+                    if np.isclose(higher[0], lower[1], atol=abs(mtol)):
+                        merged.append(higher)
+                    else:
+                        upper_bound = max(lower[1], higher[1])
+                        lower_bound = min(lower[0], higher[0])
+                        merged[-1] = (lower_bound, upper_bound)
+                else:
+                    merged.append(higher)
     return merged
 
 
