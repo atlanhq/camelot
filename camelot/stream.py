@@ -132,11 +132,19 @@ def _add_columns(cols, text, ytolerance):
     return cols
 
 
-def _join_columns(cols, width):
+def _get_table_bounds(rows):
+    x0 = min([t.x0 for r in rows for t in r])
+    x1 = max([t.x1 for r in rows for t in r])
+    y0 = min([t.y0 for t in rows[-1]])
+    y1 = max([t.y1 for t in rows[0]])
+    return x0, x1, y0, y1
+
+
+def _join_columns(cols, text_x_min, text_x_max):
     cols = sorted(cols)
     cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
-    cols.insert(0, 0)
-    cols.append(width) # or some tolerance
+    cols.insert(0, text_x_min)
+    cols.append(text_x_max)
     cols = [(cols[i], cols[i + 1])
             for i in range(0, len(cols) - 1)]
     return cols
@@ -214,8 +222,9 @@ class Stream:
         row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
                     if len(r) > 0 else 0 for r in rows_grouped]
         rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
-        rows.insert(0, height) # or some tolerance
-        rows.append(0)
+        bounds = _get_table_bounds(rows_grouped)
+        rows.insert(0, bounds[3])
+        rows.append(bounds[2])
         rows = [(rows[i], rows[i + 1])
                 for i in range(0, len(rows) - 1)]
 
@@ -239,7 +248,7 @@ class Stream:
                                   " isn't the same as what you specified."
                                   " Change the value of mtol.".format(
                                   os.path.basename(bname)))
-                cols = _join_columns(cols, width)
+                cols = _join_columns(cols, bounds[0], bounds[1])
             else:
                 guess = True
                 ncols = max(set(elements), key=elements.count)
@@ -261,7 +270,7 @@ class Stream:
                 outer_text = [t for t in text if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
                 inner_text.extend(outer_text)
                 cols = _add_columns(cols, inner_text, self.ytol)
-                cols = _join_columns(cols, width)
+                cols = _join_columns(cols, bounds[0], bounds[1])
 
         pdf_page = {}
         page_tables = {}
