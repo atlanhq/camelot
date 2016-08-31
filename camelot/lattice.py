@@ -26,42 +26,7 @@ def _reduce_method(m):
 copy_reg.pickle(types.MethodType, _reduce_method)
 
 
-def _morph_transform(imagename, scale=15, invert=False):
-    """Morphological Transformation
-
-    Applies a series of morphological operations on the image
-    to find table contours and line segments.
-    http://answers.opencv.org/question/63847/how-to-extract-tables-from-an-image/
-
-    Empirical result for adaptiveThreshold's blockSize=5 and C=-0.2
-    taken from http://pequan.lip6.fr/~bereziat/pima/2012/seuillage/sezgin04.pdf
-
-    Parameters
-    ----------
-    imagename : Path to image.
-
-    scale : int
-        Scaling factor. Large scaling factor leads to smaller lines
-        being detected. (optional, default: 15)
-
-    invert : bool
-        Invert pdf image to make sure that lines are in foreground.
-        (optional, default: False)
-
-    Returns
-    -------
-    img : ndarray
-
-    tables : dict
-        Dictionary with table bounding box as key and list of
-        joints found in the table as value.
-
-    v_segments : list
-        List of vertical line segments found in the image.
-
-    h_segments : list
-        List of horizontal line segments found in the image.
-    """
+def _adaptive_threshold(imagename, invert=False):
     img = cv2.imread(imagename)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -74,24 +39,50 @@ def _morph_transform(imagename, scale=15, invert=False):
             np.invert(gray), 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
             cv2.THRESH_BINARY,
             15, -0.2)
+    return img, threshold
 
-    vertical = threshold
-    horizontal = threshold
 
-    verticalsize = vertical.shape[0] // scale
-    horizontalsize = horizontal.shape[1] // scale
+def _extract_lines(threshold, direction=None, scale=15):
+    lines = []
 
-    ver = cv2.getStructuringElement(cv2.MORPH_RECT, (1, verticalsize))
-    hor = cv2.getStructuringElement(cv2.MORPH_RECT, (horizontalsize, 1))
+    if direction == 'vertical':
+        size = threshold.shape[0] // scale
+        el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
+    elif direction == 'horizontal':
+        size = threshold.shape[1] // scale
+        el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
+    elif direction is None:
+        raise ValueError("Specify direction as either 'vertical' or"
+                         " 'horizontal'")
 
-    vertical = cv2.erode(vertical, ver, (-1, -1))
-    vertical = cv2.dilate(vertical, ver, (-1, -1))
+    threshold = cv2.erode(threshold, el, (-1, -1))
+    threshold = cv2.dilate(threshold, el, (-1, -1))
 
-    horizontal = cv2.erode(horizontal, hor, (-1, -1))
-    horizontal = cv2.dilate(horizontal, hor, (-1, -1))
+    dmask = threshold  # findContours modifies source image
 
+    try:
+        _, contours, _ = cv2.findContours(
+            threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    except ValueError:
+        contours, _ = cv2.findContours(
+            threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    for c in contours:
+        x, y, w, h = cv2.boundingRect(c)
+        x1, x2 = x, x + w
+        y1, y2 = y, y + h
+        if direction == 'vertical':
+            lines.append(((x1 + x2) / 2, y2, (x1 + x2) / 2, y1))
+        elif direction == 'horizontal':
+            lines.append((x1, (y1 + y2) / 2, x2, (y1 + y2) / 2))
+
+    return dmask, lines
+
+
+def _extract_table_contours(vertical, horizontal):
     mask = vertical + horizontal
     joints = np.bitwise_and(vertical, horizontal)
+
     try:
         __, contours, __ = cv2.findContours(
             mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -111,7 +102,7 @@ def _morph_transform(imagename, scale=15, invert=False):
         except ValueError:
             jc, __ = cv2.findContours(
                 roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-        if len(jc) <= 4:  # remove contours with less than <=4 joints
+        if len(jc) <= 4:  # remove contours with less than 4 joints
             continue
         joint_coords = []
         for j in jc:
@@ -120,32 +111,7 @@ def _morph_transform(imagename, scale=15, invert=False):
             joint_coords.append((c1, c2))
         tables[(x, y + h, x + w, y)] = joint_coords
 
-    v_segments, h_segments = [], []
-    try:
-        _, vcontours, _ = cv2.findContours(
-            vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    except ValueError:
-        vcontours, _ = cv2.findContours(
-            vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    for vc in vcontours:
-        x, y, w, h = cv2.boundingRect(vc)
-        x1, x2 = x, x + w
-        y1, y2 = y, y + h
-        v_segments.append(((x1 + x2) / 2, y2, (x1 + x2) / 2, y1))
-
-    try:
-        _, hcontours, _ = cv2.findContours(
-            horizontal, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    except ValueError:
-        hcontours, _ = cv2.findContours(
-            horizontal, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    for hc in hcontours:
-        x, y, w, h = cv2.boundingRect(hc)
-        x1, x2 = x, x + w
-        y1, y2 = y, y + h
-        h_segments.append((x1, (y1 + y2) / 2, x2, (y1 + y2) / 2))
-
-    return img, tables, v_segments, h_segments
+    return tables
 
 
 class Lattice:
@@ -222,8 +188,12 @@ class Lattice:
             png.save(filename=imagename)
         pdf_x = width
         pdf_y = height
-        img, table_bbox, v_segments, h_segments = _morph_transform(
-            imagename, scale=self.scale, invert=self.invert)
+        img, threshold = _adaptive_threshold(imagename, invert=self.invert)
+        vmask, v_segments = _extract_lines(threshold, direction='vertical',
+            scale=self.scale)
+        hmask, h_segments = _extract_lines(threshold, direction='horizontal',
+            scale=self.scale)
+        table_bbox = _extract_table_contours(vmask, hmask)
         img_x = img.shape[1]
         img_y = img.shape[0]
         scaling_factor_x = pdf_x / float(img_x)
