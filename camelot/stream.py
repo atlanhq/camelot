@@ -232,6 +232,16 @@ class Stream:
             return None
 
         if self.table_area is not None:
+            if self.columns is not None:
+                if len(self.table_area) != len(self.columns):
+                    raise ValueError("message")
+            if self.ncolumns is not None:
+                if len(self.table_area) != len(self.ncolumns):
+                    raise ValueError("message")
+            if len(self.ytol) == 1 and self.ytol[0] == 2:
+                self.ytol = self.ytol * len(self.table_area)
+            if len(self.mtol) == 1 and self.mtol[0] == 2:
+                self.mtol = self.mtol * len(self.table_area)
             table_bbox = {}
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
