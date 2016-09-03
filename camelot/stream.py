@@ -234,8 +234,12 @@ class Stream:
         if self.table_area is not None:
             table_bbox = {}
             for area in self.table_area:
-                t = tuple([int(coord) for coord in area.split(",")])
-                table_bbox[t] = None
+                x1, y1, x2, y2 = area.split(",")
+                x1 = int(x1)
+                y1 = int(y1)
+                x2 = int(x2)
+                y2 = int(y2)
+                table_bbox[(x1, y2, x2, y1)] = None
         else:
             table_bbox = {(0, height, width, 0): None}
 
