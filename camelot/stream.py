@@ -7,7 +7,8 @@ import logging
 import numpy as np
 
 from .table import Table
-from .utils import get_row_index, get_score, count_empty, encode_list, pdf_to_text
+from .utils import (get_row_index, get_score, count_empty, encode_list,
+                    pdf_to_text, text_bbox)
 
 
 __all__ = ['Stream']
@@ -133,6 +134,17 @@ def _get_column_index(t, columns):
     return c_idx, error
 
 
+def _join_rows(rows_grouped, text_y_max, text_y_min):
+    row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
+                if len(r) > 0 else 0 for r in rows_grouped]
+    rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
+    rows.insert(0, text_y_max)
+    rows.append(text_y_min)
+    rows = [(rows[i], rows[i + 1])
+            for i in range(0, len(rows) - 1)]
+    return rows
+
+
 def _add_columns(cols, text, ytolerance):
     if text:
         text = _group_rows(text, ytol=ytolerance)
@@ -141,14 +153,6 @@ def _add_columns(cols, text, ytolerance):
             for r in text if len(r) == max(elements) for t in r]
         cols.extend(_merge_columns(sorted(new_cols)))
     return cols
-
-
-def _get_table_bounds(rows):
-    x0 = min([t.x0 for r in rows for t in r])
-    x1 = max([t.x1 for r in rows for t in r])
-    y0 = min([t.y0 for t in rows[-1]])
-    y1 = max([t.y1 for t in rows[0]])
-    return x0, x1, y0, y1
 
 
 def _join_columns(cols, text_x_min, text_x_max):
@@ -194,13 +198,13 @@ class Stream:
         Dictionary with page number as key and list of tables on that
         page as value.
     """
-
-    def __init__(self, ncolumns=0, columns=None, ytol=2, mtol=2,
-                 pdf_margin=(2.0, 0.5, 0.1), debug=False):
+    def __init__(self, table_area=None, columns=None, ncolumns=None, ytol=[2],
+                 mtol=[2], pdf_margin=(2.0, 0.5, 0.1), debug=False):
 
         self.method = 'stream'
-        self.ncolumns = ncolumns
+        self.table_area = table_area
         self.columns = columns
+        self.ncolumns = ncolumns
         self.ytol = ytol
         self.mtol = mtol
         self.char_margin, self.line_margin, self.word_margin = pdf_margin
@@ -222,106 +226,112 @@ class Stream:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
-        text.sort(key=lambda x: (-x.y0, x.x0))
 
         if self.debug:
             self.debug_text = [(t.x0, t.y0, t.x1, t.y1) for t in text]
             return None
 
-        rows_grouped = _group_rows(text, ytol=self.ytol)
-        elements = [len(r) for r in rows_grouped]
-        row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
-                    if len(r) > 0 else 0 for r in rows_grouped]
-        rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
-        bounds = _get_table_bounds(rows_grouped)
-        rows.insert(0, bounds[3])
-        rows.append(bounds[2])
-        rows = [(rows[i], rows[i + 1])
-                for i in range(0, len(rows) - 1)]
-
-        guess = False
-        if self.columns:
-            # user has to input boundary columns too
-            # take (0, width) by default
-            # similar to else condition
-            # len can't be 1
-            cols = self.columns.split(',')
-            cols = [(float(cols[i]), float(cols[i + 1]))
-                    for i in range(0, len(cols) - 1)]
+        if self.table_area is not None:
+            table_bbox = {}
+            for area in self.table_area:
+                t = tuple([int(coord) for coord in area.split(",")])
+                table_bbox[t] = None
         else:
-            if self.ncolumns:
-                ncols = self.ncolumns
-                cols = [(t.x0, t.x1)
-                    for r in rows_grouped if len(r) == ncols for t in r]
-                cols = _merge_columns(sorted(cols), mtol=self.mtol)
-                if len(cols) != self.ncolumns:
-                    logging.warning("{}: The number of columns after merge"
-                                  " isn't the same as what you specified."
-                                  " Change the value of mtol.".format(
-                                  os.path.basename(bname)))
-                cols = _join_columns(cols, bounds[0], bounds[1])
+            table_bbox = {(0, height, width, 0): None}
+
+        page = {}
+        tables = {}
+        table_no = 0
+        # sort tables based on y-coord
+        for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
+            # select elements which lie within table_bbox
+            table_data = {}
+            t_bbox = text_bbox(k, text)
+            t_bbox.sort(key=lambda x: (-x.y0, x.x0))
+
+            rows_grouped = _group_rows(t_bbox, ytol=self.ytol[table_no])
+            rows = _join_rows(rows_grouped, k[3], k[1])
+            elements = [len(r) for r in rows_grouped]
+
+            guess = False
+            if self.columns is not None and self.columns[table_no] != "":
+                # user has to input boundary columns too
+                # take (0, width) by default
+                # similar to else condition
+                # len can't be 1
+                cols = self.columns[table_no].split(',')
+                cols = [(float(cols[i]), float(cols[i + 1]))
+                        for i in range(0, len(cols) - 1)]
             else:
-                guess = True
-                ncols = max(set(elements), key=elements.count)
-                len_non_mode = len(filter(lambda x: x != ncols, elements))
-                if ncols == 1 and not self.debug:
-                    # no tables detected
-                    logging.warning("{}: Only one column was detected, the PDF"
-                                  " may have no tables. Specify ncols if"
-                                  " the PDF has tables.".format(
-                                  os.path.basename(bname)))
-                cols = [(t.x0, t.x1)
-                    for r in rows_grouped if len(r) == ncols for t in r]
-                cols = _merge_columns(sorted(cols), mtol=self.mtol)
-                inner_text = []
-                for i in range(1, len(cols)):
-                    left = cols[i - 1][1]
-                    right = cols[i][0]
-                    inner_text.extend([t for t in text if t.x0 > left and t.x1 < right])
-                outer_text = [t for t in text if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
-                inner_text.extend(outer_text)
-                cols = _add_columns(cols, inner_text, self.ytol)
-                cols = _join_columns(cols, bounds[0], bounds[1])
+                if self.ncolumns is not None and self.ncolumns[table_no] != -1:
+                    ncols = self.ncolumns[table_no]
+                    cols = [(t.x0, t.x1)
+                        for r in rows_grouped if len(r) == ncols for t in r]
+                    cols = _merge_columns(sorted(cols), mtol=self.mtol[table_no])
+                    if len(cols) != self.ncolumns[table_no]:
+                        logging.warning("{}: The number of columns after merge"
+                                      " isn't the same as what you specified."
+                                      " Change the value of mtol.".format(
+                                      os.path.basename(bname)))
+                    cols = _join_columns(cols, k[0], k[2])
+                else:
+                    guess = True
+                    ncols = max(set(elements), key=elements.count)
+                    len_non_mode = len(filter(lambda x: x != ncols, elements))
+                    if ncols == 1 and not self.debug:
+                        # no tables detected
+                        logging.warning("{}: Only one column was detected, the PDF"
+                                      " may have no tables. Specify ncols if"
+                                      " the PDF has tables.".format(
+                                      os.path.basename(bname)))
+                    cols = [(t.x0, t.x1)
+                        for r in rows_grouped if len(r) == ncols for t in r]
+                    cols = _merge_columns(sorted(cols), mtol=self.mtol[table_no])
+                    inner_text = []
+                    for i in range(1, len(cols)):
+                        left = cols[i - 1][1]
+                        right = cols[i][0]
+                        inner_text.extend([t for t in text if t.x0 > left and t.x1 < right])
+                    outer_text = [t for t in text if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
+                    inner_text.extend(outer_text)
+                    cols = _add_columns(cols, inner_text, self.ytol[table_no])
+                    cols = _join_columns(cols, k[0], k[2])
 
-        pdf_page = {}
-        page_tables = {}
-        table_info = {}
-        table = Table(cols, rows)
-        rerror = []
-        cerror = []
-        for row in rows_grouped:
-            for t in row:
-                try:
-                    r_idx, rass_error = get_row_index(t, rows)
-                except ValueError as e:
-                    # couldn't assign LTTextLH to any cell
-                    vprint(e.message)
-                    continue
-                try:
-                    c_idx, cass_error = _get_column_index(t, cols)
-                except ValueError as e:
-                    # couldn't assign LTTextLH to any cell
-                    vprint(e.message)
-                    continue
-                rerror.append(rass_error)
-                cerror.append(cass_error)
-                table.cells[r_idx][c_idx].add_text(
-                    t.get_text().strip('\n'))
-        if guess:
-            score = get_score([[33, rerror], [33, cerror], [34, [len_non_mode / len(elements)]]])
-        else:
-            score = get_score([[50, rerror], [50, cerror]])
-        table_info['score'] = score
-        ar = table.get_list()
-        ar = encode_list(ar)
-        table_info['data'] = ar
-        empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
-        table_info['empty_p'] = empty_p
-        table_info['r_nempty_cells'] = r_nempty_cells
-        table_info['c_nempty_cells'] = c_nempty_cells
-        table_info['nrows'] = len(ar)
-        table_info['ncols'] = len(ar[0])
-        page_tables['table_1'] = table_info
-        pdf_page[os.path.basename(bname)] = page_tables
+            table = Table(cols, rows)
+            rerror = []
+            cerror = []
+            for row in rows_grouped:
+                for t in row:
+                    try:
+                        r_idx, rass_error = get_row_index(t, rows)
+                    except ValueError as e:
+                        # couldn't assign LTTextLH to any cell
+                        continue
+                    try:
+                        c_idx, cass_error = _get_column_index(t, cols)
+                    except ValueError as e:
+                        # couldn't assign LTTextLH to any cell
+                        continue
+                    rerror.append(rass_error)
+                    cerror.append(cass_error)
+                    table.cells[r_idx][c_idx].add_text(
+                        t.get_text().strip('\n'))
+            if guess:
+                score = get_score([[33, rerror], [33, cerror], [34, [len_non_mode / len(elements)]]])
+            else:
+                score = get_score([[50, rerror], [50, cerror]])
 
-        return pdf_page
+            table_data['score'] = score
+            ar = encode_list(table.get_list())
+            table_data['data'] = ar
+            empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
+            table_data['empty_p'] = empty_p
+            table_data['r_nempty_cells'] = r_nempty_cells
+            table_data['c_nempty_cells'] = c_nempty_cells
+            table_data['nrows'] = len(ar)
+            table_data['ncols'] = len(ar[0])
+            tables['table-{0}'.format(table_no + 1)] = table_data
+            table_no += 1
+        page[os.path.basename(bname)] = tables
+
+        return page

@@ -18,7 +18,7 @@ def adaptive_threshold(imagename, invert=False):
     return img, threshold
 
 
-def extract_lines(threshold, direction=None, scale=15):
+def find_lines(threshold, direction=None, scale=15):
     lines = []
 
     if direction == 'vertical':
@@ -55,7 +55,7 @@ def extract_lines(threshold, direction=None, scale=15):
     return dmask, lines
 
 
-def extract_table_contours(vertical, horizontal):
+def find_table_contours(vertical, horizontal):
     mask = vertical + horizontal
 
     try:
@@ -74,7 +74,7 @@ def extract_table_contours(vertical, horizontal):
     return cont
         
 
-def extract_table_joints(contours, vertical, horizontal):
+def find_table_joints(contours, vertical, horizontal):
     joints = np.bitwise_and(vertical, horizontal)
     tables = {}
     for c in contours:
