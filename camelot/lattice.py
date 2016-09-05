@@ -67,7 +67,7 @@ class Lattice:
         page as value.
     """
     def __init__(self, table_area=None, fill=None, jtol=[2], mtol=[2], scale=15,
-                 invert=False, pdf_margin=(2.0, 0.5, 0.1), debug=None):
+                 invert=False, margins=(2.0, 0.5, 0.1), debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area
@@ -76,7 +76,7 @@ class Lattice:
         self.mtol = mtol
         self.scale = scale
         self.invert = invert
-        self.char_margin, self.line_margin, self.word_margin = pdf_margin
+        self.char_margin, self.line_margin, self.word_margin = margins
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -117,8 +117,8 @@ class Lattice:
         hmask, h_segments = find_lines(threshold, direction='horizontal',
             scale=self.scale)
 
-        if self.table_area is not None:
-            if self.fill is not None:
+        if self.table_area:
+            if self.fill:
                 if len(self.table_area) != len(self.fill):
                     raise ValueError("message")
             if len(self.jtol) == 1 and self.jtol[0] == 2:
@@ -225,7 +225,7 @@ class Lattice:
             score = get_score([[50, rerror], [50, cerror]])
             table_data['score'] = score
 
-            if self.fill is not None:
+            if self.fill:
                 table = fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
             if table_rotation == 'left':
