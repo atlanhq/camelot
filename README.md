@@ -8,7 +8,7 @@ Camelot is a Python 2.7 library and command-line tool for getting tables out of 
 from camelot.pdf import Pdf
 from camelot.lattice import Lattice
 
-manager = Pdf(Lattice(), "/path/to/pdf", pagenos=[{'start': 2, 'end': 4}])
+manager = Pdf(Lattice(), "/path/to/pdf")
 tables = manager.extract()
 </pre>
 

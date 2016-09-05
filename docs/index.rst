@@ -37,9 +37,9 @@ Usage
     >>> from camelot.pdf import Pdf
     >>> from camelot.lattice import Lattice
 
-    >>> extractor = Lattice(Pdf('us-030.pdf'))
-    >>> tables = extractor.get_tables()
-    >>> print tables['page-1'][0]
+    >>> manager = Pdf(Lattice(), 'us-030.pdf')
+    >>> tables = manager.extract()
+    >>> print tables['page-1']['table-1']['data']
 
 .. csv-table::
    :header: "Cycle Name","KI (1/km)","Distance (mi)","Percent Fuel Savings","","",""
@@ -51,7 +51,7 @@ Usage
    "2032_2","0.17","57.8","21.7%","0.3%","2.7%","1.2%"
    "4171_1","0.07","173.9","58.1%","1.6%","2.1%","0.5%"
 
-Camelot comes with a command-line tool in which you can specify the output format (csv, tsv, html, json, and xlsx), page numbers you want to parse and the output directory in which you want the output files to be placed. By default, the output files are placed in the same directory as the PDF.
+Camelot comes with a CLI where you can specify page numbers, output format, output directory etc. By default, the output files are placed in the same directory as the PDF.
 
 ::
 
@@ -63,11 +63,23 @@ Camelot comes with a command-line tool in which you can specify the output forma
     options:
      -h, --help                Show this screen.
      -v, --version             Show version.
+     -V, --verbose             Verbose.
      -p, --pages <pageno>      Comma-separated list of page numbers.
                                Example: -p 1,3-6,10  [default: 1]
+     -P, --parallel            Parallelize the parsing process.
      -f, --format <format>     Output format. (csv,tsv,html,json,xlsx) [default: csv]
-     -l, --log                 Print log to file.
+     -l, --log                 Log to file.
      -o, --output <directory>  Output directory.
+     -M, --cmargin <cmargin>   Char margin. Chars closer than cmargin are
+                               grouped together to form a word. [default: 2.0]
+     -L, --lmargin <lmargin>   Line margin. Lines closer than lmargin are
+                               grouped together to form a textbox. [default: 0.5]
+     -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
+                               if distance between words is greater than word
+                               margin. [default: 0.1]
+     -S, --print-stats         List stats on the parsing process.
+     -T, --save-stats          Save stats to a file.
+     -X, --plot <dist>         Plot distributions. (page,all,rc)
 
     camelot methods:
      lattice  Looks for lines between data.
@@ -88,46 +100,10 @@ The required dependencies include `numpy`_, `OpenCV`_ and `ImageMagick`_.
 .. _OpenCV: http://opencv.org/
 .. _ImageMagick: http://www.imagemagick.org/script/index.php
 
-We strongly recommend that you use a `virtual environment`_ to install Camelot. If you don't want to use a virtual environment, then skip the next section.
-
-Installing virtualenvwrapper
-----------------------------
-
-You'll need to install `virtualenvwrapper`_.
-
-::
-
-    pip install virtualenvwrapper
-
-or
-
-::
-
-    sudo pip install virtualenvwrapper
-
-After installing virtualenvwrapper, add the following lines to your `.bashrc` and source it.
-
-::
-
-    export WORKON_HOME=$HOME/.virtualenvs
-    source /usr/bin/virtualenvwrapper.sh
-
-.. note:: The path to `virtualenvwrapper.sh` could be different on your system.
-
-Finally make a virtual environment using::
-
-    mkvirtualenv camelot
-
 Installing dependencies
 -----------------------
 
-`numpy` can be install using `pip`.
-
-::
-
-    pip install numpy
-
-`OpenCV` and `imagemagick` can be installed using your system's default package manager.
+numpy can be install using `pip`. OpenCV and imagemagick can be installed using your system's default package manager.
 
 Linux
 ^^^^^
@@ -151,16 +127,9 @@ OS X
 
     brew install homebrew/science/opencv imagemagick
 
-If you're working in a virtualenv, you'll need to create a symbolic link for the OpenCV shared object file::
-
-    sudo ln -s /path/to/system/site-packages/cv2.so ~/path/to/virtualenv/site-packages/cv2.so
-
-Finally, `cd` into the project directory and install by doing::
+Finally, `cd` into the project directory and install by::
 
     make install
-
-.. _virtual environment: http://virtualenvwrapper.readthedocs.io/en/latest/install.html#basic-installation
-.. _virtualenvwrapper: https://virtualenvwrapper.readthedocs.io/en/latest/
 
 API Reference
 =============
