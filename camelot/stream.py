@@ -251,7 +251,7 @@ class Stream:
                 y2 = int(y2)
                 table_bbox[(x1, y2, x2, y1)] = None
         else:
-            table_bbox = {(0, height, width, 0): None}
+            table_bbox = {(0, 0, width, height): None}
 
         page = {}
         tables = {}
