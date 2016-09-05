@@ -4,15 +4,15 @@ import types
 import copy_reg
 import logging
 
-import cv2
-import numpy as np
-
 from wand.image import Image
 
+from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
+                      find_table_joints)
 from .table import Table
-from .utils import (transform, segments_bbox, text_bbox, detect_vertical, merge_close_values,
-                    get_row_index, get_column_index, get_score, reduce_index,
-                    outline, fill_spanning, count_empty, encode_list, pdf_to_text)
+from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_bbox,
+                    detect_vertical, merge_close_values, get_row_index,
+                    get_column_index, get_score, reduce_index, outline,
+                    fill_spanning, count_empty, encode_list, pdf_to_text)
 
 
 __all__ = ['Lattice']
@@ -24,128 +24,6 @@ def _reduce_method(m):
     else:
         return getattr, (m.im_self, m.im_func.func_name)
 copy_reg.pickle(types.MethodType, _reduce_method)
-
-
-def _morph_transform(imagename, scale=15, invert=False):
-    """Morphological Transformation
-
-    Applies a series of morphological operations on the image
-    to find table contours and line segments.
-    http://answers.opencv.org/question/63847/how-to-extract-tables-from-an-image/
-
-    Empirical result for adaptiveThreshold's blockSize=5 and C=-0.2
-    taken from http://pequan.lip6.fr/~bereziat/pima/2012/seuillage/sezgin04.pdf
-
-    Parameters
-    ----------
-    imagename : Path to image.
-
-    scale : int
-        Scaling factor. Large scaling factor leads to smaller lines
-        being detected. (optional, default: 15)
-
-    invert : bool
-        Invert pdf image to make sure that lines are in foreground.
-        (optional, default: False)
-
-    Returns
-    -------
-    img : ndarray
-
-    tables : dict
-        Dictionary with table bounding box as key and list of
-        joints found in the table as value.
-
-    v_segments : list
-        List of vertical line segments found in the image.
-
-    h_segments : list
-        List of horizontal line segments found in the image.
-    """
-    img = cv2.imread(imagename)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-    if invert:
-        threshold = cv2.adaptiveThreshold(
-            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,
-            15, -0.2)
-    else:
-        threshold = cv2.adaptiveThreshold(
-            np.invert(gray), 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-            cv2.THRESH_BINARY,
-            15, -0.2)
-
-    vertical = threshold
-    horizontal = threshold
-
-    verticalsize = vertical.shape[0] // scale
-    horizontalsize = horizontal.shape[1] // scale
-
-    ver = cv2.getStructuringElement(cv2.MORPH_RECT, (1, verticalsize))
-    hor = cv2.getStructuringElement(cv2.MORPH_RECT, (horizontalsize, 1))
-
-    vertical = cv2.erode(vertical, ver, (-1, -1))
-    vertical = cv2.dilate(vertical, ver, (-1, -1))
-
-    horizontal = cv2.erode(horizontal, hor, (-1, -1))
-    horizontal = cv2.dilate(horizontal, hor, (-1, -1))
-
-    mask = vertical + horizontal
-    joints = np.bitwise_and(vertical, horizontal)
-    try:
-        __, contours, __ = cv2.findContours(
-            mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    except ValueError:
-        contours, __ = cv2.findContours(
-            mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
-
-    tables = {}
-    for c in contours:
-        c_poly = cv2.approxPolyDP(c, 3, True)
-        x, y, w, h = cv2.boundingRect(c_poly)
-        roi = joints[y : y + h, x : x + w]
-        try:
-            __, jc, __ = cv2.findContours(
-                roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-        except ValueError:
-            jc, __ = cv2.findContours(
-                roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-        if len(jc) <= 4:  # remove contours with less than <=4 joints
-            continue
-        joint_coords = []
-        for j in jc:
-            jx, jy, jw, jh = cv2.boundingRect(j)
-            c1, c2 = x + (2 * jx + jw) / 2, y + (2 * jy + jh) / 2
-            joint_coords.append((c1, c2))
-        tables[(x, y + h, x + w, y)] = joint_coords
-
-    v_segments, h_segments = [], []
-    try:
-        _, vcontours, _ = cv2.findContours(
-            vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    except ValueError:
-        vcontours, _ = cv2.findContours(
-            vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    for vc in vcontours:
-        x, y, w, h = cv2.boundingRect(vc)
-        x1, x2 = x, x + w
-        y1, y2 = y, y + h
-        v_segments.append(((x1 + x2) / 2, y2, (x1 + x2) / 2, y1))
-
-    try:
-        _, hcontours, _ = cv2.findContours(
-            horizontal, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    except ValueError:
-        hcontours, _ = cv2.findContours(
-            horizontal, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    for hc in hcontours:
-        x, y, w, h = cv2.boundingRect(hc)
-        x1, x2 = x, x + w
-        y1, y2 = y, y + h
-        h_segments.append((x1, (y1 + y2) / 2, x2, (y1 + y2) / 2))
-
-    return img, tables, v_segments, h_segments
 
 
 class Lattice:
@@ -188,17 +66,17 @@ class Lattice:
         Dictionary with page number as key and list of tables on that
         page as value.
     """
-
-    def __init__(self, fill=None, scale=15, jtol=2, mtol=2,
-                 invert=False, pdf_margin=(2.0, 0.5, 0.1), debug=None):
+    def __init__(self, table_area=None, fill=None, jtol=[2], mtol=[2], scale=15,
+                 invert=False, margins=(2.0, 0.5, 0.1), debug=None):
 
         self.method = 'lattice'
+        self.table_area = table_area
         self.fill = fill
-        self.scale = scale
         self.jtol = jtol
         self.mtol = mtol
+        self.scale = scale
         self.invert = invert
-        self.char_margin, self.line_margin, self.word_margin = pdf_margin
+        self.char_margin, self.line_margin, self.word_margin = margins
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -217,48 +95,79 @@ class Lattice:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
+
         imagename = ''.join([bname, '.png'])
         with Image(filename=pdfname, depth=8, resolution=300) as png:
             png.save(filename=imagename)
+
+        img, threshold = adaptive_threshold(imagename, invert=self.invert)
         pdf_x = width
         pdf_y = height
-        img, table_bbox, v_segments, h_segments = _morph_transform(
-            imagename, scale=self.scale, invert=self.invert)
         img_x = img.shape[1]
         img_y = img.shape[0]
-        scaling_factor_x = pdf_x / float(img_x)
-        scaling_factor_y = pdf_y / float(img_y)
+        sc_x_image = img_x / float(pdf_x)
+        sc_y_image = img_y / float(pdf_y)
+        sc_x_pdf = pdf_x / float(img_x)
+        sc_y_pdf = pdf_y / float(img_y)
+        factors_image = (sc_x_image, sc_y_image, pdf_y)
+        factors_pdf = (sc_x_pdf, sc_y_pdf, img_y)
+
+        vmask, v_segments = find_lines(threshold, direction='vertical',
+            scale=self.scale)
+        hmask, h_segments = find_lines(threshold, direction='horizontal',
+            scale=self.scale)
+
+        if self.table_area:
+            if self.fill:
+                if len(self.table_area) != len(self.fill):
+                    raise ValueError("message")
+            if len(self.jtol) == 1 and self.jtol[0] == 2:
+                self.jtol = self.jtol * len(self.table_area)
+            if len(self.mtol) == 1 and self.mtol[0] == 2:
+                self.mtol = self.mtol * len(self.table_area)
+            areas = []
+            for area in self.table_area:
+                x1, y1, x2, y2 = area.split(",")
+                x1 = int(x1)
+                y1 = int(y1)
+                x2 = int(x2)
+                y2 = int(y2)
+                x1, y1, x2, y2 = scale_to_image((x1, y1, x2, y2), factors_image)
+                areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
+            table_bbox = find_table_joints(areas, vmask, hmask)
+        else:
+            contours = find_table_contours(vmask, hmask)
+            table_bbox = find_table_joints(contours, vmask, hmask)
 
         if self.debug:
             self.debug_images = (img, table_bbox)
 
-        factors = (scaling_factor_x, scaling_factor_y, img_y)
-        table_bbox, v_segments, h_segments = transform(table_bbox, v_segments,
-                                                       h_segments, factors)
+        table_bbox, v_segments, h_segments = scale_to_pdf(table_bbox, v_segments,
+            h_segments, factors_pdf)
 
         if self.debug:
             self.debug_segments = (v_segments, h_segments)
             self.debug_tables = []
 
-        pdf_page = {}
-        page_tables = {}
-        table_no = 1
+        page = {}
+        tables = {}
+        table_no = 0
         # sort tables based on y-coord
         for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
-            # select edges which lie within table_bbox
-            table_info = {}
+            # select elements which lie within table_bbox
+            table_data = {}
             v_s, h_s = segments_bbox(k, v_segments, h_segments)
             t_bbox = text_bbox(k, text)
-            table_info['text_p'] = 100 * (1 - (len(t_bbox) / len(text)))
+            table_data['text_p'] = 100 * (1 - (len(t_bbox) / len(text)))
             table_rotation = detect_vertical(t_bbox)
             cols, rows = zip(*table_bbox[k])
             cols, rows = list(cols), list(rows)
             cols.extend([k[0], k[2]])
             rows.extend([k[1], k[3]])
             # sort horizontal and vertical segments
-            cols = merge_close_values(sorted(cols), mtol=self.mtol)
+            cols = merge_close_values(sorted(cols), mtol=self.mtol[table_no])
             rows = merge_close_values(
-                sorted(rows, reverse=True), mtol=self.mtol)
+                sorted(rows, reverse=True), mtol=self.mtol[table_no])
             # make grid using x and y coord of shortlisted rows and cols
             cols = [(cols[i], cols[i + 1])
                     for i in range(0, len(cols) - 1)]
@@ -266,9 +175,9 @@ class Lattice:
                     for i in range(0, len(rows) - 1)]
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
-            table = table.set_edges(v_s, h_s, jtol=self.jtol)
+            table = table.set_edges(v_s, h_s, jtol=self.jtol[table_no])
             nouse = table.nocont_ / (len(v_s) + len(h_s))
-            table_info['line_p'] = 100 * (1 - nouse)
+            table_data['line_p'] = 100 * (1 - nouse)
             # set spanning cells to True
             table = table.set_spanning()
             # set table border edges to True
@@ -314,10 +223,10 @@ class Lattice:
                         for t in t_bbox]))
 
             score = get_score([[50, rerror], [50, cerror]])
-            table_info['score'] = score
+            table_data['score'] = score
 
-            if self.fill is not None:
-                table = fill_spanning(table, fill=self.fill)
+            if self.fill:
+                table = fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
             if table_rotation == 'left':
                 ar = zip(*ar[::-1])
@@ -325,18 +234,18 @@ class Lattice:
                 ar = zip(*ar[::1])
                 ar.reverse()
             ar = encode_list(ar)
-            table_info['data'] = ar
+            table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
-            table_info['empty_p'] = empty_p
-            table_info['r_nempty_cells'] = r_nempty_cells
-            table_info['c_nempty_cells'] = c_nempty_cells
-            table_info['nrows'] = len(ar)
-            table_info['ncols'] = len(ar[0])
-            page_tables['table_{0}'.format(table_no)] = table_info
+            table_data['empty_p'] = empty_p
+            table_data['r_nempty_cells'] = r_nempty_cells
+            table_data['c_nempty_cells'] = c_nempty_cells
+            table_data['nrows'] = len(ar)
+            table_data['ncols'] = len(ar[0])
+            tables['table-{0}'.format(table_no + 1)] = table_data
             table_no += 1
-        pdf_page[os.path.basename(bname)] = page_tables
+        page[os.path.basename(bname)] = tables
 
         if self.debug:
             return None
 
-        return pdf_page
+        return page

@@ -40,9 +40,9 @@ options:
  -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
                            if distance between words is greater than word
                            margin. [default: 0.1]
- -S, --save-info           Save parsing info for each page to a file.
+ -S, --print-stats         List stats on the parsing process.
+ -T, --save-stats          Save stats to a file.
  -X, --plot <dist>         Plot distributions. (page,all,rc)
- -Z, --summary             Summarize metrics.
 
 camelot methods:
  lattice  Looks for lines between data.
@@ -55,19 +55,21 @@ lattice_doc = """
 Lattice method looks for lines between text to form a table.
 
 usage:
- camelot lattice [options] [--] <file>
+ camelot lattice [-t <tarea>...] [-F <fill>...] [-j <jtol>...]
+ [-m <mtol>...] [options] [--] <file>
 
 options:
+ -t, --tarea <tarea>  Specific table areas to analyze.
  -F, --fill <fill>    Fill data in horizontal and/or vertical spanning
                       cells. Example: -F h, -F v, -F hv
- -s, --scale <scale>  Scaling factor. Large scaling factor leads to
-                      smaller lines being detected. [default: 15]
- -i, --invert         Invert pdf image to make sure that lines are
-                      in foreground.
  -j, --jtol <jtol>    Tolerance to account for when comparing joint
                       and line coordinates. [default: 2]
  -m, --mtol <mtol>    Tolerance to account for when merging lines
                       which are very close. [default: 2]
+ -s, --scale <scale>  Scaling factor. Large scaling factor leads to
+                      smaller lines being detected. [default: 15]
+ -i, --invert         Invert pdf image to make sure that lines are
+                      in foreground.
  -d, --debug <debug>  Debug by visualizing pdf geometry.
                       (contour,line,joint,table) Example: -d table
 """
@@ -76,12 +78,14 @@ stream_doc = """
 Stream method looks for whitespaces between text to form a table.
 
 usage:
- camelot stream [options] [--] <file>
+ camelot stream [-t <tarea>...] [-c <columns>...] [-n <ncols>...] [-y <ytol>...]
+ [-m <mtol>...] [options] [--] <file>
 
 options:
- -n, --ncols <ncols>      Number of columns. [default: 0]
+ -t, --tarea <tarea>      Specific table areas to analyze.
  -c, --columns <columns>  Comma-separated list of column x-coordinates.
                           Example: -c 10.1,20.2,30.3
+ -n, --ncols <ncols>      Number of columns. [default: -1]
  -y, --ytol <ytol>        Tolerance to account for when grouping rows
                           together. [default: 2]
  -m, --mtol <mtol>        Tolerance to account for when merging columns
@@ -166,7 +170,7 @@ def plot_rc_piechart(data, output):
     plt.savefig(''.join([output, '_rc.png']), dpi=300)
 
 
-def summary(data, p_time):
+def print_stats(data, p_time):
     from operator import itemgetter
     from itertools import groupby
 
@@ -331,17 +335,18 @@ if __name__ == '__main__':
                 else:
                     p.append({'start': int(r), 'end': int(r)})
 
-    margin_tuple = (float(args['--cmargin']), float(args['--lmargin']),
+    margins = (float(args['--cmargin']), float(args['--lmargin']),
         float(args['--wmargin']))
     if args['<method>'] == 'lattice':
         try:
             manager = Pdf(Lattice(
+                                  table_area=args['--tarea'],
                                   fill=args['--fill'],
+                                  jtol=[int(j) for j in args['--jtol']],
+                                  mtol=[int(m) for m in args['--mtol']],
                                   scale=int(args['--scale']),
                                   invert=args['--invert'],
-                                  jtol=int(args['--jtol']),
-                                  mtol=int(args['--mtol']),
-                                  pdf_margin=margin_tuple,
+                                  margins=margins,
                                   debug=args['--debug']),
                           filename,
                           pagenos=p,
@@ -374,10 +379,10 @@ if __name__ == '__main__':
                 if 'rc' in plot_type:
                     plot_rc_piechart(data, pngname)
             
-            if args['--summary']:
-                summary(data, processing_time)
+            if args['--print-stats']:
+                print_stats(data, processing_time)
 
-            if args['--save-info']:
+            if args['--save-stats']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:
@@ -402,11 +407,12 @@ if __name__ == '__main__':
     elif args['<method>'] == 'stream':
         try:
             manager = Pdf(Stream(
-                                 ncolumns=int(args['--ncols']),
+                                 table_area=args['--tarea'],
                                  columns=args['--columns'],
-                                 ytol=int(args['--ytol']),
-                                 mtol=int(args['--mtol']),
-                                 pdf_margin=margin_tuple,
+                                 ncolumns=[int(nc) for nc in args['--ncols']],
+                                 ytol=[int(y) for y in args['--ytol']],
+                                 mtol=[int(m) for m in args['--mtol']],
+                                 margins=margins,
                                  debug=args['--debug']),
                           filename,
                           pagenos=p,
@@ -439,10 +445,10 @@ if __name__ == '__main__':
                 if 'rc' in plot_type:
                     plot_rc_piechart(data, pngname)
 
-            if args['--summary']:
-                summary(data, processing_time)
+            if args['--print-stats']:
+                print_stats(data, processing_time)
             
-            if args['--save-info']:
+            if args['--save-stats']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
                 with open(scorename, 'w') as score_file:

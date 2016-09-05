@@ -81,7 +81,17 @@ def rotate(x1, y1, x2, y2, angle):
     return xnew, ynew
 
 
-def transform(tables, v_segments, h_segments, factors):
+def scale_to_image(k, factors):
+    x1, y1, x2, y2 = k
+    scaling_factor_x, scaling_factor_y, pdf_y = factors
+    x1 = scale(x1, scaling_factor_x)
+    y1 = scale(abs(translate(-pdf_y, y1)), scaling_factor_y)
+    x2 = scale(x2, scaling_factor_x)
+    y2 = scale(abs(translate(-pdf_y, y2)), scaling_factor_y)
+    return int(x1), int(y1), int(x2), int(y2)
+
+
+def scale_to_pdf(tables, v_segments, h_segments, factors):
     """Translates and scales OpenCV coordinates to PDFMiner coordinate
     space.
 
