@@ -238,10 +238,6 @@ class Stream:
             if self.ncolumns:
                 if len(self.table_area) != len(self.ncolumns):
                     raise ValueError("message")
-            if len(self.ytol) == 1 and self.ytol[0] == 2:
-                self.ytol = self.ytol * len(self.table_area)
-            if len(self.mtol) == 1 and self.mtol[0] == 2:
-                self.mtol = self.mtol * len(self.table_area)
             table_bbox = {}
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
@@ -252,6 +248,11 @@ class Stream:
                 table_bbox[(x1, y2, x2, y1)] = None
         else:
             table_bbox = {(0, 0, width, height): None}
+
+        if len(self.ytol) == 1 and self.ytol[0] == 2:
+            self.ytol = self.ytol * len(table_bbox)
+        if len(self.mtol) == 1 and self.mtol[0] == 2:
+            self.mtol = self.mtol * len(table_bbox)
 
         page = {}
         tables = {}
