@@ -91,26 +91,15 @@ class Lattice:
             return None
 
         imagename = ''.join([bname, '.jpg'])
+        gs_call = [
+            "-q", "-sDEVICE=jpeg", "-o", imagename, "-r600", "-dJPEGQ=100",
+            pdfname
+        ]
         if "ghostscript" in subprocess.check_output(["gs", "-version"]).lower():
-            subprocess.call([
-                "gs",
-                "-q",
-                "-sDEVICE=jpeg",
-                "-o",
-                imagename,
-                "-r600",
-                "-dJPEGQ=100",
-                pdfname])
+            gs_call.insert(0, "gs")
         else:
-            subprocess.call([
-                "gsc",
-                "-q",
-                "-sDEVICE=jpeg",
-                "-o",
-                imagename,
-                "-r600",
-                "-dJPEGQ=100",
-                pdfname])
+            gs_call.insert(0, "gsc")
+        subprocess.call(gs_call)
 
         img, threshold = adaptive_threshold(imagename, invert=self.invert)
         pdf_x = width
