@@ -1,10 +1,9 @@
 from __future__ import division
 import os
 import types
-import copy_reg
 import logging
-
-from wand.image import Image
+import copy_reg
+import subprocess
 
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints)
@@ -91,9 +90,25 @@ class Lattice:
                 os.path.basename(bname)))
             return None
 
-        imagename = ''.join([bname, '.png'])
-        with Image(filename=pdfname, depth=8, resolution=300) as png:
-            png.save(filename=imagename)
+        imagename = ''.join([bname, '.jpg'])
+        if "ghostscript" in subprocess.check_output(["gs", "-version"]).lower():
+            subprocess.call([
+                "gs",
+                "-sDEVICE=jpeg",
+                "-o",
+                imagename,
+                "-r600",
+                "-dJPEGQ=100",
+                pdfname])
+        else:
+            subprocess.call([
+                "gsc",
+                "-sDEVICE=jpeg",
+                "-o",
+                imagename,
+                "-r600",
+                "-dJPEGQ=100",
+                pdfname])
 
         img, threshold = adaptive_threshold(imagename, invert=self.invert)
         pdf_x = width
