@@ -94,6 +94,7 @@ class Lattice:
         if "ghostscript" in subprocess.check_output(["gs", "-version"]).lower():
             subprocess.call([
                 "gs",
+                "-q",
                 "-sDEVICE=jpeg",
                 "-o",
                 imagename,
@@ -103,6 +104,7 @@ class Lattice:
         else:
             subprocess.call([
                 "gsc",
+                "-q",
                 "-sDEVICE=jpeg",
                 "-o",
                 imagename,
