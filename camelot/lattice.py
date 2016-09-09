@@ -92,8 +92,7 @@ class Lattice:
 
         imagename = ''.join([bname, '.jpg'])
         gs_call = [
-            "-q", "-sDEVICE=jpeg", "-o", imagename, "-r600", "-dJPEGQ=100",
-            pdfname
+            "-q", "-sDEVICE=png16m", "-o", imagename, "-r600", pdfname
         ]
         if "ghostscript" in subprocess.check_output(["gs", "-version"]).lower():
             gs_call.insert(0, "gs")
