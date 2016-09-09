@@ -23,10 +23,10 @@ def test_lattice_basic():
     ]
     pdfname = os.path.join(testdir,
         "tabula_test_pdfs/icdar2013-dataset/competition-dataset-us/us-030.pdf")
-    extractor = Lattice(Pdf(pdfname,
-                            pagenos=[{'start': 2, 'end': 2}], clean=True))
-    tables = extractor.get_tables()
-    assert_equal(tables['page-2'][0], data)
+    manager = Pdf(Lattice(), pdfname, pagenos=[{'start': 2, 'end': 2}],
+        clean=True)
+    tables = manager.extract()
+    assert_equal(tables['page-2']['table-1']['data'], data)
 
 
 def test_lattice_fill():
@@ -74,9 +74,9 @@ def test_lattice_fill():
         ["Source:   Data Warehouse 12/14/15","","",""]
     ]
     pdfname = os.path.join(testdir, 'row_span_1.pdf')
-    extractor = Lattice(Pdf(pdfname, clean=True), fill='v', scale=40)
-    tables = extractor.get_tables()
-    assert_equal(tables['pagea-1'][0], data)
+    manager = Pdf(Lattice(fill='v', scale=40), pdfname, clean=True)
+    tables = manager.extract()
+    assert_equal(tables['page-1']['table-1']['data'], data)
 
 
 def test_lattice_invert():
@@ -92,6 +92,6 @@ def test_lattice_invert():
         ["Total","","47","92","11.81","22,455","19,584","10,644"]
     ]
     pdfname = os.path.join(testdir, 'lines_in_background_1.pdf')
-    extractor = Lattice(Pdf(pdfname, clean=True), invert=True)
-    tables = extractor.get_tables()
-    assert_equal(tables['page-1'][1], data)
+    manager = Pdf(Lattice(invert=True), pdfname, clean=True)
+    tables = manager.extract()
+    assert_equal(tables['page-1']['table-1']['data'], data)
