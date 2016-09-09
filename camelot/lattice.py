@@ -117,8 +117,8 @@ class Lattice:
         hmask, h_segments = find_lines(threshold, direction='horizontal',
             scale=self.scale)
 
-        if self.table_area:
-            if self.fill:
+        if self.table_area is not None:
+            if self.fill is not None:
                 if len(self.table_area) != len(self.fill):
                     raise ValueError("message")
             areas = []
@@ -226,7 +226,7 @@ class Lattice:
             score = get_score([[50, rerror], [50, cerror]])
             table_data['score'] = score
 
-            if self.fill:
+            if self.fill is not None:
                 table = fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
             if table_rotation == 'left':
