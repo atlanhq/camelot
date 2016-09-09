@@ -94,4 +94,4 @@ def test_lattice_invert():
     pdfname = os.path.join(testdir, 'lines_in_background_1.pdf')
     manager = Pdf(Lattice(invert=True), pdfname, clean=True)
     tables = manager.extract()
-    assert_equal(tables['page-1']['table-1']['data'], data)
+    assert_equal(tables['page-1']['table-2']['data'], data)

@@ -339,14 +339,13 @@ if __name__ == '__main__':
         float(args['--wmargin']))
     if args['<method>'] == 'lattice':
         try:
-            manager = Pdf(Lattice(
-                                  table_area=args['--tarea'],
-                                  fill=args['--fill'],
-                                  jtol=[int(j) for j in args['--jtol']],
-                                  mtol=[int(m) for m in args['--mtol']],
-                                  scale=int(args['--scale']),
-                                  invert=args['--invert'],
-                                  margins=margins,
+            tarea = args['--tarea'] if args['--tarea'] else None
+            fill = args['--fill'] if args['--fill'] else None
+            jtol = [int(j) for j in args['--jtol']]
+            mtol = [int(m) for m in args['--mtol']]
+            manager = Pdf(Lattice(table_area=tarea, fill=fill, jtol=jtol,
+                                  mtol=mtol, scale=int(args['--scale']),
+                                  invert=args['--invert'], margins=margins,
                                   debug=args['--debug']),
                           filename,
                           pagenos=p,
@@ -406,14 +405,17 @@ if __name__ == '__main__':
             sys.exit()
     elif args['<method>'] == 'stream':
         try:
-            manager = Pdf(Stream(
-                                 table_area=args['--tarea'],
-                                 columns=args['--columns'],
-                                 ncolumns=[int(nc) for nc in args['--ncols']],
-                                 ytol=[int(y) for y in args['--ytol']],
-                                 mtol=[int(m) for m in args['--mtol']],
-                                 margins=margins,
-                                 debug=args['--debug']),
+            tarea = args['--tarea'] if args['--tarea'] else None
+            columns = args['--columns'] if args['--columns'] else None
+            if args['--ncols']:
+                ncolumns = [int(nc) for nc in args['--ncols']]
+            else:
+                ncolumns = None
+            ytol = [int(y) for y in args['--ytol']]
+            mtol = [int(m) for m in args['--mtol']]
+            manager = Pdf(Stream(table_area=tarea, columns=columns,
+                                 ncolumns=ncolumns, ytol=ytol, mtol=mtol,
+                                 margins=margins, debug=args['--debug']),
                           filename,
                           pagenos=p,
                           parallel=args['--parallel'],

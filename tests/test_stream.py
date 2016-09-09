@@ -59,13 +59,13 @@ def test_stream_basic():
     ]
 
     pdfname = os.path.join(testdir, 'mexican_towns.pdf')
-    extractor = Stream(Pdf(pdfname, pagenos=[{'start': 1, 'end': 1}],
-                           clean=True))
-    tables = extractor.get_tables()
-    assert_equal(tables['page-1'][0], data)
+    manager = Pdf(Stream(ytol=[10]), pdfname, pagenos=[{'start': 1, 'end': 1}],
+        clean=True)
+    tables = manager.extract()
+    assert_equal(tables['page-1']['table-1']['data'], data)
 
 
-def test_stream_ncolumns():
+def test_stream_extra_columns():
 
     data = [
         ["Bhandara - Key Indicators","","","",""],
@@ -114,10 +114,9 @@ def test_stream_ncolumns():
         ["","4","","",""]
     ]
     pdfname = os.path.join(testdir, 'missing_values.pdf')
-    extractor = Stream(Pdf(pdfname, char_margin=1.0, clean=True),
-                       ncolumns=5)
-    tables = extractor.get_tables()
-    assert_equal(tables['page-1'][0], data)
+    manager = Pdf(Stream(margins=(1.0, 0.5, 0.1)), pdfname, clean=True)
+    tables = manager.extract()
+    assert_equal(tables['page-1']['table-1']['data'], data)
 
 
 def test_stream_columns():
@@ -168,7 +167,7 @@ def test_stream_columns():
         ["01","Aguascalientes","001","Aguascalientes","0226","Hacienda Nueva"],
     ]
     pdfname = os.path.join(testdir, 'mexican_towns.pdf')
-    extractor = Stream(Pdf(pdfname, clean=True),
-                       columns='28,67,180,230,425,475,700')
-    tables = extractor.get_tables()
-    assert_equal(tables['page-1'][0], data)
+    manager = Pdf(Stream(columns='28,67,180,230,425,475,700', ytol=[10]), pdfname,
+        clean=True)
+    tables = manager.extract()
+    assert_equal(tables['page-1']['table-1']['data'], data)
