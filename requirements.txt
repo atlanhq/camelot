@@ -5,4 +5,3 @@ pdfminer
 pyexcel-xlsx
 PyPDF2
 Sphinx
-Wand
