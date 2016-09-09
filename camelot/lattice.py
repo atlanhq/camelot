@@ -117,14 +117,10 @@ class Lattice:
         hmask, h_segments = find_lines(threshold, direction='horizontal',
             scale=self.scale)
 
-        if self.table_area:
-            if self.fill:
+        if self.table_area is not None:
+            if self.fill is not None:
                 if len(self.table_area) != len(self.fill):
                     raise ValueError("message")
-            if len(self.jtol) == 1 and self.jtol[0] == 2:
-                self.jtol = self.jtol * len(self.table_area)
-            if len(self.mtol) == 1 and self.mtol[0] == 2:
-                self.mtol = self.mtol * len(self.table_area)
             areas = []
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
@@ -138,6 +134,11 @@ class Lattice:
         else:
             contours = find_table_contours(vmask, hmask)
             table_bbox = find_table_joints(contours, vmask, hmask)
+
+        if len(self.jtol) == 1 and self.jtol[0] == 2:
+            self.jtol = self.jtol * len(table_bbox)
+        if len(self.mtol) == 1 and self.mtol[0] == 2:
+            self.mtol = self.mtol * len(table_bbox)
 
         if self.debug:
             self.debug_images = (img, table_bbox)
@@ -225,7 +226,7 @@ class Lattice:
             score = get_score([[50, rerror], [50, cerror]])
             table_data['score'] = score
 
-            if self.fill:
+            if self.fill is not None:
                 table = fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
             if table_rotation == 'left':

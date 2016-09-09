@@ -231,17 +231,13 @@ class Stream:
             self.debug_text = [(t.x0, t.y0, t.x1, t.y1) for t in text]
             return None
 
-        if self.table_area:
-            if self.columns:
+        if self.table_area is not None:
+            if self.columns is not None:
                 if len(self.table_area) != len(self.columns):
                     raise ValueError("message")
-            if self.ncolumns:
+            if self.ncolumns is not None:
                 if len(self.table_area) != len(self.ncolumns):
                     raise ValueError("message")
-            if len(self.ytol) == 1 and self.ytol[0] == 2:
-                self.ytol = self.ytol * len(self.table_area)
-            if len(self.mtol) == 1 and self.mtol[0] == 2:
-                self.mtol = self.mtol * len(self.table_area)
             table_bbox = {}
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
@@ -252,6 +248,11 @@ class Stream:
                 table_bbox[(x1, y2, x2, y1)] = None
         else:
             table_bbox = {(0, 0, width, height): None}
+
+        if len(self.ytol) == 1 and self.ytol[0] == 2:
+            self.ytol = self.ytol * len(table_bbox)
+        if len(self.mtol) == 1 and self.mtol[0] == 2:
+            self.mtol = self.mtol * len(table_bbox)
 
         page = {}
         tables = {}
@@ -268,7 +269,7 @@ class Stream:
             elements = [len(r) for r in rows_grouped]
 
             guess = False
-            if self.columns and self.columns[table_no] != "":
+            if self.columns is not None and self.columns[table_no] != "":
                 # user has to input boundary columns too
                 # take (0, width) by default
                 # similar to else condition
@@ -277,7 +278,7 @@ class Stream:
                 cols = [(float(cols[i]), float(cols[i + 1]))
                         for i in range(0, len(cols) - 1)]
             else:
-                if self.ncolumns and self.ncolumns[table_no] != -1:
+                if self.ncolumns is not None and self.ncolumns[table_no] != -1:
                     ncols = self.ncolumns[table_no]
                     cols = [(t.x0, t.x1)
                         for r in rows_grouped if len(r) == ncols for t in r]
