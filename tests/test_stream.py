@@ -13,59 +13,30 @@ testdir = os.path.dirname(os.path.abspath(__file__))
 def test_stream_basic():
 
     data = [
-        ["Clave","Nombre Entidad","Clave","Nombre Municipio","Clave","Nombre Localidad"],
-        ["Entidad","","Municipio","","Localidad",""],
-        ["01","Aguascalientes","001","Aguascalientes","0094","Granja Adelita"],
-        ["01","Aguascalientes","001","Aguascalientes","0096","Agua Azul"],
-        ["01","Aguascalientes","001","Aguascalientes","0100","Rancho Alegre"],
-        ["01","Aguascalientes","001","Aguascalientes","0102","Los Arbolitos [Rancho]"],
-        ["01","Aguascalientes","001","Aguascalientes","0104","Ardillas de Abajo (Las Ardillas)"],
-        ["01","Aguascalientes","001","Aguascalientes","0106","Arellano"],
-        ["01","Aguascalientes","001","Aguascalientes","0112","Bajío los Vázquez"],
-        ["01","Aguascalientes","001","Aguascalientes","0113","Bajío de Montoro"],
-        ["01","Aguascalientes","001","Aguascalientes","0114","Residencial San Nicolás [Baños la Cantera]"],
-        ["01","Aguascalientes","001","Aguascalientes","0120","Buenavista de Peñuelas"],
-        ["01","Aguascalientes","001","Aguascalientes","0121","Cabecita 3 Marías (Rancho Nuevo)"],
-        ["01","Aguascalientes","001","Aguascalientes","0125","Cañada Grande de Cotorina"],
-        ["01","Aguascalientes","001","Aguascalientes","0126","Cañada Honda [Estación]"],
-        ["01","Aguascalientes","001","Aguascalientes","0127","Los Caños"],
-        ["01","Aguascalientes","001","Aguascalientes","0128","El Cariñán"],
-        ["01","Aguascalientes","001","Aguascalientes","0129","El Carmen [Granja]"],
-        ["01","Aguascalientes","001","Aguascalientes","0135","El Cedazo (Cedazo de San Antonio)"],
-        ["01","Aguascalientes","001","Aguascalientes","0138","Centro de Arriba (El Taray)"],
-        ["01","Aguascalientes","001","Aguascalientes","0139","Cieneguilla (La Lumbrera)"],
-        ["01","Aguascalientes","001","Aguascalientes","0141","Cobos"],
-        ["01","Aguascalientes","001","Aguascalientes","0144","El Colorado (El Soyatal)"],
-        ["01","Aguascalientes","001","Aguascalientes","0146","El Conejal"],
-        ["01","Aguascalientes","001","Aguascalientes","0157","Cotorina de Abajo"],
-        ["01","Aguascalientes","001","Aguascalientes","0162","Coyotes"],
-        ["01","Aguascalientes","001","Aguascalientes","0166","La Huerta (La Cruz)"],
-        ["01","Aguascalientes","001","Aguascalientes","0170","Cuauhtémoc (Las Palomas)"],
-        ["01","Aguascalientes","001","Aguascalientes","0171","Los Cuervos (Los Ojos de Agua)"],
-        ["01","Aguascalientes","001","Aguascalientes","0172","San José [Granja]"],
-        ["01","Aguascalientes","001","Aguascalientes","0176","La Chiripa"],
-        ["01","Aguascalientes","001","Aguascalientes","0182","Dolores"],
-        ["01","Aguascalientes","001","Aguascalientes","0183","Los Dolores"],
-        ["01","Aguascalientes","001","Aguascalientes","0190","El Duraznillo"],
-        ["01","Aguascalientes","001","Aguascalientes","0191","Los Durón"],
-        ["01","Aguascalientes","001","Aguascalientes","0197","La Escondida"],
-        ["01","Aguascalientes","001","Aguascalientes","0201","Brande Vin [Bodegas]"],
-        ["01","Aguascalientes","001","Aguascalientes","0207","Valle Redondo"],
-        ["01","Aguascalientes","001","Aguascalientes","0209","La Fortuna"],
-        ["01","Aguascalientes","001","Aguascalientes","0212","Lomas del Gachupín"],
-        ["01","Aguascalientes","001","Aguascalientes","0213","El Carmen (Gallinas Güeras) [Rancho]"],
-        ["01","Aguascalientes","001","Aguascalientes","0216","La Gloria"],
-        ["01","Aguascalientes","001","Aguascalientes","0226","Hacienda Nueva"],
+        ["", "Table 6.", ""],
+        ["", "U.S. Production, Imports, Exports, and Net Supply of Conventional Pesticides", ""],
+        ["", "at Producer Level, 1994/95 Estimates.", ""],
+        ["", "Active Ingredient", "Sales Value"],
+        ["", "(in billions of lbs.)", "(in billions of dollars)"],
+        ["Category", "1994/95", "1994/95"],
+        ["U.S. Production", "1.3", "7.0"],
+        ["U.S. Imports", "0.2", "2.2"],
+        ["Total Supply", "1.5", "9.2"],
+        ["U.S. Exports", "0.5", "2.6"],
+        ["Net Supply/Usage", "1.0", "6.6"],
+        ["SOURCE:", "EPA  estimates  based  on  ACPA  Surveys,  Department  of  Commerce  Publications,  tabulations  and  other", ""],
+        ["sources.", "", ""],
+        ["16\xe2\x80\x9494/95 Pesticides Industry Sales And Usage", "", ""]
     ]
 
-    pdfname = os.path.join(testdir, 'mexican_towns.pdf')
-    manager = Pdf(Stream(ytol=[10]), pdfname, pagenos=[{'start': 1, 'end': 1}],
+    pdfname = os.path.join(testdir, "tabula_test_pdfs/us-024.pdf")
+    manager = Pdf(Stream(), pdfname, pagenos=[{"start": 1, "end": 1}],
         clean=True)
     tables = manager.extract()
-    assert_equal(tables['page-1']['table-1']['data'], data)
+    assert_equal(tables["page-1"]["table-1"]["data"], data)
 
 
-def test_stream_extra_columns():
+def test_stream_missing_value():
 
     data = [
         ["Bhandara - Key Indicators","","","",""],
@@ -110,13 +81,36 @@ def test_stream_extra_columns():
         ["Moderately High (Systolic >160 mm of Hg & Diastolic >100 mm of Hg ) .....................................","8.2","7.1","",""],
         ["Very High (Systolic >180 mm of Hg & Diastolic >110 mm of Hg ) ...............................................","3.7","3.1","",""],
         ["14 Any anaemia below 11g/dl, severe anaemia below 7g/dl. 15 Excluding age group 19 years","","","",""],
-        ["Chronic Illness :Any person with symptoms persisting for longer than one month is defined as suffering from chronic illness","","","",""],
-        ["","4","","",""]
+        ["","Chronic Illness :Any person with symptoms persisting for longer than one month is defined as suffering from chronic illness","","",""],
+        ["4","","","",""]
     ]
-    pdfname = os.path.join(testdir, 'missing_values.pdf')
+    pdfname = os.path.join(testdir, "missing_values.pdf")
     manager = Pdf(Stream(margins=(1.0, 0.5, 0.1)), pdfname, clean=True)
     tables = manager.extract()
-    assert_equal(tables['page-1']['table-1']['data'], data)
+    assert_equal(tables["page-1"]["table-1"]["data"], data)
+
+
+def test_stream_single_table_area():
+
+    data = [
+        ["","One Withholding"],
+        ["Payroll Period","Allowance"],
+        ["Weekly","$71.15"],
+        ["Biweekly","142.31"],
+        ["Semimonthly","154.17"],
+        ["Monthly","308.33"],
+        ["Quarterly","925.00"],
+        ["Semiannually","1,850.00"],
+        ["Annually","3,700.00"],
+        ["Daily or Miscellaneous","14.23"],
+        ["(each day of the payroll period)",""]
+    ]
+    pdfname = os.path.join(testdir, "tabula_test_pdfs/us-007.pdf")
+    manager = Pdf(Stream(table_area=["320,500,573,335"], ytol=[10],
+                         margins=(1.0, 0.5, 0.1)),
+                  pdfname, pagenos=[{"start": 1, "end": 1}], clean=True)
+    tables = manager.extract()
+    assert_equal(tables["page-1"]["table-1"]["data"], data)
 
 
 def test_stream_columns():
@@ -166,8 +160,8 @@ def test_stream_columns():
         ["01","Aguascalientes","001","Aguascalientes","0216","La Gloria"],
         ["01","Aguascalientes","001","Aguascalientes","0226","Hacienda Nueva"],
     ]
-    pdfname = os.path.join(testdir, 'mexican_towns.pdf')
-    manager = Pdf(Stream(columns='28,67,180,230,425,475,700', ytol=[10]), pdfname,
+    pdfname = os.path.join(testdir, "mexican_towns.pdf")
+    manager = Pdf(Stream(columns=["28,67,180,230,425,475,700"], ytol=[10]), pdfname,
         clean=True)
     tables = manager.extract()
-    assert_equal(tables['page-1']['table-1']['data'], data)
+    assert_equal(tables["page-1"]["table-1"]["data"], data)
