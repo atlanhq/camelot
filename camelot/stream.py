@@ -77,7 +77,7 @@ def _merge_columns(l, mtol=0):
             merged.append(higher)
         else:
             lower = merged[-1]
-            if mtol > 0:
+            if mtol >= 0:
                 if (higher[0] <= lower[1] or
                         np.isclose(higher[0], lower[1], atol=mtol)):
                     upper_bound = max(lower[1], higher[1])
@@ -306,8 +306,8 @@ class Stream:
                     for i in range(1, len(cols)):
                         left = cols[i - 1][1]
                         right = cols[i][0]
-                        inner_text.extend([t for t in text if t.x0 > left and t.x1 < right])
-                    outer_text = [t for t in text if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
+                        inner_text.extend([t for t in t_bbox if t.x0 > left and t.x1 < right])
+                    outer_text = [t for t in t_bbox if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
                     inner_text.extend(outer_text)
                     cols = _add_columns(cols, inner_text, self.ytol[table_no])
                     cols = _join_columns(cols, k[0], k[2])
