@@ -126,7 +126,7 @@ class Pdf:
     def debug_plot(self):
         """Plots all text objects and various pdf geometries so that
         user can choose number of columns, columns x-coordinates for
-        Stream or tweak Lattice parameters (scale, jtol, mtol).
+        Stream or tweak Lattice parameters (mtol, scale).
         """
         import matplotlib.pyplot as plt
         import matplotlib.patches as patches

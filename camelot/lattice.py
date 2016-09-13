@@ -44,10 +44,6 @@ class Lattice:
         Scaling factor. Large scaling factor leads to smaller lines
         being detected. (optional, default: 15)
 
-    jtol : int
-        Tolerance to account for when comparing joint and line
-        coordinates. (optional, default: 2)
-
     mtol : int
         Tolerance to account for when merging lines which are
         very close. (optional, default: 2)
@@ -66,13 +62,12 @@ class Lattice:
         Dictionary with page number as key and list of tables on that
         page as value.
     """
-    def __init__(self, table_area=None, fill=None, jtol=[2], mtol=[2], scale=15,
+    def __init__(self, table_area=None, fill=None, mtol=[2], scale=15,
                  invert=False, margins=(2.0, 0.5, 0.1), debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area
         self.fill = fill
-        self.jtol = jtol
         self.mtol = mtol
         self.scale = scale
         self.invert = invert
@@ -135,8 +130,6 @@ class Lattice:
             contours = find_table_contours(vmask, hmask)
             table_bbox = find_table_joints(contours, vmask, hmask)
 
-        if len(self.jtol) == 1 and self.jtol[0] == 2:
-            self.jtol = self.jtol * len(table_bbox)
         if len(self.mtol) == 1 and self.mtol[0] == 2:
             self.mtol = self.mtol * len(table_bbox)
 
@@ -176,7 +169,7 @@ class Lattice:
                     for i in range(0, len(rows) - 1)]
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
-            table = table.set_edges(v_s, h_s, jtol=self.jtol[table_no])
+            table = table.set_edges(v_s, h_s)
             nouse = table.nocont_ / (len(v_s) + len(h_s))
             table_data['line_p'] = 100 * (1 - nouse)
             # set spanning cells to True

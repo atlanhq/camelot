@@ -55,15 +55,13 @@ lattice_doc = """
 Lattice method looks for lines between text to form a table.
 
 usage:
- camelot lattice [-t <tarea>...] [-F <fill>...] [-j <jtol>...]
+ camelot lattice [-t <tarea>...] [-F <fill>...]
  [-m <mtol>...] [options] [--] <file>
 
 options:
  -t, --tarea <tarea>  Specific table areas to analyze.
  -F, --fill <fill>    Fill data in horizontal and/or vertical spanning
                       cells. Example: -F h, -F v, -F hv
- -j, --jtol <jtol>    Tolerance to account for when comparing joint
-                      and line coordinates. [default: 2]
  -m, --mtol <mtol>    Tolerance to account for when merging lines
                       which are very close. [default: 2]
  -s, --scale <scale>  Scaling factor. Large scaling factor leads to
@@ -341,9 +339,8 @@ if __name__ == '__main__':
         try:
             tarea = args['--tarea'] if args['--tarea'] else None
             fill = args['--fill'] if args['--fill'] else None
-            jtol = [int(j) for j in args['--jtol']]
             mtol = [int(m) for m in args['--mtol']]
-            manager = Pdf(Lattice(table_area=tarea, fill=fill, jtol=jtol,
+            manager = Pdf(Lattice(table_area=tarea, fill=fill,
                                   mtol=mtol, scale=int(args['--scale']),
                                   invert=args['--invert'], margins=margins,
                                   debug=args['--debug']),
