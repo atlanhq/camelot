@@ -1,8 +1,8 @@
 from __future__ import division
 import os
 import types
-import copy_reg
 import logging
+import copy_reg
 
 import numpy as np
 
