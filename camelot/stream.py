@@ -219,16 +219,16 @@ class Stream:
             Dictionary with page number as key and list of tables on that
             page as value.
         """
-        __, text, width, height = pdf_to_text(pdfname, self.char_margin,
+        ltchar, lttextlh, width, height = pdf_to_text(pdfname, self.char_margin,
             self.line_margin, self.word_margin)
         bname, __ = os.path.splitext(pdfname)
-        if not text:
+        if not lttextlh:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
 
         if self.debug:
-            self.debug_text = [(t.x0, t.y0, t.x1, t.y1) for t in text]
+            self.debug_text = [(t.x0, t.y0, t.x1, t.y1) for t in lttextlh]
             return None
 
         if self.table_area is not None:
@@ -261,7 +261,7 @@ class Stream:
         for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
             # select elements which lie within table_bbox
             table_data = {}
-            t_bbox = text_bbox(k, text)
+            t_bbox = text_bbox(k, lttextlh)
             t_bbox.sort(key=lambda x: (-x.y0, x.x0))
 
             rows_grouped = _group_rows(t_bbox, ytol=self.ytol[table_no])

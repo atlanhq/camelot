@@ -569,9 +569,9 @@ def pdf_to_text(pname, char_margin, line_margin, word_margin):
         for page in PDFPage.create_pages(document):
             interpreter.process_page(page)
             layout = device.get_result()
-            lattice_objects = extract_text_objects(layout, LTChar)
-            stream_objects = extract_text_objects(
+            ltchar = extract_text_objects(layout, LTChar)
+            lttextlh = extract_text_objects(
                 layout, LTTextLineHorizontal)
             width = layout.bbox[2]
             height = layout.bbox[3]
-        return lattice_objects, stream_objects, width, height
+        return ltchar, lttextlh, width, height

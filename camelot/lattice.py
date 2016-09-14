@@ -82,10 +82,10 @@ class Lattice:
             Dictionary with page number as key and list of tables on that
             page as value.
         """
-        text, __, width, height = pdf_to_text(pdfname, self.char_margin,
+        ltchar, lttextlh, width, height = pdf_to_text(pdfname, self.char_margin,
             self.line_margin, self.word_margin)
         bname, __ = os.path.splitext(pdfname)
-        if not text:
+        if not ltchar:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
@@ -156,8 +156,8 @@ class Lattice:
             # select elements which lie within table_bbox
             table_data = {}
             v_s, h_s = segments_bbox(k, v_segments, h_segments)
-            t_bbox = text_bbox(k, text)
-            table_data['text_p'] = 100 * (1 - (len(t_bbox) / len(text)))
+            t_bbox = text_bbox(k, ltchar)
+            table_data['text_p'] = 100 * (1 - (len(t_bbox) / len(ltchar)))
             table_rotation = detect_vertical(t_bbox)
             cols, rows = zip(*table_bbox[k])
             cols, rows = list(cols), list(rows)
@@ -187,7 +187,7 @@ class Lattice:
 
             rerror = []
             cerror = []
-            for t in text:
+            for t in ltchar:
                 try:
                     r_idx, rass_error = get_row_index(t, rows)
                 except TypeError:
