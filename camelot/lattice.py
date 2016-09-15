@@ -63,7 +63,7 @@ class Lattice:
         page as value.
     """
     def __init__(self, table_area=None, fill=None, mtol=[2], scale=15,
-                 invert=False, margins=(2.0, 0.5, 0.1), debug=None):
+                 invert=False, margins=(1.0, 0.5, 0.1), debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area

@@ -199,7 +199,7 @@ class Stream:
         page as value.
     """
     def __init__(self, table_area=None, columns=None, ncolumns=None, ytol=[2],
-                 mtol=[2], margins=(2.0, 0.5, 0.1), debug=False):
+                 mtol=[0], margins=(1.0, 0.5, 0.1), debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
@@ -232,8 +232,7 @@ class Stream:
             return None
 
         if self.debug:
-            self.debug_text = [(t.x0, t.y0, t.x1, t.y1) for t in lttextlh]
-            return None
+            self.debug_text = []
 
         if self.table_area is not None:
             if self.columns is not None:
@@ -266,9 +265,11 @@ class Stream:
             # select elements which lie within table_bbox
             table_data = {}
             table_rotation = get_rotation(ltchar, lttextlh, lttextlv)
-            if table_rotation in ['left', 'right']:
+            if table_rotation != '':
                 t_bbox = text_bbox(k, lttextlv)
                 if table_rotation == 'left':
+                    if self.debug:
+                        self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlv])
                     for t in t_bbox:
                         x0, y0, x1, y1 = t.bbox
                         x0, y0 = rotate(0, 0, x0, y0, -np.pi / 2)
@@ -281,14 +282,16 @@ class Stream:
                         x1, y1 = rotate(0, 0, x1, y1, np.pi / 2)
                         t.set_bbox((x1, y0, x0, y1))
             else:
+                if self.debug:
+                    self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlh])
                 t_bbox = text_bbox(k, lttextlh)
             t_bbox.sort(key=lambda x: (-x.y0, x.x0))
 
-            rows_grouped = _group_rows(t_bbox, ytol=self.ytol[table_no])
             text_x_min = min([t.x0 for t in t_bbox])
             text_y_min = min([t.y0 for t in t_bbox])
             text_x_max = max([t.x1 for t in t_bbox])
             text_y_max = max([t.y1 for t in t_bbox])
+            rows_grouped = _group_rows(t_bbox, ytol=self.ytol[table_no])
             rows = _join_rows(rows_grouped, text_y_max, text_y_min)
             elements = [len(r) for r in rows_grouped]
 
@@ -299,8 +302,13 @@ class Stream:
                 # similar to else condition
                 # len can't be 1
                 cols = self.columns[table_no].split(',')
-                cols = [(float(cols[i]), float(cols[i + 1]))
-                        for i in range(0, len(cols) - 1)]
+                cols = [float(c) for c in cols]
+                if table_rotation != '':
+                    if table_rotation == 'left':
+                        cols = [rotate(0, 0, 0, c, -np.pi / 2)[0] for c in cols]
+                    elif table_rotation == 'right':
+                        cols = [rotate(0, 0, 0, c, np.pi / 2)[0] for c in cols]
+                cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
             else:
                 if self.ncolumns is not None and self.ncolumns[table_no] != -1:
                     ncols = self.ncolumns[table_no]
