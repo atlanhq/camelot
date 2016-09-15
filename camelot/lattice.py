@@ -9,9 +9,10 @@ from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints)
 from .table import Table
 from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_bbox,
-                    detect_vertical, merge_close_values, get_row_index,
+                    get_rotation, merge_close_values, get_row_index,
                     get_column_index, get_score, reduce_index, outline,
-                    fill_spanning, count_empty, encode_list, pdf_to_text)
+                    fill_spanning, count_empty, encode_list, get_page_layout,
+                    get_text_objects)
 
 
 __all__ = ['Lattice']
@@ -62,7 +63,7 @@ class Lattice:
         page as value.
     """
     def __init__(self, table_area=None, fill=None, mtol=[2], scale=15,
-                 invert=False, margins=(2.0, 0.5, 0.1), debug=None):
+                 invert=False, margins=(1.0, 0.5, 0.1), debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area
@@ -82,10 +83,14 @@ class Lattice:
             Dictionary with page number as key and list of tables on that
             page as value.
         """
-        text, __, width, height = pdf_to_text(pdfname, self.char_margin,
-            self.line_margin, self.word_margin)
+        layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
+            line_margin=self.line_margin, word_margin=self.word_margin)
+        ltchar = get_text_objects(layout, LTType="char")
+        lttextlh = get_text_objects(layout, LTType="lh")
+        lttextlv = get_text_objects(layout, LTType="lv")
+        width, height = dim
         bname, __ = os.path.splitext(pdfname)
-        if not text:
+        if not ltchar:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
@@ -156,9 +161,11 @@ class Lattice:
             # select elements which lie within table_bbox
             table_data = {}
             v_s, h_s = segments_bbox(k, v_segments, h_segments)
-            t_bbox = text_bbox(k, text)
-            table_data['text_p'] = 100 * (1 - (len(t_bbox) / len(text)))
-            table_rotation = detect_vertical(t_bbox)
+            char_bbox = text_bbox(k, ltchar)
+            lh_bbox = text_bbox(k, lttextlh)
+            lv_bbox = text_bbox(k, lttextlv)
+            table_data['text_p'] = 100 * (1 - (len(char_bbox) / len(ltchar)))
+            table_rotation = get_rotation(char_bbox, lh_bbox, lv_bbox)
             cols, rows = zip(*table_bbox[k])
             cols, rows = list(cols), list(rows)
             cols.extend([k[0], k[2]])
@@ -187,7 +194,7 @@ class Lattice:
 
             rerror = []
             cerror = []
-            for t in text:
+            for t in char_bbox:
                 try:
                     r_idx, rass_error = get_row_index(t, rows)
                 except TypeError:
@@ -207,7 +214,7 @@ class Lattice:
                 for j in range(len(table.cells[i])):
                     t_bbox = table.cells[i][j].get_objects()
                     try:
-                        cell_rotation = detect_vertical(t_bbox)
+                        cell_rotation = get_rotation(t_bbox)
                     except ZeroDivisionError:
                         cell_rotation = ''
                         pass

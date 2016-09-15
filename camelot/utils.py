@@ -11,7 +11,7 @@ from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.pdfinterp import PDFPageInterpreter
 from pdfminer.pdfdevice import PDFDevice
 from pdfminer.converter import PDFPageAggregator
-from pdfminer.layout import LAParams, LTChar, LTTextLineHorizontal
+from pdfminer.layout import LAParams, LTChar, LTTextLineHorizontal, LTTextLineVertical
 
 
 def translate(x1, x2):
@@ -144,7 +144,7 @@ def scale_to_pdf(tables, v_segments, h_segments, factors):
     return tables_new, v_segments_new, h_segments_new
 
 
-def detect_vertical(text):
+def get_rotation(ltchar, lttextlh=None, lttextlv=None):
     """Detects if text in table is vertical or not and returns
     its orientation.
 
@@ -156,13 +156,18 @@ def detect_vertical(text):
     -------
     rotation : string
     """
-    num_v = [t for t in text if (not t.upright) and t.get_text().strip()]
-    num_h = [t for t in text if t.upright and t.get_text().strip()]
-    vger = len(num_v) / float(len(num_v) + len(num_h))
     rotation = ''
-    if vger > 0.8:
-        clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in text)
-        anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in text)
+    if lttextlh is not None and lttextlv is not None:
+        hlen = len([t for t in lttextlh if t.get_text().strip()])
+        vlen = len([t for t in lttextlv if t.get_text().strip()])
+        vger = 0.0
+    else:
+        hlen = len([t for t in ltchar if t.upright and t.get_text().strip()])
+        vlen = len([t for t in ltchar if (not t.upright) and t.get_text().strip()])
+        vger = vlen / float(hlen+vlen)
+    if hlen < vlen or vger > 0.8:
+        clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in ltchar)
+        anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in ltchar)
         rotation = 'left' if clockwise < anticlockwise else 'right'
     return rotation
 
@@ -520,7 +525,7 @@ def encode_list(ar):
     return ar
 
 
-def extract_text_objects(layout, LTObject, t=None):
+def get_text_objects(layout, LTType="char", t=None):
     """Recursively parses pdf layout to get a list of
     text objects.
 
@@ -539,6 +544,12 @@ def extract_text_objects(layout, LTObject, t=None):
     t : list
         List of text objects.
     """
+    if LTType == "char":
+        LTObject = LTChar
+    elif LTType == "lh":
+        LTObject = LTTextLineHorizontal
+    elif LTType == "lv":
+        LTObject = LTTextLineVertical
     if t is None:
         t = []
     try:
@@ -546,15 +557,14 @@ def extract_text_objects(layout, LTObject, t=None):
             if isinstance(obj, LTObject):
                 t.append(obj)
             else:
-                t += extract_text_objects(obj, LTObject)
+                t += get_text_objects(obj, LTType=LTType)
     except AttributeError:
         pass
     return t
 
 
-def pdf_to_text(pname, char_margin, line_margin, word_margin):
-    # pkey = 'page-{0}'.format(p)
-    # pname = os.path.join(self.temp, '{}.pdf'.format(pkey))
+def get_page_layout(pname, char_margin=2.0, line_margin=0.5, word_margin=0.1,
+               detect_vertical=True, all_texts=True):
     with open(pname, 'r') as f:
         parser = PDFParser(f)
         document = PDFDocument(parser)
@@ -562,16 +572,16 @@ def pdf_to_text(pname, char_margin, line_margin, word_margin):
             raise PDFTextExtractionNotAllowed
         laparams = LAParams(char_margin=char_margin,
                             line_margin=line_margin,
-                            word_margin=word_margin)
+                            word_margin=word_margin,
+                            detect_vertical=detect_vertical,
+                            all_texts=all_texts)
         rsrcmgr = PDFResourceManager()
         device = PDFPageAggregator(rsrcmgr, laparams=laparams)
         interpreter = PDFPageInterpreter(rsrcmgr, device)
         for page in PDFPage.create_pages(document):
             interpreter.process_page(page)
             layout = device.get_result()
-            lattice_objects = extract_text_objects(layout, LTChar)
-            stream_objects = extract_text_objects(
-                layout, LTTextLineHorizontal)
             width = layout.bbox[2]
             height = layout.bbox[3]
-        return lattice_objects, stream_objects, width, height
+            dim = (width, height)
+        return layout, dim

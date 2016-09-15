@@ -7,8 +7,8 @@ import copy_reg
 import numpy as np
 
 from .table import Table
-from .utils import (get_row_index, get_score, count_empty, encode_list,
-                    pdf_to_text, text_bbox)
+from .utils import (rotate, get_row_index, get_score, count_empty, encode_list,
+                    get_page_layout, get_text_objects, text_bbox, get_rotation)
 
 
 __all__ = ['Stream']
@@ -199,7 +199,7 @@ class Stream:
         page as value.
     """
     def __init__(self, table_area=None, columns=None, ncolumns=None, ytol=[2],
-                 mtol=[2], margins=(2.0, 0.5, 0.1), debug=False):
+                 mtol=[0], margins=(1.0, 0.5, 0.1), debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
@@ -219,17 +219,20 @@ class Stream:
             Dictionary with page number as key and list of tables on that
             page as value.
         """
-        __, text, width, height = pdf_to_text(pdfname, self.char_margin,
-            self.line_margin, self.word_margin)
+        layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
+            line_margin=self.line_margin, word_margin=self.word_margin)
+        ltchar = get_text_objects(layout, LTType="char")
+        lttextlh = get_text_objects(layout, LTType="lh")
+        lttextlv = get_text_objects(layout, LTType="lv")
+        width, height = dim
         bname, __ = os.path.splitext(pdfname)
-        if not text:
+        if not lttextlh:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
 
         if self.debug:
-            self.debug_text = [(t.x0, t.y0, t.x1, t.y1) for t in text]
-            return None
+            self.debug_text = []
 
         if self.table_area is not None:
             if self.columns is not None:
@@ -261,11 +264,35 @@ class Stream:
         for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
             # select elements which lie within table_bbox
             table_data = {}
-            t_bbox = text_bbox(k, text)
+            table_rotation = get_rotation(ltchar, lttextlh, lttextlv)
+            if table_rotation != '':
+                t_bbox = text_bbox(k, lttextlv)
+                if table_rotation == 'left':
+                    if self.debug:
+                        self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlv])
+                    for t in t_bbox:
+                        x0, y0, x1, y1 = t.bbox
+                        x0, y0 = rotate(0, 0, x0, y0, -np.pi / 2)
+                        x1, y1 = rotate(0, 0, x1, y1, -np.pi / 2)
+                        t.set_bbox((x0, y1, x1, y0))
+                elif table_rotation == 'right':
+                    for t in t_bbox:
+                        x0, y0, x1, y1 = t.bbox
+                        x0, y0 = rotate(0, 0, x0, y0, np.pi / 2)
+                        x1, y1 = rotate(0, 0, x1, y1, np.pi / 2)
+                        t.set_bbox((x1, y0, x0, y1))
+            else:
+                if self.debug:
+                    self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlh])
+                t_bbox = text_bbox(k, lttextlh)
             t_bbox.sort(key=lambda x: (-x.y0, x.x0))
 
+            text_x_min = min([t.x0 for t in t_bbox])
+            text_y_min = min([t.y0 for t in t_bbox])
+            text_x_max = max([t.x1 for t in t_bbox])
+            text_y_max = max([t.y1 for t in t_bbox])
             rows_grouped = _group_rows(t_bbox, ytol=self.ytol[table_no])
-            rows = _join_rows(rows_grouped, k[3], k[1])
+            rows = _join_rows(rows_grouped, text_y_max, text_y_min)
             elements = [len(r) for r in rows_grouped]
 
             guess = False
@@ -275,8 +302,13 @@ class Stream:
                 # similar to else condition
                 # len can't be 1
                 cols = self.columns[table_no].split(',')
-                cols = [(float(cols[i]), float(cols[i + 1]))
-                        for i in range(0, len(cols) - 1)]
+                cols = [float(c) for c in cols]
+                if table_rotation != '':
+                    if table_rotation == 'left':
+                        cols = [rotate(0, 0, 0, c, -np.pi / 2)[0] for c in cols]
+                    elif table_rotation == 'right':
+                        cols = [rotate(0, 0, 0, c, np.pi / 2)[0] for c in cols]
+                cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
             else:
                 if self.ncolumns is not None and self.ncolumns[table_no] != -1:
                     ncols = self.ncolumns[table_no]
@@ -288,7 +320,7 @@ class Stream:
                                       " isn't the same as what you specified."
                                       " Change the value of mtol.".format(
                                       os.path.basename(bname)))
-                    cols = _join_columns(cols, k[0], k[2])
+                    cols = _join_columns(cols, text_x_min, text_x_max)
                 else:
                     guess = True
                     ncols = max(set(elements), key=elements.count)
@@ -310,7 +342,7 @@ class Stream:
                     outer_text = [t for t in t_bbox if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
                     inner_text.extend(outer_text)
                     cols = _add_columns(cols, inner_text, self.ytol[table_no])
-                    cols = _join_columns(cols, k[0], k[2])
+                    cols = _join_columns(cols, text_x_min, text_x_max)
 
             table = Table(cols, rows)
             rerror = []

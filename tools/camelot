@@ -34,7 +34,7 @@ options:
  -l, --log                 Log to file.
  -o, --output <directory>  Output directory.
  -M, --cmargin <cmargin>   Char margin. Chars closer than cmargin are
-                           grouped together to form a word. [default: 2.0]
+                           grouped together to form a word. [default: 1.0]
  -L, --lmargin <lmargin>   Line margin. Lines closer than lmargin are
                            grouped together to form a textbox. [default: 0.5]
  -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
@@ -87,7 +87,7 @@ options:
  -y, --ytol <ytol>        Tolerance to account for when grouping rows
                           together. [default: 2]
  -m, --mtol <mtol>        Tolerance to account for when merging columns
-                          together. [default: 2]
+                          together. [default: 0]
  -d, --debug              Debug by visualizing textboxes.
 """
 
