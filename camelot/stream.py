@@ -8,7 +8,7 @@ import numpy as np
 
 from .table import Table
 from .utils import (get_row_index, get_score, count_empty, encode_list,
-                    pdf_to_text, text_bbox)
+                    get_page_layout, get_text_objects, text_bbox, get_rotation)
 
 
 __all__ = ['Stream']
@@ -219,8 +219,12 @@ class Stream:
             Dictionary with page number as key and list of tables on that
             page as value.
         """
-        ltchar, lttextlh, width, height = pdf_to_text(pdfname, self.char_margin,
-            self.line_margin, self.word_margin)
+        layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
+            line_margin=self.line_margin, word_margin=self.word_margin)
+        ltchar = get_text_objects(layout, LTType="char")
+        lttextlh = get_text_objects(layout, LTType="lh")
+        lttextlv = get_text_objects(layout, LTType="lv")
+        width, height = dim
         bname, __ = os.path.splitext(pdfname)
         if not lttextlh:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
@@ -261,8 +265,16 @@ class Stream:
         for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
             # select elements which lie within table_bbox
             table_data = {}
-            t_bbox = text_bbox(k, lttextlh)
-            t_bbox.sort(key=lambda x: (-x.y0, x.x0))
+            table_rotation = get_rotation(ltchar, lttextlh, lttextlv)
+            if table_rotation in ['left', 'right']:
+                t_bbox = text_bbox(k, lttextlv)
+                if table_rotation == 'left':
+                    t_bbox.sort(key=lambda x: (x.x0, x.y0))
+                elif table_rotation == 'right':
+                    t_bbox.sort(key=lambda x: (-x.x0, -x.y0))
+            else:
+                t_bbox = text_bbox(k, lttextlh)
+                t_bbox.sort(key=lambda x: (-x.y0, x.x0))
 
             rows_grouped = _group_rows(t_bbox, ytol=self.ytol[table_no])
             rows = _join_rows(rows_grouped, k[3], k[1])
