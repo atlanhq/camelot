@@ -7,7 +7,7 @@ import copy_reg
 import numpy as np
 
 from .table import Table
-from .utils import (get_row_index, get_score, count_empty, encode_list,
+from .utils import (rotate, get_row_index, get_score, count_empty, encode_list,
                     get_page_layout, get_text_objects, text_bbox, get_rotation)
 
 
@@ -269,15 +269,27 @@ class Stream:
             if table_rotation in ['left', 'right']:
                 t_bbox = text_bbox(k, lttextlv)
                 if table_rotation == 'left':
-                    t_bbox.sort(key=lambda x: (x.x0, x.y0))
+                    for t in t_bbox:
+                        x0, y0, x1, y1 = t.bbox
+                        x0, y0 = rotate(0, 0, x0, y0, -np.pi / 2)
+                        x1, y1 = rotate(0, 0, x1, y1, -np.pi / 2)
+                        t.set_bbox((x0, y1, x1, y0))
                 elif table_rotation == 'right':
-                    t_bbox.sort(key=lambda x: (-x.x0, -x.y0))
+                    for t in t_bbox:
+                        x0, y0, x1, y1 = t.bbox
+                        x0, y0 = rotate(0, 0, x0, y0, np.pi / 2)
+                        x1, y1 = rotate(0, 0, x1, y1, np.pi / 2)
+                        t.set_bbox((x1, y0, x0, y1))
             else:
                 t_bbox = text_bbox(k, lttextlh)
-                t_bbox.sort(key=lambda x: (-x.y0, x.x0))
+            t_bbox.sort(key=lambda x: (-x.y0, x.x0))
 
             rows_grouped = _group_rows(t_bbox, ytol=self.ytol[table_no])
-            rows = _join_rows(rows_grouped, k[3], k[1])
+            text_x_min = min([t.x0 for t in t_bbox])
+            text_y_min = min([t.y0 for t in t_bbox])
+            text_x_max = max([t.x1 for t in t_bbox])
+            text_y_max = max([t.y1 for t in t_bbox])
+            rows = _join_rows(rows_grouped, text_y_max, text_y_min)
             elements = [len(r) for r in rows_grouped]
 
             guess = False
@@ -300,7 +312,7 @@ class Stream:
                                       " isn't the same as what you specified."
                                       " Change the value of mtol.".format(
                                       os.path.basename(bname)))
-                    cols = _join_columns(cols, k[0], k[2])
+                    cols = _join_columns(cols, text_x_min, text_x_max)
                 else:
                     guess = True
                     ncols = max(set(elements), key=elements.count)
@@ -322,7 +334,7 @@ class Stream:
                     outer_text = [t for t in t_bbox if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
                     inner_text.extend(outer_text)
                     cols = _add_columns(cols, inner_text, self.ytol[table_no])
-                    cols = _join_columns(cols, k[0], k[2])
+                    cols = _join_columns(cols, text_x_min, text_x_max)
 
             table = Table(cols, rows)
             rerror = []
