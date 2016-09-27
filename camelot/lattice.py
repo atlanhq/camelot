@@ -95,7 +95,7 @@ class Lattice:
                 os.path.basename(bname)))
             return None
 
-        imagename = ''.join([bname, '.jpg'])
+        imagename = ''.join([bname, '.png'])
         gs_call = [
             "-q", "-sDEVICE=png16m", "-o", imagename, "-r600", pdfname
         ]
