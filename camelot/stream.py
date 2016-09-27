@@ -254,7 +254,7 @@ class Stream:
 
         if len(self.ytol) == 1 and self.ytol[0] == 2:
             self.ytol = self.ytol * len(table_bbox)
-        if len(self.mtol) == 1 and self.mtol[0] == 2:
+        if len(self.mtol) == 1 and self.mtol[0] == 0:
             self.mtol = self.mtol * len(table_bbox)
 
         page = {}

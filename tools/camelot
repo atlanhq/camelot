@@ -404,7 +404,7 @@ if __name__ == '__main__':
         try:
             tarea = args['--tarea'] if args['--tarea'] else None
             columns = args['--columns'] if args['--columns'] else None
-            if args['--ncols']:
+            if args['--ncols'] and args['--ncols'] != ['-1']:
                 ncolumns = [int(nc) for nc in args['--ncols']]
             else:
                 ncolumns = None
