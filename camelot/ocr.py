@@ -13,12 +13,16 @@ from .utils import merge_close_values, encode_list
 class OCR:
     """OCR
     """
-    def __init__(self, dpi=300, lang="eng", scale=15, mtol=2, debug=False):
-        self.tool = pyocr.get_available_tools()[0]
+    def __init__(self, table_area=None, mtol=[2], dpi=300, lang="eng", scale=15,
+                 debug=None):
+
+        self.method = 'ocr'
+        self.table_area = table_area
+        self.mtol = mtol
+        self.tool = pyocr.get_available_tools()[0] # fix this
         self.dpi = dpi
         self.lang = lang
         self.scale = scale
-        self.mtol = mtol
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -42,8 +46,28 @@ class OCR:
             scale=self.scale)
         hmask, h_segments = find_lines(threshold, direction='horizontal',
             scale=self.scale)
-        contours = find_table_contours(vmask, hmask)
-        table_bbox = find_table_joints(contours, vmask, hmask)
+
+        if self.table_area is not None:
+            areas = []
+            for area in self.table_area:
+                x1, y1, x2, y2 = area.split(",")
+                x1 = int(x1)
+                y1 = int(y1)
+                x2 = int(x2)
+                y2 = int(y2)
+                areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
+            table_bbox = find_table_joints(areas, vmask, hmask)
+        else:
+            contours = find_table_contours(vmask, hmask)
+            table_bbox = find_table_joints(contours, vmask, hmask)
+
+        if self.debug:
+            self.debug_images = (img, table_bbox)
+            self.debug_segments = (v_segments, h_segments)
+            self.debug_tables = []
+
+        if len(self.mtol) == 1 and self.mtol[0] == 2:
+            self.mtol = self.mtol * len(table_bbox)
 
         page = {}
         tables = {}
@@ -54,13 +78,15 @@ class OCR:
             cols, rows = list(cols), list(rows)
             cols.extend([k[0], k[2]])
             rows.extend([k[1], k[3]])
-            cols = merge_close_values(sorted(cols), mtol=self.mtol)
-            rows = merge_close_values(sorted(rows, reverse=True), mtol=self.mtol)
+            cols = merge_close_values(sorted(cols), mtol=self.mtol[table_no])
+            rows = merge_close_values(sorted(rows, reverse=True), mtol=self.mtol[table_no])
             cols = [(cols[i], cols[i + 1])
                     for i in range(0, len(cols) - 1)]
             rows = [(rows[i], rows[i + 1])
                     for i in range(0, len(rows) - 1)]
             table = Table(cols, rows)
+            if self.debug:
+                self.debug_tables.append(table)
             table.image = img[k[3]:k[1],k[0]:k[2]]
             for i in range(len(table.cells)):
                 for j in range(len(table.cells[i])):
@@ -82,5 +108,8 @@ class OCR:
             tables['table-{0}'.format(table_no + 1)] = table_data
             table_no += 1
         page[os.path.basename(bname)] = tables
+
+        if self.debug:
+            return None
 
         return page
