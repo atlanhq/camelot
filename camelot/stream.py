@@ -312,10 +312,10 @@ class Stream:
         if self.table_area is not None:
             if self.columns is not None:
                 if len(self.table_area) != len(self.columns):
-                    raise ValueError("message")
+                    raise ValueError("Length of columns should be equal to table_area.")
             if self.ncolumns is not None:
                 if len(self.table_area) != len(self.ncolumns):
-                    raise ValueError("message")
+                    raise ValueError("Length of ncolumns should be equal to table_area.")
             table_bbox = {}
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")

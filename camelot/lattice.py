@@ -251,7 +251,7 @@ class Lattice:
         if self.table_area is not None:
             if self.fill is not None:
                 if len(self.table_area) != len(self.fill):
-                    raise ValueError("message")
+                    raise ValueError("Length of fill should be equal to table_area.")
             areas = []
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
