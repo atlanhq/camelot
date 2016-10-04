@@ -59,7 +59,7 @@ The required dependencies include [numpy](http://www.numpy.org/), [OpenCV](http:
 Make sure you have the most updated versions for `pip` and `setuptools`. You can update them by
 
 <pre>
-pip install -U pip, setuptools
+pip install -U pip setuptools
 </pre>
 
 ### Installing dependencies
