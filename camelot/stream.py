@@ -7,8 +7,8 @@ import copy_reg
 import numpy as np
 
 from .table import Table
-from .utils import (rotate, get_row_index, get_score, count_empty, encode_list,
-                    get_page_layout, get_text_objects, text_bbox, get_rotation)
+from .utils import (rotate, get_rotation, text_bbox, get_row_index, get_score,
+                    count_empty, encode_list, get_text_objects, get_page_layout)
 
 
 __all__ = ['Stream']
@@ -23,21 +23,22 @@ copy_reg.pickle(types.MethodType, _reduce_method)
 
 
 def _group_rows(text, ytol=2):
-    """Groups text objects into rows using ytol.
+    """Groups PDFMiner text objects into rows using their
+    y-coordinates taking into account some tolerance ytol.
 
     Parameters
     ----------
     text : list
-        List of text objects.
+        List of PDFMiner text objects.
 
     ytol : int
-        Tolerance to account for when grouping rows
-        together. (optional, default: 2)
+        Tolerance parameter.
+        (optional, default: 2)
 
     Returns
     -------
     rows : list
-        List of grouped text rows.
+        Two-dimensional list of text objects grouped into rows.
     """
     row_y = 0
     rows = []
@@ -58,18 +59,22 @@ def _group_rows(text, ytol=2):
 
 
 def _merge_columns(l, mtol=0):
-    """Merges overlapping columns and returns list with updated
-    columns boundaries.
+    """Merges column boundaries if they overlap or lie within some
+    tolerance mtol.
 
     Parameters
     ----------
     l : list
-        List of column x-coordinates.
+        List of column coordinate tuples.
+
+    mtol : int
+        TODO
+        (optional, default: 0)
 
     Returns
     -------
     merged : list
-        List of merged column x-coordinates.
+        List of merged column coordinate tuples.
     """
     merged = []
     for higher in l:
@@ -98,19 +103,104 @@ def _merge_columns(l, mtol=0):
     return merged
 
 
+def _join_rows(rows_grouped, text_y_max, text_y_min):
+    """Makes row coordinates continuous.
+
+    Parameters
+    ----------
+    rows_grouped : list
+        Two-dimensional list of text objects grouped into rows.
+
+    text_y_max : int
+
+    text_y_min : int
+
+    Returns
+    -------
+    rows : list
+        List of continuous row coordinate tuples.
+    """
+    row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
+                if len(r) > 0 else 0 for r in rows_grouped]
+    rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
+    rows.insert(0, text_y_max)
+    rows.append(text_y_min)
+    rows = [(rows[i], rows[i + 1])
+            for i in range(0, len(rows) - 1)]
+    return rows
+
+
+def _join_columns(cols, text_x_min, text_x_max):
+    """Makes column coordinates continuous.
+
+    Parameters
+    ----------
+    cols : list
+        List of column coordinate tuples.
+
+    text_x_min : int
+
+    text_y_max : int
+
+    Returns
+    -------
+    cols : list
+        Updated list of column coordinate tuples.
+    """
+    cols = sorted(cols)
+    cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
+    cols.insert(0, text_x_min)
+    cols.append(text_x_max)
+    cols = [(cols[i], cols[i + 1])
+            for i in range(0, len(cols) - 1)]
+    return cols
+
+
+def _add_columns(cols, text, ytol):
+    """Adds columns to existing list by taking into account
+    the text that lies outside the current column coordinates.
+
+    Parameters
+    ----------
+    cols : list
+        List of column coordinate tuples.
+
+    text : list
+        List of PDFMiner text objects.
+
+    ytol : int
+        Tolerance parameter.
+
+    Returns
+    -------
+    cols : list
+        Updated list of column coordinate tuples.
+    """
+    if text:
+        text = _group_rows(text, ytol=ytol)
+        elements = [len(r) for r in text]
+        new_cols = [(t.x0, t.x1)
+            for r in text if len(r) == max(elements) for t in r]
+        cols.extend(_merge_columns(sorted(new_cols)))
+    return cols
+
+
 def _get_column_index(t, columns):
-    """Gets index of the column in which the given object falls by
-    comparing their co-ordinates.
+    """Gets index of the column in which the given text object lies by
+    comparing their x-coordinates.
 
     Parameters
     ----------
     t : object
 
     columns : list
+        List of column coordinate tuples.
 
     Returns
     -------
-    c : int
+    c_idx : int
+
+    error : float
     """
     offset1, offset2 = 0, 0
     lt_col_overlap = []
@@ -134,69 +224,51 @@ def _get_column_index(t, columns):
     return c_idx, error
 
 
-def _join_rows(rows_grouped, text_y_max, text_y_min):
-    row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
-                if len(r) > 0 else 0 for r in rows_grouped]
-    rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
-    rows.insert(0, text_y_max)
-    rows.append(text_y_min)
-    rows = [(rows[i], rows[i + 1])
-            for i in range(0, len(rows) - 1)]
-    return rows
-
-
-def _add_columns(cols, text, ytolerance):
-    if text:
-        text = _group_rows(text, ytol=ytolerance)
-        elements = [len(r) for r in text]
-        new_cols = [(t.x0, t.x1)
-            for r in text if len(r) == max(elements) for t in r]
-        cols.extend(_merge_columns(sorted(new_cols)))
-    return cols
-
-
-def _join_columns(cols, text_x_min, text_x_max):
-    cols = sorted(cols)
-    cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
-    cols.insert(0, text_x_min)
-    cols.append(text_x_max)
-    cols = [(cols[i], cols[i + 1])
-            for i in range(0, len(cols) - 1)]
-    return cols
-
-
 class Stream:
-    """Stream algorithm
+    """Stream looks for spaces between text elements to form a table.
 
-    Groups text objects into rows and guesses number of columns
-    using mode of the number of text objects in each row.
+    If you want to give columns, ncolumns, ytol or mtol for each table
+    when specifying multiple table areas, make sure that their length
+    is equal to the length of table_area. Mapping between them is based
+    on index.
 
-    The number of columns can be passed explicitly or specified by a
-    list of column x-coordinates.
+    Also, if you want to specify columns for the first table and
+    ncolumns for the second table in a pdf having two tables, pass
+    columns as ['x1,x2,x3,x4', ''] and ncolumns as [-1, 5].
 
     Parameters
     ----------
-    pdfobject : camelot.pdf.Pdf
-
-    ncolumns : int
-        Number of columns. (optional, default: 0)
-
-    columns : string
-        Comma-separated list of column x-coordinates.
+    table_area : list
+        List of tuples of the form (x1, y1, x2, y2) where
+        (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDFMiner's
+        coordinate space, denoting table areas to analyze.
         (optional, default: None)
 
-    ytol : int
-        Tolerance to account for when grouping rows
-        together. (optional, default: 2)
+    columns : list
+        List of strings where each string is comma-separated values of
+        x-coordinates in PDFMiner's coordinate space.
+        (optional, default: None)
+
+    ncolumns : list
+        List of ints specifying the number of columns in each table.
+        (optional, default: None)
+
+    ytol : list
+        List of ints specifying the y-tolerance parameters.
+        (optional, default: [2])
+
+    mtol : list
+        List of ints specifying the m-tolerance parameters.
+        (optional, default: [0])
+
+    margins : tuple
+        PDFMiner margins. (char_margin, line_margin, word_margin)
+        (optional, default: (1.0, 0.5, 0.1))
 
     debug : bool
-        Debug by visualizing textboxes. (optional, default: False)
-
-    Attributes
-    ----------
-    tables : dict
-        Dictionary with page number as key and list of tables on that
-        page as value.
+        Set to True to generate a matplotlib plot of
+        LTTextLineHorizontals in order to select table_area, columns.
+        (optional, default: False)
     """
     def __init__(self, table_area=None, columns=None, ncolumns=None, ytol=[2],
                  mtol=[0], margins=(1.0, 0.5, 0.1), debug=False):
@@ -211,13 +283,16 @@ class Stream:
         self.debug = debug
 
     def get_tables(self, pdfname):
-        """Returns all tables found in given pdf.
+        """get_tables
+
+        Parameters
+        ---------
+        pdfname : string
+            Path to single page pdf file.
 
         Returns
         -------
-        tables : dict
-            Dictionary with page number as key and list of tables on that
-            page as value.
+        page : dict
         """
         layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
             line_margin=self.line_margin, word_margin=self.word_margin)
@@ -237,10 +312,10 @@ class Stream:
         if self.table_area is not None:
             if self.columns is not None:
                 if len(self.table_area) != len(self.columns):
-                    raise ValueError("message")
+                    raise ValueError("Length of columns should be equal to table_area.")
             if self.ncolumns is not None:
                 if len(self.table_area) != len(self.ncolumns):
-                    raise ValueError("message")
+                    raise ValueError("Length of ncolumns should be equal to table_area.")
             table_bbox = {}
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
@@ -369,7 +444,8 @@ class Stream:
                 score = get_score([[50, rerror], [50, cerror]])
 
             table_data['score'] = score
-            ar = encode_list(table.get_list())
+            ar = table.get_list()
+            ar = encode_list(ar)
             table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
             table_data['empty_p'] = empty_p

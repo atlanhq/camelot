@@ -4,20 +4,27 @@ from .cell import Cell
 
 
 class Table:
-    """Table
+    """Table.
+    Defines a table object with coordinates relative to a left-bottom
+    origin, which is also PDFMiner's coordinate space.
 
     Parameters
     ----------
     cols : list
-        List of column x-coordinates.
+        List of tuples representing column x-coordinates in increasing
+        order.
 
     rows : list
-        List of row y-coordinates.
+        List of tuples representing row y-coordinates in decreasing
+        order.
 
     Attributes
     ----------
     cells : list
-        2-D list of cell objects.
+        List of cell objects with row-major ordering.
+
+    nocont_ : int
+        Number of lines that did not contribute to setting cell edges.
     """
 
     def __init__(self, cols, rows):
@@ -29,20 +36,18 @@ class Table:
         self.nocont_ = 0
 
     def set_edges(self, vertical, horizontal, jtol=2):
-        """Sets cell edges to True if corresponding line segments
-        are detected in the pdf image.
+        """Sets a cell's edges to True depending on whether they
+        overlap with lines found by imgproc.
 
         Parameters
         ----------
         vertical : list
-            List of vertical line segments.
+            List of vertical lines detected by imgproc. Coordinates
+            scaled and translated to the PDFMiner's coordinate space.
 
         horizontal : list
-            List of horizontal line segments.
-
-        jtol : int
-            Tolerance to account for when comparing joint and line
-            coordinates. (optional, default: 2)
+            List of horizontal lines detected by imgproc. Coordinates
+            scaled and translated to the PDFMiner's coordinate space.
         """
         for v in vertical:
             # find closest x coord
@@ -151,8 +156,9 @@ class Table:
         return self
 
     def set_spanning(self):
-        """Sets spanning values of a cell to True if it isn't
-        bounded by four edges.
+        """Sets a cell's spanning_h or spanning_v attribute to True
+        depending on whether the cell spans/extends horizontally or
+        vertically.
         """
         for i in range(len(self.cells)):
             for j in range(len(self.cells[i])):
@@ -199,7 +205,8 @@ class Table:
         return self
 
     def get_list(self):
-        """Returns text from all cells as list of lists.
+        """Returns a two-dimensional list of text assigned to each
+        cell.
 
         Returns
         -------
