@@ -255,10 +255,10 @@ class Lattice:
             areas = []
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
-                x1 = int(x1)
-                y1 = int(y1)
-                x2 = int(x2)
-                y2 = int(y2)
+                x1 = float(x1)
+                y1 = float(y1)
+                x2 = float(x2)
+                y2 = float(y2)
                 x1, y1, x2, y2 = scale_to_image((x1, y1, x2, y2), factors_image)
                 areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
             table_bbox = find_table_joints(areas, vmask, hmask)
