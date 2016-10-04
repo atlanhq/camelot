@@ -4,20 +4,20 @@
 Stream
 ======
 
-Stream method is the complete opposite of Lattice and works on PDFs which have text placed uniformly apart across rows to simulate a table. It looks for spaces between text to form a table representation.
+Stream method is the complete opposite of Lattice and works on pdf files which have text placed uniformly apart across rows to simulate a table. It looks for spaces between text to form a table representation.
 
-Stream builds on top of PDFMiner's functionality of grouping characters on a page into words and sentences. After getting these words, it groups them into rows based on their y-coordinates and tries to guess the number of columns a PDF table might have by calculating the mode of the number of words in each row. Additionally, the user can specify the number of columns or column x-coordinates.
+Stream builds on top of PDFMiner's functionality of grouping characters on a page into words and sentences. After getting these words, it groups them into rows based on their y-coordinates and tries to guess the number of columns a pdf table might have by calculating the mode of the number of words in each row. Additionally, the user can specify the number of columns or column x-coordinates.
 
-Let's run it on this PDF.
+Let's run it on this pdf.
 
 ::
 
     >>> from camelot.pdf import Pdf
     >>> from camelot.stream import Stream
 
-    >>> extractor = Stream(Pdf('eu-027.pdf'))
-    >>> tables = extractor.get_tables()
-    >>> print tables['page-1'][0]
+    >>> manager = Pdf(Stream(), 'eu-027.pdf')
+    >>> tables = manager.extract()
+    >>> print tables['page-1']['table-1']['data']
 
 .. .. _this: insert link for eu-027.pdf
 
@@ -66,9 +66,9 @@ But sometimes its guess could be incorrect, like in this case.
     >>> from camelot.pdf import Pdf
     >>> from camelot.stream import Stream
 
-    >>> extractor = Stream(Pdf('missing_values.pdf'))
-    >>> tables = extractor.get_tables()
-    >>> print tables['page-1'][0]
+    >>> manager = Pdf(Stream(), 'missing_values.pdf')
+    >>> tables = manager.extract()
+    >>> print tables['page-1']['table-1']['data']
 
 .. .. _this: insert link for missing_values.pdf
 
@@ -118,16 +118,16 @@ But sometimes its guess could be incorrect, like in this case.
    "14...","",""
    "Chronic...","",""
 
-It guessed that the PDF has 3 columns, because there wasn't any data in the last 2 columns for most rows. So, let's specify the number of columns explicitly, following which, Stream will only consider rows that have 5 words, to decide on column boundaries.
+It guessed that the pdf has 3 columns, because there wasn't any data in the last 2 columns for most rows. So, let's specify the number of columns explicitly, following which, Stream will only consider rows that have 5 words, to decide on column boundaries.
 
 ::
 
     >>> from camelot.pdf import Pdf
     >>> from camelot.stream import Stream
 
-    >>> extractor = Stream(Pdf('missing_values.pdf'), ncolumns=5)
-    >>> tables = extractor.get_tables()
-    >>> print tables['page-1'][0]
+    >>> manager = Pdf(Stream(ncolumns=[5]), 'missing_values.pdf')
+    >>> tables = manager.extract()
+    >>> print tables['page-1']['table-1']['data']
 
 .. csv-table::
 
@@ -175,15 +175,15 @@ It guessed that the PDF has 3 columns, because there wasn't any data in the last
    "14...","","","",""
    "Chronic...","","","",""
 
-We can also specify the column x-coordinates. We need to call Stream with debug=True and use matplotlib's interface to note down the column x-coordinates we need. Let's try it on this PDF.
+We can also specify the column x-coordinates. We need to call Stream with debug=True and use matplotlib's interface to note down the column x-coordinates we need. Let's try it on this pdf file.
 
 ::
 
     >>> from camelot.pdf import Pdf
     >>> from camelot.stream import Stream
 
-    >>> extractor = Stream(Pdf('mexican_towns.pdf'), debug=True)
-    >>> extractor.plot_text()
+    >>> manager = Pdf(Stream(debug=True), 'mexican_towns.pdf'), debug=True
+    >>> manager.debug_plot()
 
 .. image:: assets/columns.png
    :height: 674
@@ -198,9 +198,9 @@ After getting the x-coordinates, we just need to pass them to Stream, like this.
     >>> from camelot.pdf import Pdf
     >>> from camelot.stream import Stream
 
-    >>> extractor = Stream(Pdf('mexican_towns.pdf'), columns='28,67,180,230,425,475,700')
-    >>> tables = extractor.get_tables()
-    >>> print tables['page-1'][0]
+    >>> manager = Pdf(Stream(columns=['28,67,180,230,425,475,700']), 'mexican_towns.pdf')
+    >>> tables = manager.extract()
+    >>> print tables['page-1']['table-1']['data']
 
 .. csv-table::
 

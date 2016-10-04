@@ -4,26 +4,24 @@
    contain the root `toctree` directive.
 
 ==================================
-Camelot: PDF parsing made simpler!
+Camelot: pdf parsing made simpler!
 ==================================
 
-Camelot is a Python 2.7 library and command-line tool for getting tables out of PDF files.
+Camelot is a Python 2.7 library and command-line tool for getting tables out of pdf files.
 
-Why another PDF table parsing library?
+Why another pdf table parsing library?
 ======================================
 
-We tried a lot of tools available online to get tables out of PDFs, but each one had its limitations. `PDFTables`_ stopped its open source development in 2013. `SolidConverter`_ which powers `Smallpdf`_ is closed source. Recently, `Docparser`_ was launched, which again is closed source. `Tabula`_, though being open source, doesn't always give correct output. In most cases, we had to resort to writing custom scripts for each type of PDF.
+We tried a lot of tools available online to parse tables from pdf files. `PDFTables`_, `SolidConverter`_ are closed source, commercial products and a free trial doesn't last forever. `Tabula`_, which is open source, isn't very scalable. We found nothing that gave us complete control over the parsing process. In most cases, we didn't get the correct output and had to resort to writing custom scripts for each type of pdf.
 
 .. _PDFTables: https://pdftables.com/
 .. _SolidConverter: http://www.soliddocuments.com/pdf/-to-word-converter/304/1
-.. _Smallpdf: smallpdf.com
-.. _Docparser: https://docparser.com/
 .. _Tabula: http://tabula.technology/
 
-PDFs have feelings too
-======================
+Some background
+===============
 
-PDF started as `The Camelot Project`_ when people wanted a cross-platform way to share documents, since a document looked different on each system. A PDF contains characters placed at specific x,y-coordinates. Spaces are simulated by placing characters relatively far apart.
+PDF started as `The Camelot Project`_ when people wanted a cross-platform way for sending and viewing documents. A pdf file contains characters placed at specific x,y-coordinates. Spaces are simulated by placing characters relatively far apart.
 
 Camelot uses two methods to parse tables from PDFs, :doc:`lattice <lattice>` and :doc:`stream <stream>`. The names were taken from Tabula but the implementation is somewhat different, though it follows the same philosophy. Lattice looks for lines between text elements while stream looks for whitespace between text elements.
 
@@ -92,7 +90,7 @@ Installation
 
 Make sure you have the most updated versions for `pip` and `setuptools`. You can update them by::
 
-    pip install -U pip, setuptools
+    pip install -U pip setuptools
 
 The required dependencies include `numpy`_, `OpenCV`_ and `ImageMagick`_.
 

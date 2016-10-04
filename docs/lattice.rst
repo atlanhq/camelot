@@ -4,15 +4,15 @@
 Lattice
 =======
 
-Lattice method is designed to work on PDFs which have tables with well-defined grids. It looks for lines on a page to form a table representation.
+Lattice method is designed to work on pdf files which have tables with well-defined grids. It looks for lines on a page to form a table.
 
-Lattice uses OpenCV to apply a set of morphological transformations (erosion and dilation) to find horizontal and vertical line segments in a PDF page after converting it to an image using imagemagick.
+Lattice uses OpenCV to apply a set of morphological transformations (erosion and dilation) to find horizontal and vertical line segments in a pdf page after converting it to an image using imagemagick.
 
-.. note:: Currently, Lattice only works on PDFs that contain text i.e. they are not composed of an image of the text. However, we plan to add `OCR support`_ in the future.
+.. note:: Currently, Lattice only works on pdf files that contain text. However, we plan to add `OCR support`_ in the future.
 
 .. _OCR support: https://github.com/socialcopsdev/camelot/issues/14
 
-Let's see how Lattice processes this PDF, step by step.
+Let's see how Lattice processes this pdf, step by step.
 
 Line segments are detected in the first step.
 
@@ -40,7 +40,7 @@ The detected line segments are overlapped again, this time by `or` ing their pix
    :scale: 50%
    :align: left
 
-Since dimensions of a PDF and its image vary; table contours, intersections and segments are scaled and translated to the PDF's coordinate space. A representation of the table is then created using these scaled coordinates.
+Since dimensions of a pdf and its image vary; table contours, intersections and segments are scaled and translated to the pdf's coordinate space. A representation of the table is then created using these scaled coordinates.
 
 .. image:: assets/table.png
    :height: 674
@@ -63,9 +63,9 @@ Finally, the characters found on the page are assigned to cells based on their x
     >>> from camelot.pdf import Pdf
     >>> from camelot.lattice import Lattice
 
-    >>> extractor = Lattice(Pdf('us-030.pdf'))
-    >>> tables = extractor.get_tables()
-    >>> print tables['page-1'][0]
+    >>> manager = Pdf(Lattice(), 'us-030.pdf')
+    >>> tables = manager.extract()
+    >>> print tables['page-1']['table-1']['data']
 
 .. csv-table::
    :header: "Cycle Name","KI (1/km)","Distance (mi)","Percent Fuel Savings","","",""
@@ -82,7 +82,7 @@ Scale
 
 The scale parameter is used to determine the length of the structuring element used for morphological transformations. The length of vertical and horizontal structuring elements are found by dividing the image's height and width respectively, by `scale`. Large `scale` will lead to a smaller structuring element, which means that smaller lines will be detected. The default value for scale is 15.
 
-Let's consider this PDF.
+Let's consider this pdf file.
 
 .. .. _this: insert link for row_span_1.pdf
 
@@ -105,16 +105,16 @@ Voila! It detected the smaller lines.
 Fill
 ----
 
-In the PDF used above, you can see that some cells spanned a lot of rows, `fill` just copies the same value to all rows/columns of a spanning cell. You can apply fill horizontally, vertically or both. Let us fill the output for the PDF we used above, vertically.
+In the file used above, you can see that some cells spanned a lot of rows, `fill` just copies the same value to all rows/columns of a spanning cell. You can apply fill horizontally, vertically or both. Let us fill the output for the file we used above, vertically.
 
 ::
 
     >>> from camelot.pdf import Pdf
     >>> from camelot.lattice import Lattice
 
-    >>> extractor = Lattice(Pdf('row_span_1.pdf'), fill='v', scale=40)
-    >>> tables = extractor.get_tables()
-    >>> print tables['page-1'][0]
+    >>> manager = Pdf(Lattice(fill=['v'], scale=40), 'row_span_1.pdf')
+    >>> tables = manager.extract()
+    >>> print tables['page-1']['table-1']['data']
 
 .. csv-table::
    :header: "Plan Type","County","Plan  Name","Totals"
@@ -162,7 +162,7 @@ In the PDF used above, you can see that some cells spanned a lot of rows, `fill`
 Invert
 ------
 
-To find line segments, Lattice needs the lines of the PDF to be in foreground. So, if you encounter a PDF like this, just set invert to True.
+To find line segments, Lattice needs the lines of the pdf file to be in foreground. So, if you encounter a file like this, just set invert to True.
 
 .. .. _this: insert link for lines_in_background_1.pdf
 
@@ -171,9 +171,9 @@ To find line segments, Lattice needs the lines of the PDF to be in foreground. S
     >>> from camelot.pdf import Pdf
     >>> from camelot.lattice import Lattice
 
-    >>> extractor = Lattice(Pdf('lines_in_background_1.pdf'), invert=True)
-    >>> tables = extractor.get_tables()
-    >>> print tables['page-1'][0]
+    >>> manager = Pdf(Lattice(invert=True), 'lines_in_background_1.pdf')
+    >>> tables = manager.extract()
+    >>> print tables['page-1']['table-1']['data']
 
 .. csv-table::
    :header: "State","Date","Halt stations","Halt days","Persons directly reached(in lakh)","Persons trained","Persons counseled","Persons testedfor HIV"
@@ -186,8 +186,8 @@ To find line segments, Lattice needs the lines of the PDF to be in foreground. S
    "Kerala","23.2.2010 to 11.3.2010","9","17","1.42","3,559","2,173","855"
    "Total","","47","92","11.81","22,455","19,584","10,644"
 
-Lattice can also parse PDFs with tables like these that are rotated clockwise/anti-clockwise by 90 degrees.
+Lattice can also parse pdf files with tables like these that are rotated clockwise/anti-clockwise by 90 degrees.
 
 .. .. _these: insert link for left_rotated_table.pdf
 
-You can call Lattice with debug={'line', 'intersection', 'contour', 'table'}, and call `plot_geometry()` which will generate an image like the ones on this page, with the help of which you can modify various parameters. See :doc:`API doc <api>` for more information.
+You can call Lattice with debug={'line', 'intersection', 'contour', 'table'}, and call `debug_plot()` which will generate an image like the ones on this page, with the help of which you can modify various parameters. See :doc:`API doc <api>` for more information.
