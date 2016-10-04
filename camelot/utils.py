@@ -82,28 +82,58 @@ def rotate(x1, y1, x2, y2, angle):
 
 
 def scale_to_image(k, factors):
+    """Translates and scales PDFMiner coordinates to OpenCV's coordinate
+    space.
+
+    Parameters
+    ----------
+    k : tuple
+        Tuple (x1, y1, x2, y2) representing table bounding box where
+        (x1, y1) -> lt and (x2, y2) -> rb in PDFMiner's coordinate
+        space.
+
+    factors : tuple
+        Tuple (scaling_factor_x, scaling_factor_y, pdf_y) where the
+        first two elements are scaling factors and pdf_y is height of
+        pdf.
+
+    Returns
+    -------
+    knew : tuple
+        Tuple (x1, y1, x2, y2) representing table bounding box where
+        (x1, y1) -> lt and (x2, y2) -> rb in OpenCV's coordinate
+        space.
+    """
     x1, y1, x2, y2 = k
     scaling_factor_x, scaling_factor_y, pdf_y = factors
     x1 = scale(x1, scaling_factor_x)
     y1 = scale(abs(translate(-pdf_y, y1)), scaling_factor_y)
     x2 = scale(x2, scaling_factor_x)
     y2 = scale(abs(translate(-pdf_y, y2)), scaling_factor_y)
-    return int(x1), int(y1), int(x2), int(y2)
+    knew = (int(x1), int(y1), int(x2), int(y2))
+    return knew
 
 
 def scale_to_pdf(tables, v_segments, h_segments, factors):
-    """Translates and scales OpenCV coordinates to PDFMiner coordinate
+    """Translates and scales OpenCV coordinates to PDFMiner's coordinate
     space.
 
     Parameters
     ----------
     tables : dict
+        Dict with table boundaries as keys and list of intersections
+        in that boundary as their value.
 
     v_segments : list
+        List of vertical line segments.
 
     h_segments : list
+        List of horizontal line segments.
 
     factors : tuple
+        Tuple (scaling_factor_x, scaling_factor_y, img_y) where the
+        first two elements are scaling factors and img_y is height of
+        image.
 
     Returns
     -------
@@ -145,16 +175,28 @@ def scale_to_pdf(tables, v_segments, h_segments, factors):
 
 
 def get_rotation(ltchar, lttextlh=None, lttextlv=None):
-    """Detects if text in table is vertical or not and returns
-    its orientation.
+    """Detects if text in table is vertical or not using the current
+    transformation matrix (CTM) and returns its orientation.
 
     Parameters
     ----------
-    text : list
+    ltchar : list
+        List of PDFMiner LTChar objects.
+
+    lttextlh : list
+        List of PDFMiner LTTextLineHorizontal objects.
+        (optional, default: None)
+
+    lttextlv : list
+        List of PDFMiner LTTextLineVertical objects.
+        (optional, default: None)
 
     Returns
     -------
     rotation : string
+        {'', 'left', 'right'}
+        '' if text in table is upright, 'left' if rotated 90 degree
+        anti-clockwise and 'right' if rotated 90 degree clockwise.
     """
     rotation = ''
     if lttextlh is not None and lttextlv is not None:
@@ -173,26 +215,28 @@ def get_rotation(ltchar, lttextlh=None, lttextlv=None):
 
 
 def segments_bbox(bbox, v_segments, h_segments):
-    """Returns all text objects and line segments present inside a
+    """Returns all line segments present inside a
     table's bounding box.
 
     Parameters
     ----------
     bbox : tuple
-
-    text : list
+        Tuple (x1, y1, x2, y2) representing table bounding box where
+        (x1, y1) -> lb and (x2, y2) -> rt in PDFMiner's coordinate space.
 
     v_segments : list
+        List of vertical line segments.
 
     h_segments : list
+        List of vertical horizontal segments.
 
     Returns
     -------
-    text_bbox : list
-
     v_s : list
+        List of vertical line segments that lie inside table.
 
     h_s : list
+        List of horizontal line segments that lie inside table.
     """
     lb = (bbox[0], bbox[1])
     rt = (bbox[2], bbox[3])
@@ -204,6 +248,23 @@ def segments_bbox(bbox, v_segments, h_segments):
 
 
 def text_bbox(bbox, text):
+    """Returns all text objects present inside a
+    table's bounding box.
+
+    Parameters
+    ----------
+    bbox : tuple
+        Tuple (x1, y1, x2, y2) representing table bounding box where
+        (x1, y1) -> lb and (x2, y2) -> rt in PDFMiner's coordinate space.
+
+    text : list
+        List of PDFMiner text objects.
+
+    Returns
+    -------
+    t_bbox : list
+        List of PDFMiner text objects that lie inside table.
+    """
     lb = (bbox[0], bbox[1])
     rt = (bbox[2], bbox[3])
     t_bbox = [t for t in text if lb[0] - 2 <= (t.x0 + t.x1) / 2.0
@@ -270,18 +331,21 @@ def merge_close_values(ar, mtol=2):
 
 
 def get_row_index(t, rows):
-    """Gets index of the row in which the given object falls by
-    comparing their co-ordinates.
+    """Gets index of the row in which the given text object lies by
+    comparing their y-coordinates.
 
     Parameters
     ----------
     t : object
 
-    rows : list, sorted in decreasing order
+    rows : list
+        List of row coordinate tuples, sorted in decreasing order.
 
     Returns
     -------
     r : int
+
+    error : float
     """
     offset1, offset2 = 0, 0
     for r in range(len(rows)):
@@ -298,18 +362,21 @@ def get_row_index(t, rows):
 
 
 def get_column_index(t, columns):
-    """Gets index of the column in which the given object falls by
-    comparing their co-ordinates.
+    """Gets index of the column in which the given text object lies by
+    comparing their x-coordinates.
 
     Parameters
     ----------
     t : object
 
     columns : list
+        List of column coordinate tuples.
 
     Returns
     -------
     c : int
+
+    error : float
     """
     offset1, offset2 = 0, 0
     for c in range(len(columns)):
@@ -331,10 +398,10 @@ def get_score(error_weights):
 
     Parameters
     ----------
-    error_weights : dict
-        Dict with a tuple of error percentages as key and weightage
-        assigned to them as value. Sum of all values should be equal
-        to 100.
+    error_weights : list
+        Two-dimensional list of the form [[p1, e1], [p2, e2], ...]
+        where pn is the weight assigned to list of errors en.
+        Sum of pn should be equal to 100.
 
     Returns
     -------
@@ -352,109 +419,8 @@ def get_score(error_weights):
     return score
 
 
-def reduce_index(t, rotation, r_idx, c_idx):
-    """Reduces index of a text object if it lies within a spanning
-    cell taking in account table rotation.
-
-    Parameters
-    ----------
-    t : object
-
-    rotation : string
-
-    r_idx : int
-
-    c_idx : int
-
-    Returns
-    -------
-    r_idx : int
-
-    c_idx : int
-    """
-    if not rotation:
-        if t.cells[r_idx][c_idx].spanning_h:
-            while not t.cells[r_idx][c_idx].left:
-                c_idx -= 1
-        if t.cells[r_idx][c_idx].spanning_v:
-            while not t.cells[r_idx][c_idx].top:
-                r_idx -= 1
-    elif rotation == 'left':
-        if t.cells[r_idx][c_idx].spanning_h:
-            while not t.cells[r_idx][c_idx].left:
-                c_idx -= 1
-        if t.cells[r_idx][c_idx].spanning_v:
-            while not t.cells[r_idx][c_idx].bottom:
-                r_idx += 1
-    elif rotation == 'right':
-        if t.cells[r_idx][c_idx].spanning_h:
-            while not t.cells[r_idx][c_idx].right:
-                c_idx += 1
-        if t.cells[r_idx][c_idx].spanning_v:
-            while not t.cells[r_idx][c_idx].top:
-                r_idx -= 1
-    return r_idx, c_idx
-
-
-def outline(t):
-    """Sets table border edges to True.
-
-    Parameters
-    ----------
-    t : object
-
-    Returns
-    -------
-    t : object
-    """
-    for i in range(len(t.cells)):
-        t.cells[i][0].left = True
-        t.cells[i][len(t.cells[i]) - 1].right = True
-    for i in range(len(t.cells[0])):
-        t.cells[0][i].top = True
-        t.cells[len(t.cells) - 1][i].bottom = True
-    return t
-
-
-def fill_spanning(t, fill=None):
-    """Fills spanning cells.
-
-    Parameters
-    ----------
-    t : object
-
-    f : string
-        (optional, default: None)
-
-    Returns
-    -------
-    t : object
-    """
-    if fill == "h":
-        for i in range(len(t.cells)):
-            for j in range(len(t.cells[i])):
-                if t.cells[i][j].get_text().strip() == '':
-                    if t.cells[i][j].spanning_h:
-                        t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
-    elif fill == "v":
-        for i in range(len(t.cells)):
-            for j in range(len(t.cells[i])):
-                if t.cells[i][j].get_text().strip() == '':
-                    if t.cells[i][j].spanning_v:
-                        t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
-    elif fill == "hv":
-        for i in range(len(t.cells)):
-            for j in range(len(t.cells[i])):
-                if t.cells[i][j].get_text().strip() == '':
-                    if t.cells[i][j].spanning_h:
-                        t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
-                    elif t.cells[i][j].spanning_v:
-                        t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
-    return t
-
-
 def remove_empty(d):
-    """Removes empty rows and columns from list of lists.
+    """Removes empty rows and columns from a two-dimensional list.
 
     Parameters
     ----------
@@ -474,7 +440,7 @@ def remove_empty(d):
 
 
 def count_empty(d):
-    """Counts empty rows and columns from list of lists.
+    """Counts empty rows and columns in a two-dimensional list.
 
     Parameters
     ----------
@@ -532,17 +498,19 @@ def get_text_objects(layout, LTType="char", t=None):
     Parameters
     ----------
     layout : object
-        Layout object.
+        PDFMiner LTPage object.
 
-    LTObject : object
-        Text object, either LTChar or LTTextLineHorizontal.
+    LTType : string
+        {'char', 'lh', 'lv'}
+        Specify 'char', 'lh', 'lv' to get LTChar, LTTextLineHorizontal,
+        and LTTextLineVertical objects respectively.
 
-    t : list (optional, default: None)
+    t : list
 
     Returns
     -------
     t : list
-        List of text objects.
+        List of PDFMiner text objects.
     """
     if LTType == "char":
         LTObject = LTChar
@@ -565,6 +533,33 @@ def get_text_objects(layout, LTType="char", t=None):
 
 def get_page_layout(pname, char_margin=2.0, line_margin=0.5, word_margin=0.1,
                detect_vertical=True, all_texts=True):
+    """Returns a PDFMiner LTPage object and page dimension of a single
+    page pdf. See https://euske.github.io/pdfminer/ to get definitions
+    of kwargs.
+
+    Parameters
+    ----------
+    pname : string
+        Path to pdf file.
+
+    char_margin : float
+
+    line_margin : float
+
+    word_margin : float
+
+    detect_vertical : bool
+
+    all_texts : bool
+
+    Returns
+    -------
+    layout : object
+        PDFMiner LTPage object.
+
+    dim : tuple
+        pdf page dimension of the form (width, height).
+    """
     with open(pname, 'r') as f:
         parser = PDFParser(f)
         document = PDFDocument(parser)

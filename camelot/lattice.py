@@ -8,11 +8,10 @@ import subprocess
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints)
 from .table import Table
-from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_bbox,
-                    get_rotation, merge_close_values, get_row_index,
-                    get_column_index, get_score, reduce_index, outline,
-                    fill_spanning, count_empty, encode_list, get_page_layout,
-                    get_text_objects)
+from .utils import (scale_to_pdf, scale_to_image, get_rotation, segments_bbox,
+                    text_bbox, merge_close_values, get_row_index,
+                    get_column_index, get_score, count_empty, encode_list,
+                    get_text_objects, get_page_layout)
 
 
 __all__ = ['Lattice']
@@ -26,41 +25,165 @@ def _reduce_method(m):
 copy_reg.pickle(types.MethodType, _reduce_method)
 
 
-class Lattice:
-    """Lattice algorithm
-
-    Makes use of pdf geometry by processing its image, to make a table
-    and fills text objects in table cells.
+def _fill_spanning(t, fill=None):
+    """Fills spanning cells.
 
     Parameters
     ----------
-    pdfobject : camelot.pdf.Pdf
+    t : object
+        camelot.table.Table
 
     fill : string
-        Fill data in horizontal and/or vertical spanning
-        cells. (optional, default: None) {None, 'h', 'v', 'hv'}
+        {'h', 'v', 'hv'}
+        Specify to fill spanning cells in horizontal, vertical or both
+        directions.
+        (optional, default: None)
+
+    Returns
+    -------
+    t : object
+        camelot.table.Table
+    """
+    if fill == "h":
+        for i in range(len(t.cells)):
+            for j in range(len(t.cells[i])):
+                if t.cells[i][j].get_text().strip() == '':
+                    if t.cells[i][j].spanning_h:
+                        t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
+    elif fill == "v":
+        for i in range(len(t.cells)):
+            for j in range(len(t.cells[i])):
+                if t.cells[i][j].get_text().strip() == '':
+                    if t.cells[i][j].spanning_v:
+                        t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
+    elif fill == "hv":
+        for i in range(len(t.cells)):
+            for j in range(len(t.cells[i])):
+                if t.cells[i][j].get_text().strip() == '':
+                    if t.cells[i][j].spanning_h:
+                        t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
+                    elif t.cells[i][j].spanning_v:
+                        t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
+    return t
+
+
+def _outline(t):
+    """Sets table border edges to True.
+
+    Parameters
+    ----------
+    t : object
+        camelot.table.Table
+
+    Returns
+    -------
+    t : object
+        camelot.table.Table
+    """
+    for i in range(len(t.cells)):
+        t.cells[i][0].left = True
+        t.cells[i][len(t.cells[i]) - 1].right = True
+    for i in range(len(t.cells[0])):
+        t.cells[0][i].top = True
+        t.cells[len(t.cells) - 1][i].bottom = True
+    return t
+
+
+def _reduce_index(t, rotation, r_idx, c_idx):
+    """Reduces index of a text object if it lies within a spanning
+    cell taking in account table rotation.
+
+    Parameters
+    ----------
+    t : object
+        camelot.table.Table
+
+    rotation : string
+        {'', 'left', 'right'}
+
+    r_idx : int
+        Current row index.
+
+    c_idx : int
+        Current column index.
+
+    Returns
+    -------
+    r_idx : int
+        Reduced row index.
+
+    c_idx : int
+        Reduced column index.
+    """
+    if not rotation:
+        if t.cells[r_idx][c_idx].spanning_h:
+            while not t.cells[r_idx][c_idx].left:
+                c_idx -= 1
+        if t.cells[r_idx][c_idx].spanning_v:
+            while not t.cells[r_idx][c_idx].top:
+                r_idx -= 1
+    elif rotation == 'left':
+        if t.cells[r_idx][c_idx].spanning_h:
+            while not t.cells[r_idx][c_idx].left:
+                c_idx -= 1
+        if t.cells[r_idx][c_idx].spanning_v:
+            while not t.cells[r_idx][c_idx].bottom:
+                r_idx += 1
+    elif rotation == 'right':
+        if t.cells[r_idx][c_idx].spanning_h:
+            while not t.cells[r_idx][c_idx].right:
+                c_idx += 1
+        if t.cells[r_idx][c_idx].spanning_v:
+            while not t.cells[r_idx][c_idx].top:
+                r_idx -= 1
+    return r_idx, c_idx
+
+
+class Lattice:
+    """Lattice looks for lines in the pdf to form a table.
+
+    If you want to give fill and mtol for each table when specifying
+    multiple table areas, make sure that the length of fill and mtol
+    is equal to the length of table_area. Mapping between them is based
+    on index.
+
+    Parameters
+    ----------
+    table_area : list
+        List of tuples of the form (x1, y1, x2, y2) where
+        (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDFMiner's
+        coordinate space, denoting table areas to analyze.
+        (optional, default: None)
+
+    fill : list
+        List of strings specifying directions to fill spanning cells.
+        {'h', 'v', 'hv'} to fill spanning cells in horizontal, vertical
+        or both directions.
+        (optional, default: None)
+
+    mtol : list
+        List of ints specifying m-tolerance parameters.
+        (optional, default: [2])
 
     scale : int
-        Scaling factor. Large scaling factor leads to smaller lines
-        being detected. (optional, default: 15)
-
-    mtol : int
-        Tolerance to account for when merging lines which are
-        very close. (optional, default: 2)
+        Used to divide the height/width of a pdf to get a structuring
+        element for image processing.
+        (optional, default: 15)
 
     invert : bool
-        Invert pdf image to make sure that lines are in foreground.
+        Whether or not to invert the image. Useful when pdfs have
+        tables with lines in background.
         (optional, default: False)
 
-    debug : string
-        Debug by visualizing pdf geometry.
-        (optional, default: None) {'contour', 'line', 'joint', 'table'}
+    margins : tuple
+        PDFMiner margins. (char_margin, line_margin, word_margin)
+        (optional, default: (1.0, 0.5, 0.1))
 
-    Attributes
-    ----------
-    tables : dict
-        Dictionary with page number as key and list of tables on that
-        page as value.
+    debug : string
+        {'contour', 'line', 'joint', 'table'}
+        Set to one of the above values to generate a matplotlib plot
+        of detected contours, lines, joints and the table generated.
+        (optional, default: None)
     """
     def __init__(self, table_area=None, fill=None, mtol=[2], scale=15,
                  invert=False, margins=(1.0, 0.5, 0.1), debug=None):
@@ -75,13 +198,16 @@ class Lattice:
         self.debug = debug
 
     def get_tables(self, pdfname):
-        """Returns all tables found in given pdf.
+        """get_tables
+
+        Parameters
+        ----------
+        pdfname : string
+            Path to single page pdf file.
 
         Returns
         -------
-        tables : dict
-            Dictionary with page number as key and list of tables on that
-            page as value.
+        page : dict
         """
         layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
             line_margin=self.line_margin, word_margin=self.word_margin)
@@ -187,7 +313,7 @@ class Lattice:
             # set spanning cells to True
             table = table.set_spanning()
             # set table border edges to True
-            table = outline(table)
+            table = _outline(table)
 
             if self.debug:
                 self.debug_tables.append(table)
@@ -207,7 +333,7 @@ class Lattice:
                     continue
                 rerror.append(rass_error)
                 cerror.append(cass_error)
-                r_idx, c_idx = reduce_index(table, table_rotation, r_idx, c_idx)
+                r_idx, c_idx = _reduce_index(table, table_rotation, r_idx, c_idx)
                 table.cells[r_idx][c_idx].add_object(t)
 
             for i in range(len(table.cells)):
@@ -232,7 +358,7 @@ class Lattice:
             table_data['score'] = score
 
             if self.fill is not None:
-                table = fill_spanning(table, fill=self.fill[table_no])
+                table = _fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
             if table_rotation == 'left':
                 ar = zip(*ar[::-1])

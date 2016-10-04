@@ -12,17 +12,18 @@ __all__ = ['Pdf']
 
 
 def _parse_page_numbers(pagenos):
-    """Converts list of page ranges to a list of page numbers.
+    """Converts list of dicts to list of ints.
 
     Parameters
     ----------
     pagenos : list
-        List of dicts containing page ranges.
+        List of dicts representing page ranges. A dict must have only
+        two keys named 'start' and 'end' having int as their value.
 
     Returns
     -------
     page_numbers : list
-        List of page numbers.
+        List of int page numbers.
     """
     page_numbers = []
     for p in pagenos:
@@ -32,32 +33,32 @@ def _parse_page_numbers(pagenos):
 
 
 class Pdf:
-    """Handles all pdf operations which include:
-
-        1. Split pdf into single page pdfs using given page numbers
-        2. Convert single page pdfs into images
-        3. Extract text from single page pdfs
+    """Pdf manager.
+    Handles all operations like temp directory creation, splitting file
+    into single page pdfs, running extraction using multiple processes
+    and removing the temp directory.
 
     Parameters
     ----------
+    extractor : object
+        camelot.stream.Stream or camelot.lattice.Lattice extractor
+        object.
+
     pdfname : string
-        Path to pdf.
+        Path to pdf file.
 
     pagenos : list
-        List of dicts which specify pdf page ranges.
+        List of dicts representing page ranges. A dict must have only
+        two keys named 'start' and 'end' having int as their value.
         (optional, default: [{'start': 1, 'end': 1}])
 
-    char_margin : float
-        Chars closer than char_margin are grouped together to form a
-        word. (optional, default: 2.0)
+    parallel : bool
+        Whether or not to run using multiple processes.
+        (optional, default: False)
 
-    line_margin : float
-        Lines closer than line_margin are grouped together to form a
-        textbox. (optional, default: 0.5)
-
-    word_margin : float
-        Insert blank spaces between chars if distance between words
-        is greater than word_margin. (optional, default: 0.1)
+    clean : bool
+        Whether or not to remove the temp directory.
+        (optional, default: False)
     """
 
     def __init__(self, extractor, pdfname, pagenos=[{'start': 1, 'end': 1}],
@@ -75,7 +76,7 @@ class Pdf:
         self.temp = tempfile.mkdtemp()
 
     def split(self):
-        """Splits pdf into single page pdfs.
+        """Splits file into single page pdfs.
         """
         infile = PdfFileReader(open(self.pdfname, 'rb'), strict=False)
         for p in self.pagenos:
@@ -85,11 +86,9 @@ class Pdf:
             with open(os.path.join(self.temp, 'page-{0}.pdf'.format(p)), 'wb') as f:
                 outfile.write(f)
 
-    def remove_tempdir(self):
-        shutil.rmtree(self.temp)
-
     def extract(self):
-        """Extracts text objects, width, height from a pdf.
+        """Runs table extraction by calling extractor.get_tables
+        on all single page pdfs.
         """
         self.split()
         pages = [os.path.join(self.temp, 'page-{0}.pdf'.format(p))
@@ -123,10 +122,15 @@ class Pdf:
             self.remove_tempdir()
         return tables
 
+    def remove_tempdir(self):
+        """Removes temporary directory that was created to save single
+        page pdfs and their images.
+        """
+        shutil.rmtree(self.temp)
+
     def debug_plot(self):
-        """Plots all text objects and various pdf geometries so that
-        user can choose number of columns, columns x-coordinates for
-        Stream or tweak Lattice parameters (mtol, scale).
+        """Generates a matplotlib plot based on the selected extractor
+        debug option.
         """
         import matplotlib.pyplot as plt
         import matplotlib.patches as patches
