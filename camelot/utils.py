@@ -11,7 +11,8 @@ from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.pdfinterp import PDFPageInterpreter
 from pdfminer.pdfdevice import PDFDevice
 from pdfminer.converter import PDFPageAggregator
-from pdfminer.layout import LAParams, LTChar, LTTextLineHorizontal, LTTextLineVertical
+from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
+                             LTTextLineVertical)
 
 
 def translate(x1, x2):
@@ -417,6 +418,46 @@ def get_score(error_weights):
         for error_percentage in ew[1]:
             score += weight * (1 - error_percentage)
     return score
+
+
+def split_lttextline(lttextline, columns):
+    """Splits PDFMiner LTTextLine into substrings if it spans across
+    multiple columns.
+
+    Parameters
+    ----------
+    lttextline : object
+        PDFMiner LTTextLine object.
+
+    columns : list
+        List of tuples representing column x-coordinates.
+
+    Returns
+    -------
+    col_text : list
+        List of tuples of the form (idx, text) where idx is the index
+        of column and text is the an lttextline substring.
+    """
+    idx = 0
+    col_text = []
+    for c in range(len(columns)):
+        s = ''
+        if isinstance(lttextline, LTTextLineHorizontal) or isinstance(
+                lttextline, LTTextLineVertical):
+            while idx < len(lttextline._objs):
+                obj = lttextline._objs[idx]
+                if isinstance(obj, LTChar):
+                    if (obj.x0 + obj.x1) / 2 >= columns[c][0] and (obj.x0
+                            + obj.x1) / 2 <= columns[c][1]:
+                        idx += 1
+                        s = ''.join([s, obj.get_text()])
+                    else:
+                        break
+                elif isinstance(obj, LTAnno):
+                    idx += 1
+                    s = ''.join([s, obj.get_text()])
+        col_text.append((c, s))
+    return col_text
 
 
 def remove_empty(d):
