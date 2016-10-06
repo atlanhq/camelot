@@ -175,22 +175,20 @@ def scale_to_pdf(tables, v_segments, h_segments, factors):
     return tables_new, v_segments_new, h_segments_new
 
 
-def get_rotation(ltchar, lttextlh=None, lttextlv=None):
+def get_rotation(lttextlh, lttextlv, ltchar):
     """Detects if text in table is vertical or not using the current
     transformation matrix (CTM) and returns its orientation.
 
     Parameters
     ----------
-    ltchar : list
-        List of PDFMiner LTChar objects.
-
     lttextlh : list
         List of PDFMiner LTTextLineHorizontal objects.
-        (optional, default: None)
 
     lttextlv : list
         List of PDFMiner LTTextLineVertical objects.
-        (optional, default: None)
+
+    ltchar : list
+        List of PDFMiner LTChar objects.
 
     Returns
     -------
@@ -200,15 +198,9 @@ def get_rotation(ltchar, lttextlh=None, lttextlv=None):
         anti-clockwise and 'right' if rotated 90 degree clockwise.
     """
     rotation = ''
-    if lttextlh is not None and lttextlv is not None:
-        hlen = len([t for t in lttextlh if t.get_text().strip()])
-        vlen = len([t for t in lttextlv if t.get_text().strip()])
-        vger = 0.0
-    else:
-        hlen = len([t for t in ltchar if t.upright and t.get_text().strip()])
-        vlen = len([t for t in ltchar if (not t.upright) and t.get_text().strip()])
-        vger = vlen / float(hlen+vlen)
-    if hlen < vlen or vger > 0.8:
+    hlen = len([t for t in lttextlh if t.get_text().strip()])
+    vlen = len([t for t in lttextlv if t.get_text().strip()])
+    if hlen < vlen:
         clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in ltchar)
         anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in ltchar)
         rotation = 'left' if clockwise < anticlockwise else 'right'
