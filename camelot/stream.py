@@ -7,8 +7,9 @@ import copy_reg
 import numpy as np
 
 from .table import Table
-from .utils import (rotate, get_rotation, text_bbox, get_row_index, get_score,
-                    count_empty, encode_list, get_text_objects, get_page_layout)
+from .utils import (rotate, get_rotation, text_bbox, get_row_index,
+                    get_column_index, get_score, count_empty, encode_list,
+                    get_text_objects, get_page_layout)
 
 
 __all__ = ['Stream']
@@ -183,45 +184,6 @@ def _add_columns(cols, text, ytol):
             for r in text if len(r) == max(elements) for t in r]
         cols.extend(_merge_columns(sorted(new_cols)))
     return cols
-
-
-def _get_column_index(t, columns):
-    """Gets index of the column in which the given text object lies by
-    comparing their x-coordinates.
-
-    Parameters
-    ----------
-    t : object
-
-    columns : list
-        List of column coordinate tuples.
-
-    Returns
-    -------
-    c_idx : int
-
-    error : float
-    """
-    offset1, offset2 = 0, 0
-    lt_col_overlap = []
-    for c in columns:
-        if c[0] <= t.x1 and c[1] >= t.x0:
-            left = t.x0 if c[0] <= t.x0 else c[0]
-            right = t.x1 if c[1] >= t.x1 else c[1]
-            lt_col_overlap.append(abs(left - right) / abs(c[0] - c[1]))
-        else:
-            lt_col_overlap.append(-1)
-    if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
-        logging.warning("Text doesn't fit any column.")
-    c_idx = lt_col_overlap.index(max(lt_col_overlap))
-    if t.x0 < columns[c_idx][0]:
-        offset1 = abs(t.x0 - columns[c_idx][0])
-    if t.x1 > columns[c_idx][1]:
-        offset2 = abs(t.x1 - columns[c_idx][1])
-    Y = abs(t.y0 - t.y1)
-    charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
-    error = (Y * (offset1 + offset2)) / charea
-    return c_idx, error
 
 
 class Stream:

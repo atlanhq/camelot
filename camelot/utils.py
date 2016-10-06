@@ -323,6 +323,46 @@ def merge_close_values(ar, mtol=2):
     return ret
 
 
+def split_lttextline(lttextline, cuts):
+    """Splits PDFMiner LTTextLine into substrings if it spans across
+    multiple rows/columns.
+
+    Parameters
+    ----------
+    lttextline : object
+        PDFMiner LTTextLine object.
+
+    cuts : list
+        List of tuples representing row/column coordinates.
+
+    Returns
+    -------
+    cut_text : list
+        List of tuples of the form (idx, text) where idx is the index
+        of row/column and text is the an lttextline substring.
+    """
+    idx = 0
+    cut_text = []
+    for c in range(len(columns)):
+        s = ''
+        if isinstance(lttextline, LTTextLineHorizontal) or isinstance(
+                lttextline, LTTextLineVertical):
+            while idx < len(lttextline._objs):
+                obj = lttextline._objs[idx]
+                if isinstance(obj, LTChar):
+                    if (obj.x0 + obj.x1) / 2 >= columns[c][0] and (obj.x0
+                            + obj.x1) / 2 <= columns[c][1]:
+                        idx += 1
+                        s = ''.join([s, obj.get_text()])
+                    else:
+                        break
+                elif isinstance(obj, LTAnno):
+                    idx += 1
+                    s = ''.join([s, obj.get_text()])
+        cut_text.append((c, s))
+    return cut_text
+
+
 def get_row_index(t, rows):
     """Gets index of the row in which the given text object lies by
     comparing their y-coordinates.
@@ -367,22 +407,30 @@ def get_column_index(t, columns):
 
     Returns
     -------
-    c : int
+    c_idx : int
 
     error : float
     """
     offset1, offset2 = 0, 0
-    for c in range(len(columns)):
-        if (t.x0 + t.x1) / 2.0 > columns[c][0] and (t.x0 + t.x1) / 2.0 < columns[c][1]:
-            if t.x0 < columns[c][0]:
-                offset1 = abs(t.x0 - columns[c][0])
-            if t.x1 > columns[c][1]:
-                offset2 = abs(t.x1 - columns[c][1])
-            X = 1.0 if abs(t.x0 - t.x1) == 0.0 else abs(t.x0 - t.x1)
-            Y = 1.0 if abs(t.y0 - t.y1) == 0.0 else abs(t.y0 - t.y1)
-            charea = X * Y
-            error = (Y * (offset1 + offset2)) / charea
-            return c, error
+    lt_col_overlap = []
+    for c in columns:
+        if c[0] <= t.x1 and c[1] >= t.x0:
+            left = t.x0 if c[0] <= t.x0 else c[0]
+            right = t.x1 if c[1] >= t.x1 else c[1]
+            lt_col_overlap.append(abs(left - right) / abs(c[0] - c[1]))
+        else:
+            lt_col_overlap.append(-1)
+    if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
+        logging.warning("Text doesn't fit any column.")
+    c_idx = lt_col_overlap.index(max(lt_col_overlap))
+    if t.x0 < columns[c_idx][0]:
+        offset1 = abs(t.x0 - columns[c_idx][0])
+    if t.x1 > columns[c_idx][1]:
+        offset2 = abs(t.x1 - columns[c_idx][1])
+    Y = abs(t.y0 - t.y1)
+    charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
+    error = (Y * (offset1 + offset2)) / charea
+    return c_idx, error
 
 
 def get_score(error_weights):
@@ -410,46 +458,6 @@ def get_score(error_weights):
         for error_percentage in ew[1]:
             score += weight * (1 - error_percentage)
     return score
-
-
-def split_lttextline(lttextline, cuts):
-    """Splits PDFMiner LTTextLine into substrings if it spans across
-    multiple rows/columns.
-
-    Parameters
-    ----------
-    lttextline : object
-        PDFMiner LTTextLine object.
-
-    cuts : list
-        List of tuples representing row/column coordinates.
-
-    Returns
-    -------
-    cut_text : list
-        List of tuples of the form (idx, text) where idx is the index
-        of row/column and text is the an lttextline substring.
-    """
-    idx = 0
-    cut_text = []
-    for c in range(len(columns)):
-        s = ''
-        if isinstance(lttextline, LTTextLineHorizontal) or isinstance(
-                lttextline, LTTextLineVertical):
-            while idx < len(lttextline._objs):
-                obj = lttextline._objs[idx]
-                if isinstance(obj, LTChar):
-                    if (obj.x0 + obj.x1) / 2 >= columns[c][0] and (obj.x0
-                            + obj.x1) / 2 <= columns[c][1]:
-                        idx += 1
-                        s = ''.join([s, obj.get_text()])
-                    else:
-                        break
-                elif isinstance(obj, LTAnno):
-                    idx += 1
-                    s = ''.join([s, obj.get_text()])
-        cut_text.append((c, s))
-    return cut_text
 
 
 def remove_empty(d):
