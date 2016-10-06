@@ -179,6 +179,17 @@ class Lattice:
         PDFMiner margins. (char_margin, line_margin, word_margin)
         (optional, default: (1.0, 0.5, 0.1))
 
+    split_text : bool
+        Whether or not to split a text line if it spans across
+        multiple cells.
+        (optional, default: False)
+
+    gravity : list
+        {'l', 'r', 't', 'b'}
+        Select one or more from above and pass them as a list to
+        specify where the text in a spanning cell should flow.
+        (optional, default: None)
+
     debug : string
         {'contour', 'line', 'joint', 'table'}
         Set to one of the above values to generate a matplotlib plot
@@ -186,7 +197,8 @@ class Lattice:
         (optional, default: None)
     """
     def __init__(self, table_area=None, fill=None, mtol=[2], scale=15,
-                 invert=False, margins=(1.0, 0.5, 0.1), debug=None):
+                 invert=False, margins=(1.0, 0.5, 0.1), split_text=False,
+                 gravity=None, debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area
@@ -195,6 +207,8 @@ class Lattice:
         self.scale = scale
         self.invert = invert
         self.char_margin, self.line_margin, self.word_margin = margins
+        self.split_text = split_text
+        self.gravity = gravity
         self.debug = debug
 
     def get_tables(self, pdfname):

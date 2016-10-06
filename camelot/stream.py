@@ -265,13 +265,19 @@ class Stream:
         PDFMiner margins. (char_margin, line_margin, word_margin)
         (optional, default: (1.0, 0.5, 0.1))
 
+    split_text : bool
+        Whether or not to split a text line if it spans across
+        multiple cells.
+        (optional, default: False)
+
     debug : bool
         Set to True to generate a matplotlib plot of
         LTTextLineHorizontals in order to select table_area, columns.
         (optional, default: False)
     """
     def __init__(self, table_area=None, columns=None, ncolumns=None, ytol=[2],
-                 mtol=[0], margins=(1.0, 0.5, 0.1), debug=False):
+                 mtol=[0], margins=(1.0, 0.5, 0.1), split_text=False,
+                 debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
@@ -280,6 +286,7 @@ class Stream:
         self.ytol = ytol
         self.mtol = mtol
         self.char_margin, self.line_margin, self.word_margin = margins
+        self.split_text = split_text
         self.debug = debug
 
     def get_tables(self, pdfname):

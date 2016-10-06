@@ -420,26 +420,26 @@ def get_score(error_weights):
     return score
 
 
-def split_lttextline(lttextline, columns):
+def split_lttextline(lttextline, cuts):
     """Splits PDFMiner LTTextLine into substrings if it spans across
-    multiple columns.
+    multiple rows/columns.
 
     Parameters
     ----------
     lttextline : object
         PDFMiner LTTextLine object.
 
-    columns : list
-        List of tuples representing column x-coordinates.
+    cuts : list
+        List of tuples representing row/column coordinates.
 
     Returns
     -------
-    col_text : list
+    cut_text : list
         List of tuples of the form (idx, text) where idx is the index
-        of column and text is the an lttextline substring.
+        of row/column and text is the an lttextline substring.
     """
     idx = 0
-    col_text = []
+    cut_text = []
     for c in range(len(columns)):
         s = ''
         if isinstance(lttextline, LTTextLineHorizontal) or isinstance(
@@ -456,8 +456,8 @@ def split_lttextline(lttextline, columns):
                 elif isinstance(obj, LTAnno):
                     idx += 1
                     s = ''.join([s, obj.get_text()])
-        col_text.append((c, s))
-    return col_text
+        cut_text.append((c, s))
+    return cut_text
 
 
 def remove_empty(d):
