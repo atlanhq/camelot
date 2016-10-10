@@ -1,5 +1,6 @@
 from __future__ import division
 import os
+import logging
 
 import numpy as np
 
@@ -240,7 +241,171 @@ def segments_bbox(bbox, v_segments, h_segments):
     return v_s, h_s
 
 
-def text_bbox(bbox, text):
+def rotate_segments(v_s, h_s, table_rotation):
+    """Rotates line segments if the table is rotated.
+
+    Parameters
+    ----------
+    v : list
+
+    h : list
+
+    table_rotation : string
+
+    Returns
+    -------
+    vertical : list
+
+    horizontal : list
+    """
+    vertical, horizontal = [], []
+    if table_rotation != '':
+        if table_rotation == 'left':
+            for v in v_s:
+                x0, y0 = rotate(0, 0, v[0], v[1], -np.pi / 2)
+                x1, y1 = rotate(0, 0, v[2], v[3], -np.pi / 2)
+                horizontal.append((x0, y0, x1, y1))
+            for h in h_s:
+                x0, y0 = rotate(0, 0, h[0], h[1], -np.pi / 2)
+                x1, y1 = rotate(0, 0, h[2], h[3], -np.pi / 2)
+                vertical.append((x1, y1, x0, y0))
+        elif table_rotation == 'right':
+            for v in v_s:
+                x0, y0 = rotate(0, 0, v[0], v[1], np.pi / 2)
+                x1, y1 = rotate(0, 0, v[2], v[3], np.pi / 2)
+                horizontal.append((x1, y1, x0, y0))
+            for h in h_s:
+                x0, y0 = rotate(0, 0, h[0], h[1], np.pi / 2)
+                x1, y1 = rotate(0, 0, h[2], h[3], np.pi / 2)
+                vertical.append((x0, y0, x1, y1))
+    else:
+        vertical = v_s
+        horizontal = h_s
+    return vertical, horizontal
+
+
+def rotate_textlines(lh_bbox, lv_bbox, table_rotation):
+    """Rotates bounding boxes of LTTextLineHorizontals and
+    LTTextLineVerticals if the table is rotated.
+
+    Parameters
+    ----------
+    lh_bbox : list
+
+    lv_bbox : list
+
+    table_rotation : string
+        {'', 'left', 'right'}
+
+    Returns
+    -------
+    t_bbox : dict
+        Dict with two keys 'horizontal' and 'vertical' with lists of
+        LTTextLineHorizontals and LTTextLineVerticals respectively.
+    """
+    t_bbox = {}
+    if table_rotation != '':
+        if table_rotation == 'left':
+            for t in lh_bbox:
+                x0, y0, x1, y1 = t.bbox
+                x0, y0 = rotate(0, 0, x0, y0, -np.pi / 2)
+                x1, y1 = rotate(0, 0, x1, y1, -np.pi / 2)
+                t.set_bbox((x1, y0, x0, y1))
+                for obj in t._objs:
+                    if isinstance(obj, LTChar):
+                        x0, y0, x1, y1 = obj.bbox
+                        x0, y0 = rotate(0, 0, x0, y0, -np.pi / 2)
+                        x1, y1 = rotate(0, 0, x1, y1, -np.pi / 2)
+                        obj.set_bbox((x1, y0, x0, y1))
+            for t in lv_bbox:
+                x0, y0, x1, y1 = t.bbox
+                x0, y0 = rotate(0, 0, x0, y0, -np.pi / 2)
+                x1, y1 = rotate(0, 0, x1, y1, -np.pi / 2)
+                t.set_bbox((x0, y1, x1, y0))
+                for obj in t._objs:
+                    if isinstance(obj, LTChar):
+                        x0, y0, x1, y1 = obj.bbox
+                        x0, y0 = rotate(0, 0, x0, y0, -np.pi / 2)
+                        x1, y1 = rotate(0, 0, x1, y1, -np.pi / 2)
+                        obj.set_bbox((x0, y1, x1, y0))
+        elif table_rotation == 'right':
+            for t in lh_bbox:
+                x0, y0, x1, y1 = t.bbox
+                x0, y0 = rotate(0, 0, x0, y0, np.pi / 2)
+                x1, y1 = rotate(0, 0, x1, y1, np.pi / 2)
+                t.set_bbox((x0, y1, x1, y0))
+                for obj in t._objs:
+                    if isinstance(obj, LTChar):
+                        x0, y0, x1, y1 = obj.bbox
+                        x0, y0 = rotate(0, 0, x0, y0, np.pi / 2)
+                        x1, y1 = rotate(0, 0, x1, y1, np.pi / 2)
+                        obj.set_bbox((x0, y1, x1, y0))
+            for t in lv_bbox:
+                x0, y0, x1, y1 = t.bbox
+                x0, y0 = rotate(0, 0, x0, y0, np.pi / 2)
+                x1, y1 = rotate(0, 0, x1, y1, np.pi / 2)
+                t.set_bbox((x1, y0, x0, y1))
+                for obj in t._objs:
+                    if isinstance(obj, LTChar):
+                        x0, y0, x1, y1 = obj.bbox
+                        x0, y0 = rotate(0, 0, x0, y0, np.pi / 2)
+                        x1, y1 = rotate(0, 0, x1, y1, np.pi / 2)
+                        obj.set_bbox((x1, y0, x0, y1))
+        t_bbox['horizontal'] = lv_bbox
+        t_bbox['vertical'] = lh_bbox
+    else:
+        t_bbox['horizontal'] = lh_bbox
+        t_bbox['vertical'] = lv_bbox
+    return t_bbox
+
+
+def rotate_table(R, C, table_rotation):
+    """Rotates coordinates of table rows and columns.
+
+    Parameters
+    ----------
+    R : list
+
+    C : list
+
+    table_rotation : string
+        {'', 'left', 'right'}
+
+    Returns
+    -------
+    rows : list
+
+    cols : list
+    """
+    rows, cols = [], []
+    if table_rotation != '':
+        if table_rotation == 'left':
+            for r in R:
+                r0, r1 = rotate(0, 0, 0, r[0], -np.pi / 2)
+                r2, r3 = rotate(0, 0, 0, r[1], -np.pi / 2)
+                cols.append((r2, r0))
+            cols = sorted(cols)
+            for c in C:
+                c0, c1 = rotate(0, 0, c[0], 0, -np.pi / 2)
+                c2, c3 = rotate(0, 0, c[1], 0, -np.pi / 2)
+                rows.append((c1, c3))
+        elif table_rotation == 'right':
+            for r in R:
+                r0, r1 = rotate(0, 0, 0, r[0], np.pi / 2)
+                r2, r3 = rotate(0, 0, 0, r[1], np.pi / 2)
+                cols.append((r0, r2))
+            for c in C:
+                c0, c1 = rotate(0, 0, c[0], 0, np.pi / 2)
+                c2, c3 = rotate(0, 0, c[1], 0, np.pi / 2)
+                rows.append((c3, c1))
+            rows = sorted(rows, reverse=True)
+    else:
+        rows = R
+        cols = C
+    return rows, cols
+
+
+def text_in_bbox(bbox, text):
     """Returns all text objects present inside a
     table's bounding box.
 
@@ -323,17 +488,20 @@ def merge_close_values(ar, mtol=2):
     return ret
 
 
-def split_lttextline(lttextline, cuts):
+def split_textline(textline, rows, columns):
     """Splits PDFMiner LTTextLine into substrings if it spans across
     multiple rows/columns.
 
     Parameters
     ----------
-    lttextline : object
+    textline : object
         PDFMiner LTTextLine object.
 
-    cuts : list
-        List of tuples representing row/column coordinates.
+    rows : list
+        List of row coordinate tuples, sorted in decreasing order.
+
+    columns : list
+        List of column coordinate tuples, sorted in increasing order.
 
     Returns
     -------
@@ -343,29 +511,25 @@ def split_lttextline(lttextline, cuts):
     """
     idx = 0
     cut_text = []
-    for c in range(len(columns)):
-        s = ''
-        if isinstance(lttextline, LTTextLineHorizontal) or isinstance(
-                lttextline, LTTextLineVertical):
-            while idx < len(lttextline._objs):
-                obj = lttextline._objs[idx]
-                if isinstance(obj, LTChar):
-                    if (obj.x0 + obj.x1) / 2 >= columns[c][0] and (obj.x0
-                            + obj.x1) / 2 <= columns[c][1]:
-                        idx += 1
-                        s = ''.join([s, obj.get_text()])
-                    else:
+    if isinstance(textline, LTTextLineHorizontal) or isinstance(
+            textline, LTTextLineVertical):
+        for obj in textline._objs:
+            for r in range(len(rows)):
+                for c in range(len(columns)):
+                    if isinstance(obj, LTChar):
+                        if (rows[r][1] <= (obj.y0 + obj.y1) / 2 <= rows[r][0] and
+                                columns[c][0] <= (obj.x0 + obj.x1) / 2 <= columns[c][1]):
+                            cut_text.append((r, c, obj.get_text().strip('\n')))
+                            break
+                    elif isinstance(obj, LTAnno):
+                        cut_text.append((r, c, obj.get_text().strip('\n')))
                         break
-                elif isinstance(obj, LTAnno):
-                    idx += 1
-                    s = ''.join([s, obj.get_text()])
-        cut_text.append((c, s))
     return cut_text
 
 
-def get_row_index(t, rows):
-    """Gets index of the row in which the given text object lies by
-    comparing their y-coordinates.
+def get_table_index(t, rows, columns, split_text=False):
+    """Gets indices of the cell where given text object lies by
+    comparing their y and x-coordinates.
 
     Parameters
     ----------
@@ -374,63 +538,58 @@ def get_row_index(t, rows):
     rows : list
         List of row coordinate tuples, sorted in decreasing order.
 
+    columns : list
+        List of column coordinate tuples, sorted in increasing order.
+
+    split_text : bool
+        Whether or not to split a text line if it spans across
+        multiple cells.
+        (optional, default: False)
+
     Returns
     -------
-    r : int
+    indices : list
+        List of tuples of the form (idx, text) where idx is the index
+        of row/column and text is the an lttextline substring.
 
     error : float
     """
-    offset1, offset2 = 0, 0
+    r_idx, c_idx = [-1] * 2
     for r in range(len(rows)):
         if (t.y0 + t.y1) / 2.0 < rows[r][0] and (t.y0 + t.y1) / 2.0 > rows[r][1]:
-            if t.y0 > rows[r][0]:
-                offset1 = abs(t.y0 - rows[r][0])
-            if t.y1 < rows[r][1]:
-                offset2 = abs(t.y1 - rows[r][1])
-            X = 1.0 if abs(t.x0 - t.x1) == 0.0 else abs(t.x0 - t.x1)
-            Y = 1.0 if abs(t.y0 - t.y1) == 0.0 else abs(t.y0 - t.y1)
-            charea = X * Y
-            error = (X * (offset1 + offset2)) / charea
-            return r, error
+            lt_col_overlap = []
+            for c in columns:
+                if c[0] <= t.x1 and c[1] >= t.x0:
+                    left = t.x0 if c[0] <= t.x0 else c[0]
+                    right = t.x1 if c[1] >= t.x1 else c[1]
+                    lt_col_overlap.append(abs(left - right) / abs(c[0] - c[1]))
+                else:
+                    lt_col_overlap.append(-1)
+            if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
+                logging.warning("Text doesn't fit any column.")
+            r_idx = r
+            c_idx = lt_col_overlap.index(max(lt_col_overlap))
+            break
 
-
-def get_column_index(t, columns):
-    """Gets index of the column in which the given text object lies by
-    comparing their x-coordinates.
-
-    Parameters
-    ----------
-    t : object
-
-    columns : list
-        List of column coordinate tuples.
-
-    Returns
-    -------
-    c_idx : int
-
-    error : float
-    """
-    offset1, offset2 = 0, 0
-    lt_col_overlap = []
-    for c in columns:
-        if c[0] <= t.x1 and c[1] >= t.x0:
-            left = t.x0 if c[0] <= t.x0 else c[0]
-            right = t.x1 if c[1] >= t.x1 else c[1]
-            lt_col_overlap.append(abs(left - right) / abs(c[0] - c[1]))
-        else:
-            lt_col_overlap.append(-1)
-    if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
-        logging.warning("Text doesn't fit any column.")
-    c_idx = lt_col_overlap.index(max(lt_col_overlap))
+    # error calculation
+    y0_offset, y1_offset, x0_offset, x1_offset = [0] * 4
+    if t.y0 > rows[r_idx][0]:
+        y0_offset = abs(t.y0 - rows[r_idx][0])
+    if t.y1 < rows[r_idx][1]:
+        y1_offset = abs(t.y1 - rows[r_idx][1])
     if t.x0 < columns[c_idx][0]:
-        offset1 = abs(t.x0 - columns[c_idx][0])
+        x0_offset = abs(t.x0 - columns[c_idx][0])
     if t.x1 > columns[c_idx][1]:
-        offset2 = abs(t.x1 - columns[c_idx][1])
-    Y = abs(t.y0 - t.y1)
-    charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
-    error = (Y * (offset1 + offset2)) / charea
-    return c_idx, error
+        x1_offset = abs(t.x1 - columns[c_idx][1])
+    X = 1.0 if abs(t.x0 - t.x1) == 0.0 else abs(t.x0 - t.x1)
+    Y = 1.0 if abs(t.y0 - t.y1) == 0.0 else abs(t.y0 - t.y1)
+    charea = X * Y
+    error = ((X * (y0_offset + y1_offset)) + (Y * (x0_offset + x1_offset))) / charea
+
+    if split_text:
+        return split_textline(t, rows, columns), error
+    else:
+        return [(r_idx, c_idx, t.get_text().strip('\n'))], error
 
 
 def get_score(error_weights):
@@ -532,7 +691,7 @@ def encode_list(ar):
     return ar
 
 
-def get_text_objects(layout, LTType="char", t=None):
+def get_text_objects(layout, ltype="char", t=None):
     """Recursively parses pdf layout to get a list of
     text objects.
 
@@ -541,7 +700,7 @@ def get_text_objects(layout, LTType="char", t=None):
     layout : object
         PDFMiner LTPage object.
 
-    LTType : string
+    ltype : string
         {'char', 'lh', 'lv'}
         Specify 'char', 'lh', 'lv' to get LTChar, LTTextLineHorizontal,
         and LTTextLineVertical objects respectively.
@@ -553,11 +712,11 @@ def get_text_objects(layout, LTType="char", t=None):
     t : list
         List of PDFMiner text objects.
     """
-    if LTType == "char":
+    if ltype == "char":
         LTObject = LTChar
-    elif LTType == "lh":
+    elif ltype == "lh":
         LTObject = LTTextLineHorizontal
-    elif LTType == "lv":
+    elif ltype == "lv":
         LTObject = LTTextLineVertical
     if t is None:
         t = []
@@ -566,7 +725,7 @@ def get_text_objects(layout, LTType="char", t=None):
             if isinstance(obj, LTObject):
                 t.append(obj)
             else:
-                t += get_text_objects(obj, LTType=LTType)
+                t += get_text_objects(obj, ltype=ltype)
     except AttributeError:
         pass
     return t

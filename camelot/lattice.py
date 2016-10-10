@@ -8,10 +8,10 @@ import subprocess
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints)
 from .table import Table
-from .utils import (scale_to_pdf, scale_to_image, get_rotation, segments_bbox,
-                    text_bbox, merge_close_values, get_row_index,
-                    get_column_index, get_score, count_empty, encode_list,
-                    get_text_objects, get_page_layout)
+from .utils import (scale_to_pdf, scale_to_image, get_rotation, rotate_segments,
+                    rotate_textlines, rotate_table, segments_bbox, text_in_bbox,
+                    merge_close_values, get_table_index, get_score, count_empty,
+                    encode_list, get_text_objects, get_page_layout)
 
 
 __all__ = ['Lattice']
@@ -23,6 +23,70 @@ def _reduce_method(m):
     else:
         return getattr, (m.im_self, m.im_func.func_name)
 copy_reg.pickle(types.MethodType, _reduce_method)
+
+
+def _outline(t):
+    """Sets table border edges to True.
+
+    Parameters
+    ----------
+    t : object
+        camelot.table.Table
+
+    Returns
+    -------
+    t : object
+        camelot.table.Table
+    """
+    for i in range(len(t.cells)):
+        t.cells[i][0].left = True
+        t.cells[i][len(t.cells[i]) - 1].right = True
+    for i in range(len(t.cells[0])):
+        t.cells[0][i].top = True
+        t.cells[len(t.cells) - 1][i].bottom = True
+    return t
+
+
+def _reduce_index(t, idx, shift_text):
+    """Reduces index of a text object if it lies within a spanning
+    cell taking in account table rotation.
+
+    Parameters
+    ----------
+    table : object
+        camelot.table.Table
+
+    idx : list
+        List of tuples of the form (r_idx, c_idx, text).
+
+    shift_text : list
+        {'l', 'r', 't', 'b'}
+
+    Returns
+    -------
+    indices : list
+    """
+    indices = []
+    for r_idx, c_idx, text in idx:
+        for d in shift_text:
+            if d == 'l':
+                if t.cells[r_idx][c_idx].spanning_h:
+                    while not t.cells[r_idx][c_idx].left:
+                        c_idx -= 1
+            if d == 'r':
+                if t.cells[r_idx][c_idx].spanning_h:
+                    while not t.cells[r_idx][c_idx].right:
+                        c_idx += 1
+            if d == 't':
+                if t.cells[r_idx][c_idx].spanning_v:
+                    while not t.cells[r_idx][c_idx].top:
+                        r_idx -= 1
+            if d == 'b':
+                if t.cells[r_idx][c_idx].spanning_v:
+                    while not t.cells[r_idx][c_idx].bottom:
+                        r_idx += 1
+        indices.append((r_idx, c_idx, text))
+    return indices
 
 
 def _fill_spanning(t, fill=None):
@@ -65,78 +129,6 @@ def _fill_spanning(t, fill=None):
                     elif t.cells[i][j].spanning_v:
                         t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
     return t
-
-
-def _outline(t):
-    """Sets table border edges to True.
-
-    Parameters
-    ----------
-    t : object
-        camelot.table.Table
-
-    Returns
-    -------
-    t : object
-        camelot.table.Table
-    """
-    for i in range(len(t.cells)):
-        t.cells[i][0].left = True
-        t.cells[i][len(t.cells[i]) - 1].right = True
-    for i in range(len(t.cells[0])):
-        t.cells[0][i].top = True
-        t.cells[len(t.cells) - 1][i].bottom = True
-    return t
-
-
-def _reduce_index(t, rotation, r_idx, c_idx):
-    """Reduces index of a text object if it lies within a spanning
-    cell taking in account table rotation.
-
-    Parameters
-    ----------
-    t : object
-        camelot.table.Table
-
-    rotation : string
-        {'', 'left', 'right'}
-
-    r_idx : int
-        Current row index.
-
-    c_idx : int
-        Current column index.
-
-    Returns
-    -------
-    r_idx : int
-        Reduced row index.
-
-    c_idx : int
-        Reduced column index.
-    """
-    if not rotation:
-        if t.cells[r_idx][c_idx].spanning_h:
-            while not t.cells[r_idx][c_idx].left:
-                c_idx -= 1
-        if t.cells[r_idx][c_idx].spanning_v:
-            while not t.cells[r_idx][c_idx].top:
-                r_idx -= 1
-    elif rotation == 'left':
-        if t.cells[r_idx][c_idx].spanning_h:
-            while not t.cells[r_idx][c_idx].left:
-                c_idx -= 1
-        if t.cells[r_idx][c_idx].spanning_v:
-            while not t.cells[r_idx][c_idx].bottom:
-                r_idx += 1
-    elif rotation == 'right':
-        if t.cells[r_idx][c_idx].spanning_h:
-            while not t.cells[r_idx][c_idx].right:
-                c_idx += 1
-        if t.cells[r_idx][c_idx].spanning_v:
-            while not t.cells[r_idx][c_idx].top:
-                r_idx -= 1
-    return r_idx, c_idx
 
 
 class Lattice:
@@ -184,11 +176,11 @@ class Lattice:
         multiple cells.
         (optional, default: False)
 
-    gravity : list
+    shift_text : list
         {'l', 'r', 't', 'b'}
         Select one or more from above and pass them as a list to
         specify where the text in a spanning cell should flow.
-        (optional, default: None)
+        (optional, default: ['l', 't'])
 
     debug : string
         {'contour', 'line', 'joint', 'table'}
@@ -198,7 +190,7 @@ class Lattice:
     """
     def __init__(self, table_area=None, fill=None, mtol=[2], scale=15,
                  invert=False, margins=(1.0, 0.5, 0.1), split_text=False,
-                 gravity=None, debug=None):
+                 shift_text=['l', 't'], debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area
@@ -208,7 +200,7 @@ class Lattice:
         self.invert = invert
         self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
-        self.gravity = gravity
+        self.shift_text = shift_text
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -225,15 +217,19 @@ class Lattice:
         """
         layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
             line_margin=self.line_margin, word_margin=self.word_margin)
-        ltchar = get_text_objects(layout, LTType="char")
-        lttextlh = get_text_objects(layout, LTType="lh")
-        lttextlv = get_text_objects(layout, LTType="lv")
+        lttextlh = get_text_objects(layout, ltype="lh")
+        lttextlv = get_text_objects(layout, ltype="lv")
+        ltchar = get_text_objects(layout, ltype="char")
         width, height = dim
         bname, __ = os.path.splitext(pdfname)
         if not ltchar:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
+
+        if self.split_text and self.shift_text:
+            raise ValueError("split_text can't be set to True when shift_text"
+                             " is specified.")
 
         imagename = ''.join([bname, '.png'])
         gs_call = [
@@ -301,11 +297,15 @@ class Lattice:
             # select elements which lie within table_bbox
             table_data = {}
             v_s, h_s = segments_bbox(k, v_segments, h_segments)
-            char_bbox = text_bbox(k, ltchar)
-            lh_bbox = text_bbox(k, lttextlh)
-            lv_bbox = text_bbox(k, lttextlv)
+            lh_bbox = text_in_bbox(k, lttextlh)
+            lv_bbox = text_in_bbox(k, lttextlv)
+            char_bbox = text_in_bbox(k, ltchar)
             table_data['text_p'] = 100 * (1 - (len(char_bbox) / len(ltchar)))
-            table_rotation = get_rotation(char_bbox, lh_bbox, lv_bbox)
+            table_rotation = get_rotation(lh_bbox, lv_bbox, char_bbox)
+            v_s, h_s = rotate_segments(v_s, h_s, table_rotation)
+            t_bbox = rotate_textlines(lh_bbox, lv_bbox, table_rotation)
+            for direction in t_bbox:
+                t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
             cols, rows = zip(*table_bbox[k])
             cols, rows = list(cols), list(rows)
             cols.extend([k[0], k[2]])
@@ -319,6 +319,7 @@ class Lattice:
                     for i in range(0, len(cols) - 1)]
             rows = [(rows[i], rows[i + 1])
                     for i in range(0, len(rows) - 1)]
+            rows, cols = rotate_table(rows, cols, table_rotation)
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
             table = table.set_edges(v_s, h_s)
@@ -332,53 +333,21 @@ class Lattice:
             if self.debug:
                 self.debug_tables.append(table)
 
-            rerror = []
-            cerror = []
-            for t in char_bbox:
-                try:
-                    r_idx, rass_error = get_row_index(t, rows)
-                except TypeError:
-                    # couldn't assign LTChar to any cell
-                    continue
-                try:
-                    c_idx, cass_error = get_column_index(t, cols)
-                except TypeError:
-                    # couldn't assign LTChar to any cell
-                    continue
-                rerror.append(rass_error)
-                cerror.append(cass_error)
-                r_idx, c_idx = _reduce_index(table, table_rotation, r_idx, c_idx)
-                table.cells[r_idx][c_idx].add_object(t)
-
-            for i in range(len(table.cells)):
-                for j in range(len(table.cells[i])):
-                    t_bbox = table.cells[i][j].get_objects()
-                    try:
-                        cell_rotation = get_rotation(t_bbox)
-                    except ZeroDivisionError:
-                        cell_rotation = ''
-                        pass
-                    # fill text after sorting it
-                    if cell_rotation == '':
-                        t_bbox.sort(key=lambda x: (-x.y0, x.x0))
-                    elif cell_rotation == 'left':
-                        t_bbox.sort(key=lambda x: (x.x0, x.y0))
-                    elif cell_rotation == 'right':
-                        t_bbox.sort(key=lambda x: (-x.x0, -x.y0))
-                    table.cells[i][j].add_text(''.join([t.get_text()
-                        for t in t_bbox]))
-
-            score = get_score([[50, rerror], [50, cerror]])
+            assignment_errors = []
+            for direction in t_bbox:
+                for t in t_bbox[direction]:
+                    indices, error = get_table_index(
+                        t, rows, cols, split_text=self.split_text)
+                    assignment_errors.append(error)
+                    indices = _reduce_index(table, indices, shift_text=self.shift_text)
+                    for r_idx, c_idx, text in indices:
+                        table.cells[r_idx][c_idx].add_text(text)
+            score = get_score([[100, assignment_errors]])
             table_data['score'] = score
 
             if self.fill is not None:
                 table = _fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
-            if table_rotation == 'left':
-                ar = zip(*ar[::-1])
-            elif table_rotation == 'right':
-                ar = zip(*ar[::1])
-                ar.reverse()
             ar = encode_list(ar)
             table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
