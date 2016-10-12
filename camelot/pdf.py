@@ -196,28 +196,28 @@ class Pdf:
             try:
                 for tables in self.debug_tables:
                     for table in tables:
-                        for i in range(len(table.cells)):
-                            for j in range(len(table.cells[i])):
-                                if table.cells[i][j].left:
-                                    plt.plot([table.cells[i][j].lb[0],
-                                              table.cells[i][j].lt[0]],
-                                             [table.cells[i][j].lb[1],
-                                              table.cells[i][j].lt[1]])
-                                if table.cells[i][j].right:
-                                    plt.plot([table.cells[i][j].rb[0],
-                                              table.cells[i][j].rt[0]],
-                                             [table.cells[i][j].rb[1],
-                                              table.cells[i][j].rt[1]])
-                                if table.cells[i][j].top:
-                                    plt.plot([table.cells[i][j].lt[0],
-                                              table.cells[i][j].rt[0]],
-                                             [table.cells[i][j].lt[1],
-                                              table.cells[i][j].rt[1]])
-                                if table.cells[i][j].bottom:
-                                    plt.plot([table.cells[i][j].lb[0],
-                                              table.cells[i][j].rb[0]],
-                                             [table.cells[i][j].lb[1],
-                                              table.cells[i][j].rb[1]])
+                        for r in range(len(table.rows)):
+                            for c in range(len(table.cols)):
+                                if table.cells[r][c].left:
+                                    plt.plot([table.cells[r][c].lb[0],
+                                              table.cells[r][c].lt[0]],
+                                             [table.cells[r][c].lb[1],
+                                              table.cells[r][c].lt[1]])
+                                if table.cells[r][c].right:
+                                    plt.plot([table.cells[r][c].rb[0],
+                                              table.cells[r][c].rt[0]],
+                                             [table.cells[r][c].rb[1],
+                                              table.cells[r][c].rt[1]])
+                                if table.cells[r][c].top:
+                                    plt.plot([table.cells[r][c].lt[0],
+                                              table.cells[r][c].rt[0]],
+                                             [table.cells[r][c].lt[1],
+                                              table.cells[r][c].rt[1]])
+                                if table.cells[r][c].bottom:
+                                    plt.plot([table.cells[r][c].lb[0],
+                                              table.cells[r][c].rb[0]],
+                                             [table.cells[r][c].lb[1],
+                                              table.cells[r][c].rb[1]])
                     plt.show()
             except AttributeError:
                 raise ValueError("This option only be used with Lattice.")

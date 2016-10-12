@@ -7,8 +7,9 @@ import copy_reg
 import numpy as np
 
 from .table import Table
-from .utils import (rotate, get_rotation, text_bbox, get_row_index, get_score,
-                    count_empty, encode_list, get_text_objects, get_page_layout)
+from .utils import (rotate, get_rotation, rotate_textlines, text_in_bbox,
+                    get_table_index, get_score, count_empty, encode_list,
+                    get_text_objects, get_page_layout)
 
 
 __all__ = ['Stream']
@@ -20,6 +21,29 @@ def _reduce_method(m):
     else:
         return getattr, (m.im_self, m.im_func.func_name)
 copy_reg.pickle(types.MethodType, _reduce_method)
+
+
+def _text_bbox(t_bbox):
+    """Returns bounding box for the text present on a page.
+
+    Parameters
+    ----------
+    t_bbox : dict
+        Dict with two keys 'horizontal' and 'vertical' with lists of
+        LTTextLineHorizontals and LTTextLineVerticals respectively.
+
+    Returns
+    -------
+    text_bbox : tuple
+        Tuple of the form (x0, y0, x1, y1) in PDFMiner's coordinate
+        space.
+    """
+    xmin = min([t.x0 for direction in t_bbox for t in t_bbox[direction]])
+    ymin = min([t.y0 for direction in t_bbox for t in t_bbox[direction]])
+    xmax = max([t.x1 for direction in t_bbox for t in t_bbox[direction]])
+    ymax = max([t.y1 for direction in t_bbox for t in t_bbox[direction]])
+    text_bbox = (xmin, ymin, xmax, ymax)
+    return text_bbox
 
 
 def _group_rows(text, ytol=2):
@@ -185,45 +209,6 @@ def _add_columns(cols, text, ytol):
     return cols
 
 
-def _get_column_index(t, columns):
-    """Gets index of the column in which the given text object lies by
-    comparing their x-coordinates.
-
-    Parameters
-    ----------
-    t : object
-
-    columns : list
-        List of column coordinate tuples.
-
-    Returns
-    -------
-    c_idx : int
-
-    error : float
-    """
-    offset1, offset2 = 0, 0
-    lt_col_overlap = []
-    for c in columns:
-        if c[0] <= t.x1 and c[1] >= t.x0:
-            left = t.x0 if c[0] <= t.x0 else c[0]
-            right = t.x1 if c[1] >= t.x1 else c[1]
-            lt_col_overlap.append(abs(left - right) / abs(c[0] - c[1]))
-        else:
-            lt_col_overlap.append(-1)
-    if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
-        logging.warning("Text doesn't fit any column.")
-    c_idx = lt_col_overlap.index(max(lt_col_overlap))
-    if t.x0 < columns[c_idx][0]:
-        offset1 = abs(t.x0 - columns[c_idx][0])
-    if t.x1 > columns[c_idx][1]:
-        offset2 = abs(t.x1 - columns[c_idx][1])
-    Y = abs(t.y0 - t.y1)
-    charea = abs(t.x0 - t.x1) * abs(t.y0 - t.y1)
-    error = (Y * (offset1 + offset2)) / charea
-    return c_idx, error
-
-
 class Stream:
     """Stream looks for spaces between text elements to form a table.
 
@@ -265,13 +250,19 @@ class Stream:
         PDFMiner margins. (char_margin, line_margin, word_margin)
         (optional, default: (1.0, 0.5, 0.1))
 
+    split_text : bool
+        Whether or not to split a text line if it spans across
+        different cells.
+        (optional, default: False)
+
     debug : bool
         Set to True to generate a matplotlib plot of
         LTTextLineHorizontals in order to select table_area, columns.
         (optional, default: False)
     """
     def __init__(self, table_area=None, columns=None, ncolumns=None, ytol=[2],
-                 mtol=[0], margins=(1.0, 0.5, 0.1), debug=False):
+                 mtol=[0], margins=(1.0, 0.5, 0.1), split_text=False,
+                 debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
@@ -280,6 +271,7 @@ class Stream:
         self.ytol = ytol
         self.mtol = mtol
         self.char_margin, self.line_margin, self.word_margin = margins
+        self.split_text = split_text
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -296,9 +288,9 @@ class Stream:
         """
         layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
             line_margin=self.line_margin, word_margin=self.word_margin)
-        ltchar = get_text_objects(layout, LTType="char")
-        lttextlh = get_text_objects(layout, LTType="lh")
-        lttextlv = get_text_objects(layout, LTType="lv")
+        lttextlh = get_text_objects(layout, ltype="lh")
+        lttextlv = get_text_objects(layout, ltype="lv")
+        ltchar = get_text_objects(layout, ltype="char")
         width, height = dim
         bname, __ = os.path.splitext(pdfname)
         if not lttextlh:
@@ -308,6 +300,8 @@ class Stream:
 
         if self.debug:
             self.debug_text = []
+            self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlh])
+            self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlv])
 
         if self.table_area is not None:
             if self.columns is not None:
@@ -339,34 +333,16 @@ class Stream:
         for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
             # select elements which lie within table_bbox
             table_data = {}
-            table_rotation = get_rotation(ltchar, lttextlh, lttextlv)
-            if table_rotation != '':
-                t_bbox = text_bbox(k, lttextlv)
-                if table_rotation == 'left':
-                    if self.debug:
-                        self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlv])
-                    for t in t_bbox:
-                        x0, y0, x1, y1 = t.bbox
-                        x0, y0 = rotate(0, 0, x0, y0, -np.pi / 2)
-                        x1, y1 = rotate(0, 0, x1, y1, -np.pi / 2)
-                        t.set_bbox((x0, y1, x1, y0))
-                elif table_rotation == 'right':
-                    for t in t_bbox:
-                        x0, y0, x1, y1 = t.bbox
-                        x0, y0 = rotate(0, 0, x0, y0, np.pi / 2)
-                        x1, y1 = rotate(0, 0, x1, y1, np.pi / 2)
-                        t.set_bbox((x1, y0, x0, y1))
-            else:
-                if self.debug:
-                    self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlh])
-                t_bbox = text_bbox(k, lttextlh)
-            t_bbox.sort(key=lambda x: (-x.y0, x.x0))
-
-            text_x_min = min([t.x0 for t in t_bbox])
-            text_y_min = min([t.y0 for t in t_bbox])
-            text_x_max = max([t.x1 for t in t_bbox])
-            text_y_max = max([t.y1 for t in t_bbox])
-            rows_grouped = _group_rows(t_bbox, ytol=self.ytol[table_no])
+            lh_bbox = text_in_bbox(k, lttextlh)
+            lv_bbox = text_in_bbox(k, lttextlv)
+            char_bbox = text_in_bbox(k, ltchar)
+            table_data['text_p'] = 100 * (1 - (len(char_bbox) / len(ltchar)))
+            table_rotation = get_rotation(lh_bbox, lv_bbox, char_bbox)
+            t_bbox = rotate_textlines(lh_bbox, lv_bbox, table_rotation)
+            for direction in t_bbox:
+                t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
+            text_x_min, text_y_min, text_x_max, text_y_max = _text_bbox(t_bbox)
+            rows_grouped = _group_rows(t_bbox['horizontal'], ytol=self.ytol[table_no])
             rows = _join_rows(rows_grouped, text_y_max, text_y_min)
             elements = [len(r) for r in rows_grouped]
 
@@ -402,9 +378,9 @@ class Stream:
                     len_non_mode = len(filter(lambda x: x != ncols, elements))
                     if ncols == 1 and not self.debug:
                         # no tables detected
-                        logging.warning("{}: Only one column was detected, the PDF"
+                        logging.warning("{}: Only one column was detected, the pdf"
                                       " may have no tables. Specify ncols if"
-                                      " the PDF has tables.".format(
+                                      " the pdf has tables.".format(
                                       os.path.basename(bname)))
                     cols = [(t.x0, t.x1)
                         for r in rows_grouped if len(r) == ncols for t in r]
@@ -413,35 +389,30 @@ class Stream:
                     for i in range(1, len(cols)):
                         left = cols[i - 1][1]
                         right = cols[i][0]
-                        inner_text.extend([t for t in t_bbox if t.x0 > left and t.x1 < right])
-                    outer_text = [t for t in t_bbox if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
+                        inner_text.extend([t for direction in t_bbox
+                                           for t in t_bbox[direction]
+                                           if t.x0 > left and t.x1 < right])
+                    outer_text = [t for direction in t_bbox
+                                  for t in t_bbox[direction]
+                                  if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
                     inner_text.extend(outer_text)
                     cols = _add_columns(cols, inner_text, self.ytol[table_no])
                     cols = _join_columns(cols, text_x_min, text_x_max)
 
             table = Table(cols, rows)
-            rerror = []
-            cerror = []
-            for row in rows_grouped:
-                for t in row:
-                    try:
-                        r_idx, rass_error = get_row_index(t, rows)
-                    except ValueError as e:
-                        # couldn't assign LTTextLH to any cell
-                        continue
-                    try:
-                        c_idx, cass_error = _get_column_index(t, cols)
-                    except ValueError as e:
-                        # couldn't assign LTTextLH to any cell
-                        continue
-                    rerror.append(rass_error)
-                    cerror.append(cass_error)
-                    table.cells[r_idx][c_idx].add_text(
-                        t.get_text().strip('\n'))
+            table = table.set_all_edges()
+            assignment_errors = []
+            for direction in t_bbox:
+                for t in t_bbox[direction]:
+                    indices, error = get_table_index(
+                        table, t, direction, split_text=self.split_text)
+                    assignment_errors.append(error)
+                    for r_idx, c_idx, text in indices:
+                        table.cells[r_idx][c_idx].add_text(text)
             if guess:
-                score = get_score([[33, rerror], [33, cerror], [34, [len_non_mode / len(elements)]]])
+                score = get_score([[66, assignment_errors], [34, [len_non_mode / len(elements)]]])
             else:
-                score = get_score([[50, rerror], [50, cerror]])
+                score = get_score([[100, assignment_errors]])
 
             table_data['score'] = score
             ar = table.get_list()
