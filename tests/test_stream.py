@@ -85,7 +85,7 @@ def test_stream_missing_value():
         ["4","","","",""]
     ]
     pdfname = os.path.join(testdir, "missing_values.pdf")
-    manager = Pdf(Stream(), pdfname, clean=True)
+    manager = Pdf(Stream(flag_size=False), pdfname, clean=True)
     tables = manager.extract()
     assert_equal(tables["page-1"]["table-1"]["data"], data)
 
@@ -210,11 +210,11 @@ def test_stream_table_rotation():
         ["","","","","","","","","54","","","","","","","","",""]
     ]
     pdfname = os.path.join(testdir, "left_rotated_table_2.pdf")
-    manager = Pdf(Stream(), pdfname, clean=True)
+    manager = Pdf(Stream(flag_size=False), pdfname, clean=True)
     tables = manager.extract()
     assert_equal(tables["page-1"]["table-1"]["data"], data)
 
     pdfname = os.path.join(testdir, "right_rotated_table_2.pdf")
-    manager = Pdf(Stream(), pdfname, clean=True)
+    manager = Pdf(Stream(flag_size=False), pdfname, clean=True)
     tables = manager.extract()
     assert_equal(tables["page-1"]["table-1"]["data"], data)

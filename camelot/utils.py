@@ -1,6 +1,8 @@
 from __future__ import division
 import os
 import logging
+from itertools import groupby
+from operator import itemgetter
 
 import numpy as np
 
@@ -500,7 +502,49 @@ def merge_close_values(ar, mtol=2):
     return ret
 
 
-def split_textline(table, textline, direction):
+def flag_on_size(textline, direction):
+    """Flags a super/subscript by enclosing it with <s></s>. May give
+    false positives.
+
+    Parameters
+    ----------
+    textline : list
+        List of PDFMiner LTChar objects.
+
+    direction : string
+        {'horizontal', 'vertical'}
+        Direction of the PDFMiner LTTextLine object.
+
+    Returns
+    -------
+    fstring : string
+    """
+    if direction == 'horizontal':
+        d = [(t.get_text(), np.round(t.height, decimals=6)) for t in textline if not isinstance(t, LTAnno)]
+    elif direction == 'vertical':
+        d = [(t.get_text(), np.round(t.width, decimals=6)) for t in textline if not isinstance(t, LTAnno)]
+    l = [np.round(size, decimals=6) for text, size in d]
+    if len(set(l)) > 1:
+        flist = []
+        min_size = min(l)
+        for key, chars in groupby(d, itemgetter(1)):
+            if key == min_size:
+                fchars = [t[0] for t in chars]
+                if ''.join(fchars).strip():
+                    fchars.insert(0, '<s>')
+                    fchars.append('</s>')
+                    flist.append(''.join(fchars))
+            else:
+                fchars = [t[0] for t in chars]
+                if ''.join(fchars).strip():
+                    flist.append(''.join(fchars))
+        fstring = ''.join(flist).strip('\n')
+    else:
+        fstring = ''.join([t.get_text() for t in textline]).strip('\n')
+    return fstring
+
+
+def split_textline(table, textline, direction, flag_size=True):
     """Splits PDFMiner LTTextLine into substrings if it spans across
     multiple rows/columns.
 
@@ -516,9 +560,15 @@ def split_textline(table, textline, direction):
         {'horizontal', 'vertical'}
         Direction of the PDFMiner LTTextLine object.
 
+    flag_size : bool
+        Whether or not to highlight a substring using <s></s>
+        if its size is different from rest of the string, useful for
+        super and subscripts.
+        (optional, default: True)
+
     Returns
     -------
-    cut_text : list
+    grouped_chars : list
         List of tuples of the form (idx, text) where idx is the index
         of row/column and text is the an lttextline substring.
     """
@@ -538,10 +588,10 @@ def split_textline(table, textline, direction):
                 if isinstance(obj, LTChar):
                     if (row[1] <= (obj.y0 + obj.y1) / 2 <= row[0] and
                             (obj.x0 + obj.x1) / 2 <= cut[1]):
-                        cut_text.append((r, cut[0], obj.get_text().strip('\n')))
+                        cut_text.append((r, cut[0], obj))
                         break
                 elif isinstance(obj, LTAnno):
-                    cut_text.append((r, cut[0], obj.get_text().strip('\n')))
+                    cut_text.append((r, cut[0], obj))
     elif direction == 'vertical' and not textline.is_empty():
         y_overlap = [j for j, y in enumerate(table.rows) if y[1] <= bbox[3] and bbox[1] <= y[0]]
         c_idx = [i for i, c in enumerate(table.cols) if c[0] <= (bbox[0] + bbox[2]) / 2 <= c[1]]
@@ -558,11 +608,18 @@ def split_textline(table, textline, direction):
                         cut_text.append((cut[0], c, obj.get_text()))
                         break
                 elif isinstance(obj, LTAnno):
-                    cut_text.append((cut[0], c, obj.get_text().strip('\n')))
-    return cut_text
+                    cut_text.append((cut[0], c, obj))
+    grouped_chars = []
+    for key, chars in groupby(cut_text, itemgetter(0, 1)):
+        if flag_size:
+            grouped_chars.append((key[0], key[1], flag_on_size([t[2] for t in chars], direction)))
+        else:
+            gchars = [t[2].get_text() for t in chars]
+            grouped_chars.append((key[0], key[1], ''.join(gchars).strip('\n')))
+    return grouped_chars
 
 
-def get_table_index(table, t, direction, split_text=False):
+def get_table_index(table, t, direction, split_text=False, flag_size=True):
     """Gets indices of the cell where given text object lies by
     comparing their y and x-coordinates.
 
@@ -582,6 +639,12 @@ def get_table_index(table, t, direction, split_text=False):
         Whether or not to split a text line if it spans across
         multiple cells.
         (optional, default: False)
+
+    flag_size : bool
+        Whether or not to highlight a substring using <s></s>
+        if its size is different from rest of the string, useful for
+        super and subscripts.
+        (optional, default: True)
 
     Returns
     -------
@@ -632,9 +695,12 @@ def get_table_index(table, t, direction, split_text=False):
     error = ((X * (y0_offset + y1_offset)) + (Y * (x0_offset + x1_offset))) / charea
 
     if split_text:
-        return split_textline(table, t, direction), error
+        return split_textline(table, t, direction, flag_size=flag_size), error
     else:
-        return [(r_idx, c_idx, t.get_text().strip('\n'))], error
+        if flag_size:
+            return [(r_idx, c_idx, flag_on_size(t._objs, direction))], error
+        else:
+            return [(r_idx, c_idx, t.get_text().strip('\n'))], error
 
 
 def get_score(error_weights):
