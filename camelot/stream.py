@@ -259,6 +259,12 @@ class Stream:
         different cells.
         (optional, default: False)
 
+    flag_size : bool
+        Whether or not to highlight a substring using <s></s>
+        if its size is different from rest of the string, useful for
+        super and subscripts.
+        (optional, default: True)
+
     debug : bool
         Set to True to generate a matplotlib plot of
         LTTextLineHorizontals in order to select table_area, columns.
@@ -266,7 +272,7 @@ class Stream:
     """
     def __init__(self, table_area=None, columns=None, ncolumns=None,
                  headers=None, ytol=[2], mtol=[0], margins=(1.0, 0.5, 0.1),
-                 split_text=False, debug=False):
+                 split_text=False, flag_size=True, debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
@@ -277,6 +283,7 @@ class Stream:
         self.headers = headers
         self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
+        self.flag_size = flag_size
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -424,7 +431,8 @@ class Stream:
             for direction in t_bbox:
                 for t in t_bbox[direction]:
                     indices, error = get_table_index(
-                        table, t, direction, split_text=self.split_text)
+                        table, t, direction, split_text=self.split_text,
+                        flag_size=self.flag_size)
                     assignment_errors.append(error)
                     if len(indices) > 1:
                         table_data['split_text'].append(indices)

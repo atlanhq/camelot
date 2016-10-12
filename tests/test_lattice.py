@@ -115,11 +115,11 @@ def test_lattice_table_rotation():
         ["Pooled","38742","53618","60601","86898","4459","21918","27041","14312","18519"]
     ]
     pdfname = os.path.join(testdir, 'left_rotated_table_1.pdf')
-    manager = Pdf(Lattice(), pdfname, clean=True)
+    manager = Pdf(Lattice(flag_size=False), pdfname, clean=True)
     tables = manager.extract()
     assert_equal(tables['page-1']['table-1']['data'], data)
 
     pdfname = os.path.join(testdir, 'right_rotated_table_1.pdf')
-    manager = Pdf(Lattice(), pdfname, clean=True)
+    manager = Pdf(Lattice(flag_size=False), pdfname, clean=True)
     tables = manager.extract()
     assert_equal(tables['page-1']['table-1']['data'], data)
