@@ -520,10 +520,10 @@ def flag_on_size(textline, direction):
     fstring : string
     """
     if direction == 'horizontal':
-        d = [(t.get_text(), t.height) for t in textline if not isinstance(t, LTAnno)]
+        d = [(t.get_text(), np.round(t.height, decimals=6)) for t in textline if not isinstance(t, LTAnno)]
     elif direction == 'vertical':
-        d = [(t.get_text(), t.width) for t in textline if not isinstance(t, LTAnno)]
-    l = [size for text, size in d]
+        d = [(t.get_text(), np.round(t.width, decimals=6)) for t in textline if not isinstance(t, LTAnno)]
+    l = [np.round(size, decimals=6) for text, size in d]
     if len(set(l)) > 1:
         flist = []
         min_size = min(l)
