@@ -1,6 +1,8 @@
 from __future__ import division
 import os
 import logging
+from itertools import groupby
+from operator import itemgetter
 
 import numpy as np
 
@@ -500,6 +502,41 @@ def merge_close_values(ar, mtol=2):
     return ret
 
 
+def flag_on_size(textline):
+    """Flags a super/subscript by enclosing it with <s></s>. May give
+    false positives.
+
+    Parameters
+    ----------
+    textline : list
+        List of PDFMiner LTChar objects.
+
+    Returns
+    -------
+    fstring : string
+    """
+    l = []
+    for t in textline:
+        if not isinstance(t, LTAnno):
+            l.append(t.size)
+    if len(set(l)) > 1:
+        flist = []
+        max_size = max(l)
+        d = [(t.get_text(), t.size) for t in textline if not isinstance(t, LTAnno)]
+        for key, chars in groupby(d, itemgetter(1)):
+            if key == max_size:
+                flist.append(''.join([t[0] for t in chars]))
+            else:
+                fchars = [t[0] for t in chars]
+                fchars.insert(0, '<s>')
+                fchars.append('</s>')
+                flist.append(''.join(fchars))
+        fstring = ''.join(flist).strip('\n')
+    else:
+        fstring = ''.join([t.get_text() for t in textline]).strip('\n')
+    return fstring
+
+
 def split_textline(table, textline, direction):
     """Splits PDFMiner LTTextLine into substrings if it spans across
     multiple rows/columns.
@@ -518,7 +555,7 @@ def split_textline(table, textline, direction):
 
     Returns
     -------
-    cut_text : list
+    grouped_chars : list
         List of tuples of the form (idx, text) where idx is the index
         of row/column and text is the an lttextline substring.
     """
@@ -538,10 +575,10 @@ def split_textline(table, textline, direction):
                 if isinstance(obj, LTChar):
                     if (row[1] <= (obj.y0 + obj.y1) / 2 <= row[0] and
                             (obj.x0 + obj.x1) / 2 <= cut[1]):
-                        cut_text.append((r, cut[0], obj.get_text().strip('\n')))
+                        cut_text.append((r, cut[0], obj))
                         break
                 elif isinstance(obj, LTAnno):
-                    cut_text.append((r, cut[0], obj.get_text().strip('\n')))
+                    cut_text.append((r, cut[0], obj))
     elif direction == 'vertical' and not textline.is_empty():
         y_overlap = [j for j, y in enumerate(table.rows) if y[1] <= bbox[3] and bbox[1] <= y[0]]
         c_idx = [i for i, c in enumerate(table.cols) if c[0] <= (bbox[0] + bbox[2]) / 2 <= c[1]]
@@ -558,8 +595,11 @@ def split_textline(table, textline, direction):
                         cut_text.append((cut[0], c, obj.get_text()))
                         break
                 elif isinstance(obj, LTAnno):
-                    cut_text.append((cut[0], c, obj.get_text().strip('\n')))
-    return cut_text
+                    cut_text.append((cut[0], c, obj))
+    grouped_chars = []
+    for key, chars in groupby(cut_text, itemgetter(0, 1)):
+        grouped_chars.append((key[0], key[1], flag_on_size([t[2] for t in chars])))
+    return grouped_chars
 
 
 def get_table_index(table, t, direction, split_text=False):
@@ -634,7 +674,7 @@ def get_table_index(table, t, direction, split_text=False):
     if split_text:
         return split_textline(table, t, direction), error
     else:
-        return [(r_idx, c_idx, t.get_text().strip('\n'))], error
+        return [(r_idx, c_idx, flag_on_size(t._objs))], error
 
 
 def get_score(error_weights):

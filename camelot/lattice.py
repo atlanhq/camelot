@@ -181,7 +181,7 @@ class Lattice:
         self.method = 'lattice'
         self.table_area = table_area
         self.fill = fill
-        self.headers = [h.split(',') for h in headers]
+        self.headers = headers
         self.mtol = mtol
         self.scale = scale
         self.invert = invert
@@ -248,6 +248,7 @@ class Lattice:
             if self.headers is not None:
                 if len(self.table_area) != len(self.headers):
                     raise ValueError("Length of headers should be equal to table_area.")
+                self.headers = [h.split(',') for h in headers]
 
             areas = []
             for area in self.table_area:
@@ -329,13 +330,19 @@ class Lattice:
                 self.debug_tables.append(table)
 
             assignment_errors = []
+            table_data['split_text'] = []
+            table_data['superscript'] = []
             for direction in t_bbox:
                 for t in t_bbox[direction]:
                     indices, error = get_table_index(
                         table, t, direction, split_text=self.split_text)
                     assignment_errors.append(error)
                     indices = _reduce_index(table, indices, shift_text=self.shift_text)
+                    if len(indices) > 1:
+                        table_data['split_text'].append(indices)
                     for r_idx, c_idx, text in indices:
+                        if all(s in text for s in ['<s>', '</s>']):
+                            table_data['superscript'].append((r_idx, c_idx, text))
                         table.cells[r_idx][c_idx].add_text(text)
             score = get_score([[100, assignment_errors]])
             table_data['score'] = score

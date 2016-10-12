@@ -274,7 +274,7 @@ class Stream:
         self.ncolumns = ncolumns
         self.ytol = ytol
         self.mtol = mtol
-        self.headers = [h.split(',') for h in headers]
+        self.headers = headers
         self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
         self.debug = debug
@@ -318,6 +318,7 @@ class Stream:
             if self.headers is not None:
                 if len(self.table_area) != len(self.headers):
                     raise ValueError("Length of headers should be equal to table_area.")
+                self.headers = [h.split(',') for h in headers]
 
             table_bbox = {}
             for area in self.table_area:
@@ -418,12 +419,18 @@ class Stream:
             table = Table(cols, rows)
             table = table.set_all_edges()
             assignment_errors = []
+            table_data['split_text'] = []
+            table_data['superscript'] = []
             for direction in t_bbox:
                 for t in t_bbox[direction]:
                     indices, error = get_table_index(
                         table, t, direction, split_text=self.split_text)
                     assignment_errors.append(error)
+                    if len(indices) > 1:
+                        table_data['split_text'].append(indices)
                     for r_idx, c_idx, text in indices:
+                        if all(s in text for s in ['<s>', '</s>']):
+                            table_data['superscript'].append((r_idx, c_idx, text))
                         table.cells[r_idx][c_idx].add_text(text)
             if guess:
                 score = get_score([[66, assignment_errors], [34, [len_non_mode / len(elements)]]])
