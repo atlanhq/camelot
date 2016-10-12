@@ -252,7 +252,7 @@ class Stream:
 
     split_text : bool
         Whether or not to split a text line if it spans across
-        multiple cells.
+        different cells.
         (optional, default: False)
 
     debug : bool
@@ -400,11 +400,12 @@ class Stream:
                     cols = _join_columns(cols, text_x_min, text_x_max)
 
             table = Table(cols, rows)
+            table = table.set_all_edges()
             assignment_errors = []
             for direction in t_bbox:
                 for t in t_bbox[direction]:
                     indices, error = get_table_index(
-                        t, rows, cols, split_text=self.split_text)
+                        table, t, direction, split_text=self.split_text)
                     assignment_errors.append(error)
                     for r_idx, c_idx, text in indices:
                         table.cells[r_idx][c_idx].add_text(text)

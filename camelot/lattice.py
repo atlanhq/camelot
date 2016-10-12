@@ -25,28 +25,6 @@ def _reduce_method(m):
 copy_reg.pickle(types.MethodType, _reduce_method)
 
 
-def _outline(t):
-    """Sets table border edges to True.
-
-    Parameters
-    ----------
-    t : object
-        camelot.table.Table
-
-    Returns
-    -------
-    t : object
-        camelot.table.Table
-    """
-    for i in range(len(t.cells)):
-        t.cells[i][0].left = True
-        t.cells[i][len(t.cells[i]) - 1].right = True
-    for i in range(len(t.cells[0])):
-        t.cells[0][i].top = True
-        t.cells[len(t.cells) - 1][i].bottom = True
-    return t
-
-
 def _reduce_index(t, idx, shift_text):
     """Reduces index of a text object if it lies within a spanning
     cell taking in account table rotation.
@@ -61,10 +39,14 @@ def _reduce_index(t, idx, shift_text):
 
     shift_text : list
         {'l', 'r', 't', 'b'}
+        Select one or more from above and pass them as a list to
+        specify where the text in a spanning cell should flow.
 
     Returns
     -------
     indices : list
+        List of tuples of the form (idx, text) where idx is the reduced
+        index of row/column and text is the an lttextline substring.
     """
     indices = []
     for r_idx, c_idx, text in idx:
@@ -173,7 +155,7 @@ class Lattice:
 
     split_text : bool
         Whether or not to split a text line if it spans across
-        multiple cells.
+        different cells.
         (optional, default: False)
 
     shift_text : list
@@ -226,10 +208,6 @@ class Lattice:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return None
-
-        if self.split_text and self.shift_text:
-            raise ValueError("split_text can't be set to True when shift_text"
-                             " is specified.")
 
         imagename = ''.join([bname, '.png'])
         gs_call = [
@@ -328,7 +306,7 @@ class Lattice:
             # set spanning cells to True
             table = table.set_spanning()
             # set table border edges to True
-            table = _outline(table)
+            table = table.set_border_edges()
 
             if self.debug:
                 self.debug_tables.append(table)
@@ -337,7 +315,7 @@ class Lattice:
             for direction in t_bbox:
                 for t in t_bbox[direction]:
                     indices, error = get_table_index(
-                        t, rows, cols, split_text=self.split_text)
+                        table, t, direction, split_text=self.split_text)
                     assignment_errors.append(error)
                     indices = _reduce_index(table, indices, shift_text=self.shift_text)
                     for r_idx, c_idx, text in indices:

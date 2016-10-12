@@ -247,16 +247,22 @@ def rotate_segments(v_s, h_s, table_rotation):
     Parameters
     ----------
     v : list
+        List of vertical line segments.
 
     h : list
+        List of horizontal line segments.
 
     table_rotation : string
+        {'', 'left', 'right'}
+
 
     Returns
     -------
     vertical : list
+        List of rotated vertical line segments.
 
     horizontal : list
+        List of rotated horizontal line segments.
     """
     vertical, horizontal = [], []
     if table_rotation != '':
@@ -291,8 +297,10 @@ def rotate_textlines(lh_bbox, lv_bbox, table_rotation):
     Parameters
     ----------
     lh_bbox : list
+        List of PDFMiner LTTextLineHorizontal objects.
 
     lv_bbox : list
+        List of PDFMiner LTTextLineVertical objects.
 
     table_rotation : string
         {'', 'left', 'right'}
@@ -365,8 +373,10 @@ def rotate_table(R, C, table_rotation):
     Parameters
     ----------
     R : list
+        List of row x-coordinates.
 
     C : list
+        List of column y-coordinates.
 
     table_rotation : string
         {'', 'left', 'right'}
@@ -374,8 +384,10 @@ def rotate_table(R, C, table_rotation):
     Returns
     -------
     rows : list
+        List of rotated row x-coordinates.
 
     cols : list
+        List of rotated column y-coordinates.
     """
     rows, cols = [], []
     if table_rotation != '':
@@ -488,20 +500,21 @@ def merge_close_values(ar, mtol=2):
     return ret
 
 
-def split_textline(textline, rows, columns):
+def split_textline(table, textline, direction):
     """Splits PDFMiner LTTextLine into substrings if it spans across
     multiple rows/columns.
 
     Parameters
     ----------
+    table : object
+        camelot.pdf.Pdf
+
     textline : object
         PDFMiner LTTextLine object.
 
-    rows : list
-        List of row coordinate tuples, sorted in decreasing order.
-
-    columns : list
-        List of column coordinate tuples, sorted in increasing order.
+    direction : string
+        {'horizontal', 'vertical'}
+        Direction of the PDFMiner LTTextLine object.
 
     Returns
     -------
@@ -511,35 +524,59 @@ def split_textline(textline, rows, columns):
     """
     idx = 0
     cut_text = []
-    if isinstance(textline, LTTextLineHorizontal) or isinstance(
-            textline, LTTextLineVertical):
+    bbox = textline.bbox
+    if direction == 'horizontal' and not textline.is_empty():
+        x_overlap = [i for i, x in enumerate(table.cols) if x[0] <= bbox[2] and bbox[0] <= x[1]]
+        r_idx = [j for j, r in enumerate(table.rows) if r[1] <= (bbox[1] + bbox[3]) / 2 <= r[0]]
+        r = r_idx[0]
+        x_cuts = [(c, table.cells[r][c].x2) for c in x_overlap if table.cells[r][c].right]
+        if not x_cuts:
+            x_cuts = [(x_overlap[0], table.cells[r][-1].x2)]
         for obj in textline._objs:
-            for r in range(len(rows)):
-                for c in range(len(columns)):
-                    if isinstance(obj, LTChar):
-                        if (rows[r][1] <= (obj.y0 + obj.y1) / 2 <= rows[r][0] and
-                                columns[c][0] <= (obj.x0 + obj.x1) / 2 <= columns[c][1]):
-                            cut_text.append((r, c, obj.get_text().strip('\n')))
-                            break
-                    elif isinstance(obj, LTAnno):
-                        cut_text.append((r, c, obj.get_text().strip('\n')))
+            row = table.rows[r]
+            for cut in x_cuts:
+                if isinstance(obj, LTChar):
+                    if (row[1] <= (obj.y0 + obj.y1) / 2 <= row[0] and
+                            (obj.x0 + obj.x1) / 2 <= cut[1]):
+                        cut_text.append((r, cut[0], obj.get_text().strip('\n')))
                         break
+                elif isinstance(obj, LTAnno):
+                    cut_text.append((r, cut[0], obj.get_text().strip('\n')))
+    elif direction == 'vertical' and not textline.is_empty():
+        y_overlap = [j for j, y in enumerate(table.rows) if y[1] <= bbox[3] and bbox[1] <= y[0]]
+        c_idx = [i for i, c in enumerate(table.cols) if c[0] <= (bbox[0] + bbox[2]) / 2 <= c[1]]
+        c = c_idx[0]
+        y_cuts = [(r, table.cells[r][c].y1) for r in y_overlap if table.cells[r][c].bottom]
+        if not y_cuts:
+            y_cuts = [(y_overlap[0], table.cells[-1][c].y1)]
+        for obj in textline._objs:
+            col = table.cols[c]
+            for cut in y_cuts:
+                if isinstance(obj, LTChar):
+                    if (col[0] <= (obj.x0 + obj.x1) / 2 <= col[1] and
+                            (obj.y0 + obj.y1) / 2 >= cut[1]):
+                        cut_text.append((cut[0], c, obj.get_text()))
+                        break
+                elif isinstance(obj, LTAnno):
+                    cut_text.append((cut[0], c, obj.get_text().strip('\n')))
     return cut_text
 
 
-def get_table_index(t, rows, columns, split_text=False):
+def get_table_index(table, t, direction, split_text=False):
     """Gets indices of the cell where given text object lies by
     comparing their y and x-coordinates.
 
     Parameters
     ----------
+    table : object
+        camelot.table.Table
+
     t : object
+        PDFMiner LTTextLine object.
 
-    rows : list
-        List of row coordinate tuples, sorted in decreasing order.
-
-    columns : list
-        List of column coordinate tuples, sorted in increasing order.
+    direction : string
+        {'horizontal', 'vertical'}
+        Direction of the PDFMiner LTTextLine object.
 
     split_text : bool
         Whether or not to split a text line if it spans across
@@ -553,12 +590,20 @@ def get_table_index(t, rows, columns, split_text=False):
         of row/column and text is the an lttextline substring.
 
     error : float
+        Assignment error, percentage of text area that lies outside
+        a cell.
+        +-------+
+        |       |
+        |   [Text bounding box]
+        |       |
+        +-------+
     """
     r_idx, c_idx = [-1] * 2
-    for r in range(len(rows)):
-        if (t.y0 + t.y1) / 2.0 < rows[r][0] and (t.y0 + t.y1) / 2.0 > rows[r][1]:
+    for r in range(len(table.rows)):
+        if ((t.y0 + t.y1) / 2.0 < table.rows[r][0] and
+                (t.y0 + t.y1) / 2.0 > table.rows[r][1]):
             lt_col_overlap = []
-            for c in columns:
+            for c in table.cols:
                 if c[0] <= t.x1 and c[1] >= t.x0:
                     left = t.x0 if c[0] <= t.x0 else c[0]
                     right = t.x1 if c[1] >= t.x1 else c[1]
@@ -573,21 +618,21 @@ def get_table_index(t, rows, columns, split_text=False):
 
     # error calculation
     y0_offset, y1_offset, x0_offset, x1_offset = [0] * 4
-    if t.y0 > rows[r_idx][0]:
-        y0_offset = abs(t.y0 - rows[r_idx][0])
-    if t.y1 < rows[r_idx][1]:
-        y1_offset = abs(t.y1 - rows[r_idx][1])
-    if t.x0 < columns[c_idx][0]:
-        x0_offset = abs(t.x0 - columns[c_idx][0])
-    if t.x1 > columns[c_idx][1]:
-        x1_offset = abs(t.x1 - columns[c_idx][1])
+    if t.y0 > table.rows[r_idx][0]:
+        y0_offset = abs(t.y0 - table.rows[r_idx][0])
+    if t.y1 < table.rows[r_idx][1]:
+        y1_offset = abs(t.y1 - table.rows[r_idx][1])
+    if t.x0 < table.cols[c_idx][0]:
+        x0_offset = abs(t.x0 - table.cols[c_idx][0])
+    if t.x1 > table.cols[c_idx][1]:
+        x1_offset = abs(t.x1 - table.cols[c_idx][1])
     X = 1.0 if abs(t.x0 - t.x1) == 0.0 else abs(t.x0 - t.x1)
     Y = 1.0 if abs(t.y0 - t.y1) == 0.0 else abs(t.y0 - t.y1)
     charea = X * Y
     error = ((X * (y0_offset + y1_offset)) + (Y * (x0_offset + x1_offset))) / charea
 
     if split_text:
-        return split_textline(t, rows, columns), error
+        return split_textline(table, t, direction), error
     else:
         return [(r_idx, c_idx, t.get_text().strip('\n'))], error
 
@@ -648,9 +693,14 @@ def count_empty(d):
 
     Returns
     -------
-    n_empty_rows : number of empty rows
-    n_empty_cols : number of empty columns
-    empty_p : percentage of empty cells
+    n_empty_rows : list
+        Number of empty rows.
+
+    n_empty_cols : list
+        Number of empty columns.
+
+    empty_p : float
+        Percentage of empty cells.
     """
     empty_p = 0
     r_nempty_cells, c_nempty_cells = [], []

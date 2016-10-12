@@ -35,6 +35,28 @@ class Table:
                        for c in cols] for r in rows]
         self.nocont_ = 0
 
+    def set_all_edges(self):
+        """Sets all table edges to True.
+        """
+        for r in range(len(self.rows)):
+            for c in range(len(self.cols)):
+                self.cells[r][c].left = True
+                self.cells[r][c].right = True
+                self.cells[r][c].top = True
+                self.cells[r][c].bottom = True
+        return self
+
+    def set_border_edges(self):
+        """Sets table border edges to True.
+        """
+        for r in range(len(self.rows)):
+            self.cells[r][0].left = True
+            self.cells[r][len(self.cols) - 1].right = True
+        for c in range(len(self.cols)):
+            self.cells[0][c].top = True
+            self.cells[len(self.rows) - 1][c].bottom = True
+        return self
+
     def set_edges(self, vertical, horizontal, jtol=2):
         """Sets a cell's edges to True depending on whether they
         overlap with lines found by imgproc.
@@ -160,47 +182,47 @@ class Table:
         depending on whether the cell spans/extends horizontally or
         vertically.
         """
-        for i in range(len(self.cells)):
-            for j in range(len(self.cells[i])):
-                bound = self.cells[i][j].get_bounded_edges()
+        for r in range(len(self.rows)):
+            for c in range(len(self.cols)):
+                bound = self.cells[r][c].get_bounded_edges()
                 if bound == 4:
                     continue
 
                 elif bound == 3:
-                    if not self.cells[i][j].left:
-                        if (self.cells[i][j].right and
-                                self.cells[i][j].top and
-                                self.cells[i][j].bottom):
-                            self.cells[i][j].spanning_h = True
+                    if not self.cells[r][c].left:
+                        if (self.cells[r][c].right and
+                                self.cells[r][c].top and
+                                self.cells[r][c].bottom):
+                            self.cells[r][c].spanning_h = True
 
-                    elif not self.cells[i][j].right:
-                        if (self.cells[i][j].left and
-                                self.cells[i][j].top and
-                                self.cells[i][j].bottom):
-                            self.cells[i][j].spanning_h = True
+                    elif not self.cells[r][c].right:
+                        if (self.cells[r][c].left and
+                                self.cells[r][c].top and
+                                self.cells[r][c].bottom):
+                            self.cells[r][c].spanning_h = True
 
-                    elif not self.cells[i][j].top:
-                        if (self.cells[i][j].left and
-                                self.cells[i][j].right and
-                                self.cells[i][j].bottom):
-                            self.cells[i][j].spanning_v = True
+                    elif not self.cells[r][c].top:
+                        if (self.cells[r][c].left and
+                                self.cells[r][c].right and
+                                self.cells[r][c].bottom):
+                            self.cells[r][c].spanning_v = True
 
-                    elif not self.cells[i][j].bottom:
-                        if (self.cells[i][j].left and
-                                self.cells[i][j].right and
-                                self.cells[i][j].top):
-                            self.cells[i][j].spanning_v = True
+                    elif not self.cells[r][c].bottom:
+                        if (self.cells[r][c].left and
+                                self.cells[r][c].right and
+                                self.cells[r][c].top):
+                            self.cells[r][c].spanning_v = True
 
                 elif bound == 2:
-                    if self.cells[i][j].left and self.cells[i][j].right:
-                        if (not self.cells[i][j].top and
-                                not self.cells[i][j].bottom):
-                            self.cells[i][j].spanning_v = True
+                    if self.cells[r][c].left and self.cells[r][c].right:
+                        if (not self.cells[r][c].top and
+                                not self.cells[r][c].bottom):
+                            self.cells[r][c].spanning_v = True
 
-                    elif self.cells[i][j].top and self.cells[i][j].bottom:
-                        if (not self.cells[i][j].left and
-                                not self.cells[i][j].right):
-                            self.cells[i][j].spanning_h = True
+                    elif self.cells[r][c].top and self.cells[r][c].bottom:
+                        if (not self.cells[r][c].left and
+                                not self.cells[r][c].right):
+                            self.cells[r][c].spanning_h = True
 
         return self
 
@@ -213,7 +235,7 @@ class Table:
         ar : list
         """
         ar = []
-        for i in range(len(self.cells)):
-            ar.append([self.cells[i][j].get_text().strip()
-                       for j in range(len(self.cells[i]))])
+        for r in range(len(self.rows)):
+            ar.append([self.cells[r][c].get_text().strip()
+                       for c in range(len(self.cols))])
         return ar
