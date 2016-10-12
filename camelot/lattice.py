@@ -124,7 +124,7 @@ class Lattice:
     Parameters
     ----------
     table_area : list
-        List of tuples of the form (x1, y1, x2, y2) where
+        List of strings of the form x1,y1,x2,y2 where
         (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDFMiner's
         coordinate space, denoting table areas to analyze.
         (optional, default: None)
@@ -133,6 +133,10 @@ class Lattice:
         List of strings specifying directions to fill spanning cells.
         {'h', 'v', 'hv'} to fill spanning cells in horizontal, vertical
         or both directions.
+        (optional, default: None)
+
+    headers : list
+        List of strings where each string is a csv header for a table.
         (optional, default: None)
 
     mtol : list
@@ -170,13 +174,14 @@ class Lattice:
         of detected contours, lines, joints and the table generated.
         (optional, default: None)
     """
-    def __init__(self, table_area=None, fill=None, mtol=[2], scale=15,
-                 invert=False, margins=(1.0, 0.5, 0.1), split_text=False,
-                 shift_text=['l', 't'], debug=None):
+    def __init__(self, table_area=None, fill=None, headers=None, mtol=[2],
+                 scale=15, invert=False, margins=(1.0, 0.5, 0.1),
+                 split_text=False, shift_text=['l', 't'], debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area
         self.fill = fill
+        self.headers = [h.split(',') for h in headers]
         self.mtol = mtol
         self.scale = scale
         self.invert = invert
@@ -240,6 +245,10 @@ class Lattice:
             if self.fill is not None:
                 if len(self.table_area) != len(self.fill):
                     raise ValueError("Length of fill should be equal to table_area.")
+            if self.headers is not None:
+                if len(self.table_area) != len(self.headers):
+                    raise ValueError("Length of headers should be equal to table_area.")
+
             areas = []
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
@@ -297,6 +306,14 @@ class Lattice:
                     for i in range(0, len(cols) - 1)]
             rows = [(rows[i], rows[i + 1])
                     for i in range(0, len(rows) - 1)]
+
+            if self.headers is not None and len(self.headers[table_no]) != len(cols):
+                logging.warning("Length of header ({0}) specified for table is not"
+                                " equal to the number of columns ({1}) detected.".format(
+                                len(self.headers[table_no]), len(cols)))
+                while len(self.headers[table_no]) != len(cols):
+                    self.headers[table_no].append('')
+
             rows, cols = rotate_table(rows, cols, table_rotation)
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
@@ -326,6 +343,8 @@ class Lattice:
             if self.fill is not None:
                 table = _fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
+            if self.headers is not None and self.headers[table_no] != ['']:
+                ar.insert(0, self.headers[table_no])
             ar = encode_list(ar)
             table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)

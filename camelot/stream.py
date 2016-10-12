@@ -224,7 +224,7 @@ class Stream:
     Parameters
     ----------
     table_area : list
-        List of tuples of the form (x1, y1, x2, y2) where
+        List of strings of the form x1,y1,x2,y2 where
         (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDFMiner's
         coordinate space, denoting table areas to analyze.
         (optional, default: None)
@@ -236,6 +236,10 @@ class Stream:
 
     ncolumns : list
         List of ints specifying the number of columns in each table.
+        (optional, default: None)
+
+    headers : list
+        List of strings where each string is a csv header for a table.
         (optional, default: None)
 
     ytol : list
@@ -260,9 +264,9 @@ class Stream:
         LTTextLineHorizontals in order to select table_area, columns.
         (optional, default: False)
     """
-    def __init__(self, table_area=None, columns=None, ncolumns=None, ytol=[2],
-                 mtol=[0], margins=(1.0, 0.5, 0.1), split_text=False,
-                 debug=False):
+    def __init__(self, table_area=None, columns=None, ncolumns=None,
+                 headers=None, ytol=[2], mtol=[0], margins=(1.0, 0.5, 0.1),
+                 split_text=False, debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
@@ -270,6 +274,7 @@ class Stream:
         self.ncolumns = ncolumns
         self.ytol = ytol
         self.mtol = mtol
+        self.headers = [h.split(',') for h in headers]
         self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
         self.debug = debug
@@ -310,6 +315,10 @@ class Stream:
             if self.ncolumns is not None:
                 if len(self.table_area) != len(self.ncolumns):
                     raise ValueError("Length of ncolumns should be equal to table_area.")
+            if self.headers is not None:
+                if len(self.table_area) != len(self.headers):
+                    raise ValueError("Length of headers should be equal to table_area.")
+
             table_bbox = {}
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
@@ -399,6 +408,13 @@ class Stream:
                     cols = _add_columns(cols, inner_text, self.ytol[table_no])
                     cols = _join_columns(cols, text_x_min, text_x_max)
 
+            if self.headers is not None and len(self.headers[table_no]) != len(cols):
+                logging.warning("Length of header ({0}) specified for table is not"
+                                " equal to the number of columns ({1}) detected.".format(
+                                len(self.headers[table_no]), len(cols)))
+                while len(self.headers[table_no]) != len(cols):
+                    self.headers[table_no].append('')
+
             table = Table(cols, rows)
             table = table.set_all_edges()
             assignment_errors = []
@@ -416,6 +432,8 @@ class Stream:
 
             table_data['score'] = score
             ar = table.get_list()
+            if self.headers is not None and self.headers[table_no] != ['']:
+                ar.insert(0, self.headers[table_no])
             ar = encode_list(ar)
             table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
