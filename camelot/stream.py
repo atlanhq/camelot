@@ -376,6 +376,8 @@ class Stream:
                         cols = [rotate(0, 0, 0, c, -np.pi / 2)[0] for c in cols]
                     elif table_rotation == 'right':
                         cols = [rotate(0, 0, 0, c, np.pi / 2)[0] for c in cols]
+                cols.insert(0, text_x_min)
+                cols.append(text_x_max)
                 cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
             else:
                 if self.ncolumns is not None and self.ncolumns[table_no] != -1:

@@ -160,7 +160,7 @@ def test_stream_columns():
         ["01","Aguascalientes","001","Aguascalientes","0226","Hacienda Nueva"],
     ]
     pdfname = os.path.join(testdir, "mexican_towns.pdf")
-    manager = Pdf(Stream(columns=["28,67,180,230,425,475,700"], ytol=[10]), pdfname,
+    manager = Pdf(Stream(columns=["67,180,230,425,475"], ytol=[10]), pdfname,
         clean=True)
     tables = manager.extract()
     assert_equal(tables["page-1"]["table-1"]["data"], data)
