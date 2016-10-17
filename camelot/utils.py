@@ -605,7 +605,7 @@ def split_textline(table, textline, direction, flag_size=True):
                 if isinstance(obj, LTChar):
                     if (col[0] <= (obj.x0 + obj.x1) / 2 <= col[1] and
                             (obj.y0 + obj.y1) / 2 >= cut[1]):
-                        cut_text.append((cut[0], c, obj.get_text()))
+                        cut_text.append((cut[0], c, obj))
                         break
                 elif isinstance(obj, LTAnno):
                     cut_text.append((cut[0], c, obj))
