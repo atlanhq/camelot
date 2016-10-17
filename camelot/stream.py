@@ -325,7 +325,6 @@ class Stream:
             if self.headers is not None:
                 if len(self.table_area) != len(self.headers):
                     raise ValueError("Length of headers should be equal to table_area.")
-                self.headers = [h.split(',') for h in headers]
 
             table_bbox = {}
             for area in self.table_area:
@@ -418,10 +417,12 @@ class Stream:
                     cols = _add_columns(cols, inner_text, self.ytol[table_no])
                     cols = _join_columns(cols, text_x_min, text_x_max)
 
-            if self.headers is not None and len(self.headers[table_no]) != len(cols):
-                logging.warning("Length of header ({0}) specified for table is not"
-                                " equal to the number of columns ({1}) detected.".format(
-                                len(self.headers[table_no]), len(cols)))
+            if self.headers is not None and self.headers[table_no] != [""]:
+                self.headers[table_no] = self.headers[table_no].split(',')
+                if len(self.headers[table_no]) != len(cols):
+                    logging.warning("Length of header ({0}) specified for table is not"
+                                    " equal to the number of columns ({1}) detected.".format(
+                                    len(self.headers[table_no]), len(cols)))
                 while len(self.headers[table_no]) != len(cols):
                     self.headers[table_no].append('')
 

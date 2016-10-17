@@ -79,10 +79,10 @@ def _fill_spanning(t, fill=None):
     t : object
         camelot.table.Table
 
-    fill : string
-        {'h', 'v', 'hv'}
-        Specify to fill spanning cells in horizontal, vertical or both
-        directions.
+    fill : list
+        {'h', 'v'}
+        Specify to fill spanning cells in horizontal or vertical
+        direction.
         (optional, default: None)
 
     Returns
@@ -90,26 +90,19 @@ def _fill_spanning(t, fill=None):
     t : object
         camelot.table.Table
     """
-    if fill == "h":
-        for i in range(len(t.cells)):
-            for j in range(len(t.cells[i])):
-                if t.cells[i][j].get_text().strip() == '':
-                    if t.cells[i][j].spanning_h:
-                        t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
-    elif fill == "v":
-        for i in range(len(t.cells)):
-            for j in range(len(t.cells[i])):
-                if t.cells[i][j].get_text().strip() == '':
-                    if t.cells[i][j].spanning_v:
-                        t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
-    elif fill == "hv":
-        for i in range(len(t.cells)):
-            for j in range(len(t.cells[i])):
-                if t.cells[i][j].get_text().strip() == '':
-                    if t.cells[i][j].spanning_h:
-                        t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
-                    elif t.cells[i][j].spanning_v:
-                        t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
+    for f in fill:
+        if f == "h":
+            for i in range(len(t.cells)):
+                for j in range(len(t.cells[i])):
+                    if t.cells[i][j].get_text().strip() == '':
+                        if t.cells[i][j].spanning_h:
+                            t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
+        elif f == "v":
+            for i in range(len(t.cells)):
+                for j in range(len(t.cells[i])):
+                    if t.cells[i][j].get_text().strip() == '':
+                        if t.cells[i][j].spanning_v:
+                            t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
     return t
 
 
@@ -131,8 +124,8 @@ class Lattice:
 
     fill : list
         List of strings specifying directions to fill spanning cells.
-        {'h', 'v', 'hv'} to fill spanning cells in horizontal, vertical
-        or both directions.
+        {'h', 'v'} to fill spanning cells in horizontal or vertical
+        direction.
         (optional, default: None)
 
     headers : list
@@ -256,7 +249,6 @@ class Lattice:
             if self.headers is not None:
                 if len(self.table_area) != len(self.headers):
                     raise ValueError("Length of headers should be equal to table_area.")
-                self.headers = [h.split(',') for h in headers]
 
             areas = []
             for area in self.table_area:
@@ -316,10 +308,12 @@ class Lattice:
             rows = [(rows[i], rows[i + 1])
                     for i in range(0, len(rows) - 1)]
 
-            if self.headers is not None and len(self.headers[table_no]) != len(cols):
-                logging.warning("Length of header ({0}) specified for table is not"
-                                " equal to the number of columns ({1}) detected.".format(
-                                len(self.headers[table_no]), len(cols)))
+            if self.headers is not None and self.headers[table_no] != [""]:
+                self.headers[table_no] = self.headers[table_no].split(',')
+                if len(self.headers[table_no]) != len(cols):
+                    logging.warning("Length of header ({0}) specified for table is not"
+                                    " equal to the number of columns ({1}) detected.".format(
+                                    len(self.headers[table_no]), len(cols)))
                 while len(self.headers[table_no]) != len(cols):
                     self.headers[table_no].append('')
 
