@@ -37,9 +37,12 @@ options:
  -W, --wmargin &lt;wmargin&gt;   Word margin. Insert blank spaces between chars
                            if distance between words is greater than word
                            margin. [default: 0.1]
- -S, --print-stats         List stats on the parsing process.
- -T, --save-stats          Save stats to a file.
- -X, --plot &lt;dist&gt;         Plot distributions. (page,all,rc)
+ -J, --split_text          Split text lines if they span across multiple cells.
+ -K, --flag_size           Flag substring if its size differs from the whole string.
+                           Useful for super and subscripts.
+ -X, --print-stats         List stats on the parsing process.
+ -Y, --save-stats          Save stats to a file.
+ -Z, --plot &lt;dist&gt;         Plot distributions. (page,all,rc)
 
 camelot methods:
  lattice  Looks for lines between data.

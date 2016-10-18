@@ -69,15 +69,18 @@ Camelot comes with a CLI where you can specify page numbers, output format, outp
      -l, --log                 Log to file.
      -o, --output <directory>  Output directory.
      -M, --cmargin <cmargin>   Char margin. Chars closer than cmargin are
-                               grouped together to form a word. [default: 2.0]
+                               grouped together to form a word. [default: 1.0]
      -L, --lmargin <lmargin>   Line margin. Lines closer than lmargin are
                                grouped together to form a textbox. [default: 0.5]
      -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
                                if distance between words is greater than word
                                margin. [default: 0.1]
-     -S, --print-stats         List stats on the parsing process.
-     -T, --save-stats          Save stats to a file.
-     -X, --plot <dist>         Plot distributions. (page,all,rc)
+     -J, --split_text          Split text lines if they span across multiple cells.
+     -K, --flag_size           Flag substring if its size differs from the whole string.
+                               Useful for super and subscripts.
+     -X, --print-stats         List stats on the parsing process.
+     -Y, --save-stats          Save stats to a file.
+     -Z, --plot <dist>         Plot distributions. (page,all,rc)
 
     camelot methods:
      lattice  Looks for lines between data.
