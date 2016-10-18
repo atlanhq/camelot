@@ -277,9 +277,9 @@ class Stream:
         self.table_area = table_area
         self.columns = columns
         self.ncolumns = ncolumns
+        self.headers = headers
         self.ytol = ytol
         self.mtol = mtol
-        self.headers = headers
         self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
         self.flag_size = flag_size

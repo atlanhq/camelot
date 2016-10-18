@@ -2,8 +2,10 @@
 from __future__ import print_function
 import os
 import sys
+import glob
 import time
 import logging
+import zipfile
 import warnings
 
 import numpy as np
@@ -40,9 +42,12 @@ options:
  -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
                            if distance between words is greater than word
                            margin. [default: 0.1]
- -S, --print-stats         List stats on the parsing process.
- -T, --save-stats          Save stats to a file.
- -X, --plot <dist>         Plot distributions. (page,all,rc)
+ -J, --split_text          Split text lines if they span across multiple cells.
+ -K, --flag_size           Flag substring if its size differs from the whole string.
+                           Useful for super and subscripts.
+ -X, --print-stats         List stats on the parsing process.
+ -Y, --save-stats          Save stats to a file.
+ -Z, --plot <dist>         Plot distributions. (page,all,rc)
 
 camelot methods:
  lattice  Looks for lines between data.
@@ -55,35 +60,39 @@ lattice_doc = """
 Lattice method looks for lines between text to form a table.
 
 usage:
- camelot lattice [-t <tarea>...] [-F <fill>...]
+ camelot lattice [-t <tarea>...] [-F <fill>...] [-H <header>...]
  [-m <mtol>...] [options] [--] <file>
 
 options:
- -t, --tarea <tarea>  Specific table areas to analyze.
- -F, --fill <fill>    Fill data in horizontal and/or vertical spanning
-                      cells. Example: -F h, -F v, -F hv
- -m, --mtol <mtol>    Tolerance to account for when merging lines
-                      which are very close. [default: 2]
- -s, --scale <scale>  Scaling factor. Large scaling factor leads to
-                      smaller lines being detected. [default: 15]
- -i, --invert         Invert pdf image to make sure that lines are
-                      in foreground.
- -d, --debug <debug>  Debug by visualizing pdf geometry.
-                      (contour,line,joint,table) Example: -d table
+ -t, --tarea <tarea>            Specific table areas to analyze.
+ -F, --fill <fill>              Fill data in horizontal and/or vertical spanning
+                                cells. Example: -F h, -F v, -F hv
+ -H, --header <header>          Specify header for each table.
+ -m, --mtol <mtol>              Tolerance to account for when merging lines
+                                which are very close. [default: 2]
+ -s, --scale <scale>            Scaling factor. Large scaling factor leads to
+                                smaller lines being detected. [default: 15]
+ -i, --invert                   Invert pdf image to make sure that lines are
+                                in foreground.
+ -T, --shift_text <shift_text>  Specify where the text in a spanning cell
+                                should flow, order-sensitive. [default: lt]
+ -d, --debug <debug>            Debug by visualizing pdf geometry.
+                                (contour,line,joint,table) Example: -d table
 """
 
 stream_doc = """
 Stream method looks for whitespaces between text to form a table.
 
 usage:
- camelot stream [-t <tarea>...] [-c <columns>...] [-n <ncols>...] [-y <ytol>...]
- [-m <mtol>...] [options] [--] <file>
+ camelot stream [-t <tarea>...] [-c <columns>...] [-n <ncols>...] [-H <header>...]
+ [-y <ytol>...] [-m <mtol>...] [options] [--] <file>
 
 options:
  -t, --tarea <tarea>      Specific table areas to analyze.
  -c, --columns <columns>  Comma-separated list of column x-coordinates.
                           Example: -c 10.1,20.2,30.3
  -n, --ncols <ncols>      Number of columns. [default: -1]
+ -H, --header <header>    Specify header for each table.
  -y, --ytol <ytol>        Tolerance to account for when grouping rows
                           together. [default: 2]
  -m, --mtol <mtol>        Tolerance to account for when merging columns
@@ -266,6 +275,11 @@ def write_to_disk(data, f='csv', output=None, filename=None):
                         outfile, delimiter=delimiter, quoting=csv.QUOTE_ALL)
                     for row in data[page_number][table_number]['data']:
                         writer.writerow(row)
+        csv_glob = glob.glob(os.path.join(output, '*.csv'))
+        if len(csv_glob) > 1:
+            with zipfile.ZipFile(os.path.join(output, '{0}.zip'.format(froot)), 'w') as zfile:
+                for cfile in csv_glob:
+                    zfile.write(cfile, os.path.basename(cfile), zipfile.ZIP_DEFLATED)
     elif f == 'html':
         htmlname = '{0}.html'.format(froot)
         for page_number in sorted(data.keys()):
@@ -339,11 +353,14 @@ if __name__ == '__main__':
         try:
             tarea = args['--tarea'] if args['--tarea'] else None
             fill = args['--fill'] if args['--fill'] else None
+            header = args['--header'] if args['--header'] else None
             mtol = [int(m) for m in args['--mtol']]
-            manager = Pdf(Lattice(table_area=tarea, fill=fill,
+            shift_text = args['--shift_text'].split(',') if args['--shift_text'] else ['l', 't']
+            manager = Pdf(Lattice(table_area=tarea, fill=fill, headers=header,
                                   mtol=mtol, scale=int(args['--scale']),
                                   invert=args['--invert'], margins=margins,
-                                  debug=args['--debug']),
+                                  split_text=args['--split_text'], flag_size=['--flag_size'],
+                                  shift_text=shift_text, debug=args['--debug']),
                           filename,
                           pagenos=p,
                           parallel=args['--parallel'],
@@ -408,11 +425,13 @@ if __name__ == '__main__':
                 ncolumns = [int(nc) for nc in args['--ncols']]
             else:
                 ncolumns = None
+            header = args['--header'] if args['--header'] else None
             ytol = [int(y) for y in args['--ytol']]
             mtol = [int(m) for m in args['--mtol']]
             manager = Pdf(Stream(table_area=tarea, columns=columns,
-                                 ncolumns=ncolumns, ytol=ytol, mtol=mtol,
-                                 margins=margins, debug=args['--debug']),
+                                 ncolumns=ncolumns, headers=header, ytol=ytol,
+                                 mtol=mtol, margins=margins, split_text=args['--split_text'],
+                                 flag_size=['--flag_size'], debug=args['--debug']),
                           filename,
                           pagenos=p,
                           parallel=args['--parallel'],
