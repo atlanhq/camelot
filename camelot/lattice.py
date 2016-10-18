@@ -8,8 +8,7 @@ import subprocess
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints)
 from .table import Table
-from .utils import (scale_to_pdf, scale_to_image, get_rotation, rotate_segments,
-                    rotate_textlines, rotate_table, segments_bbox, text_in_bbox,
+from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_in_bbox,
                     merge_close_values, get_table_index, get_score, count_empty,
                     encode_list, get_text_objects, get_page_layout)
 
@@ -27,7 +26,7 @@ copy_reg.pickle(types.MethodType, _reduce_method)
 
 def _reduce_index(t, idx, shift_text):
     """Reduces index of a text object if it lies within a spanning
-    cell taking in account table rotation.
+    cell.
 
     Parameters
     ----------
@@ -192,7 +191,7 @@ class Lattice:
         self.debug = debug
 
     def get_tables(self, pdfname):
-        """get_tables
+        """Expects a single page pdf as input with rotation corrected.
 
         Parameters
         ----------
@@ -284,14 +283,12 @@ class Lattice:
         for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
             # select elements which lie within table_bbox
             table_data = {}
+            t_bbox = {}
             v_s, h_s = segments_bbox(k, v_segments, h_segments)
-            lh_bbox = text_in_bbox(k, lttextlh)
-            lv_bbox = text_in_bbox(k, lttextlv)
+            t_bbox['horizontal'] = text_in_bbox(k, lttextlh)
+            t_bbox['vertical'] = text_in_bbox(k, lttextlv)
             char_bbox = text_in_bbox(k, ltchar)
             table_data['text_p'] = 100 * (1 - (len(char_bbox) / len(ltchar)))
-            table_rotation = get_rotation(lh_bbox, lv_bbox, char_bbox)
-            v_s, h_s = rotate_segments(v_s, h_s, table_rotation)
-            t_bbox = rotate_textlines(lh_bbox, lv_bbox, table_rotation)
             for direction in t_bbox:
                 t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
             cols, rows = zip(*table_bbox[k])
@@ -317,7 +314,6 @@ class Lattice:
                 while len(self.headers[table_no]) != len(cols):
                     self.headers[table_no].append('')
 
-            rows, cols = rotate_table(rows, cols, table_rotation)
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
             table = table.set_edges(v_s, h_s)

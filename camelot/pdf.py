@@ -7,6 +7,8 @@ import multiprocessing as mp
 import cv2
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
+from .utils import get_page_layout, get_text_objects, get_rotation
+
 
 __all__ = ['Pdf']
 
@@ -80,11 +82,34 @@ class Pdf:
         """
         infile = PdfFileReader(open(self.pdfname, 'rb'), strict=False)
         for p in self.pagenos:
+            sp_path = os.path.join(self.temp, 'page-{0}.pdf'.format(p))
+            sp_name, sp_ext = os.path.splitext(sp_path)
             page = infile.getPage(p - 1)
             outfile = PdfFileWriter()
             outfile.addPage(page)
-            with open(os.path.join(self.temp, 'page-{0}.pdf'.format(p)), 'wb') as f:
+            with open(sp_path, 'wb') as f:
                 outfile.write(f)
+            layout, dim = get_page_layout(sp_path, char_margin=1.0,
+                line_margin=0.5, word_margin=0.1)
+            lttextlh = get_text_objects(layout, ltype="lh")
+            lttextlv = get_text_objects(layout, ltype="lv")
+            ltchar = get_text_objects(layout, ltype="char")
+            rotation = get_rotation(lttextlh, lttextlv, ltchar)
+            if rotation != '':
+                sp_new_path = ''.join([sp_name.replace('page', 'p'), '_rotated', sp_ext])
+                os.rename(sp_path, sp_new_path)
+                sp_in = PdfFileReader(open(sp_new_path, 'rb'),
+                    strict=False)
+                sp_out = PdfFileWriter()
+                sp_page = sp_in.getPage(0)
+                if rotation == 'left':
+                    sp_page.rotateClockwise(90)
+                elif rotation == 'right':
+                    sp_page.rotateCounterClockwise(90)
+                sp_out.addPage(sp_page)
+                with open(sp_path, 'wb') as pdf_out:
+                    sp_out.write(pdf_out)
+
 
     def extract(self):
         """Runs table extraction by calling extractor.get_tables
