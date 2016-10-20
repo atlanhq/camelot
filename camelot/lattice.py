@@ -212,7 +212,7 @@ class Lattice:
         if not ltchar:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
-            return None
+            return {os.path.basename(bname): None}
 
         imagename = ''.join([bname, '.png'])
         gs_call = [

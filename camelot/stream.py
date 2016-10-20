@@ -307,7 +307,7 @@ class Stream:
         if not lttextlh:
             logging.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
-            return None
+            return {os.path.basename(bname): None}
 
         if self.debug:
             self.debug_text = []
