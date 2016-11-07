@@ -211,14 +211,14 @@ def _add_columns(cols, text, ytol):
 class Stream:
     """Stream looks for spaces between text elements to form a table.
 
-    If you want to give columns, ncolumns, ytol or mtol for each table
+    If you want to give columns, ytol or mtol for each table
     when specifying multiple table areas, make sure that their length
     is equal to the length of table_area. Mapping between them is based
     on index.
 
-    Also, if you want to specify columns for the first table and
-    ncolumns for the second table in a pdf having two tables, pass
-    columns as ['x1,x2,x3,x4', ''] and ncolumns as [-1, 5].
+    If you don't want to specify columns for the some tables in a pdf
+    page having multiple tables, pass them as empty strings.
+    For example: ['', 'x1,x2,x3,x4', '']
 
     Parameters
     ----------
@@ -231,10 +231,6 @@ class Stream:
     columns : list
         List of strings where each string is comma-separated values of
         x-coordinates in PDFMiner's coordinate space.
-        (optional, default: None)
-
-    ncolumns : list
-        List of ints specifying the number of columns in each table.
         (optional, default: None)
 
     headers : list
@@ -269,14 +265,13 @@ class Stream:
         LTTextLineHorizontals in order to select table_area, columns.
         (optional, default: False)
     """
-    def __init__(self, table_area=None, columns=None, ncolumns=None,
-                 headers=None, ytol=[2], mtol=[0], margins=(1.0, 0.5, 0.1),
+    def __init__(self, table_area=None, columns=None, headers=None,
+                 ytol=[2], mtol=[0], margins=(1.0, 0.5, 0.1),
                  split_text=False, flag_size=True, debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
         self.columns = columns
-        self.ncolumns = ncolumns
         self.headers = headers
         self.ytol = ytol
         self.mtol = mtol
@@ -318,9 +313,6 @@ class Stream:
             if self.columns is not None:
                 if len(self.table_area) != len(self.columns):
                     raise ValueError("Length of columns should be equal to table_area.")
-            if self.ncolumns is not None:
-                if len(self.table_area) != len(self.ncolumns):
-                    raise ValueError("Length of ncolumns should be equal to table_area.")
             if self.headers is not None:
                 if len(self.table_area) != len(self.headers):
                     raise ValueError("Length of headers should be equal to table_area.")
@@ -372,43 +364,31 @@ class Stream:
                 cols.append(text_x_max)
                 cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
             else:
-                if self.ncolumns is not None and self.ncolumns[table_no] != -1:
-                    ncols = self.ncolumns[table_no]
-                    cols = [(t.x0, t.x1)
-                        for r in rows_grouped if len(r) == ncols for t in r]
-                    cols = _merge_columns(sorted(cols), mtol=self.mtol[table_no])
-                    if len(cols) != self.ncolumns[table_no]:
-                        logging.warning("{}: The number of columns after merge"
-                                      " isn't the same as what you specified."
-                                      " Change the value of mtol.".format(
-                                      os.path.basename(bname)))
-                    cols = _join_columns(cols, text_x_min, text_x_max)
-                else:
-                    guess = True
-                    ncols = max(set(elements), key=elements.count)
-                    len_non_mode = len(filter(lambda x: x != ncols, elements))
-                    if ncols == 1 and not self.debug:
-                        # no tables detected
-                        logging.warning("{}: Only one column was detected, the pdf"
-                                      " may have no tables. Specify ncols if"
-                                      " the pdf has tables.".format(
-                                      os.path.basename(bname)))
-                    cols = [(t.x0, t.x1)
-                        for r in rows_grouped if len(r) == ncols for t in r]
-                    cols = _merge_columns(sorted(cols), mtol=self.mtol[table_no])
-                    inner_text = []
-                    for i in range(1, len(cols)):
-                        left = cols[i - 1][1]
-                        right = cols[i][0]
-                        inner_text.extend([t for direction in t_bbox
-                                           for t in t_bbox[direction]
-                                           if t.x0 > left and t.x1 < right])
-                    outer_text = [t for direction in t_bbox
-                                  for t in t_bbox[direction]
-                                  if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
-                    inner_text.extend(outer_text)
-                    cols = _add_columns(cols, inner_text, self.ytol[table_no])
-                    cols = _join_columns(cols, text_x_min, text_x_max)
+                guess = True
+                ncols = max(set(elements), key=elements.count)
+                len_non_mode = len(filter(lambda x: x != ncols, elements))
+                if ncols == 1 and not self.debug:
+                    # no tables detected
+                    logging.warning("{}: Only one column was detected, the pdf"
+                                  " may have no tables. Specify ncols if"
+                                  " the pdf has tables.".format(
+                                  os.path.basename(bname)))
+                cols = [(t.x0, t.x1)
+                    for r in rows_grouped if len(r) == ncols for t in r]
+                cols = _merge_columns(sorted(cols), mtol=self.mtol[table_no])
+                inner_text = []
+                for i in range(1, len(cols)):
+                    left = cols[i - 1][1]
+                    right = cols[i][0]
+                    inner_text.extend([t for direction in t_bbox
+                                       for t in t_bbox[direction]
+                                       if t.x0 > left and t.x1 < right])
+                outer_text = [t for direction in t_bbox
+                              for t in t_bbox[direction]
+                              if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
+                inner_text.extend(outer_text)
+                cols = _add_columns(cols, inner_text, self.ytol[table_no])
+                cols = _join_columns(cols, text_x_min, text_x_max)
 
             if self.headers is not None and self.headers[table_no] != [""]:
                 self.headers[table_no] = self.headers[table_no].split(',')
