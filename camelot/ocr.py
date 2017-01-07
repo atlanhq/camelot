@@ -11,7 +11,39 @@ from .utils import merge_close_values, encode_list
 
 
 class OCR:
-    """OCR
+    """Uses optical character recognition to get text out of image based pdfs.
+    Currently works only on pdfs with lines.
+
+    Parameters
+    ----------
+    table_area : list
+        List of strings of the form x1,y1,x2,y2 where
+        (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDFMiner's
+        coordinate space, denoting table areas to analyze.
+        (optional, default: None)
+
+    mtol : list
+        List of ints specifying m-tolerance parameters.
+        (optional, default: [2])
+
+    dpi : int
+        Dots per inch.
+        (optional, default: 300)
+
+    lang : string
+        Language to be used for OCR.
+        (optional, default: 'eng')
+
+    scale : int
+        Used to divide the height/width of a pdf to get a structuring
+        element for image processing.
+        (optional, default: 15)
+
+    debug : string
+        {'contour', 'line', 'joint', 'table'}
+        Set to one of the above values to generate a matplotlib plot
+        of detected contours, lines, joints and the table generated.
+        (optional, default: None)
     """
     def __init__(self, table_area=None, mtol=[2], dpi=300, lang="eng", scale=15,
                  debug=None):
