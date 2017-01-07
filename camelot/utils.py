@@ -671,7 +671,7 @@ def get_text_objects(layout, ltype="char", t=None):
     return t
 
 
-def get_page_layout(pname, char_margin=2.0, line_margin=0.5, word_margin=0.1,
+def get_page_layout(pname, char_margin=1.0, line_margin=0.5, word_margin=0.1,
                detect_vertical=True, all_texts=True):
     """Returns a PDFMiner LTPage object and page dimension of a single
     page pdf. See https://euske.github.io/pdfminer/ to get definitions
