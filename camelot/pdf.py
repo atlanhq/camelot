@@ -89,8 +89,7 @@ class Pdf:
             outfile.addPage(page)
             with open(sp_path, 'wb') as f:
                 outfile.write(f)
-            layout, dim = get_page_layout(sp_path, char_margin=1.0,
-                line_margin=0.5, word_margin=0.1)
+            layout, dim = get_page_layout(sp_path)
             lttextlh = get_text_objects(layout, ltype="lh")
             lttextlv = get_text_objects(layout, ltype="lv")
             ltchar = get_text_objects(layout, ltype="char")
