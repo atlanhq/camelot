@@ -39,7 +39,8 @@ class OCR:
             gs_call.insert(0, "gs")
         else:
             gs_call.insert(0, "gsc")
-        subprocess.call(gs_call)
+        subprocess.call(gs_call, stdout=open(os.devnull, 'w'),
+            stderr=subprocess.STDOUT)
 
         img, threshold = adaptive_threshold(imagename)
         vmask, v_segments = find_lines(threshold, direction='vertical',
