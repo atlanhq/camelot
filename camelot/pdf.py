@@ -126,7 +126,7 @@ class Pdf:
                 if self.extractor.method == 'stream':
                     self.debug = self.extractor.debug
                     self.debug_text = []
-                elif self.extractor.method == 'lattice':
+                elif self.extractor.method in ['lattice', 'ocr']:
                     self.debug = self.extractor.debug
                     self.debug_images = []
                     self.debug_segments = []
@@ -138,7 +138,7 @@ class Pdf:
                 if self.extractor.debug:
                     if self.extractor.method == 'stream':
                         self.debug_text.append(self.extractor.debug_text)
-                    elif self.extractor.method == 'lattice':
+                    elif self.extractor.method in ['lattice', 'ocr']:
                         self.debug_images.append(self.extractor.debug_images)
                         self.debug_segments.append(self.extractor.debug_segments)
                         self.debug_tables.append(self.extractor.debug_tables)

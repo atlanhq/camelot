@@ -34,6 +34,7 @@ class Table:
         self.cells = [[Cell(c[0], r[1], c[1], r[0])
                        for c in cols] for r in rows]
         self.nocont_ = 0
+        self.image = None
 
     def set_all_edges(self):
         """Sets all table edges to True.

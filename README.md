@@ -57,6 +57,10 @@ Currently, camelot works under Python 2.7.
 
 The required dependencies include [numpy](http://www.numpy.org/), [OpenCV](http://opencv.org/) and [ImageMagick](http://www.imagemagick.org/script/index.php).
 
+### Optional
+
+You'll need to install [Tesseract](https://github.com/tesseract-ocr/tesseract) if you want to extract tables from image based pdfs. Also, you'll need a tesseract language pack if your pdf isn't in english.
+
 ## Installation
 
 Make sure you have the most updated versions for `pip` and `setuptools`. You can update them by

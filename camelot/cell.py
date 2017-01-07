@@ -79,6 +79,7 @@ class Cell:
         self.text = ''
         self.spanning_h = False
         self.spanning_v = False
+        self.image = None
 
     def add_text(self, text):
         """Adds text to cell.
