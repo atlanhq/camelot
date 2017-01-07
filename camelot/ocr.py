@@ -1,8 +1,8 @@
 import os
 import subprocess
 
-from PIL import Image
 import pyocr
+from PIL import Image
 
 from .table import Table
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
