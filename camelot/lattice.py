@@ -1,5 +1,6 @@
 from __future__ import division
 import os
+import sys
 import types
 import logging
 import copy_reg
@@ -14,6 +15,8 @@ from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_in_bbox,
 
 
 __all__ = ['Lattice']
+
+logger = logging.getLogger("app_logger")
 
 
 def _reduce_method(m):
@@ -209,8 +212,9 @@ class Lattice:
         ltchar = get_text_objects(layout, ltype="char")
         width, height = dim
         bname, __ = os.path.splitext(pdfname)
+        logger.info('Parsing tables from {0}.'.format(bname))
         if not ltchar:
-            logging.warning("{0}: PDF has no text. It may be an image.".format(
+            logger.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return {os.path.basename(bname): None}
 
@@ -265,7 +269,7 @@ class Lattice:
             table_bbox = find_table_joints(contours, vmask, hmask)
 
         if len(self.mtol) == 1 and self.mtol[0] == 2:
-            self.mtol = self.mtol * len(table_bbox)
+            mtolerance = self.mtol * len(table_bbox)
 
         if self.debug:
             self.debug_images = (img, table_bbox)
@@ -279,9 +283,8 @@ class Lattice:
 
         page = {}
         tables = {}
-        table_no = 0
         # sort tables based on y-coord
-        for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
+        for table_no, k in enumerate(sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True)):
             # select elements which lie within table_bbox
             table_data = {}
             t_bbox = {}
@@ -297,9 +300,9 @@ class Lattice:
             cols.extend([k[0], k[2]])
             rows.extend([k[1], k[3]])
             # sort horizontal and vertical segments
-            cols = merge_close_values(sorted(cols), mtol=self.mtol[table_no])
+            cols = merge_close_values(sorted(cols), mtol=mtolerance[table_no])
             rows = merge_close_values(
-                sorted(rows, reverse=True), mtol=self.mtol[table_no])
+                sorted(rows, reverse=True), mtol=mtolerance[table_no])
             # make grid using x and y coord of shortlisted rows and cols
             cols = [(cols[i], cols[i + 1])
                     for i in range(0, len(cols) - 1)]
@@ -309,9 +312,9 @@ class Lattice:
             if self.headers is not None and self.headers[table_no] != [""]:
                 self.headers[table_no] = self.headers[table_no].split(',')
                 if len(self.headers[table_no]) != len(cols):
-                    logging.warning("Length of header ({0}) specified for table is not"
-                                    " equal to the number of columns ({1}) detected.".format(
-                                    len(self.headers[table_no]), len(cols)))
+                    logger.warning("Length of header ({0}) specified for table is not"
+                                   " equal to the number of columns ({1}) detected.".format(
+                                   len(self.headers[table_no]), len(cols)))
                 while len(self.headers[table_no]) != len(cols):
                     self.headers[table_no].append('')
 
@@ -361,7 +364,6 @@ class Lattice:
             table_data['nrows'] = len(ar)
             table_data['ncols'] = len(ar[0])
             tables['table-{0}'.format(table_no + 1)] = table_data
-            table_no += 1
         page[os.path.basename(bname)] = tables
 
         if self.debug:

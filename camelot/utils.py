@@ -178,6 +178,33 @@ def scale_to_pdf(tables, v_segments, h_segments, factors):
     return tables_new, v_segments_new, h_segments_new
 
 
+def setup_logging(log_filepath):
+    """Setup logging
+    Args:
+        log_filepath (string): Path to log file
+    Returns:
+        logging.Logger: Logger object
+    """
+    logger = logging.getLogger("app_logger")
+    logger.setLevel(logging.DEBUG)
+    # Log File Handler (Associating one log file per webservice run)
+    log_file_handler = logging.FileHandler(log_filepath,
+                                           mode='a',
+                                           encoding='utf-8')
+    log_file_handler.setLevel(logging.DEBUG)
+    format_string = '%(asctime)s - %(levelname)s - %(funcName)s - %(message)s'
+    formatter = logging.Formatter(format_string, datefmt='%Y-%m-%dT%H:%M:%S')
+    log_file_handler.setFormatter(formatter)
+    logger.addHandler(log_file_handler)
+    # Stream Log Handler (For console)
+    stream_log_handler = logging.StreamHandler()
+    stream_log_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter(format_string, datefmt='%Y-%m-%dT%H:%M:%S')
+    stream_log_handler.setFormatter(formatter)
+    logger.addHandler(stream_log_handler)
+    return logger
+
+
 def get_rotation(lttextlh, lttextlv, ltchar):
     """Detects if text in table is vertical or not using the current
     transformation matrix (CTM) and returns its orientation.

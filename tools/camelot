@@ -4,7 +4,6 @@ import os
 import sys
 import glob
 import time
-import logging
 import zipfile
 import warnings
 
@@ -18,6 +17,7 @@ from camelot.pdf import Pdf
 from camelot.lattice import Lattice
 from camelot.stream import Stream
 from camelot.ocr import OCR
+from camelot import utils
 
 
 doc = """
@@ -34,7 +34,7 @@ options:
                            Example: -p 1,3-6,10  [default: 1]
  -P, --parallel            Parallelize the parsing process.
  -f, --format <format>     Output format. (csv,tsv,html,json,xlsx) [default: csv]
- -l, --log                 Log to file.
+ -l, --log <logfile>       Log to file.
  -o, --output <directory>  Output directory.
  -M, --cmargin <cmargin>   Char margin. Chars closer than cmargin are
                            grouped together to form a word. [default: 1.0]
@@ -349,12 +349,11 @@ if __name__ == '__main__':
     scorename = ''.join([scorename, '_info.csv'])
     pngname, __ = os.path.splitext(filename)
 
-    if args['--log']:
-        FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
-        if args['--output']:
-            logname = os.path.join(args['--output'], os.path.basename(logname))
-        logging.basicConfig(
-            filename=logname, filemode='w', format=FORMAT, level=logging.DEBUG)
+    FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
+    if args['--log'] is not None:
+        logger = utils.setup_logging(args['--log'])
+    else:
+        logger = utils.setup_logging(os.path.join(os.getcwd(), 'camelot.log'))
 
     p = []
     if args['--pages'] == '1':
@@ -383,7 +382,7 @@ if __name__ == '__main__':
             manager = Pdf(Lattice(table_area=tarea, fill=fill, headers=header,
                                   mtol=mtol, scale=int(args['--scale']),
                                   invert=args['--invert'], margins=margins,
-                                  split_text=args['--split_text'], flag_size=['--flag_size'],
+                                  split_text=args['--split_text'], flag_size=args['--flag_size'],
                                   shift_text=shift_text, debug=args['--debug']),
                           filename,
                           pagenos=p,
@@ -393,7 +392,7 @@ if __name__ == '__main__':
             
             processing_time = time.time() - start_time
             vprint("Finished processing in", processing_time, "seconds")
-            logging.info("Finished processing in " + str(processing_time) + " seconds")
+            logger.info("Finished processing in " + str(processing_time) + " seconds")
 
             if args['--plot']:
                 if args['--output']:
@@ -439,7 +438,7 @@ if __name__ == '__main__':
             if args['--debug']:
                 manager.debug_plot()
         except Exception as e:
-            logging.exception(e.message, exc_info=True)
+            logger.exception(e.message, exc_info=True)
             sys.exit()
     elif args['<method>'] == 'stream':
         try:
@@ -455,7 +454,7 @@ if __name__ == '__main__':
             manager = Pdf(Stream(table_area=tarea, columns=columns,
                                  ncolumns=ncolumns, headers=header, ytol=ytol,
                                  mtol=mtol, margins=margins, split_text=args['--split_text'],
-                                 flag_size=['--flag_size'], debug=args['--debug']),
+                                 flag_size=args['--flag_size'], debug=args['--debug']),
                           filename,
                           pagenos=p,
                           parallel=args['--parallel'],
@@ -464,7 +463,7 @@ if __name__ == '__main__':
             
             processing_time = time.time() - start_time
             vprint("Finished processing in", processing_time, "seconds")
-            logging.info("Finished processing in " + str(processing_time) + " seconds")
+            logger.info("Finished processing in " + str(processing_time) + " seconds")
             
             if args['--plot']:
                 if args['--output']:
@@ -509,7 +508,7 @@ if __name__ == '__main__':
             if args['--debug']:
                 manager.debug_plot()
         except Exception as e:
-            logging.exception(e.message, exc_info=True)
+            logger.exception(e.message, exc_info=True)
             sys.exit()
     elif args['<method>'] == 'ocr':
         try:
@@ -526,7 +525,7 @@ if __name__ == '__main__':
 
             processing_time = time.time() - start_time
             vprint("Finished processing in", processing_time, "seconds")
-            logging.info("Finished processing in " + str(processing_time) + " seconds")
+            logger.info("Finished processing in " + str(processing_time) + " seconds")
 
             if args['--plot']:
                 if args['--output']:
@@ -572,7 +571,7 @@ if __name__ == '__main__':
             if args['--debug']:
                 manager.debug_plot()
         except Exception as e:
-            logging.exception(e.message, exc_info=True)
+            logger.exception(e.message, exc_info=True)
             sys.exit()
 
     if args['--debug']:

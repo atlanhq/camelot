@@ -1,5 +1,6 @@
 import os
 import shutil
+import logging
 import tempfile
 import itertools
 import multiprocessing as mp
@@ -11,6 +12,8 @@ from .utils import get_page_layout, get_text_objects, get_rotation
 
 
 __all__ = ['Pdf']
+
+logger = logging.getLogger("app_logger")
 
 
 def _parse_page_numbers(pagenos):
@@ -72,14 +75,16 @@ class Pdf:
             raise TypeError("Only PDF format is supported right now.")
         self.pagenos = _parse_page_numbers(pagenos)
         self.parallel = parallel
-        self.cpu_count = mp.cpu_count()
-        self.pool = mp.Pool(processes=self.cpu_count)
+        if self.parallel:
+            self.cpu_count = mp.cpu_count()
+            self.pool = mp.Pool(processes=self.cpu_count)
         self.clean = clean
         self.temp = tempfile.mkdtemp()
 
     def split(self):
         """Splits file into single page pdfs.
         """
+        logger.info('Splitting pages...')
         infile = PdfFileReader(open(self.pdfname, 'rb'), strict=False)
         for p in self.pagenos:
             sp_path = os.path.join(self.temp, 'page-{0}.pdf'.format(p))

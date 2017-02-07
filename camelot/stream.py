@@ -13,6 +13,8 @@ from .utils import (text_in_bbox, get_table_index, get_score, count_empty,
 
 __all__ = ['Stream']
 
+logger = logging.getLogger("app_logger")
+
 
 def _reduce_method(m):
     if m.im_self is None:
@@ -299,8 +301,9 @@ class Stream:
         ltchar = get_text_objects(layout, ltype="char")
         width, height = dim
         bname, __ = os.path.splitext(pdfname)
+        logger.info('Parsing tables from {0}'.format(bname))
         if not lttextlh:
-            logging.warning("{0}: PDF has no text. It may be an image.".format(
+            logger.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
             return {os.path.basename(bname): None}
 
@@ -329,15 +332,14 @@ class Stream:
             table_bbox = {(0, 0, width, height): None}
 
         if len(self.ytol) == 1 and self.ytol[0] == 2:
-            self.ytol = self.ytol * len(table_bbox)
+            ytolerance = self.ytol * len(table_bbox)
         if len(self.mtol) == 1 and self.mtol[0] == 0:
-            self.mtol = self.mtol * len(table_bbox)
+            mtolerance = self.mtol * len(table_bbox)
 
         page = {}
         tables = {}
-        table_no = 0
         # sort tables based on y-coord
-        for k in sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True):
+        for table_no, k in enumerate(sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True)):
             # select elements which lie within table_bbox
             table_data = {}
             t_bbox = {}
@@ -348,7 +350,7 @@ class Stream:
             for direction in t_bbox:
                 t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
             text_x_min, text_y_min, text_x_max, text_y_max = _text_bbox(t_bbox)
-            rows_grouped = _group_rows(t_bbox['horizontal'], ytol=self.ytol[table_no])
+            rows_grouped = _group_rows(t_bbox['horizontal'], ytol=ytolerance[table_no])
             rows = _join_rows(rows_grouped, text_y_max, text_y_min)
             elements = [len(r) for r in rows_grouped]
 
@@ -369,13 +371,13 @@ class Stream:
                 len_non_mode = len(filter(lambda x: x != ncols, elements))
                 if ncols == 1 and not self.debug:
                     # no tables detected
-                    logging.warning("{}: Only one column was detected, the pdf"
-                                  " may have no tables. Specify ncols if"
-                                  " the pdf has tables.".format(
+                    logger.warning("{}: Only one column was detected, the pdf"
+                                   " may have no tables. Specify ncols if"
+                                   " the pdf has tables.".format(
                                   os.path.basename(bname)))
                 cols = [(t.x0, t.x1)
                     for r in rows_grouped if len(r) == ncols for t in r]
-                cols = _merge_columns(sorted(cols), mtol=self.mtol[table_no])
+                cols = _merge_columns(sorted(cols), mtol=mtolerance[table_no])
                 inner_text = []
                 for i in range(1, len(cols)):
                     left = cols[i - 1][1]
@@ -387,15 +389,15 @@ class Stream:
                               for t in t_bbox[direction]
                               if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
                 inner_text.extend(outer_text)
-                cols = _add_columns(cols, inner_text, self.ytol[table_no])
+                cols = _add_columns(cols, inner_text, ytolerance[table_no])
                 cols = _join_columns(cols, text_x_min, text_x_max)
 
             if self.headers is not None and self.headers[table_no] != [""]:
                 self.headers[table_no] = self.headers[table_no].split(',')
                 if len(self.headers[table_no]) != len(cols):
-                    logging.warning("Length of header ({0}) specified for table is not"
-                                    " equal to the number of columns ({1}) detected.".format(
-                                    len(self.headers[table_no]), len(cols)))
+                    logger.warning("Length of header ({0}) specified for table is not"
+                                   " equal to the number of columns ({1}) detected.".format(
+                                   len(self.headers[table_no]), len(cols)))
                 while len(self.headers[table_no]) != len(cols):
                     self.headers[table_no].append('')
 
@@ -434,7 +436,6 @@ class Stream:
             table_data['nrows'] = len(ar)
             table_data['ncols'] = len(ar[0])
             tables['table-{0}'.format(table_no + 1)] = table_data
-            table_no += 1
         page[os.path.basename(bname)] = tables
 
         return page
