@@ -29,7 +29,6 @@ usage:
 options:
  -h, --help                Show this screen.
  -v, --version             Show version.
- -V, --verbose             Verbose.
  -p, --pages <pageno>      Comma-separated list of page numbers.
                            Example: -p 1,3-6,10  [default: 1]
  -P, --parallel            Parallelize the parsing process.
@@ -340,7 +339,6 @@ if __name__ == '__main__':
     elif args['<method>'] == 'ocr':
         args.update(docopt(ocr_doc, argv=argv))
 
-    vprint = print if args['--verbose'] else lambda *a, **k: None
     filename = args['<file>']
     filedir = os.path.dirname(args['<file>'])
     logname, __ = os.path.splitext(filename)
@@ -393,7 +391,6 @@ if __name__ == '__main__':
             data = manager.extract()
             
             processing_time = time.time() - start_time
-            vprint("Finished processing in", processing_time, "seconds")
             logger.info("Finished processing in " + str(processing_time) + " seconds")
 
             if args['--plot']:
@@ -464,7 +461,6 @@ if __name__ == '__main__':
             data = manager.extract()
             
             processing_time = time.time() - start_time
-            vprint("Finished processing in", processing_time, "seconds")
             logger.info("Finished processing in " + str(processing_time) + " seconds")
             
             if args['--plot']:
@@ -526,7 +522,6 @@ if __name__ == '__main__':
             data = manager.extract()
 
             processing_time = time.time() - start_time
-            vprint("Finished processing in", processing_time, "seconds")
             logger.info("Finished processing in " + str(processing_time) + " seconds")
 
             if args['--plot']:
