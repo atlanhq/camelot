@@ -370,6 +370,8 @@ if __name__ == '__main__':
                 else:
                     p.append({'start': int(r), 'end': int(r)})
 
+    logger.info('Applying {0} method on {1}'.format(args['<method>'],
+        os.path.basename(filename)))
     margins = (float(args['--cmargin']), float(args['--lmargin']),
         float(args['--wmargin']))
     if args['<method>'] == 'lattice':

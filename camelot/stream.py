@@ -301,7 +301,7 @@ class Stream:
         ltchar = get_text_objects(layout, ltype="char")
         width, height = dim
         bname, __ = os.path.splitext(pdfname)
-        logger.info('Parsing tables from {0}'.format(bname))
+        logger.info('Parsing tables from {0}.'.format(os.path.basename(bname)))
         if not lttextlh:
             logger.warning("{0}: PDF has no text. It may be an image.".format(
                 os.path.basename(bname)))
