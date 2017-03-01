@@ -443,16 +443,12 @@ if __name__ == '__main__':
         try:
             tarea = args['--tarea'] if args['--tarea'] else None
             columns = args['--columns'] if args['--columns'] else None
-            if args['--ncols'] and args['--ncols'] != ['-1']:
-                ncolumns = [int(nc) for nc in args['--ncols']]
-            else:
-                ncolumns = None
             header = args['--header'] if args['--header'] else None
             ytol = [int(y) for y in args['--ytol']]
             mtol = [int(m) for m in args['--mtol']]
             manager = Pdf(Stream(table_area=tarea, columns=columns,
-                                 ncolumns=ncolumns, headers=header, ytol=ytol,
-                                 mtol=mtol, margins=margins, split_text=args['--split_text'],
+                                 headers=header, ytol=ytol, mtol=mtol,
+                                 margins=margins, split_text=args['--split_text'],
                                  flag_size=args['--flag_size'], debug=args['--debug']),
                           filename,
                           pagenos=p,
