@@ -353,7 +353,7 @@ def merge_close_values(ar, mtol=2):
     return ret
 
 
-def flag_on_size(textline, direction):
+def flag_on_size(textline, direction, remove=False):
     """Flags a super/subscript by enclosing it with <s></s>. May give
     false positives.
 
@@ -384,7 +384,8 @@ def flag_on_size(textline, direction):
                 if ''.join(fchars).strip():
                     fchars.insert(0, '<s>')
                     fchars.append('</s>')
-                    flist.append(''.join(fchars))
+                    if not remove:
+                        flist.append(''.join(fchars))
             else:
                 fchars = [t[0] for t in chars]
                 if ''.join(fchars).strip():
@@ -395,7 +396,7 @@ def flag_on_size(textline, direction):
     return fstring
 
 
-def split_textline(table, textline, direction, flag_size=True):
+def split_textline(table, textline, direction, flag_size=True, remove=False):
     """Splits PDFMiner LTTextLine into substrings if it spans across
     multiple rows/columns.
 
@@ -463,14 +464,14 @@ def split_textline(table, textline, direction, flag_size=True):
     grouped_chars = []
     for key, chars in groupby(cut_text, itemgetter(0, 1)):
         if flag_size:
-            grouped_chars.append((key[0], key[1], flag_on_size([t[2] for t in chars], direction)))
+            grouped_chars.append((key[0], key[1], flag_on_size([t[2] for t in chars], direction, remove=remove)))
         else:
             gchars = [t[2].get_text() for t in chars]
             grouped_chars.append((key[0], key[1], ''.join(gchars).strip('\n')))
     return grouped_chars
 
 
-def get_table_index(table, t, direction, split_text=False, flag_size=True):
+def get_table_index(table, t, direction, split_text=False, flag_size=True, remove=False):
     """Gets indices of the cell where given text object lies by
     comparing their y and x-coordinates.
 
@@ -549,7 +550,7 @@ def get_table_index(table, t, direction, split_text=False, flag_size=True):
         return split_textline(table, t, direction, flag_size=flag_size), error
     else:
         if flag_size:
-            return [(r_idx, c_idx, flag_on_size(t._objs, direction))], error
+            return [(r_idx, c_idx, flag_on_size(t._objs, direction, remove=remove))], error
         else:
             return [(r_idx, c_idx, t.get_text().strip('\n'))], error
 

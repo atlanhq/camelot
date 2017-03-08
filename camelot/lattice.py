@@ -177,7 +177,7 @@ class Lattice:
     """
     def __init__(self, table_area=None, fill=None, headers=None, mtol=[2],
                  scale=15, invert=False, margins=(1.0, 0.5, 0.1),
-                 split_text=False, flag_size=True, shift_text=['l', 't'],
+                 split_text=False, flag_size=True, remove=False, shift_text=['l', 't'],
                  debug=None):
 
         self.method = 'lattice'
@@ -190,6 +190,7 @@ class Lattice:
         self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
         self.flag_size = flag_size
+        self.remove = remove
         self.shift_text = shift_text
         self.debug = debug
 
@@ -270,6 +271,8 @@ class Lattice:
 
         if len(self.mtol) == 1 and self.mtol[0] == 2:
             mtolerance = self.mtol * len(table_bbox)
+        else:
+            mtolerance = self.mtol
 
         if self.debug:
             self.debug_images = (img, table_bbox)
@@ -338,7 +341,7 @@ class Lattice:
                 for t in t_bbox[direction]:
                     indices, error = get_table_index(
                         table, t, direction, split_text=self.split_text,
-                        flag_size=self.flag_size)
+                        flag_size=self.flag_size, remove=self.remove)
                     assignment_errors.append(error)
                     indices = _reduce_index(table, indices, shift_text=self.shift_text,)
                     if len(indices) > 1:

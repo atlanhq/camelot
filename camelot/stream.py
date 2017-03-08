@@ -269,7 +269,7 @@ class Stream:
     """
     def __init__(self, table_area=None, columns=None, headers=None,
                  ytol=[2], mtol=[0], margins=(1.0, 0.5, 0.1),
-                 split_text=False, flag_size=True, debug=False):
+                 split_text=False, flag_size=True, remove=False, debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
@@ -280,6 +280,7 @@ class Stream:
         self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
         self.flag_size = flag_size
+        self.remove = remove
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -333,8 +334,12 @@ class Stream:
 
         if len(self.ytol) == 1 and self.ytol[0] == 2:
             ytolerance = self.ytol * len(table_bbox)
+        else:
+            ytolerance = self.ytol
         if len(self.mtol) == 1 and self.mtol[0] == 0:
             mtolerance = self.mtol * len(table_bbox)
+        else:
+            mtolerance = self.mtol
 
         page = {}
         tables = {}
@@ -410,7 +415,7 @@ class Stream:
                 for t in t_bbox[direction]:
                     indices, error = get_table_index(
                         table, t, direction, split_text=self.split_text,
-                        flag_size=self.flag_size)
+                        flag_size=self.flag_size, remove=self.remove)
                     assignment_errors.append(error)
                     if len(indices) > 1:
                         table_data['split_text'].append(indices)

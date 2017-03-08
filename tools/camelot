@@ -45,6 +45,7 @@ options:
  -J, --split_text          Split text lines if they span across multiple cells.
  -K, --flag_size           Flag substring if its size differs from the whole string.
                            Useful for super and subscripts.
+ -R, --remove              Remove super and subscripts.
  -X, --print-stats         List stats on the parsing process.
  -Y, --save-stats          Save stats to a file.
  -Z, --plot <dist>         Plot distributions. (page,all,rc)
@@ -383,7 +384,8 @@ if __name__ == '__main__':
                                   mtol=mtol, scale=int(args['--scale']),
                                   invert=args['--invert'], margins=margins,
                                   split_text=args['--split_text'], flag_size=args['--flag_size'],
-                                  shift_text=shift_text, debug=args['--debug']),
+                                  remove=args['--remove'], shift_text=shift_text,
+                                  debug=args['--debug']),
                           filename,
                           pagenos=p,
                           parallel=args['--parallel'],
@@ -449,7 +451,8 @@ if __name__ == '__main__':
             manager = Pdf(Stream(table_area=tarea, columns=columns,
                                  headers=header, ytol=ytol, mtol=mtol,
                                  margins=margins, split_text=args['--split_text'],
-                                 flag_size=args['--flag_size'], debug=args['--debug']),
+                                 flag_size=args['--flag_size'], remove=args['--remove'],
+                                 debug=args['--debug']),
                           filename,
                           pagenos=p,
                           parallel=args['--parallel'],
