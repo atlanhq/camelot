@@ -378,7 +378,7 @@ if __name__ == '__main__':
             fill = args['--fill'] if args['--fill'] else None
             header = args['--header'] if args['--header'] else None
             mtol = [int(m) for m in args['--mtol']]
-            shift_text = args['--shift_text'].split(',') if args['--shift_text'] else ['l', 't']
+            shift_text = list(args['--shift_text']) if args['--shift_text'] else ['l', 't']
             manager = Pdf(Lattice(table_area=tarea, fill=fill, headers=header,
                                   mtol=mtol, scale=int(args['--scale']),
                                   invert=args['--invert'], margins=margins,
