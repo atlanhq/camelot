@@ -1,7 +1,7 @@
 """
 usage: python morph_transform.py file.png
 
-find lines present in an image using opencv's morph transform.
+finds lines present in an image using opencv's morph transform.
 """
 
 import sys

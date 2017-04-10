@@ -1,7 +1,7 @@
 """
 usage: python hough_opencv.py file.png
 
-find lines present in an image using opencv's hough transform.
+finds lines present in an image using opencv's hough transform.
 """
 
 import sys

@@ -1,7 +1,7 @@
 """
 usage: python hough_prob.py file.png
 
-find lines present in an image using scikit-image's hough transform.
+finds lines present in an image using scikit-image's hough transform.
 """
 
 import sys

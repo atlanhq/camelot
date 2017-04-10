@@ -2,7 +2,7 @@
 usage:  python plot_geo.py file.pdf
         python plot_geo.py file.pdf file.png
 
-print lines and rectangles present in a pdf file.
+prints lines and rectangles present in a pdf file.
 """
 
 import sys
