@@ -1,5 +1,6 @@
 from __future__ import division
 import os
+import copy
 import types
 import logging
 import copy_reg
@@ -332,9 +333,13 @@ class Stream:
             table_bbox = {(0, 0, width, height): None}
 
         if len(self.ytol) == 1 and self.ytol[0] == 2:
-            ytolerance = self.ytol * len(table_bbox)
+            ytolerance = copy.deepcopy(self.ytol) * len(table_bbox)
+        else:
+            ytolerance = copy.deepcopy(self.ytol)
         if len(self.mtol) == 1 and self.mtol[0] == 0:
-            mtolerance = self.mtol * len(table_bbox)
+            mtolerance = copy.deepcopy(self.mtol) * len(table_bbox)
+        else:
+            mtolerance = copy.deepcopy(self.mtol)
 
         page = {}
         tables = {}

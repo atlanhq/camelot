@@ -389,7 +389,7 @@ if __name__ == '__main__':
                           parallel=args['--parallel'],
                           clean=True)
             data = manager.extract()
-            
+
             processing_time = time.time() - start_time
             logger.info("Finished processing in " + str(processing_time) + " seconds")
 
@@ -413,7 +413,7 @@ if __name__ == '__main__':
 
                 if 'rc' in plot_type:
                     plot_rc_piechart(data, pngname)
-            
+
             if args['--print-stats']:
                 print_stats(data, processing_time)
 
@@ -455,10 +455,10 @@ if __name__ == '__main__':
                           parallel=args['--parallel'],
                           clean=True)
             data = manager.extract()
-            
+
             processing_time = time.time() - start_time
             logger.info("Finished processing in " + str(processing_time) + " seconds")
-            
+
             if args['--plot']:
                 if args['--output']:
                     pngname = os.path.join(args['--output'], os.path.basename(pngname))
@@ -482,7 +482,7 @@ if __name__ == '__main__':
 
             if args['--print-stats']:
                 print_stats(data, processing_time)
-            
+
             if args['--save-stats']:
                 if args['--output']:
                     scorename = os.path.join(args['--output'], os.path.basename(scorename))
@@ -498,7 +498,7 @@ if __name__ == '__main__':
                                 table['ncols'],
                                 table['empty_p'],
                                 table['score']))
-            
+
             if args['--debug']:
                 manager.debug_plot()
         except Exception as e:

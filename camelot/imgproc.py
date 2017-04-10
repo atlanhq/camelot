@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-def adaptive_threshold(imagename, invert=False):
+def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
     """Thresholds an image using OpenCV's adaptiveThreshold.
 
     Parameters
@@ -14,6 +14,15 @@ def adaptive_threshold(imagename, invert=False):
         Whether or not to invert the image. Useful when pdfs have
         tables with lines in background.
         (optional, default: False)
+
+    blocksize: int
+        Size of a pixel neighborhood that is used to calculate a
+        threshold value for the pixel: 3, 5, 7, and so on.
+
+    c: float
+        Constant subtracted from the mean or weighted mean
+        (see the details below). Normally, it is positive but may be
+        zero or negative as well.
 
     Returns
     -------
@@ -27,14 +36,11 @@ def adaptive_threshold(imagename, invert=False):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     if invert:
-        threshold = cv2.adaptiveThreshold(
-            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,
-            15, -0.2)
+        threshold = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY, blocksize, c)
     else:
-        threshold = cv2.adaptiveThreshold(
-            np.invert(gray), 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-            cv2.THRESH_BINARY,
-            15, -0.2)
+        threshold = cv2.adaptiveThreshold(np.invert(gray), 255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, blocksize, c)
     return img, threshold
 
 
@@ -137,7 +143,7 @@ def find_table_contours(vertical, horizontal):
         x, y, w, h = cv2.boundingRect(c_poly)
         cont.append((x, y, w, h))
     return cont
-        
+
 
 def find_table_joints(contours, vertical, horizontal):
     """Finds joints/intersections present inside each table boundary.

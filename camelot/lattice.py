@@ -1,6 +1,7 @@
 from __future__ import division
 import os
 import sys
+import copy
 import types
 import logging
 import copy_reg
@@ -269,7 +270,9 @@ class Lattice:
             table_bbox = find_table_joints(contours, vmask, hmask)
 
         if len(self.mtol) == 1 and self.mtol[0] == 2:
-            mtolerance = self.mtol * len(table_bbox)
+            mtolerance = copy.deepcopy(self.mtol) * len(table_bbox)
+        else:
+            mtolerance = copy.deepcopy(self.mtol)
 
         if self.debug:
             self.debug_images = (img, table_bbox)

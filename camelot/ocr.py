@@ -1,4 +1,5 @@
 import os
+import copy
 import subprocess
 
 import pyocr
@@ -100,7 +101,9 @@ class OCR:
             self.debug_tables = []
 
         if len(self.mtol) == 1 and self.mtol[0] == 2:
-            self.mtol = self.mtol * len(table_bbox)
+            mtolerance = copy.deepcopy(self.mtol) * len(table_bbox)
+        else:
+            mtolerance = copy.deepcopy(self.mtol)
 
         page = {}
         tables = {}
@@ -111,8 +114,8 @@ class OCR:
             cols, rows = list(cols), list(rows)
             cols.extend([k[0], k[2]])
             rows.extend([k[1], k[3]])
-            cols = merge_close_values(sorted(cols), mtol=self.mtol[table_no])
-            rows = merge_close_values(sorted(rows, reverse=True), mtol=self.mtol[table_no])
+            cols = merge_close_values(sorted(cols), mtol=mtolerance[table_no])
+            rows = merge_close_values(sorted(rows, reverse=True), mtol=mtolerance[table_no])
             cols = [(cols[i], cols[i + 1])
                     for i in range(0, len(cols) - 1)]
             rows = [(rows[i], rows[i + 1])
