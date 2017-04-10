@@ -71,6 +71,8 @@ options:
  -H, --header <header>          Specify header for each table.
  -m, --mtol <mtol>              Tolerance to account for when merging lines
                                 which are very close. [default: 2]
+ -b, --blocksize <blocksize>    See adaptive threshold doc. [default: 15]
+ -c, --constant <constant>      See adaptive threshold doc. [default: -2]
  -s, --scale <scale>            Scaling factor. Large scaling factor leads to
                                 smaller lines being detected. [default: 15]
  -i, --invert                   Invert pdf image to make sure that lines are
@@ -109,16 +111,18 @@ usage:
  camelot ocr [-t <tarea>] [-m <mtol>] [options] [--] <file>
 
 options:
- -t, --tarea <tarea>  Specific table areas to analyze.
- -m, --mtol <mtol>    Tolerance to account for when merging lines
-                      which are very close. [default: 2]
- -D, --dpi <dpi>      Dots per inch, specify image quality to be used for OCR.
-                      [default: 300]
- -l, --lang <lang>    Specify language to be used for OCR. [default: eng]
- -s, --scale <scale>  Scaling factor. Large scaling factor leads to
-                      smaller lines being detected. [default: 15]
- -d, --debug <debug>  Debug by visualizing pdf geometry.
-                      (contour,line,joint,table) Example: -d table
+ -t, --tarea <tarea>          Specific table areas to analyze.
+ -m, --mtol <mtol>            Tolerance to account for when merging lines
+                              which are very close. [default: 2]
+ -b, --blocksize <blocksize>  See adaptive threshold doc. [default: 15]
+ -c, --constant <constant>    See adaptive threshold doc. [default: -2]
+ -D, --dpi <dpi>              Dots per inch, specify image quality to be used for OCR.
+                              [default: 300]
+ -l, --lang <lang>            Specify language to be used for OCR. [default: eng]
+ -s, --scale <scale>          Scaling factor. Large scaling factor leads to
+                              smaller lines being detected. [default: 15]
+ -d, --debug <debug>          Debug by visualizing pdf geometry.
+                              (contour,line,joint,table) Example: -d table
 """
 
 
@@ -374,20 +378,23 @@ if __name__ == '__main__':
         float(args['--wmargin']))
     if args['<method>'] == 'lattice':
         try:
-            tarea = args['--tarea'] if args['--tarea'] else None
-            fill = args['--fill'] if args['--fill'] else None
-            header = args['--header'] if args['--header'] else None
-            mtol = [int(m) for m in args['--mtol']]
-            shift_text = list(args['--shift_text']) if args['--shift_text'] else ['l', 't']
-            manager = Pdf(Lattice(table_area=tarea, fill=fill, headers=header,
-                                  mtol=mtol, scale=int(args['--scale']),
-                                  invert=args['--invert'], margins=margins,
-                                  split_text=args['--split_text'], flag_size=args['--flag_size'],
-                                  shift_text=shift_text, debug=args['--debug']),
-                          filename,
-                          pagenos=p,
-                          parallel=args['--parallel'],
-                          clean=True)
+            kwargs = {
+                'table_area': args['--tarea'] if args['--tarea'] else None,
+                'fill': args['--fill'] if args['--fill'] else None,
+                'headers': args['--header'] if args['--header'] else None,
+                'mtol': [int(m) for m in args['--mtol']],
+                'blocksize': int(args['--blocksize']),
+                'threshold_constant': float(args['--constant']),
+                'scale': int(args['--scale']),
+                'invert': args['--invert'],
+                'margins': margins,
+                'split_text': args['--split_text'],
+                'flag_size': args['--flag_size'],
+                'shift_text': list(args['--shift_text']) if args['--shift_text'] else ['l', 't'],
+                'debug': args['--debug']
+            }
+            manager = Pdf(Lattice(**kwargs), filename, pagenos=p, clean=True,
+                          parallel=args['--parallel'])
             data = manager.extract()
 
             processing_time = time.time() - start_time
@@ -441,19 +448,19 @@ if __name__ == '__main__':
             sys.exit()
     elif args['<method>'] == 'stream':
         try:
-            tarea = args['--tarea'] if args['--tarea'] else None
-            columns = args['--columns'] if args['--columns'] else None
-            header = args['--header'] if args['--header'] else None
-            ytol = [int(y) for y in args['--ytol']]
-            mtol = [int(m) for m in args['--mtol']]
-            manager = Pdf(Stream(table_area=tarea, columns=columns,
-                                 headers=header, ytol=ytol, mtol=mtol,
-                                 margins=margins, split_text=args['--split_text'],
-                                 flag_size=args['--flag_size'], debug=args['--debug']),
-                          filename,
-                          pagenos=p,
-                          parallel=args['--parallel'],
-                          clean=True)
+            kwargs = {
+                'table_area': args['--tarea'] if args['--tarea'] else None,
+                'columns': args['--columns'] if args['--columns'] else None,
+                'headers': args['--header'] if args['--header'] else None,
+                'ytol': [int(y) for y in args['--ytol']],
+                'mtol': [int(m) for m in args['--mtol']],
+                'margins': margins,
+                'split_text': args['--split_text'],
+                'flag_size': args['--flag_size'],
+                'debug': args['--debug']
+            }
+            manager = Pdf(Stream(**kwargs), filename, pagenos=p, clean=True,
+                          parallel=args['--parallel'])
             data = manager.extract()
 
             processing_time = time.time() - start_time
@@ -506,15 +513,18 @@ if __name__ == '__main__':
             sys.exit()
     elif args['<method>'] == 'ocr':
         try:
-            tarea = args['--tarea'] if args['--tarea'] else None
-            mtol = [int(m) for m in args['--mtol']]
-            manager = Pdf(OCR(table_area=tarea, mtol=mtol, dpi=int(args['--dpi']),
-                                  lang=args['--lang'], scale=int(args['--scale']),
-                                  debug=args['--debug']),
-                          filename,
-                          pagenos=p,
-                          parallel=args['--parallel'],
-                          clean=True)
+            kwargs = {
+                'table_area': args['--tarea'] if args['--tarea'] else None,
+                'mtol': [int(m) for m in args['--mtol']],
+                'blocksize': int(args['--blocksize']),
+                'threshold_constant': float(args['--constant']),
+                'dpi': int(args['--dpi']),
+                'lang': args['--lang'],
+                'scale': int(args['--scale']),
+                'debug': args['--debug']
+            }
+            manager = Pdf(OCR(**kwargs), filename, pagenos=p, clean=True,
+                          parallel=args['--parallel'])
             data = manager.extract()
 
             processing_time = time.time() - start_time

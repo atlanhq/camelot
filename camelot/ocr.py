@@ -27,6 +27,17 @@ class OCR:
         List of ints specifying m-tolerance parameters.
         (optional, default: [2])
 
+    blocksize: int
+        Size of a pixel neighborhood that is used to calculate a
+        threshold value for the pixel: 3, 5, 7, and so on.
+        (optional, default: 15)
+
+    threshold_constant: float
+        Constant subtracted from the mean or weighted mean
+        (see the details below). Normally, it is positive but may be
+        zero or negative as well.
+        (optional, default: -2)
+
     dpi : int
         Dots per inch.
         (optional, default: 300)
@@ -46,12 +57,14 @@ class OCR:
         of detected contours, lines, joints and the table generated.
         (optional, default: None)
     """
-    def __init__(self, table_area=None, mtol=[2], dpi=300, lang="eng", scale=15,
-                 debug=None):
+    def __init__(self, table_area=None, mtol=[2], blocksize=15, threshold_constant=-2,
+                 dpi=300, lang="eng", scale=15, debug=None):
 
         self.method = 'ocr'
         self.table_area = table_area
         self.mtol = mtol
+        self.blocksize = blocksize
+        self.threshold_constant = threshold_constant
         self.tool = pyocr.get_available_tools()[0] # fix this
         self.dpi = dpi
         self.lang = lang
@@ -75,7 +88,8 @@ class OCR:
         subprocess.call(gs_call, stdout=open(os.devnull, 'w'),
             stderr=subprocess.STDOUT)
 
-        img, threshold = adaptive_threshold(imagename)
+        img, threshold = adaptive_threshold(imagename, blocksize=self.blocksize,
+            c=self.threshold_constant)
         vmask, v_segments = find_lines(threshold, direction='vertical',
             scale=self.scale)
         hmask, h_segments = find_lines(threshold, direction='horizontal',

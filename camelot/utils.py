@@ -570,14 +570,17 @@ def get_score(error_weights):
     score : float
     """
     SCORE_VAL = 100
-    score = 0
-    if sum([ew[0] for ew in error_weights]) != SCORE_VAL:
-        raise ValueError("Please assign a valid weightage to each parameter"
-                         " such that their sum is equal to 100")
-    for ew in error_weights:
-        weight = ew[0] / len(ew[1])
-        for error_percentage in ew[1]:
-            score += weight * (1 - error_percentage)
+    try:
+        score = 0
+        if sum([ew[0] for ew in error_weights]) != SCORE_VAL:
+            raise ValueError("Please assign a valid weightage to each parameter"
+                             " such that their sum is equal to 100")
+        for ew in error_weights:
+            weight = ew[0] / len(ew[1])
+            for error_percentage in ew[1]:
+                score += weight * (1 - error_percentage)
+    except ZeroDivisionError:
+        score = 0
     return score
 
 

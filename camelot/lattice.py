@@ -139,6 +139,17 @@ class Lattice:
         List of ints specifying m-tolerance parameters.
         (optional, default: [2])
 
+    blocksize: int
+        Size of a pixel neighborhood that is used to calculate a
+        threshold value for the pixel: 3, 5, 7, and so on.
+        (optional, default: 15)
+
+    threshold_constant: float
+        Constant subtracted from the mean or weighted mean
+        (see the details below). Normally, it is positive but may be
+        zero or negative as well.
+        (optional, default: -2)
+
     scale : int
         Used to divide the height/width of a pdf to get a structuring
         element for image processing.
@@ -177,15 +188,17 @@ class Lattice:
         (optional, default: None)
     """
     def __init__(self, table_area=None, fill=None, headers=None, mtol=[2],
-                 scale=15, invert=False, margins=(1.0, 0.5, 0.1),
-                 split_text=False, flag_size=True, shift_text=['l', 't'],
-                 debug=None):
+                 blocksize=15, threshold_constant=-2, scale=15, invert=False,
+                 margins=(1.0, 0.5, 0.1), split_text=False, flag_size=True,
+                 shift_text=['l', 't'], debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area
         self.fill = fill
         self.headers = headers
         self.mtol = mtol
+        self.blocksize = blocksize
+        self.threshold_constant = threshold_constant
         self.scale = scale
         self.invert = invert
         self.char_margin, self.line_margin, self.word_margin = margins
@@ -230,7 +243,8 @@ class Lattice:
         subprocess.call(gs_call, stdout=open(os.devnull, 'w'),
             stderr=subprocess.STDOUT)
 
-        img, threshold = adaptive_threshold(imagename, invert=self.invert)
+        img, threshold = adaptive_threshold(imagename, invert=self.invert,
+            blocksize=self.blocksize, c=self.threshold_constant)
         pdf_x = width
         pdf_y = height
         img_x = img.shape[1]
