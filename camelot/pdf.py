@@ -4,6 +4,7 @@ import logging
 import tempfile
 import itertools
 import multiprocessing as mp
+from functools import partial
 
 import cv2
 from PyPDF2 import PdfFileReader, PdfFileWriter
@@ -35,6 +36,37 @@ def _parse_page_numbers(pagenos):
         page_numbers.extend(range(p['start'], p['end'] + 1))
     page_numbers = sorted(set(page_numbers))
     return page_numbers
+
+
+def _save_page(temp, pdfname, pageno):
+    with open(pdfname, 'rb') as pdffile:
+        infile = PdfFileReader(pdffile, strict=False)
+        sp_path = os.path.join(temp, 'page-{0}.pdf'.format(pageno))
+        sp_name, sp_ext = os.path.splitext(sp_path)
+        page = infile.getPage(pageno - 1)
+        outfile = PdfFileWriter()
+        outfile.addPage(page)
+        with open(sp_path, 'wb') as f:
+            outfile.write(f)
+        layout, dim = get_page_layout(sp_path)
+        lttextlh = get_text_objects(layout, ltype="lh")
+        lttextlv = get_text_objects(layout, ltype="lv")
+        ltchar = get_text_objects(layout, ltype="char")
+        rotation = get_rotation(lttextlh, lttextlv, ltchar)
+        if rotation != '':
+            sp_new_path = ''.join([sp_name.replace('page', 'p'), '_rotated', sp_ext])
+            os.rename(sp_path, sp_new_path)
+            sp_in = PdfFileReader(open(sp_new_path, 'rb'),
+                strict=False)
+            sp_out = PdfFileWriter()
+            sp_page = sp_in.getPage(0)
+            if rotation == 'left':
+                sp_page.rotateClockwise(90)
+            elif rotation == 'right':
+                sp_page.rotateCounterClockwise(90)
+            sp_out.addPage(sp_page)
+            with open(sp_path, 'wb') as pdf_out:
+                sp_out.write(pdf_out)
 
 
 class Pdf:
@@ -85,34 +117,12 @@ class Pdf:
         """Splits file into single page pdfs.
         """
         logger.info('Splitting pages...')
-        infile = PdfFileReader(open(self.pdfname, 'rb'), strict=False)
-        for p in self.pagenos:
-            sp_path = os.path.join(self.temp, 'page-{0}.pdf'.format(p))
-            sp_name, sp_ext = os.path.splitext(sp_path)
-            page = infile.getPage(p - 1)
-            outfile = PdfFileWriter()
-            outfile.addPage(page)
-            with open(sp_path, 'wb') as f:
-                outfile.write(f)
-            layout, dim = get_page_layout(sp_path)
-            lttextlh = get_text_objects(layout, ltype="lh")
-            lttextlv = get_text_objects(layout, ltype="lv")
-            ltchar = get_text_objects(layout, ltype="char")
-            rotation = get_rotation(lttextlh, lttextlv, ltchar)
-            if rotation != '':
-                sp_new_path = ''.join([sp_name.replace('page', 'p'), '_rotated', sp_ext])
-                os.rename(sp_path, sp_new_path)
-                sp_in = PdfFileReader(open(sp_new_path, 'rb'),
-                    strict=False)
-                sp_out = PdfFileWriter()
-                sp_page = sp_in.getPage(0)
-                if rotation == 'left':
-                    sp_page.rotateClockwise(90)
-                elif rotation == 'right':
-                    sp_page.rotateCounterClockwise(90)
-                sp_out.addPage(sp_page)
-                with open(sp_path, 'wb') as pdf_out:
-                    sp_out.write(pdf_out)
+        if self.parallel:
+            pfunc = partial(_save_page, self.temp, self.pdfname)
+            self.pool.map(pfunc, self.pagenos)
+        else:
+            for p in self.pagenos:
+                _save_page(self.temp, self.pdfname, p)
 
 
     def extract(self):
