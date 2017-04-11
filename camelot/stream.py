@@ -377,8 +377,7 @@ class Stream:
                 if ncols == 1 and not self.debug:
                     # no tables detected
                     logger.warning("{}: Only one column was detected, the pdf"
-                                   " may have no tables. Specify ncols if"
-                                   " the pdf has tables.".format(
+                                   " may have no tables.".format(
                                   os.path.basename(bname)))
                 cols = [(t.x0, t.x1)
                     for r in rows_grouped if len(r) == ncols for t in r]

@@ -89,14 +89,13 @@ stream_doc = """
 Stream method looks for whitespaces between text to form a table.
 
 usage:
- camelot stream [-t <tarea>...] [-c <columns>...] [-n <ncols>...] [-H <header>...]
+ camelot stream [-t <tarea>...] [-c <columns>...] [-H <header>...]
  [-y <ytol>...] [-m <mtol>...] [options] [--] <file>
 
 options:
  -t, --tarea <tarea>      Specific table areas to analyze.
  -c, --columns <columns>  Comma-separated list of column x-coordinates.
                           Example: -c 10.1,20.2,30.3
- -n, --ncols <ncols>      Number of columns. [default: -1]
  -H, --header <header>    Specify header for each table.
  -y, --ytol <ytol>        Tolerance to account for when grouping rows
                           together. [default: 2]
