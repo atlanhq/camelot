@@ -1,5 +1,5 @@
 """
-usage: python morph_transform.py file.png
+usage: python morph_transform.py file.png scale={int} invert={bool}
 
 finds lines present in an image using opencv's morph transform.
 """
@@ -22,10 +22,13 @@ def timeit(func):
     return timed
 
 
-def mt(imagename, scale=40):
+def mt(imagename, scale=40, invert=False):
     img = cv2.imread(imagename)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    threshold = cv2.adaptiveThreshold(np.invert(gray), 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 15, -2)
+    if invert:
+        threshold = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 15, -2)
+    else:
+        threshold = cv2.adaptiveThreshold(np.invert(gray), 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 15, -2)
     vertical = threshold
     horizontal = threshold
 
@@ -92,7 +95,15 @@ def mt(imagename, scale=40):
 
 @timeit
 def main():
-    t = mt(sys.argv[1])
+    try:
+        scale = int(sys.argv[2].split('=')[1])
+    except IndexError:
+        scale = 40
+    try:
+        invert = bool(sys.argv[3].split('=')[1])
+    except IndexError:
+        invert = False
+    t = mt(sys.argv[1], scale=scale, invert=invert)
     print 'tables found: ', len(t.keys())
 
 
