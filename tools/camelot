@@ -1,11 +1,13 @@
 #!/usr/bin/env python2
 from __future__ import print_function
 import os
+import csv
 import sys
 import glob
 import time
 import zipfile
 import warnings
+import cStringIO
 
 import numpy as np
 from docopt import docopt
@@ -32,7 +34,7 @@ options:
  -p, --pages <pageno>      Comma-separated list of page numbers.
                            Example: -p 1,3-6,10  [default: 1]
  -P, --parallel            Parallelize the parsing process.
- -f, --format <format>     Output format. (csv,tsv,html,json,xlsx) [default: csv]
+ -f, --format <format>     Output format. (csv,tsv,zip,html,json,xlsx) [default: csv]
  -l, --log <logfile>       Log to file.
  -o, --output <directory>  Output directory.
  -M, --cmargin <cmargin>   Char margin. Chars closer than cmargin are
@@ -290,21 +292,31 @@ def write_to_disk(data, f='csv', output=None, filename=None):
     fname = os.path.basename(filename)
     froot, __ = os.path.splitext(fname)
     if f in ['csv', 'tsv']:
-        import csv
         delimiter = ',' if f == 'csv' else '\t'
         for page_number in sorted(data.keys()):
-            for table_number in sorted(data[page_number].keys()):
-                dsvname = '{0}.{1}'.format(''.join([page_number, '_', table_number]), f)
-                with open(os.path.join(output, dsvname), 'w') as outfile:
-                    writer = csv.writer(
-                        outfile, delimiter=delimiter, quoting=csv.QUOTE_ALL)
-                    for row in data[page_number][table_number]['data']:
-                        writer.writerow(row)
-        csv_glob = glob.glob(os.path.join(output, '*.csv'))
-        if len(csv_glob) > 1:
-            with zipfile.ZipFile(os.path.join(output, '{0}.zip'.format(froot)), 'w') as zfile:
-                for cfile in csv_glob:
-                    zfile.write(cfile, os.path.basename(cfile), zipfile.ZIP_DEFLATED)
+            if data[page_number] is not None:
+                for table_number in sorted(data[page_number].keys()):
+                    dsvname = '{0}.{1}'.format(''.join([page_number, '_', table_number]), f)
+                    with open(os.path.join(output, dsvname), 'w') as outfile:
+                        writer = csv.writer(
+                            outfile, delimiter=delimiter, quoting=csv.QUOTE_ALL)
+                        for row in data[page_number][table_number]['data']:
+                            writer.writerow(row)
+    elif f == 'zip':
+        csv_zip = os.path.join(output, '{0}.zip'.format(froot))
+        with zipfile.ZipFile(csv_zip, 'w', zipfile.ZIP_DEFLATED, allowZip64=True) \
+                as zfile:
+            for page_number in sorted(data.keys()):
+                if data[page_number] is not None:
+                    for table_number in sorted(data[page_number].keys()):
+                        csvname = '{0}.{1}'.format(''.join([page_number, '_', table_number]), 'csv')
+                        outfile = cStringIO.StringIO()
+                        writer = csv.writer(
+                            outfile, delimiter=',', quoting=csv.QUOTE_ALL)
+                        for row in data[page_number][table_number]['data']:
+                            writer.writerow(row)
+                        zfile.writestr(csvname, outfile.getvalue())
+                        outfile.close()
     elif f == 'html':
         htmlname = '{0}.html'.format(froot)
         for page_number in sorted(data.keys()):
