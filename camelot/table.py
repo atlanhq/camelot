@@ -188,38 +188,32 @@ class Table:
                 bound = self.cells[r][c].get_bounded_edges()
                 if bound == 4:
                     continue
-
                 elif bound == 3:
                     if not self.cells[r][c].left:
                         if (self.cells[r][c].right and
                                 self.cells[r][c].top and
                                 self.cells[r][c].bottom):
                             self.cells[r][c].spanning_h = True
-
                     elif not self.cells[r][c].right:
                         if (self.cells[r][c].left and
                                 self.cells[r][c].top and
                                 self.cells[r][c].bottom):
                             self.cells[r][c].spanning_h = True
-
                     elif not self.cells[r][c].top:
                         if (self.cells[r][c].left and
                                 self.cells[r][c].right and
                                 self.cells[r][c].bottom):
                             self.cells[r][c].spanning_v = True
-
                     elif not self.cells[r][c].bottom:
                         if (self.cells[r][c].left and
                                 self.cells[r][c].right and
                                 self.cells[r][c].top):
                             self.cells[r][c].spanning_v = True
-
                 elif bound == 2:
                     if self.cells[r][c].left and self.cells[r][c].right:
                         if (not self.cells[r][c].top and
                                 not self.cells[r][c].bottom):
                             self.cells[r][c].spanning_v = True
-
                     elif self.cells[r][c].top and self.cells[r][c].bottom:
                         if (not self.cells[r][c].left and
                                 not self.cells[r][c].right):

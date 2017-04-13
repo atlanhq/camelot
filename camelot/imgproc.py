@@ -44,7 +44,7 @@ def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
     return img, threshold
 
 
-def find_lines(threshold, direction='horizontal', scale=15):
+def find_lines(threshold, direction='horizontal', scale=15, iterations=2):
     """Finds horizontal and vertical lines by applying morphological
     transformations on an image.
 
@@ -61,6 +61,10 @@ def find_lines(threshold, direction='horizontal', scale=15):
         Used to divide the height/width to get a structuring element
         for morph transform.
         (optional, default: 15)
+
+    iterations : int
+        Number of iterations for dilation.
+        (optional, default: 2)
 
     Returns
     -------
@@ -85,10 +89,9 @@ def find_lines(threshold, direction='horizontal', scale=15):
         raise ValueError("Specify direction as either 'vertical' or"
                          " 'horizontal'")
 
-    threshold = cv2.erode(threshold, el, (-1, -1))
-    threshold = cv2.dilate(threshold, el, (-1, -1))
-
-    dmask = threshold  # findContours modifies source image
+    threshold = cv2.erode(threshold, el)
+    threshold = cv2.dilate(threshold, el)
+    dmask = cv2.dilate(threshold, el, iterations=iterations)
 
     try:
         _, contours, _ = cv2.findContours(

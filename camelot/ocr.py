@@ -8,7 +8,7 @@ from PIL import Image
 from .table import Table
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints)
-from .utils import merge_close_values, encode_list
+from .utils import merge_close_values, encode_list, remove_empty
 
 
 class OCR:
@@ -51,6 +51,10 @@ class OCR:
         element for image processing.
         (optional, default: 15)
 
+    iterations : int
+        Number of iterations for dilation.
+        (optional, default: 2)
+
     debug : string
         {'contour', 'line', 'joint', 'table'}
         Set to one of the above values to generate a matplotlib plot
@@ -58,7 +62,7 @@ class OCR:
         (optional, default: None)
     """
     def __init__(self, table_area=None, mtol=[2], blocksize=15, threshold_constant=-2,
-                 dpi=300, lang="eng", scale=15, debug=None):
+                 dpi=300, lang="eng", scale=15, iterations=2, debug=None):
 
         self.method = 'ocr'
         self.table_area = table_area
@@ -69,6 +73,7 @@ class OCR:
         self.dpi = dpi
         self.lang = lang
         self.scale = scale
+        self.iterations = iterations
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -91,9 +96,9 @@ class OCR:
         img, threshold = adaptive_threshold(imagename, blocksize=self.blocksize,
             c=self.threshold_constant)
         vmask, v_segments = find_lines(threshold, direction='vertical',
-            scale=self.scale)
+            scale=self.scale, iterations=self.iterations)
         hmask, h_segments = find_lines(threshold, direction='horizontal',
-            scale=self.scale)
+            scale=self.scale, iterations=self.iterations)
 
         if self.table_area is not None:
             areas = []
@@ -154,6 +159,7 @@ class OCR:
             ar = table.get_list()
             ar.reverse()
             ar = encode_list(ar)
+            ar = remove_empty(ar)
             table_data['data'] = ar
             tables['table-{0}'.format(table_no + 1)] = table_data
             table_no += 1

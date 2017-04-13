@@ -77,6 +77,7 @@ options:
  -c, --constant <constant>      See adaptive threshold doc. [default: -2]
  -s, --scale <scale>            Scaling factor. Large scaling factor leads to
                                 smaller lines being detected. [default: 15]
+ -I, --iterations <iterations>  Number of iterations for dilation. [default: 2]
  -i, --invert                   Invert pdf image to make sure that lines are
                                 in foreground.
  -T, --shift_text <shift_text>  Specify where the text in a spanning cell
@@ -112,18 +113,19 @@ usage:
  camelot ocr [-t <tarea>] [-m <mtol>] [options] [--] <file>
 
 options:
- -t, --tarea <tarea>          Specific table areas to analyze.
- -m, --mtol <mtol>            Tolerance to account for when merging lines
-                              which are very close. [default: 2]
- -b, --blocksize <blocksize>  See adaptive threshold doc. [default: 15]
- -c, --constant <constant>    See adaptive threshold doc. [default: -2]
- -D, --dpi <dpi>              Dots per inch, specify image quality to be used for OCR.
-                              [default: 300]
- -l, --lang <lang>            Specify language to be used for OCR. [default: eng]
- -s, --scale <scale>          Scaling factor. Large scaling factor leads to
-                              smaller lines being detected. [default: 15]
- -d, --debug <debug>          Debug by visualizing pdf geometry.
-                              (contour,line,joint,table) Example: -d table
+ -t, --tarea <tarea>            Specific table areas to analyze.
+ -m, --mtol <mtol>              Tolerance to account for when merging lines
+                                which are very close. [default: 2]
+ -b, --blocksize <blocksize>    See adaptive threshold doc. [default: 15]
+ -c, --constant <constant>      See adaptive threshold doc. [default: -2]
+ -D, --dpi <dpi>                Dots per inch, specify image quality to be used for OCR.
+                                [default: 300]
+ -l, --lang <lang>              Specify language to be used for OCR. [default: eng]
+ -s, --scale <scale>            Scaling factor. Large scaling factor leads to
+                                smaller lines being detected. [default: 15]
+ -I, --iterations <iterations>  Number of iterations for dilation. [default: 2]
+ -d, --debug <debug>            Debug by visualizing pdf geometry.
+                                (contour,line,joint,table) Example: -d table
 """
 
 
@@ -397,6 +399,7 @@ if __name__ == '__main__':
                 'blocksize': int(args['--blocksize']),
                 'threshold_constant': float(args['--constant']),
                 'scale': int(args['--scale']),
+                'iterations': int(args['--iterations']),
                 'invert': args['--invert'],
                 'margins': margins,
                 'split_text': args['--split_text'],
@@ -532,6 +535,7 @@ if __name__ == '__main__':
                 'dpi': int(args['--dpi']),
                 'lang': args['--lang'],
                 'scale': int(args['--scale']),
+                'iterations': int(args['--iterations']),
                 'debug': args['--debug']
             }
             manager = Pdf(OCR(**kwargs), filename, pagenos=p, clean=True,
