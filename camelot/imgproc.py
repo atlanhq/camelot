@@ -1,3 +1,6 @@
+from itertools import groupby
+from operator import itemgetter
+
 import cv2
 import numpy as np
 
@@ -194,3 +197,32 @@ def find_table_joints(contours, vertical, horizontal):
         tables[(x, y + h, x + w, y)] = joint_coords
 
     return tables
+
+
+def find_cuts(threshold, line_threshold=100):
+    """find_cuts
+
+    Parameters
+    ----------
+    threshold : object
+        numpy.ndarray representing the thresholded image.
+
+    line_threshold : int
+        Maximum intensity of projections on y-axis.
+        (optional, default: 100)
+
+    Returns
+    -------
+    y_cuts : list
+        List of cuts on y-axis.
+    """
+    y_proj = np.sum(threshold, axis=1)
+    y_proj_less = np.where(y_proj < line_threshold)[0]
+    ranges = []
+    for k, g in groupby(enumerate(y_proj_less), lambda (i, x): i-x):
+        group = map(itemgetter(1), g)
+        ranges.append((group[0], group[-1]))
+    y_cuts = []
+    for r in ranges:
+        y_cuts.append((r[0] + r[1]) / 2)
+    return sorted(y_cuts, reverse=True)

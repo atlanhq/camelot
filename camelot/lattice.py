@@ -131,20 +131,20 @@ class Lattice:
         direction.
         (optional, default: None)
 
-    headers : list
-        List of strings where each string is a csv header for a table.
-        (optional, default: None)
-
     mtol : list
         List of ints specifying m-tolerance parameters.
         (optional, default: [2])
 
-    blocksize: int
+    jtol : list
+        List of ints specifying j-tolerance parameters.
+        (optional, default: [2])
+
+    blocksize : int
         Size of a pixel neighborhood that is used to calculate a
         threshold value for the pixel: 3, 5, 7, and so on.
         (optional, default: 15)
 
-    threshold_constant: float
+    threshold_constant : float
         Constant subtracted from the mean or weighted mean
         (see the details below). Normally, it is positive but may be
         zero or negative as well.
@@ -191,7 +191,7 @@ class Lattice:
         of detected contours, lines, joints and the table generated.
         (optional, default: None)
     """
-    def __init__(self, table_area=None, fill=None, headers=None, mtol=[2],
+    def __init__(self, table_area=None, fill=None, mtol=[2], jtol=[2],
                  blocksize=15, threshold_constant=-2, scale=15, iterations=2,
                  invert=False, margins=(1.0, 0.5, 0.1), split_text=False,
                  flag_size=True, shift_text=['l', 't'], debug=None):
@@ -199,8 +199,8 @@ class Lattice:
         self.method = 'lattice'
         self.table_area = table_area
         self.fill = fill
-        self.headers = headers
         self.mtol = mtol
+        self.jtol = jtol
         self.blocksize = blocksize
         self.threshold_constant = threshold_constant
         self.scale = scale
@@ -269,10 +269,7 @@ class Lattice:
         if self.table_area is not None:
             if self.fill is not None:
                 if len(self.table_area) != len(self.fill):
-                    raise ValueError("Length of fill should be equal to table_area.")
-            if self.headers is not None:
-                if len(self.table_area) != len(self.headers):
-                    raise ValueError("Length of headers should be equal to table_area.")
+                    raise ValueError("Length of table area and fill should be equal.")
 
             areas = []
             for area in self.table_area:
@@ -292,6 +289,11 @@ class Lattice:
             mtolerance = copy.deepcopy(self.mtol) * len(table_bbox)
         else:
             mtolerance = copy.deepcopy(self.mtol)
+
+        if len(self.jtol) == 1 and self.jtol[0] == 2:
+            jtolerance = copy.deepcopy(self.jtol) * len(table_bbox)
+        else:
+            jtolerance = copy.deepcopy(self.jtol)
 
         if self.debug:
             self.debug_images = (img, table_bbox)
@@ -331,18 +333,9 @@ class Lattice:
             rows = [(rows[i], rows[i + 1])
                     for i in range(0, len(rows) - 1)]
 
-            if self.headers is not None and self.headers[table_no] != [""]:
-                self.headers[table_no] = self.headers[table_no].split(',')
-                if len(self.headers[table_no]) != len(cols):
-                    logger.warning("Length of header ({0}) specified for table is not"
-                                   " equal to the number of columns ({1}) detected.".format(
-                                   len(self.headers[table_no]), len(cols)))
-                while len(self.headers[table_no]) != len(cols):
-                    self.headers[table_no].append('')
-
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
-            table = table.set_edges(v_s, h_s)
+            table = table.set_edges(v_s, h_s, jtol=jtolerance[table_no])
             nouse = table.nocont_ / (len(v_s) + len(h_s))
             table_data['line_p'] = 100 * (1 - nouse)
             # set spanning cells to True
@@ -377,8 +370,6 @@ class Lattice:
                 table = _fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
             ar = remove_empty(ar)
-            if self.headers is not None and self.headers[table_no] != ['']:
-                ar.insert(0, self.headers[table_no])
             ar = encode_list(ar)
             table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)
