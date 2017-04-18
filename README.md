@@ -47,6 +47,8 @@ options:
 camelot methods:
  lattice  Looks for lines between data.
  stream   Looks for spaces between data.
+ ocrl     Lattice, but for images.
+ ocrs     Stream, but for images.
 
 See 'camelot &lt;method&gt; -h' for more information on a specific method.
 </pre>
