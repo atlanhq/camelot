@@ -12,7 +12,7 @@ from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
 from .table import Table
 from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_in_bbox,
                     merge_close_values, get_table_index, get_score, count_empty,
-                    encode_list, get_text_objects, get_page_layout)
+                    encode_list, get_text_objects, get_page_layout, remove_empty)
 
 
 __all__ = ['Lattice']
@@ -131,20 +131,20 @@ class Lattice:
         direction.
         (optional, default: None)
 
-    headers : list
-        List of strings where each string is a csv header for a table.
-        (optional, default: None)
-
     mtol : list
         List of ints specifying m-tolerance parameters.
         (optional, default: [2])
 
-    blocksize: int
+    jtol : list
+        List of ints specifying j-tolerance parameters.
+        (optional, default: [2])
+
+    blocksize : int
         Size of a pixel neighborhood that is used to calculate a
         threshold value for the pixel: 3, 5, 7, and so on.
         (optional, default: 15)
 
-    threshold_constant: float
+    threshold_constant : float
         Constant subtracted from the mean or weighted mean
         (see the details below). Normally, it is positive but may be
         zero or negative as well.
@@ -154,6 +154,10 @@ class Lattice:
         Used to divide the height/width of a pdf to get a structuring
         element for image processing.
         (optional, default: 15)
+
+    iterations : int
+        Number of iterations for dilation.
+        (optional, default: 2)
 
     invert : bool
         Whether or not to invert the image. Useful when pdfs have
@@ -187,19 +191,20 @@ class Lattice:
         of detected contours, lines, joints and the table generated.
         (optional, default: None)
     """
-    def __init__(self, table_area=None, fill=None, headers=None, mtol=[2],
-                 blocksize=15, threshold_constant=-2, scale=15, invert=False,
-                 margins=(1.0, 0.5, 0.1), split_text=False, flag_size=True,
-                 shift_text=['l', 't'], debug=None):
+    def __init__(self, table_area=None, fill=None, mtol=[2], jtol=[2],
+                 blocksize=15, threshold_constant=-2, scale=15, iterations=2,
+                 invert=False, margins=(1.0, 0.5, 0.1), split_text=False,
+                 flag_size=True, shift_text=['l', 't'], debug=None):
 
         self.method = 'lattice'
         self.table_area = table_area
         self.fill = fill
-        self.headers = headers
         self.mtol = mtol
+        self.jtol = jtol
         self.blocksize = blocksize
         self.threshold_constant = threshold_constant
         self.scale = scale
+        self.iterations = iterations
         self.invert = invert
         self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
@@ -257,17 +262,14 @@ class Lattice:
         factors_pdf = (sc_x_pdf, sc_y_pdf, img_y)
 
         vmask, v_segments = find_lines(threshold, direction='vertical',
-            scale=self.scale)
+            scale=self.scale, iterations=self.iterations)
         hmask, h_segments = find_lines(threshold, direction='horizontal',
-            scale=self.scale)
+            scale=self.scale, iterations=self.iterations)
 
         if self.table_area is not None:
             if self.fill is not None:
                 if len(self.table_area) != len(self.fill):
-                    raise ValueError("Length of fill should be equal to table_area.")
-            if self.headers is not None:
-                if len(self.table_area) != len(self.headers):
-                    raise ValueError("Length of headers should be equal to table_area.")
+                    raise ValueError("Length of table area and fill should be equal.")
 
             areas = []
             for area in self.table_area:
@@ -287,6 +289,11 @@ class Lattice:
             mtolerance = copy.deepcopy(self.mtol) * len(table_bbox)
         else:
             mtolerance = copy.deepcopy(self.mtol)
+
+        if len(self.jtol) == 1 and self.jtol[0] == 2:
+            jtolerance = copy.deepcopy(self.jtol) * len(table_bbox)
+        else:
+            jtolerance = copy.deepcopy(self.jtol)
 
         if self.debug:
             self.debug_images = (img, table_bbox)
@@ -326,18 +333,9 @@ class Lattice:
             rows = [(rows[i], rows[i + 1])
                     for i in range(0, len(rows) - 1)]
 
-            if self.headers is not None and self.headers[table_no] != [""]:
-                self.headers[table_no] = self.headers[table_no].split(',')
-                if len(self.headers[table_no]) != len(cols):
-                    logger.warning("Length of header ({0}) specified for table is not"
-                                   " equal to the number of columns ({1}) detected.".format(
-                                   len(self.headers[table_no]), len(cols)))
-                while len(self.headers[table_no]) != len(cols):
-                    self.headers[table_no].append('')
-
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
-            table = table.set_edges(v_s, h_s)
+            table = table.set_edges(v_s, h_s, jtol=jtolerance[table_no])
             nouse = table.nocont_ / (len(v_s) + len(h_s))
             table_data['line_p'] = 100 * (1 - nouse)
             # set spanning cells to True
@@ -351,27 +349,27 @@ class Lattice:
             assignment_errors = []
             table_data['split_text'] = []
             table_data['superscript'] = []
-            for direction in t_bbox:
+            for direction in ['vertical', 'horizontal']:
                 for t in t_bbox[direction]:
                     indices, error = get_table_index(
                         table, t, direction, split_text=self.split_text,
                         flag_size=self.flag_size)
-                    assignment_errors.append(error)
-                    indices = _reduce_index(table, indices, shift_text=self.shift_text,)
-                    if len(indices) > 1:
-                        table_data['split_text'].append(indices)
-                    for r_idx, c_idx, text in indices:
-                        if all(s in text for s in ['<s>', '</s>']):
-                            table_data['superscript'].append((r_idx, c_idx, text))
-                        table.cells[r_idx][c_idx].add_text(text)
+                    if indices[:2] != (-1, -1):
+                        assignment_errors.append(error)
+                        indices = _reduce_index(table, indices, shift_text=self.shift_text)
+                        if len(indices) > 1:
+                            table_data['split_text'].append(indices)
+                        for r_idx, c_idx, text in indices:
+                            if all(s in text for s in ['<s>', '</s>']):
+                                table_data['superscript'].append((r_idx, c_idx, text))
+                            table.cells[r_idx][c_idx].add_text(text)
             score = get_score([[100, assignment_errors]])
             table_data['score'] = score
 
             if self.fill is not None:
                 table = _fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
-            if self.headers is not None and self.headers[table_no] != ['']:
-                ar.insert(0, self.headers[table_no])
+            ar = remove_empty(ar)
             ar = encode_list(ar)
             table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)

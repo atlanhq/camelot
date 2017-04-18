@@ -7,19 +7,18 @@ from PIL import Image
 
 from .table import Table
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
-                      find_table_joints)
-from .utils import merge_close_values, encode_list
+                      find_table_joints, find_cuts)
+from .utils import merge_close_values, encode_list, remove_empty
 
 
-class OCR:
-    """Uses optical character recognition to get text out of image based pdfs.
-    Currently works only on pdfs with lines.
+class OCRLattice:
+    """Lattice, but for images.
 
     Parameters
     ----------
     table_area : list
         List of strings of the form x1,y1,x2,y2 where
-        (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDFMiner's
+        (x1, y1) -> left-top and (x2, y2) -> right-bottom in OpenCV's
         coordinate space, denoting table areas to analyze.
         (optional, default: None)
 
@@ -27,12 +26,12 @@ class OCR:
         List of ints specifying m-tolerance parameters.
         (optional, default: [2])
 
-    blocksize: int
+    blocksize : int
         Size of a pixel neighborhood that is used to calculate a
         threshold value for the pixel: 3, 5, 7, and so on.
         (optional, default: 15)
 
-    threshold_constant: float
+    threshold_constant : float
         Constant subtracted from the mean or weighted mean
         (see the details below). Normally, it is positive but may be
         zero or negative as well.
@@ -51,6 +50,10 @@ class OCR:
         element for image processing.
         (optional, default: 15)
 
+    iterations : int
+        Number of iterations for dilation.
+        (optional, default: 2)
+
     debug : string
         {'contour', 'line', 'joint', 'table'}
         Set to one of the above values to generate a matplotlib plot
@@ -58,9 +61,9 @@ class OCR:
         (optional, default: None)
     """
     def __init__(self, table_area=None, mtol=[2], blocksize=15, threshold_constant=-2,
-                 dpi=300, lang="eng", scale=15, debug=None):
+                 dpi=300, lang="eng", scale=15, iterations=2, debug=None):
 
-        self.method = 'ocr'
+        self.method = 'ocrl'
         self.table_area = table_area
         self.mtol = mtol
         self.blocksize = blocksize
@@ -69,11 +72,13 @@ class OCR:
         self.dpi = dpi
         self.lang = lang
         self.scale = scale
+        self.iterations = iterations
         self.debug = debug
 
     def get_tables(self, pdfname):
         if self.tool is None:
             return None
+
         bname, __ = os.path.splitext(pdfname)
         imagename = ''.join([bname, '.png'])
 
@@ -91,9 +96,9 @@ class OCR:
         img, threshold = adaptive_threshold(imagename, blocksize=self.blocksize,
             c=self.threshold_constant)
         vmask, v_segments = find_lines(threshold, direction='vertical',
-            scale=self.scale)
+            scale=self.scale, iterations=self.iterations)
         hmask, h_segments = find_lines(threshold, direction='horizontal',
-            scale=self.scale)
+            scale=self.scale, iterations=self.iterations)
 
         if self.table_area is not None:
             areas = []
@@ -154,6 +159,7 @@ class OCR:
             ar = table.get_list()
             ar.reverse()
             ar = encode_list(ar)
+            ar = remove_empty(ar)
             table_data['data'] = ar
             tables['table-{0}'.format(table_no + 1)] = table_data
             table_no += 1
@@ -161,5 +167,143 @@ class OCR:
 
         if self.debug:
             return None
+
+        return page
+
+
+class OCRStream:
+    """Stream, but for images.
+
+    Parameters
+    ----------
+    table_area : list
+        List of strings of the form x1,y1,x2,y2 where
+        (x1, y1) -> left-top and (x2, y2) -> right-bottom in OpenCV's
+        coordinate space, denoting table areas to analyze.
+        (optional, default: None)
+
+    columns : list
+        List of strings where each string is comma-separated values of
+        x-coordinates in OpenCV's coordinate space.
+        (optional, default: None)
+
+    blocksize : int
+        Size of a pixel neighborhood that is used to calculate a
+        threshold value for the pixel: 3, 5, 7, and so on.
+        (optional, default: 15)
+
+    threshold_constant : float
+        Constant subtracted from the mean or weighted mean
+        (see the details below). Normally, it is positive but may be
+        zero or negative as well.
+        (optional, default: -2)
+
+    line_threshold : int
+        Maximum intensity of projections on y-axis.
+        (optional, default: 100)
+
+    dpi : int
+        Dots per inch.
+        (optional, default: 300)
+
+    lang : string
+        Language to be used for OCR.
+        (optional, default: 'eng')
+    """
+    def __init__(self, table_area=None, columns=None, blocksize=15,
+                 threshold_constant=-2, line_threshold=100, dpi=300, lang="eng",
+                 debug=False):
+
+        self.method = 'ocrs'
+        self.table_area = table_area
+        self.columns = columns
+        self.blocksize = blocksize
+        self.threshold_constant = threshold_constant
+        self.line_threshold = line_threshold
+        self.tool = pyocr.get_available_tools()[0] # fix this
+        self.dpi = dpi
+        self.lang = lang
+        self.debug = debug
+
+    def get_tables(self, pdfname):
+        if self.tool is None:
+            return None
+
+        bname, __ = os.path.splitext(pdfname)
+        imagename = ''.join([bname, '.png'])
+
+        gs_call = [
+            "-q", "-sDEVICE=png16m", "-o", imagename, "-r{0}".format(self.dpi),
+            pdfname
+        ]
+        if "ghostscript" in subprocess.check_output(["gs", "-version"]).lower():
+            gs_call.insert(0, "gs")
+        else:
+            gs_call.insert(0, "gsc")
+        subprocess.call(gs_call, stdout=open(os.devnull, 'w'),
+            stderr=subprocess.STDOUT)
+
+        img, threshold = adaptive_threshold(imagename, blocksize=self.blocksize,
+            c=self.threshold_constant)
+        height, width = threshold.shape
+        if self.debug:
+            self.debug_images = img
+            return None
+
+        if self.table_area is not None:
+            if self.columns is not None:
+                if len(self.table_area) != len(self.columns):
+                    raise ValueError("Length of table area and columns should be equal.")
+
+            table_bbox = {}
+            for area in self.table_area:
+                x1, y1, x2, y2 = area.split(",")
+                x1 = int(x1)
+                y1 = int(y1)
+                x2 = int(x2)
+                y2 = int(y2)
+                table_bbox[(x1, y1, x2, y2)] = None
+        else:
+            table_bbox = {(0, 0, width, height): None}
+
+        page = {}
+        tables = {}
+        table_no = 0
+        for k in sorted(table_bbox.keys(), key=lambda x: x[1]):
+            if self.columns is None:
+                raise NotImplementedError
+            else:
+                table_data = {}
+                table_image = threshold[k[1]:k[3],k[0]:k[2]]
+                cols = self.columns[table_no].split(',')
+                cols = [float(c) for c in cols]
+                cols.insert(0, k[0])
+                cols.append(k[2])
+                cols = [(cols[i] - k[0], cols[i + 1] - k[0]) for i in range(0, len(cols) - 1)]
+                y_cuts = find_cuts(table_image, line_threshold=self.line_threshold)
+                rows = [(y_cuts[i], y_cuts[i + 1]) for i in range(0, len(y_cuts) - 1)]
+                table = Table(cols, rows)
+                for i in range(len(table.cells)):
+                    for j in range(len(table.cells[i])):
+                        x1 = int(table.cells[i][j].x1)
+                        y1 = int(table.cells[i][j].y1)
+                        x2 = int(table.cells[i][j].x2)
+                        y2 = int(table.cells[i][j].y2)
+                        table.cells[i][j].image = table_image[y1:y2,x1:x2]
+                        cell_image = Image.fromarray(table.cells[i][j].image)
+                        text = self.tool.image_to_string(
+                            cell_image,
+                            lang=self.lang,
+                            builder=pyocr.builders.TextBuilder()
+                        )
+                        table.cells[i][j].add_text(text)
+                ar = table.get_list()
+                ar.reverse()
+                ar = encode_list(ar)
+                ar = remove_empty(ar)
+                table_data['data'] = ar
+                tables['table-{0}'.format(table_no + 1)] = table_data
+                table_no += 1
+        page[os.path.basename(bname)] = tables
 
         return page

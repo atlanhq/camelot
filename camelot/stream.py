@@ -236,10 +236,6 @@ class Stream:
         x-coordinates in PDFMiner's coordinate space.
         (optional, default: None)
 
-    headers : list
-        List of strings where each string is a csv header for a table.
-        (optional, default: None)
-
     ytol : list
         List of ints specifying the y-tolerance parameters.
         (optional, default: [2])
@@ -268,14 +264,13 @@ class Stream:
         LTTextLineHorizontals in order to select table_area, columns.
         (optional, default: False)
     """
-    def __init__(self, table_area=None, columns=None, headers=None,
-                 ytol=[2], mtol=[0], margins=(1.0, 0.5, 0.1),
-                 split_text=False, flag_size=True, debug=False):
+    def __init__(self, table_area=None, columns=None, ytol=[2], mtol=[0],
+                 margins=(1.0, 0.5, 0.1), split_text=False, flag_size=True,
+                 debug=False):
 
         self.method = 'stream'
         self.table_area = table_area
         self.columns = columns
-        self.headers = headers
         self.ytol = ytol
         self.mtol = mtol
         self.char_margin, self.line_margin, self.word_margin = margins
@@ -312,14 +307,12 @@ class Stream:
             self.debug_text = []
             self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlh])
             self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlv])
+            return None
 
         if self.table_area is not None:
             if self.columns is not None:
                 if len(self.table_area) != len(self.columns):
-                    raise ValueError("Length of columns should be equal to table_area.")
-            if self.headers is not None:
-                if len(self.table_area) != len(self.headers):
-                    raise ValueError("Length of headers should be equal to table_area.")
+                    raise ValueError("Length of table area and columns should be equal.")
 
             table_bbox = {}
             for area in self.table_area:
@@ -336,6 +329,7 @@ class Stream:
             ytolerance = copy.deepcopy(self.ytol) * len(table_bbox)
         else:
             ytolerance = copy.deepcopy(self.ytol)
+
         if len(self.mtol) == 1 and self.mtol[0] == 0:
             mtolerance = copy.deepcopy(self.mtol) * len(table_bbox)
         else:
@@ -374,7 +368,7 @@ class Stream:
                 guess = True
                 ncols = max(set(elements), key=elements.count)
                 len_non_mode = len(filter(lambda x: x != ncols, elements))
-                if ncols == 1 and not self.debug:
+                if ncols == 1:
                     # no tables detected
                     logger.warning("{}: Only one column was detected, the pdf"
                                    " may have no tables.".format(
@@ -395,15 +389,6 @@ class Stream:
                 inner_text.extend(outer_text)
                 cols = _add_columns(cols, inner_text, ytolerance[table_no])
                 cols = _join_columns(cols, text_x_min, text_x_max)
-
-            if self.headers is not None and self.headers[table_no] != [""]:
-                self.headers[table_no] = self.headers[table_no].split(',')
-                if len(self.headers[table_no]) != len(cols):
-                    logger.warning("Length of header ({0}) specified for table is not"
-                                   " equal to the number of columns ({1}) detected.".format(
-                                   len(self.headers[table_no]), len(cols)))
-                while len(self.headers[table_no]) != len(cols):
-                    self.headers[table_no].append('')
 
             table = Table(cols, rows)
             table = table.set_all_edges()
@@ -429,8 +414,6 @@ class Stream:
 
             table_data['score'] = score
             ar = table.get_list()
-            if self.headers is not None and self.headers[table_no] != ['']:
-                ar.insert(0, self.headers[table_no])
             ar = encode_list(ar)
             table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)

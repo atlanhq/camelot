@@ -426,40 +426,43 @@ def split_textline(table, textline, direction, flag_size=True):
     idx = 0
     cut_text = []
     bbox = textline.bbox
-    if direction == 'horizontal' and not textline.is_empty():
-        x_overlap = [i for i, x in enumerate(table.cols) if x[0] <= bbox[2] and bbox[0] <= x[1]]
-        r_idx = [j for j, r in enumerate(table.rows) if r[1] <= (bbox[1] + bbox[3]) / 2 <= r[0]]
-        r = r_idx[0]
-        x_cuts = [(c, table.cells[r][c].x2) for c in x_overlap if table.cells[r][c].right]
-        if not x_cuts:
-            x_cuts = [(x_overlap[0], table.cells[r][-1].x2)]
-        for obj in textline._objs:
-            row = table.rows[r]
-            for cut in x_cuts:
-                if isinstance(obj, LTChar):
-                    if (row[1] <= (obj.y0 + obj.y1) / 2 <= row[0] and
-                            (obj.x0 + obj.x1) / 2 <= cut[1]):
+    try:
+        if direction == 'horizontal' and not textline.is_empty():
+            x_overlap = [i for i, x in enumerate(table.cols) if x[0] <= bbox[2] and bbox[0] <= x[1]]
+            r_idx = [j for j, r in enumerate(table.rows) if r[1] <= (bbox[1] + bbox[3]) / 2 <= r[0]]
+            r = r_idx[0]
+            x_cuts = [(c, table.cells[r][c].x2) for c in x_overlap if table.cells[r][c].right]
+            if not x_cuts:
+                x_cuts = [(x_overlap[0], table.cells[r][-1].x2)]
+            for obj in textline._objs:
+                row = table.rows[r]
+                for cut in x_cuts:
+                    if isinstance(obj, LTChar):
+                        if (row[1] <= (obj.y0 + obj.y1) / 2 <= row[0] and
+                                (obj.x0 + obj.x1) / 2 <= cut[1]):
+                            cut_text.append((r, cut[0], obj))
+                            break
+                    elif isinstance(obj, LTAnno):
                         cut_text.append((r, cut[0], obj))
-                        break
-                elif isinstance(obj, LTAnno):
-                    cut_text.append((r, cut[0], obj))
-    elif direction == 'vertical' and not textline.is_empty():
-        y_overlap = [j for j, y in enumerate(table.rows) if y[1] <= bbox[3] and bbox[1] <= y[0]]
-        c_idx = [i for i, c in enumerate(table.cols) if c[0] <= (bbox[0] + bbox[2]) / 2 <= c[1]]
-        c = c_idx[0]
-        y_cuts = [(r, table.cells[r][c].y1) for r in y_overlap if table.cells[r][c].bottom]
-        if not y_cuts:
-            y_cuts = [(y_overlap[0], table.cells[-1][c].y1)]
-        for obj in textline._objs:
-            col = table.cols[c]
-            for cut in y_cuts:
-                if isinstance(obj, LTChar):
-                    if (col[0] <= (obj.x0 + obj.x1) / 2 <= col[1] and
-                            (obj.y0 + obj.y1) / 2 >= cut[1]):
+        elif direction == 'vertical' and not textline.is_empty():
+            y_overlap = [j for j, y in enumerate(table.rows) if y[1] <= bbox[3] and bbox[1] <= y[0]]
+            c_idx = [i for i, c in enumerate(table.cols) if c[0] <= (bbox[0] + bbox[2]) / 2 <= c[1]]
+            c = c_idx[0]
+            y_cuts = [(r, table.cells[r][c].y1) for r in y_overlap if table.cells[r][c].bottom]
+            if not y_cuts:
+                y_cuts = [(y_overlap[0], table.cells[-1][c].y1)]
+            for obj in textline._objs:
+                col = table.cols[c]
+                for cut in y_cuts:
+                    if isinstance(obj, LTChar):
+                        if (col[0] <= (obj.x0 + obj.x1) / 2 <= col[1] and
+                                (obj.y0 + obj.y1) / 2 >= cut[1]):
+                            cut_text.append((cut[0], c, obj))
+                            break
+                    elif isinstance(obj, LTAnno):
                         cut_text.append((cut[0], c, obj))
-                        break
-                elif isinstance(obj, LTAnno):
-                    cut_text.append((cut[0], c, obj))
+    except IndexError:
+        return [(-1, -1, textline.get_text())]
     grouped_chars = []
     for key, chars in groupby(cut_text, itemgetter(0, 1)):
         if flag_size:

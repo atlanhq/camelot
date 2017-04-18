@@ -141,11 +141,14 @@ class Pdf:
                 if self.extractor.method == 'stream':
                     self.debug = self.extractor.debug
                     self.debug_text = []
-                elif self.extractor.method in ['lattice', 'ocr']:
+                elif self.extractor.method in ['lattice', 'ocrl']:
                     self.debug = self.extractor.debug
                     self.debug_images = []
                     self.debug_segments = []
                     self.debug_tables = []
+                elif self.extractor.method == 'ocrs':
+                    self.debug = self.extractor.debug
+                    self.debug_images = []
             for p in pages:
                 table = self.extractor.get_tables(p)
                 if table is not None:
@@ -157,6 +160,8 @@ class Pdf:
                         self.debug_images.append(self.extractor.debug_images)
                         self.debug_segments.append(self.extractor.debug_segments)
                         self.debug_tables.append(self.extractor.debug_tables)
+                    elif self.extractor.method == 'ocrs':
+                        self.debug_images.append(self.extractor.debug_images)
         if self.clean:
             self.remove_tempdir()
         return tables
@@ -175,7 +180,7 @@ class Pdf:
         import matplotlib.patches as patches
 
         if self.debug is True:
-            try:
+            if hasattr(self, 'debug_text'):
                 for text in self.debug_text:
                     fig = plt.figure()
                     ax = fig.add_subplot(111, aspect='equal')
@@ -193,8 +198,10 @@ class Pdf:
                     ax.set_xlim(min(xs) - 10, max(xs) + 10)
                     ax.set_ylim(min(ys) - 10, max(ys) + 10)
                     plt.show()
-            except AttributeError:
-                raise ValueError("This option only be used with Stream.")
+            elif hasattr(self, 'debug_images'):
+                for img in self.debug_images:
+                    plt.imshow(img)
+                    plt.show()
         elif self.debug == 'contour':
             try:
                 for img, table_bbox in self.debug_images:
