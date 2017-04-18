@@ -211,7 +211,8 @@ class OCRStream:
         (optional, default: 'eng')
     """
     def __init__(self, table_area=None, columns=None, blocksize=15,
-                 threshold_constant=-2, line_threshold=100, dpi=300, lang="eng"):
+                 threshold_constant=-2, line_threshold=100, dpi=300, lang="eng",
+                 debug=False):
 
         self.method = 'ocrs'
         self.table_area = table_area
@@ -222,7 +223,7 @@ class OCRStream:
         self.tool = pyocr.get_available_tools()[0] # fix this
         self.dpi = dpi
         self.lang = lang
-        self.debug = None
+        self.debug = debug
 
     def get_tables(self, pdfname):
         if self.tool is None:
@@ -245,6 +246,9 @@ class OCRStream:
         img, threshold = adaptive_threshold(imagename, blocksize=self.blocksize,
             c=self.threshold_constant)
         height, width = threshold.shape
+        if self.debug:
+            self.debug_images = img
+            return None
 
         if self.table_area is not None:
             if self.columns is not None:

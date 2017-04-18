@@ -307,6 +307,7 @@ class Stream:
             self.debug_text = []
             self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlh])
             self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlv])
+            return None
 
         if self.table_area is not None:
             if self.columns is not None:
@@ -367,7 +368,7 @@ class Stream:
                 guess = True
                 ncols = max(set(elements), key=elements.count)
                 len_non_mode = len(filter(lambda x: x != ncols, elements))
-                if ncols == 1 and not self.debug:
+                if ncols == 1:
                     # no tables detected
                     logger.warning("{}: Only one column was detected, the pdf"
                                    " may have no tables.".format(

@@ -146,6 +146,7 @@ options:
  -D, --dpi <dpi>                        Dots per inch, specify image quality to be used for OCR.
                                         [default: 300]
  -l, --lang <lang>                      Specify language to be used for OCR. [default: eng]
+ -d, --debug                            Debug by visualizing image.
 """
 
 
@@ -621,7 +622,8 @@ if __name__ == '__main__':
                 'threshold_constant': float(args['--constant']),
                 'line_threshold': int(args['--line-threshold']),
                 'dpi': int(args['--dpi']),
-                'lang': args['--lang']
+                'lang': args['--lang'],
+                'debug': args['--debug']
             }
             manager = Pdf(OCRStream(**kwargs), filename, pagenos=p, clean=True,
                           parallel=args['--parallel'])
@@ -671,6 +673,8 @@ if __name__ == '__main__':
                                 table['line_p'],
                                 table['text_p'],
                                 table['score']))
+            if args['--debug']:
+                manager.debug_plot()
         except Exception as e:
             logger.exception(e.message, exc_info=True)
             sys.exit()
