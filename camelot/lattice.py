@@ -157,7 +157,7 @@ class Lattice:
 
     iterations : int
         Number of iterations for dilation.
-        (optional, default: 2)
+        (optional, default: 0)
 
     invert : bool
         Whether or not to invert the image. Useful when pdfs have
@@ -192,7 +192,7 @@ class Lattice:
         (optional, default: None)
     """
     def __init__(self, table_area=None, fill=None, mtol=[2], jtol=[2],
-                 blocksize=15, threshold_constant=-2, scale=15, iterations=2,
+                 blocksize=15, threshold_constant=-2, scale=15, iterations=0,
                  invert=False, margins=(1.0, 0.5, 0.1), split_text=False,
                  flag_size=True, shift_text=['l', 't'], debug=None):
 

@@ -52,7 +52,7 @@ class OCRLattice:
 
     iterations : int
         Number of iterations for dilation.
-        (optional, default: 2)
+        (optional, default: 0)
 
     debug : string
         {'contour', 'line', 'joint', 'table'}
@@ -61,7 +61,7 @@ class OCRLattice:
         (optional, default: None)
     """
     def __init__(self, table_area=None, mtol=[2], blocksize=15, threshold_constant=-2,
-                 dpi=300, lang="eng", scale=15, iterations=2, debug=None):
+                 dpi=300, lang="eng", scale=15, iterations=0, debug=None):
 
         self.method = 'ocrl'
         self.table_area = table_area

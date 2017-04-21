@@ -79,7 +79,7 @@ options:
  -C, --constant <constant>      See adaptive threshold doc. [default: -2]
  -s, --scale <scale>            Scaling factor. Large scaling factor leads to
                                 smaller lines being detected. [default: 15]
- -I, --iterations <iterations>  Number of iterations for dilation. [default: 2]
+ -I, --iterations <iterations>  Number of iterations for dilation. [default: 0]
  -i, --invert                   Invert pdf image to make sure that lines are
                                 in foreground.
  -T, --shift_text <shift_text>  Specify where the text in a spanning cell
@@ -124,7 +124,7 @@ options:
  -l, --lang <lang>              Specify language to be used for OCR. [default: eng]
  -s, --scale <scale>            Scaling factor. Large scaling factor leads to
                                 smaller lines being detected. [default: 15]
- -I, --iterations <iterations>  Number of iterations for dilation. [default: 2]
+ -I, --iterations <iterations>  Number of iterations for dilation. [default: 0]
  -d, --debug <debug>            Debug by visualizing pdf geometry.
                                 (contour,line,joint,table) Example: -d table
 """
