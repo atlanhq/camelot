@@ -110,10 +110,10 @@ class OCRLattice:
             areas = []
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
-                x1 = int(x1)
-                y1 = int(y1)
-                x2 = int(x2)
-                y2 = int(y2)
+                x1 = int(float(x1))
+                y1 = int(float(y1))
+                x2 = int(float(x2))
+                y2 = int(float(y2))
                 areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
             table_bbox = find_table_joints(areas, vmask, hmask)
         else:
@@ -265,10 +265,10 @@ class OCRStream:
             table_bbox = {}
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
-                x1 = int(x1)
-                y1 = int(y1)
-                x2 = int(x2)
-                y2 = int(y2)
+                x1 = int(float(x1))
+                y1 = int(float(y1))
+                x2 = int(float(x2))
+                y2 = int(float(y2))
                 table_bbox[(x1, y1, x2, y2)] = None
         else:
             table_bbox = {(0, 0, width, height): None}
