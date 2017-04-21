@@ -12,7 +12,7 @@ from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
 from .table import Table
 from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_in_bbox,
                     merge_close_values, get_table_index, get_score, count_empty,
-                    encode_list, get_text_objects, get_page_layout, remove_empty)
+                    encode_list, get_text_objects, get_page_layout)
 
 
 __all__ = ['Lattice']
@@ -369,7 +369,6 @@ class Lattice:
             if self.fill is not None:
                 table = _fill_spanning(table, fill=self.fill[table_no])
             ar = table.get_list()
-            ar = remove_empty(ar)
             ar = encode_list(ar)
             table_data['data'] = ar
             empty_p, r_nempty_cells, c_nempty_cells = count_empty(ar)

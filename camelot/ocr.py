@@ -8,7 +8,7 @@ from PIL import Image
 from .table import Table
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints, find_cuts)
-from .utils import merge_close_values, encode_list, remove_empty
+from .utils import merge_close_values, encode_list
 
 
 class OCRLattice:
@@ -159,7 +159,6 @@ class OCRLattice:
             ar = table.get_list()
             ar.reverse()
             ar = encode_list(ar)
-            ar = remove_empty(ar)
             table_data['data'] = ar
             tables['table-{0}'.format(table_no + 1)] = table_data
             table_no += 1
@@ -300,7 +299,6 @@ class OCRStream:
                 ar = table.get_list()
                 ar.reverse()
                 ar = encode_list(ar)
-                ar = remove_empty(ar)
                 table_data['data'] = ar
                 tables['table-{0}'.format(table_no + 1)] = table_data
                 table_no += 1
