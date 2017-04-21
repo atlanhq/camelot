@@ -1,6 +1,5 @@
 import os
 import shutil
-import logging
 import tempfile
 import itertools
 import multiprocessing as mp
@@ -13,8 +12,6 @@ from .utils import get_page_layout, get_text_objects, get_rotation
 
 
 __all__ = ['Pdf']
-
-logger = logging.getLogger("app_logger")
 
 
 def _parse_page_numbers(pagenos):
@@ -104,7 +101,7 @@ class Pdf:
         self.extractor = extractor
         self.pdfname = pdfname
         if not self.pdfname.endswith('.pdf'):
-            raise TypeError("Only PDF format is supported right now.")
+            raise TypeError("File format not supported.")
         self.pagenos = _parse_page_numbers(pagenos)
         self.parallel = parallel
         if self.parallel:
@@ -116,7 +113,6 @@ class Pdf:
     def split(self):
         """Splits file into single page pdfs.
         """
-        logger.info('Splitting pages...')
         if self.parallel:
             pfunc = partial(_save_page, self.temp, self.pdfname)
             self.pool.map(pfunc, self.pagenos)
@@ -211,7 +207,7 @@ class Pdf:
                     plt.imshow(img)
                     plt.show()
             except AttributeError:
-                raise ValueError("This option only be used with Lattice.")
+                raise ValueError("This option can only be used with Lattice.")
         elif self.debug == 'joint':
             try:
                 for img, table_bbox in self.debug_images:
@@ -227,7 +223,7 @@ class Pdf:
                     plt.imshow(img)
                     plt.show()
             except AttributeError:
-                raise ValueError("This option only be used with Lattice.")
+                raise ValueError("This option can only be used with Lattice.")
         elif self.debug == 'line':
             try:
                 for v_s, h_s in self.debug_segments:
@@ -237,7 +233,7 @@ class Pdf:
                         plt.plot([h[0], h[2]], [h[1], h[3]])
                     plt.show()
             except AttributeError:
-                raise ValueError("This option only be used with Lattice.")
+                raise ValueError("This option can only be used with Lattice.")
         elif self.debug == 'table':
             try:
                 for tables in self.debug_tables:
@@ -266,7 +262,7 @@ class Pdf:
                                               table.cells[r][c].rb[1]])
                     plt.show()
             except AttributeError:
-                raise ValueError("This option only be used with Lattice.")
+                raise ValueError("This option can only be used with Lattice.")
         else:
             raise UserWarning("This method can only be called after"
                 " debug has been specified.")

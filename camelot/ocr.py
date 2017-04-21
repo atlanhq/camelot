@@ -1,5 +1,6 @@
 import os
 import copy
+import logging
 import subprocess
 
 import pyocr
@@ -9,6 +10,10 @@ from .table import Table
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints, find_cuts)
 from .utils import merge_close_values, encode_list
+
+
+__all__ = ['OCRLattice', 'OCRStream']
+logger = logging.getLogger('app_logger')
 
 
 class OCRLattice:
@@ -81,6 +86,7 @@ class OCRLattice:
 
         bname, __ = os.path.splitext(pdfname)
         imagename = ''.join([bname, '.png'])
+        logger.info('Processing {0}.'.format(os.path.basename(bname)))
 
         gs_call = [
             "-q", "-sDEVICE=png16m", "-o", imagename, "-r{0}".format(self.dpi),
@@ -230,6 +236,7 @@ class OCRStream:
 
         bname, __ = os.path.splitext(pdfname)
         imagename = ''.join([bname, '.png'])
+        logger.info('Processing {0}.'.format(os.path.basename(bname)))
 
         gs_call = [
             "-q", "-sDEVICE=png16m", "-o", imagename, "-r{0}".format(self.dpi),
@@ -252,7 +259,8 @@ class OCRStream:
         if self.table_area is not None:
             if self.columns is not None:
                 if len(self.table_area) != len(self.columns):
-                    raise ValueError("Length of table area and columns should be equal.")
+                    raise ValueError("{0}: Length of table area and columns"
+                                     "should be equal.".format(os.path.basename(bname)))
 
             table_bbox = {}
             for area in self.table_area:

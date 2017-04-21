@@ -5,6 +5,7 @@ import copy
 import types
 import logging
 import copy_reg
+import warnings
 import subprocess
 
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
@@ -16,8 +17,7 @@ from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_in_bbox,
 
 
 __all__ = ['Lattice']
-
-logger = logging.getLogger("app_logger")
+logger = logging.getLogger('app_logger')
 
 
 def _reduce_method(m):
@@ -231,9 +231,9 @@ class Lattice:
         ltchar = get_text_objects(layout, ltype="char")
         width, height = dim
         bname, __ = os.path.splitext(pdfname)
-        logger.info('Parsing tables from {0}.'.format(os.path.basename(bname)))
+        logger.info('Processing {0}.'.format(os.path.basename(bname)))
         if not ltchar:
-            logger.warning("{0}: PDF has no text. It may be an image.".format(
+            warnings.warn("{0}: Page contains no text.".format(
                 os.path.basename(bname)))
             return {os.path.basename(bname): None}
 
@@ -269,7 +269,8 @@ class Lattice:
         if self.table_area is not None:
             if self.fill is not None:
                 if len(self.table_area) != len(self.fill):
-                    raise ValueError("Length of table area and fill should be equal.")
+                    raise ValueError("{0}: Length of table area and fill should"
+                                     " be equal.".format(os.path.basename(bname)))
 
             areas = []
             for area in self.table_area:

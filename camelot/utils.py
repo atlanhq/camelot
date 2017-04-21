@@ -528,7 +528,7 @@ def get_table_index(table, t, direction, split_text=False, flag_size=True):
                 else:
                     lt_col_overlap.append(-1)
             if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
-                logging.warning("Text doesn't fit any column.")
+                logging.warning("Text did not fit any column.")
             r_idx = r
             c_idx = lt_col_overlap.index(max(lt_col_overlap))
             break
@@ -576,8 +576,7 @@ def get_score(error_weights):
     try:
         score = 0
         if sum([ew[0] for ew in error_weights]) != SCORE_VAL:
-            raise ValueError("Please assign a valid weightage to each parameter"
-                             " such that their sum is equal to 100")
+            raise ValueError("Sum of weights should be equal to 100.")
         for ew in error_weights:
             weight = ew[0] / len(ew[1])
             for error_percentage in ew[1]:

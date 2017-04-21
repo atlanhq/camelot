@@ -4,6 +4,7 @@ import copy
 import types
 import logging
 import copy_reg
+import warnings
 
 import numpy as np
 
@@ -13,8 +14,7 @@ from .utils import (text_in_bbox, get_table_index, get_score, count_empty,
 
 
 __all__ = ['Stream']
-
-logger = logging.getLogger("app_logger")
+logger = logging.getLogger('app_logger')
 
 
 def _reduce_method(m):
@@ -297,9 +297,9 @@ class Stream:
         ltchar = get_text_objects(layout, ltype="char")
         width, height = dim
         bname, __ = os.path.splitext(pdfname)
-        logger.info('Parsing tables from {0}.'.format(os.path.basename(bname)))
+        logger.info('Processing {0}.'.format(os.path.basename(bname)))
         if not lttextlh:
-            logger.warning("{0}: PDF has no text. It may be an image.".format(
+            warnings.warn("{0}: Page contains no text.".format(
                 os.path.basename(bname)))
             return {os.path.basename(bname): None}
 
@@ -312,7 +312,8 @@ class Stream:
         if self.table_area is not None:
             if self.columns is not None:
                 if len(self.table_area) != len(self.columns):
-                    raise ValueError("Length of table area and columns should be equal.")
+                    raise ValueError("{0}: Length of table area and columns"
+                                     "should be equal.".format(os.path.basename(bname)))
 
             table_bbox = {}
             for area in self.table_area:
@@ -370,9 +371,8 @@ class Stream:
                 len_non_mode = len(filter(lambda x: x != ncols, elements))
                 if ncols == 1:
                     # no tables detected
-                    logger.warning("{}: Only one column was detected, the pdf"
-                                   " may have no tables.".format(
-                                  os.path.basename(bname)))
+                    warnings.warn("{0}: Page contains no tables.".format(
+                        os.path.basename(bname)))
                 cols = [(t.x0, t.x1)
                     for r in rows_grouped if len(r) == ncols for t in r]
                 cols = _merge_columns(sorted(cols), mtol=mtolerance[table_no])
