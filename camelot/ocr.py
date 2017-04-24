@@ -260,7 +260,7 @@ class OCRStream:
             if self.columns is not None:
                 if len(self.table_area) != len(self.columns):
                     raise ValueError("{0}: Length of table area and columns"
-                                     "should be equal.".format(os.path.basename(bname)))
+                                     " should be equal.".format(os.path.basename(bname)))
 
             table_bbox = {}
             for area in self.table_area:
