@@ -8,7 +8,7 @@ from PIL import Image
 
 from .table import Table
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
-                      find_table_joints, find_cuts)
+                      find_table_joints, remove_lines, find_cuts)
 from .utils import merge_close_values, encode_list
 
 
@@ -46,6 +46,10 @@ class OCRLattice:
         Dots per inch.
         (optional, default: 300)
 
+    layout : int
+        Tesseract page segmentation mode.
+        (optional, default: 7)
+
     lang : string
         Language to be used for OCR.
         (optional, default: 'eng')
@@ -66,7 +70,7 @@ class OCRLattice:
         (optional, default: None)
     """
     def __init__(self, table_area=None, mtol=[2], blocksize=15, threshold_constant=-2,
-                 dpi=300, lang="eng", scale=15, iterations=0, debug=None):
+                 dpi=300, layout=7, lang="eng", scale=15, iterations=0, debug=None):
 
         self.method = 'ocrl'
         self.table_area = table_area
@@ -75,6 +79,7 @@ class OCRLattice:
         self.threshold_constant = threshold_constant
         self.tool = pyocr.get_available_tools()[0] # fix this
         self.dpi = dpi
+        self.layout = layout
         self.lang = lang
         self.scale = scale
         self.iterations = iterations
@@ -159,7 +164,7 @@ class OCRLattice:
                     text = self.tool.image_to_string(
                         Image.fromarray(table.cells[i][j].image),
                         lang=self.lang,
-                        builder=pyocr.builders.TextBuilder()
+                        builder=pyocr.builders.TextBuilder(tesseract_layout=self.layout)
                     )
                     table.cells[i][j].add_text(text)
             ar = table.get_list()
@@ -203,31 +208,41 @@ class OCRStream:
         zero or negative as well.
         (optional, default: -2)
 
-    line_threshold : int
-        Maximum intensity of projections on y-axis.
-        (optional, default: 100)
-
     dpi : int
         Dots per inch.
         (optional, default: 300)
 
+    layout : int
+        Tesseract page segmentation mode.
+        (optional, default: 7)
+
     lang : string
         Language to be used for OCR.
         (optional, default: 'eng')
+
+    line_scale : int
+        Line scaling factor.
+        (optional, default: 15)
+
+    char_scale : int
+        Char scaling factor.
+        (optional, default: 200)
     """
     def __init__(self, table_area=None, columns=None, blocksize=15,
-                 threshold_constant=-2, line_threshold=100, dpi=300, lang="eng",
-                 debug=False):
+                 threshold_constant=-2, dpi=300, layout=7, lang="eng",
+                 line_scale=15, char_scale=200, debug=False):
 
         self.method = 'ocrs'
         self.table_area = table_area
         self.columns = columns
         self.blocksize = blocksize
         self.threshold_constant = threshold_constant
-        self.line_threshold = line_threshold
         self.tool = pyocr.get_available_tools()[0] # fix this
         self.dpi = dpi
+        self.layout = layout
         self.lang = lang
+        self.line_scale = line_scale
+        self.char_scale = char_scale
         self.debug = debug
 
     def get_tables(self, pdfname):
@@ -251,6 +266,7 @@ class OCRStream:
 
         img, threshold = adaptive_threshold(imagename, blocksize=self.blocksize,
             c=self.threshold_constant)
+        threshold = remove_lines(threshold, line_scale=self.line_scale)
         height, width = threshold.shape
         if self.debug:
             self.debug_images = img
@@ -287,7 +303,7 @@ class OCRStream:
                 cols.insert(0, k[0])
                 cols.append(k[2])
                 cols = [(cols[i] - k[0], cols[i + 1] - k[0]) for i in range(0, len(cols) - 1)]
-                y_cuts = find_cuts(table_image, line_threshold=self.line_threshold)
+                y_cuts = find_cuts(table_image, char_scale=self.char_scale)
                 rows = [(y_cuts[i], y_cuts[i + 1]) for i in range(0, len(y_cuts) - 1)]
                 table = Table(cols, rows)
                 for i in range(len(table.cells)):
@@ -301,7 +317,7 @@ class OCRStream:
                         text = self.tool.image_to_string(
                             cell_image,
                             lang=self.lang,
-                            builder=pyocr.builders.TextBuilder()
+                            builder=pyocr.builders.TextBuilder(tesseract_layout=self.layout)
                         )
                         table.cells[i][j].add_text(text)
                 ar = table.get_list()

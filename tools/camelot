@@ -121,6 +121,7 @@ options:
  -C, --constant <constant>      See adaptive threshold doc. [default: -2]
  -D, --dpi <dpi>                Dots per inch, specify image quality to be used for OCR.
                                 [default: 300]
+ -g, --layout <layout>          Tesseract page segmentation mode. [default: 7]
  -l, --lang <lang>              Specify language to be used for OCR. [default: eng]
  -s, --scale <scale>            Scaling factor. Large scaling factor leads to
                                 smaller lines being detected. [default: 15]
@@ -141,11 +142,12 @@ options:
                                         Example: -c 10.1,20.2,30.3
  -b, --blocksize <blocksize>            See adaptive threshold doc. [default: 15]
  -C, --constant <constant>              See adaptive threshold doc. [default: -2]
- -N, --line-threshold <line_threshold>  Maximum intensity of projections on y-axis.
-                                        [default: 100]
  -D, --dpi <dpi>                        Dots per inch, specify image quality to be used for OCR.
                                         [default: 300]
+ -g, --layout <layout>                  Tesseract page segmentation mode. [default: 7]
  -l, --lang <lang>                      Specify language to be used for OCR. [default: eng]
+ -G, --line-scale <line_scale>          Line scaling factor. [default: 15]
+ -S, --char-scale <char_scale>          Char scaling factor. [default: 200]
  -d, --debug                            Debug by visualizing image.
 """
 
@@ -555,6 +557,7 @@ if __name__ == '__main__':
                 'blocksize': int(args['--blocksize']),
                 'threshold_constant': float(args['--constant']),
                 'dpi': int(args['--dpi']),
+                'layout': int(args['--layout']),
                 'lang': args['--lang'],
                 'scale': int(args['--scale']),
                 'iterations': int(args['--iterations']),
@@ -620,9 +623,11 @@ if __name__ == '__main__':
                 'columns': args['--columns'] if args['--columns'] else None,
                 'blocksize': int(args['--blocksize']),
                 'threshold_constant': float(args['--constant']),
-                'line_threshold': int(args['--line-threshold']),
                 'dpi': int(args['--dpi']),
+                'layout': int(args['--layout']),
                 'lang': args['--lang'],
+                'line_scale': int(args['--line-scale']),
+                'char_scale': int(args['--char-scale']),
                 'debug': args['--debug']
             }
             manager = Pdf(OCRStream(**kwargs), filename, pagenos=p, clean=True,

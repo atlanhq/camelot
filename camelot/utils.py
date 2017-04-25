@@ -752,3 +752,25 @@ def get_page_layout(pname, char_margin=1.0, line_margin=0.5, word_margin=0.1,
             height = layout.bbox[3]
             dim = (width, height)
         return layout, dim
+
+
+def merge_tuples(tuples):
+    """Merges a list of overlapping tuples.
+
+    Parameters
+    ----------
+    tuples : list
+
+    Returns
+    -------
+    merged : list
+    """
+    merged = list(tuples[0])
+    for s, e in tuples:
+        if s <= merged[1]:
+            merged[1] = max(merged[1], e)
+        else:
+            yield tuple(merged)
+            merged[0] = s
+            merged[1] = e
+    yield tuple(merged)

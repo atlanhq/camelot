@@ -4,6 +4,8 @@ from operator import itemgetter
 import cv2
 import numpy as np
 
+from .utils import merge_tuples
+
 
 def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
     """Thresholds an image using OpenCV's adaptiveThreshold.
@@ -199,30 +201,72 @@ def find_table_joints(contours, vertical, horizontal):
     return tables
 
 
-def find_cuts(threshold, line_threshold=100):
-    """find_cuts
+def remove_lines(threshold, line_scale=15):
+    """Removes lines from a thresholded image.
 
     Parameters
     ----------
     threshold : object
         numpy.ndarray representing the thresholded image.
 
-    line_threshold : int
-        Maximum intensity of projections on y-axis.
-        (optional, default: 100)
+    line_scale : int
+        Line scaling factor.
+        (optional, default: 15)
+
+    Returns
+    -------
+    threshold : object
+        numpy.ndarray representing the thresholded image
+        with horizontal and vertical lines removed.
+    """
+    size = threshold.shape[0] // line_scale
+    vertical_erode_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
+    horizontal_erode_el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
+    dilate_el = cv2.getStructuringElement(cv2.MORPH_RECT, (10, 10))
+
+    vertical = cv2.erode(threshold, vertical_erode_el)
+    vertical = cv2.dilate(vertical, dilate_el)
+
+    horizontal = cv2.erode(threshold, horizontal_erode_el)
+    horizontal = cv2.dilate(horizontal, dilate_el)
+
+    threshold = np.bitwise_and(threshold, np.invert(vertical))
+    threshold = np.bitwise_and(threshold, np.invert(horizontal))
+    return threshold
+
+
+def find_cuts(threshold, char_scale=200):
+    """Finds cuts made by text projections on y-axis.
+
+    Parameters
+    ----------
+    threshold : object
+        numpy.ndarray representing the thresholded image.
+
+    char_scale : int
+        Char scaling factor.
+        (optional, default: 200)
 
     Returns
     -------
     y_cuts : list
         List of cuts on y-axis.
     """
-    y_proj = np.sum(threshold, axis=1)
-    y_proj_less = np.where(y_proj < line_threshold)[0]
-    ranges = []
-    for k, g in groupby(enumerate(y_proj_less), lambda (i, x): i-x):
-        group = map(itemgetter(1), g)
-        ranges.append((group[0], group[-1]))
-    y_cuts = []
-    for r in ranges:
-        y_cuts.append((r[0] + r[1]) / 2)
+    size = threshold.shape[0] // char_scale
+    char_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
+
+    threshold = cv2.erode(threshold, char_el)
+    threshold = cv2.dilate(threshold, char_el)
+
+    try:
+        __, contours, __ = cv2.findContours(threshold, cv2.RETR_EXTERNAL,
+            cv2.CHAIN_APPROX_SIMPLE)
+    except ValueError:
+        contours, __ = cv2.findContours(threshold, cv2.RETR_EXTERNAL,
+            cv2.CHAIN_APPROX_SIMPLE)
+
+    contours = [cv2.boundingRect(c) for c in contours]
+    y_cuts = [(c[1], c[1] + c[3]) for c in contours]
+    y_cuts = list(merge_tuples(sorted(y_cuts)))
+    y_cuts = [(y_cuts[i][0] + y_cuts[i - 1][1]) / 2 for i in range(1, len(y_cuts))]
     return sorted(y_cuts, reverse=True)
