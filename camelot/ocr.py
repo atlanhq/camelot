@@ -120,10 +120,10 @@ class OCRLattice:
                 x2 = int(float(x2))
                 y2 = int(float(y2))
                 areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
-            table_bbox = find_table_joints(areas, vmask, hmask)
+            table_bbox, __ = find_table_joints(areas, vmask, hmask)
         else:
             contours, hierarchy = find_table_contours(vmask, hmask)
-            table_bbox = find_table_joints(vmask, hmask, contours, hierarchy=hierarchy)
+            table_bbox, hierarchy = find_table_joints(vmask, hmask, contours, hierarchy=hierarchy)
 
         if self.debug:
             self.debug_images = (img, table_bbox)
