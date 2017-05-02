@@ -9,7 +9,7 @@ import warnings
 import numpy as np
 
 from .table import Table
-from .utils import (text_in_bbox, get_table_index, get_score, count_empty,
+from .utils import (text_bbox, get_table_index, get_score, count_empty,
                     encode_list, get_text_objects, get_page_layout)
 
 
@@ -339,13 +339,13 @@ class Stream:
         page = {}
         tables = {}
         # sort tables based on y-coord
-        for table_no, k in enumerate(sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True)):
+        for table_no, k in enumerate(sorted(table_bbox.keys(), key=lambda x: x[3], reverse=True)):
             # select elements which lie within table_bbox
             table_data = {}
             t_bbox = {}
-            t_bbox['horizontal'] = text_in_bbox(k, lttextlh)
-            t_bbox['vertical'] = text_in_bbox(k, lttextlv)
-            char_bbox = text_in_bbox(k, ltchar)
+            t_bbox['horizontal'] = text_bbox(lttextlh, k)
+            t_bbox['vertical'] = text_bbox(lttextlv, k)
+            char_bbox = text_bbox(ltchar, k)
             table_data['text_p'] = 100 * (1 - (len(char_bbox) / len(ltchar)))
             for direction in t_bbox:
                 t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))

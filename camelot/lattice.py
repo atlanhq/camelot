@@ -11,7 +11,7 @@ import subprocess
 from .imgproc import (adaptive_threshold, find_lines, find_table_contours,
                       find_table_joints)
 from .table import Table
-from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_in_bbox,
+from .utils import (scale_to_pdf, affine_transform, segments_bbox, text_bbox,
                     merge_close_values, get_table_index, get_score, count_empty,
                     encode_list, get_text_objects, get_page_layout)
 
@@ -274,12 +274,12 @@ class Lattice:
                 y1 = float(y1)
                 x2 = float(x2)
                 y2 = float(y2)
-                x1, y1, x2, y2 = scale_to_image((x1, y1, x2, y2), factors_image)
+                x1, y1, x2, y2 = affine_transform(factors_image, x1, y1, x2, y2)
                 areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
-            table_bbox = find_table_joints(areas, vmask, hmask)
+            table_bbox, __ = find_table_joints(vmask, hmask, areas)
         else:
-            contours = find_table_contours(vmask, hmask)
-            table_bbox = find_table_joints(contours, vmask, hmask)
+            contours, hierarchy = find_table_contours(vmask, hmask)
+            table_bbox, hierarchy = find_table_joints(vmask, hmask, contours, hierarchy=hierarchy)
 
         if len(self.mtol) == 1 and self.mtol[0] == 2:
             mtolerance = copy.deepcopy(self.mtol) * len(table_bbox)
@@ -294,8 +294,8 @@ class Lattice:
         if self.debug:
             self.debug_images = (img, table_bbox)
 
-        table_bbox, v_segments, h_segments = scale_to_pdf(table_bbox, v_segments,
-            h_segments, factors_pdf)
+        table_bbox, hierarchy, v_segments, h_segments = scale_to_pdf(table_bbox,
+            hierarchy, v_segments, h_segments, factors_pdf)
 
         if self.debug:
             self.debug_segments = (v_segments, h_segments)
@@ -304,14 +304,14 @@ class Lattice:
         page = {}
         tables = {}
         # sort tables based on y-coord
-        for table_no, k in enumerate(sorted(table_bbox.keys(), key=lambda x: x[1], reverse=True)):
+        for table_no, k in enumerate(sorted(table_bbox.keys(), key=lambda x: x[3], reverse=True)):
             # select elements which lie within table_bbox
             table_data = {}
             t_bbox = {}
-            v_s, h_s = segments_bbox(k, v_segments, h_segments)
-            t_bbox['horizontal'] = text_in_bbox(k, lttextlh)
-            t_bbox['vertical'] = text_in_bbox(k, lttextlv)
-            char_bbox = text_in_bbox(k, ltchar)
+            v_s, h_s = segments_bbox(v_segments, h_segments, k, hierarchy=hierarchy)
+            t_bbox['horizontal'] = text_bbox(lttextlh, k, hierarchy=hierarchy)
+            t_bbox['vertical'] = text_bbox(lttextlv, k, hierarchy=hierarchy)
+            char_bbox = text_bbox(ltchar, k, hierarchy=hierarchy)
             table_data['text_p'] = 100 * (1 - (len(char_bbox) / len(ltchar)))
             for direction in t_bbox:
                 t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
@@ -332,7 +332,10 @@ class Lattice:
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
             table = table.set_edges(v_s, h_s, jtol=jtolerance[table_no])
-            nouse = table.nocont_ / (len(v_s) + len(h_s))
+            try:
+                nouse = table.nocont_ / (len(v_s) + len(h_s))
+            except ZeroDivisionError:
+                nouse = 1
             table_data['line_p'] = 100 * (1 - nouse)
             # set spanning cells to True
             table = table.set_spanning()

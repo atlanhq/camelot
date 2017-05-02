@@ -85,40 +85,16 @@ def rotate(x1, y1, x2, y2, angle):
     return xnew, ynew
 
 
-def scale_to_image(k, factors):
-    """Translates and scales PDFMiner coordinates to OpenCV's coordinate
-    space.
-
-    Parameters
-    ----------
-    k : tuple
-        Tuple (x1, y1, x2, y2) representing table bounding box where
-        (x1, y1) -> lt and (x2, y2) -> rb in PDFMiner's coordinate
-        space.
-
-    factors : tuple
-        Tuple (scaling_factor_x, scaling_factor_y, pdf_y) where the
-        first two elements are scaling factors and pdf_y is height of
-        pdf.
-
-    Returns
-    -------
-    knew : tuple
-        Tuple (x1, y1, x2, y2) representing table bounding box where
-        (x1, y1) -> lt and (x2, y2) -> rb in OpenCV's coordinate
-        space.
-    """
-    x1, y1, x2, y2 = k
-    scaling_factor_x, scaling_factor_y, pdf_y = factors
+def affine_transform(factors, x1, y1, x2, y2):
+    scaling_factor_x, scaling_factor_y, img_y = factors
     x1 = scale(x1, scaling_factor_x)
-    y1 = scale(abs(translate(-pdf_y, y1)), scaling_factor_y)
     x2 = scale(x2, scaling_factor_x)
-    y2 = scale(abs(translate(-pdf_y, y2)), scaling_factor_y)
-    knew = (int(x1), int(y1), int(x2), int(y2))
-    return knew
+    y1 = scale(abs(translate(-img_y, y1)), scaling_factor_y)
+    y2 = scale(abs(translate(-img_y, y2)), scaling_factor_y)
+    return int(x1), int(y1), int(x2), int(y2)
 
 
-def scale_to_pdf(tables, v_segments, h_segments, factors):
+def scale_to_pdf(tables, hierarchy, v_segments, h_segments, factors):
     """Translates and scales OpenCV coordinates to PDFMiner's coordinate
     space.
 
@@ -127,6 +103,8 @@ def scale_to_pdf(tables, v_segments, h_segments, factors):
     tables : dict
         Dict with table boundaries as keys and list of intersections
         in that boundary as their value.
+
+    hierarchy : dict
 
     v_segments : list
         List of vertical line segments.
@@ -143,39 +121,42 @@ def scale_to_pdf(tables, v_segments, h_segments, factors):
     -------
     tables_new : dict
 
+    hierarchy_new : dict
+
     v_segments_new : dict
 
     h_segments_new : dict
     """
     scaling_factor_x, scaling_factor_y, img_y = factors
+
     tables_new = {}
     for k in tables.keys():
-        x1, y1, x2, y2 = k
-        x1 = scale(x1, scaling_factor_x)
-        y1 = scale(abs(translate(-img_y, y1)), scaling_factor_y)
-        x2 = scale(x2, scaling_factor_x)
-        y2 = scale(abs(translate(-img_y, y2)), scaling_factor_y)
+        x1, y1, x2, y2 = affine_transform(factors, *k)
         j_x, j_y = zip(*tables[k])
         j_x = [scale(j, scaling_factor_x) for j in j_x]
         j_y = [scale(abs(translate(-img_y, j)), scaling_factor_y) for j in j_y]
         joints = zip(j_x, j_y)
         tables_new[(x1, y1, x2, y2)] = joints
 
+    hierarchy_new = {}
+    for k in hierarchy.keys():
+        x1, y1, x2, y2 = affine_transform(factors, *k)
+        hierarchy_new[(x1, y1, x2, y2)] = []
+        for v in hierarchy[k]:
+            vx1, vy1, vx2, vy2 = affine_transform(factors, *v)
+            hierarchy_new[(x1, y1, x2, y2)].append((vx1, vy1, vx2, vy2))
+
     v_segments_new = []
     for v in v_segments:
-        x1, x2 = scale(v[0], scaling_factor_x), scale(v[2], scaling_factor_x)
-        y1, y2 = scale(abs(translate(-img_y, v[1])), scaling_factor_y), scale(
-            abs(translate(-img_y, v[3])), scaling_factor_y)
+        x1, y1, x2, y2 = affine_transform(factors, *v)
         v_segments_new.append((x1, y1, x2, y2))
 
     h_segments_new = []
     for h in h_segments:
-        x1, x2 = scale(h[0], scaling_factor_x), scale(h[2], scaling_factor_x)
-        y1, y2 = scale(abs(translate(-img_y, h[1])), scaling_factor_y), scale(
-            abs(translate(-img_y, h[3])), scaling_factor_y)
+        x1, y1, x2, y2 = affine_transform(factors, *h)
         h_segments_new.append((x1, y1, x2, y2))
 
-    return tables_new, v_segments_new, h_segments_new
+    return tables_new, hierarchy_new, v_segments_new, h_segments_new
 
 
 def setup_logging(log_filepath):
@@ -237,7 +218,21 @@ def get_rotation(lttextlh, lttextlv, ltchar):
     return rotation
 
 
-def segments_bbox(bbox, v_segments, h_segments):
+def to_wh(tup):
+    return tup[0], tup[1], tup[2] - tup[0], tup[3] - tup[1]
+
+
+def find_parent(hierarchy, contour):
+    if contour in hierarchy.keys():
+        children = hierarchy[contour] if hierarchy[contour] else ()
+        return contour, children
+    for key, value in hierarchy.iteritems():
+        if contour in value:
+            return contour, ()
+    return contour, None
+
+
+def segments_bbox(v_segments, h_segments, bbox, hierarchy=None):
     """Returns all line segments present inside a
     table's bounding box.
 
@@ -246,6 +241,8 @@ def segments_bbox(bbox, v_segments, h_segments):
     bbox : tuple
         Tuple (x1, y1, x2, y2) representing table bounding box where
         (x1, y1) -> lb and (x2, y2) -> rt in PDFMiner's coordinate space.
+
+    hierarchy : dict
 
     v_segments : list
         List of vertical line segments.
@@ -261,16 +258,33 @@ def segments_bbox(bbox, v_segments, h_segments):
     h_s : list
         List of horizontal line segments that lie inside table.
     """
-    lb = (bbox[0], bbox[1])
-    rt = (bbox[2], bbox[3])
-    v_s = [v for v in v_segments if v[1] > lb[1] - 2 and
-           v[3] < rt[1] + 2 and lb[0] - 2 <= v[0] <= rt[0] + 2]
-    h_s = [h for h in h_segments if h[0] > lb[0] - 2 and
-           h[2] < rt[0] + 2 and lb[1] - 2 <= h[1] <= rt[1] + 2]
+    def filter_segments(v_segments, h_segments, bbox):
+        px1, py1, px2, py2 = bbox
+        v_s = [v for v in v_segments if v[1] > py1 - 2 and v[3] < py2 + 2 and \
+               px1 - 2 <= v[0] <= px2 + 2]
+        h_s = [h for h in h_segments if h[0] > px1 - 2 and h[2] < px2 + 2 and \
+               py1 - 2 <= h[1] <= py2 + 2]
+        return v_s, h_s
+
+    v_s, h_s = ([] for i in range(2))
+    if hierarchy is not None:
+        parent, children = find_parent(hierarchy, bbox)
+        if children is not None:
+            v_s, h_s = filter_segments(v_segments, h_segments, parent)
+            if isinstance(children, list):
+                v_s_child, h_s_child = ([] for i in range(2))
+                for child in children:
+                    vtemp, htemp = filter_segments(v_s, h_s, child)
+                    v_s_child.extend(vtemp)
+                    h_s_child.extend(htemp)
+                v_s = list(set(v_s).difference(set(v_s_child)))
+                h_s = list(set(h_s).difference(set(h_s_child)))
+    else:
+        v_s, h_s = filter_segments(v_segments, h_segments, bbox)
     return v_s, h_s
 
 
-def text_in_bbox(bbox, text):
+def text_bbox(text, bbox, hierarchy=None):
     """Returns all text objects present inside a
     table's bounding box.
 
@@ -280,6 +294,8 @@ def text_in_bbox(bbox, text):
         Tuple (x1, y1, x2, y2) representing table bounding box where
         (x1, y1) -> lb and (x2, y2) -> rt in PDFMiner's coordinate space.
 
+    hierarchy : dict
+
     text : list
         List of PDFMiner text objects.
 
@@ -288,11 +304,25 @@ def text_in_bbox(bbox, text):
     t_bbox : list
         List of PDFMiner text objects that lie inside table.
     """
-    lb = (bbox[0], bbox[1])
-    rt = (bbox[2], bbox[3])
-    t_bbox = [t for t in text if lb[0] - 2 <= (t.x0 + t.x1) / 2.0
-                 <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
-                 <= rt[1] + 2]
+    def filter_text(text, bbox):
+        px1, py1, px2, py2 = bbox
+        t_bbox = [t for t in text if px1 - 2 <= (t.x0 + t.x1) / 2.0 <= px2 + 2 and \
+                  py1 - 2 <= (t.y0 + t.y1) / 2.0 <= py2 + 2]
+        return t_bbox
+
+    t_bbox = []
+    if hierarchy is not None:
+        parent, children = find_parent(hierarchy, bbox)
+        if children is not None:
+            t_bbox = filter_text(text, parent)
+            if isinstance(children, list):
+                t_bbox_child = []
+                for child in children:
+                    temp = filter_text(t_bbox, child)
+                    t_bbox_child.extend(temp)
+                t_bbox = list(set(t_bbox).difference(set(t_bbox_child)))
+    else:
+        t_bbox = filter_text(text, bbox)
     return t_bbox
 
 

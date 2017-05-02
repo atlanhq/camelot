@@ -217,7 +217,7 @@ class Pdf:
                         for coord in table_bbox[k]:
                             x_coord.append(coord[0])
                             y_coord.append(coord[1])
-                    max_x, max_y = max(x_coord), max(y_coord)
+                        max_x, max_y = max(x_coord), max(y_coord)
                     plt.plot(x_coord, y_coord, 'ro')
                     plt.axis([0, max_x + 100, max_y + 100, 0])
                     plt.imshow(img)
@@ -260,7 +260,7 @@ class Pdf:
                                               table.cells[r][c].rb[0]],
                                              [table.cells[r][c].lb[1],
                                               table.cells[r][c].rb[1]])
-                    plt.show()
+                        plt.show()
             except AttributeError:
                 raise ValueError("This option can only be used with Lattice.")
         else:

@@ -1,10 +1,11 @@
 from itertools import groupby
 from operator import itemgetter
+from collections import defaultdict
 
 import cv2
 import numpy as np
 
-from .utils import merge_tuples
+from .utils import to_wh, find_parent, merge_tuples
 
 
 def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
@@ -117,6 +118,92 @@ def find_lines(threshold, direction='horizontal', scale=15, iterations=0):
     return dmask, lines
 
 
+def cluster_contours(contours):
+    def isin(x, coords):
+        return any(np.isclose(x, coord, atol=10) for coord in coords)
+
+    def find_cluster(clusters, contour):
+        x, y, w, h = contour
+        for i, cluster in enumerate(clusters):
+            if isin(x, cluster['x1']) or isin(y, cluster['y1']) or \
+                    isin(x + w, cluster['x2']) or isin(y + h, cluster['y2']):
+                return i
+        return None
+
+    def add_cluster(clusters, contour):
+        x, y, w, h = contour
+        clusters.append({'x1': [x], 'y1': [y], 'x2': [x + w], 'y2': [y + h]})
+        return clusters
+
+    def update_cluster(clusters, idx, contour):
+        x, y, w, h = contour
+        clusters[idx]['x1'].append(x)
+        clusters[idx]['y1'].append(y)
+        clusters[idx]['x2'].append(x + w)
+        clusters[idx]['y2'].append(y + h)
+        return clusters
+
+    def collapse_clusters(clusters):
+        collapsed = []
+        for cluster in clusters:
+            collapsed.append((min(cluster['x1']), min(cluster['y1']),
+                max(cluster['x2']), max(cluster['y2'])))
+        return collapsed
+
+    x, y, w, h = contours[0]
+    clusters = [{'x1': [x], 'y1': [y], 'x2': [x + w], 'y2': [y + h]}]
+    for i in range(1, len(contours)):
+        idx = find_cluster(clusters, contours[i])
+        if idx is not None:
+            clusters = update_cluster(clusters, idx, contours[i])
+        else:
+            clusters = add_cluster(clusters, contours[i])
+
+    return collapse_clusters(clusters)
+
+
+
+def group_contours(parents, children):
+    def find_parent(parents, child_rect):
+        x, y, w, h = child_rect
+        for parent in parents:
+            parent_rect = cv2.boundingRect(parent)
+            X, Y, W, H = parent_rect
+            if x >= X and y >= Y and x + w <= X + W and y + h <= Y + H:
+                return parent_rect
+        return None
+
+    children = sorted(children, key=cv2.contourArea, reverse=True)
+    grouped = defaultdict(list)
+    for child in children:
+        child_rect = cv2.boundingRect(child)
+        parent_rect = find_parent(parents, child_rect)
+        if parent_rect is not None:
+            grouped[parent_rect].append(child_rect)
+
+    return grouped
+
+
+def remove_parent(grouped):
+    def distance(a, b):
+        return sum(map(lambda x: abs(x[0] - x[1]), zip(a, b)))
+
+    def get_bounding_rect(a, b):
+        return min(a[0], b[0]), min(a[1], b[1]), max(a[2], b[2]), max(a[3], b[3])
+
+    hierarchy = {}
+    for parent_rect in grouped.keys():
+        closest_rect = min(grouped[parent_rect], key=lambda x: distance(x, parent_rect))
+        idx = grouped[parent_rect].index(closest_rect)
+        closest_rect = to_wh(get_bounding_rect(parent_rect, closest_rect))
+        hierarchy[closest_rect] = []
+        grouped[parent_rect].pop(idx)
+        for child_rect in grouped[parent_rect]:
+            hierarchy[closest_rect].append(to_wh(child_rect))
+
+    return hierarchy
+
+
 def find_table_contours(vertical, horizontal):
     """Finds table boundaries using OpenCV's findContours.
 
@@ -134,40 +221,54 @@ def find_table_contours(vertical, horizontal):
         List of tuples representing table boundaries. Each tuple is of
         the form (x, y, w, h) where (x, y) -> left-top, w -> width and
         h -> height in OpenCV's coordinate space.
-    """
-    mask = vertical + horizontal
 
+    hierarchy : dict
+    """
+    def flatten(d):
+        contours = []
+        for k in d.keys():
+            contours.append(k)
+            for c in d[k]:
+                contours.append(c)
+        return contours
+
+    mask = vertical + horizontal
     try:
         __, contours, __ = cv2.findContours(
             mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     except ValueError:
         contours, __ = cv2.findContours(
             mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
+    parents, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    children, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    cont = []
-    for c in contours:
-        c_poly = cv2.approxPolyDP(c, 3, True)
-        x, y, w, h = cv2.boundingRect(c_poly)
-        cont.append((x, y, w, h))
-    return cont
+    grouped = group_contours(parents, children)
+    for outer_bound in grouped.iterkeys():
+        grouped[outer_bound] = cluster_contours(grouped[outer_bound])
+
+    hierarchy = remove_parent(grouped)
+    contours = flatten(hierarchy)
+
+    return contours, hierarchy
 
 
-def find_table_joints(contours, vertical, horizontal):
+def find_table_joints(vertical, horizontal, contours, hierarchy=None):
     """Finds joints/intersections present inside each table boundary.
 
     Parameters
     ----------
-    contours : list
-        List of tuples representing table boundaries. Each tuple is of
-        the form (x, y, w, h) where (x, y) -> left-top, w -> width and
-        h -> height in OpenCV's coordinate space.
-
     vertical : object
         numpy.ndarray representing pixels where vertical lines lie.
 
     horizontal : object
         numpy.ndarray representing pixels where horizontal lines lie.
+
+    contours : list
+        List of tuples representing table boundaries. Each tuple is of
+        the form (x, y, w, h) where (x, y) -> left-top, w -> width and
+        h -> height in OpenCV's coordinate space.
+
+    hierarchy : dict
 
     Returns
     -------
@@ -178,27 +279,49 @@ def find_table_joints(contours, vertical, horizontal):
         Keys are of the form (x1, y1, x2, y2) where (x1, y1) -> lb
         and (x2, y2) -> rt in OpenCV's coordinate space.
     """
+    def modify_hierarchy(h):
+        if h is not None:
+            hierarchy = {}
+            for k, v in h.iteritems():
+                x, y, w, h = k
+                kpax = (x, y + h, x + w, y)
+                hierarchy[kpax] = []
+                for value in v:
+                    vx, vy, vw, vh = value
+                    vpax = (vx, vy + vh, vx + vw, vy)
+                    hierarchy[kpax].append(vpax)
+            return hierarchy
+        return None
+
     joints = np.bitwise_and(vertical, horizontal)
     tables = {}
     for c in contours:
-        x, y, w, h = c
-        roi = joints[y : y + h, x : x + w]
-        try:
-            __, jc, __ = cv2.findContours(
-                roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-        except ValueError:
-            jc, __ = cv2.findContours(
-                roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-        if len(jc) <= 4:  # remove contours with less than 4 joints
-            continue
-        joint_coords = []
-        for j in jc:
-            jx, jy, jw, jh = cv2.boundingRect(j)
-            c1, c2 = x + (2 * jx + jw) / 2, y + (2 * jy + jh) / 2
-            joint_coords.append((c1, c2))
-        tables[(x, y + h, x + w, y)] = joint_coords
-
-    return tables
+        parent, children = find_parent(hierarchy, c)
+        if children is not None:
+            px, py, pw, ph = parent
+            roi = joints[py : py + ph, px : px + pw]
+            try:
+                __, jc, __ = cv2.findContours(
+                    roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+            except ValueError:
+                jc, __ = cv2.findContours(
+                    roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+            if len(jc) <= 4:  # remove contours with less than 4 joints
+                continue
+            joint_coords = []
+            for j in jc:
+                jx, jy, jw, jh = cv2.boundingRect(j)
+                c1, c2 = px + (2 * jx + jw) / 2, py + (2 * jy + jh) / 2
+                if isinstance(children, list):
+                    for child in children:
+                        cx, cy, cw, ch = child
+                        if cx - 10 <= c1 <= cx + cw + 10 and cy - 10 <= c2 <= cy + ch + 10:
+                            continue
+                        joint_coords.append((c1, c2))
+                else:
+                    joint_coords.append((c1, c2))
+            tables[(px, py + ph, px + pw, py)] = joint_coords
+    return tables, modify_hierarchy(hierarchy)
 
 
 def remove_lines(threshold, line_scale=15):
