@@ -98,13 +98,13 @@ def _fill_spanning(t, fill=None):
             for i in range(len(t.cells)):
                 for j in range(len(t.cells[i])):
                     if t.cells[i][j].get_text().strip() == '':
-                        if t.cells[i][j].spanning_h:
+                        if t.cells[i][j].spanning_h and not t.cells[i][j].left:
                             t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
         elif f == "v":
             for i in range(len(t.cells)):
                 for j in range(len(t.cells[i])):
                     if t.cells[i][j].get_text().strip() == '':
-                        if t.cells[i][j].spanning_v:
+                        if t.cells[i][j].spanning_v and not t.cells[i][j].top:
                             t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
     return t
 
@@ -267,11 +267,6 @@ class Lattice:
             scale=self.scale, iterations=self.iterations)
 
         if self.table_area is not None:
-            if self.fill is not None:
-                if len(self.table_area) != len(self.fill):
-                    raise ValueError("{0}: Length of table area and fill should"
-                                     " be equal.".format(os.path.basename(bname)))
-
             areas = []
             for area in self.table_area:
                 x1, y1, x2, y2 = area.split(",")
@@ -368,7 +363,7 @@ class Lattice:
             table_data['score'] = score
 
             if self.fill is not None:
-                table = _fill_spanning(table, fill=self.fill[table_no])
+                table = _fill_spanning(table, fill=self.fill)
             ar = table.get_list()
             ar = encode_list(ar)
             table_data['data'] = ar
