@@ -132,11 +132,12 @@ def scale_to_pdf(tables, hierarchy, v_segments, h_segments, factors):
     tables_new = {}
     for k in tables.keys():
         x1, y1, x2, y2 = affine_transform(factors, *k)
-        j_x, j_y = zip(*tables[k])
-        j_x = [scale(j, scaling_factor_x) for j in j_x]
-        j_y = [scale(abs(translate(-img_y, j)), scaling_factor_y) for j in j_y]
-        joints = zip(j_x, j_y)
-        tables_new[(x1, y1, x2, y2)] = joints
+        if tables[k]:
+            j_x, j_y = zip(*tables[k])
+            j_x = [scale(j, scaling_factor_x) for j in j_x]
+            j_y = [scale(abs(translate(-img_y, j)), scaling_factor_y) for j in j_y]
+            joints = zip(j_x, j_y)
+            tables_new[(x1, y1, x2, y2)] = joints
 
     hierarchy_new = {}
     for k in hierarchy.keys():

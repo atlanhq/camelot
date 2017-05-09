@@ -118,9 +118,9 @@ def find_lines(threshold, direction='horizontal', scale=15, iterations=0):
     return dmask, lines
 
 
-def cluster_contours(contours):
+def cluster_contours(contours, tol=10):
     def isin(x, coords):
-        return any(np.isclose(x, coord, atol=10) for coord in coords)
+        return any(np.isclose(x, coord, atol=tol) for coord in coords)
 
     def find_cluster(clusters, contour):
         x, y, w, h = contour
@@ -279,6 +279,17 @@ def find_table_joints(vertical, horizontal, contours, hierarchy=None):
         Keys are of the form (x1, y1, x2, y2) where (x1, y1) -> lb
         and (x2, y2) -> rt in OpenCV's coordinate space.
     """
+    def remove_contours(hierarchy, unused_contours):
+        for c in unused_contours:
+            if hierarchy.get(c) is not None:
+                hierarchy.pop(c)
+            else:
+                for k in hierarchy.keys():
+                    if c in hierarchy[k]:
+                        idx = hierarchy[k].index(c)
+                        hierarchy[k].pop(idx)
+        return hierarchy
+
     def modify_hierarchy(h):
         if h is not None:
             hierarchy = {}
@@ -295,6 +306,7 @@ def find_table_joints(vertical, horizontal, contours, hierarchy=None):
 
     joints = np.bitwise_and(vertical, horizontal)
     tables = {}
+    used_contours = []
     for c in contours:
         parent, children = find_parent(hierarchy, c)
         if children is not None:
@@ -308,6 +320,7 @@ def find_table_joints(vertical, horizontal, contours, hierarchy=None):
                     roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
             if len(jc) <= 4:  # remove contours with less than 4 joints
                 continue
+            used_contours.append(c)
             joint_coords = []
             for j in jc:
                 jx, jy, jw, jh = cv2.boundingRect(j)
@@ -321,6 +334,9 @@ def find_table_joints(vertical, horizontal, contours, hierarchy=None):
                 else:
                     joint_coords.append((c1, c2))
             tables[(px, py + ph, px + pw, py)] = joint_coords
+
+    hierarchy = remove_contours(hierarchy, list(set(contours).difference(
+        set(used_contours))))
     return tables, modify_hierarchy(hierarchy)
 
 
