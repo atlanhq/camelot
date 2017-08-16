@@ -399,13 +399,15 @@ if __name__ == '__main__':
     if args['--pages'] == '1':
         p.append({'start': 1, 'end': 1})
     else:
+        infile = PdfFileReader(open(filename, 'rb'), strict=False)
         if args['--pages'] == 'all':
-            infile = PdfFileReader(open(filename, 'rb'), strict=False)
             p.append({'start': 1, 'end': infile.getNumPages()})
         else:
             for r in args['--pages'].split(','):
                 if '-' in r:
                     a, b = r.split('-')
+                    if b == 'end':
+                        b = infile.getNumPages()
                     p.append({'start': int(a), 'end': int(b)})
                 else:
                     p.append({'start': int(r), 'end': int(r)})
