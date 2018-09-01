@@ -4,6 +4,5 @@ nose
 pdfminer
 pyexcel-xlsx
 Pillow
-pyocr
 PyPDF2
 Sphinx
