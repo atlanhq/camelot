@@ -18,7 +18,6 @@ from PyPDF2 import PdfFileReader
 from camelot.pdf import Pdf
 from camelot.lattice import Lattice
 from camelot.stream import Stream
-from camelot.ocr import OCRLattice, OCRStream
 from camelot import utils
 
 
@@ -54,8 +53,6 @@ options:
 camelot methods:
  lattice  Looks for lines between data.
  stream   Looks for spaces between data.
- ocrl     Lattice, but for images.
- ocrs     Stream, but for images.
 
 See 'camelot <method> -h' for more information on a specific method.
 """
@@ -104,51 +101,6 @@ options:
  -y, --ytol <ytol>        Tolerance to account for when grouping rows
                           together. [default: 2]
  -d, --debug              Debug by visualizing textboxes.
-"""
-
-
-ocrl_doc = """
-Lattice, but for images.
-
-usage:
- camelot ocrl [-t <tarea>...] [-m <mtol>...] [options] [--] <file>
-
-options:
- -t, --tarea <tarea>            Specific table areas to analyze.
- -m, --mtol <mtol>              Tolerance to account for when merging lines
-                                which are very close. [default: 2]
- -b, --blocksize <blocksize>    See adaptive threshold doc. [default: 15]
- -C, --constant <constant>      See adaptive threshold doc. [default: -2]
- -D, --dpi <dpi>                Dots per inch, specify image quality to be used for OCR.
-                                [default: 300]
- -g, --layout <layout>          Tesseract page segmentation mode. [default: 7]
- -l, --lang <lang>              Specify language to be used for OCR. [default: eng]
- -s, --scale <scale>            Scaling factor. Large scaling factor leads to
-                                smaller lines being detected. [default: 15]
- -I, --iterations <iterations>  Number of iterations for dilation. [default: 0]
- -d, --debug <debug>            Debug by visualizing pdf geometry.
-                                (contour,line,joint,table) Example: -d table
-"""
-
-ocrs_doc = """
-Stream, but for images.
-
-usage:
- camelot ocrs [-t <tarea>...] [-c <columns>...] [options] [--] <file>
-
-options:
- -t, --tarea <tarea>                    Specific table areas to analyze.
- -c, --columns <columns>                Comma-separated list of column x-coordinates.
-                                        Example: -c 10.1,20.2,30.3
- -b, --blocksize <blocksize>            See adaptive threshold doc. [default: 15]
- -C, --constant <constant>              See adaptive threshold doc. [default: -2]
- -D, --dpi <dpi>                        Dots per inch, specify image quality to be used for OCR.
-                                        [default: 300]
- -g, --layout <layout>                  Tesseract page segmentation mode. [default: 7]
- -l, --lang <lang>                      Specify language to be used for OCR. [default: eng]
- -G, --line-scale <line_scale>          Line scaling factor. [default: 15]
- -S, --char-scale <char_scale>          Char scaling factor. [default: 200]
- -d, --debug                            Debug by visualizing image.
 """
 
 
@@ -376,10 +328,6 @@ if __name__ == '__main__':
         args.update(docopt(lattice_doc, argv=argv))
     elif args['<method>'] == 'stream':
         args.update(docopt(stream_doc, argv=argv))
-    elif args['<method>'] == 'ocrl':
-        args.update(docopt(ocrl_doc, argv=argv))
-    elif args['<method>'] == 'ocrs':
-        args.update(docopt(ocrs_doc, argv=argv))
 
     filename = args['<file>']
     filedir = os.path.dirname(args['<file>'])
@@ -546,140 +494,6 @@ if __name__ == '__main__':
                                 table['empty_p'],
                                 table['score']))
 
-            if args['--debug']:
-                manager.debug_plot()
-        except Exception as e:
-            logger.exception(e.message, exc_info=True)
-            sys.exit()
-    elif args['<method>'] == 'ocrl':
-        try:
-            kwargs = {
-                'table_area': args['--tarea'] if args['--tarea'] else None,
-                'mtol': [int(m) for m in args['--mtol']],
-                'blocksize': int(args['--blocksize']),
-                'threshold_constant': float(args['--constant']),
-                'dpi': int(args['--dpi']),
-                'layout': int(args['--layout']),
-                'lang': args['--lang'],
-                'scale': int(args['--scale']),
-                'iterations': int(args['--iterations']),
-                'debug': args['--debug']
-            }
-            manager = Pdf(OCRLattice(**kwargs), filename, pagenos=p, clean=True,
-                          parallel=args['--parallel'])
-            data = manager.extract()
-
-            processing_time = time.time() - start_time
-            logger.info("Finished processing in " + str(processing_time) + " seconds")
-
-            if args['--plot']:
-                if args['--output']:
-                    pngname = os.path.join(args['--output'], os.path.basename(pngname))
-                plot_type = args['--plot'].split(',')
-                if 'page' in plot_type:
-                    for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
-                        page = data[page_number]
-                        for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
-                            table = page[table_number]
-                            plot_table_barchart(table['r_nempty_cells'],
-                                table['c_nempty_cells'],
-                                table['empty_p'],
-                                page_number,
-                                table_number)
-
-                if 'all' in plot_type:
-                    plot_all_barchart(data, pngname)
-
-                if 'rc' in plot_type:
-                    plot_rc_piechart(data, pngname)
-
-            if args['--print-stats']:
-                print_stats(data, processing_time)
-
-            if args['--save-stats']:
-                if args['--output']:
-                    scorename = os.path.join(args['--output'], os.path.basename(scorename))
-                with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,empty_p,line_p,text_p,score\n')
-                    for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
-                        page = data[page_number]
-                        for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
-                            table = page[table_number]
-                            score_file.write('{0},{1},{2},{3},{4},{5},{6}\n'.format(
-                                ''.join([page_number, '_', table_number]),
-                                table['nrows'],
-                                table['ncols'],
-                                table['empty_p'],
-                                table['line_p'],
-                                table['text_p'],
-                                table['score']))
-            if args['--debug']:
-                manager.debug_plot()
-        except Exception as e:
-            logger.exception(e.message, exc_info=True)
-            sys.exit()
-    elif args['<method>'] == 'ocrs':
-        try:
-            kwargs = {
-                'table_area': args['--tarea'] if args['--tarea'] else None,
-                'columns': args['--columns'] if args['--columns'] else None,
-                'blocksize': int(args['--blocksize']),
-                'threshold_constant': float(args['--constant']),
-                'dpi': int(args['--dpi']),
-                'layout': int(args['--layout']),
-                'lang': args['--lang'],
-                'line_scale': int(args['--line-scale']),
-                'char_scale': int(args['--char-scale']),
-                'debug': args['--debug']
-            }
-            manager = Pdf(OCRStream(**kwargs), filename, pagenos=p, clean=True,
-                          parallel=args['--parallel'])
-            data = manager.extract()
-
-            processing_time = time.time() - start_time
-            logger.info("Finished processing in " + str(processing_time) + " seconds")
-
-            if args['--plot']:
-                if args['--output']:
-                    pngname = os.path.join(args['--output'], os.path.basename(pngname))
-                plot_type = args['--plot'].split(',')
-                if 'page' in plot_type:
-                    for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
-                        page = data[page_number]
-                        for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
-                            table = page[table_number]
-                            plot_table_barchart(table['r_nempty_cells'],
-                                table['c_nempty_cells'],
-                                table['empty_p'],
-                                page_number,
-                                table_number)
-
-                if 'all' in plot_type:
-                    plot_all_barchart(data, pngname)
-
-                if 'rc' in plot_type:
-                    plot_rc_piechart(data, pngname)
-
-            if args['--print-stats']:
-                print_stats(data, processing_time)
-
-            if args['--save-stats']:
-                if args['--output']:
-                    scorename = os.path.join(args['--output'], os.path.basename(scorename))
-                with open(scorename, 'w') as score_file:
-                    score_file.write('table,nrows,ncols,empty_p,line_p,text_p,score\n')
-                    for page_number in sorted(data.keys(), key=lambda x: int(x[5:])):
-                        page = data[page_number]
-                        for table_number in sorted(page.keys(), key=lambda x: int(x[6:])):
-                            table = page[table_number]
-                            score_file.write('{0},{1},{2},{3},{4},{5},{6}\n'.format(
-                                ''.join([page_number, '_', table_number]),
-                                table['nrows'],
-                                table['ncols'],
-                                table['empty_p'],
-                                table['line_p'],
-                                table['text_p'],
-                                table['score']))
             if args['--debug']:
                 manager.debug_plot()
         except Exception as e:
