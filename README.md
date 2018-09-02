@@ -55,11 +55,7 @@ See 'camelot &lt;method&gt; -h' for more information on a specific method.
 
 Currently, camelot works under Python 2.7.
 
-The required dependencies include [numpy](http://www.numpy.org/), [OpenCV](http://opencv.org/) and [ImageMagick](http://www.imagemagick.org/script/index.php).
-
-### Optional
-
-You'll need to install [Tesseract](https://github.com/tesseract-ocr/tesseract) if you want to extract tables from image based pdfs. Also, you'll need a tesseract language pack if your pdf isn't in english.
+The required dependencies include [numpy](http://www.numpy.org/), [OpenCV](http://opencv.org/) and [ghostscript](https://www.ghostscript.com/).
 
 ## Installation
 
@@ -71,26 +67,26 @@ pip install -U pip setuptools
 
 ### Installing dependencies
 
-numpy can be install using `pip`. OpenCV and imagemagick can be installed using your system's default package manager.
+numpy can be install using `pip`. OpenCV and ghostscript can be installed using your system's default package manager.
 
 #### Linux
 
 * Arch Linux
 
 <pre>
-sudo pacman -S opencv imagemagick
+sudo pacman -S opencv ghostscript
 </pre>
 
 * Ubuntu
 
 <pre>
-sudo apt-get install libopencv-dev python-opencv imagemagick
+sudo apt-get install libopencv-dev python-opencv python-tk ghostscript
 </pre>
 
 #### OS X
 
 <pre>
-brew install homebrew/science/opencv imagemagick
+brew install homebrew/science/opencv ghostscript
 </pre>
 
 Finally, `cd` into the project directory and install by
