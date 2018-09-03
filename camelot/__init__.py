@@ -1,3 +1,6 @@
-__version__ = '1.2.0'
+from .core import *
+from .__version__ import __version__
 
-__all__ = ['pdf', 'lattice', 'stream']
+
+def read_pdf(filepath, pages='1', grid=True):
+    pass

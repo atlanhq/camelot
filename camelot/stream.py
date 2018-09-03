@@ -8,7 +8,7 @@ import warnings
 
 import numpy as np
 
-from .table import Table
+from .core import Table
 from .utils import (text_in_bbox, get_table_index, get_score, count_empty,
                     encode_list, get_text_objects, get_page_layout)
 
