@@ -1,69 +1,14 @@
+import os
+import tempfile
+
 import numpy as np
 import pandas as pd
+from PyPDF2 import PdfFileReader, PdfFileWriter
+
+from .utils import get_page_layout, get_text_objects, get_rotation
 
 
 class Cell(object):
-    """Cell.
-    Defines a cell object with coordinates relative to a left-bottom
-    origin, which is also PDFMiner's coordinate space.
-
-    Parameters
-    ----------
-    x1 : float
-        x-coordinate of left-bottom point.
-
-    y1 : float
-        y-coordinate of left-bottom point.
-
-    x2 : float
-        x-coordinate of right-top point.
-
-    y2 : float
-        y-coordinate of right-top point.
-
-    Attributes
-    ----------
-    lb : tuple
-        Tuple representing left-bottom coordinates.
-
-    lt : tuple
-        Tuple representing left-top coordinates.
-
-    rb : tuple
-        Tuple representing right-bottom coordinates.
-
-    rt : tuple
-        Tuple representing right-top coordinates.
-
-    bbox : tuple
-        Tuple representing the cell's bounding box using the
-        lower-bottom and right-top coordinates.
-
-    left : bool
-        Whether or not cell is bounded on the left.
-
-    right : bool
-        Whether or not cell is bounded on the right.
-
-    top : bool
-        Whether or not cell is bounded on the top.
-
-    bottom : bool
-        Whether or not cell is bounded on the bottom.
-
-    text_objects : list
-        List of text objects assigned to cell.
-
-    text : string
-        Text assigned to cell.
-
-    spanning_h : bool
-        Whether or not cell spans/extends horizontally.
-
-    spanning_v : bool
-        Whether or not cell spans/extends vertically.
-    """
-
     def __init__(self, x1, y1, x2, y2):
 
         self.x1 = x1
@@ -86,76 +31,23 @@ class Cell(object):
         self.image = None
 
     def add_text(self, text):
-        """Adds text to cell.
-
-        Parameters
-        ----------
-        text : string
-        """
         self.text = ''.join([self.text, text])
 
     def get_text(self):
-        """Returns text assigned to cell.
-
-        Returns
-        -------
-        text : string
-        """
         return self.text
 
     def add_object(self, t_object):
-        """Adds PDFMiner text object to cell.
-
-        Parameters
-        ----------
-        t_object : object
-        """
         self.text_objects.append(t_object)
 
     def get_objects(self):
-        """Returns list of text objects assigned to cell.
-
-        Returns
-        -------
-        text_objects : list
-        """
         return self.text_objects
 
     def get_bounded_edges(self):
-        """Returns the number of edges by which a cell is bounded.
-
-        Returns
-        -------
-        bounded_edges : int
-        """
         self.bounded_edges = self.top + self.bottom + self.left + self.right
         return self.bounded_edges
 
 
 class Table(object):
-    """Table.
-    Defines a table object with coordinates relative to a left-bottom
-    origin, which is also PDFMiner's coordinate space.
-
-    Parameters
-    ----------
-    cols : list
-        List of tuples representing column x-coordinates in increasing
-        order.
-
-    rows : list
-        List of tuples representing row y-coordinates in decreasing
-        order.
-
-    Attributes
-    ----------
-    cells : list
-        List of cell objects with row-major ordering.
-
-    nocont_ : int
-        Number of lines that did not contribute to setting cell edges.
-    """
-
     def __init__(self, cols, rows):
 
         self.cols = cols
@@ -166,8 +58,6 @@ class Table(object):
         self.image = None
 
     def set_all_edges(self):
-        """Sets all table edges to True.
-        """
         for r in range(len(self.rows)):
             for c in range(len(self.cols)):
                 self.cells[r][c].left = True
@@ -177,8 +67,6 @@ class Table(object):
         return self
 
     def set_border_edges(self):
-        """Sets table border edges to True.
-        """
         for r in range(len(self.rows)):
             self.cells[r][0].left = True
             self.cells[r][len(self.cols) - 1].right = True
@@ -188,19 +76,6 @@ class Table(object):
         return self
 
     def set_edges(self, vertical, horizontal, jtol=2):
-        """Sets a cell's edges to True depending on whether they
-        overlap with lines found by imgproc.
-
-        Parameters
-        ----------
-        vertical : list
-            List of vertical lines detected by imgproc. Coordinates
-            scaled and translated to the PDFMiner's coordinate space.
-
-        horizontal : list
-            List of horizontal lines detected by imgproc. Coordinates
-            scaled and translated to the PDFMiner's coordinate space.
-        """
         for v in vertical:
             # find closest x coord
             # iterate over y coords and find closest points
@@ -308,10 +183,6 @@ class Table(object):
         return self
 
     def set_spanning(self):
-        """Sets a cell's spanning_h or spanning_v attribute to True
-        depending on whether the cell spans/extends horizontally or
-        vertically.
-        """
         for r in range(len(self.rows)):
             for c in range(len(self.cols)):
                 bound = self.cells[r][c].get_bounded_edges()
@@ -351,13 +222,6 @@ class Table(object):
         return self
 
     def get_list(self):
-        """Returns a two-dimensional list of text assigned to each
-        cell.
-
-        Returns
-        -------
-        ar : list
-        """
         ar = []
         for r in range(len(self.rows)):
             ar.append([self.cells[r][c].get_text().strip()
@@ -367,3 +231,75 @@ class Table(object):
 
 class TableSet(object):
     pass
+
+
+class FileHandler(object):
+    def __init__(self, filename, pages='1'):
+        self.filename = filename
+        if not self.filename.endswith('.pdf'):
+            raise TypeError("File format not supported.")
+        self.pages = __get_pages(pages)
+        self.temp = tempfile.mkdtemp()
+
+    @staticmethod
+    def __get_pages(filename, pages):
+        p = {}
+        if pages == '1':
+            p.append({'start': 1, 'end': 1})
+        else:
+            infile = PdfFileReader(open(filename, 'rb'), strict=False)
+            if pages == 'all':
+                p.append({'start': 1, 'end': infile.getNumPages()})
+            else:
+                for r in pages.split(','):
+                    if '-' in r:
+                        a, b = r.split('-')
+                        if b == 'end':
+                            b = infile.getNumPages()
+                        p.append({'start': int(a), 'end': int(b)})
+                    else:
+                        p.append({'start': int(r), 'end': int(r)})
+        return p
+
+    @staticmethod
+    def __save_page(filename, page, temp):
+        with open(filename, 'rb') as fileobj:
+            infile = PdfFileReader(fileobj, strict=False)
+            fpath = os.path.join(temp, 'page-{0}.pdf'.format(page))
+            fname, fext = os.path.splitext(fpath)
+            p = infile.getPage(page - 1)
+            outfile = PdfFileWriter()
+            outfile.addPage(p)
+            with open(fpath, 'wb') as f:
+                outfile.write(f)
+            layout, dim = get_page_layout(fpath)
+            # fix rotated pdf
+            lttextlh = get_text_objects(layout, ltype="lh")
+            lttextlv = get_text_objects(layout, ltype="lv")
+            ltchar = get_text_objects(layout, ltype="char")
+            rotation = get_rotation(lttextlh, lttextlv, ltchar)
+            if rotation != '':
+                fpath_new = ''.join([fname.replace('page', 'p'), '_rotated', fext])
+                os.rename(fpath, fpath_new)
+                infile = PdfFileReader(open(fpath_new, 'rb'), strict=False)
+                outfile = PdfFileWriter()
+                p = infile.getPage(0)
+                if rotation == 'left':
+                    p.rotateClockwise(90)
+                elif rotation == 'right':
+                    p.rotateCounterClockwise(90)
+                outfile.addPage(p)
+                with open(fpath, 'wb') as f:
+                    outfile.write(f)
+
+    def parse(self):
+        for p in self.pages:
+            __save_page(self.filename, p, self.temp)
+        pages = [os.path.join(self.temp, 'page-{0}.pdf'.format(p))
+                 for p in self.pagenos]
+        tables = {}
+        for p in pages:
+            table = self.parser.get_tables(p)
+            if table is not None:
+                tables.update(table)
+        return tables
