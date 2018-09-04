@@ -1,5 +1,7 @@
-from .core import *
+from .handlers import PDFHandler
 
 
-def read_pdf(filepath, pages='1', grid=True):
-    pass
+def read_pdf(filepath, pages='1', mesh=False, **kwargs):
+    # explicit type conversion
+    p = PDFHandler(filepath, pages)
+    return p.parse(mesh=mesh, **kwargs)

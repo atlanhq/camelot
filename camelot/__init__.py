@@ -1,3 +1,3 @@
 from .__version__ import __version__
 
-from .io import *
+from .io import read_pdf

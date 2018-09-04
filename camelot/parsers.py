@@ -10,7 +10,7 @@ import subprocess
 
 import numpy as np
 
-from .core import TableSet
+from .core import Table
 from .image_processing import (adaptive_threshold, find_lines, find_table_contours,
                                find_table_joints)
 from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_in_bbox,

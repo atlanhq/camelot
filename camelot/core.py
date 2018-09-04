@@ -1,11 +1,5 @@
-import os
-import tempfile
-
 import numpy as np
 import pandas as pd
-from PyPDF2 import PdfFileReader, PdfFileWriter
-
-from .utils import get_page_layout, get_text_objects, get_rotation
 
 
 class Cell(object):
@@ -239,75 +233,3 @@ class TableSet(object):
 
     def __repr__(self):
         pass
-
-
-class FileHandler(object):
-    def __init__(self, filename, pages='1'):
-        self.filename = filename
-        if not self.filename.endswith('.pdf'):
-            raise TypeError("File format not supported.")
-        self.pages = __get_pages(pages)
-        self.temp = tempfile.mkdtemp()
-
-    @staticmethod
-    def __get_pages(filename, pages):
-        p = {}
-        if pages == '1':
-            p.append({'start': 1, 'end': 1})
-        else:
-            infile = PdfFileReader(open(filename, 'rb'), strict=False)
-            if pages == 'all':
-                p.append({'start': 1, 'end': infile.getNumPages()})
-            else:
-                for r in pages.split(','):
-                    if '-' in r:
-                        a, b = r.split('-')
-                        if b == 'end':
-                            b = infile.getNumPages()
-                        p.append({'start': int(a), 'end': int(b)})
-                    else:
-                        p.append({'start': int(r), 'end': int(r)})
-        return p
-
-    @staticmethod
-    def __save_page(filename, page, temp):
-        with open(filename, 'rb') as fileobj:
-            infile = PdfFileReader(fileobj, strict=False)
-            fpath = os.path.join(temp, 'page-{0}.pdf'.format(page))
-            fname, fext = os.path.splitext(fpath)
-            p = infile.getPage(page - 1)
-            outfile = PdfFileWriter()
-            outfile.addPage(p)
-            with open(fpath, 'wb') as f:
-                outfile.write(f)
-            layout, dim = get_page_layout(fpath)
-            # fix rotated pdf
-            lttextlh = get_text_objects(layout, ltype="lh")
-            lttextlv = get_text_objects(layout, ltype="lv")
-            ltchar = get_text_objects(layout, ltype="char")
-            rotation = get_rotation(lttextlh, lttextlv, ltchar)
-            if rotation != '':
-                fpath_new = ''.join([fname.replace('page', 'p'), '_rotated', fext])
-                os.rename(fpath, fpath_new)
-                infile = PdfFileReader(open(fpath_new, 'rb'), strict=False)
-                outfile = PdfFileWriter()
-                p = infile.getPage(0)
-                if rotation == 'left':
-                    p.rotateClockwise(90)
-                elif rotation == 'right':
-                    p.rotateCounterClockwise(90)
-                outfile.addPage(p)
-                with open(fpath, 'wb') as f:
-                    outfile.write(f)
-
-    def parse(self):
-        for p in self.pages:
-            __save_page(self.filename, p, self.temp)
-        pages = [os.path.join(self.temp, 'page-{0}.pdf'.format(p))
-                 for p in self.pagenos]
-        tables = {}
-        for p in pages:
-            table = self.parser.get_tables(p)
-            if table is not None:
-                tables.update(table)
-        return tables
