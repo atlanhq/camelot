@@ -10,7 +10,6 @@ from .utils import get_page_layout, get_text_objects, get_rotation
 
 class Cell(object):
     def __init__(self, x1, y1, x2, y2):
-
         self.x1 = x1
         self.y1 = y1
         self.x2 = x2
@@ -29,6 +28,9 @@ class Cell(object):
         self.spanning_h = False
         self.spanning_v = False
         self.image = None
+
+    def __repr__(self):
+        pass
 
     def add_text(self, text):
         self.text = ''.join([self.text, text])
@@ -49,13 +51,15 @@ class Cell(object):
 
 class Table(object):
     def __init__(self, cols, rows):
-
         self.cols = cols
         self.rows = rows
         self.cells = [[Cell(c[0], r[1], c[1], r[0])
                        for c in cols] for r in rows]
         self.nocont_ = 0
         self.image = None
+
+    def __repr__(self):
+        pass
 
     def set_all_edges(self):
         for r in range(len(self.rows)):
@@ -230,7 +234,11 @@ class Table(object):
 
 
 class TableSet(object):
-    pass
+    def __init__(self):
+        pass
+
+    def __repr__(self):
+        pass
 
 
 class FileHandler(object):
