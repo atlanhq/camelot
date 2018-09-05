@@ -76,7 +76,7 @@ def rotate(x1, y1, x2, y2, angle):
     return xnew, ynew
 
 
-def scale_to_image(k, factors):
+def scale_pdf(k, factors):
     """
 
     Parameters
@@ -98,7 +98,7 @@ def scale_to_image(k, factors):
     return knew
 
 
-def scale_to_pdf(tables, v_segments, h_segments, factors):
+def scale_image(tables, v_segments, h_segments, factors):
     """
 
     Parameters
@@ -197,7 +197,7 @@ def get_rotation(lttextlh, lttextlv, ltchar):
     return rotation
 
 
-def segments_bbox(bbox, v_segments, h_segments):
+def segments_in_bbox(bbox, v_segments, h_segments):
     """
 
     Parameters
