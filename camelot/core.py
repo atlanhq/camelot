@@ -360,3 +360,19 @@ class GeometryList(object):
             len(self._images),
             len(self._segments),
             len(self._tables))
+
+    @property
+    def text(self):
+        return self._text
+
+    @property
+    def images(self):
+        return self._images
+
+    @property
+    def segments(self):
+        return self._segments
+
+    @property
+    def tables(self):
+        return self._tables
