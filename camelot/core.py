@@ -1,3 +1,5 @@
+import json
+
 import numpy as np
 
 
@@ -277,6 +279,17 @@ class Table(object):
     def page(self, p):
         self._page = p
 
+    @property
+    def parsing_report(self):
+        # pretty?
+        report = {
+            'accuracy': self._accuracy,
+            'whitespace': self._whitespace,
+            'order': self._order,
+            'page': self._page
+        }
+        return report
+
 
 class TableList(list):
     def __init__(self, tables):
@@ -285,6 +298,12 @@ class TableList(list):
     def __repr__(self):
         return '<{} tables={}>'.format(
             self.__class__.__name__, len(self._tables))
+
+    def __len__(self):
+        return len(self._tables)
+
+    def __getitem__(self, idx):
+        return self._tables[idx]
 
 
 class Geometry(object):

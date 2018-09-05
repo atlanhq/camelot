@@ -257,7 +257,7 @@ class Stream:
             table.accuracy = accuracy
             table.whitespace = whitespace
             table.order = table_no + 1
-            table.page = os.path.basename(bname).replace('page-', '')
+            table.page = int(os.path.basename(bname).replace('page-', ''))
 
             _tables.append(table)
 
@@ -462,7 +462,7 @@ class Lattice:
             table.accuracy = accuracy
             table.whitespace = whitespace
             table.order = table_no + 1
-            table.page = os.path.basename(bname).replace('page-', '')
+            table.page = int(os.path.basename(bname).replace('page-', ''))
 
             _tables.append(table)
 
