@@ -10,7 +10,7 @@ import subprocess
 
 import numpy as np
 
-from .core import Table
+from .core import Table, Geometry
 from .image_processing import (adaptive_threshold, find_lines, find_table_contours,
                                find_table_joints)
 from .utils import (scale_to_pdf, scale_to_image, segments_bbox, text_in_bbox,
@@ -28,192 +28,6 @@ def _reduce_method(m):
     else:
         return getattr, (m.im_self, m.im_func.func_name)
 copy_reg.pickle(types.MethodType, _reduce_method)
-
-
-def _text_bbox(t_bbox):
-    """Returns bounding box for the text present on a page.
-
-    Parameters
-    ----------
-    t_bbox : dict
-        Dict with two keys 'horizontal' and 'vertical' with lists of
-        LTTextLineHorizontals and LTTextLineVerticals respectively.
-
-    Returns
-    -------
-    text_bbox : tuple
-        Tuple of the form (x0, y0, x1, y1) in PDFMiner's coordinate
-        space.
-    """
-    xmin = min([t.x0 for direction in t_bbox for t in t_bbox[direction]])
-    ymin = min([t.y0 for direction in t_bbox for t in t_bbox[direction]])
-    xmax = max([t.x1 for direction in t_bbox for t in t_bbox[direction]])
-    ymax = max([t.y1 for direction in t_bbox for t in t_bbox[direction]])
-    text_bbox = (xmin, ymin, xmax, ymax)
-    return text_bbox
-
-
-def _group_rows(text, ytol=2):
-    """Groups PDFMiner text objects into rows using their
-    y-coordinates taking into account some tolerance ytol.
-
-    Parameters
-    ----------
-    text : list
-        List of PDFMiner text objects.
-
-    ytol : int
-        Tolerance parameter.
-        (optional, default: 2)
-
-    Returns
-    -------
-    rows : list
-        Two-dimensional list of text objects grouped into rows.
-    """
-    row_y = 0
-    rows = []
-    temp = []
-    for t in text:
-        # is checking for upright necessary?
-        # if t.get_text().strip() and all([obj.upright for obj in t._objs if
-        # type(obj) is LTChar]):
-        if t.get_text().strip():
-            if not np.isclose(row_y, t.y0, atol=ytol):
-                rows.append(sorted(temp, key=lambda t: t.x0))
-                temp = []
-                row_y = t.y0
-            temp.append(t)
-    rows.append(sorted(temp, key=lambda t: t.x0))
-    __ = rows.pop(0) # hacky
-    return rows
-
-
-def _merge_columns(l, mtol=0):
-    """Merges column boundaries if they overlap or lie within some
-    tolerance mtol.
-
-    Parameters
-    ----------
-    l : list
-        List of column coordinate tuples.
-
-    mtol : int
-        TODO
-        (optional, default: 0)
-
-    Returns
-    -------
-    merged : list
-        List of merged column coordinate tuples.
-    """
-    merged = []
-    for higher in l:
-        if not merged:
-            merged.append(higher)
-        else:
-            lower = merged[-1]
-            if mtol >= 0:
-                if (higher[0] <= lower[1] or
-                        np.isclose(higher[0], lower[1], atol=mtol)):
-                    upper_bound = max(lower[1], higher[1])
-                    lower_bound = min(lower[0], higher[0])
-                    merged[-1] = (lower_bound, upper_bound)
-                else:
-                    merged.append(higher)
-            elif mtol < 0:
-                if higher[0] <= lower[1]:
-                    if np.isclose(higher[0], lower[1], atol=abs(mtol)):
-                        merged.append(higher)
-                    else:
-                        upper_bound = max(lower[1], higher[1])
-                        lower_bound = min(lower[0], higher[0])
-                        merged[-1] = (lower_bound, upper_bound)
-                else:
-                    merged.append(higher)
-    return merged
-
-
-def _join_rows(rows_grouped, text_y_max, text_y_min):
-    """Makes row coordinates continuous.
-
-    Parameters
-    ----------
-    rows_grouped : list
-        Two-dimensional list of text objects grouped into rows.
-
-    text_y_max : int
-
-    text_y_min : int
-
-    Returns
-    -------
-    rows : list
-        List of continuous row coordinate tuples.
-    """
-    row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
-                if len(r) > 0 else 0 for r in rows_grouped]
-    rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
-    rows.insert(0, text_y_max)
-    rows.append(text_y_min)
-    rows = [(rows[i], rows[i + 1])
-            for i in range(0, len(rows) - 1)]
-    return rows
-
-
-def _join_columns(cols, text_x_min, text_x_max):
-    """Makes column coordinates continuous.
-
-    Parameters
-    ----------
-    cols : list
-        List of column coordinate tuples.
-
-    text_x_min : int
-
-    text_y_max : int
-
-    Returns
-    -------
-    cols : list
-        Updated list of column coordinate tuples.
-    """
-    cols = sorted(cols)
-    cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
-    cols.insert(0, text_x_min)
-    cols.append(text_x_max)
-    cols = [(cols[i], cols[i + 1])
-            for i in range(0, len(cols) - 1)]
-    return cols
-
-
-def _add_columns(cols, text, ytol):
-    """Adds columns to existing list by taking into account
-    the text that lies outside the current column coordinates.
-
-    Parameters
-    ----------
-    cols : list
-        List of column coordinate tuples.
-
-    text : list
-        List of PDFMiner text objects.
-
-    ytol : int
-        Tolerance parameter.
-
-    Returns
-    -------
-    cols : list
-        Updated list of column coordinate tuples.
-    """
-    if text:
-        text = _group_rows(text, ytol=ytol)
-        elements = [len(r) for r in text]
-        new_cols = [(t.x0, t.x1)
-            for r in text if len(r) == max(elements) for t in r]
-        cols.extend(_merge_columns(sorted(new_cols)))
-    return cols
 
 
 class Stream:
@@ -283,7 +97,193 @@ class Stream:
         self.flag_size = flag_size
         self.debug = debug
 
-    def get_tables(self, pdfname):
+    @staticmethod
+    def _text_bbox(t_bbox):
+        """Returns bounding box for the text present on a page.
+
+        Parameters
+        ----------
+        t_bbox : dict
+            Dict with two keys 'horizontal' and 'vertical' with lists of
+            LTTextLineHorizontals and LTTextLineVerticals respectively.
+
+        Returns
+        -------
+        text_bbox : tuple
+            Tuple of the form (x0, y0, x1, y1) in PDFMiner's coordinate
+            space.
+        """
+        xmin = min([t.x0 for direction in t_bbox for t in t_bbox[direction]])
+        ymin = min([t.y0 for direction in t_bbox for t in t_bbox[direction]])
+        xmax = max([t.x1 for direction in t_bbox for t in t_bbox[direction]])
+        ymax = max([t.y1 for direction in t_bbox for t in t_bbox[direction]])
+        text_bbox = (xmin, ymin, xmax, ymax)
+        return text_bbox
+
+    @staticmethod
+    def _group_rows(text, ytol=2):
+        """Groups PDFMiner text objects into rows using their
+        y-coordinates taking into account some tolerance ytol.
+
+        Parameters
+        ----------
+        text : list
+            List of PDFMiner text objects.
+
+        ytol : int
+            Tolerance parameter.
+            (optional, default: 2)
+
+        Returns
+        -------
+        rows : list
+            Two-dimensional list of text objects grouped into rows.
+        """
+        row_y = 0
+        rows = []
+        temp = []
+        for t in text:
+            # is checking for upright necessary?
+            # if t.get_text().strip() and all([obj.upright for obj in t._objs if
+            # type(obj) is LTChar]):
+            if t.get_text().strip():
+                if not np.isclose(row_y, t.y0, atol=ytol):
+                    rows.append(sorted(temp, key=lambda t: t.x0))
+                    temp = []
+                    row_y = t.y0
+                temp.append(t)
+        rows.append(sorted(temp, key=lambda t: t.x0))
+        __ = rows.pop(0) # hacky
+        return rows
+
+    @staticmethod
+    def _merge_columns(l, mtol=0):
+        """Merges column boundaries if they overlap or lie within some
+        tolerance mtol.
+
+        Parameters
+        ----------
+        l : list
+            List of column coordinate tuples.
+
+        mtol : int
+            TODO
+            (optional, default: 0)
+
+        Returns
+        -------
+        merged : list
+            List of merged column coordinate tuples.
+        """
+        merged = []
+        for higher in l:
+            if not merged:
+                merged.append(higher)
+            else:
+                lower = merged[-1]
+                if mtol >= 0:
+                    if (higher[0] <= lower[1] or
+                            np.isclose(higher[0], lower[1], atol=mtol)):
+                        upper_bound = max(lower[1], higher[1])
+                        lower_bound = min(lower[0], higher[0])
+                        merged[-1] = (lower_bound, upper_bound)
+                    else:
+                        merged.append(higher)
+                elif mtol < 0:
+                    if higher[0] <= lower[1]:
+                        if np.isclose(higher[0], lower[1], atol=abs(mtol)):
+                            merged.append(higher)
+                        else:
+                            upper_bound = max(lower[1], higher[1])
+                            lower_bound = min(lower[0], higher[0])
+                            merged[-1] = (lower_bound, upper_bound)
+                    else:
+                        merged.append(higher)
+        return merged
+
+    @staticmethod
+    def _join_rows(rows_grouped, text_y_max, text_y_min):
+        """Makes row coordinates continuous.
+
+        Parameters
+        ----------
+        rows_grouped : list
+            Two-dimensional list of text objects grouped into rows.
+
+        text_y_max : int
+
+        text_y_min : int
+
+        Returns
+        -------
+        rows : list
+            List of continuous row coordinate tuples.
+        """
+        row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
+                    if len(r) > 0 else 0 for r in rows_grouped]
+        rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
+        rows.insert(0, text_y_max)
+        rows.append(text_y_min)
+        rows = [(rows[i], rows[i + 1])
+                for i in range(0, len(rows) - 1)]
+        return rows
+
+    @staticmethod
+    def _add_columns(cols, text, ytol):
+        """Adds columns to existing list by taking into account
+        the text that lies outside the current column coordinates.
+
+        Parameters
+        ----------
+        cols : list
+            List of column coordinate tuples.
+
+        text : list
+            List of PDFMiner text objects.
+
+        ytol : int
+            Tolerance parameter.
+
+        Returns
+        -------
+        cols : list
+            Updated list of column coordinate tuples.
+        """
+        if text:
+            text = Stream._group_rows(text, ytol=ytol)
+            elements = [len(r) for r in text]
+            new_cols = [(t.x0, t.x1)
+                for r in text if len(r) == max(elements) for t in r]
+            cols.extend(Stream._merge_columns(sorted(new_cols)))
+        return cols
+
+    @staticmethod
+    def _join_columns(cols, text_x_min, text_x_max):
+        """Makes column coordinates continuous.
+
+        Parameters
+        ----------
+        cols : list
+            List of column coordinate tuples.
+
+        text_x_min : int
+
+        text_y_max : int
+
+        Returns
+        -------
+        cols : list
+            Updated list of column coordinate tuples.
+        """
+        cols = sorted(cols)
+        cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
+        cols.insert(0, text_x_min)
+        cols.append(text_x_max)
+        cols = [(cols[i], cols[i + 1])
+                for i in range(0, len(cols) - 1)]
+        return cols
+
+    def extract_tables(self, pdfname):
         """Expects a single page pdf as input with rotation corrected.
 
         Parameters
@@ -308,11 +308,13 @@ class Stream:
                 os.path.basename(bname)))
             return {os.path.basename(bname): None}
 
+        g = Geometry()
         if self.debug:
-            self.debug_text = []
-            self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlh])
-            self.debug_text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlv])
-            return None
+            text = []
+            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlh])
+            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in lttextlv])
+            g.text = text
+            return [None], [g]
 
         if self.table_area is not None:
             if self.columns is not None:
@@ -354,9 +356,9 @@ class Stream:
             table_data['text_p'] = 100 * (1 - (len(char_bbox) / len(ltchar)))
             for direction in t_bbox:
                 t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
-            text_x_min, text_y_min, text_x_max, text_y_max = _text_bbox(t_bbox)
-            rows_grouped = _group_rows(t_bbox['horizontal'], ytol=ytolerance[table_no])
-            rows = _join_rows(rows_grouped, text_y_max, text_y_min)
+            text_x_min, text_y_min, text_x_max, text_y_max = self._text_bbox(t_bbox)
+            rows_grouped = self._group_rows(t_bbox['horizontal'], ytol=ytolerance[table_no])
+            rows = self._join_rows(rows_grouped, text_y_max, text_y_min)
             elements = [len(r) for r in rows_grouped]
 
             guess = False
@@ -380,7 +382,7 @@ class Stream:
                         os.path.basename(bname)))
                 cols = [(t.x0, t.x1)
                     for r in rows_grouped if len(r) == ncols for t in r]
-                cols = _merge_columns(sorted(cols), mtol=mtolerance[table_no])
+                cols = self._merge_columns(sorted(cols), mtol=mtolerance[table_no])
                 inner_text = []
                 for i in range(1, len(cols)):
                     left = cols[i - 1][1]
@@ -392,8 +394,8 @@ class Stream:
                               for t in t_bbox[direction]
                               if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
                 inner_text.extend(outer_text)
-                cols = _add_columns(cols, inner_text, ytolerance[table_no])
-                cols = _join_columns(cols, text_x_min, text_x_max)
+                cols = self._add_columns(cols, inner_text, ytolerance[table_no])
+                cols = self._join_columns(cols, text_x_min, text_x_max)
 
             table = Table(cols, rows)
             table = table.set_all_edges()
@@ -431,87 +433,6 @@ class Stream:
         page[os.path.basename(bname)] = tables
 
         return page
-
-
-def _reduce_index(t, idx, shift_text):
-    """Reduces index of a text object if it lies within a spanning
-    cell.
-
-    Parameters
-    ----------
-    table : object
-        camelot.table.Table
-
-    idx : list
-        List of tuples of the form (r_idx, c_idx, text).
-
-    shift_text : list
-        {'l', 'r', 't', 'b'}
-        Select one or more from above and pass them as a list to
-        specify where the text in a spanning cell should flow.
-
-    Returns
-    -------
-    indices : list
-        List of tuples of the form (idx, text) where idx is the reduced
-        index of row/column and text is the an lttextline substring.
-    """
-    indices = []
-    for r_idx, c_idx, text in idx:
-        for d in shift_text:
-            if d == 'l':
-                if t.cells[r_idx][c_idx].spanning_h:
-                    while not t.cells[r_idx][c_idx].left:
-                        c_idx -= 1
-            if d == 'r':
-                if t.cells[r_idx][c_idx].spanning_h:
-                    while not t.cells[r_idx][c_idx].right:
-                        c_idx += 1
-            if d == 't':
-                if t.cells[r_idx][c_idx].spanning_v:
-                    while not t.cells[r_idx][c_idx].top:
-                        r_idx -= 1
-            if d == 'b':
-                if t.cells[r_idx][c_idx].spanning_v:
-                    while not t.cells[r_idx][c_idx].bottom:
-                        r_idx += 1
-        indices.append((r_idx, c_idx, text))
-    return indices
-
-
-def _fill_spanning(t, fill=None):
-    """Fills spanning cells.
-
-    Parameters
-    ----------
-    t : object
-        camelot.table.Table
-
-    fill : list
-        {'h', 'v'}
-        Specify to fill spanning cells in horizontal or vertical
-        direction.
-        (optional, default: None)
-
-    Returns
-    -------
-    t : object
-        camelot.table.Table
-    """
-    for f in fill:
-        if f == "h":
-            for i in range(len(t.cells)):
-                for j in range(len(t.cells[i])):
-                    if t.cells[i][j].get_text().strip() == '':
-                        if t.cells[i][j].spanning_h and not t.cells[i][j].left:
-                            t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
-        elif f == "v":
-            for i in range(len(t.cells)):
-                for j in range(len(t.cells[i])):
-                    if t.cells[i][j].get_text().strip() == '':
-                        if t.cells[i][j].spanning_v and not t.cells[i][j].top:
-                            t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
-    return t
 
 
 class Lattice:
@@ -617,7 +538,88 @@ class Lattice:
         self.shift_text = shift_text
         self.debug = debug
 
-    def get_tables(self, pdfname):
+    @staticmethod
+    def _reduce_index(t, idx, shift_text):
+        """Reduces index of a text object if it lies within a spanning
+        cell.
+
+        Parameters
+        ----------
+        table : object
+            camelot.table.Table
+
+        idx : list
+            List of tuples of the form (r_idx, c_idx, text).
+
+        shift_text : list
+            {'l', 'r', 't', 'b'}
+            Select one or more from above and pass them as a list to
+            specify where the text in a spanning cell should flow.
+
+        Returns
+        -------
+        indices : list
+            List of tuples of the form (idx, text) where idx is the reduced
+            index of row/column and text is the an lttextline substring.
+        """
+        indices = []
+        for r_idx, c_idx, text in idx:
+            for d in shift_text:
+                if d == 'l':
+                    if t.cells[r_idx][c_idx].spanning_h:
+                        while not t.cells[r_idx][c_idx].left:
+                            c_idx -= 1
+                if d == 'r':
+                    if t.cells[r_idx][c_idx].spanning_h:
+                        while not t.cells[r_idx][c_idx].right:
+                            c_idx += 1
+                if d == 't':
+                    if t.cells[r_idx][c_idx].spanning_v:
+                        while not t.cells[r_idx][c_idx].top:
+                            r_idx -= 1
+                if d == 'b':
+                    if t.cells[r_idx][c_idx].spanning_v:
+                        while not t.cells[r_idx][c_idx].bottom:
+                            r_idx += 1
+            indices.append((r_idx, c_idx, text))
+        return indices
+
+
+    def _fill_spanning(t, fill=None):
+        """Fills spanning cells.
+
+        Parameters
+        ----------
+        t : object
+            camelot.table.Table
+
+        fill : list
+            {'h', 'v'}
+            Specify to fill spanning cells in horizontal or vertical
+            direction.
+            (optional, default: None)
+
+        Returns
+        -------
+        t : object
+            camelot.table.Table
+        """
+        for f in fill:
+            if f == "h":
+                for i in range(len(t.cells)):
+                    for j in range(len(t.cells[i])):
+                        if t.cells[i][j].get_text().strip() == '':
+                            if t.cells[i][j].spanning_h and not t.cells[i][j].left:
+                                t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
+            elif f == "v":
+                for i in range(len(t.cells)):
+                    for j in range(len(t.cells[i])):
+                        if t.cells[i][j].get_text().strip() == '':
+                            if t.cells[i][j].spanning_v and not t.cells[i][j].top:
+                                t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
+        return t
+
+    def extract_tables(self, pdfname):
         """Expects a single page pdf as input with rotation corrected.
 
         Parameters
@@ -696,15 +698,16 @@ class Lattice:
         else:
             jtolerance = copy.deepcopy(self.jtol)
 
+        g = Geometry()
         if self.debug:
-            self.debug_images = (img, table_bbox)
+            g.images = [(img, table_bbox)]
 
         table_bbox, v_segments, h_segments = scale_to_pdf(table_bbox, v_segments,
             h_segments, factors_pdf)
 
         if self.debug:
-            self.debug_segments = (v_segments, h_segments)
-            self.debug_tables = []
+            g.segments = [(v_segments, h_segments)]
+            _tables = []
 
         page = {}
         tables = {}
@@ -737,15 +740,13 @@ class Lattice:
             table = Table(cols, rows)
             # set table edges to True using ver+hor lines
             table = table.set_edges(v_s, h_s, jtol=jtolerance[table_no])
-            nouse = table.nocont_ / (len(v_s) + len(h_s))
-            table_data['line_p'] = 100 * (1 - nouse)
             # set spanning cells to True
             table = table.set_spanning()
             # set table border edges to True
             table = table.set_border_edges()
 
             if self.debug:
-                self.debug_tables.append(table)
+                _tables.append(table)
 
             assignment_errors = []
             table_data['split_text'] = []
@@ -757,7 +758,7 @@ class Lattice:
                         flag_size=self.flag_size)
                     if indices[:2] != (-1, -1):
                         assignment_errors.append(error)
-                        indices = _reduce_index(table, indices, shift_text=self.shift_text)
+                        indices = self._reduce_index(table, indices, shift_text=self.shift_text)
                         if len(indices) > 1:
                             table_data['split_text'].append(indices)
                         for r_idx, c_idx, text in indices:
@@ -768,7 +769,7 @@ class Lattice:
             table_data['score'] = score
 
             if self.fill is not None:
-                table = _fill_spanning(table, fill=self.fill)
+                table = self._fill_spanning(table, fill=self.fill)
             ar = table.get_list()
             ar = encode_list(ar)
             table_data['data'] = ar
@@ -782,6 +783,7 @@ class Lattice:
         page[os.path.basename(bname)] = tables
 
         if self.debug:
-            return None
+            g.tables = _tables
+            return [None], [g]
 
         return page

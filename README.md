@@ -8,7 +8,7 @@ Camelot is a Python 2.7 library and command-line tool for getting tables out of 
 >>> import camelot
 >>> tables = camelot.read_pdf("foo.pdf")
 >>> tables
-&lt;TableSet n=2&gt;
+&lt;TableList n=2&gt;
 >>> tables.to_csv(zip=True) # to_json, to_excel, to_html
 >>> tables[0]
 &lt;Table shape=(3,4)&gt;
@@ -19,8 +19,8 @@ Camelot is a Python 2.7 library and command-line tool for getting tables out of 
     "time_taken": 0.5,
     "page": 1
 }
+>>> df = tables[0].df
 >>> tables[0].to_csv("foo.csv") # to_json, to_excel, to_html
->>> df = tables[0].to_df()
 </pre>
 
 Camelot comes with a CLI where you can specify page numbers, output format, output directory etc. By default, the output files are placed in the same directory as the PDF.

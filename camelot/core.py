@@ -21,7 +21,6 @@ class Cell(object):
         self.text = ''
         self.spanning_h = False
         self.spanning_v = False
-        self.image = None
 
     def __repr__(self):
         pass
@@ -49,8 +48,6 @@ class Table(object):
         self.rows = rows
         self.cells = [[Cell(c[0], r[1], c[1], r[0])
                        for c in cols] for r in rows]
-        self.nocont_ = 0
-        self.image = None
 
     def __repr__(self):
         pass
@@ -127,7 +124,7 @@ class Table(object):
                         J += 1
 
         for h in horizontal:
-            #  find closest y coord
+            # find closest y coord
             # iterate over x coords and find closest points
             i = [i for i, t in enumerate(self.rows)
                  if np.isclose(h[1], t[0], atol=jtol)]
@@ -227,9 +224,66 @@ class Table(object):
         return ar
 
 
-class TableSet(object):
-    def __init__(self):
-        pass
+class TableList(list):
+    def __init__(self, tables):
+        self._tables = tables
 
     def __repr__(self):
-        pass
+        return '<{} tables={}>'.format(
+            self.__class__.__name__, len(self._tables))
+
+
+class Geometry(object):
+    def __init__(self):
+        self._text = []
+        self._images = []
+        self._segments = []
+        self._tables = []
+
+    @property
+    def text(self):
+        return self._text
+
+    @text.setter
+    def text(self, t):
+        self._text = t
+
+    @property
+    def images(self):
+        return self._images
+
+    @images.setter
+    def images(self, i):
+        self._images = i
+
+    @property
+    def segments(self):
+        return self._segments
+
+    @segments.setter
+    def segments(self, s):
+        self._segments = s
+
+    @property
+    def tables(self):
+        return self._tables
+
+    @tables.setter
+    def tables(self, tb):
+        self._tables = tb
+
+
+class GeometryList(object):
+    def __init__(self, geometry):
+        self._text = [g.text for g in geometry]
+        self._images = [g.images for g in geometry]
+        self._segments = [g.segments for g in geometry]
+        self._tables = [g.tables for g in geometry]
+
+    def __repr__(self):
+        return '<{} text={} images={} segments={} tables={}>'.format(
+            self.__class__.__name__,
+            len(self._text),
+            len(self._images),
+            len(self._segments),
+            len(self._tables))

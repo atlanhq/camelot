@@ -74,10 +74,11 @@ class PDFHandler(object):
             self.__save_page(self.filename, p, self.temp)
         pages = [os.path.join(self.temp, 'page-{0}.pdf'.format(p))
                  for p in self.pages]
-        tables = {}
+        tables = []
+        geometry = []
         parser = Stream(**kwargs) if not mesh else Lattice(**kwargs)
         for p in pages:
-            table = parser.get_tables(p)
-            if table is not None:
-                tables.update(table)
-        return tables
+            t, g = parser.extract_tables(p)
+            tables.extend(t)
+            geometry.extend(g)
+        return TableList(tables), GeometryList(geometry)
