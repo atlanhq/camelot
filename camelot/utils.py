@@ -19,16 +19,52 @@ from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
 
 
 def translate(x1, x2):
+    """
+
+    Parameters
+    ----------
+    x1
+    x2
+
+    Returns
+    -------
+
+    """
     x2 += x1
     return x2
 
 
 def scale(x, s):
+    """
+
+    Parameters
+    ----------
+    x
+    s
+
+    Returns
+    -------
+
+    """
     x *= s
     return x
 
 
 def rotate(x1, y1, x2, y2, angle):
+    """
+
+    Parameters
+    ----------
+    x1
+    y1
+    x2
+    y2
+    angle
+
+    Returns
+    -------
+
+    """
     s = np.sin(angle)
     c = np.cos(angle)
     x2 = translate(-x1, x2)
@@ -41,6 +77,17 @@ def rotate(x1, y1, x2, y2, angle):
 
 
 def scale_to_image(k, factors):
+    """
+
+    Parameters
+    ----------
+    k
+    factors
+
+    Returns
+    -------
+
+    """
     x1, y1, x2, y2 = k
     scaling_factor_x, scaling_factor_y, pdf_y = factors
     x1 = scale(x1, scaling_factor_x)
@@ -52,6 +99,19 @@ def scale_to_image(k, factors):
 
 
 def scale_to_pdf(tables, v_segments, h_segments, factors):
+    """
+
+    Parameters
+    ----------
+    tables
+    v_segments
+    h_segments
+    factors
+
+    Returns
+    -------
+
+    """
     scaling_factor_x, scaling_factor_y, img_y = factors
     tables_new = {}
     for k in tables.keys():
@@ -84,6 +144,16 @@ def scale_to_pdf(tables, v_segments, h_segments, factors):
 
 
 def setup_logging(log_filepath):
+    """
+
+    Parameters
+    ----------
+    log_filepath
+
+    Returns
+    -------
+
+    """
     logger = logging.getLogger("app_logger")
     logger.setLevel(logging.DEBUG)
     # Log File Handler (Associating one log file per webservice run)
@@ -105,6 +175,18 @@ def setup_logging(log_filepath):
 
 
 def get_rotation(lttextlh, lttextlv, ltchar):
+    """
+
+    Parameters
+    ----------
+    lttextlh
+    lttextlv
+    ltchar
+
+    Returns
+    -------
+
+    """
     rotation = ''
     hlen = len([t for t in lttextlh if t.get_text().strip()])
     vlen = len([t for t in lttextlv if t.get_text().strip()])
@@ -116,6 +198,18 @@ def get_rotation(lttextlh, lttextlv, ltchar):
 
 
 def segments_bbox(bbox, v_segments, h_segments):
+    """
+
+    Parameters
+    ----------
+    bbox
+    v_segments
+    h_segments
+
+    Returns
+    -------
+
+    """
     lb = (bbox[0], bbox[1])
     rt = (bbox[2], bbox[3])
     v_s = [v for v in v_segments if v[1] > lb[1] - 2 and
@@ -126,6 +220,17 @@ def segments_bbox(bbox, v_segments, h_segments):
 
 
 def text_in_bbox(bbox, text):
+    """
+
+    Parameters
+    ----------
+    bbox
+    text
+
+    Returns
+    -------
+
+    """
     lb = (bbox[0], bbox[1])
     rt = (bbox[2], bbox[3])
     t_bbox = [t for t in text if lb[0] - 2 <= (t.x0 + t.x1) / 2.0
@@ -135,6 +240,17 @@ def text_in_bbox(bbox, text):
 
 
 def remove_close_values(ar, mtol=2):
+    """
+
+    Parameters
+    ----------
+    ar
+    mtol
+
+    Returns
+    -------
+
+    """
     ret = []
     for a in ar:
         if not ret:
@@ -149,6 +265,17 @@ def remove_close_values(ar, mtol=2):
 
 
 def merge_close_values(ar, mtol=2):
+    """
+
+    Parameters
+    ----------
+    ar
+    mtol
+
+    Returns
+    -------
+
+    """
     ret = []
     for a in ar:
         if not ret:
@@ -164,6 +291,17 @@ def merge_close_values(ar, mtol=2):
 
 
 def flag_on_size(textline, direction):
+    """
+
+    Parameters
+    ----------
+    textline
+    direction
+
+    Returns
+    -------
+
+    """
     if direction == 'horizontal':
         d = [(t.get_text(), np.round(t.height, decimals=6)) for t in textline if not isinstance(t, LTAnno)]
     elif direction == 'vertical':
@@ -190,6 +328,19 @@ def flag_on_size(textline, direction):
 
 
 def split_textline(table, textline, direction, flag_size=True):
+    """
+
+    Parameters
+    ----------
+    table
+    textline
+    direction
+    flag_size
+
+    Returns
+    -------
+
+    """
     idx = 0
     cut_text = []
     bbox = textline.bbox
@@ -241,6 +392,20 @@ def split_textline(table, textline, direction, flag_size=True):
 
 
 def get_table_index(table, t, direction, split_text=False, flag_size=True):
+    """
+
+    Parameters
+    ----------
+    table
+    t
+    direction
+    split_text
+    flag_size
+
+    Returns
+    -------
+
+    """
     r_idx, c_idx = [-1] * 2
     for r in range(len(table.rows)):
         if ((t.y0 + t.y1) / 2.0 < table.rows[r][0] and
@@ -284,6 +449,16 @@ def get_table_index(table, t, direction, split_text=False, flag_size=True):
 
 
 def compute_accuracy(error_weights):
+    """
+
+    Parameters
+    ----------
+    error_weights
+
+    Returns
+    -------
+
+    """
     SCORE_VAL = 100
     try:
         score = 0
@@ -299,6 +474,16 @@ def compute_accuracy(error_weights):
 
 
 def remove_empty(d):
+    """
+
+    Parameters
+    ----------
+    d
+
+    Returns
+    -------
+
+    """
     for i, row in enumerate(d):
         if row == [''] * len(row):
             d.pop(i)
@@ -309,6 +494,16 @@ def remove_empty(d):
 
 
 def count_empty(d):
+    """
+
+    Parameters
+    ----------
+    d
+
+    Returns
+    -------
+
+    """
     empty_p = 0
     r_nempty_cells, c_nempty_cells = [], []
     for i in d:
@@ -334,11 +529,33 @@ def count_empty(d):
 
 
 def encode_(ar):
+    """
+
+    Parameters
+    ----------
+    ar
+
+    Returns
+    -------
+
+    """
     ar = [[r.encode('utf-8') for r in row] for row in ar]
     return ar
 
 
 def get_text_objects(layout, ltype="char", t=None):
+    """
+
+    Parameters
+    ----------
+    layout
+    ltype
+    t
+
+    Returns
+    -------
+
+    """
     if ltype == "char":
         LTObject = LTChar
     elif ltype == "lh":
@@ -360,6 +577,21 @@ def get_text_objects(layout, ltype="char", t=None):
 
 def get_page_layout(pname, char_margin=1.0, line_margin=0.5, word_margin=0.1,
                detect_vertical=True, all_texts=True):
+    """
+
+    Parameters
+    ----------
+    pname
+    char_margin
+    line_margin
+    word_margin
+    detect_vertical
+    all_texts
+
+    Returns
+    -------
+
+    """
     with open(pname, 'r') as f:
         parser = PDFParser(f)
         document = PDFDocument(parser)
@@ -383,6 +615,12 @@ def get_page_layout(pname, char_margin=1.0, line_margin=0.5, word_margin=0.1,
 
 
 def merge_tuples(tuples):
+    """
+
+    Parameters
+    ----------
+    tuples
+    """
     merged = list(tuples[0])
     for s, e in tuples:
         if s <= merged[1]:

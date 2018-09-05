@@ -8,6 +8,19 @@ from .utils import merge_tuples
 
 
 def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
+    """
+
+    Parameters
+    ----------
+    imagename
+    invert
+    blocksize
+    c
+
+    Returns
+    -------
+
+    """
     img = cv2.imread(imagename)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -21,6 +34,19 @@ def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
 
 
 def find_lines(threshold, direction='horizontal', scale=15, iterations=0):
+    """
+
+    Parameters
+    ----------
+    threshold
+    direction
+    scale
+    iterations
+
+    Returns
+    -------
+
+    """
     lines = []
 
     if direction == 'vertical':
@@ -57,6 +83,17 @@ def find_lines(threshold, direction='horizontal', scale=15, iterations=0):
 
 
 def find_table_contours(vertical, horizontal):
+    """
+
+    Parameters
+    ----------
+    vertical
+    horizontal
+
+    Returns
+    -------
+
+    """
     mask = vertical + horizontal
 
     try:
@@ -76,6 +113,18 @@ def find_table_contours(vertical, horizontal):
 
 
 def find_table_joints(contours, vertical, horizontal):
+    """
+
+    Parameters
+    ----------
+    contours
+    vertical
+    horizontal
+
+    Returns
+    -------
+
+    """
     joints = np.bitwise_and(vertical, horizontal)
     tables = {}
     for c in contours:
@@ -100,6 +149,17 @@ def find_table_joints(contours, vertical, horizontal):
 
 
 def remove_lines(threshold, line_scale=15):
+    """
+
+    Parameters
+    ----------
+    threshold
+    line_scale
+
+    Returns
+    -------
+
+    """
     size = threshold.shape[0] // line_scale
     vertical_erode_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
     horizontal_erode_el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
@@ -117,6 +177,17 @@ def remove_lines(threshold, line_scale=15):
 
 
 def find_cuts(threshold, char_scale=200):
+    """
+
+    Parameters
+    ----------
+    threshold
+    char_scale
+
+    Returns
+    -------
+
+    """
     size = threshold.shape[0] // char_scale
     char_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
 

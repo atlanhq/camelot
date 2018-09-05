@@ -9,6 +9,9 @@ from .utils import get_page_layout, get_text_objects, get_rotation
 
 
 class PDFHandler(object):
+    """
+
+    """
     def __init__(self, filename, pages='1'):
         self.filename = filename
         if not self.filename.endswith('.pdf'):
@@ -71,6 +74,17 @@ class PDFHandler(object):
                     outfile.write(f)
 
     def parse(self, mesh=False, **kwargs):
+        """
+
+        Parameters
+        ----------
+        mesh
+        kwargs
+
+        Returns
+        -------
+
+        """
         for p in self.pages:
             self.__save_page(self.filename, p, self.temp)
         pages = [os.path.join(self.temp, 'page-{0}.pdf'.format(p))

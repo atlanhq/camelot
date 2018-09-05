@@ -32,6 +32,9 @@ copy_reg.pickle(types.MethodType, _reduce_method)
 
 
 class Stream:
+    """
+
+    """
     def __init__(self, table_area=None, columns=None, ytol=[2], mtol=[0],
                  margins=(1.0, 0.5, 0.1), split_text=False, flag_size=True,
                  debug=False):
@@ -134,6 +137,16 @@ class Stream:
         return cols
 
     def extract_tables(self, pdfname):
+        """
+
+        Parameters
+        ----------
+        pdfname
+
+        Returns
+        -------
+
+        """
         layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
             line_margin=self.line_margin, word_margin=self.word_margin)
         lttextlh = get_text_objects(layout, ltype="lh")
@@ -265,6 +278,9 @@ class Stream:
 
 
 class Lattice:
+    """
+
+    """
     def __init__(self, table_area=None, fill=None, mtol=[2], jtol=[2],
                  blocksize=15, threshold_constant=-2, scale=15, iterations=0,
                  invert=False, margins=(1.0, 0.5, 0.1), split_text=False,
@@ -328,6 +344,16 @@ class Lattice:
         return t
 
     def extract_tables(self, pdfname):
+        """
+
+        Parameters
+        ----------
+        pdfname
+
+        Returns
+        -------
+
+        """
         layout, dim = get_page_layout(pdfname, char_margin=self.char_margin,
             line_margin=self.line_margin, word_margin=self.word_margin)
         lttextlh = get_text_objects(layout, ltype="lh")

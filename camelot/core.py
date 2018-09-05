@@ -4,6 +4,9 @@ import numpy as np
 
 
 class Cell(object):
+    """
+
+    """
     def __init__(self, x1, y1, x2, y2):
         self.x1 = x1
         self.y1 = y1
@@ -27,23 +30,56 @@ class Cell(object):
         pass
 
     def add_text(self, text):
+        """
+
+        Parameters
+        ----------
+        text
+        """
         self.text = ''.join([self.text, text])
 
     def get_text(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self.text
 
     def add_object(self, t_object):
+        """
+
+        Parameters
+        ----------
+        t_object
+        """
         self.text_objects.append(t_object)
 
     def get_objects(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self.text_objects
 
     def get_bounded_edges(self):
+        """
+
+        Returns
+        -------
+
+        """
         self.bounded_edges = self.top + self.bottom + self.left + self.right
         return self.bounded_edges
 
 
 class Table(object):
+    """
+
+    """
     def __init__(self, cols, rows):
         self.cols = cols
         self.rows = rows
@@ -60,6 +96,12 @@ class Table(object):
         return '<{} shape={}>'.format(self.__class__.__name__, self._shape)
 
     def set_all_edges(self):
+        """
+
+        Returns
+        -------
+
+        """
         for r in range(len(self.rows)):
             for c in range(len(self.cols)):
                 self.cells[r][c].left = True
@@ -69,6 +111,12 @@ class Table(object):
         return self
 
     def set_border_edges(self):
+        """
+
+        Returns
+        -------
+
+        """
         for r in range(len(self.rows)):
             self.cells[r][0].left = True
             self.cells[r][len(self.cols) - 1].right = True
@@ -78,6 +126,18 @@ class Table(object):
         return self
 
     def set_edges(self, vertical, horizontal, jtol=2):
+        """
+
+        Parameters
+        ----------
+        vertical
+        horizontal
+        jtol
+
+        Returns
+        -------
+
+        """
         for v in vertical:
             # find closest x coord
             # iterate over y coords and find closest points
@@ -185,6 +245,12 @@ class Table(object):
         return self
 
     def set_spanning(self):
+        """
+
+        Returns
+        -------
+
+        """
         for r in range(len(self.rows)):
             for c in range(len(self.cols)):
                 bound = self.cells[r][c].get_bounded_edges()
@@ -225,6 +291,12 @@ class Table(object):
 
     @property
     def data(self):
+        """
+
+        Returns
+        -------
+
+        """
         d = []
         for r in range(len(self.rows)):
             d.append([self.cells[r][c].get_text().strip()
@@ -233,6 +305,12 @@ class Table(object):
 
     @property
     def df(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._df
 
     @df.setter
@@ -241,6 +319,12 @@ class Table(object):
 
     @property
     def shape(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._shape
 
     @shape.setter
@@ -249,6 +333,12 @@ class Table(object):
 
     @property
     def accuracy(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._accuracy
 
     @accuracy.setter
@@ -257,6 +347,12 @@ class Table(object):
 
     @property
     def whitespace(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._whitespace
 
     @whitespace.setter
@@ -265,6 +361,12 @@ class Table(object):
 
     @property
     def order(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._order
 
     @order.setter
@@ -273,6 +375,12 @@ class Table(object):
 
     @property
     def page(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._page
 
     @page.setter
@@ -281,6 +389,12 @@ class Table(object):
 
     @property
     def parsing_report(self):
+        """
+
+        Returns
+        -------
+
+        """
         # pretty?
         report = {
             'accuracy': self._accuracy,
@@ -292,6 +406,9 @@ class Table(object):
 
 
 class TableList(list):
+    """
+
+    """
     def __init__(self, tables):
         self._tables = tables
 
@@ -307,6 +424,9 @@ class TableList(list):
 
 
 class Geometry(object):
+    """
+
+    """
     def __init__(self):
         self._text = []
         self._images = ()
@@ -315,6 +435,12 @@ class Geometry(object):
 
     @property
     def text(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._text
 
     @text.setter
@@ -323,6 +449,12 @@ class Geometry(object):
 
     @property
     def images(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._images
 
     @images.setter
@@ -331,6 +463,12 @@ class Geometry(object):
 
     @property
     def segments(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._segments
 
     @segments.setter
@@ -339,6 +477,12 @@ class Geometry(object):
 
     @property
     def tables(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._tables
 
     @tables.setter
@@ -347,6 +491,9 @@ class Geometry(object):
 
 
 class GeometryList(object):
+    """
+
+    """
     def __init__(self, geometry):
         self._text = [g.text for g in geometry]
         self._images = [g.images for g in geometry]
@@ -363,16 +510,40 @@ class GeometryList(object):
 
     @property
     def text(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._text
 
     @property
     def images(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._images
 
     @property
     def segments(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._segments
 
     @property
     def tables(self):
+        """
+
+        Returns
+        -------
+
+        """
         return self._tables

@@ -6,6 +6,16 @@ from .handlers import PDFHandler
 
 
 def plot_geometry(filepath, pages='1', mesh=False, geometry_type='text', **kwargs):
+    """
+
+    Parameters
+    ----------
+    filepath
+    pages
+    mesh
+    geometry_type
+    kwargs
+    """
     # explicit type conversion
     p = PDFHandler(filepath, pages)
     kwargs.update({'debug': geometry_type})
