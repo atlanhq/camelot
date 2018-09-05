@@ -557,7 +557,7 @@ def get_table_index(table, t, direction, split_text=False, flag_size=True):
             return [(r_idx, c_idx, t.get_text().strip('\n'))], error
 
 
-def get_score(error_weights):
+def compute_accuracy(error_weights):
     """Calculates score based on weights assigned to various parameters,
     and their error percentages.
 
@@ -648,7 +648,7 @@ def count_empty(d):
     return empty_p, r_nempty_cells, c_nempty_cells
 
 
-def encode_list(ar):
+def encode_(ar):
     """Encodes list of text.
 
     Parameters

@@ -3,6 +3,7 @@ import tempfile
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
+from .core import TableList, GeometryList
 from .parsers import Stream, Lattice
 from .utils import get_page_layout, get_text_objects, get_rotation
 
@@ -80,5 +81,5 @@ class PDFHandler(object):
         for p in pages:
             t, g = parser.extract_tables(p)
             tables.extend(t)
-            geometry.extend(g)
+            geometry.append(g)
         return TableList(tables), GeometryList(geometry)

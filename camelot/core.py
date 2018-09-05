@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 
 class Cell(object):
@@ -48,9 +47,15 @@ class Table(object):
         self.rows = rows
         self.cells = [[Cell(c[0], r[1], c[1], r[0])
                        for c in cols] for r in rows]
+        self._df = None
+        self._shape = (0, 0)
+        self._accuracy = 0
+        self._whitespace = 0
+        self._order = None
+        self._page = None
 
     def __repr__(self):
-        pass
+        return '<{} shape={}>'.format(self.__class__.__name__, self._shape)
 
     def set_all_edges(self):
         for r in range(len(self.rows)):
@@ -216,12 +221,61 @@ class Table(object):
 
         return self
 
-    def get_list(self):
-        ar = []
+    @property
+    def data(self):
+        d = []
         for r in range(len(self.rows)):
-            ar.append([self.cells[r][c].get_text().strip()
+            d.append([self.cells[r][c].get_text().strip()
                        for c in range(len(self.cols))])
-        return ar
+        return d
+
+    @property
+    def df(self):
+        return self._df
+
+    @df.setter
+    def df(self, dataframe):
+        self._df = dataframe
+
+    @property
+    def shape(self):
+        return self._shape
+
+    @shape.setter
+    def shape(self, s):
+        self._shape = s
+
+    @property
+    def accuracy(self):
+        return self._accuracy
+
+    @accuracy.setter
+    def accuracy(self, a):
+        self._accuracy = a
+
+    @property
+    def whitespace(self):
+        return self._whitespace
+
+    @whitespace.setter
+    def whitespace(self, w):
+        self._whitespace = w
+
+    @property
+    def order(self):
+        return self._order
+
+    @order.setter
+    def order(self, o):
+        self._order = o
+
+    @property
+    def page(self):
+        return self._page
+
+    @page.setter
+    def page(self, p):
+        self._page = p
 
 
 class TableList(list):
@@ -236,8 +290,8 @@ class TableList(list):
 class Geometry(object):
     def __init__(self):
         self._text = []
-        self._images = []
-        self._segments = []
+        self._images = ()
+        self._segments = ()
         self._tables = []
 
     @property
