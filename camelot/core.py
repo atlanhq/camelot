@@ -342,6 +342,10 @@ class TableList(object):
     def _format_func(table, f):
         return getattr(table, 'to_{}'.format(f))
 
+    @property
+    def n(self):
+        return len(self._tables)
+
     def _write_file(self, f=None, **kwargs):
         dirname = kwargs.get('dirname')
         root = kwargs.get('root')
