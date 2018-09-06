@@ -85,13 +85,13 @@ numpy can be install using `pip`. OpenCV and ghostscript can be installed using 
 * Arch Linux
 
 <pre>
-sudo pacman -S opencv ghostscript
+sudo pacman -S opencv tk ghostscript
 </pre>
 
 * Ubuntu
 
 <pre>
-sudo apt-get install libopencv-dev python-opencv python-tk ghostscript
+sudo apt-get install python-opencv python-tk ghostscript
 </pre>
 
 #### OS X
