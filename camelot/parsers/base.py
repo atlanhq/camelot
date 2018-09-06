@@ -1,3 +1,5 @@
+import os
+
 from ..core import Geometry
 from ..utils import get_page_layout, get_text_objects
 
