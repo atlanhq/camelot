@@ -1,12 +1,7 @@
 from __future__ import division
 import os
-import sys
-import copy
-import types
 import logging
-import copy_reg
 import warnings
-import subprocess
 
 import numpy as np
 import pandas as pd
@@ -206,7 +201,7 @@ class Stream(BaseParser):
                 if indices[:2] != (-1, -1):
                     pos_errors.append(error)
                     for r_idx, c_idx, text in indices:
-                        table.cells[r_idx][c_idx].add_text(text)
+                        table.cells[r_idx][c_idx].text = text
         accuracy = compute_accuracy([[100, pos_errors]])
 
         data = table.data

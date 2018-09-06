@@ -1,10 +1,7 @@
 from __future__ import division
 import os
-import sys
 import copy
-import types
 import logging
-import copy_reg
 import warnings
 import subprocess
 
@@ -52,19 +49,19 @@ class Lattice(BaseParser):
         for r_idx, c_idx, text in idx:
             for d in shift_text:
                 if d == 'l':
-                    if t.cells[r_idx][c_idx].spanning_h:
+                    if t.cells[r_idx][c_idx].hspan:
                         while not t.cells[r_idx][c_idx].left:
                             c_idx -= 1
                 if d == 'r':
-                    if t.cells[r_idx][c_idx].spanning_h:
+                    if t.cells[r_idx][c_idx].hspan:
                         while not t.cells[r_idx][c_idx].right:
                             c_idx += 1
                 if d == 't':
-                    if t.cells[r_idx][c_idx].spanning_v:
+                    if t.cells[r_idx][c_idx].vspan:
                         while not t.cells[r_idx][c_idx].top:
                             r_idx -= 1
                 if d == 'b':
-                    if t.cells[r_idx][c_idx].spanning_v:
+                    if t.cells[r_idx][c_idx].vspan:
                         while not t.cells[r_idx][c_idx].bottom:
                             r_idx += 1
             indices.append((r_idx, c_idx, text))
@@ -76,15 +73,15 @@ class Lattice(BaseParser):
             if f == "h":
                 for i in range(len(t.cells)):
                     for j in range(len(t.cells[i])):
-                        if t.cells[i][j].get_text().strip() == '':
-                            if t.cells[i][j].spanning_h and not t.cells[i][j].left:
-                                t.cells[i][j].add_text(t.cells[i][j - 1].get_text())
+                        if t.cells[i][j].text.strip() == '':
+                            if t.cells[i][j].hspan and not t.cells[i][j].left:
+                                t.cells[i][j].text = t.cells[i][j - 1].text
             elif f == "v":
                 for i in range(len(t.cells)):
                     for j in range(len(t.cells[i])):
-                        if t.cells[i][j].get_text().strip() == '':
-                            if t.cells[i][j].spanning_v and not t.cells[i][j].top:
-                                t.cells[i][j].add_text(t.cells[i - 1][j].get_text())
+                        if t.cells[i][j].text.strip() == '':
+                            if t.cells[i][j].vspan and not t.cells[i][j].top:
+                                t.cells[i][j].text = t.cells[i - 1][j].text
         return t
 
     def _generate_image(self):
@@ -173,9 +170,9 @@ class Lattice(BaseParser):
         # set table edges to True using ver+hor lines
         table = table.set_edges(v_s, h_s, jtol=self.jtol)
         # set spanning cells to True
-        table = table.set_spanning()
+        table = table.set_span()
         # set table border edges to True
-        table = table.set_border_edges()
+        table = table.set_border()
 
         pos_errors = []
         for direction in self.t_bbox:
@@ -187,7 +184,7 @@ class Lattice(BaseParser):
                     pos_errors.append(error)
                     indices = Lattice._reduce_index(table, indices, shift_text=self.shift_text)
                     for r_idx, c_idx, text in indices:
-                        table.cells[r_idx][c_idx].add_text(text)
+                        table.cells[r_idx][c_idx].text = text
         accuracy = compute_accuracy([[100, pos_errors]])
 
         if self.fill is not None:
