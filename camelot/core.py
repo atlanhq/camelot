@@ -1,6 +1,10 @@
+import os
 import json
+import zipfile
+import tempfile
 
 import numpy as np
+import pandas as pd
 
 
 class Cell(object):
@@ -68,15 +72,45 @@ class Table(object):
         self.rows = rows
         self.cells = [[Cell(c[0], r[1], c[1], r[0])
                        for c in cols] for r in rows]
-        self._df = None
-        self._shape = (0, 0)
-        self._accuracy = 0
-        self._whitespace = 0
-        self._order = None
-        self._page = None
+        self.df = None
+        self.shape = (0, 0)
+        self.accuracy = 0
+        self.whitespace = 0
+        self.order = None
+        self.page = None
 
     def __repr__(self):
         return '<{} shape={}>'.format(self.__class__.__name__, self._shape)
+
+    @property
+    def data(self):
+        """
+
+        Returns
+        -------
+
+        """
+        d = []
+        for row in self.cells:
+            d.append([cell.text.strip() for cell in row])
+        return d
+
+    @property
+    def parsing_report(self):
+        """
+
+        Returns
+        -------
+
+        """
+        # pretty?
+        report = {
+            'accuracy': self.accuracy,
+            'whitespace': self.whitespace,
+            'order': self.order,
+            'page': self.page
+        }
+        return report
 
     def set_border(self):
         """
@@ -253,119 +287,38 @@ class Table(object):
                         cell.hspan = True
         return self
 
-    @property
-    def data(self):
-        """
-
-        Returns
-        -------
-
-        """
-        d = []
-        for row in self.cells:
-            d.append([cell.text.strip() for cell in row])
-        return d
-
-    @property
-    def df(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._df
-
-    @df.setter
-    def df(self, dataframe):
-        self._df = dataframe
-
-    @property
-    def shape(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._shape
-
-    @shape.setter
-    def shape(self, s):
-        self._shape = s
-
-    @property
-    def accuracy(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._accuracy
-
-    @accuracy.setter
-    def accuracy(self, a):
-        self._accuracy = a
-
-    @property
-    def whitespace(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._whitespace
-
-    @whitespace.setter
-    def whitespace(self, w):
-        self._whitespace = w
-
-    @property
-    def order(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._order
-
-    @order.setter
-    def order(self, o):
-        self._order = o
-
-    @property
-    def page(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._page
-
-    @page.setter
-    def page(self, p):
-        self._page = p
-
-    @property
-    def parsing_report(self):
-        """
-
-        Returns
-        -------
-
-        """
-        # pretty?
-        report = {
-            'accuracy': self._accuracy,
-            'whitespace': self._whitespace,
-            'order': self._order,
-            'page': self._page
+    def to_csv(self, path, **kwargs):
+        kw = {
+            'encoding': 'utf-8',
+            'index': False,
+            'quoting': 1
         }
-        return report
+        kw.update(kwargs)
+        self.df.to_csv(path, **kw)
+
+    def to_json(self, path, **kwargs):
+        kw = {
+            'orient': 'records'
+        }
+        kw.update(kwargs)
+        json_string = self.df.to_json(**kw)
+        with open(path, 'w') as f:
+            f.write(json_string)
+
+    def to_excel(self, path, **kwargs):
+        kw = {
+            'sheet_name': 'page-{}-table-{}'.format(self.page, self.order),
+            'encoding': 'utf-8'
+        }
+        kw.update(kwargs)
+        writer = pd.ExcelWriter(path)
+        self.df.to_excel(writer, **kw)
+        writer.save()
+
+    def to_html(self, path, **kwargs):
+        html_string = self.df.to_html(**kwargs)
+        with open(path, 'w') as f:
+            f.write(html_string)
 
 
 class TableList(object):
@@ -385,72 +338,82 @@ class TableList(object):
     def __getitem__(self, idx):
         return self._tables[idx]
 
+    @staticmethod
+    def _format_func(table, f):
+        return getattr(table, 'to_{}'.format(f))
+
+    def _write_file(self, f=None, **kwargs):
+        dirname = kwargs.get('dirname')
+        root = kwargs.get('root')
+        ext = kwargs.get('ext')
+        for table in self._tables:
+            filename = os.path.join('{}-page-{}-table-{}{}'.format(
+                                    root, table.page, table.order, ext))
+            filepath = os.path.join(dirname, filename)
+            to_format = self._format_func(table, f)
+            to_format(filepath)
+
+    def _compress_dir(self, **kwargs):
+        path = kwargs.get('path')
+        dirname = kwargs.get('dirname')
+        root = kwargs.get('root')
+        ext = kwargs.get('ext')
+        zipname = os.path.join(os.path.dirname(path), root) + '.zip'
+        with zipfile.ZipFile(zipname, 'w', allowZip64=True) as z:
+            for table in self._tables:
+                filename = os.path.join('{}-page-{}-table-{}{}'.format(
+                                        root, table.page, table.order, ext))
+                filepath = os.path.join(dirname, filename)
+                z.write(filepath, os.path.basename(filepath))
+
+    def export(self, path, f='csv', compress=False):
+        dirname = os.path.dirname(path)
+        basename = os.path.basename(path)
+        root, ext = os.path.splitext(basename)
+        if compress:
+            dirname = tempfile.mkdtemp()
+
+        kwargs = {
+            'path': path,
+            'dirname': dirname,
+            'root': root,
+            'ext': ext
+        }
+
+        if f in ['csv', 'json', 'html']:
+            self._write_file(f=f, **kwargs)
+            if compress:
+                self._compress_dir(**kwargs)
+        elif f == 'excel':
+            filepath = os.path.join(dirname, basename)
+            writer = pd.ExcelWriter(filepath)
+            for table in self._tables:
+                sheet_name = 'page-{}-table-{}'.format(table.page, table.order)
+                table.df.to_excel(writer, sheet_name=sheet_name, encoding='utf-8')
+            writer.save()
+            if compress:
+                zipname = os.path.join(os.path.dirname(path), root) + '.zip'
+                with zipfile.ZipFile(zipname, 'w', allowZip64=True) as z:
+                    z.write(filepath, os.path.basename(filepath))
+
 
 class Geometry(object):
     """
 
     """
     def __init__(self):
-        self._text = []
-        self._images = ()
-        self._segments = ()
-        self._tables = []
+        self.text = []
+        self.images = ()
+        self.segments = ()
+        self.tables = []
 
-    @property
-    def text(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._text
-
-    @text.setter
-    def text(self, t):
-        self._text = t
-
-    @property
-    def images(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._images
-
-    @images.setter
-    def images(self, i):
-        self._images = i
-
-    @property
-    def segments(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._segments
-
-    @segments.setter
-    def segments(self, s):
-        self._segments = s
-
-    @property
-    def tables(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._tables
-
-    @tables.setter
-    def tables(self, tb):
-        self._tables = tb
+    def __repr__(self):
+        return '<{} text={} images={} segments={} tables={}>'.format(
+            self.__class__.__name__,
+            len(self.text),
+            len(self.images),
+            len(self.segments),
+            len(self.tables))
 
 
 class GeometryList(object):
@@ -458,55 +421,15 @@ class GeometryList(object):
 
     """
     def __init__(self, geometry):
-        self._text = [g.text for g in geometry]
-        self._images = [g.images for g in geometry]
-        self._segments = [g.segments for g in geometry]
-        self._tables = [g.tables for g in geometry]
+        self.text = [g.text for g in geometry]
+        self.images = [g.images for g in geometry]
+        self.segments = [g.segments for g in geometry]
+        self.tables = [g.tables for g in geometry]
 
     def __repr__(self):
         return '<{} text={} images={} segments={} tables={}>'.format(
             self.__class__.__name__,
-            len(self._text),
-            len(self._images),
-            len(self._segments),
-            len(self._tables))
-
-    @property
-    def text(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._text
-
-    @property
-    def images(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._images
-
-    @property
-    def segments(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._segments
-
-    @property
-    def tables(self):
-        """
-
-        Returns
-        -------
-
-        """
-        return self._tables
+            len(self.text),
+            len(self.images),
+            len(self.segments),
+            len(self.tables))

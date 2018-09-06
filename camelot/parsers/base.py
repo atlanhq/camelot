@@ -18,5 +18,5 @@ class BaseParser(object):
         self.horizontal_text = get_text_objects(self.layout, ltype="lh")
         self.vertical_text = get_text_objects(self.layout, ltype="lv")
         self.pdf_width, self.pdf_height = self.dimensions
-        self.basename, __ = os.path.splitext(self.filename)
+        self.rootname, __ = os.path.splitext(self.filename)
         self.g = Geometry()

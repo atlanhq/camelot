@@ -17,7 +17,7 @@ class PDFHandler(object):
         if not self.filename.endswith('.pdf'):
             raise TypeError("File format not supported.")
         self.pages = self.__get_pages(self.filename, pages)
-        self.temp = tempfile.mkdtemp()
+        self.tempdir = tempfile.mkdtemp()
 
     def __get_pages(self, filename, pages):
         # refactor
@@ -47,7 +47,7 @@ class PDFHandler(object):
         with open(filename, 'rb') as fileobj:
             infile = PdfFileReader(fileobj, strict=False)
             fpath = os.path.join(temp, 'page-{0}.pdf'.format(page))
-            fname, fext = os.path.splitext(fpath)
+            froot, fext = os.path.splitext(fpath)
             p = infile.getPage(page - 1)
             outfile = PdfFileWriter()
             outfile.addPage(p)
@@ -60,7 +60,7 @@ class PDFHandler(object):
             ltchar = get_text_objects(layout, ltype="char")
             rotation = get_rotation(lttextlh, lttextlv, ltchar)
             if rotation != '':
-                fpath_new = ''.join([fname.replace('page', 'p'), '_rotated', fext])
+                fpath_new = ''.join([froot.replace('page', 'p'), '_rotated', fext])
                 os.rename(fpath, fpath_new)
                 infile = PdfFileReader(open(fpath_new, 'rb'), strict=False)
                 outfile = PdfFileWriter()
@@ -86,8 +86,8 @@ class PDFHandler(object):
 
         """
         for p in self.pages:
-            self.__save_page(self.filename, p, self.temp)
-        pages = [os.path.join(self.temp, 'page-{0}.pdf'.format(p))
+            self.__save_page(self.filename, p, self.tempdir)
+        pages = [os.path.join(self.tempdir, 'page-{0}.pdf'.format(p))
                  for p in self.pages]
         tables = []
         geometry = []

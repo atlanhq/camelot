@@ -32,12 +32,6 @@ class Stream(BaseParser):
         self.flag_size = flag_size
         self.debug = debug
 
-    def _validate_columns(self):
-        if self.table_area is not None and self.columns is not None:
-            if len(self.table_area) != len(self.columns):
-                raise ValueError("Length of table_area and columns"
-                                 " should be equal")
-
     @staticmethod
     def _text_bbox(t_bbox):
         xmin = min([t.x0 for direction in t_bbox for t in t_bbox[direction]])
@@ -125,6 +119,12 @@ class Stream(BaseParser):
                 for i in range(0, len(cols) - 1)]
         return cols
 
+    def _validate_columns(self):
+        if self.table_area is not None and self.columns is not None:
+            if len(self.table_area) != len(self.columns):
+                raise ValueError("Length of table_area and columns"
+                                 " should be equal")
+
     def _generate_table_bbox(self):
         if self.table_area is not None:
             table_bbox = {}
@@ -169,7 +169,7 @@ class Stream(BaseParser):
             if ncols == 1:
                 # no tables condition
                 warnings.warn("No tables found on {}".format(
-                    os.path.basename(self.basename)))
+                    os.path.basename(self.rootname)))
             cols = [(t.x0, t.x1)
                 for r in rows_grouped if len(r) == ncols for t in r]
             cols = self._merge_columns(sorted(cols), mtol=self.mtol)
@@ -213,7 +213,7 @@ class Stream(BaseParser):
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1
-        table.page = int(os.path.basename(self.basename).replace('page-', ''))
+        table.page = int(os.path.basename(self.rootname).replace('page-', ''))
 
         return table
 
@@ -233,7 +233,7 @@ class Stream(BaseParser):
 
         if not self.horizontal_text:
             warnings.warn("No tables found on {}".format(
-                os.path.basename(self.basename)))
+                os.path.basename(self.rootname)))
             return [], self.g
 
         self._generate_table_bbox()

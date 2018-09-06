@@ -85,7 +85,7 @@ class Lattice(BaseParser):
         return t
 
     def _generate_image(self):
-        self.imagename = ''.join([self.basename, '.png'])
+        self.imagename = ''.join([self.rootname, '.png'])
         gs_call = [
             "-q", "-sDEVICE=png16m", "-o", self.imagename, "-r600", self.filename
         ]
@@ -164,7 +164,7 @@ class Lattice(BaseParser):
         v_s = kwargs.get('v_s')
         h_s = kwargs.get('h_s')
         if v_s is None or h_s is None:
-            raise ValueError('No segments found on {}'.format(self.basename))
+            raise ValueError('No segments found on {}'.format(self.rootname))
 
         table = Table(cols, rows)
         # set table edges to True using ver+hor lines
@@ -199,7 +199,7 @@ class Lattice(BaseParser):
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1
-        table.page = int(os.path.basename(self.basename).replace('page-', ''))
+        table.page = int(os.path.basename(self.rootname).replace('page-', ''))
 
         return table
 
@@ -219,7 +219,7 @@ class Lattice(BaseParser):
 
         if not self.horizontal_text:
             warnings.warn("No tables found on {}".format(
-                os.path.basename(self.basename)))
+                os.path.basename(self.rootname)))
             return [], self.g
 
         self._generate_image()
