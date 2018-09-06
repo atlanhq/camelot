@@ -154,7 +154,7 @@ def setup_logging(log_filepath):
     -------
 
     """
-    logger = logging.getLogger("app_logger")
+    logger = logging.getLogger("camelot")
     logger.setLevel(logging.DEBUG)
     # Log File Handler (Associating one log file per webservice run)
     log_file_handler = logging.FileHandler(log_filepath,
