@@ -32,15 +32,9 @@ copy_reg.pickle(types.MethodType, _reduce_method)
 
 
 class BaseParser(object):
-    # init objects
-    # no tables condition
-    # convert pdf to image - lattice
-    # image processing - lattice
-    # user given table area condition
-    # scale image components to pdf components - lattice
-    # compute cols and rows for each table
-    # create table for each table
+    """
 
+    """
     def _generate_layout(self, filename):
         self.filename = filename
         self.layout, self.dimensions = get_page_layout(
@@ -229,7 +223,7 @@ class Stream(BaseParser):
 
         return cols, rows
 
-    def _generate_table(self, table_idx, cols, rows):
+    def _generate_table(self, table_idx, cols, rows, **kwargs):
         table = Table(cols, rows)
         table = table.set_all_edges()
         pos_errors = []
@@ -276,12 +270,6 @@ class Stream(BaseParser):
                 os.path.basename(self.basename)))
             return [], self.g
 
-        if self.debug:
-            text = []
-            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
-            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])
-            self.g.text = text
-
         self._generate_table_bbox()
 
         _tables = []
@@ -291,6 +279,12 @@ class Stream(BaseParser):
             cols, rows = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows)
             _tables.append(table)
+
+        if self.debug:
+            text = []
+            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
+            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])
+            self.g.text = text
 
         return _tables, self.g
 
@@ -435,7 +429,12 @@ class Lattice(BaseParser):
 
         return cols, rows, v_s, h_s
 
-    def _generate_table(self, table_idx, cols, rows, v_s, h_s):
+    def _generate_table(self, table_idx, cols, rows, **kwargs):
+        v_s = kwargs.get('v_s')
+        h_s = kwargs.get('h_s')
+        if v_s is None or h_s is None:
+            raise ValueError('No segments found on {}'.format(self.basename))
+
         table = Table(cols, rows)
         # set table edges to True using ver+hor lines
         table = table.set_edges(v_s, h_s, jtol=self.jtol)
@@ -495,19 +494,17 @@ class Lattice(BaseParser):
         self._generate_image()
         self._generate_table_bbox()
 
-        if self.debug:
-            self.g.images = (self.image, self.table_bbox_unscaled)
-            self.g.segments = (self.vertical_segments, self.horizontal_segments)
-
         _tables = []
         # sort tables based on y-coord
         for table_idx, tk in enumerate(sorted(self.table_bbox.keys(),
                 key=lambda x: x[1], reverse=True)):
             cols, rows, v_s, h_s = self._generate_columns_and_rows(table_idx, tk)
-            table = self._generate_table(table_idx, cols, rows, v_s, h_s)
+            table = self._generate_table(table_idx, cols, rows, v_s=v_s, h_s=h_s)
             _tables.append(table)
 
         if self.debug:
+            self.g.images = (self.image, self.table_bbox_unscaled)
+            self.g.segments = (self.vertical_segments, self.horizontal_segments)
             self.g.tables = _tables
 
         return _tables, self.g

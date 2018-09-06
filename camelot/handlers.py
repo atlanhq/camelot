@@ -91,8 +91,8 @@ class PDFHandler(object):
                  for p in self.pages]
         tables = []
         geometry = []
+        parser = Stream(**kwargs) if not mesh else Lattice(**kwargs)
         for p in pages:
-            parser = Stream(**kwargs) if not mesh else Lattice(**kwargs)
             t, g = parser.extract_tables(p)
             tables.extend(t)
             geometry.append(g)
