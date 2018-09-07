@@ -8,7 +8,7 @@ import pandas as pd
 from .base import BaseParser
 from ..core import Table
 from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
-                     count_empty, encode_)
+                     count_empty_strings, encode_)
 
 
 logger = setup_logging(__name__)
@@ -207,7 +207,7 @@ class Stream(BaseParser):
         table.df = pd.DataFrame(data)
         table.shape = table.df.shape
 
-        whitespace, __, __ = count_empty(data)
+        whitespace, __, __ = count_empty_strings(data)
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1

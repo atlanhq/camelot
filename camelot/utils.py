@@ -287,7 +287,7 @@ def merge_close_values(ar, mtol=2):
     return ret
 
 
-def flag_on_size(textline, direction):
+def flag_font_size(textline, direction):
     """
 
     Parameters
@@ -381,7 +381,7 @@ def split_textline(table, textline, direction, flag_size=True):
     grouped_chars = []
     for key, chars in groupby(cut_text, itemgetter(0, 1)):
         if flag_size:
-            grouped_chars.append((key[0], key[1], flag_on_size([t[2] for t in chars], direction)))
+            grouped_chars.append((key[0], key[1], flag_font_size([t[2] for t in chars], direction)))
         else:
             gchars = [t[2].get_text() for t in chars]
             grouped_chars.append((key[0], key[1], ''.join(gchars).strip('\n')))
@@ -444,7 +444,7 @@ def get_table_index(table, t, direction, split_text=False, flag_size=True):
         return split_textline(table, t, direction, flag_size=flag_size), error
     else:
         if flag_size:
-            return [(r_idx, c_idx, flag_on_size(t._objs, direction))], error
+            return [(r_idx, c_idx, flag_font_size(t._objs, direction))], error
         else:
             return [(r_idx, c_idx, t.get_text().strip('\n'))], error
 
@@ -474,27 +474,7 @@ def compute_accuracy(error_weights):
     return score
 
 
-def remove_empty(d):
-    """
-
-    Parameters
-    ----------
-    d
-
-    Returns
-    -------
-
-    """
-    for i, row in enumerate(d):
-        if row == [''] * len(row):
-            d.pop(i)
-    d = zip(*d)
-    d = [list(row) for row in d if any(row)]
-    d = zip(*d)
-    return d
-
-
-def count_empty(d):
+def count_empty_strings(d):
     """
 
     Parameters
@@ -527,6 +507,26 @@ def count_empty(d):
                 c_nempty_c += 1
         c_nempty_cells.append(c_nempty_c)
     return empty_p, r_nempty_cells, c_nempty_cells
+
+
+def remove_empty_strings(d):
+    """
+
+    Parameters
+    ----------
+    d
+
+    Returns
+    -------
+
+    """
+    for i, row in enumerate(d):
+        if row == [''] * len(row):
+            d.pop(i)
+    d = zip(*d)
+    d = [list(row) for row in d if any(row)]
+    d = zip(*d)
+    return d
 
 
 def encode_(ar):

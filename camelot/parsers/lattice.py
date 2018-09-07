@@ -11,7 +11,7 @@ from .base import BaseParser
 from ..core import Table
 from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
                      merge_close_values, get_table_index, compute_accuracy,
-                     count_empty, encode_, setup_logging)
+                     count_empty_strings, encode_, setup_logging)
 from ..image_processing import (adaptive_threshold, find_lines,
                                 find_table_contours, find_table_joints)
 
@@ -194,7 +194,7 @@ class Lattice(BaseParser):
         table.df = pd.DataFrame(data)
         table.shape = table.df.shape
 
-        whitespace, __, __ = count_empty(data)
+        whitespace, __, __ = count_empty_strings(data)
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1
