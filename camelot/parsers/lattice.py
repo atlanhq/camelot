@@ -232,7 +232,11 @@ class Lattice(BaseParser):
             table = self._generate_table(table_idx, cols, rows, v_s=v_s, h_s=h_s)
             _tables.append(table)
 
-        if self.debug:
+        if self.debug is not None:
+            text = []
+            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
+            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])
+            self.g.text = text
             self.g.images = (self.image, self.table_bbox_unscaled)
             self.g.segments = (self.vertical_segments, self.horizontal_segments)
             self.g.tables = _tables

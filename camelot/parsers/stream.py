@@ -8,7 +8,7 @@ import pandas as pd
 from .base import BaseParser
 from ..core import Table
 from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
-                     count_empty_strings, encode_)
+                     count_empty_strings, encode_, setup_logging)
 
 
 logger = setup_logging(__name__)
@@ -20,7 +20,7 @@ class Stream(BaseParser):
     """
     def __init__(self, table_area=None, columns=None, ytol=2, mtol=0,
                  margins=(1.0, 0.5, 0.1), split_text=False, flag_size=True,
-                 debug=False):
+                 debug=None):
         self.table_area = table_area
         self.columns = columns
         self._validate_columns()
@@ -244,10 +244,11 @@ class Stream(BaseParser):
             table = self._generate_table(table_idx, cols, rows)
             _tables.append(table)
 
-        if self.debug:
+        if self.debug is not None:
             text = []
             text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
             text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])
             self.g.text = text
+            self.g.tables = _tables
 
         return _tables, self.g
