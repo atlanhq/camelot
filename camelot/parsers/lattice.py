@@ -2,7 +2,6 @@ from __future__ import division
 import os
 import copy
 import logging
-import warnings
 import subprocess
 
 import numpy as np
@@ -12,12 +11,12 @@ from .base import BaseParser
 from ..core import Table
 from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
                      merge_close_values, get_table_index, compute_accuracy,
-                     count_empty, encode_)
+                     count_empty, encode_, setup_logging)
 from ..image_processing import (adaptive_threshold, find_lines,
                                 find_table_contours, find_table_joints)
 
 
-logger = logging.getLogger('camelot')
+logger = setup_logging(__name__)
 
 
 class Lattice(BaseParser):
@@ -218,7 +217,7 @@ class Lattice(BaseParser):
         self._generate_layout(filename)
 
         if not self.horizontal_text:
-            warnings.warn("No tables found on {}".format(
+            logger.info("No tables found on {}".format(
                 os.path.basename(self.rootname)))
             return [], self.g
 

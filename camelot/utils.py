@@ -18,6 +18,34 @@ from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)
 
 
+def setup_logging(name):
+    """
+
+    Parameters
+    ----------
+    name
+
+    Returns
+    -------
+
+    """
+    logger = logging.getLogger(name)
+
+    format_string = '%(asctime)s - %(levelname)s - %(funcName)s - %(message)s'
+    formatter = logging.Formatter(format_string, datefmt='%Y-%m-%dT%H:%M:%S')
+
+    handler = logging.StreamHandler()
+    handler.setLevel(logging.INFO)
+    handler.setFormatter(formatter)
+
+    logger.addHandler(handler)
+
+    return logger
+
+
+logger = setup_logging(__name__)
+
+
 def translate(x1, x2):
     """
 
@@ -141,37 +169,6 @@ def scale_image(tables, v_segments, h_segments, factors):
         h_segments_new.append((x1, y1, x2, y2))
 
     return tables_new, v_segments_new, h_segments_new
-
-
-def setup_logging(log_filepath):
-    """
-
-    Parameters
-    ----------
-    log_filepath
-
-    Returns
-    -------
-
-    """
-    logger = logging.getLogger("camelot")
-    logger.setLevel(logging.DEBUG)
-    # Log File Handler (Associating one log file per webservice run)
-    log_file_handler = logging.FileHandler(log_filepath,
-                                           mode='a',
-                                           encoding='utf-8')
-    log_file_handler.setLevel(logging.DEBUG)
-    format_string = '%(asctime)s - %(levelname)s - %(funcName)s - %(message)s'
-    formatter = logging.Formatter(format_string, datefmt='%Y-%m-%dT%H:%M:%S')
-    log_file_handler.setFormatter(formatter)
-    logger.addHandler(log_file_handler)
-    # Stream Log Handler (For console)
-    stream_log_handler = logging.StreamHandler()
-    stream_log_handler.setLevel(logging.INFO)
-    formatter = logging.Formatter(format_string, datefmt='%Y-%m-%dT%H:%M:%S')
-    stream_log_handler.setFormatter(formatter)
-    logger.addHandler(stream_log_handler)
-    return logger
 
 
 def get_rotation(lttextlh, lttextlv, ltchar):
@@ -419,7 +416,11 @@ def get_table_index(table, t, direction, split_text=False, flag_size=True):
                 else:
                     lt_col_overlap.append(-1)
             if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
-                logging.warning("Text did not fit any column.")
+                text = t.get_text().strip('\n')
+                text_range = (t.x0, t.x1)
+                col_range = (table.cols[0][0], table.cols[-1][1])
+                logger.info("{} {} does not lie in column range {}".format(
+                    text, text_range, col_range))
             r_idx = r
             c_idx = lt_col_overlap.index(max(lt_col_overlap))
             break

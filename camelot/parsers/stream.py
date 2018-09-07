@@ -1,7 +1,6 @@
 from __future__ import division
 import os
 import logging
-import warnings
 
 import numpy as np
 import pandas as pd
@@ -12,7 +11,7 @@ from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
                      count_empty, encode_)
 
 
-logger = logging.getLogger('camelot')
+logger = setup_logging(__name__)
 
 
 class Stream(BaseParser):
@@ -167,8 +166,7 @@ class Stream(BaseParser):
         else:
             ncols = max(set(elements), key=elements.count)
             if ncols == 1:
-                # no tables condition
-                warnings.warn("No tables found on {}".format(
+                logger.info("No tables found on {}".format(
                     os.path.basename(self.rootname)))
             cols = [(t.x0, t.x1)
                 for r in rows_grouped if len(r) == ncols for t in r]
@@ -232,7 +230,7 @@ class Stream(BaseParser):
         self._generate_layout(filename)
 
         if not self.horizontal_text:
-            warnings.warn("No tables found on {}".format(
+            logger.info("No tables found on {}".format(
                 os.path.basename(self.rootname)))
             return [], self.g
 
