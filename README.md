@@ -17,7 +17,7 @@ Camelot is a Python 2.7 library and command-line tool for getting tables out of 
 {
     "accuracy": 96,
     "whitespace": 80,
-    "time_taken": 0.5,
+    "order": 1,
     "page": 1
 }
 >>> df = tables[0].df
