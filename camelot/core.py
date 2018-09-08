@@ -29,7 +29,7 @@ class Cell(object):
         self._text = ''
 
     def __repr__(self):
-        return '<Cell x1={} y1={} x2={} y2={}'.format(
+        return '<Cell x1={} y1={} x2={} y2={}>'.format(
             self.x1, self.y1, self.x2, self.y2)
 
     @property
@@ -80,7 +80,7 @@ class Table(object):
         self.page = None
 
     def __repr__(self):
-        return '<{} shape={}>'.format(self.__class__.__name__, self._shape)
+        return '<{} shape={}>'.format(self.__class__.__name__, self.shape)
 
     @property
     def data(self):

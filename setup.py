@@ -48,10 +48,8 @@ def setup_package():
                     author=AUTHOR,
                     author_email=AUTHOR_EMAIL,
                     license=LICENSE,
-                    keywords='parse scrape pdf table',
                     packages=['camelot'],
-                    install_requires=reqs,
-                    scripts=['tools/camelot'])
+                    install_requires=reqs)
 
     try:
         from setuptools import setup

@@ -19,7 +19,7 @@ class Stream(BaseParser):
 
     """
     def __init__(self, table_area=None, columns=None, split_text=False,
-                 flag_size=True, row_close_tol=2, col_close_tol=0,
+                 flag_size=False, row_close_tol=2, col_close_tol=0,
                  margins=(1.0, 0.5, 0.1), debug=None):
         self.table_area = table_area
         self.columns = columns

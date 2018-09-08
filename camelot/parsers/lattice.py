@@ -25,8 +25,8 @@ class Lattice(BaseParser):
     """
     def __init__(self, table_area=None, process_background=False,
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
-                 split_text=False, flag_size=True, line_close_tol=2,
-                 joint_close_tol=2, blocksize=15, threshold_constant=-2,
+                 split_text=False, flag_size=False, line_close_tol=2,
+                 joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
                  iterations=0, margins=(1.0, 0.5, 0.1), debug=None):
         self.table_area = table_area
         self.process_background = process_background
@@ -37,7 +37,7 @@ class Lattice(BaseParser):
         self.flag_size = flag_size
         self.line_close_tol = line_close_tol
         self.joint_close_tol = joint_close_tol
-        self.blocksize = blocksize
+        self.threshold_blocksize = threshold_blocksize
         self.threshold_constant = threshold_constant
         self.iterations = iterations
         self.char_margin, self.line_margin, self.word_margin = margins
@@ -98,7 +98,7 @@ class Lattice(BaseParser):
 
     def _generate_table_bbox(self):
         self.image, self.threshold = adaptive_threshold(self.imagename, process_background=self.process_background,
-            blocksize=self.blocksize, c=self.threshold_constant)
+            blocksize=self.threshold_blocksize, c=self.threshold_constant)
         image_width = self.image.shape[1]
         image_height = self.image.shape[0]
         image_width_scaler = image_width / float(self.pdf_width)
@@ -173,10 +173,10 @@ class Lattice(BaseParser):
         table = Table(cols, rows)
         # set table edges to True using ver+hor lines
         table = table.set_edges(v_s, h_s, joint_close_tol=self.joint_close_tol)
-        # set spanning cells to True
-        table = table.set_span()
         # set table border edges to True
         table = table.set_border()
+        # set spanning cells to True
+        table = table.set_span()
 
         pos_errors = []
         for direction in self.t_bbox:
