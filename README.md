@@ -1,6 +1,6 @@
 # Camelot: PDF Table Parsing for Humans
 
-Camelot is a Python 2.7 library and command-line tool for getting tables out of PDF files.
+Camelot is a Python 2.7 library and command-line tool for extracting tabular data from PDF files.
 
 ## Usage
 
