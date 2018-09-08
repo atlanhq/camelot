@@ -7,13 +7,13 @@ import numpy as np
 from .utils import merge_tuples
 
 
-def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
+def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
     """
 
     Parameters
     ----------
     imagename
-    invert
+    process_background
     blocksize
     c
 
@@ -24,7 +24,7 @@ def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
     img = cv2.imread(imagename)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    if invert:
+    if process_background:
         threshold = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
             cv2.THRESH_BINARY, blocksize, c)
     else:
@@ -33,14 +33,14 @@ def adaptive_threshold(imagename, invert=False, blocksize=15, c=-2):
     return img, threshold
 
 
-def find_lines(threshold, direction='horizontal', scale=15, iterations=0):
+def find_lines(threshold, direction='horizontal', line_size_scaling=15, iterations=0):
     """
 
     Parameters
     ----------
     threshold
     direction
-    scale
+    line_size_scaling
     iterations
 
     Returns
@@ -50,10 +50,10 @@ def find_lines(threshold, direction='horizontal', scale=15, iterations=0):
     lines = []
 
     if direction == 'vertical':
-        size = threshold.shape[0] // scale
+        size = threshold.shape[0] // line_size_scaling
         el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
     elif direction == 'horizontal':
-        size = threshold.shape[1] // scale
+        size = threshold.shape[1] // line_size_scaling
         el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
     elif direction is None:
         raise ValueError("Specify direction as either 'vertical' or"
@@ -148,19 +148,19 @@ def find_table_joints(contours, vertical, horizontal):
     return tables
 
 
-def remove_lines(threshold, line_scale=15):
+def remove_lines(threshold, line_size_scaling=15):
     """
 
     Parameters
     ----------
     threshold
-    line_scale
+    line_size_scaling
 
     Returns
     -------
 
     """
-    size = threshold.shape[0] // line_scale
+    size = threshold.shape[0] // line_size_scaling
     vertical_erode_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
     horizontal_erode_el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
     dilate_el = cv2.getStructuringElement(cv2.MORPH_RECT, (10, 10))
@@ -176,19 +176,19 @@ def remove_lines(threshold, line_scale=15):
     return threshold
 
 
-def find_cuts(threshold, char_scale=200):
+def find_cuts(threshold, char_size_scaling=200):
     """
 
     Parameters
     ----------
     threshold
-    char_scale
+    char_size_scaling
 
     Returns
     -------
 
     """
-    size = threshold.shape[0] // char_scale
+    size = threshold.shape[0] // char_size_scaling
     char_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
 
     threshold = cv2.erode(threshold, char_el)

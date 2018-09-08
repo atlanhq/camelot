@@ -10,7 +10,7 @@ import pandas as pd
 from .base import BaseParser
 from ..core import Table
 from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
-                     merge_close_values, get_table_index, compute_accuracy,
+                     merge_close_lines, get_table_index, compute_accuracy,
                      count_empty_strings, encode_, setup_logging)
 from ..image_processing import (adaptive_threshold, find_lines,
                                 find_table_contours, find_table_joints)
@@ -23,23 +23,24 @@ class Lattice(BaseParser):
     """
 
     """
-    def __init__(self, table_area=None, fill=None, mtol=2, jtol=2,
-                 blocksize=15, threshold_constant=-2, scale=15, iterations=0,
-                 invert=False, margins=(1.0, 0.5, 0.1), split_text=False,
-                 flag_size=True, shift_text=['l', 't'], debug=None):
+    def __init__(self, table_area=None, process_background=False,
+                 line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
+                 split_text=False, flag_size=True, line_close_tol=2,
+                 joint_close_tol=2, blocksize=15, threshold_constant=-2,
+                 iterations=0, margins=(1.0, 0.5, 0.1), debug=None):
         self.table_area = table_area
-        self.fill = fill
-        self.mtol = mtol
-        self.jtol = jtol
-        self.blocksize = blocksize
-        self.threshold_constant = threshold_constant
-        self.scale = scale
-        self.iterations = iterations
-        self.invert = invert
-        self.char_margin, self.line_margin, self.word_margin = margins
+        self.process_background = process_background
+        self.line_size_scaling = line_size_scaling
+        self.copy_text = copy_text
+        self.shift_text = shift_text
         self.split_text = split_text
         self.flag_size = flag_size
-        self.shift_text = shift_text
+        self.line_close_tol = line_close_tol
+        self.joint_close_tol = joint_close_tol
+        self.blocksize = blocksize
+        self.threshold_constant = threshold_constant
+        self.iterations = iterations
+        self.char_margin, self.line_margin, self.word_margin = margins
         self.debug = debug
 
     @staticmethod
@@ -67,8 +68,8 @@ class Lattice(BaseParser):
         return indices
 
     @staticmethod
-    def _fill_spanning(t, fill=None):
-        for f in fill:
+    def _copy_spanning_text(t, copy_text=None):
+        for f in copy_text:
             if f == "h":
                 for i in range(len(t.cells)):
                     for j in range(len(t.cells[i])):
@@ -96,7 +97,7 @@ class Lattice(BaseParser):
             stderr=subprocess.STDOUT)
 
     def _generate_table_bbox(self):
-        self.image, self.threshold = adaptive_threshold(self.imagename, invert=self.invert,
+        self.image, self.threshold = adaptive_threshold(self.imagename, process_background=self.process_background,
             blocksize=self.blocksize, c=self.threshold_constant)
         image_width = self.image.shape[1]
         image_height = self.image.shape[0]
@@ -107,10 +108,12 @@ class Lattice(BaseParser):
         image_scalers = (image_width_scaler, image_height_scaler, self.pdf_height)
         pdf_scalers = (pdf_width_scaler, pdf_height_scaler, image_height)
 
-        vertical_mask, vertical_segments = find_lines(self.threshold,
-            direction='vertical', scale=self.scale, iterations=self.iterations)
-        horizontal_mask, horizontal_segments = find_lines(self.threshold,
-            direction='horizontal', scale=self.scale, iterations=self.iterations)
+        vertical_mask, vertical_segments = find_lines(
+            self.threshold, direction='vertical',
+            line_size_scaling=self.line_size_scaling, iterations=self.iterations)
+        horizontal_mask, horizontal_segments = find_lines(
+            self.threshold, direction='horizontal',
+            line_size_scaling=self.line_size_scaling, iterations=self.iterations)
 
         if self.table_area is not None:
             areas = []
@@ -149,8 +152,10 @@ class Lattice(BaseParser):
         cols.extend([tk[0], tk[2]])
         rows.extend([tk[1], tk[3]])
         # sort horizontal and vertical segments
-        cols = merge_close_values(sorted(cols), mtol=self.mtol)
-        rows = merge_close_values(sorted(rows, reverse=True), mtol=self.mtol)
+        cols = merge_close_lines(
+            sorted(cols), line_close_tol=self.line_close_tol)
+        rows = merge_close_lines(
+            sorted(rows, reverse=True), line_close_tol=self.line_close_tol)
         # make grid using x and y coord of shortlisted rows and cols
         cols = [(cols[i], cols[i + 1])
                 for i in range(0, len(cols) - 1)]
@@ -167,7 +172,7 @@ class Lattice(BaseParser):
 
         table = Table(cols, rows)
         # set table edges to True using ver+hor lines
-        table = table.set_edges(v_s, h_s, jtol=self.jtol)
+        table = table.set_edges(v_s, h_s, joint_close_tol=self.joint_close_tol)
         # set spanning cells to True
         table = table.set_span()
         # set table border edges to True
@@ -186,8 +191,8 @@ class Lattice(BaseParser):
                         table.cells[r_idx][c_idx].text = text
         accuracy = compute_accuracy([[100, pos_errors]])
 
-        if self.fill is not None:
-            table = Lattice._fill_spanning(table, fill=self.fill)
+        if self.copy_text is not None:
+            table = Lattice._copy_spanning_text(table, copy_text=self.copy_text)
 
         data = table.data
         data = encode_(data)

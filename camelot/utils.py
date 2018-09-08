@@ -236,13 +236,13 @@ def text_in_bbox(bbox, text):
     return t_bbox
 
 
-def remove_close_values(ar, mtol=2):
+def remove_close_lines(ar, line_close_tol=2):
     """
 
     Parameters
     ----------
     ar
-    mtol
+    line_close_tol
 
     Returns
     -------
@@ -254,20 +254,20 @@ def remove_close_values(ar, mtol=2):
             ret.append(a)
         else:
             temp = ret[-1]
-            if np.isclose(temp, a, atol=mtol):
+            if np.isclose(temp, a, atol=line_close_tol):
                 pass
             else:
                 ret.append(a)
     return ret
 
 
-def merge_close_values(ar, mtol=2):
+def merge_close_lines(ar, line_close_tol=2):
     """
 
     Parameters
     ----------
     ar
-    mtol
+    line_close_tol
 
     Returns
     -------
@@ -279,7 +279,7 @@ def merge_close_values(ar, mtol=2):
             ret.append(a)
         else:
             temp = ret[-1]
-            if np.isclose(temp, a, atol=mtol):
+            if np.isclose(temp, a, atol=line_close_tol):
                 temp = (temp + a) / 2.0
                 ret[-1] = temp
             else:

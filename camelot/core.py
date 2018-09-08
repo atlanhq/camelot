@@ -139,14 +139,14 @@ class Table(object):
                 cell.left = cell.right = cell.top = cell.bottom = True
         return self
 
-    def set_edges(self, vertical, horizontal, jtol=2):
+    def set_edges(self, vertical, horizontal, joint_close_tol=2):
         """
 
         Parameters
         ----------
         vertical
         horizontal
-        jtol
+        joint_close_tol
 
         Returns
         -------
@@ -156,11 +156,11 @@ class Table(object):
             # find closest x coord
             # iterate over y coords and find closest start and end points
             i = [i for i, t in enumerate(self.cols)
-                 if np.isclose(v[0], t[0], atol=jtol)]
+                 if np.isclose(v[0], t[0], atol=joint_close_tol)]
             j = [j for j, t in enumerate(self.rows)
-                 if np.isclose(v[3], t[0], atol=jtol)]
+                 if np.isclose(v[3], t[0], atol=joint_close_tol)]
             k = [k for k, t in enumerate(self.rows)
-                 if np.isclose(v[1], t[0], atol=jtol)]
+                 if np.isclose(v[1], t[0], atol=joint_close_tol)]
             if not j:
                 continue
             J = j[0]
@@ -207,11 +207,11 @@ class Table(object):
             # find closest y coord
             # iterate over x coords and find closest start and end points
             i = [i for i, t in enumerate(self.rows)
-                 if np.isclose(h[1], t[0], atol=jtol)]
+                 if np.isclose(h[1], t[0], atol=joint_close_tol)]
             j = [j for j, t in enumerate(self.cols)
-                 if np.isclose(h[0], t[0], atol=jtol)]
+                 if np.isclose(h[0], t[0], atol=joint_close_tol)]
             k = [k for k, t in enumerate(self.cols)
-                 if np.isclose(h[2], t[0], atol=jtol)]
+                 if np.isclose(h[2], t[0], atol=joint_close_tol)]
             if not j:
                 continue
             J = j[0]

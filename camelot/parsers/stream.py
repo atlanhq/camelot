@@ -18,17 +18,17 @@ class Stream(BaseParser):
     """
 
     """
-    def __init__(self, table_area=None, columns=None, ytol=2, mtol=0,
-                 margins=(1.0, 0.5, 0.1), split_text=False, flag_size=True,
-                 debug=None):
+    def __init__(self, table_area=None, columns=None, split_text=False,
+                 flag_size=True, row_close_tol=2, col_close_tol=0,
+                 margins=(1.0, 0.5, 0.1), debug=None):
         self.table_area = table_area
         self.columns = columns
         self._validate_columns()
-        self.ytol = ytol
-        self.mtol = mtol
-        self.char_margin, self.line_margin, self.word_margin = margins
         self.split_text = split_text
         self.flag_size = flag_size
+        self.row_close_tol = row_close_tol
+        self.col_close_tol = col_close_tol
+        self.char_margin, self.line_margin, self.word_margin = margins
         self.debug = debug
 
     @staticmethod
@@ -41,7 +41,7 @@ class Stream(BaseParser):
         return text_bbox
 
     @staticmethod
-    def _group_rows(text, ytol=2):
+    def _group_rows(text, row_close_tol=2):
         row_y = 0
         rows = []
         temp = []
@@ -50,7 +50,7 @@ class Stream(BaseParser):
             # if t.get_text().strip() and all([obj.upright for obj in t._objs if
             # type(obj) is LTChar]):
             if t.get_text().strip():
-                if not np.isclose(row_y, t.y0, atol=ytol):
+                if not np.isclose(row_y, t.y0, atol=row_close_tol):
                     rows.append(sorted(temp, key=lambda t: t.x0))
                     temp = []
                     row_y = t.y0
@@ -60,24 +60,24 @@ class Stream(BaseParser):
         return rows
 
     @staticmethod
-    def _merge_columns(l, mtol=0):
+    def _merge_columns(l, col_close_tol=0):
         merged = []
         for higher in l:
             if not merged:
                 merged.append(higher)
             else:
                 lower = merged[-1]
-                if mtol >= 0:
+                if col_close_tol >= 0:
                     if (higher[0] <= lower[1] or
-                            np.isclose(higher[0], lower[1], atol=mtol)):
+                            np.isclose(higher[0], lower[1], atol=col_close_tol)):
                         upper_bound = max(lower[1], higher[1])
                         lower_bound = min(lower[0], higher[0])
                         merged[-1] = (lower_bound, upper_bound)
                     else:
                         merged.append(higher)
-                elif mtol < 0:
+                elif col_close_tol < 0:
                     if higher[0] <= lower[1]:
-                        if np.isclose(higher[0], lower[1], atol=abs(mtol)):
+                        if np.isclose(higher[0], lower[1], atol=abs(col_close_tol)):
                             merged.append(higher)
                         else:
                             upper_bound = max(lower[1], higher[1])
@@ -99,9 +99,9 @@ class Stream(BaseParser):
         return rows
 
     @staticmethod
-    def _add_columns(cols, text, ytol):
+    def _add_columns(cols, text, row_close_tol):
         if text:
-            text = Stream._group_rows(text, ytol=ytol)
+            text = Stream._group_rows(text, row_close_tol=row_close_tol)
             elements = [len(r) for r in text]
             new_cols = [(t.x0, t.x1)
                 for r in text if len(r) == max(elements) for t in r]
@@ -149,7 +149,7 @@ class Stream(BaseParser):
             self.t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
 
         text_x_min, text_y_min, text_x_max, text_y_max = self._text_bbox(self.t_bbox)
-        rows_grouped = self._group_rows(self.t_bbox['horizontal'], ytol=self.ytol)
+        rows_grouped = self._group_rows(self.t_bbox['horizontal'], row_close_tol=self.row_close_tol)
         rows = self._join_rows(rows_grouped, text_y_max, text_y_min)
         elements = [len(r) for r in rows_grouped]
 
@@ -170,7 +170,7 @@ class Stream(BaseParser):
                     os.path.basename(self.rootname)))
             cols = [(t.x0, t.x1)
                 for r in rows_grouped if len(r) == ncols for t in r]
-            cols = self._merge_columns(sorted(cols), mtol=self.mtol)
+            cols = self._merge_columns(sorted(cols), col_close_tol=self.col_close_tol)
             inner_text = []
             for i in range(1, len(cols)):
                 left = cols[i - 1][1]
@@ -182,7 +182,7 @@ class Stream(BaseParser):
                             for t in self.t_bbox[direction]
                             if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
             inner_text.extend(outer_text)
-            cols = self._add_columns(cols, inner_text, self.ytol)
+            cols = self._add_columns(cols, inner_text, self.row_close_tol)
             cols = self._join_columns(cols, text_x_min, text_x_max)
 
         return cols, rows
