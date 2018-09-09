@@ -1,3 +1,4 @@
+from __future__ import division
 from itertools import groupby
 from operator import itemgetter
 
@@ -75,9 +76,9 @@ def find_lines(threshold, direction='horizontal', line_size_scaling=15, iteratio
         x1, x2 = x, x + w
         y1, y2 = y, y + h
         if direction == 'vertical':
-            lines.append(((x1 + x2) / 2, y2, (x1 + x2) / 2, y1))
+            lines.append(((x1 + x2) // 2, y2, (x1 + x2) // 2, y1))
         elif direction == 'horizontal':
-            lines.append((x1, (y1 + y2) / 2, x2, (y1 + y2) / 2))
+            lines.append((x1, (y1 + y2) // 2, x2, (y1 + y2) // 2))
 
     return dmask, lines
 
@@ -141,7 +142,7 @@ def find_table_joints(contours, vertical, horizontal):
         joint_coords = []
         for j in jc:
             jx, jy, jw, jh = cv2.boundingRect(j)
-            c1, c2 = x + (2 * jx + jw) / 2, y + (2 * jy + jh) / 2
+            c1, c2 = x + (2 * jx + jw) // 2, y + (2 * jy + jh) // 2
             joint_coords.append((c1, c2))
         tables[(x, y + h, x + w, y)] = joint_coords
 
@@ -204,5 +205,5 @@ def find_cuts(threshold, char_size_scaling=200):
     contours = [cv2.boundingRect(c) for c in contours]
     y_cuts = [(c[1], c[1] + c[3]) for c in contours]
     y_cuts = list(merge_tuples(sorted(y_cuts)))
-    y_cuts = [(y_cuts[i][0] + y_cuts[i - 1][1]) / 2 for i in range(1, len(y_cuts))]
+    y_cuts = [(y_cuts[i][0] + y_cuts[i - 1][1]) // 2 for i in range(1, len(y_cuts))]
     return sorted(y_cuts, reverse=True)
