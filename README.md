@@ -1,67 +1,31 @@
-# camelot
+# Camelot: PDF Table Parsing for Humans
 
-Camelot is a Python 2.7 library and command-line tool for getting tables out of PDF files.
+Camelot is a Python 2.7 library and command-line tool for extracting tabular data from PDF files.
 
 ## Usage
 
 <pre>
-from camelot.pdf import Pdf
-from camelot.lattice import Lattice
-
-manager = Pdf(Lattice(), "/path/to/pdf")
-tables = manager.extract()
-</pre>
-
-Camelot comes with a CLI where you can specify page numbers, output format, output directory etc. By default, the output files are placed in the same directory as the PDF.
-
-<pre>
-Camelot: PDF parsing made simpler!
-
-usage:
- camelot [options] &lt;method&gt; [&lt;args&gt;...]
-
-options:
- -h, --help                Show this screen.
- -v, --version             Show version.
- -V, --verbose             Verbose.
- -p, --pages &lt;pageno&gt;      Comma-separated list of page numbers.
-                           Example: -p 1,3-6,10  [default: 1]
- -P, --parallel            Parallelize the parsing process.
- -f, --format &lt;format&gt;     Output format. (csv,tsv,html,json,xlsx) [default: csv]
- -l, --log                 Log to file.
- -o, --output &lt;directory&gt;  Output directory.
- -M, --cmargin &lt;cmargin&gt;   Char margin. Chars closer than cmargin are
-                           grouped together to form a word. [default: 2.0]
- -L, --lmargin &lt;lmargin&gt;   Line margin. Lines closer than lmargin are
-                           grouped together to form a textbox. [default: 0.5]
- -W, --wmargin &lt;wmargin&gt;   Word margin. Insert blank spaces between chars
-                           if distance between words is greater than word
-                           margin. [default: 0.1]
- -J, --split_text          Split text lines if they span across multiple cells.
- -K, --flag_size           Flag substring if its size differs from the whole string.
-                           Useful for super and subscripts.
- -X, --print-stats         List stats on the parsing process.
- -Y, --save-stats          Save stats to a file.
- -Z, --plot &lt;dist&gt;         Plot distributions. (page,all,rc)
-
-camelot methods:
- lattice  Looks for lines between data.
- stream   Looks for spaces between data.
- ocrl     Lattice, but for images.
- ocrs     Stream, but for images.
-
-See 'camelot &lt;method&gt; -h' for more information on a specific method.
+>>> import camelot
+>>> tables = camelot.read_pdf("foo.pdf")
+>>> tables
+&lt;TableList n=2&gt;
+>>> tables.export("foo.csv", f="csv", compress=True) # json, excel, html
+>>> tables[0]
+&lt;Table shape=(3,4)&gt;
+>>> tables[0].to_csv("foo.csv") # to_json, to_excel, to_html
+>>> tables[0].parsing_report
+{
+    "accuracy": 96,
+    "whitespace": 80,
+    "order": 1,
+    "page": 1
+}
+>>> df = tables[0].df
 </pre>
 
 ## Dependencies
 
-Currently, camelot works under Python 2.7.
-
-The required dependencies include [numpy](http://www.numpy.org/), [OpenCV](http://opencv.org/) and [ImageMagick](http://www.imagemagick.org/script/index.php).
-
-### Optional
-
-You'll need to install [Tesseract](https://github.com/tesseract-ocr/tesseract) if you want to extract tables from image based pdfs. Also, you'll need a tesseract language pack if your pdf isn't in english.
+The dependencies include [tk](https://wiki.tcl.tk/3743) and [ghostscript](https://www.ghostscript.com/).
 
 ## Installation
 
@@ -73,32 +37,32 @@ pip install -U pip setuptools
 
 ### Installing dependencies
 
-numpy can be install using `pip`. OpenCV and imagemagick can be installed using your system's default package manager.
+tk and ghostscript can be installed using your system's default package manager.
 
 #### Linux
-
-* Arch Linux
-
-<pre>
-sudo pacman -S opencv imagemagick
-</pre>
 
 * Ubuntu
 
 <pre>
-sudo apt-get install libopencv-dev python-opencv imagemagick
+sudo apt-get install python-opencv python-tk ghostscript
+</pre>
+
+* Arch Linux
+
+<pre>
+sudo pacman -S opencv tk ghostscript
 </pre>
 
 #### OS X
 
 <pre>
-brew install homebrew/science/opencv imagemagick
+brew install homebrew/science/opencv ghostscript
 </pre>
 
 Finally, `cd` into the project directory and install by
 
 <pre>
-make install
+python setup.py install
 </pre>
 
 ## Development
@@ -113,12 +77,12 @@ git clone https://github.com/socialcopsdev/camelot.git
 
 ### Contributing
 
-See [Contributing doc]().
+See [Contributing guidelines]().
 
 ### Testing
 
 <pre>
-make test
+python setup.py test
 </pre>
 
 ## License

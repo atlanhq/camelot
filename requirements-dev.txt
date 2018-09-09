@@ -6,3 +6,6 @@ pandas==0.23.4
 pdfminer==20140328
 Pillow==5.2.0
 PyPDF2==1.26.0
+pytest==3.8.0
+pytest-runner==4.2
+Sphinx==1.8.0b1

@@ -4,12 +4,12 @@ import camelot
 
 NAME = 'camelot'
 VERSION = camelot.__version__
-DESCRIPTION = 'camelot parses tables from PDFs!'
+DESCRIPTION = 'PDF Table Parsing for Humans'
 with open('README.md') as f:
     LONG_DESCRIPTION = f.read()
 URL = 'https://github.com/socialcopsdev/camelot'
 AUTHOR = 'Vinayak Mehta'
-AUTHOR_EMAIL = 'vinayak@socialcops.com'
+AUTHOR_EMAIL = 'vmehta94@gmail.com'
 LICENSE = 'BSD License'
 
 opencv_min_version = '2.4.8'
@@ -48,10 +48,8 @@ def setup_package():
                     author=AUTHOR,
                     author_email=AUTHOR_EMAIL,
                     license=LICENSE,
-                    keywords='parse scrape pdf table',
                     packages=['camelot'],
-                    install_requires=reqs,
-                    scripts=['tools/camelot'])
+                    install_requires=reqs)
 
     try:
         from setuptools import setup
@@ -60,18 +58,14 @@ def setup_package():
 
     opencv_status = get_opencv_status()
     opencv_req_str = "camelot requires OpenCV >= {0}.\n".format(opencv_min_version)
-    instructions = ("Installation instructions are available in the README at "
-                    "https://github.com/socialcopsdev/camelot")
 
     if opencv_status['up_to_date'] is False:
         if opencv_status['version']:
-            raise ImportError("Your installation of OpenCV "
-                              "{0} is out-of-date.\n{1}{2}"
-                              .format(opencv_status['version'],
-                                      opencv_req_str, instructions))
+            raise ImportError("Your installation of OpenCV {} is out-of-date.\n{}"
+                              .format(opencv_status['version'], opencv_req_str))
         else:
-            raise ImportError("OpenCV is not installed.\n{0}{1}"
-                              .format(opencv_req_str, instructions))
+            raise ImportError("OpenCV is not installed.\n{}"
+                              .format(opencv_req_str))
 
     setup(**metadata)
 

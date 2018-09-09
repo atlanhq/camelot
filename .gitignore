@@ -6,3 +6,7 @@ build/
 dist/
 *.egg-info/
 .coverage
+
+.pytest_cache/
+_build/
+_static/
