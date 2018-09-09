@@ -50,13 +50,13 @@ sudo apt-get install python-opencv python-tk ghostscript
 * Arch Linux
 
 <pre>
-sudo pacman -S opencv tk ghostscript
+sudo pacman -S tk ghostscript
 </pre>
 
 #### OS X
 
 <pre>
-brew install homebrew/science/opencv ghostscript
+brew install tcl-tk ghostscript
 </pre>
 
 Finally, `cd` into the project directory and install by
