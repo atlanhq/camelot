@@ -1,6 +1,8 @@
 from __future__ import division
 import os
+import shutil
 import logging
+import tempfile
 from itertools import groupby
 from operator import itemgetter
 
@@ -16,6 +18,16 @@ from pdfminer.pdfdevice import PDFDevice
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)
+
+
+# https://stackoverflow.com/a/22726782
+class TemporaryDirectory(object):
+    def __enter__(self):
+        self.name = tempfile.mkdtemp()
+        return self.name
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        shutil.rmtree(self.name)
 
 
 def setup_logging(name):

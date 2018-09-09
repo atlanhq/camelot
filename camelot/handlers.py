@@ -1,11 +1,11 @@
 import os
-import tempfile
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 from .core import TableList, GeometryList
 from .parsers import Stream, Lattice
-from .utils import get_page_layout, get_text_objects, get_rotation
+from .utils import (TemporaryDirectory, get_page_layout, get_text_objects,
+                    get_rotation)
 
 
 class PDFHandler(object):
@@ -27,7 +27,6 @@ class PDFHandler(object):
         if not self.filename.endswith('.pdf'):
             raise TypeError("File format not supported.")
         self.pages = self._get_pages(self.filename, pages)
-        self.tempdir = tempfile.mkdtemp()
 
     def _get_pages(self, filename, pages):
         """Converts pages string to list of ints.
@@ -130,15 +129,16 @@ class PDFHandler(object):
             found in pdf.
 
         """
-        for p in self.pages:
-            self._save_page(self.filename, p, self.tempdir)
-        pages = [os.path.join(self.tempdir, 'page-{0}.pdf'.format(p))
-                 for p in self.pages]
         tables = []
         geometry = []
-        parser = Stream(**kwargs) if not mesh else Lattice(**kwargs)
-        for p in pages:
-            t, g = parser.extract_tables(p)
-            tables.extend(t)
-            geometry.append(g)
+        with TemporaryDirectory() as tempdir:
+            for p in self.pages:
+                self._save_page(self.filename, p, tempdir)
+            pages = [os.path.join(tempdir, 'page-{0}.pdf'.format(p))
+                     for p in self.pages]
+            parser = Stream(**kwargs) if not mesh else Lattice(**kwargs)
+            for p in pages:
+                t, g = parser.extract_tables(p)
+                tables.extend(t)
+                geometry.append(g)
         return TableList(tables), GeometryList(geometry)
