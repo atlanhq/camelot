@@ -8,3 +8,5 @@ dist/
 .coverage
 
 .pytest_cache/
+_build/
+_static/

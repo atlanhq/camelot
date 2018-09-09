@@ -8,19 +8,54 @@ import pandas as pd
 from .base import BaseParser
 from ..core import Table
 from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
-                     count_empty_strings, encode_, setup_logging)
+                     compute_whitespace, setup_logging, encode_)
 
 
 logger = setup_logging(__name__)
 
 
 class Stream(BaseParser):
-    """
+    """Stream method of parsing looks for spaces between text
+    to form a table.
+
+    If you want to specify columns when specifying multiple table
+    areas, make sure that the length of both lists are equal.
+
+    Parameters
+    ----------
+    table_area : list, optional (default: None)
+        List of table areas to analyze as strings of the form
+        x1,y1,x2,y2 where (x1, y1) -> left-top and
+        (x2, y2) -> right-bottom in pdf coordinate space.
+    columns : list, optional (default: None)
+        List of column x-coordinates as strings where the coordinates
+        are comma-separated.
+    split_text : bool, optional (default: False)
+        Whether or not to split a text line if it spans across
+        multiple cells.
+    flag_size : bool, optional (default: False)
+        Whether or not to highlight a substring using <s></s>
+        if its size is different from rest of the string, useful for
+        super and subscripts.
+    row_close_tol : int, optional (default: 2)
+        Rows will be formed by combining text vertically
+        within this tolerance.
+    col_close_tol : int, optional (default: 0)
+        Columns will be formed by combining text horizontally
+        within this tolerance.
+    margins : tuple, optional (default: (1.0, 0.5, 0.1))
+        PDFMiner margins. (char_margin, line_margin, word_margin)
+
+        For for information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
+    debug : bool, optional (default: False)
+        Whether or not to return all text objects on the page
+        which can be used to generate a matplotlib plot, to get
+        values for table_area(s), columns and debugging.
 
     """
     def __init__(self, table_area=None, columns=None, split_text=False,
                  flag_size=False, row_close_tol=2, col_close_tol=0,
-                 margins=(1.0, 0.5, 0.1), debug=None):
+                 margins=(1.0, 0.5, 0.1), debug=False):
         self.table_area = table_area
         self.columns = columns
         self._validate_columns()
@@ -33,6 +68,20 @@ class Stream(BaseParser):
 
     @staticmethod
     def _text_bbox(t_bbox):
+        """Returns bounding box for the text present on a page.
+
+        Parameters
+        ----------
+        t_bbox : dict
+            Dict with two keys 'horizontal' and 'vertical' with lists of
+            LTTextLineHorizontals and LTTextLineVerticals respectively.
+
+        Returns
+        -------
+        text_bbox : tuple
+            Tuple (x0, y0, x1, y1) in pdf coordinate space.
+
+        """
         xmin = min([t.x0 for direction in t_bbox for t in t_bbox[direction]])
         ymin = min([t.y0 for direction in t_bbox for t in t_bbox[direction]])
         xmax = max([t.x1 for direction in t_bbox for t in t_bbox[direction]])
@@ -42,6 +91,21 @@ class Stream(BaseParser):
 
     @staticmethod
     def _group_rows(text, row_close_tol=2):
+        """Groups PDFMiner text objects into rows vertically
+        within a tolerance.
+
+        Parameters
+        ----------
+        text : list
+            List of PDFMiner text objects.
+        row_close_tol : int, optional (default: 2)
+
+        Returns
+        -------
+        rows : list
+            Two-dimensional list of text objects grouped into rows.
+
+        """
         row_y = 0
         rows = []
         temp = []
@@ -61,6 +125,21 @@ class Stream(BaseParser):
 
     @staticmethod
     def _merge_columns(l, col_close_tol=0):
+        """Merges column boundaries horizontally if they overlap
+        or lie within a tolerance.
+
+        Parameters
+        ----------
+        l : list
+            List of column x-coordinate tuples.
+        col_close_tol : int, optional (default: 0)
+
+        Returns
+        -------
+        merged : list
+            List of merged column x-coordinate tuples.
+
+        """
         merged = []
         for higher in l:
             if not merged:
@@ -89,6 +168,21 @@ class Stream(BaseParser):
 
     @staticmethod
     def _join_rows(rows_grouped, text_y_max, text_y_min):
+        """Makes row coordinates continuous.
+
+        Parameters
+        ----------
+        rows_grouped : list
+            Two-dimensional list of text objects grouped into rows.
+        text_y_max : int
+        text_y_min : int
+
+        Returns
+        -------
+        rows : list
+            List of continuous row y-coordinate tuples.
+
+        """
         row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
                     if len(r) > 0 else 0 for r in rows_grouped]
         rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
@@ -100,6 +194,23 @@ class Stream(BaseParser):
 
     @staticmethod
     def _add_columns(cols, text, row_close_tol):
+        """Adds columns to existing list by taking into account
+        the text that lies outside the current column x-coordinates.
+
+        Parameters
+        ----------
+        cols : list
+            List of column x-coordinate tuples.
+        text : list
+            List of PDFMiner text objects.
+        ytol : int
+
+        Returns
+        -------
+        cols : list
+            Updated list of column x-coordinate tuples.
+
+        """
         if text:
             text = Stream._group_rows(text, row_close_tol=row_close_tol)
             elements = [len(r) for r in text]
@@ -110,6 +221,21 @@ class Stream(BaseParser):
 
     @staticmethod
     def _join_columns(cols, text_x_min, text_x_max):
+        """Makes column coordinates continuous.
+
+        Parameters
+        ----------
+        cols : list
+            List of column x-coordinate tuples.
+        text_x_min : int
+        text_y_max : int
+
+        Returns
+        -------
+        cols : list
+            Updated list of column x-coordinate tuples.
+
+        """
         cols = sorted(cols)
         cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
         cols.insert(0, text_x_min)
@@ -207,7 +333,7 @@ class Stream(BaseParser):
         table.df = pd.DataFrame(data)
         table.shape = table.df.shape
 
-        whitespace, __, __ = count_empty_strings(data)
+        whitespace = compute_whitespace(data)
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1
@@ -216,16 +342,6 @@ class Stream(BaseParser):
         return table
 
     def extract_tables(self, filename):
-        """
-
-        Parameters
-        ----------
-        filename
-
-        Returns
-        -------
-
-        """
         logger.info('Processing {}'.format(os.path.basename(filename)))
         self._generate_layout(filename)
 
@@ -244,7 +360,7 @@ class Stream(BaseParser):
             table = self._generate_table(table_idx, cols, rows)
             _tables.append(table)
 
-        if self.debug is not None:
+        if self.debug:
             text = []
             text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
             text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])

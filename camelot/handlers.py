@@ -9,18 +9,43 @@ from .utils import get_page_layout, get_text_objects, get_rotation
 
 
 class PDFHandler(object):
-    """
+    """Handles all operations like temp directory creation, splitting
+    file into single page pdfs, parsing each pdf and then removing the
+    temp directory.
+
+    Parameter
+    ---------
+    filename : str
+        Path to pdf file.
+    pages : str
+        Comma-separated page numbers to parse.
+        Example: 1,3,4 or 1,4-end
 
     """
     def __init__(self, filename, pages='1'):
         self.filename = filename
         if not self.filename.endswith('.pdf'):
             raise TypeError("File format not supported.")
-        self.pages = self.__get_pages(self.filename, pages)
+        self.pages = self._get_pages(self.filename, pages)
         self.tempdir = tempfile.mkdtemp()
 
-    def __get_pages(self, filename, pages):
-        # refactor
+    def _get_pages(self, filename, pages):
+        """Converts pages string to list of ints.
+
+        Parameters
+        ----------
+        filename : str
+            Path to pdf file.
+        pages : str
+            Comma-separated page numbers to parse.
+            Example: 1,3,4 or 1,4-end
+
+        Returns
+        -------
+        P : list
+            List of int page numbers.
+
+        """
         page_numbers = []
         if pages == '1':
             page_numbers.append({'start': 1, 'end': 1})
@@ -42,8 +67,19 @@ class PDFHandler(object):
             P.extend(range(p['start'], p['end'] + 1))
         return sorted(set(P))
 
-    def __save_page(self, filename, page, temp):
-        # refactor
+    def _save_page(self, filename, page, temp):
+        """Saves specified page from pdf into a temporary directory.
+
+        Parameters
+        ----------
+        filename : str
+            Path to pdf file.
+        page : int
+            Page number
+        temp : str
+            Tmp directory
+
+        """
         with open(filename, 'rb') as fileobj:
             infile = PdfFileReader(fileobj, strict=False)
             fpath = os.path.join(temp, 'page-{0}.pdf'.format(page))
@@ -65,28 +101,37 @@ class PDFHandler(object):
                 infile = PdfFileReader(open(fpath_new, 'rb'), strict=False)
                 outfile = PdfFileWriter()
                 p = infile.getPage(0)
-                if rotation == 'left':
+                if rotation == 'anticlockwise':
                     p.rotateClockwise(90)
-                elif rotation == 'right':
+                elif rotation == 'clockwise':
                     p.rotateCounterClockwise(90)
                 outfile.addPage(p)
                 with open(fpath, 'wb') as f:
                     outfile.write(f)
 
     def parse(self, mesh=False, **kwargs):
-        """
+        """Extracts tables by calling parser.get_tables on all single
+        page pdfs.
 
         Parameters
         ----------
-        mesh
-        kwargs
+        mesh : bool (default: False)
+            Whether or not to use Lattice method of parsing. Stream
+            is used by default.
+        kwargs : dict
+            See camelot.read_pdf kwargs.
 
         Returns
         -------
+        tables : camelot.core.TableList
+            List of tables found in pdf.
+        geometry : camelot.core.GeometryList
+            List of geometry objects (contours, lines, joints)
+            found in pdf.
 
         """
         for p in self.pages:
-            self.__save_page(self.filename, p, self.tempdir)
+            self._save_page(self.filename, p, self.tempdir)
         pages = [os.path.join(self.tempdir, 'page-{0}.pdf'.format(p))
                  for p in self.pages]
         tables = []

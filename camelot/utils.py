@@ -19,14 +19,15 @@ from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
 
 
 def setup_logging(name):
-    """
+    """Sets up a logger with StreamHandler.
 
     Parameters
     ----------
-    name
+    name : str
 
     Returns
     -------
+    logger : logging.Logger
 
     """
     logger = logging.getLogger(name)
@@ -47,15 +48,16 @@ logger = setup_logging(__name__)
 
 
 def translate(x1, x2):
-    """
+    """Translates x2 by x1.
 
     Parameters
     ----------
-    x1
-    x2
+    x1 : float
+    x2 : float
 
     Returns
     -------
+    x2 : float
 
     """
     x2 += x1
@@ -63,15 +65,16 @@ def translate(x1, x2):
 
 
 def scale(x, s):
-    """
+    """Scales x by scaling factor s.
 
     Parameters
     ----------
-    x
-    s
+    x : float
+    s : float
 
     Returns
     -------
+    x : float
 
     """
     x *= s
@@ -79,18 +82,21 @@ def scale(x, s):
 
 
 def rotate(x1, y1, x2, y2, angle):
-    """
+    """Rotates point x2, y2 about point x1, y1 by angle.
 
     Parameters
     ----------
-    x1
-    y1
-    x2
-    y2
-    angle
+    x1 : float
+    y1 : float
+    x2 : float
+    y2 : float
+    angle : float
+        Angle in radians.
 
     Returns
     -------
+    xnew : float
+    ynew : float
 
     """
     s = np.sin(angle)
@@ -105,15 +111,26 @@ def rotate(x1, y1, x2, y2, angle):
 
 
 def scale_pdf(k, factors):
-    """
+    """Translates and scales pdf coordinate space to image
+    coordinate space.
 
     Parameters
     ----------
-    k
-    factors
+    k : tuple
+        Tuple (x1, y1, x2, y2) representing table bounding box where
+        (x1, y1) -> lt and (x2, y2) -> rb in PDFMiner coordinate
+        space.
+    factors : tuple
+        Tuple (scaling_factor_x, scaling_factor_y, pdf_y) where the
+        first two elements are scaling factors and pdf_y is height of
+        pdf.
 
     Returns
     -------
+    knew : tuple
+        Tuple (x1, y1, x2, y2) representing table bounding box where
+        (x1, y1) -> lt and (x2, y2) -> rb in OpenCV coordinate
+        space.
 
     """
     x1, y1, x2, y2 = k
@@ -127,17 +144,28 @@ def scale_pdf(k, factors):
 
 
 def scale_image(tables, v_segments, h_segments, factors):
-    """
+    """Translates and scales image coordinate space to pdf
+    coordinate space.
 
     Parameters
     ----------
-    tables
-    v_segments
-    h_segments
-    factors
+    tables : dict
+        Dict with table boundaries as keys and list of intersections
+        in that boundary as value.
+    v_segments : list
+        List of vertical line segments.
+    h_segments : list
+        List of horizontal line segments.
+    factors : tuple
+        Tuple (scaling_factor_x, scaling_factor_y, img_y) where the
+        first two elements are scaling factors and img_y is height of
+        image.
 
     Returns
     -------
+    tables_new : dict
+    v_segments_new : dict
+    h_segments_new : dict
 
     """
     scaling_factor_x, scaling_factor_y, img_y = factors
@@ -172,16 +200,23 @@ def scale_image(tables, v_segments, h_segments, factors):
 
 
 def get_rotation(lttextlh, lttextlv, ltchar):
-    """
+    """Detects if text in table is rotated or not using the current
+    transformation matrix (CTM) and returns its orientation.
 
     Parameters
     ----------
-    lttextlh
-    lttextlv
-    ltchar
+    lttextlh : list
+        List of PDFMiner LTTextLineHorizontal objects.
+    lttextlv : list
+        List of PDFMiner LTTextLineVertical objects.
+    ltchar : list
+        List of PDFMiner LTChar objects.
 
     Returns
     -------
+    rotation : string
+        '' if text in table is upright, 'left' if rotated 90 degree
+        anticlockwise and 'right' if rotated 90 degree clockwise.
 
     """
     rotation = ''
@@ -190,21 +225,30 @@ def get_rotation(lttextlh, lttextlv, ltchar):
     if hlen < vlen:
         clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in ltchar)
         anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in ltchar)
-        rotation = 'left' if clockwise < anticlockwise else 'right'
+        rotation = 'clockwise' if clockwise < anticlockwise else 'anticlockwise'
     return rotation
 
 
 def segments_in_bbox(bbox, v_segments, h_segments):
-    """
+    """Returns all line segments present inside a bounding box.
 
     Parameters
     ----------
-    bbox
-    v_segments
-    h_segments
+    bbox : tuple
+        Tuple (x1, y1, x2, y2) representing a bounding box where
+        (x1, y1) -> lb and (x2, y2) -> rt in PDFMiner coordinate
+        space.
+    v_segments : list
+        List of vertical line segments.
+    h_segments : list
+        List of vertical horizontal segments.
 
     Returns
     -------
+    v_s : list
+        List of vertical line segments that lie inside table.
+    h_s : list
+        List of horizontal line segments that lie inside table.
 
     """
     lb = (bbox[0], bbox[1])
@@ -217,35 +261,42 @@ def segments_in_bbox(bbox, v_segments, h_segments):
 
 
 def text_in_bbox(bbox, text):
-    """
+    """Returns all text objects present inside a bounding box.
 
     Parameters
     ----------
-    bbox
-    text
+    bbox : tuple
+        Tuple (x1, y1, x2, y2) representing a bounding box where
+        (x1, y1) -> lb and (x2, y2) -> rt in PDFMiner coordinate
+        space.
+    text : List of PDFMiner text objects.
 
     Returns
     -------
+    t_bbox : list
+        List of PDFMiner text objects that lie inside table.
 
     """
     lb = (bbox[0], bbox[1])
     rt = (bbox[2], bbox[3])
     t_bbox = [t for t in text if lb[0] - 2 <= (t.x0 + t.x1) / 2.0
-                 <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
-                 <= rt[1] + 2]
+                <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
+                <= rt[1] + 2]
     return t_bbox
 
 
 def remove_close_lines(ar, line_close_tol=2):
-    """
+    """Removes lines which are within a tolerance, based on their x or
+    y axis projections.
 
     Parameters
     ----------
-    ar
-    line_close_tol
+    ar : list
+    line_close_tol : int, optional (default: 2)
 
     Returns
     -------
+    ret : list
 
     """
     ret = []
@@ -262,15 +313,17 @@ def remove_close_lines(ar, line_close_tol=2):
 
 
 def merge_close_lines(ar, line_close_tol=2):
-    """
+    """Merges lines which are within a tolerance by calculating a
+    moving mean, based on their x or y axis projections.
 
     Parameters
     ----------
-    ar
-    line_close_tol
+    ar : list
+    line_close_tol : int, optional (default: 2)
 
     Returns
     -------
+    ret : list
 
     """
     ret = []
@@ -288,15 +341,19 @@ def merge_close_lines(ar, line_close_tol=2):
 
 
 def flag_font_size(textline, direction):
-    """
+    """Flags super/subscripts in text by enclosing them with <s></s>.
+    May give false positives.
 
     Parameters
     ----------
-    textline
-    direction
+    textline : list
+        List of PDFMiner LTChar objects.
+    direction : string
+        Direction of the PDFMiner LTTextLine object.
 
     Returns
     -------
+    fstring : string
 
     """
     if direction == 'horizontal':
@@ -324,18 +381,27 @@ def flag_font_size(textline, direction):
     return fstring
 
 
-def split_textline(table, textline, direction, flag_size=True):
-    """
+def split_textline(table, textline, direction, flag_size=False):
+    """Splits PDFMiner LTTextLine into substrings if it spans across
+    multiple rows/columns.
 
     Parameters
     ----------
-    table
-    textline
-    direction
-    flag_size
+    table : camelot.core.Table
+    textline : object
+        PDFMiner LTTextLine object.
+    direction : string
+        Direction of the PDFMiner LTTextLine object.
+    flag_size : bool, optional (default: False)
+        Whether or not to highlight a substring using <s></s>
+        if its size is different from rest of the string, useful for
+        super and subscripts.
 
     Returns
     -------
+    grouped_chars : list
+        List of tuples of the form (idx, text) where idx is the index
+        of row/column and text is the an lttextline substring.
 
     """
     idx = 0
@@ -388,19 +454,38 @@ def split_textline(table, textline, direction, flag_size=True):
     return grouped_chars
 
 
-def get_table_index(table, t, direction, split_text=False, flag_size=True):
-    """
+def get_table_index(table, t, direction, split_text=False, flag_size=False):
+    """Gets indices of the table cell where given text object lies by
+    comparing their y and x-coordinates.
 
     Parameters
     ----------
-    table
-    t
-    direction
-    split_text
-    flag_size
+    table : camelot.core.Table
+    t : object
+        PDFMiner LTTextLine object.
+    direction : string
+        Direction of the PDFMiner LTTextLine object.
+    split_text : bool, optional (default: False)
+        Whether or not to split a text line if it spans across
+        multiple cells.
+    flag_size : bool, optional (default: False)
+        Whether or not to highlight a substring using <s></s>
+        if its size is different from rest of the string, useful for
+        super and subscripts.
 
     Returns
     -------
+    indices : list
+        List of tuples of the form (r_idx, c_idx, text) where r_idx
+        and c_idx are row and column indices.
+    error : float
+        Assignment error, percentage of text area that lies outside
+        a cell.
+        +-------+
+        |       |
+        |   [Text bounding box]
+        |       |
+        +-------+
 
     """
     r_idx, c_idx = [-1] * 2
@@ -450,14 +535,19 @@ def get_table_index(table, t, direction, split_text=False, flag_size=True):
 
 
 def compute_accuracy(error_weights):
-    """
+    """Calculates a score based on weights assigned to various
+    parameters and their error percentages.
 
     Parameters
     ----------
-    error_weights
+    error_weights : list
+        Two-dimensional list of the form [[p1, e1], [p2, e2], ...]
+        where pn is the weight assigned to list of errors en.
+        Sum of pn should be equal to 100.
 
     Returns
     -------
+    score : float
 
     """
     SCORE_VAL = 100
@@ -474,50 +564,40 @@ def compute_accuracy(error_weights):
     return score
 
 
-def count_empty_strings(d):
-    """
+def compute_whitespace(d):
+    """Calculates the percentage of empty strings in a
+    two-dimensional list.
 
     Parameters
     ----------
-    d
+    d : list
 
     Returns
     -------
+    whitespace : float
+        Percentage of empty cells.
 
     """
-    empty_p = 0
+    whitespace = 0
     r_nempty_cells, c_nempty_cells = [], []
     for i in d:
         for j in i:
             if j.strip() == '':
-                empty_p += 1
-    empty_p = 100 * (empty_p / float(len(d) * len(d[0])))
-    for row in d:
-        r_nempty_c = 0
-        for r in row:
-            if r.strip() != '':
-                r_nempty_c += 1
-        r_nempty_cells.append(r_nempty_c)
-    d = zip(*d)
-    d = [list(col) for col in d]
-    for col in d:
-        c_nempty_c = 0
-        for c in col:
-            if c.strip() != '':
-                c_nempty_c += 1
-        c_nempty_cells.append(c_nempty_c)
-    return empty_p, r_nempty_cells, c_nempty_cells
+                whitespace += 1
+    whitespace = 100 * (whitespace / float(len(d) * len(d[0])))
+    return whitespace
 
 
-def remove_empty_strings(d):
-    """
+def remove_empty(d):
+    """Removes empty rows and columns from a two-dimensional list.
 
     Parameters
     ----------
-    d
+    d : list
 
     Returns
     -------
+    d : list
 
     """
     for i, row in enumerate(d):
@@ -530,70 +610,46 @@ def remove_empty_strings(d):
 
 
 def encode_(ar):
-    """
+    """Encodes two-dimensional list into unicode.
 
     Parameters
     ----------
-    ar
+    ar : list
 
     Returns
     -------
+    ar : list
 
     """
     ar = [[r.encode('utf-8') for r in row] for row in ar]
     return ar
 
 
-def get_text_objects(layout, ltype="char", t=None):
-    """
-
-    Parameters
-    ----------
-    layout
-    ltype
-    t
-
-    Returns
-    -------
-
-    """
-    if ltype == "char":
-        LTObject = LTChar
-    elif ltype == "lh":
-        LTObject = LTTextLineHorizontal
-    elif ltype == "lv":
-        LTObject = LTTextLineVertical
-    if t is None:
-        t = []
-    try:
-        for obj in layout._objs:
-            if isinstance(obj, LTObject):
-                t.append(obj)
-            else:
-                t += get_text_objects(obj, ltype=ltype)
-    except AttributeError:
-        pass
-    return t
-
-
-def get_page_layout(pname, char_margin=1.0, line_margin=0.5, word_margin=0.1,
+def get_page_layout(filename, char_margin=1.0, line_margin=0.5, word_margin=0.1,
                detect_vertical=True, all_texts=True):
-    """
+    """Returns a PDFMiner LTPage object and page dimension of a single
+    page pdf. See https://euske.github.io/pdfminer/ to get definitions
+    of kwargs.
 
     Parameters
     ----------
-    pname
-    char_margin
-    line_margin
-    word_margin
-    detect_vertical
-    all_texts
+    filename : string
+        Path to pdf file.
+    char_margin : float
+    line_margin : float
+    word_margin : float
+    detect_vertical : bool
+    all_texts : bool
 
     Returns
     -------
+    layout : object
+        PDFMiner LTPage object.
+    dim : tuple
+        Dimension of pdf page in the form (width, height).
 
     """
-    with open(pname, 'r') as f:
+    with open(filename, 'r') as f:
         parser = PDFParser(f)
         document = PDFDocument(parser)
         if not document.is_extractable:
@@ -615,12 +671,56 @@ def get_page_layout(pname, char_margin=1.0, line_margin=0.5, word_margin=0.1,
         return layout, dim
 
 
-def merge_tuples(tuples):
-    """
+def get_text_objects(layout, ltype="char", t=None):
+    """Recursively parses pdf layout to get a list of
+    PDFMiner text objects.
 
     Parameters
     ----------
-    tuples
+    layout : object
+        PDFMiner LTPage object.
+    ltype : string
+        Specify 'char', 'lh', 'lv' to get LTChar, LTTextLineHorizontal,
+        and LTTextLineVertical objects respectively.
+    t : list
+
+    Returns
+    -------
+    t : list
+        List of PDFMiner text objects.
+
+    """
+    if ltype == "char":
+        LTObject = LTChar
+    elif ltype == "lh":
+        LTObject = LTTextLineHorizontal
+    elif ltype == "lv":
+        LTObject = LTTextLineVertical
+    if t is None:
+        t = []
+    try:
+        for obj in layout._objs:
+            if isinstance(obj, LTObject):
+                t.append(obj)
+            else:
+                t += get_text_objects(obj, ltype=ltype)
+    except AttributeError:
+        pass
+    return t
+
+
+def merge_tuples(tuples):
+    """Merges a list of overlapping tuples.
+
+    Parameters
+    ----------
+    tuples : list
+        List of tuples where a tuple is a single axis coordinate pair.
+
+    Yields
+    ------
+    tuple
+
     """
     merged = list(tuples[0])
     for s, e in tuples:

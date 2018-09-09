@@ -4,17 +4,37 @@
 API Reference
 =============
 
-Pdf
-===
-.. automodule:: camelot.pdf
+camelot.read_pdf
+================
+.. automodule:: camelot.read_pdf
    :members:
 
-Lattice
-=======
-.. automodule:: camelot.lattice
+camelot.handlers.PDFHandler
+===========================
+.. automodule:: camelot.handlers.PDFHandler
    :members:
 
-Stream
-======
-.. automodule:: camelot.stream
+camelot.parsers.Stream
+======================
+.. automodule:: camelot.parsers.Stream
+   :members:
+
+camelot.parsers.Lattice
+=======================
+.. automodule:: camelot.parsers.Lattice
+   :members:
+
+camelot.core.Cell
+=================
+.. automodule:: camelot.core.Cell
+   :members:
+
+camelot.core.Table
+==================
+.. automodule:: camelot.core.Table
+   :members:
+
+camelot.core.TableList
+======================
+.. automodule:: camelot.core.TableList
    :members:

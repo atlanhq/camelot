@@ -9,17 +9,31 @@ from .utils import merge_tuples
 
 
 def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
-    """
+    """Thresholds an image using OpenCV's adaptiveThreshold.
 
     Parameters
     ----------
-    imagename
-    process_background
-    blocksize
-    c
+    imagename : string
+        Path to image file.
+    process_background : bool, optional (default: False)
+        Whether or not to process lines that are in background.
+    blocksize : int, optional (default: 15)
+        Size of a pixel neighborhood that is used to calculate a
+        threshold value for the pixel: 3, 5, 7, and so on.
+
+        For more information, refer `OpenCV's adaptiveThreshold <https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#adaptivethreshold>`_.
+    c : int, optional (default: -2)
+        Constant subtracted from the mean or weighted mean.
+        Normally, it is positive but may be zero or negative as well.
+
+        For more information, refer `OpenCV's adaptiveThreshold <https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#adaptivethreshold>`_.
 
     Returns
     -------
+    img : object
+        numpy.ndarray representing the original image.
+    threshold : object
+        numpy.ndarray representing the thresholded image.
 
     """
     img = cv2.imread(imagename)
@@ -35,17 +49,35 @@ def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
 
 
 def find_lines(threshold, direction='horizontal', line_size_scaling=15, iterations=0):
-    """
+    """Finds horizontal and vertical lines by applying morphological
+    transformations on an image.
 
     Parameters
     ----------
-    threshold
-    direction
-    line_size_scaling
-    iterations
+    threshold : object
+        numpy.ndarray representing the thresholded image.
+    direction : string, optional (default: 'horizontal')
+        Specifies whether to find vertical or horizontal lines.
+    line_size_scaling : int, optional (default: 15)
+        Factor by which the page dimensions will be divided to get
+        smallest length of lines that should be detected.
+
+        The larger this value, smaller the detected lines. Making it
+        too large will lead to text being detected as lines.
+    iterations : int, optional (default: 0)
+        Number of times for erosion/dilation is applied.
+
+        For more information, refer `OpenCV's dilate <https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html#dilate>`_.
 
     Returns
     -------
+    dmask : object
+        numpy.ndarray representing pixels where vertical/horizontal
+        lines lie.
+    lines : list
+        List of tuples representing vertical/horizontal lines with
+        coordinates relative to a left-top origin in
+        image coordinate space.
 
     """
     lines = []
@@ -84,15 +116,21 @@ def find_lines(threshold, direction='horizontal', line_size_scaling=15, iteratio
 
 
 def find_table_contours(vertical, horizontal):
-    """
+    """Finds table boundaries using OpenCV's findContours.
 
     Parameters
     ----------
-    vertical
-    horizontal
+    vertical : object
+        numpy.ndarray representing pixels where vertical lines lie.
+    horizontal : object
+        numpy.ndarray representing pixels where horizontal lines lie.
 
     Returns
     -------
+    cont : list
+        List of tuples representing table boundaries. Each tuple is of
+        the form (x, y, w, h) where (x, y) -> left-top, w -> width and
+        h -> height in image coordinate space.
 
     """
     mask = vertical + horizontal
@@ -114,16 +152,26 @@ def find_table_contours(vertical, horizontal):
 
 
 def find_table_joints(contours, vertical, horizontal):
-    """
+    """Finds joints/intersections present inside each table boundary.
 
     Parameters
     ----------
-    contours
-    vertical
-    horizontal
+    contours : list
+        List of tuples representing table boundaries. Each tuple is of
+        the form (x, y, w, h) where (x, y) -> left-top, w -> width and
+        h -> height in image coordinate space.
+    vertical : object
+        numpy.ndarray representing pixels where vertical lines lie.
+    horizontal : object
+        numpy.ndarray representing pixels where horizontal lines lie.
 
     Returns
     -------
+    tables : dict
+        Dict with table boundaries as keys and list of intersections
+        in that boundary as their value.
+        Keys are of the form (x1, y1, x2, y2) where (x1, y1) -> lb
+        and (x2, y2) -> rt in image coordinate space.
 
     """
     joints = np.bitwise_and(vertical, horizontal)
@@ -150,15 +198,24 @@ def find_table_joints(contours, vertical, horizontal):
 
 
 def remove_lines(threshold, line_size_scaling=15):
-    """
+    """Removes lines from a thresholded image.
 
     Parameters
     ----------
-    threshold
-    line_size_scaling
+    threshold : object
+        numpy.ndarray representing the thresholded image.
+    line_size_scaling : int, optional (default: 15)
+        Factor by which the page dimensions will be divided to get
+        smallest length of lines that should be detected.
+
+        The larger this value, smaller the detected lines. Making it
+        too large will lead to text being detected as lines.
 
     Returns
     -------
+    threshold : object
+        numpy.ndarray representing the thresholded image
+        with horizontal and vertical lines removed.
 
     """
     size = threshold.shape[0] // line_size_scaling
@@ -178,16 +235,23 @@ def remove_lines(threshold, line_size_scaling=15):
 
 
 def find_cuts(threshold, char_size_scaling=200):
-    """
+    """Finds cuts made by text projections on y-axis.
 
     Parameters
     ----------
-    threshold
-    char_size_scaling
+    threshold : object
+        numpy.ndarray representing the thresholded image.
+    line_size_scaling : int, optional (default: 200)
+        Factor by which the page dimensions will be divided to get
+        smallest length of lines that should be detected.
+
+        The larger this value, smaller the detected lines. Making it
+        too large will lead to text being detected as lines.
 
     Returns
     -------
-
+    y_cuts : list
+        List of cuts on y-axis.
     """
     size = threshold.shape[0] // char_size_scaling
     char_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))

@@ -5,8 +5,7 @@ from ..utils import get_page_layout, get_text_objects
 
 
 class BaseParser(object):
-    """
-
+    """Defines a base parser.
     """
     def _generate_layout(self, filename):
         self.filename = filename

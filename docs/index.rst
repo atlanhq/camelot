@@ -3,11 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-==================================
-Camelot: pdf parsing made simpler!
-==================================
+=====================================
+Camelot: PDF Table Parsing for Humans
+=====================================
 
-Camelot is a Python 2.7 library and command-line tool for getting tables out of pdf files.
+Camelot is a Python 2.7 library and command-line tool for extracting tabular data from PDF files.
 
 Why another pdf table parsing library?
 ======================================
@@ -32,12 +32,22 @@ Usage
 
 ::
 
-    >>> from camelot.pdf import Pdf
-    >>> from camelot.lattice import Lattice
-
-    >>> manager = Pdf(Lattice(), 'us-030.pdf')
-    >>> tables = manager.extract()
-    >>> print tables['page-1']['table-1']['data']
+    >>> import camelot
+    >>> tables = camelot.read_pdf("foo.pdf")
+    >>> tables
+    <TableList n=2>
+    >>> tables.export("foo.csv", f="csv", compress=True) # json, excel, html
+    >>> tables[0]
+    <Table shape=(3,4)>
+    >>> tables[0].to_csv("foo.csv") # to_json, to_excel, to_html
+    >>> tables[0].parsing_report
+    {
+        "accuracy": 96,
+        "whitespace": 80,
+        "order": 1,
+        "page": 1
+    }
+    >>> df = tables[0].df
 
 .. csv-table::
    :header: "Cycle Name","KI (1/km)","Distance (mi)","Percent Fuel Savings","","",""
@@ -49,45 +59,6 @@ Usage
    "2032_2","0.17","57.8","21.7%","0.3%","2.7%","1.2%"
    "4171_1","0.07","173.9","58.1%","1.6%","2.1%","0.5%"
 
-Camelot comes with a CLI where you can specify page numbers, output format, output directory etc. By default, the output files are placed in the same directory as the PDF.
-
-::
-
-    Camelot: PDF parsing made simpler!
-
-    usage:
-     camelot [options] <method> [<args>...]
-
-    options:
-     -h, --help                Show this screen.
-     -v, --version             Show version.
-     -V, --verbose             Verbose.
-     -p, --pages <pageno>      Comma-separated list of page numbers.
-                               Example: -p 1,3-6,10  [default: 1]
-     -P, --parallel            Parallelize the parsing process.
-     -f, --format <format>     Output format. (csv,tsv,html,json,xlsx) [default: csv]
-     -l, --log                 Log to file.
-     -o, --output <directory>  Output directory.
-     -M, --cmargin <cmargin>   Char margin. Chars closer than cmargin are
-                               grouped together to form a word. [default: 1.0]
-     -L, --lmargin <lmargin>   Line margin. Lines closer than lmargin are
-                               grouped together to form a textbox. [default: 0.5]
-     -W, --wmargin <wmargin>   Word margin. Insert blank spaces between chars
-                               if distance between words is greater than word
-                               margin. [default: 0.1]
-     -J, --split_text          Split text lines if they span across multiple cells.
-     -K, --flag_size           Flag substring if its size differs from the whole string.
-                               Useful for super and subscripts.
-     -X, --print-stats         List stats on the parsing process.
-     -Y, --save-stats          Save stats to a file.
-     -Z, --plot <dist>         Plot distributions. (page,all,rc)
-
-    camelot methods:
-     lattice  Looks for lines between data.
-     stream   Looks for spaces between data.
-
-    See 'camelot <method> -h' for more information on a specific method.
-
 Installation
 ============
 
@@ -95,42 +66,41 @@ Make sure you have the most updated versions for `pip` and `setuptools`. You can
 
     pip install -U pip setuptools
 
-The required dependencies include `numpy`_, `OpenCV`_ and `ImageMagick`_.
+The dependencies include `tk`_ and `ghostscript`_.
 
-.. _numpy: http://www.numpy.org/
-.. _OpenCV: http://opencv.org/
-.. _ImageMagick: http://www.imagemagick.org/script/index.php
+.. _tk: https://wiki.tcl.tk/3743
+.. _ghostscript: https://www.ghostscript.com/
 
 Installing dependencies
 -----------------------
 
-numpy can be install using `pip`. OpenCV and imagemagick can be installed using your system's default package manager.
+tk and ghostscript can be installed using your system's default package manager.
 
 Linux
 ^^^^^
-
-* Arch Linux
-
-::
-
-    sudo pacman -S opencv imagemagick
 
 * Ubuntu
 
 ::
 
-    sudo apt-get install libopencv-dev python-opencv imagemagick
+    sudo apt-get install python-opencv python-tk ghostscript
+
+* Arch Linux
+
+::
+
+    sudo pacman -S opencv tk ghostscript
 
 OS X
 ^^^^
 
 ::
 
-    brew install homebrew/science/opencv imagemagick
+    brew install homebrew/science/opencv ghostscript
 
 Finally, `cd` into the project directory and install by::
 
-    make install
+    python setup.py install
 
 API Reference
 =============
@@ -150,14 +120,14 @@ You can check the latest sources with the command::
 Contributing
 ------------
 
-See :doc:`Contributing doc <contributing>`.
+See :doc:`Contributing guidelines <contributing>`.
 
 Testing
 -------
 
 ::
 
-    make test
+    python setup.py test
 
 License
 =======
