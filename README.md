@@ -44,7 +44,7 @@ tk and ghostscript can be installed using your system's default package manager.
 * Ubuntu
 
 <pre>
-sudo apt-get install python-opencv python-tk ghostscript
+sudo apt-get install python-tk ghostscript
 </pre>
 
 * Arch Linux
