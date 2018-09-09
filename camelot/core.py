@@ -321,6 +321,9 @@ class Table(object):
 
     def to_csv(self, path, **kwargs):
         """Write Table to a comma-separated values (csv) file.
+
+        Check `pandas.DataFrame.to_csv <https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_csv.html>`_
+        kwargs for more details around what kwargs to use.
         """
         kw = {
             'encoding': 'utf-8',
@@ -332,6 +335,9 @@ class Table(object):
 
     def to_json(self, path, **kwargs):
         """Write Table to a JSON file.
+
+        Check `pandas.DataFrame.to_json <https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_json.html>`_
+        kwargs for more details around what kwargs to use.
         """
         kw = {
             'orient': 'records'
@@ -343,6 +349,9 @@ class Table(object):
 
     def to_excel(self, path, **kwargs):
         """Write Table to an Excel file.
+
+        Check `pandas.DataFrame.to_excel <https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_excel.html>`_
+        kwargs for more details around what kwargs to use.
         """
         kw = {
             'sheet_name': 'page-{}-table-{}'.format(self.page, self.order),
@@ -355,6 +364,9 @@ class Table(object):
 
     def to_html(self, path, **kwargs):
         """Write Table to an HTML file.
+
+        Check `pandas.DataFrame.to_html <https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_html.html>`_
+        kwargs for more details around what kwargs to use.
         """
         html_string = self.df.to_html(**kwargs)
         with open(path, 'w') as f:
