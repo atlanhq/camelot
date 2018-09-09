@@ -215,8 +215,9 @@ def get_rotation(lttextlh, lttextlv, ltchar):
     Returns
     -------
     rotation : string
-        '' if text in table is upright, 'left' if rotated 90 degree
-        anticlockwise and 'right' if rotated 90 degree clockwise.
+        '' if text in table is upright, 'anticlockwise' if
+        rotated 90 degree anticlockwise and 'clockwise' if
+        rotated 90 degree clockwise.
 
     """
     rotation = ''
@@ -225,7 +226,7 @@ def get_rotation(lttextlh, lttextlv, ltchar):
     if hlen < vlen:
         clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in ltchar)
         anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in ltchar)
-        rotation = 'clockwise' if clockwise < anticlockwise else 'anticlockwise'
+        rotation = 'anticlockwise' if clockwise < anticlockwise else 'clockwise'
     return rotation
 
 
