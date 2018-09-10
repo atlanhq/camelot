@@ -32,7 +32,7 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type=None, **kwargs)
         'joint'* : Plot detected line intersections.
         'line'* : Plot detected lines.
     table_area : list, optional (default: None)
-        List of table areas to analyze as strings of the form
+        List of table areas to process as strings of the form
         x1,y1,x2,y2 where (x1, y1) -> left-top and
         (x2, y2) -> right-bottom in pdf coordinate space.
     columns^ : list, optional (default: None)
