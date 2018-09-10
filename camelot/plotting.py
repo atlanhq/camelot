@@ -3,9 +3,10 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
 from .handlers import PDFHandler
+from .utils import validate_input, remove_extra
 
 
-def plot_geometry(filepath, pages='1', mesh=False, geometry_type='text', **kwargs):
+def plot_geometry(filepath, pages='1', mesh=False, geometry_type=None, **kwargs):
     """Plot geometry found on pdf page based on type specified,
     useful for debugging and playing with different parameters to get
     the best output.
@@ -23,7 +24,7 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type='text', **kwarg
     mesh : bool (default: False)
         Whether or not to use Lattice method of parsing. Stream
         is used by default.
-    geometry_type : str, optional (default: 'text')
+    geometry_type : str, optional (default: None)
         'text' : Plot text objects found on page, useful to get
                  table_area and columns coordinates.
         'table' : Plot parsed table.
@@ -31,7 +32,7 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type='text', **kwarg
         'joint'* : Plot detected line intersections.
         'line'* : Plot detected lines.
     table_area : list, optional (default: None)
-        List of table areas to analyze as strings of the form
+        List of table areas to process as strings of the form
         x1,y1,x2,y2 where (x1, y1) -> left-top and
         (x2, y2) -> right-bottom in pdf coordinate space.
     columns^ : list, optional (default: None)
@@ -91,15 +92,12 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type='text', **kwarg
         PDFMiner margins. (char_margin, line_margin, word_margin)
 
         For for information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
-    debug : bool, optional (default: False)
-        Whether or not to return all text objects on the page
-        which can be used to generate a matplotlib plot, to get
-        values for table_area(s) and debugging.
 
     """
-    # validate kwargs?
+    validate_input(kwargs, mesh=mesh, geometry_type=geometry_type)
     p = PDFHandler(filepath, pages)
-    debug = True if geometry_type else False
+    kwargs = remove_extra(kwargs, mesh=mesh)
+    debug = True if geometry_type is not None else False
     kwargs.update({'debug': debug})
     __, geometry = p.parse(mesh=mesh, **kwargs)
 
@@ -140,8 +138,6 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type='text', **kwarg
                                      [cell.lb[1], cell.rb[1]])
             plt.show()
     elif geometry_type == 'contour':
-        if not mesh:
-            raise ValueError("Use mesh=True")
         for img, table_bbox in geometry.images:
             for t in table_bbox.keys():
                 cv2.rectangle(img, (t[0], t[1]),
@@ -149,8 +145,6 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type='text', **kwarg
             plt.imshow(img)
             plt.show()
     elif geometry_type == 'joint':
-        if not mesh:
-            raise ValueError("Use mesh=True")
         for img, table_bbox in geometry.images:
             x_coord = []
             y_coord = []
@@ -164,8 +158,6 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type='text', **kwarg
             plt.imshow(img)
             plt.show()
     elif geometry_type == 'line':
-        if not mesh:
-            raise ValueError("Use mesh=True")
         for v_s, h_s in geometry.segments:
             for v in v_s:
                 plt.plot([v[0], v[2]], [v[1], v[3]])

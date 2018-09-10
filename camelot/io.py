@@ -1,4 +1,5 @@
 from .handlers import PDFHandler
+from .utils import validate_input, remove_extra
 
 
 def read_pdf(filepath, pages='1', mesh=False, **kwargs):
@@ -18,7 +19,7 @@ def read_pdf(filepath, pages='1', mesh=False, **kwargs):
         Whether or not to use Lattice method of parsing. Stream
         is used by default.
     table_area : list, optional (default: None)
-        List of table areas to analyze as strings of the form
+        List of table areas to process as strings of the form
         x1,y1,x2,y2 where (x1, y1) -> left-top and
         (x2, y2) -> right-bottom in pdf coordinate space.
     columns^ : list, optional (default: None)
@@ -78,17 +79,14 @@ def read_pdf(filepath, pages='1', mesh=False, **kwargs):
         PDFMiner margins. (char_margin, line_margin, word_margin)
 
         For for information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
-    debug : bool, optional (default: False)
-        Whether or not to return all text objects on the page
-        which can be used to generate a matplotlib plot, to get
-        values for table_area(s) and debugging.
 
     Returns
     -------
     tables : camelot.core.TableList
 
     """
-    # validate kwargs?
+    validate_input(kwargs, mesh=mesh)
     p = PDFHandler(filepath, pages)
+    kwargs = remove_extra(kwargs, mesh=mesh)
     tables, __ = p.parse(mesh=mesh, **kwargs)
     return tables

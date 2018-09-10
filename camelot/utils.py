@@ -20,6 +20,53 @@ from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)
 
 
+stream_kwargs = [
+    'columns',
+    'row_close_tol',
+    'col_close_tol'
+]
+lattice_kwargs = [
+    'process_background',
+    'line_size_scaling',
+    'copy_text',
+    'shift_text',
+    'line_close_tol',
+    'joint_close_tol',
+    'threshold_blocksize',
+    'threshold_constant',
+    'iterations'
+]
+
+
+def validate_input(kwargs, mesh=False, geometry_type=False):
+    def check_intersection(parser_kwargs, input_kwargs, message_bool):
+        isec = set(parser_kwargs).intersection(set(input_kwargs.keys()))
+        if isec:
+            raise ValueError("{} can not be used with mesh set to {}".format(
+                             ",".join(sorted(isec)), message_bool))
+
+    if mesh:
+        check_intersection(stream_kwargs, kwargs, True)
+    else:
+        check_intersection(lattice_kwargs, kwargs, False)
+    if geometry_type:
+        if not mesh and geometry_type in ['contour', 'joint', 'line']:
+            raise ValueError("Use geometry_type={} with mesh set to True".format(
+                             geometry_type))
+
+
+def remove_extra(kwargs, mesh=False):
+    if mesh:
+        for key in kwargs.keys():
+            if key in stream_kwargs:
+                kwargs.pop(key)
+    else:
+        for key in kwargs.keys():
+            if key in lattice_kwargs:
+                kwargs.pop(key)
+    return kwargs
+
+
 # https://stackoverflow.com/a/22726782
 class TemporaryDirectory(object):
     def __enter__(self):

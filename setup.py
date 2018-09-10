@@ -49,7 +49,12 @@ def setup_package():
                     author_email=AUTHOR_EMAIL,
                     license=LICENSE,
                     packages=['camelot'],
-                    install_requires=reqs)
+                    install_requires=reqs,
+                    entry_points={
+                        'console_scripts': [
+                            'camelot = camelot.cli:cli',
+                        ],
+                    })
 
     try:
         from setuptools import setup
