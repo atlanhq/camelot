@@ -1,4 +1,5 @@
 from .handlers import PDFHandler
+from .utils import validate_input, remove_extra
 
 
 def read_pdf(filepath, pages='1', mesh=False, **kwargs):
@@ -78,17 +79,14 @@ def read_pdf(filepath, pages='1', mesh=False, **kwargs):
         PDFMiner margins. (char_margin, line_margin, word_margin)
 
         For for information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
-    debug : bool, optional (default: False)
-        Whether or not to return all text objects on the page
-        which can be used to generate a matplotlib plot, to get
-        values for table_area(s) and debugging.
 
     Returns
     -------
     tables : camelot.core.TableList
 
     """
-    # validate kwargs?
+    validate_input(kwargs, mesh=mesh)
     p = PDFHandler(filepath, pages)
+    kwargs = remove_extra(kwargs, mesh=mesh)
     tables, __ = p.parse(mesh=mesh, **kwargs)
     return tables
