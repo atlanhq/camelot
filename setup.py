@@ -10,7 +10,7 @@ with open('README.md') as f:
 URL = 'https://github.com/socialcopsdev/camelot'
 AUTHOR = 'Vinayak Mehta'
 AUTHOR_EMAIL = 'vmehta94@gmail.com'
-LICENSE = 'BSD License'
+LICENSE = 'MIT License'
 
 opencv_min_version = '2.4.8'
 
@@ -40,6 +40,13 @@ def setup_package():
         for line in f:
             reqs.append(line.strip())
 
+    extra_reqs = {
+        'dev': []
+    }
+    with open('requirements-dev.txt', 'r') as f:
+        for line in f:
+            extra_reqs['dev'].append(line.strip())
+
     metadata = dict(name=NAME,
                     version=VERSION,
                     description=DESCRIPTION,
@@ -50,11 +57,18 @@ def setup_package():
                     license=LICENSE,
                     packages=['camelot'],
                     install_requires=reqs,
+                    extra_requires=extra_reqs,
                     entry_points={
                         'console_scripts': [
                             'camelot = camelot.cli:cli',
                         ],
-                    })
+                    },
+                    classifiers=[
+                        # Trove classifiers
+                        # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
+                        'License :: OSI Approved :: MIT License',
+                        'Programming Language :: Python :: 2.7'
+                    ])
 
     try:
         from setuptools import setup
