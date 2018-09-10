@@ -47,7 +47,7 @@ Options:
   -flag, --flag_size              (inactive) Whether or not to flag text which
                                   has uncommon size. (Useful to detect
                                   super/subscripts)
-  -M, --margins <FLOAT FLOAT FLOAT>...
+  -M, --margins &lt;FLOAT FLOAT FLOAT&gt;...
                                   char_margin, line_margin, word_margin for
                                   PDFMiner.
   -C, --columns TEXT              x-coordinates of column separators.
