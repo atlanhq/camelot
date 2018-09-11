@@ -146,7 +146,7 @@ $ python setup.py install
 You can check the latest sources with the command:
 
 <pre>
-git clone https://github.com/socialcopsdev/camelot.git
+$ git clone https://github.com/socialcopsdev/camelot.git
 </pre>
 
 ### Contributing
