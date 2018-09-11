@@ -13,8 +13,8 @@ class PDFHandler(object):
     file into single page pdfs, parsing each pdf and then removing the
     temp directory.
 
-    Parameter
-    ---------
+    Parameters
+    ----------
     filename : str
         Path to pdf file.
     pages : str

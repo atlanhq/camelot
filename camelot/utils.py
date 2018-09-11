@@ -454,8 +454,8 @@ def split_textline(table, textline, direction, flag_size=False):
         Direction of the PDFMiner LTTextLine object.
     flag_size : bool, optional (default: False)
         Whether or not to highlight a substring using <s></s>
-        if its size is different from rest of the string, useful for
-        super and subscripts.
+        if its size is different from rest of the string. (Useful for
+        super and subscripts.)
 
     Returns
     -------
@@ -530,8 +530,8 @@ def get_table_index(table, t, direction, split_text=False, flag_size=False):
         multiple cells.
     flag_size : bool, optional (default: False)
         Whether or not to highlight a substring using <s></s>
-        if its size is different from rest of the string, useful for
-        super and subscripts.
+        if its size is different from rest of the string. (Useful for
+        super and subscripts)
 
     Returns
     -------
