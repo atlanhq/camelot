@@ -141,7 +141,7 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type=None, **kwargs)
         for img, table_bbox in geometry.images:
             for t in table_bbox.keys():
                 cv2.rectangle(img, (t[0], t[1]),
-                              (t[2], t[3]), (255, 0, 0), 3)
+                              (t[2], t[3]), (255, 0, 0), 20)
             plt.imshow(img)
             plt.show()
     elif geometry_type == 'joint':
