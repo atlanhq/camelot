@@ -32,4 +32,3 @@ Lower-Lower-Level Classes
    :inherited-members:
 
 .. autoclass:: camelot.core.Cell
-   :inherited-members:
