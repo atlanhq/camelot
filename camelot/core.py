@@ -329,6 +329,7 @@ class Table(object):
         kw = {
             'encoding': 'utf-8',
             'index': False,
+            'header': False,
             'quoting': 1
         }
         kw.update(kwargs)
