@@ -1,5 +1,9 @@
 .. _contributing:
 
+=======================
+Contributing guidelines
+=======================
+
 The preferred way to contribute to Camelot is to fork this repository, and then submit a "pull request" (PR):
 
 1. Create an account on GitHub if you don't already have one.

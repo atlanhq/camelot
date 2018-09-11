@@ -23,6 +23,7 @@ import sys
 
 # Insert Camelot's path into the system.
 sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('_themes'))
 
 import camelot
 
@@ -158,13 +159,12 @@ html_theme_options = {
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = 'assets/camelot.png'
+# html_logo = None
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#
-html_favicon = 'assets/favicon.ico'
+html_favicon = '_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -188,8 +188,12 @@ html_static_path = ['_static']
 html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-#
-# html_sidebars = {}
+html_sidebars = {
+    'index': ['sidebarlogo.html', 'relations.html', 'sourcelink.html',
+              'searchbox.html'],
+    '**': ['sidebarlogo.html', 'localtoc.html', 'relations.html',
+           'sourcelink.html', 'searchbox.html']
+}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -209,7 +213,7 @@ html_use_smartypants = True
 # html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 html_show_sphinx = False
@@ -352,6 +356,6 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/2': None),
-    'pandas': ('http://pandas.pydata.org/pandas-docs/stable': None)
+    'https://docs.python.org/2': None,
+    'http://pandas.pydata.org/pandas-docs/stable': None
 }
