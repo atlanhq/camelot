@@ -30,20 +30,20 @@ Usage
 ::
 
   >>> import camelot
-  >>> tables = camelot.read_pdf("foo.pdf")
+  >>> tables = camelot.read_pdf('foo.pdf')
   >>> tables
   <TableList n=2>
-  >>> tables.export("foo.csv", f="csv", compress=True) # json, excel, html
+  >>> tables.export('foo.csv', f='csv', compress=True) # json, excel, html
   >>> tables[0]
   <Table shape=(3,4)>
   >>> tables[0].parsing_report
   {
-      "accuracy": 96,
-      "whitespace": 80,
-      "order": 1,
-      "page": 1
+      'accuracy': 96,
+      'whitespace': 80,
+      'order': 1,
+      'page': 1
   }
-  >>> tables[0].to_csv("foo.csv") # to_json, to_excel, to_html
+  >>> tables[0].to_csv('foo.csv') # to_json, to_excel, to_html
   >>> tables[0].df
 
 .. csv-table::
