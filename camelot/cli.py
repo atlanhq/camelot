@@ -3,6 +3,7 @@ from pprint import pprint
 
 import click
 
+from . import __version__
 from .io import read_pdf
 from .plotting import plot_geometry
 from .utils import validate_input, remove_extra
@@ -17,6 +18,7 @@ class Mutex(click.Option):
 
 
 @click.command()
+@click.version_option(version=__version__)
 @click.option("-p", "--pages", default="1", help="Comma-separated page numbers"
               " to parse. Example: 1,3,4 or 1,4-end")
 @click.option("-o", "--output", help="Output filepath.")
