@@ -25,12 +25,12 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type=None, **kwargs)
         Whether or not to use Lattice method of parsing. Stream
         is used by default.
     geometry_type : str, optional (default: None)
-        'text' : Plot text objects found on page, useful to get
-                 table_area and columns coordinates.
-        'table' : Plot parsed table.
-        'contour'* : Plot detected rectangles.
-        'joint'* : Plot detected line intersections.
-        'line'* : Plot detected lines.
+        * 'text' : Plot text objects found on page. (Useful to get \
+                   table_area and columns coordinates)
+        * 'table' : Plot parsed table.
+        * 'contour'* : Plot detected rectangles.
+        * 'joint'* : Plot detected line intersections.
+        * 'line'* : Plot detected lines.
     table_area : list, optional (default: None)
         List of table areas to process as strings of the form
         x1,y1,x2,y2 where (x1, y1) -> left-top and
@@ -43,8 +43,8 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type=None, **kwargs)
         multiple cells.
     flag_size : bool, optional (default: False)
         Whether or not to highlight a substring using <s></s>
-        if its size is different from rest of the string, useful for
-        super and subscripts.
+        if its size is different from rest of the string. (Useful for
+        super and subscripts.)
     row_close_tol^ : int, optional (default: 2)
         Rows will be formed by combining text vertically
         within this tolerance.
@@ -74,24 +74,24 @@ def plot_geometry(filepath, pages='1', mesh=False, geometry_type=None, **kwargs)
     joint_close_tol* : int, optional (default: 2)
         Tolerance parameter used to decide whether the detected lines
         and points lie close to each other.
-    threshold_blocksize : int, optional (default: 15)
+    threshold_blocksize* : int, optional (default: 15)
         Size of a pixel neighborhood that is used to calculate a
         threshold value for the pixel: 3, 5, 7, and so on.
 
         For more information, refer `OpenCV's adaptiveThreshold <https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#adaptivethreshold>`_.
-    threshold_constant : int, optional (default: -2)
+    threshold_constant* : int, optional (default: -2)
         Constant subtracted from the mean or weighted mean.
         Normally, it is positive but may be zero or negative as well.
 
         For more information, refer `OpenCV's adaptiveThreshold <https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#adaptivethreshold>`_.
-    iterations : int, optional (default: 0)
+    iterations* : int, optional (default: 0)
         Number of times for erosion/dilation is applied.
 
         For more information, refer `OpenCV's dilate <https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html#dilate>`_.
     margins : tuple
         PDFMiner margins. (char_margin, line_margin, word_margin)
 
-        For for information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
+        For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
     validate_input(kwargs, mesh=mesh, geometry_type=geometry_type)
