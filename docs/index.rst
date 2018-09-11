@@ -132,4 +132,14 @@ Testing
 License
 =======
 
-BSD License
+MIT License
+
+Sitemap
+=======
+
+.. toctree::
+
+    lattice
+    stream
+    contributing
+    api
