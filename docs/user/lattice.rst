@@ -1,6 +1,5 @@
 .. _lattice:
 
-=======
 Lattice
 =======
 
@@ -18,7 +17,7 @@ Line segments are detected in the first step.
 
 .. .. _this: insert link for us-030.pdf
 
-.. image:: assets/line.png
+.. image:: ../_static/user/line.png
    :height: 674
    :width: 1366
    :scale: 50%
@@ -26,7 +25,7 @@ Line segments are detected in the first step.
 
 The detected line segments are overlapped by `and` ing their pixel intensities to find intersections.
 
-.. image:: assets/intersection.png
+.. image:: ../_static/user/intersection.png
    :height: 674
    :width: 1366
    :scale: 50%
@@ -34,7 +33,7 @@ The detected line segments are overlapped by `and` ing their pixel intensities t
 
 The detected line segments are overlapped again, this time by `or` ing their pixel intensities and outermost contours are computed to identify potential table boundaries. This helps Lattice in detecting more than one table on a single page.
 
-.. image:: assets/contour.png
+.. image:: ../_static/user/contour.png
    :height: 674
    :width: 1366
    :scale: 50%
@@ -42,7 +41,7 @@ The detected line segments are overlapped again, this time by `or` ing their pix
 
 Since dimensions of a pdf and its image vary; table contours, intersections and segments are scaled and translated to the pdf's coordinate space. A representation of the table is then created using these scaled coordinates.
 
-.. image:: assets/table.png
+.. image:: ../_static/user/table.png
    :height: 674
    :width: 1366
    :scale: 50%
@@ -50,7 +49,7 @@ Since dimensions of a pdf and its image vary; table contours, intersections and 
 
 Spanning cells are then detected using the line segments and intersections.
 
-.. image:: assets/table_span.png
+.. image:: ../_static/user/table_span.png
    :height: 674
    :width: 1366
    :scale: 50%
@@ -86,7 +85,7 @@ Let's consider this pdf file.
 
 .. .. _this: insert link for row_span_1.pdf
 
-.. image:: assets/scale_1.png
+.. image:: ../_static/user/scale_1.png
    :height: 674
    :width: 1366
    :scale: 50%
@@ -94,7 +93,7 @@ Let's consider this pdf file.
 
 Clearly, it couldn't detected those small lines in the lower left part. Therefore, we need to increase the value of scale. Let's try a value of 40.
 
-.. image:: assets/scale_2.png
+.. image:: ../_static/user/scale_2.png
    :height: 674
    :width: 1366
    :scale: 50%

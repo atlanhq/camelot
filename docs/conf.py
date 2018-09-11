@@ -63,7 +63,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Camelot'
-copyright = u'2018, SocialCops'
+copyright = u'2018, Peeply Private Ltd (Singapore)'
 author = u'Vinayak Mehta'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -189,10 +189,10 @@ html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-    'index': ['sidebarlogo.html', 'relations.html', 'sourcelink.html',
-              'searchbox.html'],
+    'index': ['sidebarintro.html', 'relations.html', 'sourcelink.html',
+              'searchbox.html', 'hacks.html'],
     '**': ['sidebarlogo.html', 'localtoc.html', 'relations.html',
-           'sourcelink.html', 'searchbox.html']
+           'sourcelink.html', 'searchbox.html', 'hacks.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to

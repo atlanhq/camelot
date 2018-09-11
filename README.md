@@ -14,7 +14,6 @@ Camelot is a Python library and command-line tool for extracting tables from PDF
 >>> tables.export("foo.csv", f="csv", compress=True) # json, excel, html
 >>> tables[0]
 &lt;Table shape=(3,4)&gt;
->>> tables[0].to_csv("foo.csv") # to_json, to_excel, to_html
 >>> tables[0].parsing_report
 {
     "accuracy": 96,
@@ -22,7 +21,8 @@ Camelot is a Python library and command-line tool for extracting tables from PDF
     "order": 1,
     "page": 1
 }
->>> df = tables[0].df
+>>> tables[0].to_csv("foo.csv") # to_json, to_excel, to_html
+>>> tables[0].df
 </pre>
 
 ### Command-line interface
@@ -87,17 +87,12 @@ Options:
   -G, --geometry_type [text|table|contour|joint|line]
                                   Plot geometry found on pdf page for
                                   debugging.
-
-                                  text: Plot text objects. (Useful
-                                  to get table_area and columns coordinates)
+                                  text: Plot text objects. (Useful to get
+                                        table_area and columns coordinates)
                                   table: Plot parsed table.
-                                  contour (with
-                                  --mesh): Plot detected rectangles.
-                                  joint
-                                  (with --mesh): Plot detected line
-                                  intersections.
-                                  line (with --mesh): Plot
-                                  detected lines.
+                                  contour (with --mesh): Plot detected rectangles.
+                                  joint (with --mesh): Plot detected line intersections.
+                                  line (with --mesh): Plot detected lines.
   --help                          Show this message and exit.
 </pre>
 
@@ -162,7 +157,3 @@ See [Contributing guidelines]().
 <pre>
 python setup.py test
 </pre>
-
-## License
-
-BSD License

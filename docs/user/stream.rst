@@ -1,6 +1,5 @@
 .. _stream:
 
-======
 Stream
 ======
 
@@ -69,7 +68,7 @@ We can also specify the column x-coordinates. We need to call Stream with debug=
     >>> manager = Pdf(Stream(debug=True), 'mexican_towns.pdf'), debug=True
     >>> manager.debug_plot()
 
-.. image:: assets/columns.png
+.. image:: ../_static/user/columns.png
    :height: 674
    :width: 1366
    :scale: 50%
