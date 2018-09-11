@@ -58,6 +58,7 @@ Usage
 
 ::
 
+  $ camelot --help
   Usage: camelot [OPTIONS] FILEPATH
 
   Options:

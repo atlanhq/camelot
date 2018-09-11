@@ -28,6 +28,7 @@ Camelot is a Python library and command-line tool for extracting tables from PDF
 ### Command-line interface
 
 <pre>
+$ camelot --help
 Usage: camelot [OPTIONS] FILEPATH
 
 Options:
@@ -105,7 +106,7 @@ The dependencies include [tk](https://wiki.tcl.tk/3743) and [ghostscript](https:
 Make sure you have the most updated versions for `pip` and `setuptools`. You can update them by
 
 <pre>
-pip install -U pip setuptools
+$ pip install -U pip setuptools
 </pre>
 
 ### Installing dependencies
@@ -117,25 +118,25 @@ tk and ghostscript can be installed using your system's default package manager.
 * Ubuntu
 
 <pre>
-sudo apt-get install python-tk ghostscript
+$ sudo apt-get install python-tk ghostscript
 </pre>
 
 * Arch Linux
 
 <pre>
-sudo pacman -S tk ghostscript
+$ sudo pacman -S tk ghostscript
 </pre>
 
 #### OS X
 
 <pre>
-brew install tcl-tk ghostscript
+$ brew install tcl-tk ghostscript
 </pre>
 
 Finally, `cd` into the project directory and install by
 
 <pre>
-python setup.py install
+$ python setup.py install
 </pre>
 
 ## Development
@@ -155,5 +156,5 @@ See [Contributing guidelines]().
 ### Testing
 
 <pre>
-python setup.py test
+$ python setup.py test
 </pre>

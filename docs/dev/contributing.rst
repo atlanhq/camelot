@@ -12,7 +12,7 @@ The preferred way to contribute to Camelot is to fork this repository, and then 
 3. Clone this copy to your local disk.
 4. Create a branch to hold your changes::
 
-    git checkout -b my-feature
+    $ git checkout -b my-feature
 
   and start making changes. Never work in the `master` branch!
 
@@ -32,7 +32,7 @@ Code
 
 You can check the latest sources with the command::
 
-    git clone https://github.com/socialcopsdev/camelot.git
+    $ git clone https://github.com/socialcopsdev/camelot.git
 
 Contributing
 ------------
@@ -44,4 +44,4 @@ Testing
 
 ::
 
-    python setup.py test
+    $ python setup.py test

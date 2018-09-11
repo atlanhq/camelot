@@ -5,7 +5,7 @@ Installation
 
 Make sure you have the most updated versions for `pip` and `setuptools`. You can update them by::
 
-    pip install -U pip setuptools
+    $ pip install -U pip setuptools
 
 The dependencies include `tk`_ and `ghostscript`_.
 
@@ -24,21 +24,21 @@ Linux
 
 ::
 
-    sudo apt-get install python-opencv python-tk ghostscript
+    $ sudo apt-get install python-opencv python-tk ghostscript
 
 * Arch Linux
 
 ::
 
-    sudo pacman -S opencv tk ghostscript
+    $ sudo pacman -S opencv tk ghostscript
 
 OS X
 ^^^^
 
 ::
 
-    brew install homebrew/science/opencv ghostscript
+    $ brew install homebrew/science/opencv ghostscript
 
 Finally, `cd` into the project directory and install by::
 
-    python setup.py install
+    $ python setup.py install
