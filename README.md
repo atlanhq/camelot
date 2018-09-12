@@ -1,6 +1,8 @@
 # Camelot: PDF Table Parsing for Humans
 
-Camelot is a Python library and command-line tool for extracting tables from PDF files.
+![license](https://img.shields.io/badge/license-MIT-lightgrey.svg) ![python-version](https://img.shields.io/badge/python-2.7-blue.svg)
+
+Camelot is a Python library which makes it easy for anyone to extract tables from PDF files!
 
 ## Usage
 
@@ -20,10 +22,10 @@ Camelot is a Python library and command-line tool for extracting tables from PDF
     'page': 1
 }
 >>> tables[0].to_csv('foo.csv') # to_json, to_excel, to_html
->>> tables[0].df # get a pandas dataframe!
+>>> tables[0].df # get a pandas DataFrame!
 </pre>
 
-There's a [command-line tool]() too!
+There's a [command-line interface]() too!
 
 ## Installation
 
