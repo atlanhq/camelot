@@ -2,7 +2,7 @@
 
 ![license](https://img.shields.io/badge/license-MIT-lightgrey.svg) ![python-version](https://img.shields.io/badge/python-2.7-blue.svg)
 
-Camelot is a Python library which makes it easy for anyone to extract tables from PDF files!
+Camelot is a Python library which makes it easy for *anyone* to extract tables from PDF files!
 
 ## Usage
 
