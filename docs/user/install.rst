@@ -1,44 +1,38 @@
-.. _install:
+    .. _install:
 
-Installation
-============
+Installation of Camelot
+=======================
 
-Make sure you have the most updated versions for `pip` and `setuptools`. You can update them by::
-
-    $ pip install -U pip setuptools
-
-The dependencies include `tk`_ and `ghostscript`_.
+This part of the documentation covers the installation of Camelot. First, you'll need to install the dependencies, which include `tk`_ and `ghostscript`_.
 
 .. _tk: https://wiki.tcl.tk/3743
 .. _ghostscript: https://www.ghostscript.com/
 
-Installing dependencies
------------------------
-
-tk and ghostscript can be installed using your system's default package manager.
-
-Linux
-^^^^^
-
-* Ubuntu
-
+These can be installed using your system's package manager. If you use Ubuntu, run the following:
 ::
 
-    $ sudo apt-get install python-opencv python-tk ghostscript
+    $ sudo apt install python-tk ghostscript
 
-* Arch Linux
+$ pip install camelot-py
+------------------------
 
+After installing the dependencies, you can simply use pip to install Camelot:
 ::
 
-    $ sudo pacman -S opencv tk ghostscript
+    $ pip install camelot-py
 
-OS X
-^^^^
+Get the Source Code
+-------------------
 
+Alternatively, you can install from source by:
+
+1. Cloning the GitHub repository.
 ::
 
-    $ brew install homebrew/science/opencv ghostscript
+    $ git clone https://www.github.com/socialcopsdev/camelot
 
-Finally, `cd` into the project directory and install by::
+2. And then simply using pip again.
+::
 
-    $ python setup.py install
+    $ cd camelot
+    $ pip install .

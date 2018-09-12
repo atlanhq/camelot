@@ -1,5 +1,4 @@
-.. toctree::
-   :maxdepth: 2
+.. _quickstart:
 
-   lattice
-   stream
+Quickstart
+==========

@@ -31,13 +31,13 @@ There's a [command-line interface]() too!
 
 - **You are in control**: Unlike other libraries and tools which either give a nice output or fail miserably (with no in-between), Camelot gives you the power to tweak table extraction. (Since everything in the real world, including PDF table extraction, is fuzzy.)
 - **Metrics**: *Bad* tables can be discarded based on metrics like accuracy and whitespace, without ever having to manually look at each table.
-- Each table is a pandas DataFrame, which enables seamless integration into data analysis workflows.
-- Export to multiple formats, including json, excel and html.
-- Simple and Elegant API, written in Python!
+- Each table is a **pandas DataFrame**, which enables seamless integration into data analysis workflows.
+- **Export** to multiple formats, including json, excel and html.
+- Simple and Elegant API, written in **Python**!
 
 ## Installation
 
-After [installing dependencies](), you can simply use pip:
+After [installing the dependencies](), you can simply use pip to install Camelot:
 
 <pre>
 $ pip install camelot-py
