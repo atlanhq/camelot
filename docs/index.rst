@@ -14,7 +14,7 @@ Release v\ |version|. (:ref:`Installation <install>`)
 .. image:: https://img.shields.io/badge/python-2.7-blue.svg
     :target: https://pypi.org/project/camelot-py/
 
-**Camelot** is a Python library and command-line tool for extracting tables from PDF files.
+**Camelot** is a Python library which makes it easy for *anyone* to extract tables from PDF files!
 
 .. note:: Camelot only works with:
 
@@ -44,10 +44,12 @@ Usage
       'page': 1
   }
   >>> tables[0].to_csv('foo.csv') # to_json, to_excel, to_html
-  >>> tables[0].df
+  >>> tables[0].df # get a pandas DataFrame!
 
 .. csv-table::
   :file: _static/csv/foo.csv
+
+There's a [command-line interface]() too!
 
 The User Guide
 --------------
