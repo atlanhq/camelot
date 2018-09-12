@@ -1,0 +1,39 @@
+Plan Type,County,Plan Name,Totals
+GMC,Sacramento,Anthem Blue Cross,"164,380"
+"",,Health Net,"126,547"
+"",,Kaiser Foundation,"74,620"
+"",,Molina Healthcare,"59,989"
+"",San Diego,Care 1st Health Plan,"71,831"
+"",,Community Health Group,"264,639"
+"",,Health Net,"72,404"
+"",,Kaiser,"50,415"
+"",,Molina Healthcare,"206,430"
+"",Total GMC Enrollment,"1,091,255",
+COHS,Marin,Partnership Health Plan of CA,"36,006"
+"",Mendocino,"37,243",
+"",Napa,"28,398",
+"",Solano,"113,220",
+"",Sonoma,"112,271",
+"",Yolo,"52,674",
+"",Del Norte,"11,242",
+"",Humboldt,"49,911",
+"",Lake,"29,149",
+"",Lassen,"7,360",
+"",Modoc,"2,940",
+"",Shasta,"61,763",
+"",Siskiyou,"16,715",
+"",Trinity,"4,542",
+"",Merced,Central California Alliance for Health,"123,907"
+"",Monterey,"147,397",
+"",Santa Cruz,"69,458",
+"",Santa Barbara,CenCal,"117,609"
+"",San Luis Obispo,"55,761",
+"",Orange,CalOptima,"783,079"
+"",San Mateo,Health Plan of San Mateo,"113,202"
+"",Ventura,Gold Coast Health Plan,"202,217"
+"",Total COHS Enrollment,"2,176,064",
+"Subtotal for Two-Plan, Regional Model, GMC and COHS","10,132,022",,
+PCCM,Los Angeles,AIDS Healthcare Foundation,828
+San Francisco,Family Mosaic,25,
+Total PHP Enrollment,853,,
+All Models Total Enrollments,"10,132,875",,

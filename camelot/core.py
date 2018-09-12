@@ -313,6 +313,9 @@ class Table(object):
                         cell.vspan = True
                     elif top and bottom and (not left and not right):
                         cell.hspan = True
+                elif cell.bound in [0, 1]:
+                    cell.vspan = True
+                    cell.hspan = True
         return self
 
     def to_csv(self, path, **kwargs):
