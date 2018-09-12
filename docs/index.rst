@@ -49,7 +49,7 @@ Usage
 .. csv-table::
   :file: _static/csv/foo.csv
 
-There's a [command-line interface]() too!
+There's a :ref:`command-line interface <cli>` too!
 
 The User Guide
 --------------
