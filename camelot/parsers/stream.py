@@ -294,8 +294,7 @@ class Stream(BaseParser):
             if ncols == 1:
                 logger.info("No tables found on {}".format(
                     os.path.basename(self.rootname)))
-            cols = [(t.x0, t.x1)
-                for r in rows_grouped if len(r) == ncols for t in r]
+            cols = [(t.x0, t.x1) for r in rows_grouped if len(r) == ncols for t in r]
             cols = self._merge_columns(sorted(cols), col_close_tol=self.col_close_tol)
             inner_text = []
             for i in range(1, len(cols)):

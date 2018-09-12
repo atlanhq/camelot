@@ -81,6 +81,8 @@ class PDFHandler(object):
         """
         with open(filename, 'rb') as fileobj:
             infile = PdfFileReader(fileobj, strict=False)
+            if infile.isEncrypted:
+                infile.decrypt('')
             fpath = os.path.join(temp, 'page-{0}.pdf'.format(page))
             froot, fext = os.path.splitext(fpath)
             p = infile.getPage(page - 1)
@@ -98,6 +100,8 @@ class PDFHandler(object):
                 fpath_new = ''.join([froot.replace('page', 'p'), '_rotated', fext])
                 os.rename(fpath, fpath_new)
                 infile = PdfFileReader(open(fpath_new, 'rb'), strict=False)
+                if infile.isEncrypted:
+                    infile.decrypt('')
                 outfile = PdfFileWriter()
                 p = infile.getPage(0)
                 if rotation == 'anticlockwise':
