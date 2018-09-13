@@ -11,9 +11,9 @@ Process background lines
 To detect line segments, :ref:`Lattice <lattice>` needs the lines that make the table, to be in foreground. Here's an example of a table with lines in background.
 
 .. figure:: ../_static/png/background_lines.png
-   :scale: 50%
-   :alt: A table with lines in background
-   :align: left
+    :scale: 50%
+    :alt: A table with lines in background
+    :align: left
 
 Source: `PDF <../_static/pdf/background_lines.pdf>`__
 
@@ -58,12 +58,15 @@ Passing ``geometry_type=text`` creates a plot for all the text present on a PDF 
     >>> camelot.plot_geometry('foo.pdf', geometry_type='text')
 
 .. figure:: ../_static/png/geometry_text.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: A plot of all text on a PDF page
+    :align: left
 
 .. _geometry_table:
+
+.. note:: As you can see in the image above, the *x-y* coordinates change as you move your mouse cursor, which will help you note coordinates for table areas and column separators.
 
 table
 ^^^^^
@@ -75,10 +78,11 @@ Passing ``geometry_type=text`` creates a plot for tables detected on a PDF page.
     >>> camelot.plot_geometry('foo.pdf', mesh=True, geometry_type='table')
 
 .. figure:: ../_static/png/geometry_table.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: A plot of all tables on a PDF page
+    :align: left
 
 .. _geometry_contour:
 
@@ -92,10 +96,11 @@ Passing ``geometry_type=text`` creates a plot for table boundaries detected on a
     >>> camelot.plot_geometry('foo.pdf', mesh=True, geometry_type='contour')
 
 .. figure:: ../_static/png/geometry_contour.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: A plot of all contours on a PDF page
+    :align: left
 
 .. _geometry_line:
 
@@ -109,10 +114,11 @@ Passing ``geometry_type=text`` creates a plot for lines detected on a PDF page.
     >>> camelot.plot_geometry('foo.pdf', geometry_type='line')
 
 .. figure:: ../_static/png/geometry_line.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: A plot of all lines on a PDF page
+    :align: left
 
 .. _geometry_joint:
 
@@ -126,15 +132,16 @@ Passing ``geometry_type=text`` creates a plot for line intersections detected on
     >>> camelot.plot_geometry('foo.pdf', mesh=True, geometry_type='joint')
 
 .. figure:: ../_static/png/geometry_joint.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: A plot of all line intersections on a PDF page
+    :align: left
 
 Specify table areas
 -------------------
 
-Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as this `PDF <_static/pdf/table_areas.pdf>`__. You can plot the `text <geometry_text>`_ on this page and note the left-top and right-bottom coordinates of the table.
+Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as this `PDF <_static/pdf/table_areas.pdf>`__. You can `plot the text <geometry_text>`_ on this page and note the left-top and right-bottom coordinates of the table.
 
 Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`.
 
@@ -151,15 +158,15 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
 Specify column separators
 -------------------------
 
-In cases like this `PDF <_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separator coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by plotting the `text <geometry_text>`_ on the page.
+In cases like this `PDF <_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by `plotting the text <geometry_text>`_ on the page.
 
 You can pass the column separators as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`.
 
-In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and there is a need to specify column separators as well, the length of both lists should be equal, each table area will be mapped to each column separator string using their indices.
+In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and there is a need to specify column separators as well, the length of both lists should be equal, each table area will be mapped to each column separators' string using their indices.
 
 If you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table (since you can see by looking at the table that Camelot will be able to get it perfectly!), you can pass an empty string for the second table in the column separators' list, like this, ``columns=['10,120,200,400', '']``.
 
-Let's get back to the *x* coordinates we got from plotting `text <geometry_text>`_ that exists on this `PDF <_static/pdf/column_separators.pdf>`__, and get the table out!
+Let's get back to the *x* coordinates we got from `plotting text <geometry_text>`_ that exists on this `PDF <_static/pdf/column_separators.pdf>`__, and get the table out!
 
 ::
 
@@ -198,7 +205,8 @@ Flag subscripts and superscripts
 There might be cases where you want to differentiate between the text and superscripts and subscripts, like this `PDF <_static/pdf/superscript.pdf>`_.
 
 .. figure:: ../_static/png/superscript.png
-   :align: left
+    :alt: A PDF with superscripts
+    :align: left
 
 In this case, the text that `other tools`_ return, will be ``24.912``. This is harmless as long as there is that decimal point involved. When it isn't, you'll be left wondering why the results of your data analysis were 10x bigger!
 
@@ -263,14 +271,16 @@ As you can already guess, the larger the ``line_size_scaling``, the smaller the 
 Here's one `PDF <_static/pdf/short_lines.pdf>`__ where small lines separating the the headers don't get detected with the default value of 15. Let's `plot the table <geometry_table>`_ for this PDF.
 
 .. figure:: ../_static/png/short_lines.png
-   :align: left
+    :alt: A PDF table with short lines
+    :align: left
 
 ::
 
     >>> camelot.plot_geometry('short_lines.pdf', mesh=True, geometry_type='table')
 
 .. figure:: ../_static/png/short_lines_1.png
-   :align: left
+    :alt: A plot of the PDF table with short lines
+    :align: left
 
 Clearly, the smaller lines separating the headers, couldn't be detected. Let's try with ``line_size_scaling=40``, and `plot the table <geometry_table>`_ again.
 
@@ -279,7 +289,8 @@ Clearly, the smaller lines separating the headers, couldn't be detected. Let's t
     >>> camelot.plot_geometry('short_lines.pdf', mesh=True, geometry_type='table', line_size_scaling=40)
 
 .. figure:: ../_static/png/short_lines_2.png
-   :align: left
+    :alt: An improved plot of the PDF table with short lines
+    :align: left
 
 Voila! Camelot can now see those lines. Let's using this value in :meth:`read_pdf() <camelot.read_pdf>` and get our table.
 
@@ -312,7 +323,8 @@ By default, the :ref:`Lattice <lattice>` method shifts text in spanning cells, f
 We'll use the `PDF <_static/pdf/short_lines.pdf>`__ from the previous example. Let's pass ``shift_text=['']``, which basically means that the text will experience weightlessness! (It will remain in place.)
 
 .. figure:: ../_static/png/short_lines.png
-   :align: left
+    :alt: A PDF table with short lines
+    :align: left
 
 ::
 

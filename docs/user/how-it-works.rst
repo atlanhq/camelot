@@ -40,45 +40,45 @@ Let's see how Lattice processes the `second page of this PDF`_, step-by-step.
 1. Line segments are detected.
 
 .. image:: ../_static/png/geometry_line.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :align: left
 
 2. Line intersections are detected, by overlapping the detected line segments and "`and`_"ing their pixel intensities.
 
 .. _and: https://en.wikipedia.org/wiki/Logical_conjunction
 
 .. image:: ../_static/png/geometry_joint.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :align: left
 
 3. Table boundaries are computed, by overlapping the detected line segments again, this time by "`or`_"ing their pixel intensities.
 
 .. _or: https://en.wikipedia.org/wiki/Logical_disjunction
 
 .. image:: ../_static/png/geometry_contour.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :align: left
 
 4. Since dimensions of the PDF page and its image vary; the detected table boundaries, line intersections and line segments are scaled and translated to the PDF page's coordinate space, and a representation of the table is created.
 
 .. image:: ../_static/png/table.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :align: left
 
 5. Spanning cells are detected using the line segments and line intersections.
 
 .. image:: ../_static/png/geometry_table.png
-   :height: 674
-   :width: 1366
-   :scale: 50%
-   :align: left
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :align: left
 
 6. Finally, the words found on the page are assigned to the table's cells based on their *x* and *y* coordinates.
