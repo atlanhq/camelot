@@ -34,26 +34,24 @@ You can use the :meth:`plot_geometry() <camelot.plot_geometry>` method to plot v
 
 The following geometries are available for plotting. You can pass them to the :meth:`plot_geometry() <camelot.plot_geometry>` method with the ``geometry_type`` keyword argument, which will then generate a `matplotlib <https://matplotlib.org/>`_ plot.
 
-- '`text <geometry_text>`_'
-- '`table <geometry_table>`_'
-- '`contour <geometry_contour>`_'
-- '`line <geometry_line>`_'
-- '`joint <geometry_joint>`_'
+- 'text'
+- 'table'
+- 'contour'
+- 'line'
+- 'joint'
 
 .. note:: The last three geometries can only be used with :ref:`Lattice <lattice>`, i.e. when ``mesh=True``.
 
 Let's generate a plot for each geometry using this `PDF <_static/pdf/foo.pdf>`__ as an example.
 
-.. warning:: Using multiple pages in :meth:`plot_geometry() <camelot.plot_geometry>`
-
-    By default, :meth:`plot_geometry() <camelot.plot_geometry>` will use the first page of the PDF. Since this method is useful only for debugging, it makes sense to use it for one page at a time. If you pass a page range to this method, multiple plots will be generated one by one, each popping up as you close the previous one. To abort, you can use ``Ctrl + C``.
+.. warning:: By default, :meth:`plot_geometry() <camelot.plot_geometry>` will use the first page of the PDF. Since this method is useful only for debugging, it makes sense to use it for one page at a time. If you pass a page range to this method, multiple plots will be generated one by one, each popping up as you close the previous one. To abort, you can use ``Ctrl + C``.
 
 .. _geometry_text:
 
 text
 ^^^^
 
-Passing ``geometry_type=text`` creates a plot for all the text present on a PDF page. This, as we shall later see, is very helpful with :ref:`Stream <stream>`_, when you have to choose specific table areas to parse or have to specify your own column separators in case the Stream method cannot guess them correctly.
+Passing ``geometry_type=text`` creates a plot for all the text present on a PDF page. This, as we shall later see, is very helpful with :ref:`Stream <stream>`, when you have to choose specific table areas to parse or have to specify your own column separators in case the Stream method cannot guess them correctly.
 
 ::
 
