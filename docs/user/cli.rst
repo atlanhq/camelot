@@ -3,6 +3,10 @@
 Command-line interface
 ======================
 
+Camelot comes with a command-line interface.
+
+You can print the help for the interface, by typing ``camelot --help`` in your favorite terminal, as shown below.
+
 ::
 
   $ camelot --help
@@ -41,7 +45,7 @@ Command-line interface
                                     length of detected lines.
     -copy, --copy_text [h|v]        (with --mesh) Specify direction in which
                                     text will be copied over in a spanning cell.
-    -shift, --shift_text [l|r|t|b]  (with --mesh) Specify direction in which
+    -shift, --shift_text [|l|r|t|b]  (with --mesh) Specify direction in which
                                     text in a spanning cell should flow.
     -l, --line_close_tol INTEGER    (with --mesh) Tolerance parameter used to
                                     merge close vertical lines and close

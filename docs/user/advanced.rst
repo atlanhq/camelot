@@ -51,7 +51,7 @@ Let's generate a plot for each geometry using this `PDF <_static/pdf/foo.pdf>`__
 text
 ^^^^
 
-Passing ``geometry_type=text`` creates a plot for all the text present on a PDF page. This, as we shall later see, is very helpful with :ref:`Stream <stream>`, when you have to choose specific table areas to parse or have to specify your own column separators in case the Stream method cannot guess them correctly.
+Passing ``geometry_type=text`` creates a plot for all the text present on a PDF page.
 
 ::
 
@@ -64,9 +64,11 @@ Passing ``geometry_type=text`` creates a plot for all the text present on a PDF 
     :alt: A plot of all text on a PDF page
     :align: left
 
-.. _geometry_table:
+This, as we shall later see, is very helpful with :ref:`Stream <stream>`, for noting table areas and column separators, in case Stream cannot guess them correctly.
 
-.. note:: As you can see in the image above, the *x-y* coordinates change as you move your mouse cursor, which will help you note coordinates for table areas and column separators.
+.. note:: As you can see in the image above, the *x-y* coordinates change as you move your mouse cursor, which can help you note coordinates.
+
+.. _geometry_table:
 
 table
 ^^^^^
@@ -199,7 +201,7 @@ To deal with cases like the output from the previous section, you can pass ``spl
     "NUMBER","TYPE","DBA NAME","LICENSEE NAME","ADDRESS","CITY","ST","ZIP","PHONE NUMBER","EXPIRES"
     "...","...","...","...","...","...","...","...","...","..."
 
-Flag subscripts and superscripts
+Flag superscripts and subscripts
 --------------------------------
 
 There might be cases where you want to differentiate between the text and superscripts and subscripts, like this `PDF <_static/pdf/superscript.pdf>`_.
