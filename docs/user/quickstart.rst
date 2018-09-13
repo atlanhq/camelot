@@ -85,7 +85,7 @@ By default, Camelot only parses the first page of the PDF. To specify multiple p
 
     >>> camelot.read_pdf('your.pdf', pages='1,2,3')
 
-The ``pages`` keyword argument accepts pages as comma-separated string of page numbers. You can also specify page ranges, such as ``pages=1,4-10,20-30`` or ``pages=1,4-10,20-end``.
+The ``pages`` keyword argument accepts pages as comma-separated string of page numbers. You can also specify page ranges, for example ``pages=1,4-10,20-30`` or ``pages=1,4-10,20-end``.
 
 ------------------------
 

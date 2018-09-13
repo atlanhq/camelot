@@ -12,7 +12,6 @@ At a very high level, PostScript defines instructions, such as, "place this char
 
 Sadly, a lot of open data is given out as tables which are trapped inside PDF files.
 
-.. _The Camelot Project: http://www.planetpdf.com/planetpdf/pdfs/warnock_camelot.pdf
 .. _PostScript: http://www.planetpdf.com/planetpdf/pdfs/warnock_camelot.pdf
 
 Why another PDF Table Parsing library?
@@ -28,6 +27,14 @@ Here is a `comparison`_ of Camelot's output with outputs from other libraries an
 .. _PDFTables: https://pdftables.com/
 .. _Smallpdf: https://smallpdf.com
 .. _comparison: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Parsing-libraries-and-tools
+
+What's in a name?
+-----------------
+
+As you can already guess, this library is named after `The Camelot Project`_. The image on the left is taken from `Monty Python and the Holy Grail`_. In the movie, it is the castle "Camelot" where Arthur leads his men, the Knights of the Round Table, and then sets off elsewhere after deciding that it is "a silly place". Interestingly, the language in which this library is written was named after Monty Python.
+
+.. _The Camelot Project: http://www.planetpdf.com/planetpdf/pdfs/warnock_camelot.pdf
+.. _Monty Python and the Holy Grail: https://en.wikipedia.org/wiki/Monty_Python_and_the_Holy_Grail
 
 Camelot License
 ---------------
