@@ -5,15 +5,10 @@ Advanced Usage
 
 This page covers some of the more advanced configurations for :ref:`Stream <stream>` and :ref:`Lattice <lattice>`.
 
-Plot geometry
--------------
-
-
-
-You can call Lattice with debug={'line', 'intersection', 'contour', 'table'}, and call `debug_plot()` which will generate an image like the ones on this page, with the help of which you can modify various parameters. See :doc:`API doc <api>` for more information.
-
 Process background lines
 ------------------------
+
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/lattice/background_lines_1/background_lines_1.pdf
 
 To find line segments, Lattice needs the lines of the pdf file to be in foreground. So, if you encounter a file like this, just set invert to True.
 
@@ -26,25 +21,42 @@ To find line segments, Lattice needs the lines of the pdf file to be in foregrou
     >>> tables = manager.extract()
     >>> print tables['page-1']['table-1']['data']
 
+Plot geometry
+-------------
+
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/stream/us-007/us-007.pdf
+
+You can call Lattice with debug={'line', 'intersection', 'contour', 'table'}, and call `debug_plot()` which will generate an image like the ones on this page, with the help of which you can modify various parameters. See :doc:`API doc <api>` for more information.
+
 Specify table areas
 -------------------
 
-Specify columns
----------------
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/stream/us-007/us-007.pdf
 
-Split text in spanning cells
-----------------------------
+Specify column separators
+-------------------------
+
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/stream/m27/m27.pdf
+
+Split text along separators
+---------------------------
+
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/stream/m27/m27.pdf
 
 Flag subscripts and superscripts
 --------------------------------
 
-.. note:: This will available in a future release.
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/stream/superscript/superscript.pdf
 
 Control how text is grouped into rows
 -------------------------------------
 
-Detect small lines
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/stream/mexican_towns/mexican_towns.pdf
+
+Detect short lines
 ------------------
+
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/lattice/row_span/row_span.pdf
 
 The scale parameter is used to determine the length of the structuring element used for morphological transformations. The length of vertical and horizontal structuring elements are found by dividing the image's height and width respectively, by `scale`. Large `scale` will lead to a smaller structuring element, which means that smaller lines will be detected. The default value for scale is 15.
 
@@ -68,11 +80,11 @@ Clearly, it couldn't detected those small lines in the lower left part. Therefor
 
 Voila! It detected the smaller lines.
 
-Detect faint lines
-------------------
 
 Copy text in spanning cells
 ---------------------------
+
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/lattice/row_span/row_span.pdf
 
 In the file used above, you can see that some cells spanned a lot of rows, `fill` just copies the same value to all rows/columns of a spanning cell. You can apply fill horizontally, vertically or both. Let us fill the output for the file we used above, vertically.
 
@@ -88,5 +100,4 @@ In the file used above, you can see that some cells spanned a lot of rows, `fill
 Shift text in spanning cells
 ----------------------------
 
-Tweak PDFMiner margins
-----------------------
+https://github.com/socialcopsdev/camelot/blob/docs/docs/benchmark/stream/m27/m27.pdf
