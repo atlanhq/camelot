@@ -55,7 +55,7 @@ class Mutex(click.Option):
               multiple=True, cls=Mutex, help="(with --mesh) Specify direction"
               " in which text will be copied over in a spanning cell.")
 @click.option("-shift", "--shift_text", default=["l", "t"],
-              type=click.Choice(["l", "r", "t", "b"]), multiple=True, cls=Mutex,
+              type=click.Choice(["", "l", "r", "t", "b"]), multiple=True, cls=Mutex,
               help="(with --mesh) Specify direction in which text in a spanning"
               " cell should flow.")
 @click.option("-l", "--line_close_tol", default=2, cls=Mutex,
