@@ -8,6 +8,8 @@ This page covers some of the more advanced configurations for :ref:`Stream <stre
 Plot geometry
 -------------
 
+
+
 You can call Lattice with debug={'line', 'intersection', 'contour', 'table'}, and call `debug_plot()` which will generate an image like the ones on this page, with the help of which you can modify various parameters. See :doc:`API doc <api>` for more information.
 
 Process background lines
@@ -35,6 +37,8 @@ Split text in spanning cells
 
 Flag subscripts and superscripts
 --------------------------------
+
+.. note:: This will available in a future release.
 
 Control how text is grouped into rows
 -------------------------------------

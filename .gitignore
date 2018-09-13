@@ -9,4 +9,3 @@ dist/
 
 .pytest_cache/
 _build/
-_static/
