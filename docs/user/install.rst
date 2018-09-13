@@ -1,4 +1,4 @@
-    .. _install:
+.. _install:
 
 Installation of Camelot
 =======================

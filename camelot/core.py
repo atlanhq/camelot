@@ -144,8 +144,8 @@ class Table(object):
         """
         # pretty?
         report = {
-            'accuracy': self.accuracy,
-            'whitespace': self.whitespace,
+            'accuracy': round(self.accuracy, 2),
+            'whitespace': round(self.whitespace, 2),
             'order': self.order,
             'page': self.page
         }
