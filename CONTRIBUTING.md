@@ -116,7 +116,9 @@ Please don't use GitHub issues for support questions, a better place for them wo
 
 ### Bug Reports
 
-- Please include your operating system type and Python version number, along with the version numbers of NumPy, OpenCV and Camelot. You can use the following code snippet to find this information:
+In bug reports, make sure you include:
+
+- Your operating system type and Python version number, along with the version numbers of NumPy, OpenCV and Camelot. You can use the following code snippet to find this information:
 
 <pre>
 import platform; print(platform.platform())
@@ -126,7 +128,6 @@ import cv2; print('OpenCV', cv2.__version__)
 import camelot; print('Camelot', camelot.__version__)
 </pre>
 
-- In your bug report, make sure you include:
-    - The complete traceback. Just adding the exception message or a part of the traceback won't help us fix your issue sooner.
-    - Steps to reproduce the bug, using code snippets. See [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/).
-    - A link to the PDF document that you were trying to extract tables from, telling us what you expected the code to do and what actually happened.
+- The complete traceback. Just adding the exception message or a part of the traceback won't help us fix your issue sooner.
+- Steps to reproduce the bug, using code snippets. See [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/).
+- A link to the PDF document that you were trying to extract tables from, telling us what you expected the code to do and what actually happened.
