@@ -115,9 +115,9 @@ We recommend that your pull request complies with the following guidelines:
 Writing Documentation
 ---------------------
 
-Writing documentation, function docstrings, examples and tutorials is a great way to start contributing to open-source software! The documentation is present inside the `docs/` directory of the source code repository.
+Writing documentation, function docstrings, examples and tutorials is a great way to start contributing to open-source software! The documentation is present inside the ``docs/`` directory of the source code repository.
 
-The documentation is written in `reStructuredText`_, with `Sphinx`_ used to generate these lovely HTML files that you're currently reading (unless you're reading this on GitHub). You can edit the documentation using any text editor and then generate the HTML output by running `make html` in the `docs/` directory.
+The documentation is written in `reStructuredText`_, with `Sphinx`_ used to generate these lovely HTML files that you're currently reading (unless you're reading this on GitHub). You can edit the documentation using any text editor and then generate the HTML output by running `make html` in the ``docs/`` directory.
 
 The function docstrings are written using the `numpydoc`_ extension for Sphinx. Make sure you check out how its format guidelines, before you start writing one.
 
