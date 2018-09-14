@@ -46,6 +46,8 @@ There's a [command-line interface]() too!
 - **Export** to multiple formats, including json, excel and html.
 - Simple and Elegant API, written in **Python**!
 
+See [comparison with other PDF parsing libraries and tools](https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Parsing-libraries-and-tools).
+
 ## Installation
 
 After [installing the dependencies](), you can simply use pip to install Camelot:
@@ -56,23 +58,23 @@ $ pip install camelot-py
 
 ## Documentation
 
-The documentation is available at [link]().
+Great documentation is available at [link]().
 
 ## Development
 
-The [contribution guidelines](CONTRIBUTING.md) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
+The [Contributor's Guide](CONTRIBUTING.md) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
 
 ### Source code
 
-You can check the latest sources with the command:
+You can check the latest sources with:
 
 <pre>
-$ git clone https://www.github.com/socialcopsdev/camelot.git
+$ git clone https://www.github.com/socialcopsdev/camelot
 </pre>
 
-### Setting up development environment
+### Setting up a development environment
 
-You can install the development dependencies with the command:
+You can install the development dependencies easily, using pip:
 
 <pre>
 $ pip install camelot-py[dev]
@@ -86,6 +88,10 @@ After installation, you can run tests using:
 $ python setup.py test
 </pre>
 
+## Versioning
+
+Camelot uses [Semantic Versioning](https://semver.org/). For the available versions, see the tags on this repository.
+
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License, see the [LICENSE](LICENSE) file for details.

@@ -5,7 +5,7 @@ Command-line interface
 
 Camelot comes with a command-line interface.
 
-You can print the help for the interface, by typing ``camelot --help`` in your favorite terminal, as shown below.
+You can print the help for the interface, by typing ``camelot --help`` in your favorite terminal program, as shown below.
 
 ::
 

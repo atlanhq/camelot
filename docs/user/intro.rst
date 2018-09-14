@@ -21,7 +21,7 @@ There are both open (`Tabula`_) and closed-source (`PDFTables`_, `smallpdf`_) to
 
 Camelot was created with the goal of offering its users complete control over table extraction. If the users are not able to the desired output with the default configuration, they should be able to tweak the parameters and get the tables out!
 
-Here is a `comparison`_ of Camelot's output with outputs from other libraries and tools.
+Here is a `comparison`_ of Camelot's output with outputs from other PDF parsing libraries and tools.
 
 .. _Tabula: http://tabula.technology/
 .. _PDFTables: https://pdftables.com/
