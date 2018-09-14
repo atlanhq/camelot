@@ -26,6 +26,14 @@ To install the dependencies needed for development, you can use pip:
 $ pip install camelot-py[dev]
 </pre>
 
+### Alternativly
+
+You can clone the project repository, and install using pip:
+
+<pre>
+$ pip install .[dev]
+</pre>
+
 ## Pull Requests
 
 ### Submit a Pull Request
