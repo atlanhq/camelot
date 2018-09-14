@@ -35,8 +35,8 @@ class Stream(BaseParser):
         multiple cells.
     flag_size : bool, optional (default: False)
         Whether or not to highlight a substring using <s></s>
-        if its size is different from rest of the string, useful for
-        super and subscripts.
+        if its size is different from rest of the string. (Useful for
+        super and subscripts)
     row_close_tol : int, optional (default: 2)
         Rows will be formed by combining text vertically
         within this tolerance.
@@ -46,7 +46,7 @@ class Stream(BaseParser):
     margins : tuple, optional (default: (1.0, 0.5, 0.1))
         PDFMiner margins. (char_margin, line_margin, word_margin)
 
-        For for information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
+        For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
     debug : bool, optional (default: False)
         Whether or not to return all text objects on the page
         which can be used to generate a matplotlib plot, to get
@@ -294,8 +294,7 @@ class Stream(BaseParser):
             if ncols == 1:
                 logger.info("No tables found on {}".format(
                     os.path.basename(self.rootname)))
-            cols = [(t.x0, t.x1)
-                for r in rows_grouped if len(r) == ncols for t in r]
+            cols = [(t.x0, t.x1) for r in rows_grouped if len(r) == ncols for t in r]
             cols = self._merge_columns(sorted(cols), col_close_tol=self.col_close_tol)
             inner_text = []
             for i in range(1, len(cols)):

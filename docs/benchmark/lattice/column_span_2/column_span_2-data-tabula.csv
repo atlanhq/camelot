@@ -1,0 +1,10 @@
+Investigations,"No. ofHHs","Age/Sex/Physiological Group","Preva-lence",C.I*,"RelativePrecision","Sample sizeper State"
+Anthropometry,2400,All the available individuals,,,,
+Clinical Examination,,,,,,
+History of morbidity,,,,,,
+Diet survey,1200,All the individuals partaking meals in the HH,,,,
+Blood Pressure #,2400,Men (≥ 18yrs),10%,95%,20%,1728
+"",,Women (≥ 18 yrs),1728,,,
+Fasting blood glucose,2400,Men (≥ 18 yrs),5%,95%,20%,1825
+"",Women (≥ 18 yrs),1825,,,,
+2400,Men (≥ 18 yrs),-,-,-,1728,

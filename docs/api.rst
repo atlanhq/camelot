@@ -1,40 +1,34 @@
 .. _api:
 
-=============
 API Reference
 =============
 
-camelot.read_pdf
-================
-.. automodule:: camelot.read_pdf
-   :members:
+.. module:: camelot
 
-camelot.handlers.PDFHandler
-===========================
-.. automodule:: camelot.handlers.PDFHandler
-   :members:
+Main Interface
+--------------
+.. autofunction:: camelot.read_pdf
+.. autofunction:: camelot.plot_geometry
 
-camelot.parsers.Stream
-======================
-.. automodule:: camelot.parsers.Stream
-   :members:
+Lower-Level Classes
+-------------------
 
-camelot.parsers.Lattice
-=======================
-.. automodule:: camelot.parsers.Lattice
-   :members:
+.. autoclass:: camelot.handlers.PDFHandler
+   :inherited-members:
 
-camelot.core.Cell
-=================
-.. automodule:: camelot.core.Cell
-   :members:
+.. autoclass:: camelot.parsers.Stream
+   :inherited-members:
 
-camelot.core.Table
-==================
-.. automodule:: camelot.core.Table
-   :members:
+.. autoclass:: camelot.parsers.Lattice
+   :inherited-members:
 
-camelot.core.TableList
-======================
-.. automodule:: camelot.core.TableList
-   :members:
+Lower-Lower-Level Classes
+-------------------------
+
+.. autoclass:: camelot.core.TableList
+   :inherited-members:
+
+.. autoclass:: camelot.core.Table
+   :inherited-members:
+
+.. autoclass:: camelot.core.Cell

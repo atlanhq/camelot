@@ -3,6 +3,7 @@ from pprint import pprint
 
 import click
 
+from . import __version__
 from .io import read_pdf
 from .plotting import plot_geometry
 from .utils import validate_input, remove_extra
@@ -17,6 +18,7 @@ class Mutex(click.Option):
 
 
 @click.command()
+@click.version_option(version=__version__)
 @click.option("-p", "--pages", default="1", help="Comma-separated page numbers"
               " to parse. Example: 1,3,4 or 1,4-end")
 @click.option("-o", "--output", help="Output filepath.")
@@ -53,7 +55,7 @@ class Mutex(click.Option):
               multiple=True, cls=Mutex, help="(with --mesh) Specify direction"
               " in which text will be copied over in a spanning cell.")
 @click.option("-shift", "--shift_text", default=["l", "t"],
-              type=click.Choice(["l", "r", "t", "b"]), multiple=True, cls=Mutex,
+              type=click.Choice(["", "l", "r", "t", "b"]), multiple=True, cls=Mutex,
               help="(with --mesh) Specify direction in which text in a spanning"
               " cell should flow.")
 @click.option("-l", "--line_close_tol", default=2, cls=Mutex,

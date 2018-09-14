@@ -1,168 +1,97 @@
 # Camelot: PDF Table Parsing for Humans
 
-Camelot is a Python library and command-line tool for extracting tables from PDF files.
+![license](https://img.shields.io/badge/license-MIT-lightgrey.svg) ![python-version](https://img.shields.io/badge/python-2.7-blue.svg)
 
-## Usage
+**Camelot** is a Python library which makes it easy for *anyone* to extract tables from PDF files!
 
-### API
+---
+
+**Here's how you can extract tables from PDF files.** Check out the PDF used in this example, [here](docs/_static/pdf/foo.pdf).
 
 <pre>
 >>> import camelot
->>> tables = camelot.read_pdf("foo.pdf")
+>>> tables = camelot.read_pdf('foo.pdf', mesh=True)
 >>> tables
-&lt;TableList n=2&gt;
->>> tables.export("foo.csv", f="csv", compress=True) # json, excel, html
+&lt;TableList tables=1&gt;
+>>> tables.export('foo.csv', f='csv', compress=True) # json, excel, html
 >>> tables[0]
-&lt;Table shape=(3,4)&gt;
->>> tables[0].to_csv("foo.csv") # to_json, to_excel, to_html
+&lt;Table shape=(7, 7)&gt;
 >>> tables[0].parsing_report
 {
-    "accuracy": 96,
-    "whitespace": 80,
-    "order": 1,
-    "page": 1
+    'accuracy': 99.02,
+    'whitespace': 12.24,
+    'order': 1,
+    'page': 1
 }
->>> df = tables[0].df
+>>> tables[0].to_csv('foo.csv') # to_json, to_excel, to_html
+>>> tables[0].df # get a pandas DataFrame!
 </pre>
 
-### Command-line interface
+| Cycle Name | KI (1/km) | Distance (mi) | Percent Fuel Savings |                 |                 |                |
+|------------|-----------|---------------|----------------------|-----------------|-----------------|----------------|
+|            |           |               | Improved Speed       | Decreased Accel | Eliminate Stops | Decreased Idle |
+| 2012_2     | 3.30      | 1.3           | 5.9%                 | 9.5%            | 29.2%           | 17.4%          |
+| 2145_1     | 0.68      | 11.2          | 2.4%                 | 0.1%            | 9.5%            | 2.7%           |
+| 4234_1     | 0.59      | 58.7          | 8.5%                 | 1.3%            | 8.5%            | 3.3%           |
+| 2032_2     | 0.17      | 57.8          | 21.7%                | 0.3%            | 2.7%            | 1.2%           |
+| 4171_1     | 0.07      | 173.9         | 58.1%                | 1.6%            | 2.1%            | 0.5%           |
 
-<pre>
-Usage: camelot [OPTIONS] FILEPATH
+There's a [command-line interface]() too!
 
-Options:
-  -p, --pages TEXT                Comma-separated page numbers to parse.
-                                  Example: 1,3,4 or 1,4-end
-  -o, --output TEXT               Output filepath.
-  -f, --format [csv|json|excel|html]
-                                  Output file format.
-  -z, --zip                       Whether or not to create a ZIP archive.
-  -m, --mesh                      Whether or not to use Lattice method of
-                                  parsing. Stream is used by default.
-  -T, --table_area TEXT           Table areas (x1,y1,x2,y2) to process.
-                                  x1, y1
-                                  -> left-top and x2, y2 -> right-bottom
-  -split, --split_text            Whether or not to split text if it spans
-                                  across multiple cells.
-  -flag, --flag_size              (inactive) Whether or not to flag text which
-                                  has uncommon size. (Useful to detect
-                                  super/subscripts)
-  -M, --margins &lt;FLOAT FLOAT FLOAT&gt;...
-                                  char_margin, line_margin, word_margin for
-                                  PDFMiner.
-  -C, --columns TEXT              x-coordinates of column separators.
-  -r, --row_close_tol INTEGER     Rows will be formed by combining text
-                                  vertically within this tolerance.
-  -c, --col_close_tol INTEGER     Columns will be formed by combining text
-                                  horizontally within this tolerance.
-  -back, --process_background     (with --mesh) Whether or not to process
-                                  lines that are in background.
-  -scale, --line_size_scaling INTEGER
-                                  (with --mesh) Factor by which the page
-                                  dimensions will be divided to get smallest
-                                  length of detected lines.
-  -copy, --copy_text [h|v]        (with --mesh) Specify direction in which
-                                  text will be copied over in a spanning cell.
-  -shift, --shift_text [l|r|t|b]  (with --mesh) Specify direction in which
-                                  text in a spanning cell should flow.
-  -l, --line_close_tol INTEGER    (with --mesh) Tolerance parameter used to
-                                  merge close vertical lines and close
-                                  horizontal lines.
-  -j, --joint_close_tol INTEGER   (with --mesh) Tolerance parameter used to
-                                  decide whether the detected lines and points
-                                  lie close to each other.
-  -block, --threshold_blocksize INTEGER
-                                  (with --mesh) For adaptive thresholding,
-                                  size of a pixel neighborhood that is used to
-                                  calculate a threshold value for the pixel:
-                                  3, 5, 7, and so on.
-  -const, --threshold_constant INTEGER
-                                  (with --mesh) For adaptive thresholding,
-                                  constant subtracted from the mean or
-                                  weighted mean.
-                                  Normally, it is positive but
-                                  may be zero or negative as well.
-  -I, --iterations INTEGER        (with --mesh) Number of times for
-                                  erosion/dilation is applied.
-  -G, --geometry_type [text|table|contour|joint|line]
-                                  Plot geometry found on pdf page for
-                                  debugging.
+## Why Camelot?
 
-                                  text: Plot text objects. (Useful
-                                  to get table_area and columns coordinates)
-                                  table: Plot parsed table.
-                                  contour (with
-                                  --mesh): Plot detected rectangles.
-                                  joint
-                                  (with --mesh): Plot detected line
-                                  intersections.
-                                  line (with --mesh): Plot
-                                  detected lines.
-  --help                          Show this message and exit.
-</pre>
+- **You are in control**: Unlike other libraries and tools which either give a nice output or fail miserably (with no in-between), Camelot gives you the power to tweak table extraction. (Since everything in the real world, including PDF table extraction, is fuzzy.)
+- **Metrics**: *Bad* tables can be discarded based on metrics like accuracy and whitespace, without ever having to manually look at each table.
+- Each table is a **pandas DataFrame**, which enables seamless integration into data analysis workflows.
+- **Export** to multiple formats, including json, excel and html.
+- Simple and Elegant API, written in **Python**!
 
-## Dependencies
-
-The dependencies include [tk](https://wiki.tcl.tk/3743) and [ghostscript](https://www.ghostscript.com/).
+See [comparison with other PDF parsing libraries and tools](https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Parsing-libraries-and-tools).
 
 ## Installation
 
-Make sure you have the most updated versions for `pip` and `setuptools`. You can update them by
+After [installing the dependencies](), you can simply use pip to install Camelot:
 
 <pre>
-pip install -U pip setuptools
+$ pip install camelot-py
 </pre>
 
-### Installing dependencies
+## Documentation
 
-tk and ghostscript can be installed using your system's default package manager.
-
-#### Linux
-
-* Ubuntu
-
-<pre>
-sudo apt-get install python-tk ghostscript
-</pre>
-
-* Arch Linux
-
-<pre>
-sudo pacman -S tk ghostscript
-</pre>
-
-#### OS X
-
-<pre>
-brew install tcl-tk ghostscript
-</pre>
-
-Finally, `cd` into the project directory and install by
-
-<pre>
-python setup.py install
-</pre>
+Great documentation is available at [link]().
 
 ## Development
 
-### Code
+The [Contributor's Guide](CONTRIBUTING.md) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
 
-You can check the latest sources with the command:
+### Source code
+
+You can check the latest sources with:
 
 <pre>
-git clone https://github.com/socialcopsdev/camelot.git
+$ git clone https://www.github.com/socialcopsdev/camelot
 </pre>
 
-### Contributing
+### Setting up a development environment
 
-See [Contributing guidelines]().
+You can install the development dependencies easily, using pip:
+
+<pre>
+$ pip install camelot-py[dev]
+</pre>
 
 ### Testing
 
+After installation, you can run tests using:
+
 <pre>
-python setup.py test
+$ python setup.py test
 </pre>
+
+## Versioning
+
+Camelot uses [Semantic Versioning](https://semver.org/). For the available versions, see the tags on this repository.
 
 ## License
 
-BSD License
+This project is licensed under the MIT License, see the [LICENSE](LICENSE) file for details.
