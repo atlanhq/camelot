@@ -8,7 +8,7 @@ This document will help you get started with contributing documentation, code, t
 
 The following quote sums up the **Code Of Conduct**.
 
-    **Be cordial or be on your way**. *--Kenneth Reitz*
+   > Be cordial or be on your way. --Kenneth Reitz
 
 Kenneth Reitz has also written an [essay](https://www.kennethreitz.org/essays/be-cordial-or-be-on-your-way) on this topic, which you should read.
 
