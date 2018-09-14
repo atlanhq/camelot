@@ -35,7 +35,7 @@ It starts by converting the PDF page to an image using ghostscript and then proc
 
 Let's see how Lattice processes the `second page of this PDF`_, step-by-step.
 
-.. _second page of this PDF: _static/pdf/us-030.pdf
+.. _second page of this PDF: ../_static/pdf/us-030.pdf
 
 1. Line segments are detected.
 

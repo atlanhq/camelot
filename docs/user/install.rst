@@ -5,7 +5,7 @@ Installation of Camelot
 
 This part of the documentation covers the installation of Camelot. First, you'll need to install the dependencies, which include `tk`_ and `ghostscript`_.
 
-.. _tk: https://wiki.tcl.tk/3743
+.. _tk: https://packages.ubuntu.com/trusty/python-tk
 .. _ghostscript: https://www.ghostscript.com/
 
 These can be installed using your system's package manager. If you use Ubuntu, run the following:

@@ -42,9 +42,9 @@ The following geometries are available for plotting. You can pass them to the :m
 
 .. note:: The last three geometries can only be used with :ref:`Lattice <lattice>`, i.e. when ``mesh=True``.
 
-Let's generate a plot for each geometry using this `PDF <_static/pdf/foo.pdf>`__ as an example.
+Let's generate a plot for each geometry using this `PDF <../_static/pdf/foo.pdf>`__ as an example.
 
-.. warning:: By default, :meth:`plot_geometry() <camelot.plot_geometry>` will use the first page of the PDF. Since this method is useful only for debugging, it makes sense to use it for one page at a time. If you pass a page range to this method, multiple plots will be generated one by one, each popping up as you close the previous one. To abort, you can use ``Ctrl + C``.
+.. warning:: By default, :meth:`plot_geometry() <camelot.plot_geometry>` will use the first page of the PDF. Since this method is useful only for debugging, it makes sense to use it for one page at a time. If you pass a page range to this method, multiple plots will be generated one by one, a new one popping up as you close the previous one. To abort, you can use ``Ctrl + C``.
 
 .. _geometry_text:
 
@@ -73,7 +73,7 @@ This, as we shall later see, is very helpful with :ref:`Stream <stream>`, for no
 table
 ^^^^^
 
-Passing ``geometry_type=text`` creates a plot for tables detected on a PDF page. This geometry, along with contour, line and joint is useful for debugging and improving the parsing output, as we shall see later.
+Passing ``geometry_type=table`` creates a plot for tables detected on a PDF page. This geometry, along with contour, line and joint is useful for debugging and improving the parsing output, as we shall see later.
 
 ::
 
@@ -91,7 +91,7 @@ Passing ``geometry_type=text`` creates a plot for tables detected on a PDF page.
 contour
 ^^^^^^^
 
-Passing ``geometry_type=text`` creates a plot for table boundaries detected on a PDF page.
+Passing ``geometry_type=contour`` creates a plot for table boundaries detected on a PDF page.
 
 ::
 
@@ -109,7 +109,7 @@ Passing ``geometry_type=text`` creates a plot for table boundaries detected on a
 line
 ^^^^
 
-Passing ``geometry_type=text`` creates a plot for lines detected on a PDF page.
+Passing ``geometry_type=line`` creates a plot for lines detected on a PDF page.
 
 ::
 
@@ -127,7 +127,7 @@ Passing ``geometry_type=text`` creates a plot for lines detected on a PDF page.
 joint
 ^^^^^
 
-Passing ``geometry_type=text`` creates a plot for line intersections detected on a PDF page.
+Passing ``geometry_type=joint`` creates a plot for line intersections detected on a PDF page.
 
 ::
 
@@ -143,9 +143,9 @@ Passing ``geometry_type=text`` creates a plot for line intersections detected on
 Specify table areas
 -------------------
 
-Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as this `PDF <_static/pdf/table_areas.pdf>`__. You can `plot the text <geometry_text>`_ on this page and note the left-top and right-bottom coordinates of the table.
+Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as this `PDF <../_static/pdf/table_areas.pdf>`__. You can :ref:`plot the text <geometry_text>` on this page and note the left-top and right-bottom coordinates of the table.
 
-Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`.
+Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
 
 .. _for now: https://github.com/socialcopsdev/camelot/issues/102
 
@@ -160,15 +160,15 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
 Specify column separators
 -------------------------
 
-In cases like this `PDF <_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by `plotting the text <geometry_text>`_ on the page.
+In cases like this `PDF <../_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by :ref:`plotting the text <geometry_text>` on the page.
 
-You can pass the column separators as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`.
+You can pass the column separators as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``columns`` keyword argument.
 
-In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and there is a need to specify column separators as well, the length of both lists should be equal, each table area will be mapped to each column separators' string using their indices.
+In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and there is a need to specify column separators as well, **the length of both lists should be equal**. Each table area will be mapped to each column separators' string using their indices.
 
 If you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table (since you can see by looking at the table that Camelot will be able to get it perfectly!), you can pass an empty string for the second table in the column separators' list, like this, ``columns=['10,120,200,400', '']``.
 
-Let's get back to the *x* coordinates we got from `plotting text <geometry_text>`_ that exists on this `PDF <_static/pdf/column_separators.pdf>`__, and get the table out!
+Let's get back to the *x* coordinates we got from :ref:`plotting text <geometry_text>` that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
 
 ::
 
@@ -204,13 +204,13 @@ To deal with cases like the output from the previous section, you can pass ``spl
 Flag superscripts and subscripts
 --------------------------------
 
-There might be cases where you want to differentiate between the text and superscripts and subscripts, like this `PDF <_static/pdf/superscript.pdf>`_.
+There might be cases where you want to differentiate between the text and superscripts and subscripts, like this `PDF <../_static/pdf/superscript.pdf>`_.
 
 .. figure:: ../_static/png/superscript.png
     :alt: A PDF with superscripts
     :align: left
 
-In this case, the text that `other tools`_ return, will be ``24.912``. This is harmless as long as there is that decimal point involved. When it isn't, you'll be left wondering why the results of your data analysis were 10x bigger!
+In this case, the text that `other tools`_ return, will be ``24.912``. This is harmless as long as there is that decimal point involved. When it isn't there, you'll be left wondering why the results of your data analysis were 10x bigger!
 
 You can solve this by passing ``flag_size=True``, which will enclose the superscripts and subscripts with ``<s></s>``, based on font size, as shown below.
 
@@ -270,11 +270,13 @@ As you can already guess, the larger the ``line_size_scaling``, the smaller the 
 
 .. warning:: Making ``line_size_scaling`` very large (>150) will lead to text getting detected as lines.
 
-Here's one `PDF <_static/pdf/short_lines.pdf>`__ where small lines separating the the headers don't get detected with the default value of 15. Let's `plot the table <geometry_table>`_ for this PDF.
+Here's one `PDF <../_static/pdf/short_lines.pdf>`__ where small lines separating the the headers don't get detected with the default value of 15.
 
 .. figure:: ../_static/png/short_lines.png
     :alt: A PDF table with short lines
     :align: left
+
+Let's :ref:`plot the table <geometry_table>` for this PDF.
 
 ::
 
@@ -294,7 +296,7 @@ Clearly, the smaller lines separating the headers, couldn't be detected. Let's t
     :alt: An improved plot of the PDF table with short lines
     :align: left
 
-Voila! Camelot can now see those lines. Let's using this value in :meth:`read_pdf() <camelot.read_pdf>` and get our table.
+Voila! Camelot can now see those lines. Let's use this value in :meth:`read_pdf() <camelot.read_pdf>` and get our table.
 
 ::
 
@@ -318,11 +320,11 @@ Voila! Camelot can now see those lines. Let's using this value in :meth:`read_pd
 Shift text in spanning cells
 ----------------------------
 
-By default, the :ref:`Lattice <lattice>` method shifts text in spanning cells, first to the left and then to the top, as you can observe in the output table above. However, this behavior can be changed using the ``shift_text`` keyword argument. Think of it as setting the *gravity* for a table, it decides where the text moves and finally comes to rest.
+By default, the :ref:`Lattice <lattice>` method shifts text in spanning cells, first to the left and then to the top, as you can observe in the output table above. However, this behavior can be changed using the ``shift_text`` keyword argument. Think of it as setting the *gravity* for a table, it decides the direction in which the text will move and finally come to rest.
 
 ``shift_text`` expects a list with one or more characters from the following set: ``('', l', 'r', 't', 'b')``, which are then applied *in order*. The default, as we discussed above, is ``['l', 't']``.
 
-We'll use the `PDF <_static/pdf/short_lines.pdf>`__ from the previous example. Let's pass ``shift_text=['']``, which basically means that the text will experience weightlessness! (It will remain in place.)
+We'll use the `PDF <../_static/pdf/short_lines.pdf>`__ from the previous example. Let's pass ``shift_text=['']``, which basically means that the text will experience weightlessness! (It will remain in place.)
 
 .. figure:: ../_static/png/short_lines.png
     :alt: A PDF table with short lines
@@ -347,7 +349,7 @@ We'll use the `PDF <_static/pdf/short_lines.pdf>`__ from the previous example. L
     "Knowledge &Practices on HTN &","2400","Men (≥ 18 yrs)","-","-","-","1728"
     "DM","2400","Women (≥ 18 yrs)","-","-","-","1728"
 
-No surprises there, it did remain in place. Let's pass ``shift_text=['r', 'b']``, to set the *gravity* to right-bottom, and move the text in that direction.
+No surprises there, it did remain in place (observe the strings "2400" and "All the available individuals"). Let's pass ``shift_text=['r', 'b']``, to set the *gravity* to right-bottom, and move the text in that direction.
 
 ::
 
@@ -371,11 +373,11 @@ No surprises there, it did remain in place. Let's pass ``shift_text=['r', 'b']``
 Copy text in spanning cells
 ---------------------------
 
-You can copy text in spanning cells when using :ref:`Lattice <lattice>`, in either horizontal or vertical direction or both. This behavior is disabled by default.
+You can copy text in spanning cells when using :ref:`Lattice <lattice>`, in either horizontal or vertical direction, or both. This behavior is disabled by default.
 
 ``copy_text`` expects a list with one or more characters from the following set: ``('v', 'h')``, which are then applied *in order*.
 
-Let's try it out on this `PDF <_static/pdf/copy_text.pdf>`__. First, let's check out the output table to see if we need to use any other configuration parameters.
+Let's try it out on this `PDF <../_static/pdf/copy_text.pdf>`__. First, let's check out the output table to see if we need to use any other configuration parameters.
 
 ::
 
@@ -392,7 +394,7 @@ Let's try it out on this `PDF <_static/pdf/copy_text.pdf>`__. First, let's check
     "","","Birbhum","v.  Food Poisoning","199","0","31/12/13","31/12/13","Under control","..."
     "","","Howrah","vi. Viral Hepatitis A &E","85","0","26/12/13","27/12/13","Under surveillance","..."
 
-We don't need anything else. Now, let's pass ``copy_text=['v']`` to copy text in the vertical direction. This can save you some time by not having to do this in your cleaning script!
+We don't need anything else. Now, let's pass ``copy_text=['v']`` to copy text in the vertical direction. This can save you some time by not having to add this step in your cleaning script!
 
 ::
 
