@@ -26,7 +26,7 @@ To install the dependencies needed for development, you can use pip:
 $ pip install camelot-py[dev]
 </pre>
 
-### Alternativly
+### Alternatively
 
 You can clone the project repository, and install using pip:
 
@@ -40,7 +40,7 @@ $ pip install .[dev]
 
 The preferred workflow for contributing to Camelot is to fork the [project repository](https://github.com/socialcopsdev/camelot) on GitHub, clone, develop on a branch and then finally submit a pull request. Steps:
 
-1. Fork the project repository: click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub.
+1. Fork the project repository. Click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub.
 
 2. Clone your fork of Camelot from your GitHub account:
 

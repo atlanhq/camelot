@@ -3,7 +3,7 @@
 Contributor's Guide
 ===================
 
-If you're reading this, you're probably looking to contributing to Camelot. *Time is the only real currency*, and the fact that you're considering spending some here is *very* generous of you. Thanks you very much!
+If you're reading this, you're probably looking to contributing to Camelot. *Time is the only real currency*, and the fact that you're considering spending some here is *very* generous of you. Thank you very much!
 
 This document will help you get started with contributing documentation, code, testing and filing issues. If you have any questions, feel free to reach out to `Vinayak Mehta`_, the author and maintainer.
 
@@ -49,9 +49,9 @@ The preferred workflow for contributing to Camelot is to fork the `project repos
 
 .. _project repository: https://github.com/socialcopsdev/camelot
 
-1. Fork the project repository: click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub.
+1. Fork the project repository. Click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub.
 
-2. Clone your fork of the Camelot from your GitHub account::
+2. Clone your fork of Camelot from your GitHub account::
 
     $ git clone https://www.github.com/[username]/camelot
 
@@ -61,7 +61,7 @@ The preferred workflow for contributing to Camelot is to fork the `project repos
 
 Always branch out from ``master`` to work on your contribution. It's good practice to never work on the ``master`` branch!
 
-.. note:: Protip: ``git stash`` is a great way to save the work that you haven't committed yet, to move between branches.
+.. note:: ``git stash`` is a great way to save the work that you haven't committed yet, to move between branches.
 
 4. Work on your contribution. Add changed files using ``git add`` and then ``git commit`` them::
 
@@ -142,7 +142,9 @@ Please don't use GitHub issues for support questions, a better place for them wo
 Bug Reports
 ^^^^^^^^^^^
 
-- Please include your operating system type and Python version number, along with the version numbers of NumPy, OpenCV and Camelot. You can use the following code snippet to find this information::
+In bug reports, make sure you include:
+
+- Your operating system type and Python version number, along with the version numbers of NumPy, OpenCV and Camelot. You can use the following code snippet to find this information::
 
     import platform; print(platform.platform())
     import sys; print('Python', sys.version)
@@ -150,10 +152,10 @@ Bug Reports
     import cv2; print('OpenCV', cv2.__version__)
     import camelot; print('Camelot', camelot.__version__)
 
-- Please include the **complete traceback** in your bug report.
+- The complete traceback. Just adding the exception message or a part of the traceback won't help us fix your issue sooner.
 
-- Make sure you include **steps to reproduce the bug**, using code snippets. See `Creating and highlighting code blocks`_.
+- Steps to reproduce the bug, using code snippets. See `Creating and highlighting code blocks`_.
 
 .. _Creating and highlighting code blocks: https://help.github.com/articles/creating-and-highlighting-code-blocks/
 
-- Also include a link to the PDF document that you were trying to extract tables from, telling us what you expected the code to do and what actually happened.
+- A link to the PDF document that you were trying to extract tables from, telling us what you expected the code to do and what actually happened.
