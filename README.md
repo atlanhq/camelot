@@ -58,7 +58,7 @@ $ pip install camelot-py
 
 ## Documentation
 
-Great documentation is available at [link]().
+Great documentation is available at [insert link]().
 
 ## Development
 
