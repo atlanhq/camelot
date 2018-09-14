@@ -32,8 +32,8 @@ A great way to start contributing to Camelot is to pick an issue tagged with the
 .. _Contributor Friendly: https://github.com/socialcopsdev/camelot/labels/Contributor%20Friendly
 .. _Easy: https://github.com/socialcopsdev/camelot/labels/Level%3A%20Easy
 
-Set up a development environment
---------------------------------
+Setting up a development environment
+------------------------------------
 
 To install the dependencies needed for development, you can use pip::
 

@@ -18,7 +18,7 @@ As the [Requests Code Of Conduct](http://docs.python-requests.org/en/master/dev/
 
 A great way to start contributing to Camelot is to pick an issue tagged with the [Contributor Friendly](https://github.com/socialcopsdev/camelot/labels/Contributor%20Friendly) tag or the [Level: Easy](https://github.com/socialcopsdev/camelot/labels/Level%3A%20Easy) tag. If you're unable to find a good first issue, feel free to contact the maintainer.
 
-## Set up a development environment
+## Setting up a development environment
 
 To install the dependencies needed for development, you can use pip:
 
