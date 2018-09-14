@@ -56,6 +56,23 @@ After [installing the dependencies](), you can simply use pip to install Camelot
 $ pip install camelot-py
 </pre>
 
+### Alternatively
+
+You can install the dependencies [tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/) using your system's package manager. After that, clone the repo using:
+
+<pre>
+$ git clone https://www.github.com/socialcopsdev/camelot
+</pre>
+
+and install Camelot using pip:
+
+<pre>
+$ cd camelot
+$ pip install .
+</pre>
+
+Note: Use a [virtualenv](https://virtualenv.pypa.io/en/stable/) if you don't want to affect your global Python installation.
+
 ## Documentation
 
 Great documentation is available at [insert link]().

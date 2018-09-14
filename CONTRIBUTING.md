@@ -1,6 +1,6 @@
 # Contributor's Guide
 
-If you're reading this, you're probably looking to contributing to Camelot. *Time is the only real currency*, and the fact that you're considering spending some here is *very* generous of you. Thanks you very much!
+If you're reading this, you're probably looking to contributing to Camelot. *Time is the only real currency*, and the fact that you're considering spending some here is *very* generous of you. Thank you very much!
 
 This document will help you get started with contributing documentation, code, testing and filing issues. If you have any questions, feel free to reach out to [Vinayak Mehta](http://vinayak-mehta.github.io), the author and maintainer.
 
@@ -8,7 +8,7 @@ This document will help you get started with contributing documentation, code, t
 
 The following quote sums up the **Code Of Conduct**.
 
-    **Be cordial or be on your way**. *--Kenneth Reitz*
+   > Be cordial or be on your way. --Kenneth Reitz
 
 Kenneth Reitz has also written an [essay](https://www.kennethreitz.org/essays/be-cordial-or-be-on-your-way) on this topic, which you should read.
 
@@ -26,6 +26,14 @@ To install the dependencies needed for development, you can use pip:
 $ pip install camelot-py[dev]
 </pre>
 
+### Alternativly
+
+You can clone the project repository, and install using pip:
+
+<pre>
+$ pip install .[dev]
+</pre>
+
 ## Pull Requests
 
 ### Submit a Pull Request
@@ -34,7 +42,7 @@ The preferred workflow for contributing to Camelot is to fork the [project repos
 
 1. Fork the project repository: click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub.
 
-2. Clone your fork of the Camelot from your GitHub account:
+2. Clone your fork of Camelot from your GitHub account:
 
 <pre>
 $ git clone https://www.github.com/[username]/camelot
@@ -63,7 +71,7 @@ $ git commit
 $ git push -u origin my-feature
 </pre>
 
-Now it's time to go to the your fork of Camelot and create a pull request! You can [follow these instructions](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) to do the same.
+Now it's time to go to the your fork of Camelot and create a pull request! You can [follow these instructions](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) to do this.
 
 ### Work on your Pull Request
 
@@ -82,7 +90,7 @@ We recommend that your pull request complies with the following rules:
     - Wrap the body at 72 characters
     - Use the body to explain what and why vs. how
 
-- Please prefix your title of your pull request with [MRG] (Ready for Merge), if the contribution is complete and ready for a detailed review. An incomplete pull request's title should be prefixed with [WIP] (to indicate a work in progress), and changed to [MRG] when it's complete. A good [task list](https://blog.github.com/2013-01-09-task-lists-in-gfm-issues-pulls-comments/) in the PR description will ensure that other people will get a better idea of what it proposes to do, which will also increase collaboration.
+- Please prefix the title of your pull request with [MRG] (Ready for Merge), if the contribution is complete and ready for a detailed review. An incomplete pull request's title should be prefixed with [WIP] (to indicate a work in progress), and changed to [MRG] when it's complete. A good [task list](https://blog.github.com/2013-01-09-task-lists-in-gfm-issues-pulls-comments/) in the PR description will ensure that other people get a better idea of what it proposes to do, which will also increase collaboration.
 
 - If contributing new functionality, make sure that you add a unit test for it, while making sure that all previous tests pass. Camelot uses [pytest](https://docs.pytest.org/en/latest/) for testing. Tests can be run using:
 
@@ -92,11 +100,11 @@ $ python setup.py test
 
 ## Writing Documentation
 
-Writing documentation, function docstrings, examples and tutorials is a great way to start contributing to open-source software! The documentation is present inside the `docs/` directory of the source code repository.
+Writing documentation, function docstrings, examples and tutorials is a great way to start contributing to open-source software! The documentation is present inside the `docs/` directory of the project repository.
 
-The documentation is written in [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText), with [Sphinx](http://www.sphinx-doc.org/en/master/) used to generate these lovely HTML files that you're currently reading (unless you're reading this on GitHub). You can edit the documentation using any text editor and then generate the HTML output by running `make html` in the `docs/` directory.
+It is written in [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText), with [Sphinx](http://www.sphinx-doc.org/en/master/) used to generate these lovely HTML files that you're currently reading (unless you're reading this on GitHub). You can edit the documentation using any text editor and then generate the HTML output by running `make html` in the `docs/` directory.
 
-The function docstrings are written using the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) extension for Sphinx. Make sure you check it out before you start writing one.
+The function docstrings are written using the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) extension for Sphinx. Make sure you check out its format guidelines, before you start writing one.
 
 ## Filing Issues
 
@@ -108,7 +116,9 @@ Please don't use GitHub issues for support questions, a better place for them wo
 
 ### Bug Reports
 
-- Please include your operating system type and Python version number, along with the version numbers of NumPy, OpenCV and Camelot. You can use the following code snippet to find this information:
+In bug reports, make sure you include:
+
+- Your operating system type and Python version number, along with the version numbers of NumPy, OpenCV and Camelot. You can use the following code snippet to find this information:
 
 <pre>
 import platform; print(platform.platform())
@@ -118,8 +128,6 @@ import cv2; print('OpenCV', cv2.__version__)
 import camelot; print('Camelot', camelot.__version__)
 </pre>
 
-- Please include the **complete traceback** in your bug report.
-
-- Make sure you include **steps to reproduce the bug**, using code snippets. See [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/).
-
-- Also include a link to the PDF document that you were trying to extract tables from, telling us what you expected the code to do and what actually happened.
+- The complete traceback. Just adding the exception message or a part of the traceback won't help us fix your issue sooner.
+- Steps to reproduce the bug, using code snippets. See [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/).
+- A link to the PDF document that you were trying to extract tables from, telling us what you expected the code to do and what actually happened.
