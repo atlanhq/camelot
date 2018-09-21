@@ -4,6 +4,8 @@
 
 **Camelot** is a Python library which makes it easy for *anyone* to extract tables from PDF files!
 
+![camelot-logo](docs/_static/png/camelot-logo.png)
+
 ---
 
 **Here's how you can extract tables from PDF files.** Check out the PDF used in this example, [here](docs/_static/pdf/foo.pdf).
