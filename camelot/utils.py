@@ -38,25 +38,25 @@ lattice_kwargs = [
 ]
 
 
-def validate_input(kwargs, mesh=False, geometry_type=False):
-    def check_intersection(parser_kwargs, input_kwargs, message_bool):
+def validate_input(kwargs, flavor='lattice', geometry_type=False):
+    def check_intersection(parser_kwargs, input_kwargs):
         isec = set(parser_kwargs).intersection(set(input_kwargs.keys()))
         if isec:
-            raise ValueError("{} can not be used with mesh set to {}".format(
-                             ",".join(sorted(isec)), message_bool))
+            raise ValueError("{} cannot be used with flavor='{}'".format(
+                             ",".join(sorted(isec)), flavor))
 
-    if mesh:
-        check_intersection(stream_kwargs, kwargs, True)
+    if flavor == 'lattice':
+        check_intersection(stream_kwargs, kwargs)
     else:
-        check_intersection(lattice_kwargs, kwargs, False)
+        check_intersection(lattice_kwargs, kwargs)
     if geometry_type:
-        if not mesh and geometry_type in ['contour', 'joint', 'line']:
-            raise ValueError("Use geometry_type={} with mesh set to True".format(
+        if flavor != 'lattice' and geometry_type in ['contour', 'joint', 'line']:
+            raise ValueError("Use geometry_type='{}' with flavor='lattice'".format(
                              geometry_type))
 
 
-def remove_extra(kwargs, mesh=False):
-    if mesh:
+def remove_extra(kwargs, flavor='lattice'):
+    if flavor == 'lattice':
         for key in kwargs.keys():
             if key in stream_kwargs:
                 kwargs.pop(key)

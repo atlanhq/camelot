@@ -9,7 +9,7 @@ with open(os.path.join(here, 'camelot', '__version__.py'), 'r') as f:
     exec(f.read(), about)
 
 # TODO: Move these to __version__.py
-NAME = 'camelot'
+NAME = 'camelot-py'
 VERSION = about['__version__']
 DESCRIPTION = 'PDF Table Parsing for Humans'
 with open('README.md') as f:

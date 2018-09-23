@@ -16,13 +16,13 @@ Begin by importing the Camelot module::
 
 Now, let's try to read a PDF. You can check out the PDF used in this example, `here`_. Since the PDF has a table with clearly demarcated lines, we will use the :ref:`Lattice <lattice>` method here. To do that we will set the ``mesh`` keyword argument to ``True``.
 
-.. note:: :ref:`Stream <stream>` is used by default.
+.. note:: :ref:`Lattice <lattice>` is used by default. You can use :ref:`Stream <stream>` with ``flavor='stream'``.
 
 .. _here: ../_static/pdf/foo.pdf
 
 ::
 
-    >>> tables = camelot.read_pdf('foo.pdf', mesh=True)
+    >>> tables = camelot.read_pdf('foo.pdf')
     >>> tables
     <TableList n=1>
 
@@ -47,7 +47,7 @@ Let's print the parsing report.
         'page': 1
     }
 
-Woah! The accuracy is top-notch and whitespace is less, that means the table was parsed correctly (most probably). You can access the table as a pandas DataFrame by using the :class:`table <camelot.core.Table> object's` ``df`` property.
+Woah! The accuracy is top-notch and whitespace is less, that means the table was parsed correctly (most probably). You can access the table as a pandas DataFrame by using the :class:`table <camelot.core.Table>` object's ``df`` property.
 
 ::
 
@@ -64,7 +64,7 @@ Looks good! You can be export the table as a CSV file using its :meth:`to_csv() 
 
 This will export the table as a CSV file at the path specified. In this case, it is ``foo.csv`` in the current directory.
 
-You can also export all tables at once, using the ``tables`` object's :meth:`export() <camelot.core.TableList.export>` method.
+You can also export all tables at once, using the :class:`tables <camelot.core.TableList>` object's :meth:`export() <camelot.core.TableList.export>` method.
 
 ::
 
@@ -72,11 +72,11 @@ You can also export all tables at once, using the ``tables`` object's :meth:`exp
 
 This will export all tables as CSV files at the path specified. Alternatively, you can use ``f='json'``, ``f='excel'`` or ``f='html'``.
 
-.. note:: The :meth:`export() <camelot.core.TableList.export>` method exports files with a ``page-*-table-*`` suffix. In the example above, the single table in the list will be exported to ``foo-page-1-table-1.csv``. If the list contains multiple tables, multiple files will be created. To avoid filling up your path with multiple files, you can use ``compress=True``, which will create a single ZIP archive at your path with all the exported files.
+.. note:: The :meth:`export() <camelot.core.TableList.export>` method exports files with a ``page-*-table-*`` suffix. In the example above, the single table in the list will be exported to ``foo-page-1-table-1.csv``. If the list contains multiple tables, multiple CSV files will be created. To avoid filling up your path with multiple files, you can use ``compress=True``, which will create a single ZIP file at your path with all the CSV files.
 
-.. note:: Camelot handles rotated PDF pages automatically. As an exercise, try to extract the table out of `this PDF file`_.
+.. note:: Camelot handles rotated PDF pages automatically. As an exercise, try to extract the table out of `this PDF`_.
 
-.. _this PDF file: ../_static/pdf/rotated.pdf
+.. _this PDF: ../_static/pdf/rotated.pdf
 
 Specify page numbers
 --------------------

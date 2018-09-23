@@ -8,16 +8,20 @@ This part of the documentation covers the installation of Camelot. First, you'll
 .. _tk: https://packages.ubuntu.com/trusty/python-tk
 .. _ghostscript: https://www.ghostscript.com/
 
-These can be installed using your system's package manager. If you use Ubuntu, run the following:
-::
+These can be installed using your system's package manager. You can run the following based on your OS.
 
-    $ sudo apt install python-tk ghostscript
+For Ubuntu::
+
+    $ apt install python-tk ghostscript
+
+For macOS::
+
+    $ brew install tcl-tk ghostscript
 
 $ pip install camelot-py
 ------------------------
 
-After installing the dependencies, you can simply use pip to install Camelot:
-::
+After installing the dependencies, you can simply use pip to install Camelot::
 
     $ pip install camelot-py
 

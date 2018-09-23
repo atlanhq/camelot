@@ -20,7 +20,7 @@ It is built on top of PDFMiner's functionality of grouping characters on a page 
 
 .. _margins: https://euske.github.io/pdfminer/#tools
 
-.. note:: By default, Stream treats the whole PDF page as a table. Automatic table detection for Stream is `in the works`_.
+.. note:: By default, Stream treats the whole PDF page as a table, which isn't ideal when there are more than two tables on a page with different number of columns. Automatic table detection for Stream is `in the works`_.
 
 .. _in the works: https://github.com/socialcopsdev/camelot/issues/102
 
@@ -29,13 +29,13 @@ It is built on top of PDFMiner's functionality of grouping characters on a page 
 Lattice
 -------
 
-Lattice is more deterministic in nature, and does not rely on guesses. It can be used to parse tables that have demarcated lines between cells.
+Lattice is more deterministic in nature, and does not rely on guesses. It can be used to parse tables that have demarcated lines between cells, and can automatically parse multiple tables present on a page.
 
 It starts by converting the PDF page to an image using ghostscript and then processing it to get horizontal and vertical line segments by applying a set of morphological transformations (erosion and dilation) using OpenCV.
 
-Let's see how Lattice processes the `second page of this PDF`_, step-by-step.
+Let's see how Lattice processes the second page of `this PDF`_, step-by-step.
 
-.. _second page of this PDF: ../_static/pdf/us-030.pdf
+.. _this PDF: ../_static/pdf/us-030.pdf
 
 1. Line segments are detected.
 

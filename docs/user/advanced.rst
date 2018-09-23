@@ -3,7 +3,7 @@
 Advanced Usage
 ==============
 
-This page covers some of the more advanced configurations for :ref:`Stream <stream>` and :ref:`Lattice <lattice>`.
+This page covers some of the more advanced configurations for :ref:`Lattice <lattice>` and :ref:`Stream <stream>`.
 
 Process background lines
 ------------------------
@@ -21,7 +21,7 @@ To process background lines, you can pass ``process_background=True``.
 
 ::
 
-    >>> tables = camelot.read_pdf('background_lines.pdf', mesh=True, process_background=True)
+    >>> tables = camelot.read_pdf('background_lines.pdf', process_background=True)
     >>> tables[1].df
 
 .. csv-table::
@@ -30,9 +30,9 @@ To process background lines, you can pass ``process_background=True``.
 Plot geometry
 -------------
 
-You can use the :meth:`plot_geometry() <camelot.plot_geometry>` method to plot various geometries that were detected by Camelot while processing the PDF page. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
+You can use a :class:`table <camelot.core.Table>` object's :meth:`plot() <camelot.core.TableList.plot>` method to plot various geometries that were detected by Camelot while processing the PDF page. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
 
-The following geometries are available for plotting. You can pass them to the :meth:`plot_geometry() <camelot.plot_geometry>` method with the ``geometry_type`` keyword argument, which will then generate a `matplotlib <https://matplotlib.org/>`_ plot.
+The following geometries are available for plotting. You can pass them to the :meth:`plot() <camelot.core.TableList.plot>` method, which will then generate a `matplotlib <https://matplotlib.org/>`_ plot for the passed geometry.
 
 - 'text'
 - 'table'
@@ -40,22 +40,26 @@ The following geometries are available for plotting. You can pass them to the :m
 - 'line'
 - 'joint'
 
-.. note:: The last three geometries can only be used with :ref:`Lattice <lattice>`, i.e. when ``mesh=True``.
+.. note:: The last three geometries can only be used with :ref:`Lattice <lattice>`, i.e. when ``flavor='lattice'``.
 
-Let's generate a plot for each geometry using this `PDF <../_static/pdf/foo.pdf>`__ as an example.
+Let's generate a plot for each geometry using this `PDF <../_static/pdf/foo.pdf>`__ as an example. First, let's get all the tables out.
 
-.. warning:: By default, :meth:`plot_geometry() <camelot.plot_geometry>` will use the first page of the PDF. Since this method is useful only for debugging, it makes sense to use it for one page at a time. If you pass a page range to this method, multiple plots will be generated one by one, a new one popping up as you close the previous one. To abort, you can use ``Ctrl + C``.
+::
+
+    >>> tables = camelot.read_pdf('foo.pdf')
+    >>> tables
+    <TableList n=1>
 
 .. _geometry_text:
 
 text
 ^^^^
 
-Passing ``geometry_type=text`` creates a plot for all the text present on a PDF page.
+Let's plot all the text present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot_geometry('foo.pdf', geometry_type='text')
+    >>> tables[0].plot('text')
 
 .. figure:: ../_static/png/geometry_text.png
     :height: 674
@@ -64,20 +68,20 @@ Passing ``geometry_type=text`` creates a plot for all the text present on a PDF 
     :alt: A plot of all text on a PDF page
     :align: left
 
-This, as we shall later see, is very helpful with :ref:`Stream <stream>`, for noting table areas and column separators, in case Stream cannot guess them correctly.
+This, as we shall later see, is very helpful with :ref:`Stream <stream>`, for noting table areas and column separators, in case Stream does not guess them correctly.
 
-.. note:: As you can see in the image above, the *x-y* coordinates change as you move your mouse cursor, which can help you note coordinates.
+.. note:: The *x-y* coordinates shown aboe change as you move your mouse cursor on the image, which can help you note coordinates.
 
 .. _geometry_table:
 
 table
 ^^^^^
 
-Passing ``geometry_type=table`` creates a plot for tables detected on a PDF page. This geometry, along with contour, line and joint is useful for debugging and improving the parsing output, as we shall see later.
+Let's plot the table (to see if it was detected correctly or not). This geometry type, along with contour, line and joint is useful for debugging and improving the parsing output, in case the table wasn't detected correctly. More on that later.
 
 ::
 
-    >>> camelot.plot_geometry('foo.pdf', mesh=True, geometry_type='table')
+    >>> tables[0].plot('table')
 
 .. figure:: ../_static/png/geometry_table.png
     :height: 674
@@ -86,16 +90,18 @@ Passing ``geometry_type=table`` creates a plot for tables detected on a PDF page
     :alt: A plot of all tables on a PDF page
     :align: left
 
+The table is perfect!
+
 .. _geometry_contour:
 
 contour
 ^^^^^^^
 
-Passing ``geometry_type=contour`` creates a plot for table boundaries detected on a PDF page.
+Now, let's plot all table boundaries present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot_geometry('foo.pdf', mesh=True, geometry_type='contour')
+    >>> tables[0].plot('contour')
 
 .. figure:: ../_static/png/geometry_contour.png
     :height: 674
@@ -109,11 +115,11 @@ Passing ``geometry_type=contour`` creates a plot for table boundaries detected o
 line
 ^^^^
 
-Passing ``geometry_type=line`` creates a plot for lines detected on a PDF page.
+Cool, let's plot all line segments present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot_geometry('foo.pdf', geometry_type='line')
+    >>> tables[0].plot('line')
 
 .. figure:: ../_static/png/geometry_line.png
     :height: 674
@@ -127,11 +133,11 @@ Passing ``geometry_type=line`` creates a plot for lines detected on a PDF page.
 joint
 ^^^^^
 
-Passing ``geometry_type=joint`` creates a plot for line intersections detected on a PDF page.
+Finally, let's plot all line intersections present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot_geometry('foo.pdf', mesh=True, geometry_type='joint')
+    >>> tables[0].plot('joint')
 
 .. figure:: ../_static/png/geometry_joint.png
     :height: 674
@@ -143,7 +149,7 @@ Passing ``geometry_type=joint`` creates a plot for line intersections detected o
 Specify table areas
 -------------------
 
-Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as this `PDF <../_static/pdf/table_areas.pdf>`__. You can :ref:`plot the text <geometry_text>` on this page and note the left-top and right-bottom coordinates of the table.
+Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as `these <../_static/pdf/table_areas.pdf>`__. You can :ref:`plot the text <geometry_text>` on this page and note the left-top and right-bottom coordinates of the table.
 
 Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
 
@@ -151,7 +157,7 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
 
 ::
 
-    >>> tables = camelot.read_pdf('table_areas.pdf', table_areas=['316,499,566,337'])
+    >>> tables = camelot.read_pdf('table_areas.pdf', flavor='stream', table_areas=['316,499,566,337'])
     >>> tables[0].df
 
 .. csv-table::
@@ -160,19 +166,19 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
 Specify column separators
 -------------------------
 
-In cases like this `PDF <../_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by :ref:`plotting the text <geometry_text>` on the page.
+In cases like `these <../_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by :ref:`plotting the text <geometry_text>` on the page.
 
 You can pass the column separators as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``columns`` keyword argument.
 
 In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and there is a need to specify column separators as well, **the length of both lists should be equal**. Each table area will be mapped to each column separators' string using their indices.
 
-If you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table (since you can see by looking at the table that Camelot will be able to get it perfectly!), you can pass an empty string for the second table in the column separators' list, like this, ``columns=['10,120,200,400', '']``.
+For example, if you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list, like this, ``columns=['10,120,200,400', '']``.
 
 Let's get back to the *x* coordinates we got from :ref:`plotting text <geometry_text>` that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
 
 ::
 
-    >>> tables = camelot.read_pdf('column_separators.pdf', columns=['72,95,209,327,442,529,566,606,683'])
+    >>> tables = camelot.read_pdf('column_separators.pdf', flavor='stream', columns=['72,95,209,327,442,529,566,606,683'])
     >>> tables[0].df
 
 .. csv-table::
@@ -182,7 +188,7 @@ Let's get back to the *x* coordinates we got from :ref:`plotting text <geometry_
     "NUMBER TYPE DBA NAME","","","LICENSEE NAME","ADDRESS","CITY","ST","ZIP","PHONE NUMBER","EXPIRES"
     "...","...","...","...","...","...","...","...","...","..."
 
-Ah! Since `PDFMiner <https://euske.github.io/pdfminer/>`_ merged the strings, "NUMBER", "TYPE" and "DBA NAME", all of them were assigned to the same cell. Let's see how we can fix this in the next section.
+Ah! Since `PDFMiner <https://euske.github.io/pdfminer/>`_ merged the strings, "NUMBER", "TYPE" and "DBA NAME"; all of them were assigned to the same cell. Let's see how we can fix this in the next section.
 
 Split text along separators
 ---------------------------
@@ -191,7 +197,7 @@ To deal with cases like the output from the previous section, you can pass ``spl
 
 ::
 
-    >>> tables = camelot.read_pdf('column_separators.pdf', columns=['72,95,209,327,442,529,566,606,683'], split_text=True)
+    >>> tables = camelot.read_pdf('column_separators.pdf', flavor='stream', columns=['72,95,209,327,442,529,566,606,683'], split_text=True)
     >>> tables[0].df
 
 .. csv-table::
@@ -204,13 +210,13 @@ To deal with cases like the output from the previous section, you can pass ``spl
 Flag superscripts and subscripts
 --------------------------------
 
-There might be cases where you want to differentiate between the text and superscripts and subscripts, like this `PDF <../_static/pdf/superscript.pdf>`_.
+There might be cases where you want to differentiate between the text, and superscripts or subscripts, like this `PDF <../_static/pdf/superscript.pdf>`_.
 
 .. figure:: ../_static/png/superscript.png
     :alt: A PDF with superscripts
     :align: left
 
-In this case, the text that `other tools`_ return, will be ``24.912``. This is harmless as long as there is that decimal point involved. When it isn't there, you'll be left wondering why the results of your data analysis were 10x bigger!
+In this case, the text that `other tools`_ return, will be ``24.912``. This is harmless as long as there is that decimal point involved. But when it isn't there, you'll be left wondering why the results of your data analysis were 10x bigger!
 
 You can solve this by passing ``flag_size=True``, which will enclose the superscripts and subscripts with ``<s></s>``, based on font size, as shown below.
 
@@ -218,7 +224,7 @@ You can solve this by passing ``flag_size=True``, which will enclose the supersc
 
 ::
 
-    >>> tables = camelot.read_pdf('superscript.pdf', flag_size=True)
+    >>> tables = camelot.read_pdf('superscript.pdf', flavor='stream', flag_size=True)
     >>> tables[0].df
 
 .. csv-table::
@@ -236,7 +242,7 @@ You can pass ``row_close_tol=<+int>`` to group the rows closer together, as show
 
 ::
 
-    >>> tables = camelot.read_pdf('group_rows.pdf')
+    >>> tables = camelot.read_pdf('group_rows.pdf', flavor='stream')
     >>> tables[0].df
 
 .. csv-table::
@@ -250,7 +256,7 @@ You can pass ``row_close_tol=<+int>`` to group the rows closer together, as show
 
 ::
 
-    >>> tables = camelot.read_pdf('group_rows.pdf', row_close_tol=10)
+    >>> tables = camelot.read_pdf('group_rows.pdf', flavor='stream', row_close_tol=10)
     >>> tables[0].df
 
 .. csv-table::
@@ -266,11 +272,11 @@ Detect short lines
 
 There might be cases while using :ref:`Lattice <lattice>` when smaller lines don't get detected. The size of the smallest line that gets detected is calculated by dividing the PDF page's dimensions with a scaling factor called ``line_size_scaling``. By default, its value is 15.
 
-As you can already guess, the larger the ``line_size_scaling``, the smaller the size of lines getting detected.
+As you can guess, the larger the ``line_size_scaling``, the smaller the size of lines getting detected.
 
 .. warning:: Making ``line_size_scaling`` very large (>150) will lead to text getting detected as lines.
 
-Here's one `PDF <../_static/pdf/short_lines.pdf>`__ where small lines separating the the headers don't get detected with the default value of 15.
+Here's a `PDF <../_static/pdf/short_lines.pdf>`__ where small lines separating the the headers don't get detected with the default value of 15.
 
 .. figure:: ../_static/png/short_lines.png
     :alt: A PDF table with short lines
@@ -280,7 +286,8 @@ Let's :ref:`plot the table <geometry_table>` for this PDF.
 
 ::
 
-    >>> camelot.plot_geometry('short_lines.pdf', mesh=True, geometry_type='table')
+    >>> tables = camelot.read_pdf('short_lines.pdf')
+    >>> tables[0].plot('table')
 
 .. figure:: ../_static/png/short_lines_1.png
     :alt: A plot of the PDF table with short lines
@@ -290,17 +297,17 @@ Clearly, the smaller lines separating the headers, couldn't be detected. Let's t
 
 ::
 
-    >>> camelot.plot_geometry('short_lines.pdf', mesh=True, geometry_type='table', line_size_scaling=40)
+    >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40)
+    >>> tables[0].plot('table')
 
 .. figure:: ../_static/png/short_lines_2.png
     :alt: An improved plot of the PDF table with short lines
     :align: left
 
-Voila! Camelot can now see those lines. Let's use this value in :meth:`read_pdf() <camelot.read_pdf>` and get our table.
+Voila! Camelot can now see those lines. Let's get our table.
 
 ::
 
-    >>> tables = camelot.read_pdf('short_lines.pdf', mesh=True, line_size_scaling=40)
     >>> tables[0].df
 
 .. csv-table::
@@ -332,7 +339,7 @@ We'll use the `PDF <../_static/pdf/short_lines.pdf>`__ from the previous example
 
 ::
 
-    >>> tables = camelot.read_pdf('short_lines.pdf', mesh=True, line_size_scaling=40, shift_text=[''])
+    >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40, shift_text=[''])
     >>> tables[0].df
 
 .. csv-table::
@@ -353,7 +360,7 @@ No surprises there, it did remain in place (observe the strings "2400" and "All 
 
 ::
 
-    >>> tables = camelot.read_pdf('short_lines.pdf', mesh=True, line_size_scaling=40, shift_text=['r', 'b'])
+    >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40, shift_text=['r', 'b'])
     >>> tables[0].df
 
 .. csv-table::
@@ -381,7 +388,7 @@ Let's try it out on this `PDF <../_static/pdf/copy_text.pdf>`__. First, let's ch
 
 ::
 
-    >>> tables = camelot.read_pdf('copy_text.pdf', mesh=True)
+    >>> tables = camelot.read_pdf('copy_text.pdf')
     >>> tables[0].df
 
 .. csv-table::
@@ -398,7 +405,7 @@ We don't need anything else. Now, let's pass ``copy_text=['v']`` to copy text in
 
 ::
 
-    >>> tables = camelot.read_pdf('copy_text.pdf', mesh=True, copy_text=['v'])
+    >>> tables = camelot.read_pdf('copy_text.pdf', copy_text=['v'])
     >>> tables[0].df
 
 .. csv-table::
