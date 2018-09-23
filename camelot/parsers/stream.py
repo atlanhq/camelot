@@ -333,10 +333,19 @@ class Stream(BaseParser):
         table.shape = table.df.shape
 
         whitespace = compute_whitespace(data)
+        table.flavor = 'stream'
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1
         table.page = int(os.path.basename(self.rootname).replace('page-', ''))
+
+        # for plotting
+        _text = []
+        _text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
+        _text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])
+        table._text = _text
+        table._image = None
+        table._segments = None
 
         return table
 
@@ -347,7 +356,7 @@ class Stream(BaseParser):
         if not self.horizontal_text:
             logger.info("No tables found on {}".format(
                 os.path.basename(self.rootname)))
-            return [], self.g
+            return []
 
         self._generate_table_bbox()
 
@@ -359,11 +368,4 @@ class Stream(BaseParser):
             table = self._generate_table(table_idx, cols, rows)
             _tables.append(table)
 
-        if self.debug:
-            text = []
-            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
-            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])
-            self.g.text = text
-            self.g.tables = _tables
-
-        return _tables, self.g
+        return _tables

@@ -2,22 +2,22 @@ from .handlers import PDFHandler
 from .utils import validate_input, remove_extra
 
 
-def read_pdf(filepath, pages='1', mesh=False, **kwargs):
+def read_pdf(filepath, pages='1', flavor='lattice', **kwargs):
     """Read PDF and return parsed data tables.
 
-    Note: kwargs annotated with ^ can only be used with mesh=False
-    and kwargs annotated with * can only be used with mesh=True.
+    Note: kwargs annotated with ^ can only be used with flavor='stream'
+    and kwargs annotated with * can only be used with flavor='lattice'.
 
     Parameters
     ----------
     filepath : str
         Path to pdf file.
-    pages : str
+    pages : str, optional (default: '1')
         Comma-separated page numbers to parse.
         Example: 1,3,4 or 1,4-end
-    mesh : bool (default: False)
-        Whether or not to use Lattice method of parsing. Stream
-        is used by default.
+    flavor : str (default: 'lattice')
+        The parsing method to use ('lattice' or 'stream').
+        Lattice is used by default.
     table_area : list, optional (default: None)
         List of table areas to process as strings of the form
         x1,y1,x2,y2 where (x1, y1) -> left-top and
@@ -85,8 +85,8 @@ def read_pdf(filepath, pages='1', mesh=False, **kwargs):
     tables : camelot.core.TableList
 
     """
-    validate_input(kwargs, mesh=mesh)
+    validate_input(kwargs, flavor=flavor)
     p = PDFHandler(filepath, pages)
-    kwargs = remove_extra(kwargs, mesh=mesh)
-    tables, __ = p.parse(mesh=mesh, **kwargs)
+    kwargs = remove_extra(kwargs, flavor=flavor)
+    tables, __ = p.parse(flavor=flavor, **kwargs)
     return tables

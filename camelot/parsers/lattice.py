@@ -194,7 +194,8 @@ class Lattice(BaseParser):
             stderr=subprocess.STDOUT)
 
     def _generate_table_bbox(self):
-        self.image, self.threshold = adaptive_threshold(self.imagename, process_background=self.process_background,
+        self.image, self.threshold = adaptive_threshold(
+            self.imagename, process_background=self.process_background,
             blocksize=self.threshold_blocksize, c=self.threshold_constant)
         image_width = self.image.shape[1]
         image_height = self.image.shape[0]
@@ -297,10 +298,19 @@ class Lattice(BaseParser):
         table.shape = table.df.shape
 
         whitespace = compute_whitespace(data)
+        table.flavor = 'lattice'
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1
         table.page = int(os.path.basename(self.rootname).replace('page-', ''))
+
+        # for plotting
+        _text = []
+        _text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
+        _text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])
+        table._text = _text
+        table._image = (self.image, self.table_bbox_unscaled)
+        table._segments = (self.vertical_segments, self.horizontal_segments)
 
         return table
 
@@ -311,7 +321,7 @@ class Lattice(BaseParser):
         if not self.horizontal_text:
             logger.info("No tables found on {}".format(
                 os.path.basename(self.rootname)))
-            return [], self.g
+            return []
 
         self._generate_image()
         self._generate_table_bbox()
@@ -324,13 +334,4 @@ class Lattice(BaseParser):
             table = self._generate_table(table_idx, cols, rows, v_s=v_s, h_s=h_s)
             _tables.append(table)
 
-        if self.debug:
-            text = []
-            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.horizontal_text])
-            text.extend([(t.x0, t.y0, t.x1, t.y1) for t in self.vertical_text])
-            self.g.text = text
-            self.g.images = (self.image, self.table_bbox_unscaled)
-            self.g.segments = (self.vertical_segments, self.horizontal_segments)
-            self.g.tables = _tables
-
-        return _tables, self.g
+        return _tables

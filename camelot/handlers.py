@@ -2,7 +2,7 @@ import os
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
-from .core import TableList, GeometryList
+from .core import TableList
 from .parsers import Stream, Lattice
 from .utils import (TemporaryDirectory, get_page_layout, get_text_objects,
                     get_rotation)
@@ -17,7 +17,7 @@ class PDFHandler(object):
     ----------
     filename : str
         Path to pdf file.
-    pages : str
+    pages : str, optional (default: '1')
         Comma-separated page numbers to parse.
         Example: 1,3,4 or 1,4-end
 
@@ -35,7 +35,7 @@ class PDFHandler(object):
         ----------
         filename : str
             Path to pdf file.
-        pages : str
+        pages : str, optional (default: '1')
             Comma-separated page numbers to parse.
             Example: 1,3,4 or 1,4-end
 
@@ -112,15 +112,15 @@ class PDFHandler(object):
                 with open(fpath, 'wb') as f:
                     outfile.write(f)
 
-    def parse(self, mesh=False, **kwargs):
+    def parse(self, flavor='lattice', **kwargs):
         """Extracts tables by calling parser.get_tables on all single
         page pdfs.
 
         Parameters
         ----------
-        mesh : bool (default: False)
-            Whether or not to use Lattice method of parsing. Stream
-            is used by default.
+        flavor : str (default: 'lattice')
+            The parsing method to use ('lattice' or 'stream').
+            Lattice is used by default.
         kwargs : dict
             See camelot.read_pdf kwargs.
 
@@ -134,15 +134,13 @@ class PDFHandler(object):
 
         """
         tables = []
-        geometry = []
         with TemporaryDirectory() as tempdir:
             for p in self.pages:
                 self._save_page(self.filename, p, tempdir)
             pages = [os.path.join(tempdir, 'page-{0}.pdf'.format(p))
                      for p in self.pages]
-            parser = Stream(**kwargs) if not mesh else Lattice(**kwargs)
+            parser = Lattice(**kwargs) if flavor == 'lattice' else Stream(**kwargs)
             for p in pages:
-                t, g = parser.extract_tables(p)
+                t = parser.extract_tables(p)
                 tables.extend(t)
-                geometry.append(g)
-        return TableList(tables), GeometryList(geometry)
+        return TableList(tables)
