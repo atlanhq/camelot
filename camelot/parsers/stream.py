@@ -47,15 +47,11 @@ class Stream(BaseParser):
         PDFMiner margins. (char_margin, line_margin, word_margin)
 
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
-    debug : bool, optional (default: False)
-        Whether or not to return all text objects on the page
-        which can be used to generate a matplotlib plot, to get
-        values for table_area(s), columns and debugging.
 
     """
     def __init__(self, table_area=None, columns=None, split_text=False,
                  flag_size=False, row_close_tol=2, col_close_tol=0,
-                 margins=(1.0, 0.5, 0.1), debug=False):
+                 margins=(1.0, 0.5, 0.1)):
         self.table_area = table_area
         self.columns = columns
         self._validate_columns()
@@ -64,7 +60,6 @@ class Stream(BaseParser):
         self.row_close_tol = row_close_tol
         self.col_close_tol = col_close_tol
         self.char_margin, self.line_margin, self.word_margin = margins
-        self.debug = debug
 
     @staticmethod
     def _text_bbox(t_bbox):

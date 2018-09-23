@@ -4,6 +4,13 @@ import matplotlib.patches as patches
 
 
 def plot_text(text):
+    """Generates a plot for all text present on the PDF page.
+
+    Parameters
+    ----------
+    text : list
+
+    """
     fig = plt.figure()
     ax = fig.add_subplot(111, aspect='equal')
     xs, ys = [], []
@@ -23,6 +30,13 @@ def plot_text(text):
 
 
 def plot_table(table):
+    """Generates a plot for the table.
+
+    Parameters
+    ----------
+    table : camelot.core.Table
+
+    """
     for row in table.cells:
         for cell in row:
             if cell.left:
@@ -41,6 +55,14 @@ def plot_table(table):
 
 
 def plot_contour(image):
+    """Generates a plot for all table boundaries present on the
+    PDF page.
+
+    Parameters
+    ----------
+    image : tuple
+
+    """
     img, table_bbox = image
     for t in table_bbox.keys():
         cv2.rectangle(img, (t[0], t[1]),
@@ -50,6 +72,14 @@ def plot_contour(image):
 
 
 def plot_joint(image):
+    """Generates a plot for all line intersections present on the
+    PDF page.
+
+    Parameters
+    ----------
+    image : tuple
+
+    """
     img, table_bbox = image
     x_coord = []
     y_coord = []
@@ -63,6 +93,13 @@ def plot_joint(image):
 
 
 def plot_line(segments):
+    """Generates a plot for all line segments present on the PDF page.
+
+    Parameters
+    ----------
+    segments : tuple
+
+    """
     vertical, horizontal = segments
     for v in vertical:
         plt.plot([v[0], v[2]], [v[1], v[3]])

@@ -77,17 +77,13 @@ class Lattice(BaseParser):
         PDFMiner margins. (char_margin, line_margin, word_margin)
 
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
-    debug : bool, optional (default: False)
-        Whether or not to return all text objects on the page
-        which can be used to generate a matplotlib plot, to get
-        values for table_area(s) and debugging.
 
     """
     def __init__(self, table_area=None, process_background=False,
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
                  split_text=False, flag_size=False, line_close_tol=2,
                  joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
-                 iterations=0, margins=(1.0, 0.5, 0.1), debug=False):
+                 iterations=0, margins=(1.0, 0.5, 0.1)):
         self.table_area = table_area
         self.process_background = process_background
         self.line_size_scaling = line_size_scaling
@@ -101,7 +97,6 @@ class Lattice(BaseParser):
         self.threshold_constant = threshold_constant
         self.iterations = iterations
         self.char_margin, self.line_margin, self.word_margin = margins
-        self.debug = debug
 
     @staticmethod
     def _reduce_index(t, idx, shift_text):
