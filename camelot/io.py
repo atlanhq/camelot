@@ -88,5 +88,5 @@ def read_pdf(filepath, pages='1', flavor='lattice', **kwargs):
     validate_input(kwargs, flavor=flavor)
     p = PDFHandler(filepath, pages)
     kwargs = remove_extra(kwargs, flavor=flavor)
-    tables, __ = p.parse(flavor=flavor, **kwargs)
+    tables = p.parse(flavor=flavor, **kwargs)
     return tables

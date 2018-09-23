@@ -8,8 +8,8 @@ def plot_text(text):
     ax = fig.add_subplot(111, aspect='equal')
     xs, ys = [], []
     for t in text:
-        xs.extend([t[0], t[1]])
-        ys.extend([t[2], t[3]])
+        xs.extend([t[0], t[2]])
+        ys.extend([t[1], t[3]])
         ax.add_patch(
             patches.Rectangle(
                 (t[0], t[1]),
@@ -57,9 +57,7 @@ def plot_joint(image):
         for coord in table_bbox[k]:
             x_coord.append(coord[0])
             y_coord.append(coord[1])
-    max_x, max_y = max(x_coord), max(y_coord)
     plt.plot(x_coord, y_coord, 'ro')
-    plt.axis([0, max_x + 100, max_y + 100, 0])
     plt.imshow(img)
     plt.show()
 
