@@ -82,7 +82,7 @@ def cli(ctx, *args, **kwargs):
 @click.argument("filepath", type=click.Path(exists=True))
 @pass_config
 def lattice(c, *args, **kwargs):
-    """Use lines between text to generate table."""
+    """Use lines between text to parse table."""
     conf = c.config
     pages = conf.pop("pages")
     output = conf.pop("output")
@@ -127,7 +127,7 @@ def lattice(c, *args, **kwargs):
 @click.argument("filepath", type=click.Path(exists=True))
 @pass_config
 def stream(c, *args, **kwargs):
-    """Use spaces between text to generate table."""
+    """Use spaces between text to parse table."""
     conf = c.config
     pages = conf.pop("pages")
     output = conf.pop("output")

@@ -8,7 +8,6 @@ API Reference
 Main Interface
 --------------
 .. autofunction:: camelot.read_pdf
-.. autofunction:: camelot.plot_geometry
 
 Lower-Level Classes
 -------------------

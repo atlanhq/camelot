@@ -21,7 +21,7 @@ logger = setup_logging(__name__)
 
 class Lattice(BaseParser):
     """Lattice method of parsing looks for lines between text
-    to generate table.
+    to parse table.
 
     Parameters
     ----------

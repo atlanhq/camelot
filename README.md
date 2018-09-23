@@ -12,7 +12,7 @@
 
 <pre>
 >>> import camelot
->>> tables = camelot.read_pdf('foo.pdf', mesh=True)
+>>> tables = camelot.read_pdf('foo.pdf')
 >>> tables
 &lt;TableList tables=1&gt;
 >>> tables.export('foo.csv', f='csv', compress=True) # json, excel, html

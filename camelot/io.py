@@ -85,6 +85,10 @@ def read_pdf(filepath, pages='1', flavor='lattice', **kwargs):
     tables : camelot.core.TableList
 
     """
+    if flavor not in ['lattice', 'stream']:
+        raise NotImplementedError("Unknown flavor specified."
+                                  " Use either 'lattice' or 'stream'")
+
     validate_input(kwargs, flavor=flavor)
     p = PDFHandler(filepath, pages)
     kwargs = remove_extra(kwargs, flavor=flavor)

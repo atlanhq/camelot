@@ -16,7 +16,7 @@ logger = setup_logging(__name__)
 
 class Stream(BaseParser):
     """Stream method of parsing looks for spaces between text
-    to generate table.
+    to parse table.
 
     If you want to specify columns when specifying multiple table
     areas, make sure that the length of both lists are equal.
