@@ -16,7 +16,7 @@ logger = setup_logging(__name__)
 
 class Stream(BaseParser):
     """Stream method of parsing looks for spaces between text
-    to form a table.
+    to generate table.
 
     If you want to specify columns when specifying multiple table
     areas, make sure that the length of both lists are equal.
@@ -51,7 +51,7 @@ class Stream(BaseParser):
     """
     def __init__(self, table_area=None, columns=None, split_text=False,
                  flag_size=False, row_close_tol=2, col_close_tol=0,
-                 margins=(1.0, 0.5, 0.1)):
+                 margins=(1.0, 0.5, 0.1), **kwargs):
         self.table_area = table_area
         self.columns = columns
         self._validate_columns()

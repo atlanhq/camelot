@@ -21,7 +21,7 @@ logger = setup_logging(__name__)
 
 class Lattice(BaseParser):
     """Lattice method of parsing looks for lines between text
-    to form a table.
+    to generate table.
 
     Parameters
     ----------
@@ -83,7 +83,7 @@ class Lattice(BaseParser):
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
                  split_text=False, flag_size=False, line_close_tol=2,
                  joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
-                 iterations=0, margins=(1.0, 0.5, 0.1)):
+                 iterations=0, margins=(1.0, 0.5, 0.1), **kwargs):
         self.table_area = table_area
         self.process_background = process_background
         self.line_size_scaling = line_size_scaling
