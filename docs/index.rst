@@ -59,12 +59,13 @@ Why Camelot?
 
 - **You are in control**: Unlike other libraries and tools which either give a nice output or fail miserably (with no in-between), Camelot gives you the power to tweak table extraction. (Since everything in the real world, including PDF table extraction, is fuzzy.)
 - **Metrics**: *Bad* tables can be discarded based on metrics like accuracy and whitespace, without ever having to manually look at each table.
-- Each table is a **pandas DataFrame**, which enables seamless integration into data analysis workflows.
+- Each table is a **pandas DataFrame**, which enables seamless integration into `ETL and data analysis workflows`_.
 - **Export** to multiple formats, including json, excel and html.
 - Simple and Elegant API, written in **Python**!
 
 See `comparison with other PDF parsing libraries and tools`_.
 
+.. _ETL and data analysis workflows: https://gist.github.com/vinayak-mehta/e5949f7c2410a0e12f25d3682dc9e873
 .. _comparison with other PDF parsing libraries and tools: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Parsing-libraries-and-tools
 
 The User Guide
