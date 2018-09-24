@@ -76,7 +76,7 @@ Note: Use a [virtualenv](https://virtualenv.pypa.io/en/stable/) if you don't wan
 
 ## Documentation
 
-Great documentation is available at [insert link](http://camelot-py.readthedocs.io/).
+Great documentation is available at [http://camelot-py.readthedocs.io/](http://camelot-py.readthedocs.io/).
 
 ## Development
 
