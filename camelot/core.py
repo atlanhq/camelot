@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import json
 import zipfile
@@ -11,7 +13,7 @@ from .plotting import *
 
 class Cell(object):
     """Defines a cell in a table with coordinates relative to a
-    left-bottom origin. (pdf coordinate space)
+    left-bottom origin. (PDF coordinate space)
 
     Parameters
     ----------
@@ -89,7 +91,7 @@ class Cell(object):
 
 class Table(object):
     """Defines a table with coordinates relative to a left-bottom
-    origin. (pdf coordinate space)
+    origin. (PDF coordinate space)
 
     Parameters
     ----------
@@ -110,9 +112,9 @@ class Table(object):
     whitespace : float
         Percentage of whitespace in the table.
     order : int
-        Table number on pdf page.
+        Table number on PDF page.
     page : int
-        Pdf page number.
+        PDF page number.
 
     """
     def __init__(self, cols, rows):

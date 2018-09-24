@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 from setuptools import find_packages
 from pkg_resources import parse_version
@@ -8,16 +10,8 @@ about = {}
 with open(os.path.join(here, 'camelot', '__version__.py'), 'r') as f:
     exec(f.read(), about)
 
-# TODO: Move these to __version__.py
-NAME = 'camelot-py'
-VERSION = about['__version__']
-DESCRIPTION = 'PDF Table Parsing for Humans'
-with open('README.md') as f:
-    LONG_DESCRIPTION = f.read()
-URL = 'https://github.com/socialcopsdev/camelot'
-AUTHOR = 'Vinayak Mehta'
-AUTHOR_EMAIL = 'vmehta94@gmail.com'
-LICENSE = 'MIT License'
+with open('README.md', 'r') as f:
+    readme = f.read()
 
 
 def setup_package():
@@ -31,14 +25,14 @@ def setup_package():
         for line in f:
             dev_reqs.append(line.strip())
 
-    metadata = dict(name=NAME,
-                    version=VERSION,
-                    description=DESCRIPTION,
-                    long_description=LONG_DESCRIPTION,
-                    url=URL,
-                    author=AUTHOR,
-                    author_email=AUTHOR_EMAIL,
-                    license=LICENSE,
+    metadata = dict(name=about['__title__'],
+                    version=about['__version__'],
+                    description=about['__description__'],
+                    long_description=readme,
+                    url=about['__url__'],
+                    author=about['__author__'],
+                    author_email=about['__author_email__'],
+                    license=about['__license__'],
                     packages=find_packages(exclude=('tests',)),
                     install_requires=reqs,
                     extras_require={

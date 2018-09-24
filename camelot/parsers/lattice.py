@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import division
 import os
 import copy
@@ -21,41 +23,35 @@ logger = setup_logging(__name__)
 
 class Lattice(BaseParser):
     """Lattice method of parsing looks for lines between text
-    to parse table.
+    to parse the table.
 
     Parameters
     ----------
     table_area : list, optional (default: None)
-        List of table areas to analyze as strings of the form
-        x1,y1,x2,y2 where (x1, y1) -> left-top and
-        (x2, y2) -> right-bottom in pdf coordinate space.
+        List of table area strings of the form x1,y1,x2,y2
+        where (x1, y1) -> left-top and (x2, y2) -> right-bottom
+        in PDF coordinate space.
     process_background : bool, optional (default: False)
-        Whether or not to process lines that are in background.
+        Process background lines.
     line_size_scaling : int, optional (default: 15)
-        Factor by which the page dimensions will be divided to get
-        smallest length of lines that should be detected.
-
-        The larger this value, smaller the detected lines. Making it
-        too large will lead to text being detected as lines.
+        Line size scaling factor. The larger the value the smaller
+        the detected lines. Making it very large will lead to text
+        being detected as lines.
     copy_text : list, optional (default: None)
         {'h', 'v'}
-        Select one or more strings from above and pass them as a list
-        to specify the direction in which text should be copied over
-        when a cell spans multiple rows or columns.
+        Direction in which text in a spanning cell will be copied
+        over.
     shift_text : list, optional (default: ['l', 't'])
         {'l', 'r', 't', 'b'}
-        Select one or more strings from above and pass them as a list
-        to specify where the text in a spanning cell should flow.
+        Direction in which text in a spanning cell will flow.
     split_text : bool, optional (default: False)
-        Whether or not to split a text line if it spans across
-        multiple cells.
+        Split text that spans across multiple cells.
     flag_size : bool, optional (default: False)
-        Whether or not to highlight a substring using <s></s>
-        if its size is different from rest of the string. (Useful for
-        super and subscripts)
+        Flag text based on font size. Useful to detect
+        super/subscripts. Adds <s></s> around flagged text.
     line_close_tol : int, optional (default: 2)
-        Tolerance parameter used to merge vertical and horizontal
-        detected lines which lie close to each other.
+        Tolerance parameter used to merge close vertical and horizontal
+        lines.
     joint_close_tol : int, optional (default: 2)
         Tolerance parameter used to decide whether the detected lines
         and points lie close to each other.
@@ -74,7 +70,7 @@ class Lattice(BaseParser):
 
         For more information, refer `OpenCV's dilate <https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html#dilate>`_.
     margins : tuple
-        PDFMiner margins. (char_margin, line_margin, word_margin)
+        PDFMiner char_margin, line_margin and word_margin.
 
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 

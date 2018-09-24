@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from pprint import pprint
 
 import click
@@ -20,23 +21,22 @@ pass_config = click.make_pass_decorator(Config)
 
 @click.group()
 @click.version_option(version=__version__)
-@click.option('-p', '--pages', default='1', help='Comma-separated page numbers'
-              ' to parse. Example: 1,3,4 or 1,4-end')
-@click.option('-o', '--output', help='Output filepath.')
+@click.option('-p', '--pages', default='1', help='Comma-separated page numbers.'
+              ' Example: 1,3,4 or 1,4-end.')
+@click.option('-o', '--output', help='Output file path.')
 @click.option('-f', '--format',
               type=click.Choice(['csv', 'json', 'excel', 'html']),
               help='Output file format.')
-@click.option('-z', '--zip', is_flag=True, help='Whether or not to create a ZIP'
-              ' archive.')
-@click.option('-split', '--split_text', is_flag=True, help='Whether or not to'
-              ' split text if it spans across multiple cells.')
-@click.option('-flag', '--flag_size', is_flag=True, help='(inactive) Whether or'
-              ' not to flag text which has uncommon size. (Useful to detect'
-              ' super/subscripts)')
+@click.option('-z', '--zip', is_flag=True, help='Create ZIP archive.')
+@click.option('-split', '--split_text', is_flag=True,
+              help='Split text that spans across multiple cells.')
+@click.option('-flag', '--flag_size', is_flag=True, help='Flag text based on'
+              ' font size. Useful to detect super/subscripts.')
 @click.option('-M', '--margins', nargs=3, default=(1.0, 0.5, 0.1),
-              help='char_margin, line_margin, word_margin for PDFMiner.')
+              help='PDFMiner char_margin, line_margin and word_margin.')
 @click.pass_context
 def cli(ctx, *args, **kwargs):
+    """Camelot: PDF Table Extraction for Humans"""
     ctx.obj = Config()
     for key, value in kwargs.iteritems():
         ctx.obj.set_config(key, value)
@@ -44,45 +44,42 @@ def cli(ctx, *args, **kwargs):
 
 @cli.command('lattice')
 @click.option('-T', '--table_area', default=[], multiple=True,
-              help='Table areas (x1,y1,x2,y2) to process.\n'
-              ' x1, y1 -> left-top and x2, y2 -> right-bottom')
+              help='Table areas to process. Example: x1,y1,x2,y2'
+              ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-back', '--process_background', is_flag=True,
-              help='Whether or not to process lines that are in'
-              ' background.')
+              help='Process background lines.')
 @click.option('-scale', '--line_size_scaling', default=15,
-              help='Factor by which the page dimensions will be'
-              ' divided to get smallest length of detected lines.')
+              help='Line size scaling factor. The larger the value,'
+              ' the smaller the detected lines.')
 @click.option('-copy', '--copy_text', default=[], type=click.Choice(['h', 'v']),
-              multiple=True, help='Specify direction'
-              ' in which text will be copied over in a spanning cell.')
+              multiple=True, help='Direction in which text in a spanning cell'
+              ' will be copied over.')
 @click.option('-shift', '--shift_text', default=['l', 't'],
               type=click.Choice(['', 'l', 'r', 't', 'b']), multiple=True,
-              help='Specify direction in which text in a spanning'
-              ' cell should flow.')
+              help='Direction in which text in a spanning cell will flow.')
 @click.option('-l', '--line_close_tol', default=2,
               help='Tolerance parameter used to merge close vertical'
-              ' lines and close horizontal lines.')
+              ' and horizontal lines.')
 @click.option('-j', '--joint_close_tol', default=2,
               help='Tolerance parameter used to decide whether'
               ' the detected lines and points lie close to each other.')
 @click.option('-block', '--threshold_blocksize', default=15,
               help='For adaptive thresholding, size of a pixel'
               ' neighborhood that is used to calculate a threshold value for'
-              ' the pixel: 3, 5, 7, and so on.')
+              ' the pixel. Example: 3, 5, 7, and so on.')
 @click.option('-const', '--threshold_constant', default=-2,
               help='For adaptive thresholding, constant subtracted'
-              ' from the mean or weighted mean.\nNormally, it is positive but'
+              ' from the mean or weighted mean. Normally, it is positive but'
               ' may be zero or negative as well.')
 @click.option('-I', '--iterations', default=0,
-              help='Number of times for erosion/dilation is'
-              ' applied.')
+              help='Number of times for erosion/dilation will be applied.')
 @click.option('-plot', '--plot_type',
               type=click.Choice(['text', 'table', 'contour', 'joint', 'line']),
-              help='Plot geometry found on PDF page for debugging.')
+              help='Plot geometry found on PDF page, for debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config
 def lattice(c, *args, **kwargs):
-    """Use lines between text to parse table."""
+    """Use lines between text to parse the table."""
     conf = c.config
     pages = conf.pop('pages')
     output = conf.pop('output')
@@ -105,29 +102,29 @@ def lattice(c, *args, **kwargs):
             table.plot(plot_type)
     else:
         if output is None:
-            raise click.UsageError('Please specify output filepath using --output')
+            raise click.UsageError('Please specify output file path using --output')
         if f is None:
-            raise click.UsageError('Please specify output format using --format')
+            raise click.UsageError('Please specify output file format using --format')
         tables.export(output, f=f, compress=compress)
 
 
 @cli.command('stream')
 @click.option('-T', '--table_area', default=[], multiple=True,
-              help='Table areas (x1,y1,x2,y2) to process.\n'
-              ' x1, y1 -> left-top and x2, y2 -> right-bottom')
+              help='Table areas to process. Example: x1,y1,x2,y2'
+              ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-C', '--columns', default=[], multiple=True,
-              help='x-coordinates of column separators.')
-@click.option('-r', '--row_close_tol', default=2, help='Rows will be'
-              ' formed by combining text vertically within this tolerance.')
-@click.option('-c', '--col_close_tol', default=0, help='Columns will'
-              ' be formed by combining text horizontally within this tolerance.')
+              help='X coordinates of column separators.')
+@click.option('-r', '--row_close_tol', default=2, help='Tolerance parameter'
+              ' used to combine text vertically, to generate rows.')
+@click.option('-c', '--col_close_tol', default=0, help='Tolerance parameter'
+              ' used to combine text horizontally, to generate columns.')
 @click.option('-plot', '--plot_type',
               type=click.Choice(['text', 'table']),
               help='Plot geometry found on PDF page for debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config
 def stream(c, *args, **kwargs):
-    """Use spaces between text to parse table."""
+    """Use spaces between text to parse the table."""
     conf = c.config
     pages = conf.pop('pages')
     output = conf.pop('output')
@@ -149,7 +146,7 @@ def stream(c, *args, **kwargs):
             table.plot(plot_type)
     else:
         if output is None:
-            raise click.UsageError('Please specify output filepath using --output')
+            raise click.UsageError('Please specify output file path using --output')
         if f is None:
-            raise click.UsageError('Please specify output format using --format')
+            raise click.UsageError('Please specify output file format using --format')
         tables.export(output, f=f, compress=compress)

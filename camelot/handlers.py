@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
@@ -10,16 +12,16 @@ from .utils import (TemporaryDirectory, get_page_layout, get_text_objects,
 
 class PDFHandler(object):
     """Handles all operations like temp directory creation, splitting
-    file into single page pdfs, parsing each pdf and then removing the
+    file into single page PDFs, parsing each PDF and then removing the
     temp directory.
 
     Parameters
     ----------
     filename : str
-        Path to pdf file.
+        Path to PDF file.
     pages : str, optional (default: '1')
-        Comma-separated page numbers to parse.
-        Example: 1,3,4 or 1,4-end
+        Comma-separated page numbers.
+        Example: 1,3,4 or 1,4-end.
 
     """
     def __init__(self, filename, pages='1'):
@@ -34,10 +36,10 @@ class PDFHandler(object):
         Parameters
         ----------
         filename : str
-            Path to pdf file.
+            Path to PDF file.
         pages : str, optional (default: '1')
-            Comma-separated page numbers to parse.
-            Example: 1,3,4 or 1,4-end
+            Comma-separated page numbers.
+            Example: 1,3,4 or 1,4-end.
 
         Returns
         -------
@@ -67,16 +69,16 @@ class PDFHandler(object):
         return sorted(set(P))
 
     def _save_page(self, filename, page, temp):
-        """Saves specified page from pdf into a temporary directory.
+        """Saves specified page from PDF into a temporary directory.
 
         Parameters
         ----------
         filename : str
-            Path to pdf file.
+            Path to PDF file.
         page : int
-            Page number
+            Page number.
         temp : str
-            Tmp directory
+            Tmp directory.
 
         """
         with open(filename, 'rb') as fileobj:
@@ -91,7 +93,7 @@ class PDFHandler(object):
             with open(fpath, 'wb') as f:
                 outfile.write(f)
             layout, dim = get_page_layout(fpath)
-            # fix rotated pdf
+            # fix rotated PDF
             lttextlh = get_text_objects(layout, ltype="lh")
             lttextlv = get_text_objects(layout, ltype="lv")
             ltchar = get_text_objects(layout, ltype="char")
@@ -114,7 +116,7 @@ class PDFHandler(object):
 
     def parse(self, flavor='lattice', **kwargs):
         """Extracts tables by calling parser.get_tables on all single
-        page pdfs.
+        page PDFs.
 
         Parameters
         ----------
@@ -127,10 +129,10 @@ class PDFHandler(object):
         Returns
         -------
         tables : camelot.core.TableList
-            List of tables found in pdf.
+            List of tables found in PDF.
         geometry : camelot.core.GeometryList
-            List of geometry objects (contours, lines, joints)
-            found in pdf.
+            List of geometry objects (contours, lines, joints) found
+            in PDF.
 
         """
         tables = []

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import division
 import os
 import logging
@@ -16,7 +18,7 @@ logger = setup_logging(__name__)
 
 class Stream(BaseParser):
     """Stream method of parsing looks for spaces between text
-    to parse table.
+    to parse the table.
 
     If you want to specify columns when specifying multiple table
     areas, make sure that the length of both lists are equal.
@@ -24,27 +26,25 @@ class Stream(BaseParser):
     Parameters
     ----------
     table_area : list, optional (default: None)
-        List of table areas to analyze as strings of the form
-        x1,y1,x2,y2 where (x1, y1) -> left-top and
-        (x2, y2) -> right-bottom in pdf coordinate space.
+        List of table area strings of the form x1,y1,x2,y2
+        where (x1, y1) -> left-top and (x2, y2) -> right-bottom
+        in PDF coordinate space.
     columns : list, optional (default: None)
-        List of column x-coordinates as strings where the coordinates
+        List of column x-coordinates strings where the coordinates
         are comma-separated.
     split_text : bool, optional (default: False)
-        Whether or not to split a text line if it spans across
-        multiple cells.
+        Split text that spans across multiple cells.
     flag_size : bool, optional (default: False)
-        Whether or not to highlight a substring using <s></s>
-        if its size is different from rest of the string. (Useful for
-        super and subscripts)
+        Flag text based on font size. Useful to detect
+        super/subscripts. Adds <s></s> around flagged text.
     row_close_tol : int, optional (default: 2)
-        Rows will be formed by combining text vertically
-        within this tolerance.
+        Tolerance parameter used to combine text vertically,
+        to generate rows.
     col_close_tol : int, optional (default: 0)
-        Columns will be formed by combining text horizontally
-        within this tolerance.
+        Tolerance parameter used to combine text horizontally,
+        to generate columns.
     margins : tuple, optional (default: (1.0, 0.5, 0.1))
-        PDFMiner margins. (char_margin, line_margin, word_margin)
+        PDFMiner char_margin, line_margin and word_margin.
 
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 

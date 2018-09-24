@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 
 from ..utils import get_page_layout, get_text_objects
