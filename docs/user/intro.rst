@@ -14,8 +14,8 @@ Sadly, a lot of open data is given out as tables which are trapped inside PDF fi
 
 .. _PostScript: http://www.planetpdf.com/planetpdf/pdfs/warnock_camelot.pdf
 
-Why another PDF Table Parsing library?
---------------------------------------
+Why another PDF Table Extraction library?
+-----------------------------------------
 
 There are both open (`Tabula`_, `pdf-table-extract`_) and closed-source (`smallpdf`_, `PDFTables`_) tools that are widely used, to extract tables from PDF files. They either give a nice output, or fail miserably. There is no in-between. This is not helpful, since everything in the real world, including PDF table extraction, is fuzzy, leading to creation of adhoc table extraction scripts for each different type of PDF that the user wants to parse.
 
@@ -27,7 +27,7 @@ Here is a `comparison`_ of Camelot's output with outputs from other open-source 
 .. _pdf-table-extract: https://github.com/ashima/pdf-table-extract
 .. _PDFTables: https://pdftables.com/
 .. _Smallpdf: https://smallpdf.com
-.. _comparison: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Parsing-libraries-and-tools
+.. _comparison: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools
 
 What's in a name?
 -----------------

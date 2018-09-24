@@ -5,10 +5,10 @@ Quickstart
 
 In a hurry to extract tables from PDFs? This document gives a good introduction to help you get started with using Camelot.
 
-Parse a PDF
------------
+Read the PDF
+------------
 
-Parsing a PDF to extract tables with Camelot is very simple.
+Reading a PDF to extract tables with Camelot is very simple.
 
 Begin by importing the Camelot module::
 
@@ -47,7 +47,7 @@ Let's print the parsing report.
         'page': 1
     }
 
-Woah! The accuracy is top-notch and whitespace is less, that means the table was parsed correctly (most probably). You can access the table as a pandas DataFrame by using the :class:`table <camelot.core.Table>` object's ``df`` property.
+Woah! The accuracy is top-notch and whitespace is less, that means the table was extracted correctly (most probably). You can access the table as a pandas DataFrame by using the :class:`table <camelot.core.Table>` object's ``df`` property.
 
 ::
 
@@ -81,7 +81,7 @@ This will export all tables as CSV files at the path specified. Alternatively, y
 Specify page numbers
 --------------------
 
-By default, Camelot only parses the first page of the PDF. To specify multiple pages, you can use the ``pages`` keyword argument::
+By default, Camelot only uses the first page of the PDF to extract tables. To specify multiple pages, you can use the ``pages`` keyword argument::
 
     >>> camelot.read_pdf('your.pdf', pages='1,2,3')
 

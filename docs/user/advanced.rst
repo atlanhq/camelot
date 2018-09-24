@@ -77,7 +77,7 @@ This, as we shall later see, is very helpful with :ref:`Stream <stream>`, for no
 table
 ^^^^^
 
-Let's plot the table (to see if it was detected correctly or not). This geometry type, along with contour, line and joint is useful for debugging and improving the parsing output, in case the table wasn't detected correctly. More on that later.
+Let's plot the table (to see if it was detected correctly or not). This geometry type, along with contour, line and joint is useful for debugging and improving the extraction output, in case the table wasn't detected correctly. More on that later.
 
 ::
 
@@ -220,7 +220,7 @@ In this case, the text that `other tools`_ return, will be ``24.912``. This is h
 
 You can solve this by passing ``flag_size=True``, which will enclose the superscripts and subscripts with ``<s></s>``, based on font size, as shown below.
 
-.. _other tools: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Parsing-libraries-and-tools
+.. _other tools: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools
 
 ::
 

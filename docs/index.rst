@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Camelot: PDF Table Parsing for Humans
-=====================================
+Camelot: PDF Table Extraction for Humans
+========================================
 
 Release v\ |version|. (:ref:`Installation <install>`)
 
@@ -63,10 +63,10 @@ Why Camelot?
 - **Export** to multiple formats, including json, excel and html.
 - Simple and Elegant API, written in **Python**!
 
-See `comparison with other PDF parsing libraries and tools`_.
+See `comparison with other PDF table extraction libraries and tools`_.
 
 .. _ETL and data analysis workflows: https://gist.github.com/vinayak-mehta/e5949f7c2410a0e12f25d3682dc9e873
-.. _comparison with other PDF parsing libraries and tools: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Parsing-libraries-and-tools
+.. _comparison with other PDF table extraction libraries and tools: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools
 
 The User Guide
 --------------
