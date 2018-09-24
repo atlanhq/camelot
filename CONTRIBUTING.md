@@ -2,7 +2,7 @@
 
 If you're reading this, you're probably looking to contributing to Camelot. *Time is the only real currency*, and the fact that you're considering spending some here is *very* generous of you. Thank you very much!
 
-This document will help you get started with contributing documentation, code, testing and filing issues. If you have any questions, feel free to reach out to [Vinayak Mehta](http://vinayak-mehta.github.io), the author and maintainer.
+This document will help you get started with contributing documentation, code, testing and filing issues. If you have any questions, feel free to reach out to [Vinayak Mehta](https://vinayak-mehta.github.io), the author and maintainer.
 
 ## Code Of Conduct
 

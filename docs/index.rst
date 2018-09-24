@@ -61,7 +61,6 @@ Why Camelot?
 - **Metrics**: *Bad* tables can be discarded based on metrics like accuracy and whitespace, without ever having to manually look at each table.
 - Each table is a **pandas DataFrame**, which enables seamless integration into `ETL and data analysis workflows`_.
 - **Export** to multiple formats, including json, excel and html.
-- Simple and Elegant API, written in **Python**!
 
 See `comparison with other PDF table extraction libraries and tools`_.
 

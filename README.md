@@ -4,11 +4,11 @@
 
 **Camelot** is a Python library which makes it easy for *anyone* to extract tables from PDF files!
 
-![camelot-logo](docs/_static/png/camelot-logo.png)
+![camelot-logo](https://raw.githubusercontent.com/socialcopsdev/camelot/master/docs/_static/camelot.png)
 
 ---
 
-**Here's how you can extract tables from PDF files.** Check out the PDF used in this example, [here](docs/_static/pdf/foo.pdf).
+**Here's how you can extract tables from PDF files.** Check out the PDF used in this example, [here](https://github.com/socialcopsdev/camelot/blob/master/docs/_static/pdf/foo.pdf).
 
 <pre>
 >>> import camelot
@@ -38,7 +38,7 @@
 | 2032_2     | 0.17      | 57.8          | 21.7%                | 0.3%            | 2.7%            | 1.2%           |
 | 4171_1     | 0.07      | 173.9         | 58.1%                | 1.6%            | 2.1%            | 0.5%           |
 
-There's a [command-line interface](http://camelot-py.readthedocs.io/en/master/user/cli.html) too!
+There's a [command-line interface](https://camelot-py.readthedocs.io/en/latest/user/cli.html) too!
 
 ## Why Camelot?
 
@@ -51,7 +51,7 @@ See [comparison with other PDF table extraction libraries and tools](https://git
 
 ## Installation
 
-After [installing the dependencies](http://camelot-py.readthedocs.io/en/master/user/install.html), [tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/), you can simply use pip to install Camelot:
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
 
 <pre>
 $ pip install camelot-py
@@ -59,7 +59,7 @@ $ pip install camelot-py
 
 ### Alternatively
 
-After [installing the dependencies](http://camelot-py.readthedocs.io/en/master/user/install.html), clone the repo using:
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html), clone the repo using:
 
 <pre>
 $ git clone https://www.github.com/socialcopsdev/camelot
@@ -80,7 +80,7 @@ Great documentation is available at [http://camelot-py.readthedocs.io/](http://c
 
 ## Development
 
-The [Contributor's Guide](CONTRIBUTING.md) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
+The [Contributor's Guide](https://camelot-py.readthedocs.io/en/latest/dev/contributing.html) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
 
 ### Source code
 
@@ -112,4 +112,4 @@ Camelot uses [Semantic Versioning](https://semver.org/). For the available versi
 
 ## License
 
-This project is licensed under the MIT License, see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License, see the [LICENSE](https://github.com/socialcopsdev/camelot/blob/master/LICENSE) file for details.
