@@ -4,7 +4,8 @@
 
 # Camelot: PDF Table Extraction for Humans
 
-![license](https://img.shields.io/badge/license-MIT-lightgrey.svg) ![python-version](https://img.shields.io/badge/python-2.7-blue.svg)
+[![Build Status](https://travis-ci.org/socialcopsdev/camelot.svg?branch=master)](https://travis-ci.org/socialcopsdev/camelot) [![codecov.io](https://codecov.io/github/requests/requests/coverage.svg?branch=master)](https://codecov.io/github/requests/requests)
+ [![image](https://img.shields.io/pypi/v/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![image](https://img.shields.io/pypi/l/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![image](https://img.shields.io/pypi/pyversions/camelot-py.svg)](https://pypi.org/project/camelot-py/)
 
 **Camelot** is a Python library which makes it easy for *anyone* to extract tables from PDF files!
 
