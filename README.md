@@ -1,10 +1,12 @@
+<p align="center">
+   <img src="https://raw.githubusercontent.com/socialcopsdev/camelot/master/docs/_static/camelot.png" width="200">
+</p>
+
 # Camelot: PDF Table Extraction for Humans
 
 ![license](https://img.shields.io/badge/license-MIT-lightgrey.svg) ![python-version](https://img.shields.io/badge/python-2.7-blue.svg)
 
 **Camelot** is a Python library which makes it easy for *anyone* to extract tables from PDF files!
-
-![camelot-logo](https://raw.githubusercontent.com/socialcopsdev/camelot/master/docs/_static/camelot.png)
 
 ---
 
