@@ -25,15 +25,7 @@ Release v\ |version|. (:ref:`Installation <install>`)
 
 **Camelot** is a Python library which makes it easy for *anyone* to extract tables from PDF files!
 
-.. note:: Camelot only works with:
-
-          - Python 2, with **Python 3** support `on the way`_.
-          - Text-based PDFs and not scanned documents. If you can click-and-drag to select text in your table in a PDF viewer, then your PDF is text-based. Support for image-based PDFs using **OCR** is `planned`_.
-
-.. _on the way: https://github.com/socialcopsdev/camelot/issues/81
-.. _planned: https://github.com/socialcopsdev/camelot/issues/101
-
-------------------------
+----
 
 **Here's how you can extract tables from PDF files.** Check out the PDF used in this example, `here`_.
 
@@ -62,6 +54,14 @@ Release v\ |version|. (:ref:`Installation <install>`)
   :file: _static/csv/foo.csv
 
 There's a :ref:`command-line interface <cli>` too!
+
+.. note:: Camelot only works with:
+
+          - Python 2, with **Python 3** support `on the way`_.
+          - Text-based PDFs and not scanned documents. If you can click-and-drag to select text in your table in a PDF viewer, then your PDF is text-based. Support for image-based PDFs using **OCR** is `planned`_.
+
+.. _on the way: https://github.com/socialcopsdev/camelot/issues/81
+.. _planned: https://github.com/socialcopsdev/camelot/issues/101
 
 Why Camelot?
 ------------

@@ -43,6 +43,15 @@
 
 There's a [command-line interface](https://camelot-py.readthedocs.io/en/latest/user/cli.html) too!
 
+---
+
+**Note:** Camelot only works with:
+
+- Python 2, with Python 3 support [on the way](https://github.com/socialcopsdev/camelot/issues/81).
+- Text-based PDFs and not scanned documents. If you can click-and-drag to select text in your table in a PDF viewer, then your PDF is text-based. Support for image-based PDFs using OCR is [planned](https://github.com/socialcopsdev/camelot/issues/101).
+
+---
+
 ## Why Camelot?
 
 - **You are in control**: Unlike other libraries and tools which either give a nice output or fail miserably (with no in-between), Camelot gives you the power to tweak table extraction. (Since everything in the real world, including PDF table extraction, is fuzzy.)
