@@ -17,7 +17,7 @@
 >>> import camelot
 >>> tables = camelot.read_pdf('foo.pdf')
 >>> tables
-&lt;TableList tables=1&gt;
+&lt;TableList n=1&gt;
 >>> tables.export('foo.csv', f='csv', compress=True) # json, excel, html
 >>> tables[0]
 &lt;Table shape=(7, 7)&gt;

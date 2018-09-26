@@ -438,8 +438,8 @@ class TableList(object):
         self._tables = tables
 
     def __repr__(self):
-        return '<{} tables={}>'.format(
-            self.__class__.__name__, len(self._tables))
+        return '<{} n={}>'.format(
+            self.__class__.__name__, self.n)
 
     def __len__(self):
         return len(self._tables)

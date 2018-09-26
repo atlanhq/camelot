@@ -36,7 +36,7 @@ Release v\ |version|. (:ref:`Installation <install>`)
     >>> import camelot
     >>> tables = camelot.read_pdf('foo.pdf')
     >>> tables
-    <TableList tables=1>
+    <TableList n=1>
     >>> tables.export('foo.csv', f='csv', compress=True) # json, excel, html
     >>> tables[0]
     <Table shape=(7, 7)>
