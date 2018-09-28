@@ -14,6 +14,8 @@ For Ubuntu::
 
     $ apt install python-tk ghostscript
 
+.. note:: For Python 3, install python3-tk.
+
 For macOS::
 
     $ brew install tcl-tk ghostscript
