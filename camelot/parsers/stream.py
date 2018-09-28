@@ -10,7 +10,7 @@ import pandas as pd
 from .base import BaseParser
 from ..core import Table
 from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
-                     compute_whitespace, setup_logging, encode_)
+                     compute_whitespace, setup_logging)
 
 
 logger = setup_logging(__name__)
@@ -323,7 +323,6 @@ class Stream(BaseParser):
         accuracy = compute_accuracy([[100, pos_errors]])
 
         data = table.data
-        data = encode_(data)
         table.df = pd.DataFrame(data)
         table.shape = table.df.shape
 

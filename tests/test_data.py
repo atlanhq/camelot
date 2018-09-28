@@ -1,47 +1,51 @@
 # -*- coding: utf-8 -*-
 
-data_stream_table_rotated = [
-    ["","","Table 21  Current use of contraception by background characteristics—Continued","","","","","","","","","","","","","","",""],
-    ["","","","","","","Modern method","","","","","","","Traditional method","","","",""],
-    ["","","","Any","","","","","","","Other","Any","","","","Not","","Number"],
-    ["","","Any","modern","Female","Male","","","","Condom/","modern","traditional","","With-","Folk","currently","","of"],
-    ["","Background characteristic","method","method","sterilization","sterilization","Pill","IUD","Injectables","Nirodh","method","method","Rhythm","drawal","method","using","Total","women"],
-    ["","Caste/tribe","","","","","","","","","","","","","","","",""],
-    ["","Scheduled caste","74.8","55.8","42.9","0.9","9.7","0.0","0.2","2.2","0.0","19.0","11.2","7.4","0.4","25.2","100.0","1,363"],
-    ["","Scheduled tribe","59.3","39.0","26.8","0.6","6.4","0.6","1.2","3.5","0.0","20.3","10.4","5.8","4.1","40.7","100.0","256"],
-    ["","Other backward class","71.4","51.1","34.9","0.0","8.6","1.4","0.0","6.2","0.0","20.4","12.6","7.8","0.0","28.6","100.0","211"],
-    ["","Other","71.1","48.8","28.2","0.8","13.3","0.9","0.3","5.2","0.1","22.3","12.9","9.1","0.3","28.9","100.0","3,319"],
-    ["","Wealth index","","","","","","","","","","","","","","","",""],
-    ["","Lowest","64.5","48.6","34.3","0.5","10.5","0.6","0.7","2.0","0.0","15.9","9.9","4.6","1.4","35.5","100.0","1,258"],
-    ["","Second","68.5","50.4","36.2","1.1","11.4","0.5","0.1","1.1","0.0","18.1","11.2","6.7","0.2","31.5","100.0","1,317"],
-    ["","Middle","75.5","52.8","33.6","0.6","14.2","0.4","0.5","3.4","0.1","22.7","13.4","8.9","0.4","24.5","100.0","1,018"],
-    ["","Fourth","73.9","52.3","32.0","0.5","12.5","0.6","0.2","6.3","0.2","21.6","11.5","9.9","0.2","26.1","100.0","908"],
-    ["","Highest","78.3","44.4","19.5","1.0","9.7","1.4","0.0","12.7","0.0","33.8","18.2","15.6","0.0","21.7","100.0","733"],
-    ["","Number of living children","","","","","","","","","","","","","","","",""],
-    ["","No children","25.1","7.6","0.3","0.5","2.0","0.0","0.0","4.8","0.0","17.5","9.0","8.5","0.0","74.9","100.0","563"],
-    ["","1 child","66.5","32.1","3.7","0.7","20.1","0.7","0.1","6.9","0.0","34.3","18.9","15.2","0.3","33.5","100.0","1,190"],
-    ["","1 son","66.8","33.2","4.1","0.7","21.1","0.5","0.3","6.6","0.0","33.5","21.2","12.3","0.0","33.2","100.0","672"],
-    ["","No sons","66.1","30.7","3.1","0.6","18.8","0.8","0.0","7.3","0.0","35.4","15.8","19.0","0.6","33.9","100.0","517"],
-    ["","2 children","81.6","60.5","41.8","0.9","11.6","0.8","0.3","4.8","0.2","21.1","12.2","8.3","0.6","18.4","100.0","1,576"],
-    ["","1 or more sons","83.7","64.2","46.4","0.9","10.8","0.8","0.4","4.8","0.1","19.5","11.1","7.6","0.7","16.3","100.0","1,268"],
-    ["","No sons","73.2","45.5","23.2","1.0","15.1","0.9","0.0","4.8","0.5","27.7","16.8","11.0","0.0","26.8","100.0","308"],
-    ["","3 children","83.9","71.2","57.7","0.8","9.8","0.6","0.5","1.8","0.0","12.7","8.7","3.3","0.8","16.1","100.0","961"],
-    ["","1 or more sons","85.0","73.2","60.3","0.9","9.4","0.5","0.5","1.6","0.0","11.8","8.1","3.0","0.7","15.0","100.0","860"],
-    ["","No sons","74.7","53.8","35.3","0.0","13.7","1.6","0.0","3.2","0.0","20.9","13.4","6.1","1.5","25.3","100.0","101"],
-    ["","4+ children","74.3","58.1","45.1","0.6","8.7","0.6","0.7","2.4","0.0","16.1","9.9","5.4","0.8","25.7","100.0","944"],
-    ["","1 or more sons","73.9","58.2","46.0","0.7","8.3","0.7","0.7","1.9","0.0","15.7","9.4","5.5","0.8","26.1","100.0","901"],
-    ["","No sons","(82.1)","(57.3)","(25.6)","(0.0)","(17.8)","(0.0)","(0.0)","(13.9)","(0.0)","(24.8)","(21.3)","(3.5)","(0.0)","(17.9)","100.0","43"],
-    ["","Total","71.2","49.9","32.2","0.7","11.7","0.6","0.3","4.3","0.1","21.3","12.3","8.4","0.5","28.8","100.0","5,234"],
-    ["","NFHS-2 (1998-99)","66.6","47.3","32.0","1.8","9.2","1.4","na","2.9","na","na","8.7","9.8","na","33.4","100.0","4,116"],
-    ["","NFHS-1 (1992-93)","57.7","37.6","26.5","4.3","3.6","1.3","0.1","1.9","na","na","11.3","8.3","na","42.3","100.0","3,970"],
-    ["","","Note: If more than one method is used, only the most effective method is considered in this tabulation. Total includes women for whom caste/tribe was not known or is missing, who are","","","","","","","","","","","","","","",""],
-    ["","not shown separately.","","","","","","","","","","","","","","","",""],
-    ["","na = Not available","","","","","","","","","","","","","","","",""],
-    ["","","ns = Not shown; see table 2b, footnote 1","","","","","","","","","","","","","","",""],
-    ["","( ) Based on 25-49 unweighted cases.","","","","","","","","","","","","","","","",""],
-    ["","","","","","","","","54","","","","","","","","",""]
-]
+from __future__ import unicode_literals
 
+
+data_stream_table_rotated = [
+    ["", "", "Table 21  Current use of contraception by background characteristics\u2014Continued", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "Modern method", "", "", "", "", "", "", "Traditional method", "", "", "", ""],
+    ["", "", "", "Any", "", "", "", "", "", "", "Other", "Any","", "", "", "Not", "", "Number"],
+    ["", "", "Any", "modern", "Female", "Male", "", "", "", "Condom/", "modern", "traditional", "", "With-", "Folk", "currently", "", "of"],
+    ["", "Background characteristic", "method", "method", "sterilization", "sterilization", "Pill", "IUD", "Injectables", "Nirodh", "method", "method", "Rhythm", "drawal", "method", "using", "Total", "women"],
+    ["", "Caste/tribe", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "Scheduled caste", "74.8", "55.8", "42.9", "0.9", "9.7", "0.0", "0.2", "2.2", "0.0", "19.0", "11.2", "7.4", "0.4", "25.2", "100.0", "1,363"],
+    ["", "Scheduled tribe", "59.3", "39.0", "26.8", "0.6", "6.4", "0.6", "1.2", "3.5", "0.0", "20.3", "10.4", "5.8", "4.1", "40.7", "100.0", "256"],
+    ["", "Other backward class", "71.4", "51.1", "34.9", "0.0", "8.6", "1.4", "0.0", "6.2", "0.0", "20.4", "12.6", "7.8", "0.0", "28.6", "100.0", "211"],
+    ["", "Other", "71.1","48.8", "28.2", "0.8", "13.3", "0.9", "0.3", "5.2", "0.1", "22.3", "12.9", "9.1", "0.3", "28.9", "100.0", "3,319"],
+    ["", "Wealth index", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "Lowest", "64.5", "48.6", "34.3", "0.5", "10.5", "0.6", "0.7", "2.0", "0.0", "15.9", "9.9", "4.6", "1.4", "35.5", "100.0", "1,258"],
+    ["", "Second", "68.5", "50.4", "36.2", "1.1", "11.4", "0.5", "0.1", "1.1", "0.0", "18.1", "11.2", "6.7", "0.2", "31.5", "100.0", "1,317"],
+    ["", "Middle", "75.5", "52.8", "33.6", "0.6", "14.2", "0.4", "0.5", "3.4", "0.1", "22.7", "13.4", "8.9", "0.4", "24.5", "100.0", "1,018"],
+    ["", "Fourth", "73.9", "52.3", "32.0", "0.5", "12.5", "0.6", "0.2", "6.3", "0.2", "21.6", "11.5", "9.9", "0.2", "26.1", "100.0", "908"],
+    ["", "Highest", "78.3", "44.4", "19.5", "1.0", "9.7", "1.4", "0.0", "12.7", "0.0", "33.8", "18.2", "15.6", "0.0", "21.7", "100.0", "733"],
+    ["", "Number of living children", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "No children", "25.1", "7.6", "0.3", "0.5", "2.0", "0.0",
+    "0.0", "4.8", "0.0", "17.5", "9.0", "8.5", "0.0", "74.9", "100.0", "563"],
+    ["", "1 child", "66.5", "32.1", "3.7", "0.7", "20.1", "0.7", "0.1", "6.9", "0.0", "34.3", "18.9", "15.2", "0.3", "33.5", "100.0", "1,190"],
+    ["\x18\x18", "1 son", "66.8", "33.2", "4.1", "0.7", "21.1", "0.5", "0.3", "6.6", "0.0", "33.5", "21.2", "12.3", "0.0", "33.2", "100.0", "672"],
+    ["", "No sons", "66.1", "30.7", "3.1", "0.6", "18.8", "0.8", "0.0", "7.3", "0.0", "35.4", "15.8", "19.0", "0.6", "33.9", "100.0", "517"],
+    ["", "2 children", "81.6", "60.5", "41.8", "0.9", "11.6", "0.8", "0.3", "4.8", "0.2", "21.1", "12.2", "8.3", "0.6", "18.4", "100.0", "1,576"],
+    ["", "1 or more sons", "83.7", "64.2", "46.4", "0.9", "10.8", "0.8", "0.4", "4.8", "0.1", "19.5", "11.1", "7.6", "0.7", "16.3", "100.0", "1,268"],
+    ["", "No sons", "73.2", "45.5", "23.2", "1.0", "15.1", "0.9", "0.0", "4.8", "0.5", "27.7", "16.8", "11.0", "0.0", "26.8", "100.0", "308"],
+    ["", "3 children", "83.9", "71.2", "57.7", "0.8", "9.8", "0.6", "0.5", "1.8", "0.0", "12.7", "8.7", "3.3", "0.8", "16.1", "100.0", "961"],
+    ["", "1 or more sons", "85.0", "73.2", "60.3", "0.9", "9.4", "0.5", "0.5", "1.6", "0.0", "11.8", "8.1", "3.0", "0.7", "15.0", "100.0", "860"],
+    ["", "No sons", "74.7", "53.8", "35.3", "0.0", "13.7", "1.6", "0.0", "3.2", "0.0", "20.9", "13.4", "6.1", "1.5", "25.3", "100.0", "101"],
+    ["", "4+ children", "74.3", "58.1", "45.1", "0.6", "8.7", "0.6", "0.7", "2.4", "0.0", "16.1", "9.9", "5.4", "0.8", "25.7", "100.0", "944"],
+    ["", "1 or more sons", "73.9", "58.2", "46.0", "0.7", "8.3", "0.7", "0.7", "1.9", "0.0", "15.7", "9.4", "5.5", "0.8", "26.1", "100.0", "901"],
+    ["", "No sons", "(82.1)", "(57.3)", "(25.6)", "(0.0)", "(17.8)", "(0.0)", "(0.0)", "(13.9)", "(0.0)", "(24.8)", "(21.3)", "(3.5)", "(0.0)", "(17.9)", "100.0", "43"],
+    ["", "Total", "71.2", "49.9", "32.2",
+    "0.7", "11.7", "0.6", "0.3", "4.3", "0.1", "21.3", "12.3", "8.4", "0.5", "28.8", "100.0", "5,234"],
+    ["", "NFHS-2 (1998-99)", "66.6", "47.3", "32.0", "1.8", "9.2", "1.4", "na", "2.9", "na", "na", "8.7", "9.8", "na", "33.4", "100.0", "4,116"],
+    ["", "NFHS-1 (1992-93)", "57.7", "37.6", "26.5", "4.3", "3.6", "1.3", "0.1", "1.9", "na", "na", "11.3", "8.3", "na", "42.3", "100.0", "3,970"],
+    ["", "", "Note: If more than one method is used, only the most effective method is considered in this tabulation. Total includes women for whom caste/tribe was not known or is missing, who are", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "not shown separately.", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "na = Not available", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "", "ns = Not shown; see table 2b, footnote 1", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "( ) Based on 25-49 unweighted cases.", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", "54", "", "", "", "", "", "", "", "", ""]
+]
 
 data_stream_table_area_single = [
     ["","One Withholding"],
@@ -57,53 +61,51 @@ data_stream_table_area_single = [
     ["(each day of the payroll period)",""]
 ]
 
-
 data_stream_columns = [
-    ["Clave","Nombre Entidad","Clave","Nombre Municipio","Clave","Nombre Localidad"],
-    ["Entidad","","Municipio","","Localidad",""],
-    ["01","Aguascalientes","001","Aguascalientes","0094","Granja Adelita"],
-    ["01","Aguascalientes","001","Aguascalientes","0096","Agua Azul"],
-    ["01","Aguascalientes","001","Aguascalientes","0100","Rancho Alegre"],
-    ["01","Aguascalientes","001","Aguascalientes","0102","Los Arbolitos [Rancho]"],
-    ["01","Aguascalientes","001","Aguascalientes","0104","Ardillas de Abajo (Las Ardillas)"],
-    ["01","Aguascalientes","001","Aguascalientes","0106","Arellano"],
-    ["01","Aguascalientes","001","Aguascalientes","0112","Bajío los Vázquez"],
-    ["01","Aguascalientes","001","Aguascalientes","0113","Bajío de Montoro"],
-    ["01","Aguascalientes","001","Aguascalientes","0114","Residencial San Nicolás [Baños la Cantera]"],
-    ["01","Aguascalientes","001","Aguascalientes","0120","Buenavista de Peñuelas"],
-    ["01","Aguascalientes","001","Aguascalientes","0121","Cabecita 3 Marías (Rancho Nuevo)"],
-    ["01","Aguascalientes","001","Aguascalientes","0125","Cañada Grande de Cotorina"],
-    ["01","Aguascalientes","001","Aguascalientes","0126","Cañada Honda [Estación]"],
-    ["01","Aguascalientes","001","Aguascalientes","0127","Los Caños"],
-    ["01","Aguascalientes","001","Aguascalientes","0128","El Cariñán"],
-    ["01","Aguascalientes","001","Aguascalientes","0129","El Carmen [Granja]"],
-    ["01","Aguascalientes","001","Aguascalientes","0135","El Cedazo (Cedazo de San Antonio)"],
-    ["01","Aguascalientes","001","Aguascalientes","0138","Centro de Arriba (El Taray)"],
-    ["01","Aguascalientes","001","Aguascalientes","0139","Cieneguilla (La Lumbrera)"],
-    ["01","Aguascalientes","001","Aguascalientes","0141","Cobos"],
-    ["01","Aguascalientes","001","Aguascalientes","0144","El Colorado (El Soyatal)"],
-    ["01","Aguascalientes","001","Aguascalientes","0146","El Conejal"],
-    ["01","Aguascalientes","001","Aguascalientes","0157","Cotorina de Abajo"],
-    ["01","Aguascalientes","001","Aguascalientes","0162","Coyotes"],
-    ["01","Aguascalientes","001","Aguascalientes","0166","La Huerta (La Cruz)"],
-    ["01","Aguascalientes","001","Aguascalientes","0170","Cuauhtémoc (Las Palomas)"],
-    ["01","Aguascalientes","001","Aguascalientes","0171","Los Cuervos (Los Ojos de Agua)"],
-    ["01","Aguascalientes","001","Aguascalientes","0172","San José [Granja]"],
-    ["01","Aguascalientes","001","Aguascalientes","0176","La Chiripa"],
-    ["01","Aguascalientes","001","Aguascalientes","0182","Dolores"],
-    ["01","Aguascalientes","001","Aguascalientes","0183","Los Dolores"],
-    ["01","Aguascalientes","001","Aguascalientes","0190","El Duraznillo"],
-    ["01","Aguascalientes","001","Aguascalientes","0191","Los Durón"],
-    ["01","Aguascalientes","001","Aguascalientes","0197","La Escondida"],
-    ["01","Aguascalientes","001","Aguascalientes","0201","Brande Vin [Bodegas]"],
-    ["01","Aguascalientes","001","Aguascalientes","0207","Valle Redondo"],
-    ["01","Aguascalientes","001","Aguascalientes","0209","La Fortuna"],
-    ["01","Aguascalientes","001","Aguascalientes","0212","Lomas del Gachupín"],
-    ["01","Aguascalientes","001","Aguascalientes","0213","El Carmen (Gallinas Güeras) [Rancho]"],
-    ["01","Aguascalientes","001","Aguascalientes","0216","La Gloria"],
-    ["01","Aguascalientes","001","Aguascalientes","0226","Hacienda Nueva"],
+    ["Clave", "Nombre Entidad", "Clave", "Nombre Municipio", "Clave", "Nombre Localidad"],
+    ["Entidad", "", "Municipio", "", "Localidad", ""],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0094", "Granja Adelita"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0096", "Agua Azul"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0100", "Rancho Alegre"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0102", "Los Arbolitos [Rancho]"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0104", "Ardillas de Abajo (Las Ardillas)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0106", "Arellano"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0112", "Baj\xedo los V\xe1zquez"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0113", "Baj\xedo de Montoro"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0114", "Residencial San Nicol\xe1s [Ba\xf1os la Cantera]"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0120", "Buenavista de Pe\xf1uelas"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0121", "Cabecita 3 Mar\xedas (Rancho Nuevo)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0125", "Ca\xf1ada Grande de Cotorina"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0126", "Ca\xf1ada Honda [Estaci\xf3n]"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0127", "Los Ca\xf1os"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0128", "El Cari\xf1\xe1n"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0129", "El Carmen [Granja]"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0135", "El Cedazo (Cedazo de San Antonio)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0138", "Centro de Arriba (El Taray)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0139", "Cieneguilla (La Lumbrera)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0141", "Cobos"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0144", "El Colorado (El Soyatal)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0146", "El Conejal"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0157", "Cotorina de Abajo"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0162", "Coyotes"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0166", "La Huerta (La Cruz)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0170", "Cuauht\xe9moc (Las Palomas)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0171", "Los Cuervos (Los Ojos de Agua)"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0172", "San Jos\xe9 [Granja]"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0176", "La Chiripa"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0182", "Dolores"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0183", "Los Dolores"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0190", "El Duraznillo"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0191", "Los Dur\xf3n"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0197", "La Escondida"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0201", "Brande Vin [Bodegas]"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0207", "Valle Redondo"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0209", "La Fortuna"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0212", "Lomas del Gachup\xedn"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0213", "El Carmen (Gallinas G\xfceras) [Rancho]"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0216", "La Gloria"],
+    ["01", "Aguascalientes", "001", "Aguascalientes", "0226", "Hacienda Nueva"]
 ]
-
 
 data_lattice = [
     ["Cycle Name","KI (1/km)","Distance (mi)","Percent Fuel Savings","","",""],
@@ -114,7 +116,6 @@ data_lattice = [
     ["2032_2","0.17","57.8","21.7%","0.3%","2.7%","1.2%"],
     ["4171_1","0.07","173.9","58.1%","1.6%","2.1%","0.5%"]
 ]
-
 
 data_lattice_table_rotated = [
     ["State","Nutritional Assessment  (No. of individuals)","","","","IYCF Practices  (No. of mothers: 2011-12)","Blood Pressure  (No. of adults: 2011-12)","","Fasting  Blood Sugar (No. of adults:2011-12)",""],
@@ -132,7 +133,6 @@ data_lattice_table_rotated = [
     ["Pooled","38742","53618","60601","86898","4459","21918","27041","14312","18519"]
 ]
 
-
 data_lattice_process_background = [
     ["State","Date","Halt stations","Halt days","Persons directly reached(in lakh)","Persons trained","Persons counseled","Persons testedfor HIV"],
     ["Delhi","1.12.2009","8","17","1.29","3,665","2,409","1,000"],
@@ -143,7 +143,6 @@ data_lattice_process_background = [
     ["Kerala","23.2.2010 to 11.3.2010","9","17","1.42","3,559","2,173","855"],
     ["Total","","47","92","11.81","22,455","19,584","10,644"]
 ]
-
 
 data_lattice_copy_text = [
     ["Plan Type","County","Plan Name","Totals"],

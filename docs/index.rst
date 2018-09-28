@@ -55,13 +55,7 @@ Release v\ |version|. (:ref:`Installation <install>`)
 
 There's a :ref:`command-line interface <cli>` too!
 
-.. note:: Camelot only works with:
-
-          - Python 2, with **Python 3** support `on the way`_.
-          - Text-based PDFs and not scanned documents. If you can click-and-drag to select text in your table in a PDF viewer, then your PDF is text-based. Support for image-based PDFs using **OCR** is `planned`_.
-
-.. _on the way: https://github.com/socialcopsdev/camelot/issues/81
-.. _planned: https://github.com/socialcopsdev/camelot/issues/101
+.. note:: Camelot only works with text-based PDFs and not scanned documents. If you can click-and-drag to select text in your table in a PDF viewer, then your PDF is text-based.
 
 Why Camelot?
 ------------

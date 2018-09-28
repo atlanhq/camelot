@@ -13,7 +13,7 @@ from .base import BaseParser
 from ..core import Table
 from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
                      merge_close_lines, get_table_index, compute_accuracy,
-                     compute_whitespace, setup_logging, encode_)
+                     compute_whitespace, setup_logging)
 from ..image_processing import (adaptive_threshold, find_lines,
                                 find_table_contours, find_table_joints)
 
@@ -177,7 +177,7 @@ class Lattice(BaseParser):
         gs_call = [
             "-q", "-sDEVICE=png16m", "-o", self.imagename, "-r600", self.filename
         ]
-        if "ghostscript" in subprocess.check_output(["gs", "-version"]).lower():
+        if "ghostscript" in subprocess.check_output(["gs", "-version"]).decode('utf-8').lower():
             gs_call.insert(0, "gs")
         else:
             gs_call.insert(0, "gsc")
@@ -284,7 +284,6 @@ class Lattice(BaseParser):
             table = Lattice._copy_spanning_text(table, copy_text=self.copy_text)
 
         data = table.data
-        data = encode_(data)
         table.df = pd.DataFrame(data)
         table.shape = table.df.shape
 
