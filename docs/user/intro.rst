@@ -34,7 +34,7 @@ What's in a name?
 
 As you can already guess, this library is named after `The Camelot Project`_.
 
-Fun fact: "Camelot" is the name of the castle in the slapstick comedy film `Monty Python and the Holy Grail`_ (and in the `Arthurian legend`, which the film depicts), where Arthur leads his men, the Knights of the Round Table, and then sets off elsewhere after deciding that it is "a silly place". Interestingly, the language in which this library is written (Python) was named after Monty Python.
+Fun fact: "Camelot" is the name of the castle in the British comedy film `Monty Python and the Holy Grail`_ (and in the `Arthurian legend`_, which the film depicts), where Arthur leads his men, the Knights of the Round Table, and then sets off elsewhere after deciding that it is "a silly place". Interestingly, the language in which this library is written (Python) was named after Monty Python.
 
 .. _The Camelot Project: http://www.planetpdf.com/planetpdf/pdfs/warnock_camelot.pdf
 .. _Monty Python and the Holy Grail: https://en.wikipedia.org/wiki/Monty_Python_and_the_Holy_Grail
