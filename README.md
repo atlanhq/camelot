@@ -43,14 +43,7 @@
 
 There's a [command-line interface](https://camelot-py.readthedocs.io/en/latest/user/cli.html) too!
 
----
-
-**Note:** Camelot only works with:
-
-- Python 2, with Python 3 support [on the way](https://github.com/socialcopsdev/camelot/issues/81).
-- Text-based PDFs and not scanned documents. If you can click-and-drag to select text in your table in a PDF viewer, then your PDF is text-based. Support for image-based PDFs using OCR is [planned](https://github.com/socialcopsdev/camelot/issues/101).
-
----
+**Note:** Camelot only works with text-based PDFs and not scanned documents. If you can click-and-drag to select text in your table in a PDF viewer, then your PDF is text-based.
 
 ## Why Camelot?
 
@@ -84,7 +77,7 @@ $ cd camelot
 $ pip install .
 </pre>
 
-Note: Use a [virtualenv](https://virtualenv.pypa.io/en/stable/) if you don't want to affect your global Python installation.
+**Note:** Use a [virtualenv](https://virtualenv.pypa.io/en/stable/) if you don't want to affect your global Python installation.
 
 ## Documentation
 

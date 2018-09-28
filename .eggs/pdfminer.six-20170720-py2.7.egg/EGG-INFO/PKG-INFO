@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: pdfminer.six
+Version: 20170720
+Summary: PDF parser and analyzer
+Home-page: http://github.com/pdfminer/pdfminer
+Author: Yusuke Shinyama + Philippe Guglielmetti
+Author-email: pdfminer@goulu.net
+License: MIT/X
+Description: fork of PDFMiner using six for Python 2+3 compatibility
+        
+        PDFMiner is a tool for extracting information from PDF documents.
+        Unlike other PDF-related tools, it focuses entirely on getting
+        and analyzing text data. PDFMiner allows to obtain
+        the exact location of texts in a page, as well as
+        other information such as fonts or lines.
+        It includes a PDF converter that can transform PDF files
+        into other text formats (such as HTML). It has an extensible
+        PDF parser that can be used for other purposes instead of text analysis.
+Keywords: pdf parser,pdf converter,layout analysis,text mining
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Text Processing

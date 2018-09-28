@@ -560,7 +560,7 @@ def get_table_index(table, t, direction, split_text=False, flag_size=False):
                     lt_col_overlap.append(abs(left - right) / abs(c[0] - c[1]))
                 else:
                     lt_col_overlap.append(-1)
-            if len(filter(lambda x: x != -1, lt_col_overlap)) == 0:
+            if len(list(filter(lambda x: x != -1, lt_col_overlap))) == 0:
                 text = t.get_text().strip('\n')
                 text_range = (t.x0, t.x1)
                 col_range = (table.cols[0][0], table.cols[-1][1])
@@ -669,22 +669,6 @@ def remove_empty(d):
     return d
 
 
-def encode_(ar):
-    """Encodes two-dimensional list into unicode.
-
-    Parameters
-    ----------
-    ar : list
-
-    Returns
-    -------
-    ar : list
-
-    """
-    ar = [[r.encode('utf-8') for r in row] for row in ar]
-    return ar
-
-
 def get_page_layout(filename, char_margin=1.0, line_margin=0.5, word_margin=0.1,
                detect_vertical=True, all_texts=True):
     """Returns a PDFMiner LTPage object and page dimension of a single
@@ -709,7 +693,7 @@ def get_page_layout(filename, char_margin=1.0, line_margin=0.5, word_margin=0.1,
         Dimension of pdf page in the form (width, height).
 
     """
-    with open(filename, 'r') as f:
+    with open(filename, 'rb') as f:
         parser = PDFParser(f)
         document = PDFDocument(parser)
         if not document.is_extractable:

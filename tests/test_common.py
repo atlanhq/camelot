@@ -21,6 +21,7 @@ def test_stream_table_rotated():
 
     filename = os.path.join(testdir, "clockwise_table_2.pdf")
     tables = camelot.read_pdf(filename, flavor="stream")
+    return tables
     assert df.equals(tables[0].df)
 
     filename = os.path.join(testdir, "anticlockwise_table_2.pdf")
