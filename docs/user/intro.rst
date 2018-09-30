@@ -6,7 +6,7 @@ Introduction
 The Camelot Project
 -------------------
 
-The Portable Document Format (PDF) was born out of `The Camelot Project`_ when a need was felt for "a universal to communicate documents across a wide variety of machine configurations, operating systems and communication networks". The goal was to make these documents viewable on any display and printable on any modern printers. The invention of the `PostScript`_ page description language, which enabled the creation of *fixed-layout* flat documents (with text, fonts, graphics, images encapsulated), solved the problem.
+The Portable Document Format (PDF) was born out of `The Camelot Project`_ when a need was felt for "a universal way to communicate documents across a wide variety of machine configurations, operating systems and communication networks". The goal was to make these documents viewable on any display and printable on any modern printers. The invention of the `PostScript`_ page description language, which enabled the creation of *fixed-layout* flat documents (with text, fonts, graphics, images encapsulated), solved the problem.
 
 At a very high level, PostScript defines instructions, such as, "place this character at this x,y coordinate on a plane". Spaces can be *simulated* by placing characters relatively far apart. Extending from that, tables can be *simulated* by placing characters (which constitute words) in two-dimensional grids. A PDF viewer just takes these instructions and draws everything for the user to view. Since it's just characters on a plane, there is no table data structure which can be extracted and used for analysis!
 
