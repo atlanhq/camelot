@@ -670,3 +670,24 @@ def get_text_objects(layout, ltype="char", t=None):
     except AttributeError:
         pass
     return t
+
+
+def merge_tuples(tuples):
+    """Merges a list of overlapping tuples.
+     Parameters
+    ----------
+    tuples : list
+        List of tuples where a tuple is a single axis coordinate pair.
+     Yields
+    ------
+    tuple
+     """
+    merged = list(tuples[0])
+    for s, e in tuples:
+        if s <= merged[1]:
+            merged[1] = max(merged[1], e)
+        else:
+            yield tuple(merged)
+            merged[0] = s
+            merged[1] = e
+    yield tuple(merged)

@@ -23,3 +23,10 @@ def test_input_kwargs():
     message = "columns cannot be used with flavor='lattice'"
     with pytest.raises(ValueError, message=message):
         tables = camelot.read_pdf(filename, columns=['10,20,30,40'])
+
+
+def test_unsupported_format():
+    message = 'File format not supported'
+    filename = os.path.join(testdir, 'foo.csv')
+    with pytest.raises(NotImplementedError, message=message):
+        tables = camelot.read_pdf(filename)
