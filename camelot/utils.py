@@ -38,7 +38,7 @@ lattice_kwargs = [
 ]
 
 
-def validate_input(kwargs, flavor='lattice', geometry_type=False):
+def validate_input(kwargs, flavor='lattice'):
     def check_intersection(parser_kwargs, input_kwargs):
         isec = set(parser_kwargs).intersection(set(input_kwargs.keys()))
         if isec:
@@ -49,10 +49,6 @@ def validate_input(kwargs, flavor='lattice', geometry_type=False):
         check_intersection(stream_kwargs, kwargs)
     else:
         check_intersection(lattice_kwargs, kwargs)
-    if geometry_type:
-        if flavor != 'lattice' and geometry_type in ['contour', 'joint', 'line']:
-            raise ValueError("Use geometry_type='{}' with flavor='lattice'".format(
-                             geometry_type))
 
 
 def remove_extra(kwargs, flavor='lattice'):
