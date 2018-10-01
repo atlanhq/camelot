@@ -27,7 +27,7 @@ class PDFHandler(object):
     def __init__(self, filename, pages='1'):
         self.filename = filename
         if not self.filename.endswith('.pdf'):
-            raise TypeError("File format not supported.")
+            raise NotImplementedError("File format not supported")
         self.pages = self._get_pages(self.filename, pages)
 
     def _get_pages(self, filename, pages):
