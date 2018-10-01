@@ -447,18 +447,6 @@ class TableList(object):
     def __getitem__(self, idx):
         return self._tables[idx]
 
-    def __iter__(self):
-        self._n = 0
-        return self
-
-    def next(self):
-        if self._n < len(self):
-            r = self._tables[self._n]
-            self._n += 1
-            return r
-        else:
-            raise StopIteration
-
     @staticmethod
     def _format_func(table, f):
         return getattr(table, 'to_{}'.format(f))
