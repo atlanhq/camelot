@@ -30,3 +30,11 @@ def test_unsupported_format():
     filename = os.path.join(testdir, 'foo.csv')
     with pytest.raises(NotImplementedError, message=message):
         tables = camelot.read_pdf(filename)
+
+
+def test_stream_equal_length():
+    message = ("Length of table_area and columns"
+               " should be equal")
+    with pytest.raises(ValueError, message=message):
+        tables = camelot.read_pdf(filename, flavor='stream',
+            table_area=['10,20,30,40'], columns=['10,20,30,40', '10,20,30,40'])
