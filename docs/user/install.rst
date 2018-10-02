@@ -27,7 +27,7 @@ After installing the dependencies, you can simply use pip to install Camelot::
 
     $ pip install camelot-py
 
-Get the Source Code
+Get the source code
 -------------------
 
 Alternatively, you can install from the source by:
