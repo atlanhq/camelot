@@ -8,7 +8,7 @@ This page covers some of the more advanced configurations for :ref:`Lattice <lat
 Process background lines
 ------------------------
 
-To detect line segments, :ref:`Lattice <lattice>` needs the lines that make the table, to be in foreground. Here's an example of a table with lines in background.
+To detect line segments, :ref:`Lattice <lattice>` needs the lines that make the table to be in the foreground. Here's an example of a table with lines in the background:
 
 .. figure:: ../_static/png/background_lines.png
     :scale: 50%
@@ -68,16 +68,16 @@ Let's plot all the text present on the table's PDF page.
     :alt: A plot of all text on a PDF page
     :align: left
 
-This, as we shall later see, is very helpful with :ref:`Stream <stream>`, for noting table areas and column separators, in case Stream does not guess them correctly.
+This, as we shall later see, is very helpful with :ref:`Stream <stream>` for noting table areas and column separators, in case Stream does not guess them correctly.
 
-.. note:: The *x-y* coordinates shown aboe change as you move your mouse cursor on the image, which can help you note coordinates.
+.. note:: The *x-y* coordinates shown above change as you move your mouse cursor on the image, which can help you note coordinates.
 
 .. _geometry_table:
 
 table
 ^^^^^
 
-Let's plot the table (to see if it was detected correctly or not). This geometry type, along with contour, line and joint is useful for debugging and improving the extraction output, in case the table wasn't detected correctly. More on that later.
+Let's plot the table (to see if it was detected correctly or not). This geometry type, along with contour, line and joint is useful for debugging and improving the extraction output, in case the table wasn't detected correctly. (More on that later.)
 
 ::
 
@@ -170,9 +170,9 @@ In cases like `these <../_static/pdf/column_separators.pdf>`__, where the text i
 
 You can pass the column separators as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``columns`` keyword argument.
 
-In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and there is a need to specify column separators as well, **the length of both lists should be equal**. Each table area will be mapped to each column separators' string using their indices.
+In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and you need to specify column separators as well, **the length of both lists should be equal**. Each table area will be mapped to each column separators' string using their indices.
 
-For example, if you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list, like this, ``columns=['10,120,200,400', '']``.
+For example, if you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list like this, ``columns=['10,120,200,400', '']``.
 
 Let's get back to the *x* coordinates we got from :ref:`plotting text <geometry_text>` that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
 
@@ -188,12 +188,12 @@ Let's get back to the *x* coordinates we got from :ref:`plotting text <geometry_
     "NUMBER TYPE DBA NAME","","","LICENSEE NAME","ADDRESS","CITY","ST","ZIP","PHONE NUMBER","EXPIRES"
     "...","...","...","...","...","...","...","...","...","..."
 
-Ah! Since `PDFMiner <https://euske.github.io/pdfminer/>`_ merged the strings, "NUMBER", "TYPE" and "DBA NAME"; all of them were assigned to the same cell. Let's see how we can fix this in the next section.
+Ah! Since `PDFMiner <https://euske.github.io/pdfminer/>`_ merged the strings, "NUMBER", "TYPE" and "DBA NAME", all of them were assigned to the same cell. Let's see how we can fix this in the next section.
 
 Split text along separators
 ---------------------------
 
-To deal with cases like the output from the previous section, you can pass ``split_text=True`` to :meth:`read_pdf() <camelot.read_pdf>`, which will split any strings that lie in different cells but have been assigned to the a single cell (as a result of being merged together by `PDFMiner <https://euske.github.io/pdfminer/>`_).
+To deal with cases like the output from the previous section, you can pass ``split_text=True`` to :meth:`read_pdf() <camelot.read_pdf>`, which will split any strings that lie in different cells but have been assigned to a single cell (as a result of being merged together by `PDFMiner <https://euske.github.io/pdfminer/>`_).
 
 ::
 
@@ -210,13 +210,13 @@ To deal with cases like the output from the previous section, you can pass ``spl
 Flag superscripts and subscripts
 --------------------------------
 
-There might be cases where you want to differentiate between the text, and superscripts or subscripts, like this `PDF <../_static/pdf/superscript.pdf>`_.
+There might be cases where you want to differentiate between the text and superscripts or subscripts, like this `PDF <../_static/pdf/superscript.pdf>`_.
 
 .. figure:: ../_static/png/superscript.png
     :alt: A PDF with superscripts
     :align: left
 
-In this case, the text that `other tools`_ return, will be ``24.912``. This is harmless as long as there is that decimal point involved. But when it isn't there, you'll be left wondering why the results of your data analysis were 10x bigger!
+In this case, the text that `other tools`_ return, will be ``24.912``. This is relatively harmless when that decimal point is involved. But when it isn't there, you'll be left wondering why the results of your data analysis are 10x bigger!
 
 You can solve this by passing ``flag_size=True``, which will enclose the superscripts and subscripts with ``<s></s>``, based on font size, as shown below.
 
@@ -327,7 +327,7 @@ Voila! Camelot can now see those lines. Let's get our table.
 Shift text in spanning cells
 ----------------------------
 
-By default, the :ref:`Lattice <lattice>` method shifts text in spanning cells, first to the left and then to the top, as you can observe in the output table above. However, this behavior can be changed using the ``shift_text`` keyword argument. Think of it as setting the *gravity* for a table, it decides the direction in which the text will move and finally come to rest.
+By default, the :ref:`Lattice <lattice>` method shifts text in spanning cells, first to the left and then to the top, as you can observe in the output table above. However, this behavior can be changed using the ``shift_text`` keyword argument. Think of it as setting the *gravity* for a table — it decides the direction in which the text will move and finally come to rest.
 
 ``shift_text`` expects a list with one or more characters from the following set: ``('', l', 'r', 't', 'b')``, which are then applied *in order*. The default, as we discussed above, is ``['l', 't']``.
 
@@ -356,7 +356,7 @@ We'll use the `PDF <../_static/pdf/short_lines.pdf>`__ from the previous example
     "Knowledge &Practices on HTN &","2400","Men (≥ 18 yrs)","-","-","-","1728"
     "DM","2400","Women (≥ 18 yrs)","-","-","-","1728"
 
-No surprises there, it did remain in place (observe the strings "2400" and "All the available individuals"). Let's pass ``shift_text=['r', 'b']``, to set the *gravity* to right-bottom, and move the text in that direction.
+No surprises there — it did remain in place (observe the strings "2400" and "All the available individuals"). Let's pass ``shift_text=['r', 'b']`` to set the *gravity* to right-bottom and move the text in that direction.
 
 ::
 
@@ -380,7 +380,7 @@ No surprises there, it did remain in place (observe the strings "2400" and "All 
 Copy text in spanning cells
 ---------------------------
 
-You can copy text in spanning cells when using :ref:`Lattice <lattice>`, in either horizontal or vertical direction, or both. This behavior is disabled by default.
+You can copy text in spanning cells when using :ref:`Lattice <lattice>`, in either the horizontal or vertical direction, or both. This behavior is disabled by default.
 
 ``copy_text`` expects a list with one or more characters from the following set: ``('v', 'h')``, which are then applied *in order*.
 
