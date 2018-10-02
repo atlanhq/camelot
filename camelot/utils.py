@@ -1,8 +1,8 @@
 from __future__ import division
 import os
 import shutil
-import logging
 import tempfile
+import warnings
 from itertools import groupby
 from operator import itemgetter
 
@@ -18,9 +18,6 @@ from pdfminer.pdfdevice import PDFDevice
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)
-
-
-logger = logging.getLogger('camelot')
 
 
 stream_kwargs = [
@@ -478,7 +475,7 @@ def get_table_index(table, t, direction, split_text=False, flag_size=False):
                 text = t.get_text().strip('\n')
                 text_range = (t.x0, t.x1)
                 col_range = (table.cols[0][0], table.cols[-1][1])
-                logger.info("{} {} does not lie in column range {}".format(
+                warnings.warn("{} {} does not lie in column range {}".format(
                     text, text_range, col_range))
             r_idx = r
             c_idx = lt_col_overlap.index(max(lt_col_overlap))
