@@ -16,7 +16,7 @@ As the [Requests Code Of Conduct](http://docs.python-requests.org/en/master/dev/
 
 ## Your first contribution
 
-A great way to start contributing to Camelot is to pick an issue tagged with the [Contributor Friendly](https://github.com/socialcopsdev/camelot/labels/Contributor%20Friendly) tag or the [Level: Easy](https://github.com/socialcopsdev/camelot/labels/Level%3A%20Easy) tag. If you're unable to find a good first issue, feel free to contact the maintainer.
+A great way to start contributing to Camelot is to pick an issue tagged with the [help wanted](https://github.com/socialcopsdev/camelot/labels/help%20wanted) tag or the [good first issue](https://github.com/socialcopsdev/camelot/labels/good%20first%20issue) tag. If you're unable to find a good first issue, feel free to contact the maintainer.
 
 ## Setting up a development environment
 
