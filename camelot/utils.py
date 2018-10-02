@@ -20,6 +20,9 @@ from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)
 
 
+logger = logging.getLogger('camelot')
+
+
 stream_kwargs = [
     'columns',
     'row_close_tol',
@@ -71,35 +74,6 @@ class TemporaryDirectory(object):
 
     def __exit__(self, exc_type, exc_value, traceback):
         shutil.rmtree(self.name)
-
-
-def setup_logging(name):
-    """Sets up a logger with StreamHandler.
-
-    Parameters
-    ----------
-    name : str
-
-    Returns
-    -------
-    logger : logging.Logger
-
-    """
-    logger = logging.getLogger(name)
-
-    format_string = '%(asctime)s - %(levelname)s - %(funcName)s - %(message)s'
-    formatter = logging.Formatter(format_string, datefmt='%Y-%m-%dT%H:%M:%S')
-
-    handler = logging.StreamHandler()
-    handler.setLevel(logging.INFO)
-    handler.setFormatter(formatter)
-
-    logger.addHandler(handler)
-
-    return logger
-
-
-logger = setup_logging(__name__)
 
 
 def translate(x1, x2):

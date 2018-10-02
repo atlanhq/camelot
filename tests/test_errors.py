@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import warnings
 
 import pytest
 
@@ -38,3 +39,15 @@ def test_stream_equal_length():
     with pytest.raises(ValueError, message=message):
         tables = camelot.read_pdf(filename, flavor='stream',
             table_area=['10,20,30,40'], columns=['10,20,30,40', '10,20,30,40'])
+
+
+def test_no_tables_found():
+    filename = os.path.join(testdir, 'blank.pdf')
+    # TODO: use pytest.warns
+    with warnings.catch_warnings():
+        warnings.simplefilter('error')
+        try:
+            tables = camelot.read_pdf(filename)
+        except Exception as e:
+            assert type(e).__name__ == 'UserWarning'
+            assert str(e) == 'No tables found on page-1'

@@ -3,6 +3,7 @@
 from __future__ import division
 import os
 import logging
+import warnings
 
 import numpy as np
 import pandas as pd
@@ -10,10 +11,10 @@ import pandas as pd
 from .base import BaseParser
 from ..core import Table
 from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
-                     compute_whitespace, setup_logging)
+                     compute_whitespace)
 
 
-logger = setup_logging(__name__)
+logger = logging.getLogger('camelot')
 
 
 class Stream(BaseParser):
@@ -287,7 +288,7 @@ class Stream(BaseParser):
         else:
             ncols = max(set(elements), key=elements.count)
             if ncols == 1:
-                logger.info("No tables found on {}".format(
+                warnings.warn("No tables found on {}".format(
                     os.path.basename(self.rootname)))
             cols = [(t.x0, t.x1) for r in rows_grouped if len(r) == ncols for t in r]
             cols = self._merge_columns(sorted(cols), col_close_tol=self.col_close_tol)
@@ -344,11 +345,11 @@ class Stream(BaseParser):
         return table
 
     def extract_tables(self, filename):
-        logger.info('Processing {}'.format(os.path.basename(filename)))
         self._generate_layout(filename)
+        logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
-            logger.info("No tables found on {}".format(
+            warnings.warn("No tables found on {}".format(
                 os.path.basename(self.rootname)))
             return []
 
