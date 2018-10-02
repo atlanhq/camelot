@@ -23,11 +23,11 @@ Release v\ |version|. (:ref:`Installation <install>`)
 .. image:: https://img.shields.io/pypi/pyversions/camelot-py.svg
     :target: https://pypi.org/project/camelot-py/
 
-**Camelot** is a Python library which makes it easy for *anyone* to extract tables from PDF files!
+**Camelot** is a Python library that makes it easy for *anyone* to extract tables from PDF files!
 
 ----
 
-**Here's how you can extract tables from PDF files.** Check out the PDF used in this example, `here`_.
+**Here's how you can extract tables from PDF files.** Check out the PDF used in this example `here`_.
 
 .. _here: _static/pdf/foo.pdf
 
@@ -55,15 +55,15 @@ Release v\ |version|. (:ref:`Installation <install>`)
 
 There's a :ref:`command-line interface <cli>` too!
 
-.. note:: Camelot only works with text-based PDFs and not scanned documents. If you can click-and-drag to select text in your table in a PDF viewer, then your PDF is text-based.
+.. note:: Camelot only works with text-based PDFs and not scanned documents. If you can click and drag to select text in your table in a PDF viewer, then your PDF is text-based.
 
 Why Camelot?
 ------------
 
-- **You are in control**: Unlike other libraries and tools which either give a nice output or fail miserably (with no in-between), Camelot gives you the power to tweak table extraction. (Since everything in the real world, including PDF table extraction, is fuzzy.)
-- **Metrics**: *Bad* tables can be discarded based on metrics like accuracy and whitespace, without ever having to manually look at each table.
-- Each table is a **pandas DataFrame**, which enables seamless integration into `ETL and data analysis workflows`_.
-- **Export** to multiple formats, including json, excel and html.
+- **You are in control.** Unlike other libraries and tools which either give a nice output or fail miserably (with no in-between), Camelot gives you the power to tweak table extraction. (This is important since everything in the real world, including PDF table extraction, is fuzzy.)
+- *Bad* tables can be discarded based on **metrics** like accuracy and whitespace, without ever having to manually look at each table.
+- Each table is a **pandas DataFrame**, which seamlessly integrates into `ETL and data analysis workflows`_.
+- **Export** to multiple formats, including JSON, Excel and HTML.
 
 See `comparison with other PDF table extraction libraries and tools`_.
 
@@ -73,7 +73,7 @@ See `comparison with other PDF table extraction libraries and tools`_.
 The User Guide
 --------------
 
-This part of the documentation, begins with some background information about why Camelot was created, takes a small dip into the implementation details and then focuses on step-by-step instructions for getting the most out of Camelot.
+This part of the documentation begins with some background information about why Camelot was created, takes a small dip into the implementation details and then focuses on step-by-step instructions for getting the most out of Camelot.
 
 .. toctree::
    :maxdepth: 2
@@ -85,7 +85,7 @@ This part of the documentation, begins with some background information about wh
    user/advanced
    user/cli
 
-The API Documentation / Guide
+The API Documentation/Guide
 -----------------------------
 
 If you are looking for information on a specific function, class, or method,
