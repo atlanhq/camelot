@@ -9,7 +9,7 @@ This document will help you get started with contributing documentation, code, t
 
 .. _Vinayak Mehta: https://vinayak-mehta.github.io
 
-Code Of Conduct
+The Code Of Conduct
 ---------------
 
 The following quote sums up the **Code Of Conduct**.
@@ -24,7 +24,7 @@ As the `Requests Code Of Conduct`_ states, **all contributions are welcome**, as
 
 .. _Requests Code Of Conduct: http://docs.python-requests.org/en/master/dev/contributing/#be-cordial
 
-Your First Contribution
+Your first contribution
 -----------------------
 
 A great way to start contributing to Camelot is to pick an issue tagged with the `Contributor Friendly`_ or the `Easy`_ tags. If you're unable to find a good first issue, feel free to contact the maintainer.
@@ -39,13 +39,13 @@ To install the dependencies needed for development, you can use pip::
 
     $ pip install camelot-py[dev]
 
-Pull Requests
+Pull requests
 -------------
 
-Submit a Pull Request
+Submit a pull request
 ^^^^^^^^^^^^^^^^^^^^^
 
-The preferred workflow for contributing to Camelot is to fork the `project repository`_ on GitHub, clone, develop on a branch and then finally submit a pull request. Steps:
+The preferred workflow for contributing to Camelot is to fork the `project repository`_ on GitHub, clone, develop on a branch and then finally submit a pull request. Here are the steps:
 
 .. _project repository: https://github.com/socialcopsdev/camelot
 
@@ -76,7 +76,7 @@ Now it's time to go to the your fork of Camelot and create a pull request! You c
 
 .. _follow these instructions: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 
-Work on your Pull Request
+Work on your pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We recommend that your pull request complies with the following guidelines:
@@ -89,7 +89,7 @@ We recommend that your pull request complies with the following guidelines:
 
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 
-- Make sure your commit messages follow `the seven rules of a great git commit message`_.
+- Make sure your commit messages follow `the seven rules of a great git commit message`_:
     - Separate subject from body with a blank line
     - Limit the subject line to 50 characters
     - Capitalize the subject line
@@ -112,34 +112,34 @@ We recommend that your pull request complies with the following guidelines:
 
     $ python setup.py test
 
-Writing Documentation
+Writing documentation
 ---------------------
 
 Writing documentation, function docstrings, examples and tutorials is a great way to start contributing to open-source software! The documentation is present inside the ``docs/`` directory of the source code repository.
 
 The documentation is written in `reStructuredText`_, with `Sphinx`_ used to generate these lovely HTML files that you're currently reading (unless you're reading this on GitHub). You can edit the documentation using any text editor and then generate the HTML output by running `make html` in the ``docs/`` directory.
 
-The function docstrings are written using the `numpydoc`_ extension for Sphinx. Make sure you check out how its format guidelines, before you start writing one.
+The function docstrings are written using the `numpydoc`_ extension for Sphinx. Make sure you check out how its format guidelines before you start writing one.
 
 .. _reStructuredText: https://en.wikipedia.org/wiki/ReStructuredText
 .. _Sphinx: http://www.sphinx-doc.org/en/master/
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 
-Filing Issues
+Filing issues
 -------------
 
-We use `GitHub issues`_ to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), it is advisable to use GitHub search to look for existing issues (both open and closed) that may be similar.
+We use `GitHub issues`_ to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
 
 .. _GitHub issues: https://docs.pytest.org/en/latest/
 
 Questions
 ^^^^^^^^^
 
-Please don't use GitHub issues for support questions, a better place for them would be `Stack Overflow`_. Make sure you tag them using the ``python-camelot`` tag.
+Please don't use GitHub issues for support questions. A better place for them would be `Stack Overflow`_. Make sure you tag them using the ``python-camelot`` tag.
 
 .. _Stack Overflow: http://stackoverflow.com
 
-Bug Reports
+Bug reports
 ^^^^^^^^^^^
 
 In bug reports, make sure you include:
