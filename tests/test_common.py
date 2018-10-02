@@ -6,7 +6,7 @@ import pandas as pd
 
 import camelot
 
-from test_data import *
+from .data import *
 
 testdir = os.path.dirname(os.path.abspath(__file__))
 testdir = os.path.join(testdir, "files")

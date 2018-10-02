@@ -1,4 +1,6 @@
+sudo: false
 language: python
+cache: pip
 python:
   - "2.7"
   - "3.6"
@@ -7,6 +9,6 @@ before_install:
 install:
   - pip install ".[dev]"
 script:
-  - pytest
+  - pytest --verbose --cov-config .coveragerc --cov-report term --cov-report xml --cov=camelot tests
 after_success:
-  - codecov
+  - codecov --verbose
