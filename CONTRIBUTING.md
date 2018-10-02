@@ -14,7 +14,7 @@ Kenneth Reitz has also written an [essay](https://www.kennethreitz.org/essays/be
 
 As the [Requests Code Of Conduct](http://docs.python-requests.org/en/master/dev/contributing/#be-cordial) states, **all contributions are welcome**, as long as everyone involved is treated with respect.
 
-## Your First Contribution
+## Your first contribution
 
 A great way to start contributing to Camelot is to pick an issue tagged with the [Contributor Friendly](https://github.com/socialcopsdev/camelot/labels/Contributor%20Friendly) tag or the [Level: Easy](https://github.com/socialcopsdev/camelot/labels/Level%3A%20Easy) tag. If you're unable to find a good first issue, feel free to contact the maintainer.
 
@@ -26,19 +26,17 @@ To install the dependencies needed for development, you can use pip:
 $ pip install camelot-py[dev]
 </pre>
 
-### Alternatively
-
-You can clone the project repository, and install using pip:
+Alternatively, you can clone the project repository, and install using pip:
 
 <pre>
-$ pip install .[dev]
+$ pip install ".[dev]"
 </pre>
 
 ## Pull Requests
 
-### Submit a Pull Request
+### Submit a pull request
 
-The preferred workflow for contributing to Camelot is to fork the [project repository](https://github.com/socialcopsdev/camelot) on GitHub, clone, develop on a branch and then finally submit a pull request. Steps:
+The preferred workflow for contributing to Camelot is to fork the [project repository](https://github.com/socialcopsdev/camelot) on GitHub, clone, develop on a branch and then finally submit a pull request. Here are the steps:
 
 1. Fork the project repository. Click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub.
 
@@ -73,7 +71,7 @@ $ git push -u origin my-feature
 
 Now it's time to go to the your fork of Camelot and create a pull request! You can [follow these instructions](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) to do this.
 
-### Work on your Pull Request
+### Work on your pull request
 
 We recommend that your pull request complies with the following rules:
 
@@ -81,7 +79,7 @@ We recommend that your pull request complies with the following rules:
 
 - In case your pull request contains function docstrings, make sure you follow the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) format. All function docstrings in Camelot follow this format. Moreover, following the format will make sure that the API documentation is generated flawlessly.
 
-- Make sure your commit messages follow [the seven rules of a great git commit message](https://chris.beams.io/posts/git-commit/).
+- Make sure your commit messages follow [the seven rules of a great git commit message](https://chris.beams.io/posts/git-commit/):
     - Separate subject from body with a blank line
     - Limit the subject line to 50 characters
     - Capitalize the subject line
@@ -104,15 +102,15 @@ Writing documentation, function docstrings, examples and tutorials is a great wa
 
 It is written in [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText), with [Sphinx](http://www.sphinx-doc.org/en/master/) used to generate these lovely HTML files that you're currently reading (unless you're reading this on GitHub). You can edit the documentation using any text editor and then generate the HTML output by running `make html` in the `docs/` directory.
 
-The function docstrings are written using the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) extension for Sphinx. Make sure you check out its format guidelines, before you start writing one.
+The function docstrings are written using the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) extension for Sphinx. Make sure you check out its format guidelines before you start writing one.
 
 ## Filing Issues
 
-We use [GitHub issues](https://docs.pytest.org/en/latest/) to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), it is advisable to use GitHub search to look for existing issues (both open and closed) that may be similar.
+We use [GitHub issues](https://docs.pytest.org/en/latest/) to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
 
 ### Questions
 
-Please don't use GitHub issues for support questions, a better place for them would be [Stack Overflow](http://stackoverflow.com). Make sure you tag them using the `python-camelot` tag.
+Please don't use GitHub issues for support questions. A better place for them would be [Stack Overflow](http://stackoverflow.com). Make sure you tag them using the `python-camelot` tag.
 
 ### Bug Reports
 

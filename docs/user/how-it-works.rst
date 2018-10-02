@@ -3,7 +3,7 @@
 How It Works
 ============
 
-This part of the documentation includees a high-level explanation of how Camelot extracts tables from PDF files.
+This part of the documentation includes a high-level explanation of how Camelot extracts tables from PDF files.
 
 You can choose between two table parsing methods, *Stream* and *Lattice*. These names for parsing methods inside Camelot were inspired from `Tabula`_.
 

@@ -9,7 +9,7 @@ This document will help you get started with contributing documentation, code, t
 
 .. _Vinayak Mehta: https://vinayak-mehta.github.io
 
-The Code Of Conduct
+Code Of Conduct
 ---------------
 
 The following quote sums up the **Code Of Conduct**.
@@ -39,7 +39,11 @@ To install the dependencies needed for development, you can use pip::
 
     $ pip install camelot-py[dev]
 
-Pull requests
+Alternatively, you can clone the project repository, and install using pip::
+
+    $ pip install ".[dev]"
+
+Pull Requests
 -------------
 
 Submit a pull request
@@ -112,7 +116,7 @@ We recommend that your pull request complies with the following guidelines:
 
     $ python setup.py test
 
-Writing documentation
+Writing Documentation
 ---------------------
 
 Writing documentation, function docstrings, examples and tutorials is a great way to start contributing to open-source software! The documentation is present inside the ``docs/`` directory of the source code repository.
@@ -125,7 +129,7 @@ The function docstrings are written using the `numpydoc`_ extension for Sphinx. 
 .. _Sphinx: http://www.sphinx-doc.org/en/master/
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 
-Filing issues
+Filing Issues
 -------------
 
 We use `GitHub issues`_ to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
@@ -139,7 +143,7 @@ Please don't use GitHub issues for support questions. A better place for them wo
 
 .. _Stack Overflow: http://stackoverflow.com
 
-Bug reports
+Bug Reports
 ^^^^^^^^^^^
 
 In bug reports, make sure you include:
