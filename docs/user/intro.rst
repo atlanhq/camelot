@@ -6,20 +6,20 @@ Introduction
 The Camelot Project
 -------------------
 
-The Portable Document Format (PDF) was born out of `The Camelot Project`_ when a need was felt for "a universal way to communicate documents across a wide variety of machine configurations, operating systems and communication networks". The goal was to make these documents viewable on any display and printable on any modern printers. The invention of the `PostScript`_ page description language, which enabled the creation of *fixed-layout* flat documents (with text, fonts, graphics, images encapsulated), solved the problem.
+The PDF (Portable Document Format) was born out of `The Camelot Project`_ to create "a universal way to communicate documents across a wide variety of machine configurations, operating systems and communication networks". The goal was to make these documents viewable on any display and printable on any modern printers. The invention of the `PostScript`_ page description language, which enabled the creation of *fixed-layout* flat documents (with text, fonts, graphics, images encapsulated), solved this problem.
 
-At a very high level, PostScript defines instructions, such as, "place this character at this x,y coordinate on a plane". Spaces can be *simulated* by placing characters relatively far apart. Extending from that, tables can be *simulated* by placing characters (which constitute words) in two-dimensional grids. A PDF viewer just takes these instructions and draws everything for the user to view. Since it's just characters on a plane, there is no table data structure which can be extracted and used for analysis!
+At a high level, PostScript defines instructions, such as "place this character at this *x,y* coordinate on a plane". Spaces can be *simulated* by placing characters relatively far apart. Extending from that, tables can be *simulated* by placing characters (which constitute words) in two-dimensional grids. A PDF viewer just takes these instructions and draws everything for the user to view. Since a PDF is just characters on a plane, there is no table data structure that can be extracted and used for analysis!
 
-Sadly, a lot of open data is given out as tables which are trapped inside PDF files.
+Sadly, a lot of today's open data is trapped in PDF tables.
 
 .. _PostScript: http://www.planetpdf.com/planetpdf/pdfs/warnock_camelot.pdf
 
-Why another PDF Table Extraction library?
+Why another PDF table extraction library?
 -----------------------------------------
 
-There are both open (`Tabula`_, `pdf-table-extract`_) and closed-source (`smallpdf`_, `PDFTables`_) tools that are widely used, to extract tables from PDF files. They either give a nice output, or fail miserably. There is no in-between. This is not helpful, since everything in the real world, including PDF table extraction, is fuzzy, leading to creation of adhoc table extraction scripts for each different type of PDF that the user wants to parse.
+There are both open (`Tabula`_, `pdf-table-extract`_) and closed-source (`smallpdf`_, `PDFTables`_) tools that are widely used to extract tables from PDF files. They either give a nice output or fail miserably. There is no in between. This is not helpful since everything in the real world, including PDF table extraction, is fuzzy. This leads to the creation of ad-hoc table extraction scripts for each type of PDF table.
 
-Camelot was created with the goal of offering its users complete control over table extraction. If the users are not able to get the desired output with the default configuration, they should be able to tweak it and get the job done!
+We created Camelot to offer users complete control over table extraction. If you can't get your desired output with the default settings, you can tweak them and get the job done!
 
 Here is a `comparison`_ of Camelot's output with outputs from other open-source PDF parsing libraries and tools.
 
@@ -34,7 +34,7 @@ What's in a name?
 
 As you can already guess, this library is named after `The Camelot Project`_.
 
-Fun fact: "Camelot" is the name of the castle in the British comedy film `Monty Python and the Holy Grail`_ (and in the `Arthurian legend`_, which the film depicts), where Arthur leads his men, the Knights of the Round Table, and then sets off elsewhere after deciding that it is "a silly place". Interestingly, the language in which this library is written (Python) was named after Monty Python.
+Fun fact: In the British comedy film `Monty Python and the Holy Grail`_ (and in the `Arthurian legend`_ depicted in the film), "Camelot" is the name of the castle where Arthur leads his men, the Knights of the Round Table, and then sets off elsewhere after deciding that it is "a silly place". Interestingly, the language in which this library is written (Python) was named after Monty Python.
 
 .. _The Camelot Project: http://www.planetpdf.com/planetpdf/pdfs/warnock_camelot.pdf
 .. _Monty Python and the Holy Grail: https://en.wikipedia.org/wiki/Monty_Python_and_the_Holy_Grail
