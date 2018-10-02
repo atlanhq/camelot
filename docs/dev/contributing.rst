@@ -27,10 +27,10 @@ As the `Requests Code Of Conduct`_ states, **all contributions are welcome**, as
 Your first contribution
 -----------------------
 
-A great way to start contributing to Camelot is to pick an issue tagged with the `Contributor Friendly`_ or the `Easy`_ tags. If you're unable to find a good first issue, feel free to contact the maintainer.
+A great way to start contributing to Camelot is to pick an issue tagged with the `help wanted`_ or the `good first issue`_ tags. If you're unable to find a good first issue, feel free to contact the maintainer.
 
-.. _Contributor Friendly: https://github.com/socialcopsdev/camelot/labels/Contributor%20Friendly
-.. _Easy: https://github.com/socialcopsdev/camelot/labels/Level%3A%20Easy
+.. _help wanted: https://github.com/socialcopsdev/camelot/labels/help%20wanted
+.. _good first issue: https://github.com/socialcopsdev/camelot/labels/good%20first%20issue
 
 Setting up a development environment
 ------------------------------------
