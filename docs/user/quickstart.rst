@@ -3,7 +3,7 @@
 Quickstart
 ==========
 
-In a hurry to extract tables from PDFs? This document gives a good introduction to help you get started with using Camelot.
+In a hurry to extract tables from PDFs? This document gives a good introduction to help you get started with Camelot.
 
 Read the PDF
 ------------
@@ -14,7 +14,7 @@ Begin by importing the Camelot module::
 
     >>> import camelot
 
-Now, let's try to read a PDF. You can check out the PDF used in this example, `here`_. Since the PDF has a table with clearly demarcated lines, we will use the :ref:`Lattice <lattice>` method here. To do that we will set the ``mesh`` keyword argument to ``True``.
+Now, let's try to read a PDF. (You can check out the PDF used in this example `here`_.) Since the PDF has a table with clearly demarcated lines, we will use the :ref:`Lattice <lattice>` method here. To do that, we will set the ``mesh`` keyword argument to ``True``.
 
 .. note:: :ref:`Lattice <lattice>` is used by default. You can use :ref:`Stream <stream>` with ``flavor='stream'``.
 
@@ -47,7 +47,7 @@ Let's print the parsing report.
         'page': 1
     }
 
-Woah! The accuracy is top-notch and whitespace is less, that means the table was extracted correctly (most probably). You can access the table as a pandas DataFrame by using the :class:`table <camelot.core.Table>` object's ``df`` property.
+Woah! The accuracy is top-notch and there is less whitespace, which means the table was most likely extracted correctly. You can access the table as a pandas DataFrame by using the :class:`table <camelot.core.Table>` object's ``df`` property.
 
 ::
 
@@ -56,7 +56,7 @@ Woah! The accuracy is top-notch and whitespace is less, that means the table was
 .. csv-table::
   :file: ../_static/csv/foo.csv
 
-Looks good! You can be export the table as a CSV file using its :meth:`to_csv() <camelot.core.Table.to_csv>` method. Alternatively you can use :meth:`to_json() <camelot.core.Table.to_json>`, :meth:`to_excel() <camelot.core.Table.to_excel>` or :meth:`to_html() <camelot.core.Table.to_html>` methods to export the table as JSON, Excel and HTML files respectively.
+Looks good! You can now export the table as a CSV file using its :meth:`to_csv() <camelot.core.Table.to_csv>` method. Alternatively you can use :meth:`to_json() <camelot.core.Table.to_json>`, :meth:`to_excel() <camelot.core.Table.to_excel>` or :meth:`to_html() <camelot.core.Table.to_html>` methods to export the table as JSON, Excel and HTML files respectively.
 
 ::
 
@@ -85,7 +85,7 @@ By default, Camelot only uses the first page of the PDF to extract tables. To sp
 
     >>> camelot.read_pdf('your.pdf', pages='1,2,3')
 
-The ``pages`` keyword argument accepts pages as comma-separated string of page numbers. You can also specify page ranges, for example ``pages=1,4-10,20-30`` or ``pages=1,4-10,20-end``.
+The ``pages`` keyword argument accepts pages as comma-separated string of page numbers. You can also specify page ranges — for example, ``pages=1,4-10,20-30`` or ``pages=1,4-10,20-end``.
 
 ------------------------
 
