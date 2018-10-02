@@ -5,11 +5,11 @@ API Reference
 
 .. module:: camelot
 
-Main Interface
+Main interface
 --------------
 .. autofunction:: camelot.read_pdf
 
-Lower-Level Classes
+Lower-level classes
 -------------------
 
 .. autoclass:: camelot.handlers.PDFHandler
@@ -21,7 +21,7 @@ Lower-Level Classes
 .. autoclass:: camelot.parsers.Lattice
    :inherited-members:
 
-Lower-Lower-Level Classes
+Lower-lower-level classes
 -------------------------
 
 .. autoclass:: camelot.core.TableList

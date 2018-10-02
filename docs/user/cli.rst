@@ -1,6 +1,6 @@
 .. _cli:
 
-Command-line interface
+Command-Line Interface
 ======================
 
 Camelot comes with a command-line interface.
