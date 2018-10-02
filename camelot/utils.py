@@ -1,8 +1,8 @@
 from __future__ import division
 import os
 import shutil
-import logging
 import tempfile
+import warnings
 from itertools import groupby
 from operator import itemgetter
 
@@ -38,7 +38,7 @@ lattice_kwargs = [
 ]
 
 
-def validate_input(kwargs, flavor='lattice', geometry_type=False):
+def validate_input(kwargs, flavor='lattice'):
     def check_intersection(parser_kwargs, input_kwargs):
         isec = set(parser_kwargs).intersection(set(input_kwargs.keys()))
         if isec:
@@ -49,10 +49,6 @@ def validate_input(kwargs, flavor='lattice', geometry_type=False):
         check_intersection(stream_kwargs, kwargs)
     else:
         check_intersection(lattice_kwargs, kwargs)
-    if geometry_type:
-        if flavor != 'lattice' and geometry_type in ['contour', 'joint', 'line']:
-            raise ValueError("Use geometry_type='{}' with flavor='lattice'".format(
-                             geometry_type))
 
 
 def remove_extra(kwargs, flavor='lattice'):
@@ -75,35 +71,6 @@ class TemporaryDirectory(object):
 
     def __exit__(self, exc_type, exc_value, traceback):
         shutil.rmtree(self.name)
-
-
-def setup_logging(name):
-    """Sets up a logger with StreamHandler.
-
-    Parameters
-    ----------
-    name : str
-
-    Returns
-    -------
-    logger : logging.Logger
-
-    """
-    logger = logging.getLogger(name)
-
-    format_string = '%(asctime)s - %(levelname)s - %(funcName)s - %(message)s'
-    formatter = logging.Formatter(format_string, datefmt='%Y-%m-%dT%H:%M:%S')
-
-    handler = logging.StreamHandler()
-    handler.setLevel(logging.INFO)
-    handler.setFormatter(formatter)
-
-    logger.addHandler(handler)
-
-    return logger
-
-
-logger = setup_logging(__name__)
 
 
 def translate(x1, x2):
@@ -138,35 +105,6 @@ def scale(x, s):
     """
     x *= s
     return x
-
-
-def rotate(x1, y1, x2, y2, angle):
-    """Rotates point x2, y2 about point x1, y1 by angle.
-
-    Parameters
-    ----------
-    x1 : float
-    y1 : float
-    x2 : float
-    y2 : float
-    angle : float
-        Angle in radians.
-
-    Returns
-    -------
-    xnew : float
-    ynew : float
-
-    """
-    s = np.sin(angle)
-    c = np.cos(angle)
-    x2 = translate(-x1, x2)
-    y2 = translate(-y1, y2)
-    xnew = c * x2 - s * y2
-    ynew = s * x2 + c * y2
-    xnew = translate(x1, xnew)
-    ynew = translate(y1, ynew)
-    return xnew, ynew
 
 
 def scale_pdf(k, factors):
@@ -343,33 +281,6 @@ def text_in_bbox(bbox, text):
                 <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
                 <= rt[1] + 2]
     return t_bbox
-
-
-def remove_close_lines(ar, line_close_tol=2):
-    """Removes lines which are within a tolerance, based on their x or
-    y axis projections.
-
-    Parameters
-    ----------
-    ar : list
-    line_close_tol : int, optional (default: 2)
-
-    Returns
-    -------
-    ret : list
-
-    """
-    ret = []
-    for a in ar:
-        if not ret:
-            ret.append(a)
-        else:
-            temp = ret[-1]
-            if np.isclose(temp, a, atol=line_close_tol):
-                pass
-            else:
-                ret.append(a)
-    return ret
 
 
 def merge_close_lines(ar, line_close_tol=2):
@@ -564,7 +475,7 @@ def get_table_index(table, t, direction, split_text=False, flag_size=False):
                 text = t.get_text().strip('\n')
                 text_range = (t.x0, t.x1)
                 col_range = (table.cols[0][0], table.cols[-1][1])
-                logger.info("{} {} does not lie in column range {}".format(
+                warnings.warn("{} {} does not lie in column range {}".format(
                     text, text_range, col_range))
             r_idx = r
             c_idx = lt_col_overlap.index(max(lt_col_overlap))
@@ -646,27 +557,6 @@ def compute_whitespace(d):
                 whitespace += 1
     whitespace = 100 * (whitespace / float(len(d) * len(d[0])))
     return whitespace
-
-
-def remove_empty(d):
-    """Removes empty rows and columns from a two-dimensional list.
-
-    Parameters
-    ----------
-    d : list
-
-    Returns
-    -------
-    d : list
-
-    """
-    for i, row in enumerate(d):
-        if row == [''] * len(row):
-            d.pop(i)
-    d = zip(*d)
-    d = [list(row) for row in d if any(row)]
-    d = zip(*d)
-    return d
 
 
 def get_page_layout(filename, char_margin=1.0, line_margin=0.5, word_margin=0.1,
@@ -755,17 +645,14 @@ def get_text_objects(layout, ltype="char", t=None):
 
 def merge_tuples(tuples):
     """Merges a list of overlapping tuples.
-
-    Parameters
+     Parameters
     ----------
     tuples : list
         List of tuples where a tuple is a single axis coordinate pair.
-
-    Yields
+     Yields
     ------
     tuple
-
-    """
+     """
     merged = list(tuples[0])
     for s, e in tuples:
         if s <= merged[1]:

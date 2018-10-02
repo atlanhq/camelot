@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from pprint import pprint
+import logging
+
+logger = logging.getLogger('camelot')
+logger.setLevel(logging.INFO)
 
 import click
 
@@ -38,7 +41,7 @@ pass_config = click.make_pass_decorator(Config)
 def cli(ctx, *args, **kwargs):
     """Camelot: PDF Table Extraction for Humans"""
     ctx.obj = Config()
-    for key, value in kwargs.iteritems():
+    for key, value in kwargs.items():
         ctx.obj.set_config(key, value)
 
 
