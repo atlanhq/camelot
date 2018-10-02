@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import logging
+
+logger = logging.getLogger('camelot')
+logger.setLevel(logging.INFO)
+
 import click
 
 from . import __version__
