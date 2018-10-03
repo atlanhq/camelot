@@ -134,7 +134,7 @@ Filing Issues
 
 We use `GitHub issues`_ to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
 
-.. _GitHub issues: https://docs.pytest.org/en/latest/
+.. _GitHub issues: https://github.com/socialcopsdev/camelot/issues
 
 Questions
 ^^^^^^^^^

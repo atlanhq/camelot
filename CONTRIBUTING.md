@@ -106,7 +106,7 @@ The function docstrings are written using the [numpydoc](https://numpydoc.readth
 
 ## Filing Issues
 
-We use [GitHub issues](https://docs.pytest.org/en/latest/) to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
+We use [GitHub issues](https://github.com/socialcopsdev/camelot/issues) to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
 
 ### Questions
 
