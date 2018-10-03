@@ -43,7 +43,7 @@
 
 There's a [command-line interface](https://camelot-py.readthedocs.io/en/latest/user/cli.html) too!
 
-**Note:** Camelot only works with text-based PDFs and not scanned documents. If you can click and drag to select text in your table in a PDF viewer, then your PDF is text-based.
+**Note:** Camelot only works with text-based PDFs and not scanned documents. (As Tabula [explains](https://github.com/tabulapdf/tabula#why-tabula), "If you can click and drag to select text in your table in a PDF viewer, then your PDF is text-based".)
 
 ## Why Camelot?
 

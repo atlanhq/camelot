@@ -19,7 +19,7 @@ Why another PDF table extraction library?
 
 There are both open (`Tabula`_, `pdf-table-extract`_) and closed-source (`smallpdf`_, `PDFTables`_) tools that are widely used to extract tables from PDF files. They either give a nice output or fail miserably. There is no in between. This is not helpful since everything in the real world, including PDF table extraction, is fuzzy. This leads to the creation of ad-hoc table extraction scripts for each type of PDF table.
 
-We created Camelot to offer users complete control over table extraction. If you can't get your desired output with the default settings, you can tweak them and get the job done!
+Camelot was created to offer users complete control over table extraction. If you can't get your desired output with the default settings, you can tweak them and get the job done!
 
 Here is a `comparison`_ of Camelot's output with outputs from other open-source PDF parsing libraries and tools.
 
