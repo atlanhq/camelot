@@ -11,3 +11,6 @@ coverage.xml
 
 .pytest_cache/
 _build/
+
+# vscode
+.vscode

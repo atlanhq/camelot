@@ -22,6 +22,16 @@ def test_cli_lattice():
         assert result.exit_code == 0
         assert result.output == 'Found 1 tables\n'
 
+        result = runner.invoke(cli, ['--format', 'csv',
+                                     'lattice', infile])
+        output_error = 'Error: Please specify output file path using --output'
+        assert output_error in result.output
+
+        result = runner.invoke(cli, ['--output', outfile,
+                                     'lattice', infile])
+        format_error = 'Please specify output file format using --format'
+        assert format_error in result.output
+
 
 def test_cli_stream():
     with TemporaryDirectory() as tempdir:
@@ -32,3 +42,11 @@ def test_cli_stream():
                                      'stream', infile])
         assert result.exit_code == 0
         assert result.output == 'Found 1 tables\n'
+
+        result = runner.invoke(cli, ['--format', 'csv', 'stream', infile])
+        output_error = 'Error: Please specify output file path using --output'
+        assert output_error in result.output
+
+        result = runner.invoke(cli, ['--output', outfile, 'stream', infile])
+        format_error = 'Please specify output file format using --format'
+        assert format_error in result.output
