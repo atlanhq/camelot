@@ -177,10 +177,10 @@ class Lattice(BaseParser):
         # TODO: hacky, get rid of ghostscript #96
         def get_platform():
             import platform
-            p = platform.uname()
+
             info = {
-                'system': p.system.lower(),
-                'machine': p.machine.lower()
+                'system': platform.system().lower(),
+                'machine': platform.machine().lower()
             }
             return info
 
