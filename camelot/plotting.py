@@ -41,16 +41,16 @@ def plot_table(table):
         for cell in row:
             if cell.left:
                 plt.plot([cell.lb[0], cell.lt[0]],
-                            [cell.lb[1], cell.lt[1]])
+                         [cell.lb[1], cell.lt[1]])
             if cell.right:
                 plt.plot([cell.rb[0], cell.rt[0]],
-                            [cell.rb[1], cell.rt[1]])
+                         [cell.rb[1], cell.rt[1]])
             if cell.top:
                 plt.plot([cell.lt[0], cell.rt[0]],
-                            [cell.lt[1], cell.rt[1]])
+                         [cell.lt[1], cell.rt[1]])
             if cell.bottom:
                 plt.plot([cell.lb[0], cell.rb[0]],
-                            [cell.lb[1], cell.rb[1]])
+                         [cell.lb[1], cell.rb[1]])
     plt.show()
 
 

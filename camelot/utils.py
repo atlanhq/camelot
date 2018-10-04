@@ -278,8 +278,8 @@ def text_in_bbox(bbox, text):
     lb = (bbox[0], bbox[1])
     rt = (bbox[2], bbox[3])
     t_bbox = [t for t in text if lb[0] - 2 <= (t.x0 + t.x1) / 2.0
-                <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
-                <= rt[1] + 2]
+              <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
+              <= rt[1] + 2]
     return t_bbox
 
 

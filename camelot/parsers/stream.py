@@ -116,7 +116,7 @@ class Stream(BaseParser):
                     row_y = t.y0
                 temp.append(t)
         rows.append(sorted(temp, key=lambda t: t.x0))
-        __ = rows.pop(0) # hacky
+        __ = rows.pop(0)  # hacky
         return rows
 
     @staticmethod
@@ -211,7 +211,7 @@ class Stream(BaseParser):
             text = Stream._group_rows(text, row_close_tol=row_close_tol)
             elements = [len(r) for r in text]
             new_cols = [(t.x0, t.x1)
-                for r in text if len(r) == max(elements) for t in r]
+                        for r in text if len(r) == max(elements) for t in r]
             cols.extend(Stream._merge_columns(sorted(new_cols)))
         return cols
 
@@ -358,7 +358,7 @@ class Stream(BaseParser):
         _tables = []
         # sort tables based on y-coord
         for table_idx, tk in enumerate(sorted(self.table_bbox.keys(),
-                key=lambda x: x[1], reverse=True)):
+                                              key=lambda x: x[1], reverse=True)):
             cols, rows = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows)
             _tables.append(table)
