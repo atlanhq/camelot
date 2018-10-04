@@ -2,9 +2,7 @@
 
 import os
 
-from click import UsageError
 from click.testing import CliRunner
-import pytest
 
 from camelot.cli import cli
 from camelot.utils import TemporaryDirectory
@@ -24,11 +22,15 @@ def test_cli_lattice():
         assert result.exit_code == 0
         assert result.output == 'Found 1 tables\n'
 
-        result = runner.invoke(cli, ['--format', 'csv', 'lattice', infile])
-        assert 'Error: Please specify output file path using --output' in result.output
+        result = runner.invoke(cli, ['--format', 'csv',
+                                     'lattice', infile])
+        output_error = 'Error: Please specify output file path using --output'
+        assert output_error in result.output
 
-        result = runner.invoke(cli, ['--output', outfile, 'lattice', infile])
-        assert 'Please specify output file format using --format' in result.output
+        result = runner.invoke(cli, ['--output', outfile,
+                                     'lattice', infile])
+        format_error = 'Please specify output file format using --format'
+        assert format_error in result.output
 
 
 def test_cli_stream():
@@ -42,7 +44,9 @@ def test_cli_stream():
         assert result.output == 'Found 1 tables\n'
 
         result = runner.invoke(cli, ['--format', 'csv', 'stream', infile])
-        assert 'Error: Please specify output file path using --output' in result.output
+        output_error = 'Error: Please specify output file path using --output'
+        assert output_error in result.output
 
         result = runner.invoke(cli, ['--output', outfile, 'stream', infile])
-        assert 'Please specify output file format using --format' in result.output
+        format_error = 'Please specify output file format using --format'
+        assert format_error in result.output
