@@ -174,14 +174,34 @@ class Lattice(BaseParser):
         return t
 
     def _generate_image(self):
+        # TODO: hacky, get rid of ghostscript #96
+        def get_platform():
+            import platform
+
+            info = {
+                'system': platform.system().lower(),
+                'machine': platform.machine().lower()
+            }
+            return info
+
         self.imagename = ''.join([self.rootname, '.png'])
         gs_call = [
-            "-q", "-sDEVICE=png16m", "-o", self.imagename, "-r600", self.filename
+            '-q',
+            '-sDEVICE=png16m',
+            '-o',
+            self.imagename,
+            '-r600',
+            self.filename
         ]
-        if "ghostscript" in subprocess.check_output(["gs", "-version"]).decode('utf-8').lower():
-            gs_call.insert(0, "gs")
+        info = get_platform()
+        if info['system'] == 'windows':
+            bit = info['machine'][-2:]
+            gs_call.insert(0, 'gswin{}c.exe'.format(bit))
         else:
-            gs_call.insert(0, "gsc")
+            if 'ghostscript' in subprocess.check_output(['gs', '-version']).decode('utf-8').lower():
+                gs_call.insert(0, 'gs')
+            else:
+                gs_call.insert(0, 'gsc')
         subprocess.call(gs_call, stdout=open(os.devnull, 'w'),
             stderr=subprocess.STDOUT)
 
