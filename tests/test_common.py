@@ -12,6 +12,19 @@ testdir = os.path.dirname(os.path.abspath(__file__))
 testdir = os.path.join(testdir, "files")
 
 
+def test_parsing_report():
+    parsing_report = {
+        'accuracy': 99.02,
+        'whitespace': 12.24,
+        'order': 1,
+        'page': 1
+    }
+
+    filename = os.path.join(testdir, "foo.pdf")
+    tables = camelot.read_pdf(filename)
+    assert tables[0].parsing_report == parsing_report
+
+
 def test_stream():
     df = pd.DataFrame(data_stream)
 

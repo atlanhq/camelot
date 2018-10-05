@@ -50,3 +50,30 @@ def test_cli_stream():
         result = runner.invoke(cli, ['--output', outfile, 'stream', infile])
         format_error = 'Please specify output file format using --format'
         assert format_error in result.output
+
+
+def test_cli_output_format():
+    with TemporaryDirectory() as tempdir:
+        infile = os.path.join(testdir, 'health.pdf')
+        outfile = os.path.join(tempdir, 'health.{}')
+        runner = CliRunner()
+
+        # json
+        result = runner.invoke(cli, ['--format', 'json', '--output', outfile.format('json'),
+                                     'stream', infile])
+        assert result.exit_code == 0
+
+        # excel
+        result = runner.invoke(cli, ['--format', 'excel', '--output', outfile.format('xlsx'),
+                                     'stream', infile])
+        assert result.exit_code == 0
+
+        # html
+        result = runner.invoke(cli, ['--format', 'html', '--output', outfile.format('html'),
+                                     'stream', infile])
+        assert result.exit_code == 0
+
+        # zip
+        result = runner.invoke(cli, ['--zip', '--format', 'csv', '--output', outfile.format('csv'),
+                                     'stream', infile])
+        assert result.exit_code == 0
