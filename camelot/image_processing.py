@@ -7,8 +7,6 @@ from operator import itemgetter
 import cv2
 import numpy as np
 
-from .utils import merge_tuples
-
 
 def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
     """Thresholds an image using OpenCV's adaptiveThreshold.
