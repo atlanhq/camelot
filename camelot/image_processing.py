@@ -38,11 +38,13 @@ def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     if process_background:
-        threshold = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-                                          cv2.THRESH_BINARY, blocksize, c)
+        threshold = cv2.adaptiveThreshold(
+            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY, blocksize, c)
     else:
-        threshold = cv2.adaptiveThreshold(np.invert(gray), 255,
-                                          cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, blocksize, c)
+        threshold = cv2.adaptiveThreshold(
+            np.invert(gray), 255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, blocksize, c)
     return img, threshold
 
 
@@ -178,7 +180,7 @@ def find_table_joints(contours, vertical, horizontal):
     tables = {}
     for c in contours:
         x, y, w, h = c
-        roi = joints[y: y + h, x: x + w]
+        roi = joints[y : y + h, x : x + w]
         try:
             __, jc, __ = cv2.findContours(
                 roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
