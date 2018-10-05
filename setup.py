@@ -2,7 +2,6 @@
 
 import os
 from setuptools import find_packages
-from pkg_resources import parse_version
 
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -49,12 +48,14 @@ def setup_package():
                         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
                         'License :: OSI Approved :: MIT License',
                         'Programming Language :: Python :: 2.7',
-                        'Programming Language :: Python :: 3.6'
+                        'Programming Language :: Python :: 3.5',
+                        'Programming Language :: Python :: 3.6',
+                        'Programming Language :: Python :: 3.7'
                     ])
 
     try:
         from setuptools import setup
-    except:
+    except ImportError:
         from distutils.core import setup
 
     setup(**metadata)

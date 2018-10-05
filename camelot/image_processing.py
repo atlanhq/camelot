@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import division
-from itertools import groupby
-from operator import itemgetter
 
 import cv2
 import numpy as np
-
-from .utils import merge_tuples
 
 
 def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
@@ -42,10 +38,12 @@ def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     if process_background:
-        threshold = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+        threshold = cv2.adaptiveThreshold(
+            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
             cv2.THRESH_BINARY, blocksize, c)
     else:
-        threshold = cv2.adaptiveThreshold(np.invert(gray), 255,
+        threshold = cv2.adaptiveThreshold(
+            np.invert(gray), 255,
             cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, blocksize, c)
     return img, threshold
 
@@ -102,6 +100,7 @@ def find_lines(threshold, direction='horizontal', line_size_scaling=15, iteratio
         _, contours, _ = cv2.findContours(
             threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     except ValueError:
+        # for opencv backward compatibility
         contours, _ = cv2.findContours(
             threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -141,6 +140,7 @@ def find_table_contours(vertical, horizontal):
         __, contours, __ = cv2.findContours(
             mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     except ValueError:
+        # for opencv backward compatibility
         contours, __ = cv2.findContours(
             mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
@@ -185,6 +185,7 @@ def find_table_joints(contours, vertical, horizontal):
             __, jc, __ = cv2.findContours(
                 roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
         except ValueError:
+            # for opencv backward compatibility
             jc, __ = cv2.findContours(
                 roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
         if len(jc) <= 4:  # remove contours with less than 4 joints
@@ -197,79 +198,3 @@ def find_table_joints(contours, vertical, horizontal):
         tables[(x, y + h, x + w, y)] = joint_coords
 
     return tables
-
-
-def remove_lines(threshold, line_size_scaling=15):
-    """Removes lines from a thresholded image.
-
-    Parameters
-    ----------
-    threshold : object
-        numpy.ndarray representing the thresholded image.
-    line_size_scaling : int, optional (default: 15)
-        Factor by which the page dimensions will be divided to get
-        smallest length of lines that should be detected.
-
-        The larger this value, smaller the detected lines. Making it
-        too large will lead to text being detected as lines.
-
-    Returns
-    -------
-    threshold : object
-        numpy.ndarray representing the thresholded image
-        with horizontal and vertical lines removed.
-
-    """
-    size = threshold.shape[0] // line_size_scaling
-    vertical_erode_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
-    horizontal_erode_el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
-    dilate_el = cv2.getStructuringElement(cv2.MORPH_RECT, (10, 10))
-
-    vertical = cv2.erode(threshold, vertical_erode_el)
-    vertical = cv2.dilate(vertical, dilate_el)
-
-    horizontal = cv2.erode(threshold, horizontal_erode_el)
-    horizontal = cv2.dilate(horizontal, dilate_el)
-
-    threshold = np.bitwise_and(threshold, np.invert(vertical))
-    threshold = np.bitwise_and(threshold, np.invert(horizontal))
-    return threshold
-
-
-def find_cuts(threshold, char_size_scaling=200):
-    """Finds cuts made by text projections on y-axis.
-
-    Parameters
-    ----------
-    threshold : object
-        numpy.ndarray representing the thresholded image.
-    line_size_scaling : int, optional (default: 200)
-        Factor by which the page dimensions will be divided to get
-        smallest length of lines that should be detected.
-
-        The larger this value, smaller the detected lines. Making it
-        too large will lead to text being detected as lines.
-
-    Returns
-    -------
-    y_cuts : list
-        List of cuts on y-axis.
-    """
-    size = threshold.shape[0] // char_size_scaling
-    char_el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
-
-    threshold = cv2.erode(threshold, char_el)
-    threshold = cv2.dilate(threshold, char_el)
-
-    try:
-        __, contours, __ = cv2.findContours(threshold, cv2.RETR_EXTERNAL,
-            cv2.CHAIN_APPROX_SIMPLE)
-    except ValueError:
-        contours, __ = cv2.findContours(threshold, cv2.RETR_EXTERNAL,
-            cv2.CHAIN_APPROX_SIMPLE)
-
-    contours = [cv2.boundingRect(c) for c in contours]
-    y_cuts = [(c[1], c[1] + c[3]) for c in contours]
-    y_cuts = list(merge_tuples(sorted(y_cuts)))
-    y_cuts = [(y_cuts[i][0] + y_cuts[i - 1][1]) // 2 for i in range(1, len(y_cuts))]
-    return sorted(y_cuts, reverse=True)
