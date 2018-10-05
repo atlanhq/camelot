@@ -79,6 +79,6 @@ def test_cli_output_format():
         assert result.exit_code == 0
 
         # zip for excel files
-        result = runner.invoke(cli, ['--zip', '--format', 'excel', '--output', outfile.format('csv'),
+        result = runner.invoke(cli, ['--zip', '--format', 'excel', '--output', outfile.format('xlsx'),
                                      'stream', infile])
         assert result.exit_code == 0
