@@ -12,6 +12,7 @@ Release History
 
 * [#123](https://github.com/socialcopsdev/camelot/issues/123) Make PEP8 compatible. [#125](https://github.com/socialcopsdev/camelot/pull/125) by [Oshawk](https://github.com/Oshawk).
 * [#110](https://github.com/socialcopsdev/camelot/issues/110) Add more tests. Coverage is now at 84%!
+    * Add tests for `__repr__`. [#128](https://github.com/socialcopsdev/camelot/pull/128) by [Vaibhav Mule](https://github.com/vaibhavmule).
     * Add tests for CLI. [#122](https://github.com/socialcopsdev/camelot/pull/122) by [Vaibhav Mule](https://github.com/vaibhavmule) and [#117](https://github.com/socialcopsdev/camelot/pull/117) by Vinayak Mehta.
     * Add tests for errors/warnings. [#113](https://github.com/socialcopsdev/camelot/pull/113) by Vinayak Mehta.
     * Add tests for output formats and parser kwargs. [#126](https://github.com/socialcopsdev/camelot/pull/126) by Vinayak Mehta.
