@@ -102,6 +102,7 @@ def find_lines(threshold, direction='horizontal', line_size_scaling=15, iteratio
         _, contours, _ = cv2.findContours(
             threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     except ValueError:
+        # for opencv backward compatibility
         contours, _ = cv2.findContours(
             threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -141,6 +142,7 @@ def find_table_contours(vertical, horizontal):
         __, contours, __ = cv2.findContours(
             mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     except ValueError:
+        # for opencv backward compatibility
         contours, __ = cv2.findContours(
             mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
@@ -185,6 +187,7 @@ def find_table_joints(contours, vertical, horizontal):
             __, jc, __ = cv2.findContours(
                 roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
         except ValueError:
+            # for opencv backward compatibility
             jc, __ = cv2.findContours(
                 roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
         if len(jc) <= 4:  # remove contours with less than 4 joints
