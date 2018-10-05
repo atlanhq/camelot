@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-from . import __version__
-from .io import read_pdf
+
+import logging
 
 import click
 
-import logging
+from . import __version__
+from .io import read_pdf
 
 logger = logging.getLogger('camelot')
 logger.setLevel(logging.INFO)

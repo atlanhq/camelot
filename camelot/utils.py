@@ -1,5 +1,4 @@
 from __future__ import division
-import os
 import shutil
 import tempfile
 import warnings
@@ -14,7 +13,6 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfpage import PDFTextExtractionNotAllowed
 from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.pdfinterp import PDFPageInterpreter
-from pdfminer.pdfdevice import PDFDevice
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)

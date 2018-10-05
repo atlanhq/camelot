@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import division
-from itertools import groupby
-from operator import itemgetter
 
 import cv2
 import numpy as np
