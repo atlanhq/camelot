@@ -341,8 +341,7 @@ class Lattice(BaseParser):
         _tables = []
         # sort tables based on y-coord
         for table_idx, tk in enumerate(sorted(
-                self.table_bbox.keys(),
-                key=lambda x: x[1], reverse=True)):
+                self.table_bbox.keys(), key=lambda x: x[1], reverse=True)):
             cols, rows, v_s, h_s = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows, v_s=v_s, h_s=h_s)
             _tables.append(table)

@@ -5,6 +5,7 @@ import logging
 from .__version__ import __version__
 from .io import read_pdf
 
+
 # set up logging
 logger = logging.getLogger('camelot')
 
