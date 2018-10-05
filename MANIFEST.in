@@ -1,7 +1,1 @@
-include MANIFEST.in
-include setup.py
-include setup.cfg
-include README.md
-include LICENSE
-include requirements.txt
-include requirements-dev.txt
+include MANIFEST.in README.md HISTORY.md LICENSE requirements.txt requirements-dev.txt setup.py setup.cfg
