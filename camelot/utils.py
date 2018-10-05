@@ -1,5 +1,4 @@
 from __future__ import division
-import os
 import shutil
 import tempfile
 import warnings
@@ -14,7 +13,6 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfpage import PDFTextExtractionNotAllowed
 from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.pdfinterp import PDFPageInterpreter
-from pdfminer.pdfdevice import PDFDevice
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)
@@ -278,8 +276,8 @@ def text_in_bbox(bbox, text):
     lb = (bbox[0], bbox[1])
     rt = (bbox[2], bbox[3])
     t_bbox = [t for t in text if lb[0] - 2 <= (t.x0 + t.x1) / 2.0
-                <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
-                <= rt[1] + 2]
+              <= rt[0] + 2 and lb[1] - 2 <= (t.y0 + t.y1) / 2.0
+              <= rt[1] + 2]
     return t_bbox
 
 

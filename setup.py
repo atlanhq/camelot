@@ -2,7 +2,6 @@
 
 import os
 from setuptools import find_packages
-from pkg_resources import parse_version
 
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -56,7 +55,7 @@ def setup_package():
 
     try:
         from setuptools import setup
-    except:
+    except ImportError:
         from distutils.core import setup
 
     setup(**metadata)

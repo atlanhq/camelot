@@ -82,8 +82,8 @@ def test_stream_flag_size():
 def test_lattice():
     df = pd.DataFrame(data_lattice)
 
-    filename = os.path.join(testdir,
-        "tabula/icdar2013-dataset/competition-dataset-us/us-030.pdf")
+    filename = os.path.join(
+        testdir, "tabula/icdar2013-dataset/competition-dataset-us/us-030.pdf")
     tables = camelot.read_pdf(filename, pages="2")
     assert df.equals(tables[0].df)
 
