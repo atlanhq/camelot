@@ -2,17 +2,18 @@
 
 import logging
 
-logger = logging.getLogger('camelot')
-logger.setLevel(logging.INFO)
-
 import click
 
 from . import __version__
 from .io import read_pdf
 
 
+logger = logging.getLogger('camelot')
+logger.setLevel(logging.INFO)
+
+
 class Config(object):
-    def  __init__(self):
+    def __init__(self):
         self.config = {}
 
     def set_config(self, key, value):

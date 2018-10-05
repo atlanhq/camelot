@@ -201,8 +201,9 @@ class Lattice(BaseParser):
             if 'ghostscript' in subprocess.check_output(['gs', '-version']).decode('utf-8').lower():
                 gs_call.insert(0, 'gs')
             else:
-                gs_call.insert(0, 'gsc')
-        subprocess.call(gs_call, stdout=open(os.devnull, 'w'),
+                gs_call.insert(0, "gsc")
+        subprocess.call(
+            gs_call, stdout=open(os.devnull, 'w'),
             stderr=subprocess.STDOUT)
 
     def _generate_table_bbox(self):
@@ -339,8 +340,8 @@ class Lattice(BaseParser):
 
         _tables = []
         # sort tables based on y-coord
-        for table_idx, tk in enumerate(sorted(self.table_bbox.keys(),
-                key=lambda x: x[1], reverse=True)):
+        for table_idx, tk in enumerate(sorted(
+                self.table_bbox.keys(), key=lambda x: x[1], reverse=True)):
             cols, rows, v_s, h_s = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows, v_s=v_s, h_s=h_s)
             _tables.append(table)
