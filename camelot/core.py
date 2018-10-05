@@ -71,7 +71,7 @@ class Cell(object):
 
     def __repr__(self):
         return '<Cell x1={} y1={} x2={} y2={}>'.format(
-            self.x1, self.y1, self.x2, self.y2)
+            round(self.x1, 2), round(self.y1, 2), round(self.x2, 2), round(self.y2, 2))
 
     @property
     def text(self):
