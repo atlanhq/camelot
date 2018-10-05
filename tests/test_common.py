@@ -82,8 +82,8 @@ def test_stream_flag_size():
 def test_lattice():
     df = pd.DataFrame(data_lattice)
 
-    filename = os.path.join(testdir,
-        "tabula/icdar2013-dataset/competition-dataset-us/us-030.pdf")
+    filename = os.path.join(
+        testdir, "tabula/icdar2013-dataset/competition-dataset-us/us-030.pdf")
     tables = camelot.read_pdf(filename, pages="2")
     assert df.equals(tables[0].df)
 
@@ -139,7 +139,7 @@ def test_lattice_shift_text():
     tables = camelot.read_pdf(filename, line_size_scaling=40, shift_text=['r', 'b'])
     assert df_rb.equals(tables[0].df)
 
-
+    
 def test_repr():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)

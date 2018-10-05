@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import division
-from itertools import groupby
-from operator import itemgetter
 
 import cv2
 import numpy as np
@@ -40,10 +38,12 @@ def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     if process_background:
-        threshold = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+        threshold = cv2.adaptiveThreshold(
+            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
             cv2.THRESH_BINARY, blocksize, c)
     else:
-        threshold = cv2.adaptiveThreshold(np.invert(gray), 255,
+        threshold = cv2.adaptiveThreshold(
+            np.invert(gray), 255,
             cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, blocksize, c)
     return img, threshold
 
