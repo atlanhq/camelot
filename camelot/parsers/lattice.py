@@ -2,11 +2,14 @@
 
 from __future__ import division
 import os
+import sys
 import copy
+import locale
 import logging
 import warnings
 import subprocess
 
+import ghostscript
 import numpy as np
 import pandas as pd
 
@@ -174,16 +177,6 @@ class Lattice(BaseParser):
         return t
 
     def _generate_image(self):
-        # TODO: hacky, get rid of ghostscript #96
-        def get_platform():
-            import platform
-
-            info = {
-                'system': platform.system().lower(),
-                'machine': platform.machine().lower()
-            }
-            return info
-
         self.imagename = ''.join([self.rootname, '.png'])
         gs_call = [
             '-q',
@@ -193,18 +186,9 @@ class Lattice(BaseParser):
             '-r600',
             self.filename
         ]
-        info = get_platform()
-        if info['system'] == 'windows':
-            bit = info['machine'][-2:]
-            gs_call.insert(0, 'gswin{}c.exe'.format(bit))
-        else:
-            if 'ghostscript' in subprocess.check_output(['gs', '-version']).decode('utf-8').lower():
-                gs_call.insert(0, 'gs')
-            else:
-                gs_call.insert(0, "gsc")
-        subprocess.call(
-            gs_call, stdout=open(os.devnull, 'w'),
-            stderr=subprocess.STDOUT)
+        encoding = locale.getpreferredencoding()
+        args = [g.encode(encoding) for g in gs_call]
+        ghostscript.Ghostscript(*args)
 
     def _generate_table_bbox(self):
         self.image, self.threshold = adaptive_threshold(

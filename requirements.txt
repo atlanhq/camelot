@@ -1,4 +1,5 @@
 click==6.7
+ghostscript==0.6
 matplotlib==2.2.3
 numpy==1.15.2
 opencv-python==3.4.2.17
