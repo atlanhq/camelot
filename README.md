@@ -59,7 +59,7 @@ See [comparison with other PDF table extraction libraries and tools](https://git
 After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
 
 <pre>
-$ pip install camelot-py
+$ pip install camelot-py[all]
 </pre>
 
 ### Alternatively
@@ -74,7 +74,7 @@ and install Camelot using pip:
 
 <pre>
 $ cd camelot
-$ pip install .
+$ pip install ".[all]"
 </pre>
 
 **Note:** Use a [virtualenv](https://virtualenv.pypa.io/en/stable/) if you don't want to affect your global Python installation.

@@ -76,12 +76,12 @@ Or for Windows 32-bit::
 
 If you have ghostscript, you should see the ghostscript version and copyright information.
 
-$ pip install camelot-py
-------------------------
+$ pip install camelot-py[all]
+-----------------------------
 
 After installing the dependencies, you can simply use pip to install Camelot::
 
-    $ pip install camelot-py
+    $ pip install camelot-py[all]
 
 Get the source code
 -------------------
@@ -97,4 +97,4 @@ Alternatively, you can install from the source by:
 ::
 
     $ cd camelot
-    $ pip install .
+    $ pip install ".[all]"
