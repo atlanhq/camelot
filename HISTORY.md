@@ -1,8 +1,13 @@
 Release History
 ===============
 
+0.2.3 (2018-10-08)
+------------------
+
+* Remove hard dependencies on requirements versions.
+
 0.2.2 (2018-10-08)
------------------
+------------------
 
 **Bugfixes**
 
