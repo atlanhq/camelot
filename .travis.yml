@@ -12,6 +12,9 @@ matrix:
       sudo: true
 before_install:
   - sudo apt-get install python-tk python3-tk ghostscript
+addons:
+  apt:
+    update: true
 install:
   - pip install ".[dev]"
 script:
