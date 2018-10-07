@@ -1,6 +1,13 @@
 Release History
 ===============
 
+0.2.2 (2018-10-08)
+-----------------
+
+**Bugfixes**
+
+* Move opencv-python to extra\_requires. [#134](https://github.com/socialcopsdev/camelot/pull/134) by Vinayak Mehta.
+
 0.2.1 (2018-10-05)
 ------------------
 
