@@ -1,5 +1,6 @@
-sudo: required
+sudo: false
 language: python
+before_install: sudo apt-get install python-tk python3-tk ghostscript
 # command to install dependencies
 install: "make"
 # command to run tests

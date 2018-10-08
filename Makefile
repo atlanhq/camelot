@@ -1,6 +1,5 @@
 .PHONY: docs
 init:
-	sudo apt-get install python-tk python3-tk ghostscript
 	pip install --upgrade pip
 	pip install ".[dev]"
 test:
