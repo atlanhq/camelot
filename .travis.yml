@@ -1,19 +1,31 @@
 sudo: false
 language: python
-cache: pip
-python:
-  - "2.7"
-  - "3.5"
-matrix:
-  include:
-    - python: 3.7
-      dist: xenial
-      sudo: true
-    - python: 3.6
-      script: pytest --verbose --cov-config .coveragerc --cov-report term --cov-report xml --cov=camelot tests && codecov --verbose
-before_install:
-  - sudo apt-get install python-tk python3-tk ghostscript
-install:
-  - pip install ".[dev]"
+# command to install dependencies
+install: "make"
+# command to run tests
 script:
-  - pytest --verbose --cov-config .coveragerc --cov-report term --cov-report xml --cov=camelot tests
+  - make ci
+cache: pip
+jobs:
+  include:
+    - stage: test
+      script:
+        - make test
+      python: '2.7'
+    - stage: test
+      script:
+        - make test
+      python: '3.5'
+    - stage: test
+      script:
+        - make test
+      python: '3.6'
+    - stage: test
+      script:
+        - make test
+      python: '3.7'
+      dist: xenial
+      sudo: true     
+    - stage: coverage
+      python: 3.6
+      script: codecov
