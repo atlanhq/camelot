@@ -5,7 +5,7 @@ before_install: sudo apt-get install python-tk python3-tk ghostscript
 install: "make"
 # command to run tests
 script:
-  - make ci
+  - make test
 cache: pip
 jobs:
   include:
