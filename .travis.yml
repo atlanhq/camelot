@@ -3,9 +3,6 @@ language: python
 before_install: sudo apt-get install python-tk python3-tk ghostscript
 # command to install dependencies
 install: "make"
-# command to run tests
-script:
-  - make test
 cache: pip
 jobs:
   include:
@@ -29,4 +26,4 @@ jobs:
       sudo: true     
     - stage: coverage
       python: 3.6
-      script: codecov
+      script: make test && codecov --verbose
