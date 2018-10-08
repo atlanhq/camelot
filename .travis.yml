@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 language: python
 # command to install dependencies
 install: "make"
