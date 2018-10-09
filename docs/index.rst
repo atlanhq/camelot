@@ -11,6 +11,10 @@ Release v\ |version|. (:ref:`Installation <install>`)
 .. image:: https://travis-ci.org/socialcopsdev/camelot.svg?branch=master
     :target: https://travis-ci.org/socialcopsdev/camelot
 
+.. image:: https://readthedocs.org/projects/camelot-py/badge/?version=master
+    :target: https://camelot-py.readthedocs.io/en/master/
+    :alt: Documentation Status
+
 .. image:: https://codecov.io/github/socialcopsdev/camelot/badge.svg?branch=master&service=github
     :target: https://codecov.io/github/socialcopsdev/camelot?branch=master
 
