@@ -16,7 +16,7 @@ with open('README.md', 'r') as f:
 requires = [
     'click>=6.7',
     'matplotlib>=2.2.3',
-    'numpy>=1.15.2',
+    'numpy>=1.13.3',
     'openpyxl>=2.5.8',
     'pandas>=0.23.4',
     'pdfminer.six>=20170720',

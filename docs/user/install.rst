@@ -3,13 +3,29 @@
 Installation of Camelot
 =======================
 
-This part of the documentation covers how to install Camelot. First, you'll need to install the dependencies, which include `Tkinter`_ and `ghostscript`_.
+This part of the documentation covers how to install Camelot.
+
+Using conda
+-----------
+
+The easiest way to install Camelot is to install it with `conda`_, which is the package manager that the `Anaconda`_ distribution is built upon.
+::
+
+    $ conda install -c camelot-dev camelot-py
+
+.. note:: Camelot is available for Python 2.7, 3.5 and 3.6 on Linux, macOS and Windows. For Windows, you will need to install ghostscript which you can get from their `downloads page`_.
+
+.. _conda: https://conda.io/docs/
+.. _Anaconda: http://docs.continuum.io/anaconda/
+.. _downloads page: https://www.ghostscript.com/download/gsdnld.html
+
+Using pip
+---------
+
+First, you'll need to install the dependencies, which include `Tkinter`_ and `ghostscript`_.
 
 .. _Tkinter: https://wiki.python.org/moin/TkInter
 .. _ghostscript: https://www.ghostscript.com
-
-Install the dependencies
-------------------------
 
 These can be installed using your system's package manager. You can run one of the following, based on your OS.
 
@@ -76,17 +92,14 @@ Or for Windows 32-bit::
 
 If you have ghostscript, you should see the ghostscript version and copyright information.
 
-$ pip install camelot-py[all]
------------------------------
-
-After installing the dependencies, you can simply use pip to install Camelot::
+Finally, you can use pip to install Camelot::
 
     $ pip install camelot-py[all]
 
-Get the source code
--------------------
+From the source code
+--------------------
 
-Alternatively, you can install from the source by:
+After `installing the dependencies`_, you can install from the source by:
 
 1. Cloning the GitHub repository.
 ::
@@ -98,3 +111,5 @@ Alternatively, you can install from the source by:
 
     $ cd camelot
     $ pip install ".[all]"
+
+.. _installing the dependencies: https://camelot-py.readthedocs.io/en/latest/user/install.html#using-pip

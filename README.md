@@ -56,15 +56,25 @@ See [comparison with other PDF table extraction libraries and tools](https://git
 
 ## Installation
 
-After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
+### Using conda
+
+The easiest way to install Camelot is to install it with [conda](https://conda.io/docs/), which is the package manager that the [Anaconda](http://docs.continuum.io/anaconda/) distribution is built upon.
+
+<pre>
+$ conda install -c camelot-dev camelot-py
+</pre>
+
+### Using pip
+
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html#using-pip) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
 
 <pre>
 $ pip install camelot-py[all]
 </pre>
 
-### Alternatively
+### From the source code
 
-After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html), clone the repo using:
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html#using-pip), clone the repo using:
 
 <pre>
 $ git clone https://www.github.com/socialcopsdev/camelot
@@ -76,8 +86,6 @@ and install Camelot using pip:
 $ cd camelot
 $ pip install ".[all]"
 </pre>
-
-**Note:** Use a [virtualenv](https://virtualenv.pypa.io/en/stable/) if you don't want to affect your global Python installation.
 
 ## Documentation
 

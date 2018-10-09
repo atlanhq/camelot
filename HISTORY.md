@@ -1,6 +1,12 @@
 Release History
 ===============
 
+master
+------
+
+* Update installation instructions for conda.
+* Downgrade numpy version from 1.15.2 to 1.13.3.
+
 0.2.3 (2018-10-08)
 ------------------
 
