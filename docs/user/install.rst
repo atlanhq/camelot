@@ -112,4 +112,4 @@ After `installing the dependencies`_, you can install from the source by:
     $ cd camelot
     $ pip install ".[all]"
 
-.. _installing the dependencies: https://camelot-py.readthedocs.io/en/latest/user/install.html#using-pip
+.. _installing the dependencies: https://camelot-py.readthedocs.io/en/master/user/install.html#using-pip

@@ -41,7 +41,7 @@
 | 2032_2     | 0.17      | 57.8          | 21.7%                | 0.3%            | 2.7%            | 1.2%           |
 | 4171_1     | 0.07      | 173.9         | 58.1%                | 1.6%            | 2.1%            | 0.5%           |
 
-There's a [command-line interface](https://camelot-py.readthedocs.io/en/latest/user/cli.html) too!
+There's a [command-line interface](https://camelot-py.readthedocs.io/en/master/user/cli.html) too!
 
 **Note:** Camelot only works with text-based PDFs and not scanned documents. (As Tabula [explains](https://github.com/tabulapdf/tabula#why-tabula), "If you can click and drag to select text in your table in a PDF viewer, then your PDF is text-based".)
 
@@ -66,7 +66,7 @@ $ conda install -c camelot-dev camelot-py
 
 ### Using pip
 
-After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html#using-pip) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install.html#using-pip) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
 
 <pre>
 $ pip install camelot-py[all]
@@ -74,7 +74,7 @@ $ pip install camelot-py[all]
 
 ### From the source code
 
-After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html#using-pip), clone the repo using:
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install.html#using-pip), clone the repo using:
 
 <pre>
 $ git clone https://www.github.com/socialcopsdev/camelot
@@ -93,7 +93,7 @@ Great documentation is available at [http://camelot-py.readthedocs.io/](http://c
 
 ## Development
 
-The [Contributor's Guide](https://camelot-py.readthedocs.io/en/latest/dev/contributing.html) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
+The [Contributor's Guide](https://camelot-py.readthedocs.io/en/master/dev/contributing.html) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
 
 ### Source code
 
