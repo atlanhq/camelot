@@ -4,8 +4,13 @@ Release History
 master
 ------
 
-* Update installation instructions for conda.
 * Downgrade numpy version from 1.15.2 to 1.13.3.
+* Add requirements.txt for readthedocs.
+
+**Documentation**
+
+* Add "Using conda" section to installation instructions.
+* Add readthedocs badge.
 
 0.2.3 (2018-10-08)
 ------------------
@@ -69,4 +74,4 @@ master
 0.1.0 (2018-09-24)
 ------------------
 
-* Birth!
+* Rebirth!
