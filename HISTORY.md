@@ -7,6 +7,10 @@ master
 * Downgrade numpy version from 1.15.2 to 1.13.3.
 * Add requirements.txt for readthedocs.
 
+**Improvements**
+
+* Add Makefile and make codecov run only once. [#132](https://github.com/socialcopsdev/camelot/pull/132) by [Vaibhav Mule](https://github.com/vaibhavmule).
+
 **Documentation**
 
 * Add "Using conda" section to installation instructions.
