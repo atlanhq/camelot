@@ -1,9 +1,11 @@
-sudo: false
+sudo: true
 language: python
-before_install: sudo apt-get install python-tk python3-tk ghostscript
-# command to install dependencies
-install: "make"
 cache: pip
+addons:
+  apt:
+    update: true
+install:
+  - make install
 jobs:
   include:
     - stage: test
@@ -23,9 +25,8 @@ jobs:
         - make test
       python: '3.7'
       dist: xenial
-      sudo: true     
     - stage: coverage
       python: 3.6
-      script: 
+      script:
         - make test
         - codecov --verbose
