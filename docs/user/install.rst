@@ -9,7 +9,12 @@ Using conda
 -----------
 
 The easiest way to install Camelot is to install it with `conda`_, which is the package manager that the `Anaconda`_ distribution is built upon.
-::
+
+First, let's add the `conda-forge`_ channel to conda's config::
+
+    $ conda config --add channels conda-forge
+
+Now, you can simply use conda to install Camelot::
 
     $ conda install -c camelot-dev camelot-py
 
@@ -18,6 +23,7 @@ The easiest way to install Camelot is to install it with `conda`_, which is the 
 .. _conda: https://conda.io/docs/
 .. _Anaconda: http://docs.continuum.io/anaconda/
 .. _downloads page: https://www.ghostscript.com/download/gsdnld.html
+.. _conda-forge: https://conda-forge.org/
 
 Using pip
 ---------
