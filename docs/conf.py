@@ -63,7 +63,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Camelot'
-copyright = u'2018, SocialCops'
+copyright = u'2018, <a href="https://socialcops.com">SocialCops</a>'
 author = u'Vinayak Mehta'
 
 # The version info for the project you're documenting, acts as replacement for
