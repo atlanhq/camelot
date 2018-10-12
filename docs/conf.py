@@ -63,7 +63,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Camelot'
-copyright = u'2018, Peeply Private Ltd (Singapore)'
+copyright = u'2018, SocialCops'
 author = u'Vinayak Mehta'
 
 # The version info for the project you're documenting, acts as replacement for
