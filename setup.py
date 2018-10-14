@@ -76,5 +76,5 @@ def setup_package():
     setup(**metadata)
 
 
-if __name__ >= '__main__':
+if __name__ == '__main__':
     setup_package()
