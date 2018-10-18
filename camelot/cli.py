@@ -38,6 +38,7 @@ pass_config = click.make_pass_decorator(Config)
               ' font size. Useful to detect super/subscripts.')
 @click.option('-M', '--margins', nargs=3, default=(1.0, 0.5, 0.1),
               help='PDFMiner char_margin, line_margin and word_margin.')
+@click.option('-q', '--quiet', is_flag=True, help='Suppress warnings.')
 @click.pass_context
 def cli(ctx, *args, **kwargs):
     """Camelot: PDF Table Extraction for Humans"""
@@ -89,6 +90,7 @@ def lattice(c, *args, **kwargs):
     output = conf.pop('output')
     f = conf.pop('format')
     compress = conf.pop('zip')
+    suppress_warnings = conf.pop('quiet')
     plot_type = kwargs.pop('plot_type')
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
@@ -99,7 +101,8 @@ def lattice(c, *args, **kwargs):
     kwargs['copy_text'] = None if not copy_text else copy_text
     kwargs['shift_text'] = list(kwargs['shift_text'])
 
-    tables = read_pdf(filepath, pages=pages, flavor='lattice', **kwargs)
+    tables = read_pdf(filepath, pages=pages, flavor='lattice',
+                      suppress_warnings=suppress_warnings, **kwargs)
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
@@ -134,6 +137,7 @@ def stream(c, *args, **kwargs):
     output = conf.pop('output')
     f = conf.pop('format')
     compress = conf.pop('zip')
+    suppress_warnings = conf.pop('quiet')
     plot_type = kwargs.pop('plot_type')
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
@@ -143,7 +147,8 @@ def stream(c, *args, **kwargs):
     columns = list(kwargs['columns'])
     kwargs['columns'] = None if not columns else columns
 
-    tables = read_pdf(filepath, pages=pages, flavor='stream', **kwargs)
+    tables = read_pdf(filepath, pages=pages, flavor='stream',
+                      suppress_warnings=suppress_warnings, **kwargs)
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
