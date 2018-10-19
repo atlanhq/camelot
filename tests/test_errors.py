@@ -43,7 +43,6 @@ def test_stream_equal_length():
 
 def test_no_tables_found():
     filename = os.path.join(testdir, 'blank.pdf')
-    # TODO: use pytest.warns
     with warnings.catch_warnings():
         warnings.simplefilter('error')
         with pytest.raises(UserWarning) as e:
@@ -54,8 +53,7 @@ def test_no_tables_found():
 def test_no_tables_found_warnings_supressed():
     filename = os.path.join(testdir, 'blank.pdf')
     with warnings.catch_warnings():
-        # Should fail the test if any warning is thrown - warnings should
-        # be suppressed.
+        # the test should fail if any warning is thrown
         warnings.simplefilter('error')
         try:
             tables = camelot.read_pdf(filename, suppress_warnings=True)
