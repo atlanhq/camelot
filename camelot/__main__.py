@@ -159,3 +159,7 @@ def stream(c, *args, **kwargs):
         if f is None:
             raise click.UsageError('Please specify output file format using --format')
         tables.export(output, f=f, compress=compress)
+
+
+if __name__ == "__main__":
+    cli()
