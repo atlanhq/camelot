@@ -50,7 +50,7 @@ def test_no_tables_found():
         assert str(e.value) == 'No tables found on page-1'
 
 
-def test_no_tables_found_warnings_supressed():
+def test_no_tables_found_warnings_suppressed():
     filename = os.path.join(testdir, 'blank.pdf')
     with warnings.catch_warnings():
         # the test should fail if any warning is thrown
