@@ -183,7 +183,6 @@ class Lattice(BaseParser):
 
             gs = None
             system = platform.system().lower()
-            machine = platform.machine().lower()
             try:
                 if system == 'windows':
                     if find_executable('gswin32c.exe'):
