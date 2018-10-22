@@ -4,7 +4,7 @@ import os
 
 from click.testing import CliRunner
 
-from camelot.__main__ import cli
+from camelot.cli import cli
 from camelot.utils import TemporaryDirectory
 
 
