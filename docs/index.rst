@@ -29,6 +29,8 @@ Release v\ |version|. (:ref:`Installation <install>`)
 
 **Camelot** is a Python library that makes it easy for *anyone* to extract tables from PDF files!
 
+.. note:: You can also check out [Excalibur](https://github.com/camelot-dev/excalibur), which is a web interface for Camelot!
+
 ----
 
 **Here's how you can extract tables from PDF files.** Check out the PDF used in this example `here`_.
