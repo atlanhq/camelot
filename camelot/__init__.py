@@ -2,9 +2,19 @@
 
 import logging
 
+from click import HelpFormatter
+
 from .__version__ import __version__
 from .io import read_pdf
 
+
+def _write_usage(self, prog, args='', prefix='Usage: '):
+    return self._write_usage('camelot', args, prefix=prefix)
+
+
+# monkey patch click.HelpFormatter
+HelpFormatter._write_usage = HelpFormatter.write_usage
+HelpFormatter.write_usage = _write_usage
 
 # set up logging
 logger = logging.getLogger('camelot')
