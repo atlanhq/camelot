@@ -62,20 +62,16 @@ def test_no_tables_found_warnings_suppressed():
             pytest.fail('Unexpected warning: {}'.format(warning_text))
 
 
-def test_ghostscript_not_found():
+def test_ghostscript_not_found(monkeypatch):
     import distutils
 
     def _find_executable_patch(arg):
         return ''
 
-    # monkey patch distutils.spawn.find_executable
-    _find_executable = distutils.spawn.find_executable
-    distutils.spawn.find_executable = _find_executable_patch
+    monkeypatch.setattr(distutils.spawn, 'find_executable', _find_executable_patch)
 
     message = ('Please make sure that Ghostscript is installed and available'
                ' on the PATH environment variable')
     filename = os.path.join(testdir, 'foo.pdf')
     with pytest.raises(Exception, message=message):
         tables = camelot.read_pdf(filename)
-
-    distutils.spawn.find_executable = _find_executable
