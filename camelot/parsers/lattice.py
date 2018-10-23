@@ -174,15 +174,39 @@ class Lattice(BaseParser):
         return t
 
     def _generate_image(self):
-        # TODO: hacky, get rid of ghostscript #96
-        def get_platform():
+        # TODO: get rid of ghostscript #96
+        def get_executable():
             import platform
+            from distutils.spawn import find_executable
 
-            info = {
-                'system': platform.system().lower(),
-                'machine': platform.machine().lower()
-            }
-            return info
+            class GhostscriptNotFound(Exception): pass
+
+            gs = None
+            system = platform.system().lower()
+            try:
+                if system == 'windows':
+                    if find_executable('gswin32c.exe'):
+                        gs = 'gswin32c.exe'
+                    elif find_executable('gswin64c.exe'):
+                        gs = 'gswin64c.exe'
+                    else:
+                        raise ValueError
+                else:
+                    if find_executable('gs'):
+                        gs = 'gs'
+                    elif find_executable('gsc'):
+                        gs = 'gsc'
+                    else:
+                        raise ValueError
+                if 'ghostscript' not in subprocess.check_output(
+                        [gs, '-version']).decode('utf-8').lower():
+                    raise ValueError
+            except ValueError:
+                raise GhostscriptNotFound(
+                    'Please make sure that Ghostscript is installed'
+                    ' and available on the PATH environment variable')
+
+            return gs
 
         self.imagename = ''.join([self.rootname, '.png'])
         gs_call = [
@@ -193,15 +217,9 @@ class Lattice(BaseParser):
             '-r600',
             self.filename
         ]
-        info = get_platform()
-        if info['system'] == 'windows':
-            bit = info['machine'][-2:]
-            gs_call.insert(0, 'gswin{}c.exe'.format(bit))
-        else:
-            if 'ghostscript' in subprocess.check_output(['gs', '-version']).decode('utf-8').lower():
-                gs_call.insert(0, 'gs')
-            else:
-                gs_call.insert(0, "gsc")
+        gs = get_executable()
+        gs_call.insert(0, gs)
+
         subprocess.call(
             gs_call, stdout=open(os.devnull, 'w'),
             stderr=subprocess.STDOUT)
