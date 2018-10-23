@@ -81,7 +81,7 @@ data_stream_table_rotated = [
     ["", "", "", "", "", "", "", "", "54", "", "", "", "", "", "", "", "", ""]
 ]
 
-data_stream_table_area = [
+data_stream_table_areas = [
     ["", "One Withholding"],
     ["Payroll Period", "Allowance"],
     ["Weekly", "$71.15"],
@@ -261,7 +261,7 @@ data_lattice_table_rotated = [
     ["Pooled", "38742", "53618", "60601", "86898", "4459", "21918", "27041", "14312", "18519"]
 ]
 
-data_lattice_table_area = [
+data_lattice_table_areas = [
     ["", "", "", "", "", "", "", "", ""],
     ["State", "n", "Literacy Status", "", "", "", "", "", ""],
     ["", "", "Illiterate", "Read & Write", "1-4 std.", "5-8 std.", "9-12 std.", "College", ""],
