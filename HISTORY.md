@@ -15,6 +15,10 @@ master
 * [#114](https://github.com/socialcopsdev/camelot/issues/114) Add Makefile and make codecov run only once. [#132](https://github.com/socialcopsdev/camelot/pull/132) by [Vaibhav Mule](https://github.com/vaibhavmule).
 * Add .editorconfig. [#151](https://github.com/socialcopsdev/camelot/pull/151) by [KOLANICH](https://github.com/KOLANICH).
 
+**Bugfixes**
+
+* Raise error if the ghostscript executable is not on the PATH variable. [#166](https://github.com/socialcopsdev/camelot/pull/166) by Vinayak Mehta.
+
 **Documentation**
 
 * Add "Using conda" section to installation instructions.
