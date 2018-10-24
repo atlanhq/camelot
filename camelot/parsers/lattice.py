@@ -28,7 +28,7 @@ class Lattice(BaseParser):
 
     Parameters
     ----------
-    table_area : list, optional (default: None)
+    table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
         in PDF coordinate space.
@@ -76,12 +76,12 @@ class Lattice(BaseParser):
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
-    def __init__(self, table_area=None, process_background=False,
+    def __init__(self, table_areas=None, process_background=False,
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
                  split_text=False, flag_size=False, line_close_tol=2,
                  joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
                  iterations=0, margins=(1.0, 0.5, 0.1), **kwargs):
-        self.table_area = table_area
+        self.table_areas = table_areas
         self.process_background = process_background
         self.line_size_scaling = line_size_scaling
         self.copy_text = copy_text
@@ -244,9 +244,9 @@ class Lattice(BaseParser):
             self.threshold, direction='horizontal',
             line_size_scaling=self.line_size_scaling, iterations=self.iterations)
 
-        if self.table_area is not None:
+        if self.table_areas is not None:
             areas = []
-            for area in self.table_area:
+            for area in self.table_areas:
                 x1, y1, x2, y2 = area.split(",")
                 x1 = float(x1)
                 y1 = float(y1)

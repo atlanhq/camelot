@@ -26,7 +26,7 @@ class Stream(BaseParser):
 
     Parameters
     ----------
-    table_area : list, optional (default: None)
+    table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
         in PDF coordinate space.
@@ -50,10 +50,10 @@ class Stream(BaseParser):
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
-    def __init__(self, table_area=None, columns=None, split_text=False,
+    def __init__(self, table_areas=None, columns=None, split_text=False,
                  flag_size=False, row_close_tol=2, col_close_tol=0,
                  margins=(1.0, 0.5, 0.1), **kwargs):
-        self.table_area = table_area
+        self.table_areas = table_areas
         self.columns = columns
         self._validate_columns()
         self.split_text = split_text
@@ -241,15 +241,15 @@ class Stream(BaseParser):
         return cols
 
     def _validate_columns(self):
-        if self.table_area is not None and self.columns is not None:
-            if len(self.table_area) != len(self.columns):
-                raise ValueError("Length of table_area and columns"
+        if self.table_areas is not None and self.columns is not None:
+            if len(self.table_areas) != len(self.columns):
+                raise ValueError("Length of table_areas and columns"
                                  " should be equal")
 
     def _generate_table_bbox(self):
-        if self.table_area is not None:
+        if self.table_areas is not None:
             table_bbox = {}
-            for area in self.table_area:
+            for area in self.table_areas:
                 x1, y1, x2, y2 = area.split(",")
                 x1 = float(x1)
                 y1 = float(y1)

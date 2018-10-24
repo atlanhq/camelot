@@ -151,13 +151,13 @@ Specify table areas
 
 Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as `these <../_static/pdf/table_areas.pdf>`__. You can :ref:`plot the text <geometry_text>` on this page and note the top left and bottom right coordinates of the table.
 
-Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_area`` keyword argument.
+Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
 
 .. _for now: https://github.com/socialcopsdev/camelot/issues/102
 
 ::
 
-    >>> tables = camelot.read_pdf('table_areas.pdf', flavor='stream', table_area=['316,499,566,337'])
+    >>> tables = camelot.read_pdf('table_areas.pdf', flavor='stream', table_areas=['316,499,566,337'])
     >>> tables[0].df
 
 .. csv-table::
@@ -172,7 +172,7 @@ You can pass the column separators as a list of comma-separated strings to :meth
 
 In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and you need to specify column separators as well, **the length of both lists should be equal**. Each table area will be mapped to each column separators' string using their indices.
 
-For example, if you have specified two table areas, ``table_area=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list like this, ``columns=['10,120,200,400', '']``.
+For example, if you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list like this, ``columns=['10,120,200,400', '']``.
 
 Let's get back to the *x* coordinates we got from :ref:`plotting text <geometry_text>` that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
 

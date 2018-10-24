@@ -48,7 +48,7 @@ def cli(ctx, *args, **kwargs):
 
 
 @cli.command('lattice')
-@click.option('-T', '--table_area', default=[], multiple=True,
+@click.option('-T', '--table_areas', default=[], multiple=True,
               help='Table areas to process. Example: x1,y1,x2,y2'
               ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-back', '--process_background', is_flag=True,
@@ -95,8 +95,8 @@ def lattice(c, *args, **kwargs):
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
 
-    table_area = list(kwargs['table_area'])
-    kwargs['table_area'] = None if not table_area else table_area
+    table_areas = list(kwargs['table_areas'])
+    kwargs['table_areas'] = None if not table_areas else table_areas
     copy_text = list(kwargs['copy_text'])
     kwargs['copy_text'] = None if not copy_text else copy_text
     kwargs['shift_text'] = list(kwargs['shift_text'])
@@ -116,7 +116,7 @@ def lattice(c, *args, **kwargs):
 
 
 @cli.command('stream')
-@click.option('-T', '--table_area', default=[], multiple=True,
+@click.option('-T', '--table_areas', default=[], multiple=True,
               help='Table areas to process. Example: x1,y1,x2,y2'
               ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-C', '--columns', default=[], multiple=True,
@@ -142,8 +142,8 @@ def stream(c, *args, **kwargs):
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
 
-    table_area = list(kwargs['table_area'])
-    kwargs['table_area'] = None if not table_area else table_area
+    table_areas = list(kwargs['table_areas'])
+    kwargs['table_areas'] = None if not table_areas else table_areas
     columns = list(kwargs['columns'])
     kwargs['columns'] = None if not columns else columns
 
