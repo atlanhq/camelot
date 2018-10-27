@@ -24,7 +24,7 @@ def read_pdf(filepath, pages='1', flavor='lattice', suppress_warnings=False,
         Lattice is used by default.
     suppress_warnings : bool, optional (default: False)
         Prevent warnings from being emitted by Camelot.
-    table_area : list, optional (default: None)
+    table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
         in PDF coordinate space.

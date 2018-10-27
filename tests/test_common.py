@@ -70,11 +70,11 @@ def test_stream_table_rotated():
     assert df.equals(tables[0].df)
 
 
-def test_stream_table_area():
-    df = pd.DataFrame(data_stream_table_area)
+def test_stream_table_areas():
+    df = pd.DataFrame(data_stream_table_areas)
 
     filename = os.path.join(testdir, "tabula/us-007.pdf")
-    tables = camelot.read_pdf(filename, flavor="stream", table_area=["320,500,573,335"])
+    tables = camelot.read_pdf(filename, flavor="stream", table_areas=["320,500,573,335"])
     assert df.equals(tables[0].df)
 
 
@@ -125,11 +125,11 @@ def test_lattice_table_rotated():
     assert df.equals(tables[0].df)
 
 
-def test_lattice_table_area():
-    df = pd.DataFrame(data_lattice_table_area)
+def test_lattice_table_areas():
+    df = pd.DataFrame(data_lattice_table_areas)
 
     filename = os.path.join(testdir, "twotables_2.pdf")
-    tables = camelot.read_pdf(filename, table_area=["80,693,535,448"])
+    tables = camelot.read_pdf(filename, table_areas=["80,693,535,448"])
     assert df.equals(tables[0].df)
 
 

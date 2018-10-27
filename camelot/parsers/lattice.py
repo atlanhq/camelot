@@ -28,7 +28,7 @@ class Lattice(BaseParser):
 
     Parameters
     ----------
-    table_area : list, optional (default: None)
+    table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
         in PDF coordinate space.
@@ -76,12 +76,12 @@ class Lattice(BaseParser):
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
-    def __init__(self, table_area=None, process_background=False,
+    def __init__(self, table_areas=None, process_background=False,
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
                  split_text=False, flag_size=False, line_close_tol=2,
                  joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
                  iterations=0, margins=(1.0, 0.5, 0.1), **kwargs):
-        self.table_area = table_area
+        self.table_areas = table_areas
         self.process_background = process_background
         self.line_size_scaling = line_size_scaling
         self.copy_text = copy_text
@@ -174,15 +174,39 @@ class Lattice(BaseParser):
         return t
 
     def _generate_image(self):
-        # TODO: hacky, get rid of ghostscript #96
-        def get_platform():
+        # TODO: get rid of ghostscript #96
+        def get_executable():
             import platform
+            from distutils.spawn import find_executable
 
-            info = {
-                'system': platform.system().lower(),
-                'machine': platform.machine().lower()
-            }
-            return info
+            class GhostscriptNotFound(Exception): pass
+
+            gs = None
+            system = platform.system().lower()
+            try:
+                if system == 'windows':
+                    if find_executable('gswin32c.exe'):
+                        gs = 'gswin32c.exe'
+                    elif find_executable('gswin64c.exe'):
+                        gs = 'gswin64c.exe'
+                    else:
+                        raise ValueError
+                else:
+                    if find_executable('gs'):
+                        gs = 'gs'
+                    elif find_executable('gsc'):
+                        gs = 'gsc'
+                    else:
+                        raise ValueError
+                if 'ghostscript' not in subprocess.check_output(
+                        [gs, '-version']).decode('utf-8').lower():
+                    raise ValueError
+            except ValueError:
+                raise GhostscriptNotFound(
+                    'Please make sure that Ghostscript is installed'
+                    ' and available on the PATH environment variable')
+
+            return gs
 
         self.imagename = ''.join([self.rootname, '.png'])
         gs_call = [
@@ -193,15 +217,9 @@ class Lattice(BaseParser):
             '-r600',
             self.filename
         ]
-        info = get_platform()
-        if info['system'] == 'windows':
-            bit = info['machine'][-2:]
-            gs_call.insert(0, 'gswin{}c.exe'.format(bit))
-        else:
-            if 'ghostscript' in subprocess.check_output(['gs', '-version']).decode('utf-8').lower():
-                gs_call.insert(0, 'gs')
-            else:
-                gs_call.insert(0, "gsc")
+        gs = get_executable()
+        gs_call.insert(0, gs)
+
         subprocess.call(
             gs_call, stdout=open(os.devnull, 'w'),
             stderr=subprocess.STDOUT)
@@ -226,9 +244,9 @@ class Lattice(BaseParser):
             self.threshold, direction='horizontal',
             line_size_scaling=self.line_size_scaling, iterations=self.iterations)
 
-        if self.table_area is not None:
+        if self.table_areas is not None:
             areas = []
-            for area in self.table_area:
+            for area in self.table_areas:
                 x1, y1, x2, y2 = area.split(",")
                 x1 = float(x1)
                 y1 = float(y1)

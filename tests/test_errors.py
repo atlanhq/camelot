@@ -34,11 +34,11 @@ def test_unsupported_format():
 
 
 def test_stream_equal_length():
-    message = ("Length of table_area and columns"
+    message = ("Length of table_areas and columns"
                " should be equal")
     with pytest.raises(ValueError, message=message):
         tables = camelot.read_pdf(filename, flavor='stream',
-            table_area=['10,20,30,40'], columns=['10,20,30,40', '10,20,30,40'])
+            table_areas=['10,20,30,40'], columns=['10,20,30,40', '10,20,30,40'])
 
 
 def test_no_tables_found():
@@ -50,7 +50,7 @@ def test_no_tables_found():
         assert str(e.value) == 'No tables found on page-1'
 
 
-def test_no_tables_found_warnings_supressed():
+def test_no_tables_found_warnings_suppressed():
     filename = os.path.join(testdir, 'blank.pdf')
     with warnings.catch_warnings():
         # the test should fail if any warning is thrown
@@ -60,3 +60,18 @@ def test_no_tables_found_warnings_supressed():
         except Warning as e:
             warning_text = str(e)
             pytest.fail('Unexpected warning: {}'.format(warning_text))
+
+
+def test_ghostscript_not_found(monkeypatch):
+    import distutils
+
+    def _find_executable_patch(arg):
+        return ''
+
+    monkeypatch.setattr(distutils.spawn, 'find_executable', _find_executable_patch)
+
+    message = ('Please make sure that Ghostscript is installed and available'
+               ' on the PATH environment variable')
+    filename = os.path.join(testdir, 'foo.pdf')
+    with pytest.raises(Exception, message=message):
+        tables = camelot.read_pdf(filename)
