@@ -32,6 +32,31 @@ def test_stream():
     tables = camelot.read_pdf(filename, flavor="stream")
     assert df.equals(tables[0].df)
 
+def test_password():
+    df = pd.DataFrame(data_stream)
+
+    filename = os.path.join(testdir, "health_protected.pdf")
+
+    try:
+        tables = camelot.read_pdf(filename, flavor="stream")
+        assert false
+    except Exception as err:
+        assert "file has not been decrypted" in str(err)
+
+    try:
+        tables = camelot.read_pdf(filename, flavor="stream",
+                                  password="wrongpass")
+        assert false
+    except Exception as err:
+        assert "file has not been decrypted" in str(err)
+
+    tables = camelot.read_pdf(filename, flavor="stream",
+                              password="ownerpass")
+    assert df.equals(tables[0].df)
+
+    tables = camelot.read_pdf(filename, flavor="stream",
+                              password="userpass")
+    assert df.equals(tables[0].df)
 
 def test_stream_table_rotated():
     df = pd.DataFrame(data_stream_table_rotated)

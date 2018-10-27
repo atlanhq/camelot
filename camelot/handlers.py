@@ -22,10 +22,13 @@ class PDFHandler(object):
     pages : str, optional (default: '1')
         Comma-separated page numbers.
         Example: 1,3,4 or 1,4-end.
+    password : str, optional (default: None)
+        Owner or User password required for decryption.
 
     """
-    def __init__(self, filename, pages='1'):
+    def __init__(self, filename, pages='1', password=None):
         self.filename = filename
+        self.password = password.encode('ascii') if password else None
         if not self.filename.endswith('.pdf'):
             raise NotImplementedError("File format not supported")
         self.pages = self._get_pages(self.filename, pages)
@@ -52,6 +55,8 @@ class PDFHandler(object):
             page_numbers.append({'start': 1, 'end': 1})
         else:
             infile = PdfFileReader(open(filename, 'rb'), strict=False)
+            if infile.isEncrypted and self.password:
+                infile.decrypt(self.password)
             if pages == 'all':
                 page_numbers.append({'start': 1, 'end': infile.getNumPages()})
             else:
@@ -83,8 +88,8 @@ class PDFHandler(object):
         """
         with open(filename, 'rb') as fileobj:
             infile = PdfFileReader(fileobj, strict=False)
-            if infile.isEncrypted:
-                infile.decrypt('')
+            if infile.isEncrypted and self.password:
+                infile.decrypt(self.password)
             fpath = os.path.join(temp, 'page-{0}.pdf'.format(page))
             froot, fext = os.path.splitext(fpath)
             p = infile.getPage(page - 1)
@@ -102,8 +107,8 @@ class PDFHandler(object):
                 fpath_new = ''.join([froot.replace('page', 'p'), '_rotated', fext])
                 os.rename(fpath, fpath_new)
                 infile = PdfFileReader(open(fpath_new, 'rb'), strict=False)
-                if infile.isEncrypted:
-                    infile.decrypt('')
+                if infile.isEncrypted and self.password:
+                    infile.decrypt(self.password)
                 outfile = PdfFileWriter()
                 p = infile.getPage(0)
                 if rotation == 'anticlockwise':

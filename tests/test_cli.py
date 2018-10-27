@@ -52,6 +52,29 @@ def test_cli_stream():
         assert format_error in result.output
 
 
+def test_cli_password():
+    with TemporaryDirectory() as tempdir:
+        infile = os.path.join(testdir, 'health_protected.pdf')
+        outfile = os.path.join(tempdir, 'health_protected.csv')
+        runner = CliRunner()
+        result = runner.invoke(cli, ['--password', 'userpass',
+                                     '--format', 'csv', '--output', outfile,
+                                     'stream', infile])
+        assert result.exit_code == 0
+        assert result.output == 'Found 1 tables\n'
+
+        result = runner.invoke(cli, ['--password', 'wrongpass',
+                                     '--format', 'csv', '--output', outfile,
+                                     'stream', infile])
+        output_error = 'file has not been decrypted'
+        assert output_error in str(result.exception)
+
+        result = runner.invoke(cli, ['--format', 'csv', '--output', outfile,
+                                     'stream', infile])
+        output_error = 'file has not been decrypted'
+        assert output_error in str(result.exception)
+
+
 def test_cli_output_format():
     with TemporaryDirectory() as tempdir:
         infile = os.path.join(testdir, 'health.pdf')

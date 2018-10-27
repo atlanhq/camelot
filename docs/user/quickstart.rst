@@ -78,6 +78,23 @@ This will export all tables as CSV files at the path specified. Alternatively, y
 
 .. _this PDF: ../_static/pdf/rotated.pdf
 
+Reading from encrypted PDFs
+---------------------------
+
+To extract tables from encrypted PDF files you must provide a suitable password when calling :meth:`read_pdf() <camelot.read_pdf>`.
+
+::
+
+    >>> tables = camelot.read_pdf('foo.pdf', password='userpass')
+    >>> tables
+    <TableList n=1>
+
+Currently Camelot only supports PDFs encrypted with ASCII passwords and algorithm code 1 or 2. Exceptions are thrown if the PDF can not be read. This may be due to no password being provided, an incorrect password, or an unsupported encryption algorithm.
+
+Further encryption support may be added in future, however in the meantime if your PDF files are using unsupported encryption algorithms you are advised to remove encryption before parsing in Camelot. This can been successfully achieved with third-party tools such as `QPDF`_.
+
+.. _QPDF: https://www.github.com/qpdf/qpdf
+
 Specify page numbers
 --------------------
 

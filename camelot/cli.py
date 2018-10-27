@@ -38,6 +38,7 @@ pass_config = click.make_pass_decorator(Config)
               ' font size. Useful to detect super/subscripts.')
 @click.option('-M', '--margins', nargs=3, default=(1.0, 0.5, 0.1),
               help='PDFMiner char_margin, line_margin and word_margin.')
+@click.option('-p', '--password', help='Password for decryption.')
 @click.option('-q', '--quiet', is_flag=True, help='Suppress warnings.')
 @click.pass_context
 def cli(ctx, *args, **kwargs):
