@@ -7,8 +7,6 @@ import tempfile
 import numpy as np
 import pandas as pd
 
-from .plotting import *
-
 
 class Cell(object):
     """Defines a cell in a table with coordinates relative to a
@@ -320,33 +318,6 @@ class Table(object):
                     cell.vspan = True
                     cell.hspan = True
         return self
-
-    def plot(self, geometry_type):
-        """Plot geometry found on PDF page based on geometry_type
-        specified, useful for debugging and playing with different
-        parameters to get the best output.
-
-        Parameters
-        ----------
-        geometry_type : str
-            The geometry type for which a plot should be generated.
-            Can be 'text', 'table', 'contour', 'joint', 'line'
-
-        """
-        if self.flavor == 'stream' and geometry_type in ['contour', 'joint', 'line']:
-            raise NotImplementedError("{} cannot be plotted with flavor='stream'".format(
-                                       geometry_type))
-
-        if geometry_type == 'text':
-            plot_text(self._text)
-        elif geometry_type == 'table':
-            plot_table(self)
-        elif geometry_type == 'contour':
-            plot_contour(self._image)
-        elif geometry_type == 'joint':
-            plot_joint(self._image)
-        elif geometry_type == 'line':
-            plot_line(self._segments)
 
     def to_csv(self, path, **kwargs):
         """Writes Table to a comma-separated values (csv) file.

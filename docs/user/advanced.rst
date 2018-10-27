@@ -30,9 +30,8 @@ To process background lines, you can pass ``process_background=True``.
 Plot geometry
 -------------
 
-You can use a :class:`table <camelot.core.Table>` object's :meth:`plot() <camelot.core.TableList.plot>` method to plot various geometries that were detected by Camelot while processing the PDF page. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
-
-The following geometries are available for plotting. You can pass them to the :meth:`plot() <camelot.core.TableList.plot>` method, which will then generate a `matplotlib <https://matplotlib.org/>`_ plot for the passed geometry.
+You can use camelot's :meth:`plot_pdf() <camelot.plotting.plot_pdf>` method to plot various geometries that were detected by Camelot while processing the PDF page. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
+The following geometries are available for plotting. You can pass them to the :meth:`plot_pdf() <camelot.plotting.plot_pdf>` method, which will then generate a `matplotlib <https://matplotlib.org/>`_ plot for the passed geometry. The plot can be saved to a file by passing a ``filename`` param to :meth:`plot_pdf() <camelot.plotting.plot_pdf>`
 
 - 'text'
 - 'table'
@@ -59,7 +58,7 @@ Let's plot all the text present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('text')
+    >>> camelot.plot_pdf(tables[0], 'text')
 
 .. figure:: ../_static/png/geometry_text.png
     :height: 674
@@ -81,7 +80,7 @@ Let's plot the table (to see if it was detected correctly or not). This geometry
 
 ::
 
-    >>> tables[0].plot('table')
+    >>> camelot.plot_pdf(tables[0], 'table')
 
 .. figure:: ../_static/png/geometry_table.png
     :height: 674
@@ -101,7 +100,7 @@ Now, let's plot all table boundaries present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('contour')
+    >>> camelot.plot_pdf(tables[0], 'contour')
 
 .. figure:: ../_static/png/geometry_contour.png
     :height: 674
@@ -119,7 +118,7 @@ Cool, let's plot all line segments present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('line')
+    >>> camelot.plot_pdf(tables[0], 'line')
 
 .. figure:: ../_static/png/geometry_line.png
     :height: 674
@@ -137,7 +136,7 @@ Finally, let's plot all line intersections present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('joint')
+    >>> camelot.plot_pdf(tables[0], 'joint')
 
 .. figure:: ../_static/png/geometry_joint.png
     :height: 674

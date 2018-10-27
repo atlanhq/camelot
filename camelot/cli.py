@@ -6,6 +6,7 @@ import click
 
 from . import __version__
 from .io import read_pdf
+from .plotting import plot_pdf
 
 
 logger = logging.getLogger('camelot')
@@ -106,7 +107,7 @@ def lattice(c, *args, **kwargs):
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
-            table.plot(plot_type)
+            plot_pdf(table, plot_type)
     else:
         if output is None:
             raise click.UsageError('Please specify output file path using --output')
@@ -152,7 +153,7 @@ def stream(c, *args, **kwargs):
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
-            table.plot(plot_type)
+            plot_pdf(table, plot_type)
     else:
         if output is None:
             raise click.UsageError('Please specify output file path using --output')
