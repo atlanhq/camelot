@@ -1,9 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import cv2
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-
-matplotlib.use('agg')
 
 
 def plot_pdf(table, geometry_type, filename=None):
