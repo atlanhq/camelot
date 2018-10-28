@@ -79,7 +79,7 @@ def read_pdf(filepath, pages='1', flavor='lattice', suppress_warnings=False,
         PDFMiner char_margin, line_margin and word_margin.
 
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
-    password* : str, optional (default: None)
+    password : str, optional (default: None)
         Owner or User password required for file decryption.
 
     Returns
