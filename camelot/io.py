@@ -18,7 +18,7 @@ def read_pdf(filepath, pages='1', flavor='lattice', suppress_warnings=False,
         Path to PDF file.
     pages : str, optional (default: '1')
         Comma-separated page numbers.
-        Example: 1,3,4 or 1,4-end.
+        Example: '1,3,4' or '1,4-end'.
     flavor : str (default: 'lattice')
         The parsing method to use ('lattice' or 'stream').
         Lattice is used by default.
