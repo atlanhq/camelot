@@ -4,6 +4,9 @@ Release History
 master
 ------
 
+0.3.0 (2018-10-28)
+------------------
+
 **Improvements**
 
 * [#162](https://github.com/socialcopsdev/camelot/issues/162) Add password keyword argument. [#180](https://github.com/socialcopsdev/camelot/pull/180) by [rbares](https://github.com/rbares).
