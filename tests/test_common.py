@@ -37,19 +37,6 @@ def test_password():
 
     filename = os.path.join(testdir, "health_protected.pdf")
 
-    try:
-        tables = camelot.read_pdf(filename, flavor="stream")
-        assert false
-    except Exception as err:
-        assert "file has not been decrypted" in str(err)
-
-    try:
-        tables = camelot.read_pdf(filename, flavor="stream",
-                                  password="wrongpass")
-        assert false
-    except Exception as err:
-        assert "file has not been decrypted" in str(err)
-
     tables = camelot.read_pdf(filename, flavor="stream",
                               password="ownerpass")
     assert df.equals(tables[0].df)
