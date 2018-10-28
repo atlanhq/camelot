@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import cv2
-import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
@@ -37,6 +35,7 @@ def plot_pdf(table, geometry_type, filename=None):
         if filename:
             plt.savefig(filename)
         plt.show()
+
 
 def plot_text(text):
     """Generates a plot for all text present on the PDF page.
@@ -102,10 +101,17 @@ def plot_contour(image):
     """
     img, table_bbox = image
     fig = plt.figure()
-    ax = fig.add_subplot(111, aspect='equal')    
+    ax = fig.add_subplot(111, aspect='equal')
     for t in table_bbox.keys():
-        cv2.rectangle(img, (t[0], t[1]),
-                      (t[2], t[3]), (255, 0, 0), 20)
+        ax.add_patch(
+            patches.Rectangle(
+                (t[0], t[1]),
+                t[2] - t[0],
+                t[3] - t[1],
+                fill=None,
+                edgecolor='red'
+            )
+        )
     ax.imshow(img)
     return fig
 
@@ -121,7 +127,7 @@ def plot_joint(image):
     """
     img, table_bbox = image
     fig = plt.figure()
-    ax = fig.add_subplot(111, aspect='equal')    
+    ax = fig.add_subplot(111, aspect='equal')
     x_coord = []
     y_coord = []
     for k in table_bbox.keys():
@@ -142,7 +148,7 @@ def plot_line(segments):
 
     """
     fig = plt.figure()
-    ax = fig.add_subplot(111, aspect='equal')    
+    ax = fig.add_subplot(111, aspect='equal')
     vertical, horizontal = segments
     for v in vertical:
         ax.plot([v[0], v[2]], [v[1], v[3]])
