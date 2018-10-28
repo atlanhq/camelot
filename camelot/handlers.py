@@ -24,7 +24,7 @@ class PDFHandler(object):
         Comma-separated page numbers.
         Example: 1,3,4 or 1,4-end.
     password : str, optional (default: None)
-        Owner or User password required for decryption.
+        Password for decryption.
 
     """
     def __init__(self, filename, pages='1', password=None):
