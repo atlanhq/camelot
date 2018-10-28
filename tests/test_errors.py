@@ -75,3 +75,17 @@ def test_ghostscript_not_found(monkeypatch):
     filename = os.path.join(testdir, 'foo.pdf')
     with pytest.raises(Exception, message=message):
         tables = camelot.read_pdf(filename)
+
+
+def test_no_password():
+    filename = os.path.join(testdir, 'health_protected.pdf')
+    message = 'file has not been decrypted'
+    with pytest.raises(Exception, message=message):
+        tables = camelot.read_pdf(filename)
+
+
+def test_bad_password():
+    filename = os.path.join(testdir, 'health_protected.pdf')
+    message = 'file has not been decrypted'
+    with pytest.raises(Exception, message=message):
+        tables = camelot.read_pdf(filename, password='wrongpass')

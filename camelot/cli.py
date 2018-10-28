@@ -27,6 +27,7 @@ pass_config = click.make_pass_decorator(Config)
 @click.version_option(version=__version__)
 @click.option('-p', '--pages', default='1', help='Comma-separated page numbers.'
               ' Example: 1,3,4 or 1,4-end.')
+@click.option('-pw', '--password', help='Password for decryption.')
 @click.option('-o', '--output', help='Output file path.')
 @click.option('-f', '--format',
               type=click.Choice(['csv', 'json', 'excel', 'html']),

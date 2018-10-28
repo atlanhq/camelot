@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sys
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
@@ -21,14 +22,22 @@ class PDFHandler(object):
         Path to PDF file.
     pages : str, optional (default: '1')
         Comma-separated page numbers.
-        Example: 1,3,4 or 1,4-end.
+        Example: '1,3,4' or '1,4-end'.
+    password : str, optional (default: None)
+        Password for decryption.
 
     """
-    def __init__(self, filename, pages='1'):
+    def __init__(self, filename, pages='1', password=None):
         self.filename = filename
         if not filename.lower().endswith('.pdf'):
             raise NotImplementedError("File format not supported")
         self.pages = self._get_pages(self.filename, pages)
+        if password is None:
+            self.password = ''
+        else:
+            self.password = password
+            if sys.version_info[0] < 3:
+                self.password = self.password.encode('ascii')
 
     def _get_pages(self, filename, pages):
         """Converts pages string to list of ints.
@@ -52,6 +61,8 @@ class PDFHandler(object):
             page_numbers.append({'start': 1, 'end': 1})
         else:
             infile = PdfFileReader(open(filename, 'rb'), strict=False)
+            if infile.isEncrypted:
+                infile.decrypt(self.password)
             if pages == 'all':
                 page_numbers.append({'start': 1, 'end': infile.getNumPages()})
             else:
@@ -84,7 +95,7 @@ class PDFHandler(object):
         with open(filename, 'rb') as fileobj:
             infile = PdfFileReader(fileobj, strict=False)
             if infile.isEncrypted:
-                infile.decrypt('')
+                infile.decrypt(self.password)
             fpath = os.path.join(temp, 'page-{0}.pdf'.format(page))
             froot, fext = os.path.splitext(fpath)
             p = infile.getPage(page - 1)
@@ -103,7 +114,7 @@ class PDFHandler(object):
                 os.rename(fpath, fpath_new)
                 infile = PdfFileReader(open(fpath_new, 'rb'), strict=False)
                 if infile.isEncrypted:
-                    infile.decrypt('')
+                    infile.decrypt(self.password)
                 outfile = PdfFileWriter()
                 p = infile.getPage(0)
                 if rotation == 'anticlockwise':

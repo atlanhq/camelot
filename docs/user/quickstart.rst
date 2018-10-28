@@ -87,6 +87,28 @@ By default, Camelot only uses the first page of the PDF to extract tables. To sp
 
 The ``pages`` keyword argument accepts pages as comma-separated string of page numbers. You can also specify page ranges — for example, ``pages=1,4-10,20-30`` or ``pages=1,4-10,20-end``.
 
-------------------------
+Reading encrypted PDFs
+----------------------
+
+To extract tables from encrypted PDF files you must provide a password when calling :meth:`read_pdf() <camelot.read_pdf>`.
+
+::
+
+    >>> tables = camelot.read_pdf('foo.pdf', password='userpass')
+    >>> tables
+    <TableList n=1>
+
+Currently Camelot only supports PDFs encrypted with ASCII passwords and algorithm `code 1 or 2`_. An exception is thrown if the PDF cannot be read. This may be due to no password being provided, an incorrect password, or an unsupported encryption algorithm.
+
+Further encryption support may be added in future, however in the meantime if your PDF files are using unsupported encryption algorithms you are advised to remove encryption before calling :meth:`read_pdf() <camelot.read_pdf>`. This can been successfully achieved with third-party tools such as `QPDF`_.
+
+::
+
+    $ qpdf --password=<PASSWORD> --decrypt input.pdf output.pdf
+
+.. _code 1 or 2: https://github.com/mstamy2/PyPDF2/issues/378
+.. _QPDF: https://www.github.com/qpdf/qpdf
+
+----
 
 Ready for more? Check out the :ref:`advanced <advanced>` section.

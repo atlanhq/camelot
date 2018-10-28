@@ -25,6 +25,17 @@ def test_parsing_report():
     assert tables[0].parsing_report == parsing_report
 
 
+def test_password():
+    df = pd.DataFrame(data_stream)
+
+    filename = os.path.join(testdir, "health_protected.pdf")
+    tables = camelot.read_pdf(filename, password="ownerpass", flavor="stream")
+    assert df.equals(tables[0].df)
+
+    tables = camelot.read_pdf(filename, password="userpass", flavor="stream")
+    assert df.equals(tables[0].df)
+
+
 def test_stream():
     df = pd.DataFrame(data_stream)
 
