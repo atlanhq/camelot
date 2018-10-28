@@ -18,7 +18,7 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         Path to PDF file.
     pages : str, optional (default: '1')
         Comma-separated page numbers.
-        Example: 1,3,4 or 1,4-end.
+        Example: '1,3,4' or '1,4-end'.
     password : str, optional (default: None)
         Password for decryption.
     flavor : str (default: 'lattice')
