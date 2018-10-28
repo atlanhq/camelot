@@ -5,8 +5,8 @@ from .handlers import PDFHandler
 from .utils import validate_input, remove_extra
 
 
-def read_pdf(filepath, pages='1', flavor='lattice', suppress_warnings=False,
-             **kwargs):
+def read_pdf(filepath, pages='1', password=None, flavor='lattice',
+             suppress_warnings=False, **kwargs):
     """Read PDF and return extracted tables.
 
     Note: kwargs annotated with ^ can only be used with flavor='stream'
@@ -19,6 +19,8 @@ def read_pdf(filepath, pages='1', flavor='lattice', suppress_warnings=False,
     pages : str, optional (default: '1')
         Comma-separated page numbers.
         Example: 1,3,4 or 1,4-end.
+    password : str, optional (default: None)
+        Password for decryption.
     flavor : str (default: 'lattice')
         The parsing method to use ('lattice' or 'stream').
         Lattice is used by default.
@@ -79,8 +81,6 @@ def read_pdf(filepath, pages='1', flavor='lattice', suppress_warnings=False,
         PDFMiner char_margin, line_margin and word_margin.
 
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
-    password : str, optional (default: None)
-        Password for decryption.
 
     Returns
     -------
@@ -96,7 +96,7 @@ def read_pdf(filepath, pages='1', flavor='lattice', suppress_warnings=False,
             warnings.simplefilter("ignore")
 
         validate_input(kwargs, flavor=flavor)
-        p = PDFHandler(filepath, pages, kwargs.get('password'))
+        p = PDFHandler(filepath, pages=pages, password=password)
         kwargs = remove_extra(kwargs, flavor=flavor)
         tables = p.parse(flavor=flavor, **kwargs)
         return tables

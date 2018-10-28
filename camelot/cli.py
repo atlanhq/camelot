@@ -27,6 +27,7 @@ pass_config = click.make_pass_decorator(Config)
 @click.version_option(version=__version__)
 @click.option('-p', '--pages', default='1', help='Comma-separated page numbers.'
               ' Example: 1,3,4 or 1,4-end.')
+@click.option('-pw', '--password', help='Password for decryption.')
 @click.option('-o', '--output', help='Output file path.')
 @click.option('-f', '--format',
               type=click.Choice(['csv', 'json', 'excel', 'html']),
@@ -38,7 +39,6 @@ pass_config = click.make_pass_decorator(Config)
               ' font size. Useful to detect super/subscripts.')
 @click.option('-M', '--margins', nargs=3, default=(1.0, 0.5, 0.1),
               help='PDFMiner char_margin, line_margin and word_margin.')
-@click.option('-p', '--password', help='Password for decryption.')
 @click.option('-q', '--quiet', is_flag=True, help='Suppress warnings.')
 @click.pass_context
 def cli(ctx, *args, **kwargs):

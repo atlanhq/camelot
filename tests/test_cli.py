@@ -63,15 +63,16 @@ def test_cli_password():
         assert result.exit_code == 0
         assert result.output == 'Found 1 tables\n'
 
+        output_error = 'file has not been decrypted'
+        # no password
+        result = runner.invoke(cli, ['--format', 'csv', '--output', outfile,
+                                     'stream', infile])
+        assert output_error in str(result.exception)
+
+        # bad password
         result = runner.invoke(cli, ['--password', 'wrongpass',
                                      '--format', 'csv', '--output', outfile,
                                      'stream', infile])
-        output_error = 'file has not been decrypted'
-        assert output_error in str(result.exception)
-
-        result = runner.invoke(cli, ['--format', 'csv', '--output', outfile,
-                                     'stream', infile])
-        output_error = 'file has not been decrypted'
         assert output_error in str(result.exception)
 
 
@@ -101,7 +102,7 @@ def test_cli_output_format():
                                      'stream', infile])
         assert result.exit_code == 0
 
-def test_cli_quiet_flag():
+def test_cli_quiet():
     with TemporaryDirectory() as tempdir:
         infile = os.path.join(testdir, 'blank.pdf')
         outfile = os.path.join(tempdir, 'blank.csv')

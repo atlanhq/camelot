@@ -17,6 +17,7 @@ Options:
   --version                       Show the version and exit.
   -p, --pages TEXT                Comma-separated page numbers. Example: 1,3,4
                                   or 1,4-end.
+  -pw, --password TEXT            Password for decryption.
   -o, --output TEXT               Output file path.
   -f, --format [csv|json|excel|html]
                                   Output file format.
@@ -27,7 +28,6 @@ Options:
   -M, --margins <FLOAT FLOAT FLOAT>...
                                   PDFMiner char_margin, line_margin and
                                   word_margin.
-  -p, --password TEXT             Password for decryption.
   -q, --quiet                     Suppress warnings.
   --help                          Show this message and exit.
 

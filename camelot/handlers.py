@@ -29,13 +29,15 @@ class PDFHandler(object):
     """
     def __init__(self, filename, pages='1', password=None):
         self.filename = filename
-        if password is not None and sys.version_info[0] < 3:
-            self.password = password.encode('ascii')
-        else:
-            self.password = password
         if not filename.lower().endswith('.pdf'):
             raise NotImplementedError("File format not supported")
         self.pages = self._get_pages(self.filename, pages)
+        if password is None:
+            self.password = ''
+        else:
+            self.password = password
+            if sys.version_info[0] < 3:
+                self.password = self.password.encode('ascii')
 
     def _get_pages(self, filename, pages):
         """Converts pages string to list of ints.
@@ -59,7 +61,7 @@ class PDFHandler(object):
             page_numbers.append({'start': 1, 'end': 1})
         else:
             infile = PdfFileReader(open(filename, 'rb'), strict=False)
-            if infile.isEncrypted and self.password is not None:
+            if infile.isEncrypted:
                 infile.decrypt(self.password)
             if pages == 'all':
                 page_numbers.append({'start': 1, 'end': infile.getNumPages()})
@@ -92,7 +94,7 @@ class PDFHandler(object):
         """
         with open(filename, 'rb') as fileobj:
             infile = PdfFileReader(fileobj, strict=False)
-            if infile.isEncrypted and self.password is not None:
+            if infile.isEncrypted:
                 infile.decrypt(self.password)
             fpath = os.path.join(temp, 'page-{0}.pdf'.format(page))
             froot, fext = os.path.splitext(fpath)
@@ -111,7 +113,7 @@ class PDFHandler(object):
                 fpath_new = ''.join([froot.replace('page', 'p'), '_rotated', fext])
                 os.rename(fpath, fpath_new)
                 infile = PdfFileReader(open(fpath_new, 'rb'), strict=False)
-                if infile.isEncrypted and self.password is not None:
+                if infile.isEncrypted:
                     infile.decrypt(self.password)
                 outfile = PdfFileWriter()
                 p = infile.getPage(0)
