@@ -61,7 +61,7 @@ See [comparison with other PDF table extraction libraries and tools](https://git
 
 ### Using conda
 
-The easiest way to install Camelot is to install it with [conda](https://conda.io/docs/), which is the package manager that the [Anaconda](http://docs.continuum.io/anaconda/) distribution is built upon.
+The easiest way to install Camelot is to install it with [conda](https://conda.io/docs/), which is a package manager and  environment management system for the [Anaconda](http://docs.continuum.io/anaconda/) distribution.
 
 <pre>
 $ conda install -c conda-forge camelot-py
