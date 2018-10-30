@@ -90,6 +90,9 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     if flavor not in ['lattice', 'stream']:
         raise NotImplementedError("Unknown flavor specified."
                                   " Use either 'lattice' or 'stream'")
+    
+    if pages=='all':
+        pages='1-end'
 
     with warnings.catch_warnings():
         if suppress_warnings:
