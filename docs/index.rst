@@ -27,6 +27,9 @@ Release v\ |version|. (:ref:`Installation <install>`)
 .. image:: https://img.shields.io/pypi/pyversions/camelot-py.svg
     :target: https://pypi.org/project/camelot-py/
 
+.. image:: https://badges.gitter.im/camelot-dev/Lobby.png
+    :target: https://gitter.im/camelot-dev/Lobby
+
 **Camelot** is a Python library that makes it easy for *anyone* to extract tables from PDF files!
 
 .. note:: You can also check out `Excalibur`_, which is a web interface for Camelot!
