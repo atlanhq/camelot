@@ -3,12 +3,13 @@
 import os
 import sys
 
+from builtins import str
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 from .core import TableList
 from .parsers import Stream, Lattice
 from .utils import (TemporaryDirectory, get_page_layout, get_text_objects,
-                    get_rotation)
+                    get_rotation, is_url)
 
 
 class PDFHandler(object):
@@ -27,11 +28,11 @@ class PDFHandler(object):
         Password for decryption.
 
     """
-    def __init__(self, filename, pages='1', password=None):
-        self.filename = filename
-        if not filename.lower().endswith('.pdf'):
+    def __init__(self, io, pages='1', password=None):
+        self.io = io
+        if isinstance(self.io, str) and not self.io.endswith('.pdf'):
             raise NotImplementedError("File format not supported")
-        self.pages = self._get_pages(self.filename, pages)
+        self.pages = self._get_pages(self.io, pages)
         if password is None:
             self.password = ''
         else:
@@ -149,7 +150,7 @@ class PDFHandler(object):
         tables = []
         with TemporaryDirectory() as tempdir:
             for p in self.pages:
-                self._save_page(self.filename, p, tempdir)
+                self._save_page(self.io, p, tempdir)
             pages = [os.path.join(tempdir, 'page-{0}.pdf'.format(p))
                      for p in self.pages]
             parser = Lattice(**kwargs) if flavor == 'lattice' else Stream(**kwargs)

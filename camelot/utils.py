@@ -1,9 +1,16 @@
 from __future__ import division
+from future.standard_library import hooks
 import shutil
 import tempfile
 import warnings
 from itertools import groupby
 from operator import itemgetter
+from contextlib import contextmanager, closing
+
+with hooks():
+    from urllib.parse import (urlparse, uses_relative, uses_netloc, uses_params,
+                              urlencode, urljoin)
+    from urllib.request import urlopen
 
 import numpy as np
 
@@ -17,7 +24,8 @@ from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)
 
-
+_VALID_URLS = set(uses_relative + uses_netloc + uses_params)
+_VALID_URLS.discard('')
 stream_kwargs = [
     'columns',
     'row_close_tol',
@@ -639,3 +647,30 @@ def get_text_objects(layout, ltype="char", t=None):
     except AttributeError:
         pass
     return t
+
+
+def is_url(url):
+    """Check to see if a URL has a valid protocol.
+
+    Parameters
+    ----------
+    url : str or unicode
+
+    Returns
+    -------
+    isurl : bool
+        If `url` has a valid protocol return True otherwise False.
+    """
+    try:
+        return urlparse(url).scheme in _VALID_URLS
+    except Exception:
+        return False
+
+
+@contextmanager
+def pdf_file_reader(io):
+    if is_url(io):
+        with closing(urlopen(io)) as f:
+            yield f
+    else:
+        pass
