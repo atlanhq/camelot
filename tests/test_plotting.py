@@ -12,7 +12,7 @@ testdir = os.path.join(testdir, "files")
 
 
 @pytest.mark.mpl_image_compare(
-    baseline_dir="files/baseline_plots", tolerance=15)
+    baseline_dir="files/baseline_plots", remove_text=True)
 def test_text_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
@@ -20,7 +20,7 @@ def test_text_plot():
 
 
 @pytest.mark.mpl_image_compare(
-    baseline_dir="files/baseline_plots", tolerance=15)
+    baseline_dir="files/baseline_plots", remove_text=True)
 def test_contour_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
@@ -28,7 +28,7 @@ def test_contour_plot():
 
 
 @pytest.mark.mpl_image_compare(
-    baseline_dir="files/baseline_plots", tolerance=15)
+    baseline_dir="files/baseline_plots", remove_text=True)
 def test_table_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
@@ -36,7 +36,7 @@ def test_table_plot():
 
 
 @pytest.mark.mpl_image_compare(
-    baseline_dir="files/baseline_plots", tolerance=15)
+    baseline_dir="files/baseline_plots", remove_text=True)
 def test_line_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
@@ -44,7 +44,7 @@ def test_line_plot():
 
 
 @pytest.mark.mpl_image_compare(
-    baseline_dir="files/baseline_plots", tolerance=15)
+    baseline_dir="files/baseline_plots", remove_text=True)
 def test_joint_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
