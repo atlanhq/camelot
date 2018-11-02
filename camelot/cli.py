@@ -3,9 +3,14 @@
 import logging
 
 import click
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    _HAS_MPL = False
+else:
+    _HAS_MPL = True
 
 from . import __version__, read_pdf, plot
-from .plotting import plt
 
 
 logger = logging.getLogger('camelot')
@@ -102,6 +107,15 @@ def lattice(c, *args, **kwargs):
     kwargs['copy_text'] = None if not copy_text else copy_text
     kwargs['shift_text'] = list(kwargs['shift_text'])
 
+    if plot_type is not None:
+        if not _HAS_MPL:
+            raise ImportError('matplotlib is required for plotting.')
+    else:
+        if output is None:
+            raise click.UsageError('Please specify output file path using --output')
+        if f is None:
+            raise click.UsageError('Please specify output file format using --format')
+
     tables = read_pdf(filepath, pages=pages, flavor='lattice',
                       suppress_warnings=suppress_warnings, **kwargs)
     click.echo('Found {} tables'.format(tables.n))
@@ -110,10 +124,6 @@ def lattice(c, *args, **kwargs):
             plot(table, kind=plot_type)
             plt.show()
     else:
-        if output is None:
-            raise click.UsageError('Please specify output file path using --output')
-        if f is None:
-            raise click.UsageError('Please specify output file format using --format')
         tables.export(output, f=f, compress=compress)
 
 
@@ -149,6 +159,15 @@ def stream(c, *args, **kwargs):
     columns = list(kwargs['columns'])
     kwargs['columns'] = None if not columns else columns
 
+    if plot_type is not None:
+        if not _HAS_MPL:
+            raise ImportError('matplotlib is required for plotting.')
+    else:
+        if output is None:
+            raise click.UsageError('Please specify output file path using --output')
+        if f is None:
+            raise click.UsageError('Please specify output file format using --format')
+
     tables = read_pdf(filepath, pages=pages, flavor='stream',
                       suppress_warnings=suppress_warnings, **kwargs)
     click.echo('Found {} tables'.format(tables.n))
@@ -157,8 +176,4 @@ def stream(c, *args, **kwargs):
             plot(table, kind=plot_type)
             plt.show()
     else:
-        if output is None:
-            raise click.UsageError('Please specify output file path using --output')
-        if f is None:
-            raise click.UsageError('Please specify output file format using --format')
         tables.export(output, f=f, compress=compress)
