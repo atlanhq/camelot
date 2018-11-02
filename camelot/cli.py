@@ -3,11 +3,14 @@
 import logging
 
 import click
-import matplotlib.pyplot as plt
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    _HAS_MPL = False
+else:
+    _HAS_MPL = True
 
-from . import __version__
-from .io import read_pdf
-from .plotting import plot
+from . import __version__, read_pdf, plot
 
 
 logger = logging.getLogger('camelot')
@@ -82,7 +85,7 @@ def cli(ctx, *args, **kwargs):
 @click.option('-I', '--iterations', default=0,
               help='Number of times for erosion/dilation will be applied.')
 @click.option('-plot', '--plot_type',
-              type=click.Choice(['text', 'table', 'contour', 'joint', 'line']),
+              type=click.Choice(['text', 'grid', 'contour', 'joint', 'line']),
               help='Plot elements found on PDF page for visual debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config
@@ -104,18 +107,23 @@ def lattice(c, *args, **kwargs):
     kwargs['copy_text'] = None if not copy_text else copy_text
     kwargs['shift_text'] = list(kwargs['shift_text'])
 
-    tables = read_pdf(filepath, pages=pages, flavor='lattice',
-                      suppress_warnings=suppress_warnings, **kwargs)
-    click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
-        for table in tables:
-            plot(table, plot_type=plot_type)
-            plt.show()
+        if not _HAS_MPL:
+            raise ImportError('matplotlib is required for plotting.')
     else:
         if output is None:
             raise click.UsageError('Please specify output file path using --output')
         if f is None:
             raise click.UsageError('Please specify output file format using --format')
+
+    tables = read_pdf(filepath, pages=pages, flavor='lattice',
+                      suppress_warnings=suppress_warnings, **kwargs)
+    click.echo('Found {} tables'.format(tables.n))
+    if plot_type is not None:
+        for table in tables:
+            plot(table, kind=plot_type)
+            plt.show()
+    else:
         tables.export(output, f=f, compress=compress)
 
 
@@ -130,7 +138,7 @@ def lattice(c, *args, **kwargs):
 @click.option('-c', '--col_close_tol', default=0, help='Tolerance parameter'
               ' used to combine text horizontally, to generate columns.')
 @click.option('-plot', '--plot_type',
-              type=click.Choice(['text', 'table']),
+              type=click.Choice(['text', 'grid']),
               help='Plot elements found on PDF page for visual debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config
@@ -151,16 +159,21 @@ def stream(c, *args, **kwargs):
     columns = list(kwargs['columns'])
     kwargs['columns'] = None if not columns else columns
 
-    tables = read_pdf(filepath, pages=pages, flavor='stream',
-                      suppress_warnings=suppress_warnings, **kwargs)
-    click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
-        for table in tables:
-            plot(table, plot_type=plot_type)
-            plt.show()
+        if not _HAS_MPL:
+            raise ImportError('matplotlib is required for plotting.')
     else:
         if output is None:
             raise click.UsageError('Please specify output file path using --output')
         if f is None:
             raise click.UsageError('Please specify output file format using --format')
+
+    tables = read_pdf(filepath, pages=pages, flavor='stream',
+                      suppress_warnings=suppress_warnings, **kwargs)
+    click.echo('Found {} tables'.format(tables.n))
+    if plot_type is not None:
+        for table in tables:
+            plot(table, kind=plot_type)
+            plt.show()
+    else:
         tables.export(output, f=f, compress=compress)

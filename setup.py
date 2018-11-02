@@ -15,7 +15,6 @@ with open('README.md', 'r') as f:
 
 requires = [
     'click>=6.7',
-    'matplotlib>=2.2.3',
     'numpy>=1.13.3',
     'openpyxl>=2.5.8',
     'pandas>=0.23.4',
@@ -23,18 +22,24 @@ requires = [
     'PyPDF2>=1.26.0'
 ]
 
-all_requires = [
+cv_requires = [
     'opencv-python>=3.4.2.17'
+]
+
+plot_requires = [
+    'matplotlib>=2.2.3',
 ]
 
 dev_requires = [
     'codecov>=2.0.15',
     'pytest>=3.8.0',
     'pytest-cov>=2.6.0',
+    'pytest-mpl>=0.10',
     'pytest-runner>=4.2',
-    'Sphinx>=1.7.9',
-    'pytest-mpl>=0.10'
+    'Sphinx>=1.7.9'
 ]
+
+all_requires = cv_requires + plot_requires
 dev_requires = dev_requires + all_requires
 
 
@@ -52,7 +57,9 @@ def setup_package():
                     install_requires=requires,
                     extras_require={
                         'all': all_requires,
-                        'dev': dev_requires
+                        'cv': cv_requires,
+                        'dev': dev_requires,
+                        'plot': plot_requires
                     },
                     entry_points={
                         'console_scripts': [

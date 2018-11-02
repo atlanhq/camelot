@@ -30,12 +30,14 @@ To process background lines, you can pass ``process_background=True``.
 Visual debugging
 ----------------
 
-You can use the :meth:`plot() <camelot.plotting.plot>` method to generate a `matplotlib <https://matplotlib.org/>`_ plot of various elements that were detected on the PDF page while processing it. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
+.. note:: Visual debugging using ``plot()`` requires `matplotlib <https://matplotlib.org/>`_ which is an optional dependency. You can install it using ``$ pip install camelot-py[plot]``.
 
-You can specify the type of element you want to plot using the ``plot_type`` keyword argument. The generated plot can be saved to a file by passing a ``filename`` keyword argument. The following plot types are supported:
+You can use the :class:`plot() <camelot.plotting.PlotMethods>` method to generate a `matplotlib <https://matplotlib.org/>`_ plot of various elements that were detected on the PDF page while processing it. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
+
+You can specify the type of element you want to plot using the ``kind`` keyword argument. The generated plot can be saved to a file by passing a ``filename`` keyword argument. The following plot types are supported:
 
 - 'text'
-- 'table'
+- 'grid'
 - 'contour'
 - 'line'
 - 'joint'
@@ -50,8 +52,6 @@ Let's generate a plot for each type using this `PDF <../_static/pdf/foo.pdf>`__ 
     >>> tables
     <TableList n=1>
 
-.. _geometry_text:
-
 text
 ^^^^
 
@@ -59,10 +59,10 @@ Let's plot all the text present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot(tables[0], plot_type='text')
+    >>> camelot.plot(tables[0], kind='text')
     >>> plt.show()
 
-.. figure:: ../_static/png/geometry_text.png
+.. figure:: ../_static/png/plot_text.png
     :height: 674
     :width: 1366
     :scale: 50%
@@ -73,8 +73,6 @@ This, as we shall later see, is very helpful with :ref:`Stream <stream>` for not
 
 .. note:: The *x-y* coordinates shown above change as you move your mouse cursor on the image, which can help you note coordinates.
 
-.. _geometry_table:
-
 table
 ^^^^^
 
@@ -82,10 +80,10 @@ Let's plot the table (to see if it was detected correctly or not). This plot typ
 
 ::
 
-    >>> camelot.plot(tables[0], plot_type='table')
+    >>> camelot.plot(tables[0], kind='table')
     >>> plt.show()
 
-.. figure:: ../_static/png/geometry_table.png
+.. figure:: ../_static/png/plot_table.png
     :height: 674
     :width: 1366
     :scale: 50%
@@ -94,8 +92,6 @@ Let's plot the table (to see if it was detected correctly or not). This plot typ
 
 The table is perfect!
 
-.. _geometry_contour:
-
 contour
 ^^^^^^^
 
@@ -103,17 +99,15 @@ Now, let's plot all table boundaries present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot(tables[0], plot_type='contour')
+    >>> camelot.plot(tables[0], kind='contour')
     >>> plt.show()
 
-.. figure:: ../_static/png/geometry_contour.png
+.. figure:: ../_static/png/plot_contour.png
     :height: 674
     :width: 1366
     :scale: 50%
     :alt: A plot of all contours on a PDF page
     :align: left
-
-.. _geometry_line:
 
 line
 ^^^^
@@ -122,17 +116,15 @@ Cool, let's plot all line segments present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot(tables[0], plot_type='line')
+    >>> camelot.plot(tables[0], kind='line')
     >>> plt.show()
 
-.. figure:: ../_static/png/geometry_line.png
+.. figure:: ../_static/png/plot_line.png
     :height: 674
     :width: 1366
     :scale: 50%
     :alt: A plot of all lines on a PDF page
     :align: left
-
-.. _geometry_joint:
 
 joint
 ^^^^^
@@ -141,10 +133,10 @@ Finally, let's plot all line intersections present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot(tables[0], plot_type='joint')
+    >>> camelot.plot(tables[0], kind='joint')
     >>> plt.show()
 
-.. figure:: ../_static/png/geometry_joint.png
+.. figure:: ../_static/png/plot_joint.png
     :height: 674
     :width: 1366
     :scale: 50%
@@ -154,7 +146,7 @@ Finally, let's plot all line intersections present on the table's PDF page.
 Specify table areas
 -------------------
 
-Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as `these <../_static/pdf/table_areas.pdf>`__. You can :ref:`plot the text <geometry_text>` on this page and note the top left and bottom right coordinates of the table.
+Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as `these <../_static/pdf/table_areas.pdf>`__. You can plot the text on this page and note the top left and bottom right coordinates of the table.
 
 Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
 
@@ -171,7 +163,7 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
 Specify column separators
 -------------------------
 
-In cases like `these <../_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by :ref:`plotting the text <geometry_text>` on the page.
+In cases like `these <../_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by plotting the text on the page.
 
 You can pass the column separators as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``columns`` keyword argument.
 
@@ -179,7 +171,7 @@ In case you passed a single column separators string list, and no table area is 
 
 For example, if you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list like this, ``columns=['10,120,200,400', '']``.
 
-Let's get back to the *x* coordinates we got from :ref:`plotting text <geometry_text>` that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
+Let's get back to the *x* coordinates we got from plotting the text that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
 
 ::
 
@@ -287,23 +279,25 @@ Here's a `PDF <../_static/pdf/short_lines.pdf>`__ where small lines separating t
     :alt: A PDF table with short lines
     :align: left
 
-Let's :ref:`plot the table <geometry_table>` for this PDF.
+Let's plot the table for this PDF.
 
 ::
 
     >>> tables = camelot.read_pdf('short_lines.pdf')
-    >>> tables[0].plot('table')
+    >>> camelot.plot(tables[0], kind='table')
+    >>> plt.show()
 
 .. figure:: ../_static/png/short_lines_1.png
     :alt: A plot of the PDF table with short lines
     :align: left
 
-Clearly, the smaller lines separating the headers, couldn't be detected. Let's try with ``line_size_scaling=40``, and `plot the table <geometry_table>`_ again.
+Clearly, the smaller lines separating the headers, couldn't be detected. Let's try with ``line_size_scaling=40``, and plot the table again.
 
 ::
 
     >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40)
-    >>> tables[0].plot('table')
+    >>> camelot.plot(tables[0], kind='table')
+    >>> plt.show()
 
 .. figure:: ../_static/png/short_lines_2.png
     :alt: An improved plot of the PDF table with short lines

@@ -39,7 +39,7 @@ Let's see how Lattice processes the second page of `this PDF`_, step-by-step.
 
 1. Line segments are detected.
 
-.. image:: ../_static/png/geometry_line.png
+.. image:: ../_static/png/plot_line.png
     :height: 674
     :width: 1366
     :scale: 50%
@@ -49,7 +49,7 @@ Let's see how Lattice processes the second page of `this PDF`_, step-by-step.
 
 .. _and: https://en.wikipedia.org/wiki/Logical_conjunction
 
-.. image:: ../_static/png/geometry_joint.png
+.. image:: ../_static/png/plot_joint.png
     :height: 674
     :width: 1366
     :scale: 50%
@@ -59,7 +59,7 @@ Let's see how Lattice processes the second page of `this PDF`_, step-by-step.
 
 .. _or: https://en.wikipedia.org/wiki/Logical_disjunction
 
-.. image:: ../_static/png/geometry_contour.png
+.. image:: ../_static/png/plot_contour.png
     :height: 674
     :width: 1366
     :scale: 50%
@@ -75,7 +75,7 @@ Let's see how Lattice processes the second page of `this PDF`_, step-by-step.
 
 5. Spanning cells are detected using the line segments and line intersections.
 
-.. image:: ../_static/png/geometry_table.png
+.. image:: ../_static/png/plot_table.png
     :height: 674
     :width: 1366
     :scale: 50%

@@ -6,7 +6,7 @@ from click import HelpFormatter
 
 from .__version__ import __version__
 from .io import read_pdf
-from .plotting import plot
+from .plotting import PlotMethods
 
 
 def _write_usage(self, prog, args='', prefix='Usage: '):
@@ -26,3 +26,6 @@ handler = logging.StreamHandler()
 handler.setFormatter(formatter)
 
 logger.addHandler(handler)
+
+# instantiate plot method
+plot = PlotMethods()
