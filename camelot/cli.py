@@ -3,10 +3,11 @@
 import logging
 
 import click
+import matplotlib.pyplot as plt
 
 from . import __version__
 from .io import read_pdf
-from .plotting import plot_pdf
+from .plotting import plot
 
 
 logger = logging.getLogger('camelot')
@@ -81,7 +82,7 @@ def cli(ctx, *args, **kwargs):
               help='Number of times for erosion/dilation will be applied.')
 @click.option('-plot', '--plot_type',
               type=click.Choice(['text', 'table', 'contour', 'joint', 'line']),
-              help='Plot geometry found on PDF page, for debugging.')
+              help='Plot elements found on PDF page for visual debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config
 def lattice(c, *args, **kwargs):
@@ -107,7 +108,8 @@ def lattice(c, *args, **kwargs):
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
-            plot_pdf(table, plot_type)
+            plot(table, plot_type=plot_type)
+            plt.show()
     else:
         if output is None:
             raise click.UsageError('Please specify output file path using --output')
@@ -128,7 +130,7 @@ def lattice(c, *args, **kwargs):
               ' used to combine text horizontally, to generate columns.')
 @click.option('-plot', '--plot_type',
               type=click.Choice(['text', 'table']),
-              help='Plot geometry found on PDF page for debugging.')
+              help='Plot elements found on PDF page for visual debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config
 def stream(c, *args, **kwargs):
@@ -153,7 +155,8 @@ def stream(c, *args, **kwargs):
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
-            plot_pdf(table, plot_type)
+            plot(table, plot_type=plot_type)
+            plt.show()
     else:
         if output is None:
             raise click.UsageError('Please specify output file path using --output')

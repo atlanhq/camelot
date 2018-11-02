@@ -4,45 +4,55 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
 
-def plot_pdf(table, geometry_type, filename=None):
-        """Plot geometry found on PDF page based on geometry_type
-        specified, useful for debugging and playing with different
-        parameters to get the best output.
+def plot(table, plot_type='text', filepath=None):
+    """Plot elements found on PDF page based on plot_type
+    specified, useful for debugging and playing with different
+    parameters to get the best output.
 
-        Parameters
-        ----------
-        table: Table
-            The table object to plot data from
-        geometry_type : str
-            The geometry type for which a plot should be generated.
-            Can be 'text', 'table', 'contour', 'joint', 'line'
-        filename: str
-            If specified, saves the plot to a file with the given name
-        """
-        if table.flavor == 'stream' and geometry_type in ['contour', 'joint', 'line']:
-            raise NotImplementedError("{} cannot be plotted with flavor='stream'".format(
-                                       geometry_type))
-        if geometry_type == 'text':
-            plot_text(table._text)
-        elif geometry_type == 'table':
-            plot_table(table)
-        elif geometry_type == 'contour':
-            plot_contour(table._image)
-        elif geometry_type == 'joint':
-            plot_joint(table._image)
-        elif geometry_type == 'line':
-            plot_line(table._segments)
-        if filename:
-            plt.savefig(filename)
-        plt.show()
+    Parameters
+    ----------
+    table: Table
+        A Camelot Table.
+    plot_type : str, optional (default: 'text')
+        {'text', 'table', 'contour', 'joint', 'line'}
+        The element type for which a plot should be generated.
+    filepath: str, optional (default: None)
+        Absolute path for saving the generated plot.
+
+    Returns
+    -------
+    fig : matplotlib.fig.Figure
+
+    """
+    if table.flavor == 'stream' and plot_type in ['contour', 'joint', 'line']:
+        raise NotImplementedError("{} cannot be plotted with flavor='stream'".format(
+                                    plot_type))
+    if plot_type == 'text':
+        fig = plot_text(table._text)
+    elif plot_type == 'table':
+        fig = plot_table(table)
+    elif plot_type == 'contour':
+        fig = plot_contour(table._image)
+    elif plot_type == 'joint':
+        fig = plot_joint(table._image)
+    elif plot_type == 'line':
+        fig = plot_line(table._segments)
+    if filepath:
+        plt.savefig(filepath)
+    return fig
 
 
 def plot_text(text):
-    """Generates a plot for all text present on the PDF page.
+    """Generates a plot for all text elements present
+    on the PDF page.
 
     Parameters
     ----------
     text : list
+
+    Returns
+    -------
+    fig : matplotlib.fig.Figure
 
     """
     fig = plt.figure()
@@ -64,11 +74,16 @@ def plot_text(text):
 
 
 def plot_table(table):
-    """Generates a plot for the table.
+    """Generates a plot for the detected tables
+    on the PDF page.
 
     Parameters
     ----------
     table : camelot.core.Table
+
+    Returns
+    -------
+    fig : matplotlib.fig.Figure
 
     """
     fig = plt.figure()
@@ -91,12 +106,16 @@ def plot_table(table):
 
 
 def plot_contour(image):
-    """Generates a plot for all table boundaries present on the
-    PDF page.
+    """Generates a plot for all table boundaries present
+    on the PDF page.
 
     Parameters
     ----------
     image : tuple
+
+    Returns
+    -------
+    fig : matplotlib.fig.Figure
 
     """
     img, table_bbox = image
@@ -117,12 +136,16 @@ def plot_contour(image):
 
 
 def plot_joint(image):
-    """Generates a plot for all line intersections present on the
-    PDF page.
+    """Generates a plot for all line intersections present
+    on the PDF page.
 
     Parameters
     ----------
     image : tuple
+
+    Returns
+    -------
+    fig : matplotlib.fig.Figure
 
     """
     img, table_bbox = image
@@ -140,11 +163,16 @@ def plot_joint(image):
 
 
 def plot_line(segments):
-    """Generates a plot for all line segments present on the PDF page.
+    """Generates a plot for all line segments present
+    on the PDF page.
 
     Parameters
     ----------
     segments : tuple
+
+    Returns
+    -------
+    fig : matplotlib.fig.Figure
 
     """
     fig = plt.figure()

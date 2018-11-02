@@ -6,7 +6,8 @@ from click import HelpFormatter
 
 from .__version__ import __version__
 from .io import read_pdf
-from .plotting import plot_pdf
+from .plotting import plot
+
 
 def _write_usage(self, prog, args='', prefix='Usage: '):
     return self._write_usage('camelot', args, prefix=prefix)

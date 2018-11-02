@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import camelot
 import os
+
 import pytest
 
-from camelot.plotting import *
+import camelot
 
 
 testdir = os.path.dirname(os.path.abspath(__file__))
@@ -16,15 +16,7 @@ testdir = os.path.join(testdir, "files")
 def test_text_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
-    return plot_text(tables[0]._text)
-
-
-@pytest.mark.mpl_image_compare(
-    baseline_dir="files/baseline_plots", remove_text=True)
-def test_contour_plot():
-    filename = os.path.join(testdir, "foo.pdf")
-    tables = camelot.read_pdf(filename)
-    return plot_contour(tables[0]._image)
+    return camelot.plot(tables[0], plot_type='text')
 
 
 @pytest.mark.mpl_image_compare(
@@ -32,7 +24,15 @@ def test_contour_plot():
 def test_table_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
-    return plot_table(tables[0])
+    return camelot.plot(tables[0], plot_type='table')
+
+
+@pytest.mark.mpl_image_compare(
+    baseline_dir="files/baseline_plots", remove_text=True)
+def test_contour_plot():
+    filename = os.path.join(testdir, "foo.pdf")
+    tables = camelot.read_pdf(filename)
+    return camelot.plot(tables[0], plot_type='contour')
 
 
 @pytest.mark.mpl_image_compare(
@@ -40,7 +40,7 @@ def test_table_plot():
 def test_line_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
-    return plot_line(tables[0]._segments)
+    return camelot.plot(tables[0], plot_type='line')
 
 
 @pytest.mark.mpl_image_compare(
@@ -48,4 +48,4 @@ def test_line_plot():
 def test_joint_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
-    return plot_joint(tables[0]._image)
+    return camelot.plot(tables[0], plot_type='joint')
