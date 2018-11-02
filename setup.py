@@ -32,7 +32,8 @@ dev_requires = [
     'pytest>=3.8.0',
     'pytest-cov>=2.6.0',
     'pytest-runner>=4.2',
-    'Sphinx>=1.7.9'
+    'Sphinx>=1.7.9',
+    'pytest-mpl>=0.10'
 ]
 dev_requires = dev_requires + all_requires
 

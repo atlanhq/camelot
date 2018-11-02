@@ -15,7 +15,7 @@ install:
 	pip install ".[dev]"
 
 test:
-	pytest --verbose --cov-config .coveragerc --cov-report term --cov-report xml --cov=camelot tests
+	pytest --verbose --cov-config .coveragerc --cov-report term --cov-report xml --cov=camelot --mpl tests
 
 docs:
 	cd docs && make html

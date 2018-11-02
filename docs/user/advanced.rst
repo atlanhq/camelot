@@ -27,12 +27,12 @@ To process background lines, you can pass ``process_background=True``.
 .. csv-table::
   :file: ../_static/csv/background_lines.csv
 
-Plot geometry
--------------
+Visual debugging
+----------------
 
-You can use a :class:`table <camelot.core.Table>` object's :meth:`plot() <camelot.core.TableList.plot>` method to plot various geometries that were detected by Camelot while processing the PDF page. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
+You can use the :meth:`plot() <camelot.plotting.plot>` method to generate a `matplotlib <https://matplotlib.org/>`_ plot of various elements that were detected on the PDF page while processing it. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
 
-The following geometries are available for plotting. You can pass them to the :meth:`plot() <camelot.core.TableList.plot>` method, which will then generate a `matplotlib <https://matplotlib.org/>`_ plot for the passed geometry.
+You can specify the type of element you want to plot using the ``plot_type`` keyword argument. The generated plot can be saved to a file by passing a ``filename`` keyword argument. The following plot types are supported:
 
 - 'text'
 - 'table'
@@ -40,9 +40,9 @@ The following geometries are available for plotting. You can pass them to the :m
 - 'line'
 - 'joint'
 
-.. note:: The last three geometries can only be used with :ref:`Lattice <lattice>`, i.e. when ``flavor='lattice'``.
+.. note:: The last three plot types can only be used with :ref:`Lattice <lattice>`, i.e. when ``flavor='lattice'``.
 
-Let's generate a plot for each geometry using this `PDF <../_static/pdf/foo.pdf>`__ as an example. First, let's get all the tables out.
+Let's generate a plot for each type using this `PDF <../_static/pdf/foo.pdf>`__ as an example. First, let's get all the tables out.
 
 ::
 
@@ -59,7 +59,8 @@ Let's plot all the text present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('text')
+    >>> camelot.plot(tables[0], plot_type='text')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_text.png
     :height: 674
@@ -77,11 +78,12 @@ This, as we shall later see, is very helpful with :ref:`Stream <stream>` for not
 table
 ^^^^^
 
-Let's plot the table (to see if it was detected correctly or not). This geometry type, along with contour, line and joint is useful for debugging and improving the extraction output, in case the table wasn't detected correctly. (More on that later.)
+Let's plot the table (to see if it was detected correctly or not). This plot type, along with contour, line and joint is useful for debugging and improving the extraction output, in case the table wasn't detected correctly. (More on that later.)
 
 ::
 
-    >>> tables[0].plot('table')
+    >>> camelot.plot(tables[0], plot_type='table')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_table.png
     :height: 674
@@ -101,7 +103,8 @@ Now, let's plot all table boundaries present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('contour')
+    >>> camelot.plot(tables[0], plot_type='contour')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_contour.png
     :height: 674
@@ -119,7 +122,8 @@ Cool, let's plot all line segments present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('line')
+    >>> camelot.plot(tables[0], plot_type='line')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_line.png
     :height: 674
@@ -137,7 +141,8 @@ Finally, let's plot all line intersections present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('joint')
+    >>> camelot.plot(tables[0], plot_type='joint')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_joint.png
     :height: 674

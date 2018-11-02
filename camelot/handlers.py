@@ -141,9 +141,6 @@ class PDFHandler(object):
         -------
         tables : camelot.core.TableList
             List of tables found in PDF.
-        geometry : camelot.core.GeometryList
-            List of geometry objects (contours, lines, joints) found
-            in PDF.
 
         """
         tables = []
