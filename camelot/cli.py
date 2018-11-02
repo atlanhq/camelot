@@ -3,9 +3,9 @@
 import logging
 
 import click
-import matplotlib.pyplot as plt
 
 from . import __version__, read_pdf, plot
+from .plotting import plt
 
 
 logger = logging.getLogger('camelot')

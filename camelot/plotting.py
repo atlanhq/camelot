@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+try:
+    import matplotlib.pyplot as plt
+    import matplotlib.patches as patches
+except ImportError:
+    _HAS_MPL = False
+else:
+    _HAS_MPL = True
 
 
 class PlotMethods(object):
@@ -25,9 +30,13 @@ class PlotMethods(object):
         fig : matplotlib.fig.Figure
 
         """
+        if not _HAS_MPL:
+            raise ImportError('matplotlib is required for plotting.')
+
         if table.flavor == 'stream' and kind in ['contour', 'joint', 'line']:
             raise NotImplementedError("Stream flavor does not support kind='{}'".format(
                                       kind))
+
         plot_method = getattr(self, kind)
         return plot_method(table)
 
