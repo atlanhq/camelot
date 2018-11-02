@@ -30,6 +30,8 @@ To process background lines, you can pass ``process_background=True``.
 Visual debugging
 ----------------
 
+.. note:: Visual debugging using ``plot()`` requires `matplotlib <https://matplotlib.org/>`_ which is an optional dependency. You can install it using ``$ pip install camelot-py[plot]``.
+
 You can use the :class:`plot() <camelot.plotting.PlotMethods>` method to generate a `matplotlib <https://matplotlib.org/>`_ plot of various elements that were detected on the PDF page while processing it. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
 
 You can specify the type of element you want to plot using the ``kind`` keyword argument. The generated plot can be saved to a file by passing a ``filename`` keyword argument. The following plot types are supported:

@@ -95,7 +95,7 @@ If you have ghostscript, you should see the ghostscript version and copyright in
 
 Finally, you can use pip to install Camelot::
 
-    $ pip install camelot-py[all]
+    $ pip install camelot-py[cv]
 
 From the source code
 --------------------
@@ -111,6 +111,6 @@ After `installing the dependencies`_, you can install from the source by:
 ::
 
     $ cd camelot
-    $ pip install ".[all]"
+    $ pip install ".[cv]"
 
 .. _installing the dependencies: https://camelot-py.readthedocs.io/en/master/user/install.html#using-pip
