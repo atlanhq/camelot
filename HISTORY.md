@@ -4,6 +4,15 @@ Release History
 master
 ------
 
+0.3.1 (2018-11-02)
+------------------
+
+**Improvements**
+
+* Matplotlib is now an optional requirement. [#190](https://github.com/socialcopsdev/camelot/pull/190) by Vinayak Mehta.
+    * You can install it using `$ pip install camelot-py[plot]`.
+* [#127](https://github.com/socialcopsdev/camelot/issues/127) Add tests for plotting. Coverage is now at 87%! [#179](https://github.com/socialcopsdev/camelot/pull/179) by [Suyash Behera](https://github.com/Suyash458).
+
 0.3.0 (2018-10-28)
 ------------------
 
