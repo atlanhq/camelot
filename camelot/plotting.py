@@ -12,7 +12,7 @@ class PlotMethods(object):
 
         Parameters
         ----------
-        table: Table
+        table: camelot.core.Table
             A Camelot Table.
         kind : str, optional (default: 'text')
             {'text', 'grid', 'contour', 'joint', 'line'}
@@ -28,28 +28,16 @@ class PlotMethods(object):
         if table.flavor == 'stream' and kind in ['contour', 'joint', 'line']:
             raise NotImplementedError("Stream flavor does not support kind='{}'".format(
                                       kind))
-        if kind == 'text':
-            fig = self.text(table._text)
-        elif kind == 'grid':
-            fig = self.grid(table)
-        elif kind == 'contour':
-            fig = self.contour(table._image)
-        elif kind == 'joint':
-            fig = self.joint(table._image)
-        elif kind == 'line':
-            fig = self.line(table._segments)
-        if filepath is not None:
-            plt.savefig(filepath)
-        return fig
+        plot_method = getattr(self, kind)
+        return plot_method(table)
 
-
-    def text(self, _text):
+    def text(self, table):
         """Generates a plot for all text elements present
         on the PDF page.
 
         Parameters
         ----------
-        _text : list
+        table : camelot.core.Table
 
         Returns
         -------
@@ -59,7 +47,7 @@ class PlotMethods(object):
         fig = plt.figure()
         ax = fig.add_subplot(111, aspect='equal')
         xs, ys = [], []
-        for t in text:
+        for t in table._text:
             xs.extend([t[0], t[2]])
             ys.extend([t[1], t[3]])
             ax.add_patch(
@@ -72,7 +60,6 @@ class PlotMethods(object):
         ax.set_xlim(min(xs) - 10, max(xs) + 10)
         ax.set_ylim(min(ys) - 10, max(ys) + 10)
         return fig
-
 
     def grid(self, table):
         """Generates a plot for the detected table grids
@@ -105,21 +92,20 @@ class PlotMethods(object):
                             [cell.lb[1], cell.rb[1]])
         return fig
 
-
-    def contour(self, image):
+    def contour(self, table):
         """Generates a plot for all table boundaries present
         on the PDF page.
 
         Parameters
         ----------
-        image : tuple
+        table : camelot.core.Table
 
         Returns
         -------
         fig : matplotlib.fig.Figure
 
         """
-        img, table_bbox = image
+        img, table_bbox = table._image
         fig = plt.figure()
         ax = fig.add_subplot(111, aspect='equal')
         for t in table_bbox.keys():
@@ -135,21 +121,20 @@ class PlotMethods(object):
         ax.imshow(img)
         return fig
 
-
-    def joint(self, image):
+    def joint(self, table):
         """Generates a plot for all line intersections present
         on the PDF page.
 
         Parameters
         ----------
-        image : tuple
+        table : camelot.core.Table
 
         Returns
         -------
         fig : matplotlib.fig.Figure
 
         """
-        img, table_bbox = image
+        img, table_bbox = table._image
         fig = plt.figure()
         ax = fig.add_subplot(111, aspect='equal')
         x_coord = []
@@ -162,14 +147,13 @@ class PlotMethods(object):
         ax.imshow(img)
         return fig
 
-
-    def line(self, segments):
+    def line(self, table):
         """Generates a plot for all line segments present
         on the PDF page.
 
         Parameters
         ----------
-        segments : tuple
+        table : camelot.core.Table
 
         Returns
         -------
@@ -178,7 +162,7 @@ class PlotMethods(object):
         """
         fig = plt.figure()
         ax = fig.add_subplot(111, aspect='equal')
-        vertical, horizontal = segments
+        vertical, horizontal = table._segments
         for v in vertical:
             ax.plot([v[0], v[2]], [v[1], v[3]])
         for h in horizontal:
