@@ -21,10 +21,10 @@ def test_text_plot():
 
 @pytest.mark.mpl_image_compare(
     baseline_dir="files/baseline_plots", remove_text=True)
-def test_table_plot():
+def test_grid_plot():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
-    return camelot.plot(tables[0], kind='table')
+    return camelot.plot(tables[0], kind='grid')
 
 
 @pytest.mark.mpl_image_compare(
