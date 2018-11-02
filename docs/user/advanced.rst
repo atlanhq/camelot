@@ -169,7 +169,7 @@ You can pass the column separators as a list of comma-separated strings to :meth
 
 In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and you need to specify column separators as well, **the length of both lists should be equal**. Each table area will be mapped to each column separators' string using their indices.
 
-For example, if you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list like this, ``columns=['10,120,200,400', '']``.
+For example, if you have specified two table areas, ``table_areas=['12,54,43,23', '20,67,55,33']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list like this, ``columns=['10,120,200,400', '']``.
 
 Let's get back to the *x* coordinates we got from plotting the text that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
 
