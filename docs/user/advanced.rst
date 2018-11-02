@@ -59,7 +59,8 @@ Let's plot all the text present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot_pdf(tables[0], 'text')
+    >>> camelot.plot(tables[0], plot_type='text')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_text.png
     :height: 674
@@ -81,7 +82,8 @@ Let's plot the table (to see if it was detected correctly or not). This plot typ
 
 ::
 
-    >>> camelot.plot_pdf(tables[0], 'table')
+    >>> camelot.plot(tables[0], plot_type='table')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_table.png
     :height: 674
@@ -101,7 +103,8 @@ Now, let's plot all table boundaries present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot_pdf(tables[0], 'contour')
+    >>> camelot.plot(tables[0], plot_type='contour')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_contour.png
     :height: 674
@@ -119,7 +122,8 @@ Cool, let's plot all line segments present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot_pdf(tables[0], 'line')
+    >>> camelot.plot(tables[0], plot_type='line')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_line.png
     :height: 674
@@ -137,7 +141,8 @@ Finally, let's plot all line intersections present on the table's PDF page.
 
 ::
 
-    >>> camelot.plot_pdf(tables[0], 'joint')
+    >>> camelot.plot(tables[0], plot_type='joint')
+    >>> plt.show()
 
 .. figure:: ../_static/png/geometry_joint.png
     :height: 674
