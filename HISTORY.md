@@ -4,6 +4,14 @@ Release History
 master
 ------
 
+0.3.2 (2018-11-04)
+------------------
+
+**Improvements**
+
+* [#186](https://github.com/socialcopsdev/camelot/issues/186) Add `_bbox` attribute to table. [#193](https://github.com/socialcopsdev/camelot/pull/193) by Vinayak Mehta.
+    * You can use `table._bbox` to get coordinates of the detected table.
+
 0.3.1 (2018-11-02)
 ------------------
 

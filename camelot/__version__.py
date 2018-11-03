@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-VERSION = (0, 3, 1)
+VERSION = (0, 3, 2)
 
 __title__ = 'camelot-py'
 __description__ = 'PDF Table Extraction for Humans.'
