@@ -362,6 +362,7 @@ class Lattice(BaseParser):
                 self.table_bbox.keys(), key=lambda x: x[1], reverse=True)):
             cols, rows, v_s, h_s = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows, v_s=v_s, h_s=h_s)
+            table._bbox = tk
             _tables.append(table)
 
         return _tables
