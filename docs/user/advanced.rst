@@ -80,7 +80,7 @@ Let's plot the table (to see if it was detected correctly or not). This plot typ
 
 ::
 
-    >>> camelot.plot(tables[0], kind='table')
+    >>> camelot.plot(tables[0], kind='grid')
     >>> plt.show()
 
 .. figure:: ../_static/png/plot_table.png
@@ -284,7 +284,7 @@ Let's plot the table for this PDF.
 ::
 
     >>> tables = camelot.read_pdf('short_lines.pdf')
-    >>> camelot.plot(tables[0], kind='table')
+    >>> camelot.plot(tables[0], kind='grid')
     >>> plt.show()
 
 .. figure:: ../_static/png/short_lines_1.png
@@ -296,7 +296,7 @@ Clearly, the smaller lines separating the headers, couldn't be detected. Let's t
 ::
 
     >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40)
-    >>> camelot.plot(tables[0], kind='table')
+    >>> camelot.plot(tables[0], kind='grid')
     >>> plt.show()
 
 .. figure:: ../_static/png/short_lines_2.png
