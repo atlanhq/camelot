@@ -140,51 +140,16 @@ class TextEdges(object):
                 if tl.y0 >= area[1] and tl.y1 <= area[3]:
                     found = area
                     break
-            if found is not None:
-                table_areas.pop(found)
-                updated_area = (
-                    min(tl.x0, found[0]), min(tl.y0, found[1]), max(found[2], tl.x1), max(found[3], tl.y1))
-                table_areas[updated_area] = None
+                if found is not None:
+                    table_areas.pop(found)
+                    updated_area = (
+                        min(tl.x0, found[0]), min(tl.y0, found[1]), max(found[2], tl.x1), max(found[3], tl.y1))
+                    table_areas[updated_area] = None
 
         # add some padding to table areas
         table_areas_padded = {}
         for area in table_areas:
             table_areas_padded[pad(area)] = None
-
-        # debug
-        import matplotlib.pyplot as plt
-        import matplotlib.patches as patches
-
-        fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
-        xs, ys = [], []
-        for t in textlines:
-            xs.extend([t.x0, t.x1])
-            ys.extend([t.y0, t.y1])
-            ax.add_patch(
-                patches.Rectangle(
-                    (t.x0, t.y0),
-                    t.x1 - t.x0,
-                    t.y1 - t.y0,
-                    color='blue'
-                )
-            )
-        for area in table_areas_padded:
-            xs.extend([area[0], area[2]])
-            ys.extend([area[1], area[3]])
-            ax.add_patch(
-                patches.Rectangle(
-                    (area[0], area[1]),
-                    area[2] - area[0],
-                    area[3] - area[1],
-                    fill=False,
-                    color='red'
-                )
-            )
-
-        ax.set_xlim(min(xs) - 10, max(xs) + 10)
-        ax.set_ylim(min(ys) - 10, max(ys) + 10)
-        plt.show()
 
         return table_areas_padded
 
