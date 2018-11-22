@@ -10,10 +10,12 @@ import numpy as np
 import pandas as pd
 
 
-# minimum number of textlines to be considered a textedge
+# minimum number of vertical textline intersections for a textedge
+# to be considered valid
 TEXTEDGE_REQUIRED_ELEMENTS = 4
-# y coordinate tolerance for extending text edge
+# y coordinate tolerance for extending textedge
 TEXTEDGE_EXTEND_TOLERANCE = 50
+# TODO: deal in percentages instead of absolutes
 # padding added to table area's lt and rb
 TABLE_AREA_PADDING = 10
 
@@ -36,7 +38,8 @@ class TextEdge(object):
             self.x = (self.intersections * self.x + x) / float(self.intersections + 1)
             self.y0 = y0
             self.intersections += 1
-            # a textedge is valid if it extends uninterrupted over required_elements
+            # a textedge is valid only if it extends uninterrupted
+            # over a required number of textlines
             if self.intersections > TEXTEDGE_REQUIRED_ELEMENTS:
                 self.is_valid = True
 
@@ -89,8 +92,8 @@ class TextEdges(object):
         }
 
         # TODO: naive
-        # get the vertical textedges that intersect maximum number of
-        # times with horizontal text rows
+        # get vertical textedges that intersect maximum number of
+        # times with horizontal textlines
         relevant_align = max(intersections_sum.items(), key=itemgetter(1))[0]
         return self._textedges[relevant_align]
 
@@ -130,8 +133,8 @@ class TextEdges(object):
         # extend table areas based on textlines that overlap
         # vertically. it's possible that these textlines were
         # eliminated during textedges generation since numbers and
-        # sentences/chars are often aligned differently.
-        # drawback: table areas that have paragraphs to their sides
+        # chars/words/sentences are often aligned differently.
+        # drawback: table areas that have paragraphs on their sides
         # will include the paragraphs too.
         for tl in textlines:
             found = None
