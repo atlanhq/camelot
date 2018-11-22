@@ -250,6 +250,7 @@ class Stream(BaseParser):
         # an general heuristic implementation of the table detection
         # algorithm described by Anssi Nurminen's master's thesis:
         # https://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3
+        # assumes that tables vertically separated by some distance
 
         # TODO: add support for arabic text #141
         # sort textlines in reading order
@@ -263,7 +264,7 @@ class Stream(BaseParser):
         # select relevant edges
         relevant_textedges = textedges.get_relevant()
         # guess table areas using relevant edges
-        table_bbox = textedges.get_table_areas(relevant_textedges)
+        table_bbox = textedges.get_table_areas(textlines, relevant_textedges)
         # treat whole page as table if not table areas found
         if not len(table_bbox):
             table_bbox = {(0, 0, self.pdf_width, self.pdf_height): None}

@@ -83,27 +83,73 @@ class TextEdges(object):
 
     def get_relevant(self):
         intersections_sum = {
-            'left': sum(te.intersections for te in self._textedges['left']),
-            'right': sum(te.intersections for te in self._textedges['right']),
-            'middle': sum(te.intersections for te in self._textedges['middle'])
+            'left': sum(te.intersections for te in self._textedges['left'] if te.is_valid),
+            'right': sum(te.intersections for te in self._textedges['right'] if te.is_valid),
+            'middle': sum(te.intersections for te in self._textedges['middle'] if te.is_valid)
         }
 
         # TODO: naive
+        # get the vertical textedges that intersect maximum number of
+        # times with horizontal text rows
         relevant_align = max(intersections_sum.items(), key=itemgetter(1))[0]
         return self._textedges[relevant_align]
 
-    def get_table_areas(self, relevant_textedges):
-        # # debug
-        # import matplotlib.pyplot as plt
+    def get_table_areas(self, textlines, relevant_textedges):
+        def pad(area):
+            x0 = area[0] - TABLE_AREA_PADDING
+            y0 = area[1] - TABLE_AREA_PADDING
+            x1 = area[2] + TABLE_AREA_PADDING
+            y1 = area[3] + TABLE_AREA_PADDING
+            return (x0, y0, x1, y1)
 
-        # fig = plt.figure()
-        # ax = fig.add_subplot(111, aspect='equal')
-        # for te in relevant_textedges:
-        #     if te.is_valid:
-        #         ax.plot([te.x, te.x], [te.y0, te.y1])
-        # plt.show()
+        # sort relevant textedges in reading order
+        relevant_textedges.sort(key=lambda te: (-te.y0, te.x))
 
-        return {}
+        table_areas = {}
+        for te in relevant_textedges:
+            if te.is_valid:
+                if not table_areas:
+                    table_areas[(te.x, te.y0, te.x, te.y1)] = None
+                else:
+                    found = None
+                    for area in table_areas:
+                        # check for overlap
+                        if te.y1 >= area[1] and te.y0 <= area[3]:
+                            found = area
+                            break
+                    if found is None:
+                        table_areas[(te.x, te.y0, te.x, te.y1)] = None
+                    else:
+                        table_areas.pop(found)
+                        updated_area = (
+                            found[0], min(te.y0, found[1]), max(found[2], te.x), max(found[3], te.y1))
+                        table_areas[updated_area] = None
+
+        # extend table areas based on textlines that overlap
+        # vertically. it's possible that these textlines were
+        # eliminated during textedges generation since numbers and
+        # sentences/chars are often aligned differently.
+        # drawback: table areas that have paragraphs to their left
+        # will include the paragraphs too.
+        for tl in textlines:
+            for area in table_areas:
+                found = None
+                # check for overlap
+                if tl.y0 >= area[1] and tl.y1 <= area[3]:
+                    found = area
+                    break
+            if found is not None:
+                table_areas.pop(found)
+                updated_area = (
+                    min(tl.x0, found[0]), min(tl.y0, found[1]), max(found[2], tl.x1), max(found[3], tl.y1))
+                table_areas[updated_area] = None
+
+        # add some padding to table areas
+        table_areas_padded = {}
+        for area in table_areas:
+            table_areas_padded[pad(area)] = None
+
+        return table_areas_padded
 
 
 class Cell(object):
