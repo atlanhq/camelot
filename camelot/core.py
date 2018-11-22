@@ -129,7 +129,7 @@ class TextEdges(object):
         # vertically. it's possible that these textlines were
         # eliminated during textedges generation since numbers and
         # sentences/chars are often aligned differently.
-        # drawback: table areas that have paragraphs to their left
+        # drawback: table areas that have paragraphs to their sides
         # will include the paragraphs too.
         for tl in textlines:
             for area in table_areas:
