@@ -255,12 +255,9 @@ class Stream(BaseParser):
         # TODO: add support for arabic text #141
         # sort textlines in reading order
         textlines.sort(key=lambda x: (-x.y0, x.x0))
-        # group textlines into rows
-        text_grouped = self._group_rows(
-                self.horizontal_text, row_close_tol=self.row_close_tol)
         textedges = TextEdges()
         # generate left, middle and right textedges
-        textedges.generate(text_grouped)
+        textedges.generate(textlines)
         # select relevant edges
         relevant_textedges = textedges.get_relevant()
         # guess table areas using textlines and relevant edges

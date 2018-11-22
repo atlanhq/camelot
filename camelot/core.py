@@ -15,8 +15,7 @@ import pandas as pd
 TEXTEDGE_REQUIRED_ELEMENTS = 4
 # y coordinate tolerance for extending textedge
 TEXTEDGE_EXTEND_TOLERANCE = 50
-# TODO: deal in percentages instead of absolutes
-# padding added to table area's lt and rb
+# padding added to table area on the left, right and bottom
 TABLE_AREA_PADDING = 10
 
 
@@ -79,8 +78,7 @@ class TextEdges(object):
                 self._textedges[align][idx].update_coords(x_coord, textline.y0)
 
     def generate(self, textlines):
-        textlines_flat = list(chain.from_iterable(textlines))
-        for tl in textlines_flat:
+        for tl in textlines:
             if len(tl.get_text().strip()) > 1: # TODO: hacky
                 self.update(tl)
 
@@ -98,13 +96,12 @@ class TextEdges(object):
         return self._textedges[relevant_align]
 
     def get_table_areas(self, textlines, relevant_textedges):
-        def pad(area):
+        def pad(area, average_row_height):
             x0 = area[0] - TABLE_AREA_PADDING
             y0 = area[1] - TABLE_AREA_PADDING
             x1 = area[2] + TABLE_AREA_PADDING
-            # TODO: deal in percentages instead of absolutes
-            # add a constant to include table headers
-            y1 = area[3] + TABLE_AREA_PADDING + 10
+            # add a constant since table headers can be relatively up
+            y1 = area[3] + average_row_height * 5
             return (x0, y0, x1, y1)
 
         # sort relevant textedges in reading order
@@ -136,7 +133,9 @@ class TextEdges(object):
         # chars/words/sentences are often aligned differently.
         # drawback: table areas that have paragraphs on their sides
         # will include the paragraphs too.
+        sum_textline_height = 0
         for tl in textlines:
+            sum_textline_height += tl.y1 - tl.y0
             found = None
             for area in table_areas:
                 # check for overlap
@@ -148,11 +147,12 @@ class TextEdges(object):
                 updated_area = (
                     min(tl.x0, found[0]), min(tl.y0, found[1]), max(found[2], tl.x1), max(found[3], tl.y1))
                 table_areas[updated_area] = None
+        average_textline_height = sum_textline_height / float(len(textlines))
 
         # add some padding to table areas
         table_areas_padded = {}
         for area in table_areas:
-            table_areas_padded[pad(area)] = None
+            table_areas_padded[pad(area, average_textline_height)] = None
 
         return table_areas_padded
 
