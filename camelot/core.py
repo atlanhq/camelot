@@ -61,10 +61,8 @@ class TextEdges(object):
             x_coord = self.get_x_coord(textline, align)
             idx = self.find_textedge(x_coord, align)
             if idx is None:
-                print('adding')
                 self.add_textedge(textline, align)
             else:
-                print('updating')
                 self._textedges[align][idx].update_coords(x_coord, textline.y0)
 
     def generate_textedges(self, textlines):
