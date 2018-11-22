@@ -3,9 +3,102 @@
 import os
 import zipfile
 import tempfile
+from itertools import chain
 
 import numpy as np
 import pandas as pd
+
+
+class TextEdge(object):
+    def __init__(self, x, y0, y1, align='left'):
+        self.x = x
+        self.y0 = y0
+        self.y1 = y1
+        self.align = align
+        self.intersections = 0
+        self.is_valid = False
+
+    def __repr__(self):
+        return '<TextEdge x={} y0={} y1={} align={} valid={}>'.format(
+            round(self.x, 2), round(self.y0, 2), round(self.y1, 2), self.align, self.is_valid)
+
+    def update_coords(self, x, y0):
+        self.x = (self.intersections * self.x + x) / float(self.intersections + 1)
+        self.y0 = y0
+        self.intersections += 1
+        # a textedge is valid if it extends uninterrupted over required_elements
+        if self.intersections > 4:
+            self.is_valid = True
+
+
+class TextEdges(object):
+    def __init__(self):
+        self._textedges = {'left': [], 'middle': [], 'right': []}
+
+    @staticmethod
+    def get_x_coord(textline, align):
+        x_left = textline.x0
+        x_right = textline.x1
+        x_middle = x_left + (x_right - x_left) / 2.0
+        x_coord = {'left': x_left, 'middle': x_middle, 'right': x_right}
+        return x_coord[align]
+
+    def add_textedge(self, textline, align):
+        x = self.get_x_coord(textline, align)
+        y0 = textline.y0
+        y1 = textline.y1
+        te = TextEdge(x, y0, y1, align=align)
+        self._textedges[align].append(te)
+
+    def find_textedge(self, x_coord, align):
+        for i, te in enumerate(self._textedges[align]):
+            if np.isclose(te.x, x_coord):
+                return i
+        return None
+
+    def update_textedges(self, textline):
+        for align in ['left', 'middle', 'right']:
+            x_coord = self.get_x_coord(textline, align)
+            idx = self.find_textedge(x_coord, align)
+            if idx is None:
+                print('adding')
+                self.add_textedge(textline, align)
+            else:
+                print('updating')
+                self._textedges[align][idx].update_coords(x_coord, textline.y0)
+
+    def generate_textedges(self, textlines):
+        textlines_flat = list(chain.from_iterable(textlines))
+        for tl in textlines_flat:
+            if len(tl.get_text().strip()) > 1: # TODO: hacky
+                self.update_textedges(tl)
+
+        # # debug
+        # import matplotlib.pyplot as plt
+
+        # fig = plt.figure()
+        # ax = fig.add_subplot(111, aspect='equal')
+        # for te in self._textedges['left']:
+        #     if te.is_valid:
+        #         ax.plot([te.x, te.x], [te.y0, te.y1])
+        # plt.show()
+
+        # fig = plt.figure()
+        # ax = fig.add_subplot(111, aspect='equal')
+        # for te in self._textedges['middle']:
+        #     if te.is_valid:
+        #         ax.plot([te.x, te.x], [te.y0, te.y1])
+        # plt.show()
+
+        # fig = plt.figure()
+        # ax = fig.add_subplot(111, aspect='equal')
+        # for te in self._textedges['right']:
+        #     if te.is_valid:
+        #         ax.plot([te.x, te.x], [te.y0, te.y1])
+        # plt.show()
+
+    def generate_tableareas(self):
+        return {}
 
 
 class Cell(object):
