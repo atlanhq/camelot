@@ -55,7 +55,7 @@ class TextEdges(object):
 
     def find(self, x_coord, align):
         for i, te in enumerate(self._textedges[align]):
-            if np.isclose(te.x, x_coord):
+            if np.isclose(te.x, x_coord, atol=0.5):
                 return i
         return None
 
@@ -134,17 +134,17 @@ class TextEdges(object):
         # drawback: table areas that have paragraphs to their sides
         # will include the paragraphs too.
         for tl in textlines:
+            found = None
             for area in table_areas:
-                found = None
                 # check for overlap
                 if tl.y0 >= area[1] and tl.y1 <= area[3]:
                     found = area
                     break
-                if found is not None:
-                    table_areas.pop(found)
-                    updated_area = (
-                        min(tl.x0, found[0]), min(tl.y0, found[1]), max(found[2], tl.x1), max(found[3], tl.y1))
-                    table_areas[updated_area] = None
+            if found is not None:
+                table_areas.pop(found)
+                updated_area = (
+                    min(tl.x0, found[0]), min(tl.y0, found[1]), max(found[2], tl.x1), max(found[3], tl.y1))
+                table_areas[updated_area] = None
 
         # add some padding to table areas
         table_areas_padded = {}
