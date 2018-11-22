@@ -251,11 +251,6 @@ class Stream(BaseParser):
         # algorithm described by Anssi Nurminen's master's thesis:
         # https://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3
 
-        # minimum number of textlines to be considered a textedge
-        REQUIRED_ELEMENTS_FOR_TEXTEDGE = 4
-        # padding added to table area's lt and rb
-        TABLE_AREA_PADDING = 10
-
         # TODO: add support for arabic text #141
         # sort textlines in reading order
         textlines.sort(key=lambda x: (-x.y0, x.x0))
@@ -264,10 +259,11 @@ class Stream(BaseParser):
                 self.horizontal_text, row_close_tol=self.row_close_tol)
         textedges = TextEdges()
         # generate left, middle and right textedges
-        textedges.generate_textedges(text_grouped)
+        textedges.generate(text_grouped)
         # select relevant edges
-        # generate table areas using relevant edges and horizontal text
-        table_bbox = textedges.generate_tableareas()
+        relevant_textedges = textedges.get_relevant()
+        # guess table areas using relevant edges
+        table_bbox = textedges.get_table_areas(relevant_textedges)
         # treat whole page as table if not table areas found
         if not len(table_bbox):
             table_bbox = {(0, 0, self.pdf_width, self.pdf_height): None}

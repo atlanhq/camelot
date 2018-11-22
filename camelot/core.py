@@ -4,9 +4,18 @@ import os
 import zipfile
 import tempfile
 from itertools import chain
+from operator import itemgetter
 
 import numpy as np
 import pandas as pd
+
+
+# minimum number of textlines to be considered a textedge
+TEXTEDGE_REQUIRED_ELEMENTS = 4
+# y coordinate tolerance for extending text edge
+TEXTEDGE_EXTEND_TOLERANCE = 50
+# padding added to table area's lt and rb
+TABLE_AREA_PADDING = 10
 
 
 class TextEdge(object):
@@ -23,12 +32,13 @@ class TextEdge(object):
             round(self.x, 2), round(self.y0, 2), round(self.y1, 2), self.align, self.is_valid)
 
     def update_coords(self, x, y0):
-        self.x = (self.intersections * self.x + x) / float(self.intersections + 1)
-        self.y0 = y0
-        self.intersections += 1
-        # a textedge is valid if it extends uninterrupted over required_elements
-        if self.intersections > 4:
-            self.is_valid = True
+        if np.isclose(self.y0, y0, atol=TEXTEDGE_EXTEND_TOLERANCE):
+            self.x = (self.intersections * self.x + x) / float(self.intersections + 1)
+            self.y0 = y0
+            self.intersections += 1
+            # a textedge is valid if it extends uninterrupted over required_elements
+            if self.intersections > TEXTEDGE_REQUIRED_ELEMENTS:
+                self.is_valid = True
 
 
 class TextEdges(object):
@@ -43,59 +53,56 @@ class TextEdges(object):
         x_coord = {'left': x_left, 'middle': x_middle, 'right': x_right}
         return x_coord[align]
 
-    def add_textedge(self, textline, align):
+    def find(self, x_coord, align):
+        for i, te in enumerate(self._textedges[align]):
+            if np.isclose(te.x, x_coord):
+                return i
+        return None
+
+    def add(self, textline, align):
         x = self.get_x_coord(textline, align)
         y0 = textline.y0
         y1 = textline.y1
         te = TextEdge(x, y0, y1, align=align)
         self._textedges[align].append(te)
 
-    def find_textedge(self, x_coord, align):
-        for i, te in enumerate(self._textedges[align]):
-            if np.isclose(te.x, x_coord):
-                return i
-        return None
-
-    def update_textedges(self, textline):
-        for align in ['left', 'middle', 'right']:
+    def update(self, textline):
+        for align in ['left', 'right', 'middle']:
             x_coord = self.get_x_coord(textline, align)
-            idx = self.find_textedge(x_coord, align)
+            idx = self.find(x_coord, align)
             if idx is None:
-                self.add_textedge(textline, align)
+                self.add(textline, align)
             else:
                 self._textedges[align][idx].update_coords(x_coord, textline.y0)
 
-    def generate_textedges(self, textlines):
+    def generate(self, textlines):
         textlines_flat = list(chain.from_iterable(textlines))
         for tl in textlines_flat:
             if len(tl.get_text().strip()) > 1: # TODO: hacky
-                self.update_textedges(tl)
+                self.update(tl)
 
+    def get_relevant(self):
+        intersections_sum = {
+            'left': sum(te.intersections for te in self._textedges['left']),
+            'right': sum(te.intersections for te in self._textedges['right']),
+            'middle': sum(te.intersections for te in self._textedges['middle'])
+        }
+
+        # TODO: naive
+        relevant_align = max(intersections_sum.items(), key=itemgetter(1))[0]
+        return self._textedges[relevant_align]
+
+    def get_table_areas(self, relevant_textedges):
         # # debug
         # import matplotlib.pyplot as plt
 
         # fig = plt.figure()
         # ax = fig.add_subplot(111, aspect='equal')
-        # for te in self._textedges['left']:
+        # for te in relevant_textedges:
         #     if te.is_valid:
         #         ax.plot([te.x, te.x], [te.y0, te.y1])
         # plt.show()
 
-        # fig = plt.figure()
-        # ax = fig.add_subplot(111, aspect='equal')
-        # for te in self._textedges['middle']:
-        #     if te.is_valid:
-        #         ax.plot([te.x, te.x], [te.y0, te.y1])
-        # plt.show()
-
-        # fig = plt.figure()
-        # ax = fig.add_subplot(111, aspect='equal')
-        # for te in self._textedges['right']:
-        #     if te.is_valid:
-        #         ax.plot([te.x, te.x], [te.y0, te.y1])
-        # plt.show()
-
-    def generate_tableareas(self):
         return {}
 
 
