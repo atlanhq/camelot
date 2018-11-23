@@ -9,7 +9,7 @@ master
 
 **Improvements**
 
-* [#102](https://github.com/socialcopsdev/camelot/issues/102) Detect tables automatically when Stream is used. [#206](https://github.com/socialcopsdev/camelot/pull/206) by Vinayak Mehta.
+* [#102](https://github.com/socialcopsdev/camelot/issues/102) Detect tables automatically when Stream is used. [#206](https://github.com/socialcopsdev/camelot/pull/206) Add implementation of Anssi Nurminen's table detection algorithm by Vinayak Mehta.
 
 0.3.2 (2018-11-04)
 ------------------
