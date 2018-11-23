@@ -92,6 +92,7 @@ This part of the documentation begins with some background information about why
    :maxdepth: 2
 
    user/intro
+   user/install-deps
    user/install
    user/how-it-works
    user/quickstart

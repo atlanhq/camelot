@@ -7,7 +7,7 @@ If you're reading this, you're probably looking to contributing to Camelot. *Tim
 
 This document will help you get started with contributing documentation, code, testing and filing issues. If you have any questions, feel free to reach out to `Vinayak Mehta`_, the author and maintainer.
 
-.. _Vinayak Mehta: https://vinayak-mehta.github.io
+.. _Vinayak Mehta: https://www.vinayakmehta.com
 
 Code Of Conduct
 ---------------

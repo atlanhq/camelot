@@ -3,9 +3,208 @@
 import os
 import zipfile
 import tempfile
+from itertools import chain
+from operator import itemgetter
 
 import numpy as np
 import pandas as pd
+
+
+# minimum number of vertical textline intersections for a textedge
+# to be considered valid
+TEXTEDGE_REQUIRED_ELEMENTS = 4
+# y coordinate tolerance for extending textedge
+TEXTEDGE_EXTEND_TOLERANCE = 50
+# padding added to table area on the left, right and bottom
+TABLE_AREA_PADDING = 10
+
+
+class TextEdge(object):
+    """Defines a text edge coordinates relative to a left-bottom
+    origin. (PDF coordinate space)
+
+    Parameters
+    ----------
+    x : float
+        x-coordinate of the text edge.
+    y0 : float
+        y-coordinate of bottommost point.
+    y1 : float
+        y-coordinate of topmost point.
+    align : string, optional (default: 'left')
+        {'left', 'right', 'middle'}
+
+    Attributes
+    ----------
+    intersections: int
+        Number of intersections with horizontal text rows.
+    is_valid: bool
+        A text edge is valid if it intersections with at least
+        TEXTEDGE_REQUIRED_ELEMENTS horizontal text rows.
+
+    """
+    def __init__(self, x, y0, y1, align='left'):
+        self.x = x
+        self.y0 = y0
+        self.y1 = y1
+        self.align = align
+        self.intersections = 0
+        self.is_valid = False
+
+    def __repr__(self):
+        return '<TextEdge x={} y0={} y1={} align={} valid={}>'.format(
+            round(self.x, 2), round(self.y0, 2), round(self.y1, 2), self.align, self.is_valid)
+
+    def update_coords(self, x, y0):
+        """Updates the text edge's x and bottom y coordinates and sets
+        the is_valid attribute.
+        """
+        if np.isclose(self.y0, y0, atol=TEXTEDGE_EXTEND_TOLERANCE):
+            self.x = (self.intersections * self.x + x) / float(self.intersections + 1)
+            self.y0 = y0
+            self.intersections += 1
+            # a textedge is valid only if it extends uninterrupted
+            # over a required number of textlines
+            if self.intersections > TEXTEDGE_REQUIRED_ELEMENTS:
+                self.is_valid = True
+
+
+class TextEdges(object):
+    """Defines a dict of left, right and middle text edges found on
+    the PDF page. The dict has three keys based on the alignments,
+    and each key's value is a list of camelot.core.TextEdge objects.
+    """
+    def __init__(self):
+        self._textedges = {'left': [], 'right': [], 'middle': []}
+
+    @staticmethod
+    def get_x_coord(textline, align):
+        """Returns the x coordinate of a text row based on the
+        specified alignment.
+        """
+        x_left = textline.x0
+        x_right = textline.x1
+        x_middle = x_left + (x_right - x_left) / 2.0
+        x_coord = {'left': x_left, 'middle': x_middle, 'right': x_right}
+        return x_coord[align]
+
+    def find(self, x_coord, align):
+        """Returns the index of an existing text edge using
+        the specified x coordinate and alignment.
+        """
+        for i, te in enumerate(self._textedges[align]):
+            if np.isclose(te.x, x_coord, atol=0.5):
+                return i
+        return None
+
+    def add(self, textline, align):
+        """Adds a new text edge to the current dict.
+        """
+        x = self.get_x_coord(textline, align)
+        y0 = textline.y0
+        y1 = textline.y1
+        te = TextEdge(x, y0, y1, align=align)
+        self._textedges[align].append(te)
+
+    def update(self, textline):
+        """Updates an existing text edge in the current dict.
+        """
+        for align in ['left', 'right', 'middle']:
+            x_coord = self.get_x_coord(textline, align)
+            idx = self.find(x_coord, align)
+            if idx is None:
+                self.add(textline, align)
+            else:
+                self._textedges[align][idx].update_coords(x_coord, textline.y0)
+
+    def generate(self, textlines):
+        """Generates the text edges dict based on horizontal text
+        rows.
+        """
+        for tl in textlines:
+            if len(tl.get_text().strip()) > 1: # TODO: hacky
+                self.update(tl)
+
+    def get_relevant(self):
+        """Returns the list of relevant text edges (all share the same
+        alignment) based on which list intersects horizontal text rows
+        the most.
+        """
+        intersections_sum = {
+            'left': sum(te.intersections for te in self._textedges['left'] if te.is_valid),
+            'right': sum(te.intersections for te in self._textedges['right'] if te.is_valid),
+            'middle': sum(te.intersections for te in self._textedges['middle'] if te.is_valid)
+        }
+
+        # TODO: naive
+        # get vertical textedges that intersect maximum number of
+        # times with horizontal textlines
+        relevant_align = max(intersections_sum.items(), key=itemgetter(1))[0]
+        return self._textedges[relevant_align]
+
+    def get_table_areas(self, textlines, relevant_textedges):
+        """Returns a dict of interesting table areas on the PDF page
+        calculated using relevant text edges.
+        """
+        def pad(area, average_row_height):
+            x0 = area[0] - TABLE_AREA_PADDING
+            y0 = area[1] - TABLE_AREA_PADDING
+            x1 = area[2] + TABLE_AREA_PADDING
+            # add a constant since table headers can be relatively up
+            y1 = area[3] + average_row_height * 5
+            return (x0, y0, x1, y1)
+
+        # sort relevant textedges in reading order
+        relevant_textedges.sort(key=lambda te: (-te.y0, te.x))
+
+        table_areas = {}
+        for te in relevant_textedges:
+            if te.is_valid:
+                if not table_areas:
+                    table_areas[(te.x, te.y0, te.x, te.y1)] = None
+                else:
+                    found = None
+                    for area in table_areas:
+                        # check for overlap
+                        if te.y1 >= area[1] and te.y0 <= area[3]:
+                            found = area
+                            break
+                    if found is None:
+                        table_areas[(te.x, te.y0, te.x, te.y1)] = None
+                    else:
+                        table_areas.pop(found)
+                        updated_area = (
+                            found[0], min(te.y0, found[1]), max(found[2], te.x), max(found[3], te.y1))
+                        table_areas[updated_area] = None
+
+        # extend table areas based on textlines that overlap
+        # vertically. it's possible that these textlines were
+        # eliminated during textedges generation since numbers and
+        # chars/words/sentences are often aligned differently.
+        # drawback: table areas that have paragraphs on their sides
+        # will include the paragraphs too.
+        sum_textline_height = 0
+        for tl in textlines:
+            sum_textline_height += tl.y1 - tl.y0
+            found = None
+            for area in table_areas:
+                # check for overlap
+                if tl.y0 >= area[1] and tl.y1 <= area[3]:
+                    found = area
+                    break
+            if found is not None:
+                table_areas.pop(found)
+                updated_area = (
+                    min(tl.x0, found[0]), min(tl.y0, found[1]), max(found[2], tl.x1), max(found[3], tl.y1))
+                table_areas[updated_area] = None
+        average_textline_height = sum_textline_height / float(len(textlines))
+
+        # add some padding to table areas
+        table_areas_padded = {}
+        for area in table_areas:
+            table_areas_padded[pad(area, average_textline_height)] = None
+
+        return table_areas_padded
 
 
 class Cell(object):

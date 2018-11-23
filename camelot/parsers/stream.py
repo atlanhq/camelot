@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 from .base import BaseParser
-from ..core import Table
+from ..core import TextEdges, Table
 from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
                      compute_whitespace)
 
@@ -116,7 +116,7 @@ class Stream(BaseParser):
                     row_y = t.y0
                 temp.append(t)
         rows.append(sorted(temp, key=lambda t: t.x0))
-        __ = rows.pop(0)  # hacky
+        __ = rows.pop(0)  # TODO: hacky
         return rows
 
     @staticmethod
@@ -246,6 +246,31 @@ class Stream(BaseParser):
                 raise ValueError("Length of table_areas and columns"
                                  " should be equal")
 
+    def _nurminen_table_detection(self, textlines):
+        """A general implementation of the table detection algorithm
+        described by Anssi Nurminen's master's thesis.
+        Link: https://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3
+
+        Assumes that tables are situated relatively far apart
+        vertically.
+        """
+
+        # TODO: add support for arabic text #141
+        # sort textlines in reading order
+        textlines.sort(key=lambda x: (-x.y0, x.x0))
+        textedges = TextEdges()
+        # generate left, middle and right textedges
+        textedges.generate(textlines)
+        # select relevant edges
+        relevant_textedges = textedges.get_relevant()
+        # guess table areas using textlines and relevant edges
+        table_bbox = textedges.get_table_areas(textlines, relevant_textedges)
+        # treat whole page as table area if no table areas found
+        if not len(table_bbox):
+            table_bbox = {(0, 0, self.pdf_width, self.pdf_height): None}
+
+        return table_bbox
+
     def _generate_table_bbox(self):
         if self.table_areas is not None:
             table_bbox = {}
@@ -257,7 +282,8 @@ class Stream(BaseParser):
                 y2 = float(y2)
                 table_bbox[(x1, y2, x2, y1)] = None
         else:
-            table_bbox = {(0, 0, self.pdf_width, self.pdf_height): None}
+            # find tables based on nurminen's detection algorithm
+            table_bbox = self._nurminen_table_detection(self.horizontal_text)
         self.table_bbox = table_bbox
 
     def _generate_columns_and_rows(self, table_idx, tk):
@@ -286,10 +312,21 @@ class Stream(BaseParser):
             cols.append(text_x_max)
             cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
         else:
+            # calculate mode of the list of number of elements in
+            # each row to guess the number of columns
             ncols = max(set(elements), key=elements.count)
             if ncols == 1:
-                warnings.warn("No tables found on {}".format(
-                    os.path.basename(self.rootname)))
+                # if mode is 1, the page usually contains not tables
+                # but there can be cases where the list can be skewed,
+                # try to remove all 1s from list in this case and
+                # see if the list contains elements, if yes, then use
+                # the mode after removing 1s
+                elements = list(filter(lambda x: x != 1, elements))
+                if len(elements):
+                    ncols = max(set(elements), key=elements.count)
+                else:
+                    warnings.warn("No tables found in table area {}".format(
+                        table_idx + 1))
             cols = [(t.x0, t.x1) for r in rows_grouped if len(r) == ncols for t in r]
             cols = self._merge_columns(sorted(cols), col_close_tol=self.col_close_tol)
             inner_text = []
