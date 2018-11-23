@@ -309,10 +309,21 @@ class Stream(BaseParser):
             cols.append(text_x_max)
             cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
         else:
+            # calculate mode of the list of number of elements in
+            # each row to guess the number of columns
             ncols = max(set(elements), key=elements.count)
             if ncols == 1:
-                warnings.warn("No tables found on {}".format(
-                    os.path.basename(self.rootname)))
+                # if mode is 1, the page usually contains not tables
+                # but there can be cases where the list can be skewed,
+                # try to remove all 1s from list in this case and
+                # see if the list contains elements, if yes, then use
+                # the mode after removing 1s
+                elements = list(filter(lambda x: x != 1, elements))
+                if len(elements):
+                    ncols = max(set(elements), key=elements.count)
+                else:
+                    warnings.warn("No tables found in table area {}".format(
+                        table_idx + 1))
             cols = [(t.x0, t.x1) for r in rows_grouped if len(r) == ncols for t in r]
             cols = self._merge_columns(sorted(cols), col_close_tol=self.col_close_tol)
             inner_text = []
