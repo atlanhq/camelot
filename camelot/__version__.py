@@ -1,18 +1,23 @@
 # -*- coding: utf-8 -*-
 
 VERSION = (0, 4, 0)
-PHASE = 'alpha' # alpha, beta or rc
-PHASE_VERSION = '1'
+PRERELEASE = None # alpha, beta or rc
+REVISION = None
+
+
+def generate_version(version, prerelease=None, revision=None):
+    version_parts = ['.'.join(map(str, version))]
+    if prerelease is not None:
+        version_parts.append('-{}'.format(prerelease))
+    if revision is not None:
+        version_parts.append('.{}'.format(revision))
+    return ''.join(version_parts)
+
 
 __title__ = 'camelot-py'
 __description__ = 'PDF Table Extraction for Humans.'
 __url__ = 'http://camelot-py.readthedocs.io/'
-if PHASE:
-    __version__ = '{}-{}'.format('.'.join(map(str, VERSION)), PHASE)
-    if PHASE_VERSION:
-        __version__ = '{}.{}'.format(__version__, PHASE_VERSION)
-else:
-    __version__ = '.'.join(map(str, VERSION))
+__version__ = generate_version(VERSION, prerelease=PRERELEASE, revision=REVISION)
 __author__ = 'Vinayak Mehta'
 __author_email__ = 'vmehta94@gmail.com'
 __license__ = 'MIT License'

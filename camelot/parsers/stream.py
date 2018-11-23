@@ -247,10 +247,13 @@ class Stream(BaseParser):
                                  " should be equal")
 
     def _nurminen_table_detection(self, textlines):
-        # a general heuristic implementation of the table detection
-        # algorithm described by Anssi Nurminen's master's thesis:
-        # https://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3
-        # assumes that tables are situated relatively apart vertically
+        """A general implementation of the table detection algorithm
+        described by Anssi Nurminen's master's thesis.
+        Link: https://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3
+
+        Assumes that tables are situated relatively far apart
+        vertically.
+        """
 
         # TODO: add support for arabic text #141
         # sort textlines in reading order

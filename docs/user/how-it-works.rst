@@ -5,24 +5,24 @@ How It Works
 
 This part of the documentation includes a high-level explanation of how Camelot extracts tables from PDF files.
 
-You can choose between two table parsing methods, *Stream* and *Lattice*. These names for parsing methods inside Camelot were inspired from `Tabula`_.
-
-.. _Tabula: https://github.com/tabulapdf/tabula
+You can choose between two table parsing methods, *Stream* and *Lattice*. These names for parsing methods inside Camelot were inspired from `Tabula <https://github.com/tabulapdf/tabula>`_.
 
 .. _stream:
 
 Stream
 ------
 
-Stream can be used to parse tables that have whitespaces between cells to simulate a table structure. It looks for these spaces between text to form a table representation.
+Stream can be used to parse tables that have whitespaces between cells to simulate a table structure. It is built on top of PDFMiner's functionality of grouping characters on a page into words and sentences, using `margins <https://euske.github.io/pdfminer/#tools>`_.
 
-It is built on top of PDFMiner's functionality of grouping characters on a page into words and sentences, using `margins`_. After getting the words on a page, it groups them into rows based on their *y* coordinates. It then tries to guess the number of columns the table might have by calculating the mode of the number of words in each row. This mode is used to calculate *x* ranges for the table's columns. It then adds columns to this column range list based on any words that may lie outside or inside the current column *x* ranges.
+1. Words on the PDF page are grouped into text rows based on their *y* axis overlaps.
 
-.. _margins: https://euske.github.io/pdfminer/#tools
+2. Textedges are calculated and then used to guess interesting table areas on the PDF page. You can read `Anssi Nurminen's master's thesis <http://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3>`_ to know more about this table detection technique. [See pages 20, 35 and 40]
 
-.. note:: By default, Stream treats the whole PDF page as a table, which isn't ideal when there are more than two tables on a page with different number of columns. Automatic table detection for Stream is `in the works`_.
+3. The number of columns inside each table area are then guessed. This is done by calculating the mode of number of words in each text row. Based on this mode, words in each text row are chosen to calculate a list of column *x* ranges.
 
-.. _in the works: https://github.com/socialcopsdev/camelot/issues/102
+4. Words that lie inside/outside the current column *x* ranges are then used to extend extend the current list of columns.
+
+5. Finally, a table is formed using the text rows' *y* ranges and column *x* ranges and words found on the page are assigned to the table's cells based on their *x* and *y* coordinates.
 
 .. _lattice:
 

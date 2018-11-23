@@ -69,7 +69,7 @@ $ conda install -c conda-forge camelot-py
 
 ### Using pip
 
-After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install.html#using-pip) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install-deps.html) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
 
 <pre>
 $ pip install camelot-py[cv]
