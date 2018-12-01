@@ -146,7 +146,7 @@ Finally, let's plot all line intersections present on the table's PDF page.
 Specify table areas
 -------------------
 
-Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as `these <../_static/pdf/table_areas.pdf>`__. You can plot the text on this page and note the top left and bottom right coordinates of the table.
+In cases such as `these <../_static/pdf/table_areas.pdf>`__, it can be useful to specify table boundaries. You can plot the text on this page and note the top left and bottom right coordinates of the table.
 
 Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
 
