@@ -14,6 +14,7 @@ with open('README.md', 'r') as f:
 
 
 requires = [
+    'chardet>=3.0.4',
     'click>=6.7',
     'numpy>=1.13.3',
     'openpyxl>=2.5.8',
