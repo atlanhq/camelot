@@ -4,6 +4,13 @@ Release History
 master
 ------
 
+0.4.1 (2018-12-05)
+------------------
+
+**Bugfixes**
+
+* Add chardet to `install_requires` to fix [#210](https://github.com/socialcopsdev/camelot/issues/210). More details in [pdfminer.six#213](https://github.com/pdfminer/pdfminer.six/issues/213).
+
 0.4.0 (2018-11-23)
 ------------------
 
