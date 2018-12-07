@@ -448,7 +448,7 @@ class Table(object):
                         self.cells[L][J].top = True
                         J += 1
             elif i == []:  # only bottom edge
-                I = len(self.rows) - 1
+                L = len(self.rows) - 1
                 if k:
                     K = k[0]
                     while J < K:
