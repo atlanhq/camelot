@@ -30,7 +30,7 @@ pass_config = click.make_pass_decorator(Config)
 
 @click.group()
 @click.version_option(version=__version__)
-@click.option('-v', '--verbose', is_flag=True, help='Verbose.')
+@click.option('-q', '--quiet', is_flag=False, help='Suppress logs and warnings.')
 @click.option('-p', '--pages', default='1', help='Comma-separated page numbers.'
               ' Example: 1,3,4 or 1,4-end.')
 @click.option('-pw', '--password', help='Password for decryption.')
@@ -96,7 +96,7 @@ def lattice(c, *args, **kwargs):
     output = conf.pop('output')
     f = conf.pop('format')
     compress = conf.pop('zip')
-    verbose = conf.pop('verbose')
+    quiet = conf.pop('quiet')
     plot_type = kwargs.pop('plot_type')
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
@@ -117,7 +117,7 @@ def lattice(c, *args, **kwargs):
             raise click.UsageError('Please specify output file format using --format')
 
     tables = read_pdf(filepath, pages=pages, flavor='lattice',
-                      verbose=verbose, **kwargs)
+                      suppress_stdout=quiet, **kwargs)
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
@@ -149,7 +149,7 @@ def stream(c, *args, **kwargs):
     output = conf.pop('output')
     f = conf.pop('format')
     compress = conf.pop('zip')
-    verbose = conf.pop('verbose')
+    quiet = conf.pop('quiet')
     plot_type = kwargs.pop('plot_type')
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
@@ -169,7 +169,7 @@ def stream(c, *args, **kwargs):
             raise click.UsageError('Please specify output file format using --format')
 
     tables = read_pdf(filepath, pages=pages, flavor='stream',
-                      verbose=verbose, **kwargs)
+                      suppress_stdout=quiet, **kwargs)
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:

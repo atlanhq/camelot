@@ -50,13 +50,25 @@ def test_no_tables_found():
         assert str(e.value) == 'No tables found on page-1'
 
 
+def test_no_tables_found_logs_suppressed():
+    filename = os.path.join(testdir, 'foo.pdf')
+    with warnings.catch_warnings():
+        # the test should fail if any warning is thrown
+        warnings.simplefilter('error')
+        try:
+            tables = camelot.read_pdf(filename, suppress_stdout=True)
+        except Warning as e:
+            warning_text = str(e)
+            pytest.fail('Unexpected warning: {}'.format(warning_text))
+
+
 def test_no_tables_found_warnings_suppressed():
     filename = os.path.join(testdir, 'blank.pdf')
     with warnings.catch_warnings():
         # the test should fail if any warning is thrown
         warnings.simplefilter('error')
         try:
-            tables = camelot.read_pdf(filename, verbose=False)
+            tables = camelot.read_pdf(filename, suppress_stdout=True)
         except Warning as e:
             warning_text = str(e)
             pytest.fail('Unexpected warning: {}'.format(warning_text))

@@ -384,9 +384,9 @@ class Stream(BaseParser):
 
         return table
 
-    def extract_tables(self, filename, verbose=True):
+    def extract_tables(self, filename, suppress_stdout=False):
         self._generate_layout(filename)
-        if verbose:
+        if not suppress_stdout:
             logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:

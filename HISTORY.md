@@ -7,7 +7,7 @@ master
 **Improvements**
 
 * [#207](https://github.com/socialcopsdev/camelot/issues/207) Add a plot type for Stream text edges and detected table areas. [#224](https://github.com/socialcopsdev/camelot/pull/224) by Vinayak Mehta.
-* [#204](https://github.com/socialcopsdev/camelot/issues/204) `suppress_warnings` is now called `verbose`. By default, all logs and warnings will be printed. [#225](https://github.com/socialcopsdev/camelot/pull/225) by Vinayak Mehta.
+* [#204](https://github.com/socialcopsdev/camelot/issues/204) `suppress_warnings` is now called `suppress_stdout`. [#225](https://github.com/socialcopsdev/camelot/pull/225) by Vinayak Mehta.
 
 **Bugfixes**
 

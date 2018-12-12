@@ -6,7 +6,7 @@ from .utils import validate_input, remove_extra
 
 
 def read_pdf(filepath, pages='1', password=None, flavor='lattice',
-             verbose=True, **kwargs):
+             suppress_stdout=False, **kwargs):
     """Read PDF and return extracted tables.
 
     Note: kwargs annotated with ^ can only be used with flavor='stream'
@@ -24,7 +24,7 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     flavor : str (default: 'lattice')
         The parsing method to use ('lattice' or 'stream').
         Lattice is used by default.
-    verbose : bool, optional (default: True)
+    suppress_stdout : bool, optional (default: True)
         Print all logs and warnings.
     table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
@@ -92,11 +92,11 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
                                   " Use either 'lattice' or 'stream'")
 
     with warnings.catch_warnings():
-        if not verbose:
+        if suppress_stdout:
             warnings.simplefilter("ignore")
 
         validate_input(kwargs, flavor=flavor)
         p = PDFHandler(filepath, pages=pages, password=password)
         kwargs = remove_extra(kwargs, flavor=flavor)
-        tables = p.parse(flavor=flavor, verbose=verbose, **kwargs)
+        tables = p.parse(flavor=flavor, suppress_stdout=suppress_stdout, **kwargs)
         return tables
