@@ -41,8 +41,9 @@ You can specify the type of element you want to plot using the ``kind`` keyword 
 - 'contour'
 - 'line'
 - 'joint'
+- 'textedge'
 
-.. note:: The last three plot types can only be used with :ref:`Lattice <lattice>`, i.e. when ``flavor='lattice'``.
+.. note:: 'line' and 'joint' can only be used with :ref:`Lattice <lattice>` and 'textedge' can only be used with :ref:`Stream <stream>`.
 
 Let's generate a plot for each type using this `PDF <../_static/pdf/foo.pdf>`__ as an example. First, let's get all the tables out.
 
@@ -141,6 +142,23 @@ Finally, let's plot all line intersections present on the table's PDF page.
     :width: 1366
     :scale: 50%
     :alt: A plot of all line intersections on a PDF page
+    :align: left
+
+textedge
+^^^^^^^^
+
+You can also visualize the textedges found on a page by specifying ``kind='textedge'``. To know more about what a "textedge" is, you can see pages 20, 35 and 40 of `Anssi Nurminen's master's thesis <http://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3>`_.
+
+::
+
+    >>> camelot.plot(tables[0], kind='textedge')
+    >>> plt.show()
+
+.. figure:: ../_static/png/plot_textedge.png
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: A plot of relevant textedges on a PDF page
     :align: left
 
 Specify table areas
