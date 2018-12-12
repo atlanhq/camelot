@@ -125,7 +125,7 @@ class PDFHandler(object):
                 with open(fpath, 'wb') as f:
                     outfile.write(f)
 
-    def parse(self, flavor='lattice', **kwargs):
+    def parse(self, flavor='lattice', suppress_stdout=False, **kwargs):
         """Extracts tables by calling parser.get_tables on all single
         page PDFs.
 
@@ -134,6 +134,8 @@ class PDFHandler(object):
         flavor : str (default: 'lattice')
             The parsing method to use ('lattice' or 'stream').
             Lattice is used by default.
+        suppress_stdout : str (default: False)
+            Suppress logs and warnings.
         kwargs : dict
             See camelot.read_pdf kwargs.
 
@@ -151,6 +153,6 @@ class PDFHandler(object):
                      for p in self.pages]
             parser = Lattice(**kwargs) if flavor == 'lattice' else Stream(**kwargs)
             for p in pages:
-                t = parser.extract_tables(p)
+                t = parser.extract_tables(p, suppress_stdout=suppress_stdout)
                 tables.extend(t)
         return TableList(tables)

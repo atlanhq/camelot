@@ -345,9 +345,10 @@ class Lattice(BaseParser):
 
         return table
 
-    def extract_tables(self, filename):
+    def extract_tables(self, filename, suppress_stdout=False):
         self._generate_layout(filename)
-        logger.info('Processing {}'.format(os.path.basename(self.rootname)))
+        if not suppress_stdout:
+            logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
             warnings.warn("No tables found on {}".format(
