@@ -4,6 +4,18 @@ Release History
 master
 ------
 
+**Improvements**
+
+* [#207](https://github.com/socialcopsdev/camelot/issues/207) Add a plot type for Stream text edges and detected table areas. [#224](https://github.com/socialcopsdev/camelot/pull/224) by Vinayak Mehta.
+
+**Bugfixes**
+
+* [#217](https://github.com/socialcopsdev/camelot/issues/217) Fix IndexError when scale is large.
+
+**Documentation**
+
+* Add pdfplumber comparison and update Tabula (stream) comparison. Check out the [wiki page](https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools).
+
 0.4.1 (2018-12-05)
 ------------------
 
