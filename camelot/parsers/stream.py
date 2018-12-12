@@ -263,6 +263,7 @@ class Stream(BaseParser):
         textedges.generate(textlines)
         # select relevant edges
         relevant_textedges = textedges.get_relevant()
+        self.textedges.extend(relevant_textedges)
         # guess table areas using textlines and relevant edges
         table_bbox = textedges.get_table_areas(textlines, relevant_textedges)
         # treat whole page as table area if no table areas found
@@ -272,6 +273,7 @@ class Stream(BaseParser):
         return table_bbox
 
     def _generate_table_bbox(self):
+        self.textedges = []
         if self.table_areas is not None:
             table_bbox = {}
             for area in self.table_areas:
@@ -378,6 +380,7 @@ class Stream(BaseParser):
         table._text = _text
         table._image = None
         table._segments = None
+        table._textedges = self.textedges
 
         return table
 

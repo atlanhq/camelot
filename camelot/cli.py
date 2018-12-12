@@ -138,7 +138,7 @@ def lattice(c, *args, **kwargs):
 @click.option('-c', '--col_close_tol', default=0, help='Tolerance parameter'
               ' used to combine text horizontally, to generate columns.')
 @click.option('-plot', '--plot_type',
-              type=click.Choice(['text', 'grid']),
+              type=click.Choice(['text', 'grid', 'contour', 'textedge']),
               help='Plot elements found on PDF page for visual debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config

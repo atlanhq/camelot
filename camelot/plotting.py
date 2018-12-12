@@ -33,7 +33,10 @@ class PlotMethods(object):
         if not _HAS_MPL:
             raise ImportError('matplotlib is required for plotting.')
 
-        if table.flavor == 'stream' and kind in ['contour', 'joint', 'line']:
+        if table.flavor == 'lattice' and kind in ['textedge']:
+            raise NotImplementedError("Lattice flavor does not support kind='{}'".format(
+                                      kind))
+        elif table.flavor == 'stream' and kind in ['joint', 'line']:
             raise NotImplementedError("Stream flavor does not support kind='{}'".format(
                                       kind))
 
@@ -114,20 +117,82 @@ class PlotMethods(object):
         fig : matplotlib.fig.Figure
 
         """
-        img, table_bbox = table._image
+        try:
+            img, table_bbox = table._image
+            _FOR_LATTICE = True
+        except TypeError:
+            img, table_bbox = (None, {table._bbox: None})
+            _FOR_LATTICE = False
         fig = plt.figure()
         ax = fig.add_subplot(111, aspect='equal')
+
+        xs, ys = [], []
+        if not _FOR_LATTICE:
+            for t in table._text:
+                xs.extend([t[0], t[2]])
+                ys.extend([t[1], t[3]])
+                ax.add_patch(
+                    patches.Rectangle(
+                        (t[0], t[1]),
+                        t[2] - t[0],
+                        t[3] - t[1],
+                        color='blue'
+                    )
+                )
+
         for t in table_bbox.keys():
             ax.add_patch(
                 patches.Rectangle(
                     (t[0], t[1]),
                     t[2] - t[0],
                     t[3] - t[1],
-                    fill=None,
-                    edgecolor='red'
+                    fill=False,
+                    color='red'
                 )
             )
-        ax.imshow(img)
+            if not _FOR_LATTICE:
+                xs.extend([t[0], t[2]])
+                ys.extend([t[1], t[3]])
+                ax.set_xlim(min(xs) - 10, max(xs) + 10)
+                ax.set_ylim(min(ys) - 10, max(ys) + 10)
+
+        if _FOR_LATTICE:
+            ax.imshow(img)
+        return fig
+
+    def textedge(self, table):
+        """Generates a plot for relevant textedges.
+
+        Parameters
+        ----------
+        table : camelot.core.Table
+
+        Returns
+        -------
+        fig : matplotlib.fig.Figure
+
+        """
+        fig = plt.figure()
+        ax = fig.add_subplot(111, aspect='equal')
+        xs, ys = [], []
+        for t in table._text:
+            xs.extend([t[0], t[2]])
+            ys.extend([t[1], t[3]])
+            ax.add_patch(
+                patches.Rectangle(
+                    (t[0], t[1]),
+                    t[2] - t[0],
+                    t[3] - t[1],
+                    color='blue'
+                )
+            )
+        ax.set_xlim(min(xs) - 10, max(xs) + 10)
+        ax.set_ylim(min(ys) - 10, max(ys) + 10)
+
+        for te in table._textedges:
+            ax.plot([te.x, te.x],
+                    [te.y0, te.y1])
+
         return fig
 
     def joint(self, table):
