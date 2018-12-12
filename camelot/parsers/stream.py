@@ -296,7 +296,7 @@ class Stream(BaseParser):
         self.t_bbox = t_bbox
 
         for direction in self.t_bbox:
-            self.t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
+            self.t_bbox[direction].sort(key=lambda x: (x.x0, -x.y0))
 
         text_x_min, text_y_min, text_x_max, text_y_max = self._text_bbox(self.t_bbox)
         rows_grouped = self._group_rows(self.t_bbox['horizontal'], row_close_tol=self.row_close_tol)

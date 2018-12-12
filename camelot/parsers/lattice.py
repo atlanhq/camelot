@@ -273,8 +273,8 @@ class Lattice(BaseParser):
         t_bbox['vertical'] = text_in_bbox(tk, self.vertical_text)
         self.t_bbox = t_bbox
 
-        for direction in t_bbox:
-            t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
+        for direction in self.t_bbox:
+            self.t_bbox[direction].sort(key=lambda x: (x.x0, -x.y0))
 
         cols, rows = zip(*self.table_bbox[tk])
         cols, rows = list(cols), list(rows)
