@@ -56,7 +56,7 @@ def test_no_tables_found_warnings_suppressed():
         # the test should fail if any warning is thrown
         warnings.simplefilter('error')
         try:
-            tables = camelot.read_pdf(filename, suppress_warnings=True)
+            tables = camelot.read_pdf(filename, verbose=False)
         except Warning as e:
             warning_text = str(e)
             pytest.fail('Unexpected warning: {}'.format(warning_text))

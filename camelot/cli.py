@@ -30,6 +30,7 @@ pass_config = click.make_pass_decorator(Config)
 
 @click.group()
 @click.version_option(version=__version__)
+@click.option('-v', '--verbose', is_flag=True, help='Verbose.')
 @click.option('-p', '--pages', default='1', help='Comma-separated page numbers.'
               ' Example: 1,3,4 or 1,4-end.')
 @click.option('-pw', '--password', help='Password for decryption.')
@@ -44,7 +45,6 @@ pass_config = click.make_pass_decorator(Config)
               ' font size. Useful to detect super/subscripts.')
 @click.option('-M', '--margins', nargs=3, default=(1.0, 0.5, 0.1),
               help='PDFMiner char_margin, line_margin and word_margin.')
-@click.option('-q', '--quiet', is_flag=True, help='Suppress warnings.')
 @click.pass_context
 def cli(ctx, *args, **kwargs):
     """Camelot: PDF Table Extraction for Humans"""
@@ -96,7 +96,7 @@ def lattice(c, *args, **kwargs):
     output = conf.pop('output')
     f = conf.pop('format')
     compress = conf.pop('zip')
-    suppress_warnings = conf.pop('quiet')
+    verbose = conf.pop('verbose')
     plot_type = kwargs.pop('plot_type')
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
@@ -117,7 +117,7 @@ def lattice(c, *args, **kwargs):
             raise click.UsageError('Please specify output file format using --format')
 
     tables = read_pdf(filepath, pages=pages, flavor='lattice',
-                      suppress_warnings=suppress_warnings, **kwargs)
+                      verbose=verbose, **kwargs)
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
@@ -149,7 +149,7 @@ def stream(c, *args, **kwargs):
     output = conf.pop('output')
     f = conf.pop('format')
     compress = conf.pop('zip')
-    suppress_warnings = conf.pop('quiet')
+    verbose = conf.pop('verbose')
     plot_type = kwargs.pop('plot_type')
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
@@ -169,7 +169,7 @@ def stream(c, *args, **kwargs):
             raise click.UsageError('Please specify output file format using --format')
 
     tables = read_pdf(filepath, pages=pages, flavor='stream',
-                      suppress_warnings=suppress_warnings, **kwargs)
+                      verbose=verbose, **kwargs)
     click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
         for table in tables:
