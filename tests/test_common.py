@@ -62,6 +62,7 @@ def test_stream_two_tables():
 
     filename = os.path.join(testdir, "tabula/12s0324.pdf")
     tables = camelot.read_pdf(filename, flavor='stream')
+
     assert len(tables) == 2
     assert df1.equals(tables[0].df)
     assert df2.equals(tables[1].df)
