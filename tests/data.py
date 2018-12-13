@@ -486,3 +486,11 @@ data_lattice_shift_text_right_bottom = [
     ["", "2400", "Men (≥ 18 yrs)", "-", "-", "-", "1728"],
     ["Knowledge &Practices on HTN &DM", "2400", "Women (≥ 18 yrs)", "-", "-", "-", "1728"]
 ]
+
+data_arabic = [
+    ['ً\n\xa0\nﺎﺒﺣﺮﻣ', 'ﻥﺎﻄﻠﺳ\xa0ﻲﻤﺳﺍ'],
+    ['ﻝﺎﻤﺸﻟﺍ\xa0ﺎﻨﻴﻟﻭﺭﺎﻛ\xa0ﺔﻳﻻﻭ\xa0ﻦﻣ\xa0ﺎﻧﺍ', '؟ﺖﻧﺍ\xa0ﻦﻳﺍ\xa0ﻦﻣ'],
+    ['1234', 'ﻂﻄﻗ\xa047\xa0ﻱﺪﻨﻋ'],
+    ['؟ﻙﺎﺒﺷ\xa0ﺖﻧﺍ\xa0ﻞﻫ', 'ﺔﻳﺰﻴﻠﺠﻧﻻﺍ\xa0ﻲﻓ\xa0Jeremy\xa0ﻲﻤﺳﺍ'],
+    ['Jeremy\xa0is\xa0ﻲﻣﺮﺟ\xa0in\xa0Arabic', '']
+]

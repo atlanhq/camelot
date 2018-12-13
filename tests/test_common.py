@@ -179,3 +179,11 @@ def test_repr():
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
     assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.42 x2=164.64 y2=233.89>"
+
+
+def test_arabic():
+    df = pd.DataFrame(data_arabic)
+
+    filename = os.path.join(testdir, "tabula/arabic.pdf")
+    tables = camelot.read_pdf(filename)
+    assert df.equals(tables[0].df)
