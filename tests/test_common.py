@@ -62,6 +62,7 @@ def test_stream_two_tables():
 
     filename = os.path.join(testdir, "tabula/12s0324.pdf")
     tables = camelot.read_pdf(filename, flavor='stream')
+
     assert len(tables) == 2
     assert df1.equals(tables[0].df)
     assert df2.equals(tables[1].df)
@@ -179,3 +180,11 @@ def test_repr():
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
     assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.42 x2=164.64 y2=233.89>"
+
+
+def test_arabic():
+    df = pd.DataFrame(data_arabic)
+
+    filename = os.path.join(testdir, "tabula/arabic.pdf")
+    tables = camelot.read_pdf(filename)
+    assert df.equals(tables[0].df)

@@ -271,10 +271,11 @@ class Lattice(BaseParser):
             tk, self.vertical_segments, self.horizontal_segments)
         t_bbox['horizontal'] = text_in_bbox(tk, self.horizontal_text)
         t_bbox['vertical'] = text_in_bbox(tk, self.vertical_text)
-        self.t_bbox = t_bbox
 
-        for direction in t_bbox:
-            t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox['horizontal'].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox['vertical'].sort(key=lambda x: (x.x0, -x.y0))
+
+        self.t_bbox = t_bbox
 
         cols, rows = zip(*self.table_bbox[tk])
         cols, rows = list(cols), list(rows)
@@ -308,7 +309,9 @@ class Lattice(BaseParser):
         table = table.set_span()
 
         pos_errors = []
-        for direction in self.t_bbox:
+        # TODO: have a single list in place of two directional ones?
+        # sorted on x-coordinate based on reading order i.e. LTR or RTL
+        for direction in ['vertical', 'horizontal']:
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
                     table, t, direction, split_text=self.split_text,

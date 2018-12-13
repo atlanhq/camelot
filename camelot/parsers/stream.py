@@ -293,10 +293,11 @@ class Stream(BaseParser):
         t_bbox = {}
         t_bbox['horizontal'] = text_in_bbox(tk, self.horizontal_text)
         t_bbox['vertical'] = text_in_bbox(tk, self.vertical_text)
-        self.t_bbox = t_bbox
 
-        for direction in self.t_bbox:
-            self.t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox['horizontal'].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox['vertical'].sort(key=lambda x: (x.x0, -x.y0))
+
+        self.t_bbox = t_bbox
 
         text_x_min, text_y_min, text_x_max, text_y_max = self._text_bbox(self.t_bbox)
         rows_grouped = self._group_rows(self.t_bbox['horizontal'], row_close_tol=self.row_close_tol)
@@ -350,8 +351,11 @@ class Stream(BaseParser):
     def _generate_table(self, table_idx, cols, rows, **kwargs):
         table = Table(cols, rows)
         table = table.set_all_edges()
+
         pos_errors = []
-        for direction in self.t_bbox:
+        # TODO: have a single list in place of two directional ones?
+        # sorted on x-coordinate based on reading order i.e. LTR or RTL
+        for direction in ['vertical', 'horizontal']:
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
                     table, t, direction, split_text=self.split_text,
