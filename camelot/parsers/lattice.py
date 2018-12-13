@@ -309,7 +309,9 @@ class Lattice(BaseParser):
         table = table.set_span()
 
         pos_errors = []
-        for direction in self.t_bbox:
+        # TODO: have a single list in place of two directional ones?
+        # sorted on x-coordinate based on reading order i.e. LTR or RTL
+        for direction in ['vertical', 'horizontal']:
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
                     table, t, direction, split_text=self.split_text,
