@@ -4,6 +4,9 @@ Release History
 master
 ------
 
+0.5.0 (2018-12-13)
+------------------
+
 **Improvements**
 
 * [#207](https://github.com/socialcopsdev/camelot/issues/207) Add a plot type for Stream text edges and detected table areas. [#224](https://github.com/socialcopsdev/camelot/pull/224) by Vinayak Mehta.
@@ -12,6 +15,7 @@ master
 **Bugfixes**
 
 * [#217](https://github.com/socialcopsdev/camelot/issues/217) Fix IndexError when scale is large.
+* [#105](https://github.com/socialcopsdev/camelot/issues/105), [#192](https://github.com/socialcopsdev/camelot/issues/192) and [#215](https://github.com/socialcopsdev/camelot/issues/215) in [#227](https://github.com/socialcopsdev/camelot/pull/227) by Vinayak Mehta.
 
 **Documentation**
 
