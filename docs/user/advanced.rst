@@ -24,6 +24,12 @@ To process background lines, you can pass ``process_background=True``.
     >>> tables = camelot.read_pdf('background_lines.pdf', process_background=True)
     >>> tables[1].df
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -back background_lines.pdf
+
 .. csv-table::
   :file: ../_static/csv/background_lines.csv
 
@@ -63,6 +69,12 @@ Let's plot all the text present on the table's PDF page.
     >>> camelot.plot(tables[0], kind='text')
     >>> plt.show()
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot text foo.pdf
+
 .. figure:: ../_static/png/plot_text.png
     :height: 674
     :width: 1366
@@ -84,6 +96,12 @@ Let's plot the table (to see if it was detected correctly or not). This plot typ
     >>> camelot.plot(tables[0], kind='grid')
     >>> plt.show()
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot grid foo.pdf
+
 .. figure:: ../_static/png/plot_table.png
     :height: 674
     :width: 1366
@@ -103,6 +121,12 @@ Now, let's plot all table boundaries present on the table's PDF page.
     >>> camelot.plot(tables[0], kind='contour')
     >>> plt.show()
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot contour foo.pdf
+
 .. figure:: ../_static/png/plot_contour.png
     :height: 674
     :width: 1366
@@ -119,6 +143,12 @@ Cool, let's plot all line segments present on the table's PDF page.
 
     >>> camelot.plot(tables[0], kind='line')
     >>> plt.show()
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot line foo.pdf
 
 .. figure:: ../_static/png/plot_line.png
     :height: 674
@@ -137,6 +167,12 @@ Finally, let's plot all line intersections present on the table's PDF page.
     >>> camelot.plot(tables[0], kind='joint')
     >>> plt.show()
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot joint foo.pdf
+
 .. figure:: ../_static/png/plot_joint.png
     :height: 674
     :width: 1366
@@ -153,6 +189,12 @@ You can also visualize the textedges found on a page by specifying ``kind='texte
 
     >>> camelot.plot(tables[0], kind='textedge')
     >>> plt.show()
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -plot textedge foo.pdf
 
 .. figure:: ../_static/png/plot_textedge.png
     :height: 674
@@ -175,6 +217,12 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
     >>> tables = camelot.read_pdf('table_areas.pdf', flavor='stream', table_areas=['316,499,566,337'])
     >>> tables[0].df
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -T 316,499,566,337 table_areas.pdf
+
 .. csv-table::
   :file: ../_static/csv/table_areas.csv
 
@@ -196,6 +244,12 @@ Let's get back to the *x* coordinates we got from plotting the text that exists 
     >>> tables = camelot.read_pdf('column_separators.pdf', flavor='stream', columns=['72,95,209,327,442,529,566,606,683'])
     >>> tables[0].df
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -C 72,95,209,327,442,529,566,606,683 column_separators.pdf
+
 .. csv-table::
 
     "...","...","...","...","...","...","...","...","...","..."
@@ -214,6 +268,12 @@ To deal with cases like the output from the previous section, you can pass ``spl
 
     >>> tables = camelot.read_pdf('column_separators.pdf', flavor='stream', columns=['72,95,209,327,442,529,566,606,683'], split_text=True)
     >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot -split stream -C 72,95,209,327,442,529,566,606,683 column_separators.pdf
 
 .. csv-table::
 
@@ -241,6 +301,12 @@ You can solve this by passing ``flag_size=True``, which will enclose the supersc
 
     >>> tables = camelot.read_pdf('superscript.pdf', flavor='stream', flag_size=True)
     >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot -flag stream superscript.pdf
 
 .. csv-table::
 
@@ -273,6 +339,12 @@ You can pass ``row_close_tol=<+int>`` to group the rows closer together, as show
 
     >>> tables = camelot.read_pdf('group_rows.pdf', flavor='stream', row_close_tol=10)
     >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -r 10 group_rows.pdf
 
 .. csv-table::
 
@@ -316,6 +388,12 @@ Clearly, the smaller lines separating the headers, couldn't be detected. Let's t
     >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40)
     >>> camelot.plot(tables[0], kind='grid')
     >>> plt.show()
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -scale 40 -plot grid short_lines.pdf
 
 .. figure:: ../_static/png/short_lines_2.png
     :alt: An improved plot of the PDF table with short lines
@@ -380,6 +458,12 @@ No surprises there — it did remain in place (observe the strings "2400" and "A
     >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40, shift_text=['r', 'b'])
     >>> tables[0].df
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -scale 40 -shift r -shift b short_lines.pdf
+
 .. csv-table::
 
     "Investigations","No. ofHHs","Age/Sex/Physiological  Group","Preva-lence","C.I*","RelativePrecision","Sample sizeper State"
@@ -424,6 +508,12 @@ We don't need anything else. Now, let's pass ``copy_text=['v']`` to copy text in
 
     >>> tables = camelot.read_pdf('copy_text.pdf', copy_text=['v'])
     >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -copy v copy_text.pdf
 
 .. csv-table::
 
