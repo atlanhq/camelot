@@ -4,10 +4,13 @@
 
 # Camelot: PDF Table Extraction for Humans
 
-[![Build Status](https://travis-ci.org/socialcopsdev/camelot.svg?branch=master)](https://travis-ci.org/socialcopsdev/camelot) [![codecov.io](https://codecov.io/github/socialcopsdev/camelot/badge.svg?branch=master&service=github)](https://codecov.io/github/socialcopsdev/camelot?branch=master)
- [![image](https://img.shields.io/pypi/v/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![image](https://img.shields.io/pypi/l/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![image](https://img.shields.io/pypi/pyversions/camelot-py.svg)](https://pypi.org/project/camelot-py/)
+[![Build Status](https://travis-ci.org/socialcopsdev/camelot.svg?branch=master)](https://travis-ci.org/socialcopsdev/camelot) [![Documentation Status](https://readthedocs.org/projects/camelot-py/badge/?version=master)](https://camelot-py.readthedocs.io/en/master/)
+ [![codecov.io](https://codecov.io/github/socialcopsdev/camelot/badge.svg?branch=master&service=github)](https://codecov.io/github/socialcopsdev/camelot?branch=master)
+ [![image](https://img.shields.io/pypi/v/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![image](https://img.shields.io/pypi/l/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![image](https://img.shields.io/pypi/pyversions/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![Gitter chat](https://badges.gitter.im/camelot-dev/Lobby.png)](https://gitter.im/camelot-dev/Lobby)
 
 **Camelot** is a Python library that makes it easy for *anyone* to extract tables from PDF files!
+
+**Note:** You can also check out [Excalibur](https://github.com/camelot-dev/excalibur), which is a web interface for Camelot!
 
 ---
 
@@ -41,7 +44,7 @@
 | 2032_2     | 0.17      | 57.8          | 21.7%                | 0.3%            | 2.7%            | 1.2%           |
 | 4171_1     | 0.07      | 173.9         | 58.1%                | 1.6%            | 2.1%            | 0.5%           |
 
-There's a [command-line interface](https://camelot-py.readthedocs.io/en/latest/user/cli.html) too!
+There's a [command-line interface](https://camelot-py.readthedocs.io/en/master/user/cli.html) too!
 
 **Note:** Camelot only works with text-based PDFs and not scanned documents. (As Tabula [explains](https://github.com/tabulapdf/tabula#why-tabula), "If you can click and drag to select text in your table in a PDF viewer, then your PDF is text-based".)
 
@@ -56,15 +59,25 @@ See [comparison with other PDF table extraction libraries and tools](https://git
 
 ## Installation
 
-After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
+### Using conda
+
+The easiest way to install Camelot is to install it with [conda](https://conda.io/docs/), which is a package manager and  environment management system for the [Anaconda](http://docs.continuum.io/anaconda/) distribution.
 
 <pre>
-$ pip install camelot-py
+$ conda install -c conda-forge camelot-py
 </pre>
 
-### Alternatively
+### Using pip
 
-After [installing the dependencies](https://camelot-py.readthedocs.io/en/latest/user/install.html), clone the repo using:
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install-deps.html) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
+
+<pre>
+$ pip install camelot-py[cv]
+</pre>
+
+### From the source code
+
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install.html#using-pip), clone the repo using:
 
 <pre>
 $ git clone https://www.github.com/socialcopsdev/camelot
@@ -74,10 +87,8 @@ and install Camelot using pip:
 
 <pre>
 $ cd camelot
-$ pip install .
+$ pip install ".[cv]"
 </pre>
-
-**Note:** Use a [virtualenv](https://virtualenv.pypa.io/en/stable/) if you don't want to affect your global Python installation.
 
 ## Documentation
 
@@ -85,7 +96,7 @@ Great documentation is available at [http://camelot-py.readthedocs.io/](http://c
 
 ## Development
 
-The [Contributor's Guide](https://camelot-py.readthedocs.io/en/latest/dev/contributing.html) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
+The [Contributor's Guide](https://camelot-py.readthedocs.io/en/master/dev/contributing.html) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
 
 ### Source code
 

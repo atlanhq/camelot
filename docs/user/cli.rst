@@ -11,12 +11,14 @@ You can print the help for the interface by typing ``camelot --help`` in your fa
 
   Usage: camelot [OPTIONS] COMMAND [ARGS]...
 
-  Camelot: PDF Table Extraction for Humans
+    Camelot: PDF Table Extraction for Humans
 
   Options:
     --version                       Show the version and exit.
+    -q, --quiet TEXT                Suppress logs and warnings.
     -p, --pages TEXT                Comma-separated page numbers. Example: 1,3,4
                                     or 1,4-end.
+    -pw, --password TEXT            Password for decryption.
     -o, --output TEXT               Output file path.
     -f, --format [csv|json|excel|html]
                                     Output file format.

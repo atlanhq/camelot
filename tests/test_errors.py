@@ -34,20 +34,70 @@ def test_unsupported_format():
 
 
 def test_stream_equal_length():
-    message = ("Length of table_area and columns"
+    message = ("Length of table_areas and columns"
                " should be equal")
     with pytest.raises(ValueError, message=message):
         tables = camelot.read_pdf(filename, flavor='stream',
-            table_area=['10,20,30,40'], columns=['10,20,30,40', '10,20,30,40'])
+            table_areas=['10,20,30,40'], columns=['10,20,30,40', '10,20,30,40'])
 
 
 def test_no_tables_found():
     filename = os.path.join(testdir, 'blank.pdf')
-    # TODO: use pytest.warns
     with warnings.catch_warnings():
         warnings.simplefilter('error')
-        try:
+        with pytest.raises(UserWarning) as e:
             tables = camelot.read_pdf(filename)
-        except Exception as e:
-            assert type(e).__name__ == 'UserWarning'
-            assert str(e) == 'No tables found on page-1'
+        assert str(e.value) == 'No tables found on page-1'
+
+
+def test_no_tables_found_logs_suppressed():
+    filename = os.path.join(testdir, 'foo.pdf')
+    with warnings.catch_warnings():
+        # the test should fail if any warning is thrown
+        warnings.simplefilter('error')
+        try:
+            tables = camelot.read_pdf(filename, suppress_stdout=True)
+        except Warning as e:
+            warning_text = str(e)
+            pytest.fail('Unexpected warning: {}'.format(warning_text))
+
+
+def test_no_tables_found_warnings_suppressed():
+    filename = os.path.join(testdir, 'blank.pdf')
+    with warnings.catch_warnings():
+        # the test should fail if any warning is thrown
+        warnings.simplefilter('error')
+        try:
+            tables = camelot.read_pdf(filename, suppress_stdout=True)
+        except Warning as e:
+            warning_text = str(e)
+            pytest.fail('Unexpected warning: {}'.format(warning_text))
+
+
+def test_ghostscript_not_found(monkeypatch):
+    import distutils
+
+    def _find_executable_patch(arg):
+        return ''
+
+    monkeypatch.setattr(distutils.spawn, 'find_executable', _find_executable_patch)
+
+    message = ('Please make sure that Ghostscript is installed and available'
+               ' on the PATH environment variable')
+    filename = os.path.join(testdir, 'foo.pdf')
+    with pytest.raises(Exception, message=message):
+        tables = camelot.read_pdf(filename)
+
+
+def test_no_password():
+    filename = os.path.join(testdir, 'health_protected.pdf')
+    message = 'file has not been decrypted'
+    with pytest.raises(Exception, message=message):
+        tables = camelot.read_pdf(filename)
+
+
+def test_bad_password():
+    filename = os.path.join(testdir, 'health_protected.pdf')
+    message = 'file has not been decrypted'
+    with pytest.raises(Exception, message=message):
+        tables = camelot.read_pdf(filename, password='wrongpass')

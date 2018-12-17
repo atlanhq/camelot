@@ -24,33 +24,40 @@ To process background lines, you can pass ``process_background=True``.
     >>> tables = camelot.read_pdf('background_lines.pdf', process_background=True)
     >>> tables[1].df
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -back background_lines.pdf
+
 .. csv-table::
   :file: ../_static/csv/background_lines.csv
 
-Plot geometry
--------------
+Visual debugging
+----------------
 
-You can use a :class:`table <camelot.core.Table>` object's :meth:`plot() <camelot.core.TableList.plot>` method to plot various geometries that were detected by Camelot while processing the PDF page. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
+.. note:: Visual debugging using ``plot()`` requires `matplotlib <https://matplotlib.org/>`_ which is an optional dependency. You can install it using ``$ pip install camelot-py[plot]``.
 
-The following geometries are available for plotting. You can pass them to the :meth:`plot() <camelot.core.TableList.plot>` method, which will then generate a `matplotlib <https://matplotlib.org/>`_ plot for the passed geometry.
+You can use the :class:`plot() <camelot.plotting.PlotMethods>` method to generate a `matplotlib <https://matplotlib.org/>`_ plot of various elements that were detected on the PDF page while processing it. This can help you select table areas, column separators and debug bad table outputs, by tweaking different configuration parameters.
+
+You can specify the type of element you want to plot using the ``kind`` keyword argument. The generated plot can be saved to a file by passing a ``filename`` keyword argument. The following plot types are supported:
 
 - 'text'
-- 'table'
+- 'grid'
 - 'contour'
 - 'line'
 - 'joint'
+- 'textedge'
 
-.. note:: The last three geometries can only be used with :ref:`Lattice <lattice>`, i.e. when ``flavor='lattice'``.
+.. note:: 'line' and 'joint' can only be used with :ref:`Lattice <lattice>` and 'textedge' can only be used with :ref:`Stream <stream>`.
 
-Let's generate a plot for each geometry using this `PDF <../_static/pdf/foo.pdf>`__ as an example. First, let's get all the tables out.
+Let's generate a plot for each type using this `PDF <../_static/pdf/foo.pdf>`__ as an example. First, let's get all the tables out.
 
 ::
 
     >>> tables = camelot.read_pdf('foo.pdf')
     >>> tables
     <TableList n=1>
-
-.. _geometry_text:
 
 text
 ^^^^
@@ -59,9 +66,16 @@ Let's plot all the text present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('text')
+    >>> camelot.plot(tables[0], kind='text')
+    >>> plt.show()
 
-.. figure:: ../_static/png/geometry_text.png
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot text foo.pdf
+
+.. figure:: ../_static/png/plot_text.png
     :height: 674
     :width: 1366
     :scale: 50%
@@ -72,18 +86,23 @@ This, as we shall later see, is very helpful with :ref:`Stream <stream>` for not
 
 .. note:: The *x-y* coordinates shown above change as you move your mouse cursor on the image, which can help you note coordinates.
 
-.. _geometry_table:
-
 table
 ^^^^^
 
-Let's plot the table (to see if it was detected correctly or not). This geometry type, along with contour, line and joint is useful for debugging and improving the extraction output, in case the table wasn't detected correctly. (More on that later.)
+Let's plot the table (to see if it was detected correctly or not). This plot type, along with contour, line and joint is useful for debugging and improving the extraction output, in case the table wasn't detected correctly. (More on that later.)
 
 ::
 
-    >>> tables[0].plot('table')
+    >>> camelot.plot(tables[0], kind='grid')
+    >>> plt.show()
 
-.. figure:: ../_static/png/geometry_table.png
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot grid foo.pdf
+
+.. figure:: ../_static/png/plot_table.png
     :height: 674
     :width: 1366
     :scale: 50%
@@ -92,8 +111,6 @@ Let's plot the table (to see if it was detected correctly or not). This geometry
 
 The table is perfect!
 
-.. _geometry_contour:
-
 contour
 ^^^^^^^
 
@@ -101,16 +118,21 @@ Now, let's plot all table boundaries present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('contour')
+    >>> camelot.plot(tables[0], kind='contour')
+    >>> plt.show()
 
-.. figure:: ../_static/png/geometry_contour.png
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot contour foo.pdf
+
+.. figure:: ../_static/png/plot_contour.png
     :height: 674
     :width: 1366
     :scale: 50%
     :alt: A plot of all contours on a PDF page
     :align: left
-
-.. _geometry_line:
 
 line
 ^^^^
@@ -119,16 +141,21 @@ Cool, let's plot all line segments present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('line')
+    >>> camelot.plot(tables[0], kind='line')
+    >>> plt.show()
 
-.. figure:: ../_static/png/geometry_line.png
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot line foo.pdf
+
+.. figure:: ../_static/png/plot_line.png
     :height: 674
     :width: 1366
     :scale: 50%
     :alt: A plot of all lines on a PDF page
     :align: left
-
-.. _geometry_joint:
 
 joint
 ^^^^^
@@ -137,19 +164,49 @@ Finally, let's plot all line intersections present on the table's PDF page.
 
 ::
 
-    >>> tables[0].plot('joint')
+    >>> camelot.plot(tables[0], kind='joint')
+    >>> plt.show()
 
-.. figure:: ../_static/png/geometry_joint.png
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -plot joint foo.pdf
+
+.. figure:: ../_static/png/plot_joint.png
     :height: 674
     :width: 1366
     :scale: 50%
     :alt: A plot of all line intersections on a PDF page
     :align: left
 
+textedge
+^^^^^^^^
+
+You can also visualize the textedges found on a page by specifying ``kind='textedge'``. To know more about what a "textedge" is, you can see pages 20, 35 and 40 of `Anssi Nurminen's master's thesis <http://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3>`_.
+
+::
+
+    >>> camelot.plot(tables[0], kind='textedge')
+    >>> plt.show()
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -plot textedge foo.pdf
+
+.. figure:: ../_static/png/plot_textedge.png
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: A plot of relevant textedges on a PDF page
+    :align: left
+
 Specify table areas
 -------------------
 
-Since :ref:`Stream <stream>` treats the whole page as a table, `for now`_, it's useful to specify table boundaries in cases such as `these <../_static/pdf/table_areas.pdf>`__. You can :ref:`plot the text <geometry_text>` on this page and note the left-top and right-bottom coordinates of the table.
+In cases such as `these <../_static/pdf/table_areas.pdf>`__, it can be useful to specify table boundaries. You can plot the text on this page and note the top left and bottom right coordinates of the table.
 
 Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
 
@@ -160,26 +217,38 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
     >>> tables = camelot.read_pdf('table_areas.pdf', flavor='stream', table_areas=['316,499,566,337'])
     >>> tables[0].df
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -T 316,499,566,337 table_areas.pdf
+
 .. csv-table::
   :file: ../_static/csv/table_areas.csv
 
 Specify column separators
 -------------------------
 
-In cases like `these <../_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by :ref:`plotting the text <geometry_text>` on the page.
+In cases like `these <../_static/pdf/column_separators.pdf>`__, where the text is very close to each other, it is possible that Camelot may guess the column separators' coordinates incorrectly. To correct this, you can explicitly specify the *x* coordinate for each column separator by plotting the text on the page.
 
 You can pass the column separators as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``columns`` keyword argument.
 
 In case you passed a single column separators string list, and no table area is specified, the separators will be applied to the whole page. When a list of table areas is specified and you need to specify column separators as well, **the length of both lists should be equal**. Each table area will be mapped to each column separators' string using their indices.
 
-For example, if you have specified two table areas, ``table_areas=['12,23,43,54', '20,33,55,67']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list like this, ``columns=['10,120,200,400', '']``.
+For example, if you have specified two table areas, ``table_areas=['12,54,43,23', '20,67,55,33']``, and only want to specify column separators for the first table, you can pass an empty string for the second table in the column separators' list like this, ``columns=['10,120,200,400', '']``.
 
-Let's get back to the *x* coordinates we got from :ref:`plotting text <geometry_text>` that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
+Let's get back to the *x* coordinates we got from plotting the text that exists on this `PDF <../_static/pdf/column_separators.pdf>`__, and get the table out!
 
 ::
 
     >>> tables = camelot.read_pdf('column_separators.pdf', flavor='stream', columns=['72,95,209,327,442,529,566,606,683'])
     >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -C 72,95,209,327,442,529,566,606,683 column_separators.pdf
 
 .. csv-table::
 
@@ -199,6 +268,12 @@ To deal with cases like the output from the previous section, you can pass ``spl
 
     >>> tables = camelot.read_pdf('column_separators.pdf', flavor='stream', columns=['72,95,209,327,442,529,566,606,683'], split_text=True)
     >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot -split stream -C 72,95,209,327,442,529,566,606,683 column_separators.pdf
 
 .. csv-table::
 
@@ -226,6 +301,12 @@ You can solve this by passing ``flag_size=True``, which will enclose the supersc
 
     >>> tables = camelot.read_pdf('superscript.pdf', flavor='stream', flag_size=True)
     >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot -flag stream superscript.pdf
 
 .. csv-table::
 
@@ -259,6 +340,12 @@ You can pass ``row_close_tol=<+int>`` to group the rows closer together, as show
     >>> tables = camelot.read_pdf('group_rows.pdf', flavor='stream', row_close_tol=10)
     >>> tables[0].df
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -r 10 group_rows.pdf
+
 .. csv-table::
 
     "Clave","Nombre Entidad","Clave","","Nombre Municipio","Clave","Nombre Localidad"
@@ -282,23 +369,31 @@ Here's a `PDF <../_static/pdf/short_lines.pdf>`__ where small lines separating t
     :alt: A PDF table with short lines
     :align: left
 
-Let's :ref:`plot the table <geometry_table>` for this PDF.
+Let's plot the table for this PDF.
 
 ::
 
     >>> tables = camelot.read_pdf('short_lines.pdf')
-    >>> tables[0].plot('table')
+    >>> camelot.plot(tables[0], kind='grid')
+    >>> plt.show()
 
 .. figure:: ../_static/png/short_lines_1.png
     :alt: A plot of the PDF table with short lines
     :align: left
 
-Clearly, the smaller lines separating the headers, couldn't be detected. Let's try with ``line_size_scaling=40``, and `plot the table <geometry_table>`_ again.
+Clearly, the smaller lines separating the headers, couldn't be detected. Let's try with ``line_size_scaling=40``, and plot the table again.
 
 ::
 
     >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40)
-    >>> tables[0].plot('table')
+    >>> camelot.plot(tables[0], kind='grid')
+    >>> plt.show()
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -scale 40 -plot grid short_lines.pdf
 
 .. figure:: ../_static/png/short_lines_2.png
     :alt: An improved plot of the PDF table with short lines
@@ -363,6 +458,12 @@ No surprises there — it did remain in place (observe the strings "2400" and "A
     >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40, shift_text=['r', 'b'])
     >>> tables[0].df
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -scale 40 -shift r -shift b short_lines.pdf
+
 .. csv-table::
 
     "Investigations","No. ofHHs","Age/Sex/Physiological  Group","Preva-lence","C.I*","RelativePrecision","Sample sizeper State"
@@ -407,6 +508,12 @@ We don't need anything else. Now, let's pass ``copy_text=['v']`` to copy text in
 
     >>> tables = camelot.read_pdf('copy_text.pdf', copy_text=['v'])
     >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -copy v copy_text.pdf
 
 .. csv-table::
 

@@ -1,1 +1,1 @@
-include MANIFEST.in README.md HISTORY.md LICENSE requirements.txt requirements-dev.txt setup.py setup.cfg
+include MANIFEST.in README.md HISTORY.md LICENSE setup.py setup.cfg

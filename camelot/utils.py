@@ -344,9 +344,9 @@ def flag_font_size(textline, direction):
                 fchars = [t[0] for t in chars]
                 if ''.join(fchars).strip():
                     flist.append(''.join(fchars))
-        fstring = ''.join(flist).strip('\n')
+        fstring = ''.join(flist)
     else:
-        fstring = ''.join([t.get_text() for t in textline]).strip('\n')
+        fstring = ''.join([t.get_text() for t in textline])
     return fstring
 
 
@@ -419,7 +419,7 @@ def split_textline(table, textline, direction, flag_size=False):
             grouped_chars.append((key[0], key[1], flag_font_size([t[2] for t in chars], direction)))
         else:
             gchars = [t[2].get_text() for t in chars]
-            grouped_chars.append((key[0], key[1], ''.join(gchars).strip('\n')))
+            grouped_chars.append((key[0], key[1], ''.join(gchars)))
     return grouped_chars
 
 
@@ -500,7 +500,7 @@ def get_table_index(table, t, direction, split_text=False, flag_size=False):
         if flag_size:
             return [(r_idx, c_idx, flag_font_size(t._objs, direction))], error
         else:
-            return [(r_idx, c_idx, t.get_text().strip('\n'))], error
+            return [(r_idx, c_idx, t.get_text())], error
 
 
 def compute_accuracy(error_weights):

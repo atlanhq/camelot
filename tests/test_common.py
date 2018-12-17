@@ -25,6 +25,17 @@ def test_parsing_report():
     assert tables[0].parsing_report == parsing_report
 
 
+def test_password():
+    df = pd.DataFrame(data_stream)
+
+    filename = os.path.join(testdir, "health_protected.pdf")
+    tables = camelot.read_pdf(filename, password="ownerpass", flavor="stream")
+    assert df.equals(tables[0].df)
+
+    tables = camelot.read_pdf(filename, password="userpass", flavor="stream")
+    assert df.equals(tables[0].df)
+
+
 def test_stream():
     df = pd.DataFrame(data_stream)
 
@@ -45,11 +56,23 @@ def test_stream_table_rotated():
     assert df.equals(tables[0].df)
 
 
-def test_stream_table_area():
-    df = pd.DataFrame(data_stream_table_area)
+def test_stream_two_tables():
+    df1 = pd.DataFrame(data_stream_two_tables_1)
+    df2 = pd.DataFrame(data_stream_two_tables_2)
+
+    filename = os.path.join(testdir, "tabula/12s0324.pdf")
+    tables = camelot.read_pdf(filename, flavor='stream')
+
+    assert len(tables) == 2
+    assert df1.equals(tables[0].df)
+    assert df2.equals(tables[1].df)
+
+
+def test_stream_table_areas():
+    df = pd.DataFrame(data_stream_table_areas)
 
     filename = os.path.join(testdir, "tabula/us-007.pdf")
-    tables = camelot.read_pdf(filename, flavor="stream", table_area=["320,500,573,335"])
+    tables = camelot.read_pdf(filename, flavor="stream", table_areas=["320,500,573,335"])
     assert df.equals(tables[0].df)
 
 
@@ -100,11 +123,22 @@ def test_lattice_table_rotated():
     assert df.equals(tables[0].df)
 
 
-def test_lattice_table_area():
-    df = pd.DataFrame(data_lattice_table_area)
+def test_lattice_two_tables():
+    df1 = pd.DataFrame(data_lattice_two_tables_1)
+    df2 = pd.DataFrame(data_lattice_two_tables_2)
 
     filename = os.path.join(testdir, "twotables_2.pdf")
-    tables = camelot.read_pdf(filename, table_area=["80,693,535,448"])
+    tables = camelot.read_pdf(filename)
+    assert len(tables) == 2
+    assert df1.equals(tables[0].df)
+    assert df2.equals(tables[1].df)
+
+
+def test_lattice_table_areas():
+    df = pd.DataFrame(data_lattice_table_areas)
+
+    filename = os.path.join(testdir, "twotables_2.pdf")
+    tables = camelot.read_pdf(filename, table_areas=["80,693,535,448"])
     assert df.equals(tables[0].df)
 
 
@@ -139,10 +173,18 @@ def test_lattice_shift_text():
     tables = camelot.read_pdf(filename, line_size_scaling=40, shift_text=['r', 'b'])
     assert df_rb.equals(tables[0].df)
 
-    
+
 def test_repr():
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
     assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.42 x2=164.64 y2=233.89>"
+
+
+def test_arabic():
+    df = pd.DataFrame(data_arabic)
+
+    filename = os.path.join(testdir, "tabula/arabic.pdf")
+    tables = camelot.read_pdf(filename)
+    assert df.equals(tables[0].df)

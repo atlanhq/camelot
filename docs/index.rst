@@ -11,6 +11,10 @@ Release v\ |version|. (:ref:`Installation <install>`)
 .. image:: https://travis-ci.org/socialcopsdev/camelot.svg?branch=master
     :target: https://travis-ci.org/socialcopsdev/camelot
 
+.. image:: https://readthedocs.org/projects/camelot-py/badge/?version=master
+    :target: https://camelot-py.readthedocs.io/en/master/
+    :alt: Documentation Status
+
 .. image:: https://codecov.io/github/socialcopsdev/camelot/badge.svg?branch=master&service=github
     :target: https://codecov.io/github/socialcopsdev/camelot?branch=master
 
@@ -23,7 +27,14 @@ Release v\ |version|. (:ref:`Installation <install>`)
 .. image:: https://img.shields.io/pypi/pyversions/camelot-py.svg
     :target: https://pypi.org/project/camelot-py/
 
+.. image:: https://badges.gitter.im/camelot-dev/Lobby.png
+    :target: https://gitter.im/camelot-dev/Lobby
+
 **Camelot** is a Python library that makes it easy for *anyone* to extract tables from PDF files!
+
+.. note:: You can also check out `Excalibur`_, which is a web interface for Camelot!
+
+.. _Excalibur: https://github.com/camelot-dev/excalibur
 
 ----
 
@@ -81,6 +92,7 @@ This part of the documentation begins with some background information about why
    :maxdepth: 2
 
    user/intro
+   user/install-deps
    user/install
    user/how-it-works
    user/quickstart

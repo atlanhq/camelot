@@ -1,3 +1,7 @@
+"[In thousands (11,062.6 represents 11,062,600) For year ending December 31. Based on Uniform Crime Reporting (UCR)","","","","","","","","",""
+"Program. Represents arrests reported (not charged) by 12,910 agencies with a total population of 247,526,916 as estimated","","","","","","","","",""
+"by the FBI. Some persons may be arrested more than once during a year, therefore, the data in this table, in some cases,","","","","","","","","",""
+"could represent multiple arrests of the same person. See text, this section and source]","","","","","","","","",""
 "","","Total","","","Male","","","Female",""
 "Offense charged","","Under 18","18 years","","Under 18","18 years","","Under 18","18 years"
 "","Total","years","and over","Total","years","and over","Total","years","and over"
@@ -36,3 +40,4 @@
 "Curfew and loitering law violations  ..","91.0","91.0","(X)","63.1","63.1","(X)","28.0","28.0","(X)"
 "Runaways  . . . . . . . .. .. .. .. .. ....","75.8","75.8","(X)","34.0","34.0","(X)","41.8","41.8","(X)"
 "","– Represents zero. X Not applicable. 1 Buying, receiving, possessing stolen property. 2 Except forcible rape and prostitution.","","","","","","","",""
+"","Source: U.S. Department of Justice, Federal Bureau of Investigation, Uniform Crime Reports, Arrests Master Files.","","","","","","","",""

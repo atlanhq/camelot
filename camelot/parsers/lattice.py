@@ -31,7 +31,7 @@ class Lattice(BaseParser):
 
     Parameters
     ----------
-    table_area : list, optional (default: None)
+    table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
         in PDF coordinate space.
@@ -79,12 +79,12 @@ class Lattice(BaseParser):
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
-    def __init__(self, table_area=None, process_background=False,
+    def __init__(self, table_areas=None, process_background=False,
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
                  split_text=False, flag_size=False, line_close_tol=2,
                  joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
                  iterations=0, margins=(1.0, 0.5, 0.1), **kwargs):
-        self.table_area = table_area
+        self.table_areas = table_areas
         self.process_background = process_background
         self.line_size_scaling = line_size_scaling
         self.copy_text = copy_text
@@ -210,9 +210,9 @@ class Lattice(BaseParser):
             self.threshold, direction='horizontal',
             line_size_scaling=self.line_size_scaling, iterations=self.iterations)
 
-        if self.table_area is not None:
+        if self.table_areas is not None:
             areas = []
-            for area in self.table_area:
+            for area in self.table_areas:
                 x1, y1, x2, y2 = area.split(",")
                 x1 = float(x1)
                 y1 = float(y1)
@@ -237,10 +237,11 @@ class Lattice(BaseParser):
             tk, self.vertical_segments, self.horizontal_segments)
         t_bbox['horizontal'] = text_in_bbox(tk, self.horizontal_text)
         t_bbox['vertical'] = text_in_bbox(tk, self.vertical_text)
-        self.t_bbox = t_bbox
 
-        for direction in t_bbox:
-            t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox['horizontal'].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox['vertical'].sort(key=lambda x: (x.x0, -x.y0))
+
+        self.t_bbox = t_bbox
 
         cols, rows = zip(*self.table_bbox[tk])
         cols, rows = list(cols), list(rows)
@@ -274,7 +275,9 @@ class Lattice(BaseParser):
         table = table.set_span()
 
         pos_errors = []
-        for direction in self.t_bbox:
+        # TODO: have a single list in place of two directional ones?
+        # sorted on x-coordinate based on reading order i.e. LTR or RTL
+        for direction in ['vertical', 'horizontal']:
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
                     table, t, direction, split_text=self.split_text,
@@ -307,12 +310,14 @@ class Lattice(BaseParser):
         table._text = _text
         table._image = (self.image, self.table_bbox_unscaled)
         table._segments = (self.vertical_segments, self.horizontal_segments)
+        table._textedges = None
 
         return table
 
-    def extract_tables(self, filename):
+    def extract_tables(self, filename, suppress_stdout=False):
         self._generate_layout(filename)
-        logger.info('Processing {}'.format(os.path.basename(self.rootname)))
+        if not suppress_stdout:
+            logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
             warnings.warn("No tables found on {}".format(
@@ -328,6 +333,7 @@ class Lattice(BaseParser):
                 self.table_bbox.keys(), key=lambda x: x[1], reverse=True)):
             cols, rows, v_s, h_s = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows, v_s=v_s, h_s=h_s)
+            table._bbox = tk
             _tables.append(table)
 
         return _tables

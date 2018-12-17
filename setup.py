@@ -13,17 +13,38 @@ with open('README.md', 'r') as f:
     readme = f.read()
 
 
+requires = [
+    'chardet>=3.0.4',
+    'click>=6.7',
+    'numpy>=1.13.3',
+    'openpyxl>=2.5.8',
+    'pandas>=0.23.4',
+    'pdfminer.six>=20170720',
+    'PyPDF2>=1.26.0'
+]
+
+cv_requires = [
+    'opencv-python>=3.4.2.17'
+]
+
+plot_requires = [
+    'matplotlib>=2.2.3',
+]
+
+dev_requires = [
+    'codecov>=2.0.15',
+    'pytest>=3.8.0',
+    'pytest-cov>=2.6.0',
+    'pytest-mpl>=0.10',
+    'pytest-runner>=4.2',
+    'Sphinx>=1.7.9'
+]
+
+all_requires = cv_requires + plot_requires
+dev_requires = dev_requires + all_requires
+
+
 def setup_package():
-    reqs = []
-    with open('requirements.txt', 'r') as f:
-        for line in f:
-            reqs.append(line.strip())
-
-    dev_reqs = []
-    with open('requirements-dev.txt', 'r') as f:
-        for line in f:
-            dev_reqs.append(line.strip())
-
     metadata = dict(name=about['__title__'],
                     version=about['__version__'],
                     description=about['__description__'],
@@ -34,9 +55,12 @@ def setup_package():
                     author_email=about['__author_email__'],
                     license=about['__license__'],
                     packages=find_packages(exclude=('tests',)),
-                    install_requires=reqs,
+                    install_requires=requires,
                     extras_require={
-                        'dev': dev_reqs
+                        'all': all_requires,
+                        'cv': cv_requires,
+                        'dev': dev_requires,
+                        'plot': plot_requires
                     },
                     entry_points={
                         'console_scripts': [

@@ -52,6 +52,30 @@ def test_cli_stream():
         assert format_error in result.output
 
 
+def test_cli_password():
+    with TemporaryDirectory() as tempdir:
+        infile = os.path.join(testdir, 'health_protected.pdf')
+        outfile = os.path.join(tempdir, 'health_protected.csv')
+        runner = CliRunner()
+        result = runner.invoke(cli, ['--password', 'userpass',
+                                     '--format', 'csv', '--output', outfile,
+                                     'stream', infile])
+        assert result.exit_code == 0
+        assert result.output == 'Found 1 tables\n'
+
+        output_error = 'file has not been decrypted'
+        # no password
+        result = runner.invoke(cli, ['--format', 'csv', '--output', outfile,
+                                     'stream', infile])
+        assert output_error in str(result.exception)
+
+        # bad password
+        result = runner.invoke(cli, ['--password', 'wrongpass',
+                                     '--format', 'csv', '--output', outfile,
+                                     'stream', infile])
+        assert output_error in str(result.exception)
+
+
 def test_cli_output_format():
     with TemporaryDirectory() as tempdir:
         infile = os.path.join(testdir, 'health.pdf')
@@ -77,3 +101,17 @@ def test_cli_output_format():
         result = runner.invoke(cli, ['--zip', '--format', 'csv', '--output', outfile.format('csv'),
                                      'stream', infile])
         assert result.exit_code == 0
+
+def test_cli_quiet():
+    with TemporaryDirectory() as tempdir:
+        infile = os.path.join(testdir, 'blank.pdf')
+        outfile = os.path.join(tempdir, 'blank.csv')
+        runner = CliRunner()
+
+        result = runner.invoke(cli, ['--format', 'csv', '--output', outfile,
+                                     'stream', infile])
+        assert 'No tables found on page-1' in result.output
+
+        result = runner.invoke(cli, ['--quiet', '--format', 'csv',
+                                     '--output', outfile, 'stream', infile])
+        assert 'No tables found on page-1' not in result.output

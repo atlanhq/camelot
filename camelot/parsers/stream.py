@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 from .base import BaseParser
-from ..core import Table
+from ..core import TextEdges, Table
 from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
                      compute_whitespace)
 
@@ -26,7 +26,7 @@ class Stream(BaseParser):
 
     Parameters
     ----------
-    table_area : list, optional (default: None)
+    table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
         in PDF coordinate space.
@@ -50,10 +50,10 @@ class Stream(BaseParser):
         For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
-    def __init__(self, table_area=None, columns=None, split_text=False,
+    def __init__(self, table_areas=None, columns=None, split_text=False,
                  flag_size=False, row_close_tol=2, col_close_tol=0,
                  margins=(1.0, 0.5, 0.1), **kwargs):
-        self.table_area = table_area
+        self.table_areas = table_areas
         self.columns = columns
         self._validate_columns()
         self.split_text = split_text
@@ -116,7 +116,7 @@ class Stream(BaseParser):
                     row_y = t.y0
                 temp.append(t)
         rows.append(sorted(temp, key=lambda t: t.x0))
-        __ = rows.pop(0)  # hacky
+        __ = rows.pop(0)  # TODO: hacky
         return rows
 
     @staticmethod
@@ -241,15 +241,42 @@ class Stream(BaseParser):
         return cols
 
     def _validate_columns(self):
-        if self.table_area is not None and self.columns is not None:
-            if len(self.table_area) != len(self.columns):
-                raise ValueError("Length of table_area and columns"
+        if self.table_areas is not None and self.columns is not None:
+            if len(self.table_areas) != len(self.columns):
+                raise ValueError("Length of table_areas and columns"
                                  " should be equal")
 
+    def _nurminen_table_detection(self, textlines):
+        """A general implementation of the table detection algorithm
+        described by Anssi Nurminen's master's thesis.
+        Link: https://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3
+
+        Assumes that tables are situated relatively far apart
+        vertically.
+        """
+
+        # TODO: add support for arabic text #141
+        # sort textlines in reading order
+        textlines.sort(key=lambda x: (-x.y0, x.x0))
+        textedges = TextEdges()
+        # generate left, middle and right textedges
+        textedges.generate(textlines)
+        # select relevant edges
+        relevant_textedges = textedges.get_relevant()
+        self.textedges.extend(relevant_textedges)
+        # guess table areas using textlines and relevant edges
+        table_bbox = textedges.get_table_areas(textlines, relevant_textedges)
+        # treat whole page as table area if no table areas found
+        if not len(table_bbox):
+            table_bbox = {(0, 0, self.pdf_width, self.pdf_height): None}
+
+        return table_bbox
+
     def _generate_table_bbox(self):
-        if self.table_area is not None:
+        self.textedges = []
+        if self.table_areas is not None:
             table_bbox = {}
-            for area in self.table_area:
+            for area in self.table_areas:
                 x1, y1, x2, y2 = area.split(",")
                 x1 = float(x1)
                 y1 = float(y1)
@@ -257,7 +284,8 @@ class Stream(BaseParser):
                 y2 = float(y2)
                 table_bbox[(x1, y2, x2, y1)] = None
         else:
-            table_bbox = {(0, 0, self.pdf_width, self.pdf_height): None}
+            # find tables based on nurminen's detection algorithm
+            table_bbox = self._nurminen_table_detection(self.horizontal_text)
         self.table_bbox = table_bbox
 
     def _generate_columns_and_rows(self, table_idx, tk):
@@ -265,10 +293,11 @@ class Stream(BaseParser):
         t_bbox = {}
         t_bbox['horizontal'] = text_in_bbox(tk, self.horizontal_text)
         t_bbox['vertical'] = text_in_bbox(tk, self.vertical_text)
-        self.t_bbox = t_bbox
 
-        for direction in self.t_bbox:
-            self.t_bbox[direction].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox['horizontal'].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox['vertical'].sort(key=lambda x: (x.x0, -x.y0))
+
+        self.t_bbox = t_bbox
 
         text_x_min, text_y_min, text_x_max, text_y_max = self._text_bbox(self.t_bbox)
         rows_grouped = self._group_rows(self.t_bbox['horizontal'], row_close_tol=self.row_close_tol)
@@ -286,10 +315,21 @@ class Stream(BaseParser):
             cols.append(text_x_max)
             cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
         else:
+            # calculate mode of the list of number of elements in
+            # each row to guess the number of columns
             ncols = max(set(elements), key=elements.count)
             if ncols == 1:
-                warnings.warn("No tables found on {}".format(
-                    os.path.basename(self.rootname)))
+                # if mode is 1, the page usually contains not tables
+                # but there can be cases where the list can be skewed,
+                # try to remove all 1s from list in this case and
+                # see if the list contains elements, if yes, then use
+                # the mode after removing 1s
+                elements = list(filter(lambda x: x != 1, elements))
+                if len(elements):
+                    ncols = max(set(elements), key=elements.count)
+                else:
+                    warnings.warn("No tables found in table area {}".format(
+                        table_idx + 1))
             cols = [(t.x0, t.x1) for r in rows_grouped if len(r) == ncols for t in r]
             cols = self._merge_columns(sorted(cols), col_close_tol=self.col_close_tol)
             inner_text = []
@@ -311,8 +351,11 @@ class Stream(BaseParser):
     def _generate_table(self, table_idx, cols, rows, **kwargs):
         table = Table(cols, rows)
         table = table.set_all_edges()
+
         pos_errors = []
-        for direction in self.t_bbox:
+        # TODO: have a single list in place of two directional ones?
+        # sorted on x-coordinate based on reading order i.e. LTR or RTL
+        for direction in ['vertical', 'horizontal']:
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
                     table, t, direction, split_text=self.split_text,
@@ -341,12 +384,14 @@ class Stream(BaseParser):
         table._text = _text
         table._image = None
         table._segments = None
+        table._textedges = self.textedges
 
         return table
 
-    def extract_tables(self, filename):
+    def extract_tables(self, filename, suppress_stdout=False):
         self._generate_layout(filename)
-        logger.info('Processing {}'.format(os.path.basename(self.rootname)))
+        if not suppress_stdout:
+            logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
             warnings.warn("No tables found on {}".format(
@@ -361,6 +406,7 @@ class Stream(BaseParser):
                 self.table_bbox.keys(), key=lambda x: x[1], reverse=True)):
             cols, rows = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows)
+            table._bbox = tk
             _tables.append(table)
 
         return _tables

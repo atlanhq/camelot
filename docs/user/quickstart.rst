@@ -70,6 +70,12 @@ You can also export all tables at once, using the :class:`tables <camelot.core.T
 
     >>> tables.export('foo.csv', f='csv')
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot --format csv --output foo.csv lattice foo.pdf
+
 This will export all tables as CSV files at the path specified. Alternatively, you can use ``f='json'``, ``f='excel'`` or ``f='html'``.
 
 .. note:: The :meth:`export() <camelot.core.TableList.export>` method exports files with a ``page-*-table-*`` suffix. In the example above, the single table in the list will be exported to ``foo-page-1-table-1.csv``. If the list contains multiple tables, multiple CSV files will be created. To avoid filling up your path with multiple files, you can use ``compress=True``, which will create a single ZIP file at your path with all the CSV files.
@@ -85,8 +91,42 @@ By default, Camelot only uses the first page of the PDF to extract tables. To sp
 
     >>> camelot.read_pdf('your.pdf', pages='1,2,3')
 
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot --pages 1,2,3 lattice your.pdf
+
 The ``pages`` keyword argument accepts pages as comma-separated string of page numbers. You can also specify page ranges — for example, ``pages=1,4-10,20-30`` or ``pages=1,4-10,20-end``.
 
-------------------------
+Reading encrypted PDFs
+----------------------
+
+To extract tables from encrypted PDF files you must provide a password when calling :meth:`read_pdf() <camelot.read_pdf>`.
+
+::
+
+    >>> tables = camelot.read_pdf('foo.pdf', password='userpass')
+    >>> tables
+    <TableList n=1>
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot --password userpass lattice foo.pdf
+
+Currently Camelot only supports PDFs encrypted with ASCII passwords and algorithm `code 1 or 2`_. An exception is thrown if the PDF cannot be read. This may be due to no password being provided, an incorrect password, or an unsupported encryption algorithm.
+
+Further encryption support may be added in future, however in the meantime if your PDF files are using unsupported encryption algorithms you are advised to remove encryption before calling :meth:`read_pdf() <camelot.read_pdf>`. This can been successfully achieved with third-party tools such as `QPDF`_.
+
+::
+
+    $ qpdf --password=<PASSWORD> --decrypt input.pdf output.pdf
+
+.. _code 1 or 2: https://github.com/mstamy2/PyPDF2/issues/378
+.. _QPDF: https://www.github.com/qpdf/qpdf
+
+----
 
 Ready for more? Check out the :ref:`advanced <advanced>` section.

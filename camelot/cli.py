@@ -3,9 +3,14 @@
 import logging
 
 import click
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    _HAS_MPL = False
+else:
+    _HAS_MPL = True
 
-from . import __version__
-from .io import read_pdf
+from . import __version__, read_pdf, plot
 
 
 logger = logging.getLogger('camelot')
@@ -25,8 +30,10 @@ pass_config = click.make_pass_decorator(Config)
 
 @click.group()
 @click.version_option(version=__version__)
+@click.option('-q', '--quiet', is_flag=False, help='Suppress logs and warnings.')
 @click.option('-p', '--pages', default='1', help='Comma-separated page numbers.'
               ' Example: 1,3,4 or 1,4-end.')
+@click.option('-pw', '--password', help='Password for decryption.')
 @click.option('-o', '--output', help='Output file path.')
 @click.option('-f', '--format',
               type=click.Choice(['csv', 'json', 'excel', 'html']),
@@ -47,7 +54,7 @@ def cli(ctx, *args, **kwargs):
 
 
 @cli.command('lattice')
-@click.option('-T', '--table_area', default=[], multiple=True,
+@click.option('-T', '--table_areas', default=[], multiple=True,
               help='Table areas to process. Example: x1,y1,x2,y2'
               ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-back', '--process_background', is_flag=True,
@@ -78,8 +85,8 @@ def cli(ctx, *args, **kwargs):
 @click.option('-I', '--iterations', default=0,
               help='Number of times for erosion/dilation will be applied.')
 @click.option('-plot', '--plot_type',
-              type=click.Choice(['text', 'table', 'contour', 'joint', 'line']),
-              help='Plot geometry found on PDF page, for debugging.')
+              type=click.Choice(['text', 'grid', 'contour', 'joint', 'line']),
+              help='Plot elements found on PDF page for visual debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config
 def lattice(c, *args, **kwargs):
@@ -89,31 +96,39 @@ def lattice(c, *args, **kwargs):
     output = conf.pop('output')
     f = conf.pop('format')
     compress = conf.pop('zip')
+    quiet = conf.pop('quiet')
     plot_type = kwargs.pop('plot_type')
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
 
-    table_area = list(kwargs['table_area'])
-    kwargs['table_area'] = None if not table_area else table_area
+    table_areas = list(kwargs['table_areas'])
+    kwargs['table_areas'] = None if not table_areas else table_areas
     copy_text = list(kwargs['copy_text'])
     kwargs['copy_text'] = None if not copy_text else copy_text
     kwargs['shift_text'] = list(kwargs['shift_text'])
 
-    tables = read_pdf(filepath, pages=pages, flavor='lattice', **kwargs)
-    click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
-        for table in tables:
-            table.plot(plot_type)
+        if not _HAS_MPL:
+            raise ImportError('matplotlib is required for plotting.')
     else:
         if output is None:
             raise click.UsageError('Please specify output file path using --output')
         if f is None:
             raise click.UsageError('Please specify output file format using --format')
+
+    tables = read_pdf(filepath, pages=pages, flavor='lattice',
+                      suppress_stdout=quiet, **kwargs)
+    click.echo('Found {} tables'.format(tables.n))
+    if plot_type is not None:
+        for table in tables:
+            plot(table, kind=plot_type)
+            plt.show()
+    else:
         tables.export(output, f=f, compress=compress)
 
 
 @cli.command('stream')
-@click.option('-T', '--table_area', default=[], multiple=True,
+@click.option('-T', '--table_areas', default=[], multiple=True,
               help='Table areas to process. Example: x1,y1,x2,y2'
               ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-C', '--columns', default=[], multiple=True,
@@ -123,8 +138,8 @@ def lattice(c, *args, **kwargs):
 @click.option('-c', '--col_close_tol', default=0, help='Tolerance parameter'
               ' used to combine text horizontally, to generate columns.')
 @click.option('-plot', '--plot_type',
-              type=click.Choice(['text', 'table']),
-              help='Plot geometry found on PDF page for debugging.')
+              type=click.Choice(['text', 'grid', 'contour', 'textedge']),
+              help='Plot elements found on PDF page for visual debugging.')
 @click.argument('filepath', type=click.Path(exists=True))
 @pass_config
 def stream(c, *args, **kwargs):
@@ -134,23 +149,31 @@ def stream(c, *args, **kwargs):
     output = conf.pop('output')
     f = conf.pop('format')
     compress = conf.pop('zip')
+    quiet = conf.pop('quiet')
     plot_type = kwargs.pop('plot_type')
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
 
-    table_area = list(kwargs['table_area'])
-    kwargs['table_area'] = None if not table_area else table_area
+    table_areas = list(kwargs['table_areas'])
+    kwargs['table_areas'] = None if not table_areas else table_areas
     columns = list(kwargs['columns'])
     kwargs['columns'] = None if not columns else columns
 
-    tables = read_pdf(filepath, pages=pages, flavor='stream', **kwargs)
-    click.echo('Found {} tables'.format(tables.n))
     if plot_type is not None:
-        for table in tables:
-            table.plot(plot_type)
+        if not _HAS_MPL:
+            raise ImportError('matplotlib is required for plotting.')
     else:
         if output is None:
             raise click.UsageError('Please specify output file path using --output')
         if f is None:
             raise click.UsageError('Please specify output file format using --format')
+
+    tables = read_pdf(filepath, pages=pages, flavor='stream',
+                      suppress_stdout=quiet, **kwargs)
+    click.echo('Found {} tables'.format(tables.n))
+    if plot_type is not None:
+        for table in tables:
+            plot(table, kind=plot_type)
+            plt.show()
+    else:
         tables.export(output, f=f, compress=compress)
