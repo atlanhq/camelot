@@ -10,8 +10,9 @@ class BaseParser(object):
     """
     def _generate_layout(self, filename, extra_kwargs):
         self.filename = filename
+        self.extra_kwargs = extra_kwargs
         self.layout, self.dimensions = get_page_layout(
-            self.filename, **self.extra_kwargs)
+            filename, **extra_kwargs)
         self.horizontal_text = get_text_objects(self.layout, ltype="lh")
         self.vertical_text = get_text_objects(self.layout, ltype="lv")
         self.pdf_width, self.pdf_height = self.dimensions
