@@ -6,7 +6,7 @@ from .utils import validate_input, remove_extra
 
 
 def read_pdf(filepath, pages='1', password=None, flavor='lattice',
-             suppress_stdout=False, **kwargs):
+             suppress_stdout=False, extra_kwargs={}, **kwargs):
     """Read PDF and return extracted tables.
 
     Note: kwargs annotated with ^ can only be used with flavor='stream'
@@ -26,6 +26,8 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         Lattice is used by default.
     suppress_stdout : bool, optional (default: True)
         Print all logs and warnings.
+    extra_kwargs : dict, optional (default: {})
+        A dict of pdfminer.layout.LAParams kwargs.
     table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
@@ -98,5 +100,6 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         validate_input(kwargs, flavor=flavor)
         p = PDFHandler(filepath, pages=pages, password=password)
         kwargs = remove_extra(kwargs, flavor=flavor)
-        tables = p.parse(flavor=flavor, suppress_stdout=suppress_stdout, **kwargs)
+        tables = p.parse(flavor=flavor, suppress_stdout=suppress_stdout,
+                         extra_kwargs=extra_kwargs, **kwargs)
         return tables

@@ -558,7 +558,7 @@ def compute_whitespace(d):
 
 
 def get_page_layout(filename, char_margin=1.0, line_margin=0.5, word_margin=0.1,
-               detect_vertical=True, all_texts=True):
+                    detect_vertical=True, all_texts=True):
     """Returns a PDFMiner LTPage object and page dimension of a single
     page pdf. See https://euske.github.io/pdfminer/ to get definitions
     of kwargs.

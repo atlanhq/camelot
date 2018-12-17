@@ -388,8 +388,8 @@ class Stream(BaseParser):
 
         return table
 
-    def extract_tables(self, filename, suppress_stdout=False):
-        self._generate_layout(filename)
+    def extract_tables(self, filename, suppress_stdout=False, extra_kwargs={}):
+        self._generate_layout(filename, extra_kwargs)
         if not suppress_stdout:
             logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
