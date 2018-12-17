@@ -155,7 +155,7 @@ class PDFHandler(object):
                      for p in self.pages]
             parser = Lattice(**kwargs) if flavor == 'lattice' else Stream(**kwargs)
             for p in pages:
-                t = parser.extract_tables(p, suppress_stdout=suppress_stdout
+                t = parser.extract_tables(p, suppress_stdout=suppress_stdout,
                                           extra_kwargs=extra_kwargs)
                 tables.extend(t)
         return TableList(tables)
