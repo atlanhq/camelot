@@ -9,12 +9,12 @@ import logging
 import warnings
 import subprocess
 
-import ghostscript
 import numpy as np
 import pandas as pd
 
 from .base import BaseParser
 from ..core import Table
+from ..ext.ghostscript import Ghostscript
 from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
                      merge_close_lines, get_table_index, compute_accuracy,
                      compute_whitespace)
@@ -178,17 +178,11 @@ class Lattice(BaseParser):
 
     def _generate_image(self):
         self.imagename = ''.join([self.rootname, '.png'])
-        gs_call = [
-            '-q',
-            '-sDEVICE=png16m',
-            '-o',
-            self.imagename,
-            '-r600',
-            self.filename
-        ]
-        encoding = locale.getpreferredencoding()
-        args = [g.encode(encoding) for g in gs_call]
-        ghostscript.Ghostscript(*args)
+        gs_call = '-q -sDEVICE=png16m -o {} -r600 {}'.format(
+            self.imagename, self.filename)
+        gs_call = gs_call.encode().split()
+        with Ghostscript(*gs_call) as gs:
+            pass
 
     def _generate_table_bbox(self):
         self.image, self.threshold = adaptive_threshold(
