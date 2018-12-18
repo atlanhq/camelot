@@ -4,6 +4,7 @@
 ghostscript._gsprint - A low-level interface to the Ghostscript C-API using ctypes
 """
 #
+# Modifications 2018 by Vinayak Mehta <vmehta94@gmail.com>
 # Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>
 #
 # Display_callback Structure by Lasse Fister <commander@graphicore.de> in 2013
@@ -22,62 +23,38 @@ ghostscript._gsprint - A low-level interface to the Ghostscript C-API using ctyp
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from __future__ import absolute_import
-
-__author__ = "Hartmut Goebel <h.goebel@crazy-compilers.com>"
-__copyright__ = "Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>"
-__licence__ = "GNU General Public License version 3 (GPL v3)"
-__version__ = "0.6"
-
 import sys
 from ctypes import *
 
-from ._errors import e_Quit, e_Info
 
+# base/gserrors.h
+#
+# Internal code for a normal exit when usage info is displayed.
+# This allows Window versions of Ghostscript to pause until
+# the message can be read.
+#
+e_Info = -110
 
-MAX_STRING_LENGTH = 65535
+#
+# Internal code for the .quit operator.
+# The real quit code is an integer on the operand stack.
+# gs_interpret returns this only for a .quit with a zero exit code.
+#
+e_Quit = -101
+
+__author__ = 'Hartmut Goebel <h.goebel@crazy-compilers.com>'
+__copyright__ = 'Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>'
+__license__ = 'GNU General Public License version 3 (GPL v3)'
+__version__ = '0.6'
 
 gs_main_instance = c_void_p
 display_callback = c_void_p
 
-
-class Revision(Structure):
-    _fields_ = [
-        ("product", c_char_p),
-        ("copyright", c_char_p),
-        ("revision", c_long),
-        ("revisiondate", c_long)
-        ]
+# https://www.ghostscript.com/doc/current/API.htm
 
 
-class GhostscriptError(Exception):
-    def __init__(self, ecode):
-         # :todo:
-         Exception.__init__(self, error2name(ecode))
-         self.code = ecode
-
-
-def revision():
-    """
-    Get version numbers and strings.
-
-    This is safe to call at any time.
-    You should call this first to make sure that the correct version
-    of the Ghostscript is being used.
-
-    Returns a Revision instance
-    """
-    revision = Revision()
-    rc = libgs.gsapi_revision(pointer(revision), sizeof(revision))
-    if rc:
-        raise ArgumentError("Revision structure size is incorrect, "
-                            "requires %s bytes" % rc)
-    return revision
-
-
-def new_instance(): # display_callback=None):
-    """
-    Create a new instance of Ghostscript
+def new_instance():
+    """Create a new instance of Ghostscript
 
     This instance is passed to most other API functions.
     """
@@ -91,8 +68,7 @@ def new_instance(): # display_callback=None):
 
 
 def delete_instance(instance):
-    """
-    Destroy an instance of Ghostscript
+    """Destroy an instance of Ghostscript
 
     Before you call this, Ghostscript must have finished.
     If Ghostscript has been initialised, you must call exit()
@@ -105,11 +81,9 @@ c_stdstream_call_t = CFUNCTYPE(c_int, gs_main_instance, POINTER(c_char), c_int)
 
 
 def _wrap_stdin(infp):
-    """
-    Wrap a filehandle into a C function to be used as `stdin` callback
+    """Wrap a filehandle into a C function to be used as `stdin` callback
     for ``set_stdio``. The filehandle has to support the readline() method.
     """
-
     def _wrap(instance, dest, count):
         try:
             data = infp.readline(count)
@@ -127,12 +101,10 @@ def _wrap_stdin(infp):
 
 
 def _wrap_stdout(outfp):
-    """
-    Wrap a filehandle into a C function to be used as `stdout` or
+    """Wrap a filehandle into a C function to be used as `stdout` or
     `stderr` callback for ``set_stdio``. The filehandle has to support the
     write() and flush() methods.
     """
-
     def _wrap(instance, str, count):
         outfp.write(str[:count])
         outfp.flush()
@@ -145,8 +117,7 @@ _wrap_stderr = _wrap_stdout
 
 
 def set_stdio(instance, stdin, stdout, stderr):
-    """
-    Set the callback functions for stdio.
+    """Set the callback functions for stdio.
 
     ``stdin``, ``stdout`` and ``stderr`` have to be ``ctypes``
     callback functions matching the ``_gsprint.c_stdstream_call_t``
@@ -173,13 +144,8 @@ def set_stdio(instance, stdin, stdout, stderr):
     return rc
 
 
-# :todo:  set_poll (instance, int(*poll_fn)(void *caller_handle));
-# :todo:  set_display_callback(instance, callback):
-
-
 def init_with_args(instance, argv):
-    """
-    Initialise the interpreter.
+    """Initialise the interpreter
 
     1. If quit or EOF occur during init_with_args(), the return value
        will be e_Quit. This is not an error. You must call exit() and
@@ -200,8 +166,7 @@ def init_with_args(instance, argv):
 
 
 def exit(instance):
-    """
-    Exit the interpreter
+    """Exit the interpreter
 
     This must be called on shutdown if init_with_args() has been
     called, and just before delete_instance()
@@ -230,7 +195,7 @@ def __win32_finddll():
     # Look up different variants of Ghostscript and take the highest
     # version for which the DLL is to be found in the filesystem.
     for key_name in ('AFPL Ghostscript', 'Aladdin Ghostscript',
-                     'GPL Ghostscript', 'GNU Ghostscript'):
+                     'GNU Ghostscript', 'GPL Ghostscript'):
         try:
             k1 = OpenKey(HKEY_LOCAL_MACHINE, "Software\\%s" % key_name)
             for num in range(0, QueryInfoKey(k1)[0]):
@@ -256,17 +221,18 @@ def __win32_finddll():
 if sys.platform == 'win32':
     libgs = __win32_finddll()
     if not libgs:
-        raise RuntimeError('Can not find Ghostscript DLL in registry')
+        raise RuntimeError('Please make sure that Ghostscript is installed')
     libgs = windll.LoadLibrary(libgs)
 else:
     try:
-        libgs = cdll.LoadLibrary("libgs.so")
+        libgs = cdll.LoadLibrary('libgs.so')
     except OSError:
         # shared object file not found
         import ctypes.util
+
         libgs = ctypes.util.find_library('gs')
         if not libgs:
-            raise RuntimeError('Can not find Ghostscript library (libgs)')
+            raise RuntimeError('Please make sure that Ghostscript is installed')
         libgs = cdll.LoadLibrary(libgs)
 
 del __win32_finddll

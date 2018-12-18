@@ -4,6 +4,7 @@
 ghostscript - A Python interface for the Ghostscript interpreter C-API
 """
 #
+# Modifications 2018 by Vinayak Mehta <vmehta94@gmail.com>
 # Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -20,60 +21,22 @@ ghostscript - A Python interface for the Ghostscript interpreter C-API
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-from __future__ import absolute_import
-
-__author__ = "Hartmut Goebel <h.goebel@crazy-compilers.com>"
-__copyright__ = "Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>"
-__licence__ = "GNU General Public License version 3 (GPL v3)"
-__version__ = '0.6'
-
-__all__ = ['Ghostscript', 'revision',
-           'GhostscriptError', 'PleaseDisplayUsage']
-
-import atexit
 from . import _gsprint as gs
 
 
-GhostscriptError = gs.GhostscriptError
+__author__ = 'Hartmut Goebel <h.goebel@crazy-compilers.com>'
+__copyright__ = 'Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>'
+__license__ = 'GNU General Public License version 3 (GPL v3)'
+__version__ = '0.6'
 
 
-def PleaseDisplayUsage(Warning):
-    """
-    This exception is raised when Ghostscript asks the application to
-    display the usage. The application should catch the exception an
-    print the usage message.
-    """
-    pass
-
-
-def revision():
-    """
-    This function returns the revision numbers and strings of the
-    Ghostscript interpreter library as a dict. You should call it
-    before any other interpreter library functions to make sure that
-    the correct version of the Ghostscript interpreter has been
-    loaded.
-    """
-    rev = gs.revision()
-    return dict((f, getattr(rev, f)) for f, _ in rev._fields_)
-
-
-MAX_STRING_LENGTH = gs.MAX_STRING_LENGTH
-
-
-class Ghostscript(object):
-    @staticmethod
-    def revision():
-        return revision()
-
+class __Ghostscript(object):
     def __init__(self, instance, args, stdin=None, stdout=None, stderr=None):
         self._initialized = False
         self._callbacks = None
         if stdin or stdout or stderr:
             self.set_stdio(stdin, stdout, stderr)
         rc = gs.init_with_args(instance, args)
-        if rc == gs.e_Info:
-            raise PleaseDisplayUsage
         self._initialized = True
         if rc == gs.e_Quit:
             self.exit()
@@ -101,7 +64,7 @@ class Ghostscript(object):
             stdin and gs._wrap_stdin(stdin) or None,
             stdout and gs._wrap_stdout(stdout) or None,
             stderr and gs._wrap_stderr(stderr) or None,
-            )
+        )
         gs.set_stdio(__instance__, *self._callbacks)
 
     def __del__(self):
@@ -117,15 +80,10 @@ class Ghostscript(object):
             self._initialized = False
 
 
-__Ghostscript = Ghostscript
-__instance__ = None
-
-
 def Ghostscript(*args, **kwargs):
+    """Factory function for setting up a Ghostscript instance
     """
-    Factory function for setting up a Ghostscript instance
-    """
-    global __instance__, __object_count__
+    global __instance__
     # Ghostscript only supports a single instance
     if __instance__ is None:
         __instance__ = gs.new_instance()
@@ -133,3 +91,6 @@ def Ghostscript(*args, **kwargs):
                          stdin=kwargs.get('stdin', None),
                          stdout=kwargs.get('stdout', None),
                          stderr=kwargs.get('stderr', None))
+
+
+__instance__ = None

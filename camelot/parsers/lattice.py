@@ -181,8 +181,10 @@ class Lattice(BaseParser):
         gs_call = '-q -sDEVICE=png16m -o {} -r600 {}'.format(
             self.imagename, self.filename)
         gs_call = gs_call.encode().split()
-        with Ghostscript(*gs_call) as gs:
+        null = open(os.devnull, 'wb')
+        with Ghostscript(*gs_call, stdout=null) as gs:
             pass
+        null.close()
 
     def _generate_table_bbox(self):
         self.image, self.threshold = adaptive_threshold(
