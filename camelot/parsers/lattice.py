@@ -178,7 +178,7 @@ class Lattice(BaseParser):
 
     def _generate_image(self):
         self.imagename = ''.join([self.rootname, '.png'])
-        gs_call = '-q -sDEVICE=png16m -o {} -r600 {}'.format(
+        gs_call = '-q -sDEVICE=png16m -o {} -r300 {}'.format(
             self.imagename, self.filename)
         gs_call = gs_call.encode().split()
         null = open(os.devnull, 'wb')
