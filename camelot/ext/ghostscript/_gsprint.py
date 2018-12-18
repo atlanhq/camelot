@@ -53,6 +53,11 @@ display_callback = c_void_p
 # https://www.ghostscript.com/doc/current/API.htm
 
 
+class GhostscriptError(Exception):
+    def __init__(self, ecode):
+         self.code = ecode
+
+
 def new_instance():
     """Create a new instance of Ghostscript
 
