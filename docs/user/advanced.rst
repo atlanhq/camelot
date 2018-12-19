@@ -534,4 +534,4 @@ To deal with such cases, you can tweak PDFMiner's `LAParams kwargs <https://gith
 
 ::
 
-    >>> tables = camelot.read_pdf('foo.pdf', layout_kwargs={'detect_vertical': True})
+    >>> tables = camelot.read_pdf('foo.pdf', layout_kwargs={'detect_vertical': False})
