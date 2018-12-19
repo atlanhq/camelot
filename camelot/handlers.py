@@ -125,7 +125,7 @@ class PDFHandler(object):
                 with open(fpath, 'wb') as f:
                     outfile.write(f)
 
-    def parse(self, flavor='lattice', suppress_stdout=False, extra_kwargs={}, **kwargs):
+    def parse(self, flavor='lattice', suppress_stdout=False, layout_kwargs={}, **kwargs):
         """Extracts tables by calling parser.get_tables on all single
         page PDFs.
 
@@ -136,8 +136,8 @@ class PDFHandler(object):
             Lattice is used by default.
         suppress_stdout : str (default: False)
             Suppress logs and warnings.
-        extra_kwargs : dict, optional (default: {})
-            A dict of pdfminer.layout.LAParams kwargs.
+        layout_kwargs : dict, optional (default: {})
+            A dict of `pdfminer.layout.LAParams <https://github.com/euske/pdfminer/blob/master/pdfminer/layout.py#L33>`_ kwargs.
         kwargs : dict
             See camelot.read_pdf kwargs.
 
@@ -156,6 +156,6 @@ class PDFHandler(object):
             parser = Lattice(**kwargs) if flavor == 'lattice' else Stream(**kwargs)
             for p in pages:
                 t = parser.extract_tables(p, suppress_stdout=suppress_stdout,
-                                          extra_kwargs=extra_kwargs)
+                                          layout_kwargs=layout_kwargs)
                 tables.extend(t)
         return TableList(tables)

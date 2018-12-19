@@ -70,17 +70,13 @@ class Lattice(BaseParser):
         Number of times for erosion/dilation is applied.
 
         For more information, refer `OpenCV's dilate <https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html#dilate>`_.
-    margins : tuple
-        PDFMiner char_margin, line_margin and word_margin.
-
-        For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
     def __init__(self, table_areas=None, process_background=False,
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
                  split_text=False, flag_size=False, line_close_tol=2,
                  joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
-                 iterations=0, margins=(1.0, 0.5, 0.1), **kwargs):
+                 iterations=0, **kwargs):
         self.table_areas = table_areas
         self.process_background = process_background
         self.line_size_scaling = line_size_scaling
@@ -93,7 +89,6 @@ class Lattice(BaseParser):
         self.threshold_blocksize = threshold_blocksize
         self.threshold_constant = threshold_constant
         self.iterations = iterations
-        self.char_margin, self.line_margin, self.word_margin = margins
 
     @staticmethod
     def _reduce_index(t, idx, shift_text):
@@ -348,8 +343,8 @@ class Lattice(BaseParser):
 
         return table
 
-    def extract_tables(self, filename, suppress_stdout=False, extra_kwargs={}):
-        self._generate_layout(filename, extra_kwargs)
+    def extract_tables(self, filename, suppress_stdout=False, layout_kwargs={}):
+        self._generate_layout(filename, layout_kwargs)
         if not suppress_stdout:
             logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
