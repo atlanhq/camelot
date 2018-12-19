@@ -4,6 +4,12 @@ Release History
 master
 ------
 
+**Improvements**
+
+* [#170](https://github.com/socialcopsdev/camelot/issues/170) Add option to pass pdfminer layout kwargs. [#232](https://github.com/socialcopsdev/camelot/pull/232) by Vinayak Mehta.
+    * Keyword arguments for [pdfminer.layout.LAParams](https://github.com/euske/pdfminer/blob/master/pdfminer/layout.py#L33) can now be passed using `layout_kwargs` in `read_pdf()`.
+    * The `margins` keyword argument in `read_pdf()` is now deprecated.
+
 0.5.0 (2018-12-13)
 ------------------
 

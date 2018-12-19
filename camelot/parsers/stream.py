@@ -44,15 +44,10 @@ class Stream(BaseParser):
     col_close_tol : int, optional (default: 0)
         Tolerance parameter used to combine text horizontally,
         to generate columns.
-    margins : tuple, optional (default: (1.0, 0.5, 0.1))
-        PDFMiner char_margin, line_margin and word_margin.
-
-        For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
     def __init__(self, table_areas=None, columns=None, split_text=False,
-                 flag_size=False, row_close_tol=2, col_close_tol=0,
-                 margins=(1.0, 0.5, 0.1), **kwargs):
+                 flag_size=False, row_close_tol=2, col_close_tol=0, **kwargs):
         self.table_areas = table_areas
         self.columns = columns
         self._validate_columns()
@@ -60,7 +55,6 @@ class Stream(BaseParser):
         self.flag_size = flag_size
         self.row_close_tol = row_close_tol
         self.col_close_tol = col_close_tol
-        self.char_margin, self.line_margin, self.word_margin = margins
 
     @staticmethod
     def _text_bbox(t_bbox):
@@ -388,8 +382,8 @@ class Stream(BaseParser):
 
         return table
 
-    def extract_tables(self, filename, suppress_stdout=False):
-        self._generate_layout(filename)
+    def extract_tables(self, filename, suppress_stdout=False, layout_kwargs={}):
+        self._generate_layout(filename, layout_kwargs)
         if not suppress_stdout:
             logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
