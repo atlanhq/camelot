@@ -102,6 +102,15 @@ def test_stream_flag_size():
     assert df.equals(tables[0].df)
 
 
+def test_stream_layout_kwargs():
+    df = pd.DataFrame(data_stream_layout_kwargs)
+
+    filename = os.path.join(testdir, "detect_vertical_false.pdf")
+    tables = camelot.read_pdf(
+        filename, flavor="stream", layout_kwargs={"detect_vertical": False})
+    assert df.equals(tables[0].df)
+
+
 def test_lattice():
     df = pd.DataFrame(data_lattice)
 
