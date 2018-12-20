@@ -84,6 +84,8 @@ def cli(ctx, *args, **kwargs):
               ' may be zero or negative as well.')
 @click.option('-I', '--iterations', default=0,
               help='Number of times for erosion/dilation will be applied.')
+@click.option('-res', '--resolution', default=300,
+              help='Resolution used for PDF to PNG conversion.')
 @click.option('-plot', '--plot_type',
               type=click.Choice(['text', 'grid', 'contour', 'joint', 'line']),
               help='Plot elements found on PDF page for visual debugging.')

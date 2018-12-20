@@ -76,7 +76,7 @@ class Lattice(BaseParser):
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
                  split_text=False, flag_size=False, line_close_tol=2,
                  joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
-                 iterations=0, **kwargs):
+                 iterations=0, resolution=300, **kwargs):
         self.table_areas = table_areas
         self.process_background = process_background
         self.line_size_scaling = line_size_scaling
@@ -89,6 +89,7 @@ class Lattice(BaseParser):
         self.threshold_blocksize = threshold_blocksize
         self.threshold_constant = threshold_constant
         self.iterations = iterations
+        self.resolution = resolution
 
     @staticmethod
     def _reduce_index(t, idx, shift_text):
@@ -209,7 +210,7 @@ class Lattice(BaseParser):
             '-sDEVICE=png16m',
             '-o',
             self.imagename,
-            '-r600',
+            '-r{}'.format(self.resolution),
             self.filename
         ]
         gs = get_executable()

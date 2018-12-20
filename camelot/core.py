@@ -72,7 +72,8 @@ class TextEdges(object):
     the PDF page. The dict has three keys based on the alignments,
     and each key's value is a list of camelot.core.TextEdge objects.
     """
-    def __init__(self):
+    def __init__(self, edge_close_tol=50):
+        self.edge_close_tol = edge_close_tol
         self._textedges = {'left': [], 'right': [], 'middle': []}
 
     @staticmethod
@@ -104,7 +105,7 @@ class TextEdges(object):
         te = TextEdge(x, y0, y1, align=align)
         self._textedges[align].append(te)
 
-    def update(self, textline, edge_close_tol=50):
+    def update(self, textline):
         """Updates an existing text edge in the current dict.
         """
         for align in ['left', 'right', 'middle']:
@@ -114,15 +115,15 @@ class TextEdges(object):
                 self.add(textline, align)
             else:
                 self._textedges[align][idx].update_coords(
-                    x_coord, textline.y0, edge_close_tol=edge_close_tol)
+                    x_coord, textline.y0, edge_close_tol=self.edge_close_tol)
 
-    def generate(self, textlines, edge_close_tol=50):
+    def generate(self, textlines):
         """Generates the text edges dict based on horizontal text
         rows.
         """
         for tl in textlines:
             if len(tl.get_text().strip()) > 1: # TODO: hacky
-                self.update(tl, edge_close_tol=edge_close_tol)
+                self.update(tl)
 
     def get_relevant(self):
         """Returns the list of relevant text edges (all share the same

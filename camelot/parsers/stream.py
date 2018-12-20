@@ -255,9 +255,9 @@ class Stream(BaseParser):
         # TODO: add support for arabic text #141
         # sort textlines in reading order
         textlines.sort(key=lambda x: (-x.y0, x.x0))
-        textedges = TextEdges()
+        textedges = TextEdges(edge_close_tol=self.edge_close_tol)
         # generate left, middle and right textedges
-        textedges.generate(textlines, edge_close_tol=self.edge_close_tol)
+        textedges.generate(textlines)
         # select relevant edges
         relevant_textedges = textedges.get_relevant()
         self.textedges.extend(relevant_textedges)
