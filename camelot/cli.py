@@ -43,6 +43,8 @@ pass_config = click.make_pass_decorator(Config)
               help='Split text that spans across multiple cells.')
 @click.option('-flag', '--flag_size', is_flag=True, help='Flag text based on'
               ' font size. Useful to detect super/subscripts.')
+@click.option('-strip', '--strip_text', help='Characters that should be stripped from a string before'
+              ' assigning it to a cell.')
 @click.option('-M', '--margins', nargs=3, default=(1.0, 0.5, 0.1),
               help='PDFMiner char_margin, line_margin and word_margin.')
 @click.pass_context

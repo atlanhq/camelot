@@ -309,7 +309,12 @@ def merge_close_lines(ar, line_close_tol=2):
     return ret
 
 
-def flag_font_size(textline, direction):
+# TODO: combine the following functions into a TextProcessor class which
+# applies corresponding transformations sequentially
+# (inspired from sklearn.pipeline.Pipeline)
+
+
+def flag_font_size(textline, direction, strip_text=''):
     """Flags super/subscripts in text by enclosing them with <s></s>.
     May give false positives.
 
@@ -319,6 +324,9 @@ def flag_font_size(textline, direction):
         List of PDFMiner LTChar objects.
     direction : string
         Direction of the PDFMiner LTTextLine object.
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
 
     Returns
     -------
@@ -344,13 +352,13 @@ def flag_font_size(textline, direction):
                 fchars = [t[0] for t in chars]
                 if ''.join(fchars).strip():
                     flist.append(''.join(fchars))
-        fstring = ''.join(flist)
+        fstring = ''.join(flist).strip(strip_text)
     else:
-        fstring = ''.join([t.get_text() for t in textline])
+        fstring = ''.join([t.get_text() for t in textline]).strip(strip_text)
     return fstring
 
 
-def split_textline(table, textline, direction, flag_size=False):
+def split_textline(table, textline, direction, flag_size=False, strip_text=''):
     """Splits PDFMiner LTTextLine into substrings if it spans across
     multiple rows/columns.
 
@@ -365,6 +373,9 @@ def split_textline(table, textline, direction, flag_size=False):
         Whether or not to highlight a substring using <s></s>
         if its size is different from rest of the string. (Useful for
         super and subscripts.)
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
 
     Returns
     -------
@@ -416,14 +427,15 @@ def split_textline(table, textline, direction, flag_size=False):
     grouped_chars = []
     for key, chars in groupby(cut_text, itemgetter(0, 1)):
         if flag_size:
-            grouped_chars.append((key[0], key[1], flag_font_size([t[2] for t in chars], direction)))
+            grouped_chars.append((key[0], key[1],
+                flag_font_size([t[2] for t in chars], direction, strip_text=strip_text)))
         else:
             gchars = [t[2].get_text() for t in chars]
-            grouped_chars.append((key[0], key[1], ''.join(gchars)))
+            grouped_chars.append((key[0], key[1], ''.join(gchars).strip(strip_text)))
     return grouped_chars
 
 
-def get_table_index(table, t, direction, split_text=False, flag_size=False):
+def get_table_index(table, t, direction, split_text=False, flag_size=False, strip_text='',):
     """Gets indices of the table cell where given text object lies by
     comparing their y and x-coordinates.
 
@@ -441,6 +453,9 @@ def get_table_index(table, t, direction, split_text=False, flag_size=False):
         Whether or not to highlight a substring using <s></s>
         if its size is different from rest of the string. (Useful for
         super and subscripts)
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
 
     Returns
     -------
@@ -495,12 +510,12 @@ def get_table_index(table, t, direction, split_text=False, flag_size=False):
     error = ((X * (y0_offset + y1_offset)) + (Y * (x0_offset + x1_offset))) / charea
 
     if split_text:
-        return split_textline(table, t, direction, flag_size=flag_size), error
+        return split_textline(table, t, direction, flag_size=flag_size, strip_text=strip_text), error
     else:
         if flag_size:
-            return [(r_idx, c_idx, flag_font_size(t._objs, direction))], error
+            return [(r_idx, c_idx, flag_font_size(t._objs, direction, strip_text=strip_text))], error
         else:
-            return [(r_idx, c_idx, t.get_text())], error
+            return [(r_idx, c_idx, t.get_text().strip(strip_text))], error
 
 
 def compute_accuracy(error_weights):

@@ -47,6 +47,9 @@ class Lattice(BaseParser):
         Direction in which text in a spanning cell will flow.
     split_text : bool, optional (default: False)
         Split text that spans across multiple cells.
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
     flag_size : bool, optional (default: False)
         Flag text based on font size. Useful to detect
         super/subscripts. Adds <s></s> around flagged text.
@@ -74,7 +77,7 @@ class Lattice(BaseParser):
     """
     def __init__(self, table_areas=None, process_background=False,
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
-                 split_text=False, flag_size=False, line_close_tol=2,
+                 split_text=False, flag_size=False, strip_text='', line_close_tol=2,
                  joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
                  iterations=0, resolution=300, **kwargs):
         self.table_areas = table_areas
@@ -84,6 +87,7 @@ class Lattice(BaseParser):
         self.shift_text = shift_text
         self.split_text = split_text
         self.flag_size = flag_size
+        self.strip_text = strip_text
         self.line_close_tol = line_close_tol
         self.joint_close_tol = joint_close_tol
         self.threshold_blocksize = threshold_blocksize

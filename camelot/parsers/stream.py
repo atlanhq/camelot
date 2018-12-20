@@ -35,6 +35,9 @@ class Stream(BaseParser):
         are comma-separated.
     split_text : bool, optional (default: False)
         Split text that spans across multiple cells.
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
     flag_size : bool, optional (default: False)
         Flag text based on font size. Useful to detect
         super/subscripts. Adds <s></s> around flagged text.
@@ -49,13 +52,14 @@ class Stream(BaseParser):
 
     """
     def __init__(self, table_areas=None, columns=None, split_text=False,
-                 flag_size=False, edge_close_tol=50, row_close_tol=2,
+                 flag_size=False, strip_text='', edge_close_tol=50, row_close_tol=2,
                  col_close_tol=0, **kwargs):
         self.table_areas = table_areas
         self.columns = columns
         self._validate_columns()
         self.split_text = split_text
         self.flag_size = flag_size
+        self.strip_text = strip_text
         self.edge_close_tol = edge_close_tol
         self.row_close_tol = row_close_tol
         self.col_close_tol = col_close_tol
