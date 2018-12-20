@@ -188,7 +188,7 @@ def test_repr():
     tables = camelot.read_pdf(filename)
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
-    assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.42 x2=164.64 y2=233.89>"
+    assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
 
 
 def test_arabic():
