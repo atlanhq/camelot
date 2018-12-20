@@ -38,6 +38,8 @@ class Stream(BaseParser):
     flag_size : bool, optional (default: False)
         Flag text based on font size. Useful to detect
         super/subscripts. Adds <s></s> around flagged text.
+    edge_close_tol : int, optional (default: 50)
+        Tolerance parameter for extending textedges vertically.
     row_close_tol : int, optional (default: 2)
         Tolerance parameter used to combine text vertically,
         to generate rows.
@@ -47,12 +49,14 @@ class Stream(BaseParser):
 
     """
     def __init__(self, table_areas=None, columns=None, split_text=False,
-                 flag_size=False, row_close_tol=2, col_close_tol=0, **kwargs):
+                 flag_size=False, edge_close_tol=50, row_close_tol=2,
+                 col_close_tol=0, **kwargs):
         self.table_areas = table_areas
         self.columns = columns
         self._validate_columns()
         self.split_text = split_text
         self.flag_size = flag_size
+        self.edge_close_tol = edge_close_tol
         self.row_close_tol = row_close_tol
         self.col_close_tol = col_close_tol
 
@@ -248,13 +252,12 @@ class Stream(BaseParser):
         Assumes that tables are situated relatively far apart
         vertically.
         """
-
         # TODO: add support for arabic text #141
         # sort textlines in reading order
         textlines.sort(key=lambda x: (-x.y0, x.x0))
         textedges = TextEdges()
         # generate left, middle and right textedges
-        textedges.generate(textlines)
+        textedges.generate(textlines, edge_close_tol=self.edge_close_tol)
         # select relevant edges
         relevant_textedges = textedges.get_relevant()
         self.textedges.extend(relevant_textedges)

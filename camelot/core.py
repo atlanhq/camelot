@@ -13,8 +13,6 @@ import pandas as pd
 # minimum number of vertical textline intersections for a textedge
 # to be considered valid
 TEXTEDGE_REQUIRED_ELEMENTS = 4
-# y coordinate tolerance for extending textedge
-TEXTEDGE_EXTEND_TOLERANCE = 50
 # padding added to table area on the left, right and bottom
 TABLE_AREA_PADDING = 10
 
@@ -55,11 +53,11 @@ class TextEdge(object):
         return '<TextEdge x={} y0={} y1={} align={} valid={}>'.format(
             round(self.x, 2), round(self.y0, 2), round(self.y1, 2), self.align, self.is_valid)
 
-    def update_coords(self, x, y0):
+    def update_coords(self, x, y0, edge_close_tol=50):
         """Updates the text edge's x and bottom y coordinates and sets
         the is_valid attribute.
         """
-        if np.isclose(self.y0, y0, atol=TEXTEDGE_EXTEND_TOLERANCE):
+        if np.isclose(self.y0, y0, atol=edge_close_tol):
             self.x = (self.intersections * self.x + x) / float(self.intersections + 1)
             self.y0 = y0
             self.intersections += 1
@@ -106,7 +104,7 @@ class TextEdges(object):
         te = TextEdge(x, y0, y1, align=align)
         self._textedges[align].append(te)
 
-    def update(self, textline):
+    def update(self, textline, edge_close_tol=50):
         """Updates an existing text edge in the current dict.
         """
         for align in ['left', 'right', 'middle']:
@@ -115,15 +113,16 @@ class TextEdges(object):
             if idx is None:
                 self.add(textline, align)
             else:
-                self._textedges[align][idx].update_coords(x_coord, textline.y0)
+                self._textedges[align][idx].update_coords(
+                    x_coord, textline.y0, edge_close_tol=edge_close_tol)
 
-    def generate(self, textlines):
+    def generate(self, textlines, edge_close_tol=50):
         """Generates the text edges dict based on horizontal text
         rows.
         """
         for tl in textlines:
             if len(tl.get_text().strip()) > 1: # TODO: hacky
-                self.update(tl)
+                self.update(tl, edge_close_tol=edge_close_tol)
 
     def get_relevant(self):
         """Returns the list of relevant text edges (all share the same

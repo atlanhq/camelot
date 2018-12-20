@@ -133,6 +133,8 @@ def lattice(c, *args, **kwargs):
               ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-C', '--columns', default=[], multiple=True,
               help='X coordinates of column separators.')
+@click.option('-e', '--edge_close_tol', default=50, help='Tolerance parameter'
+              ' for extending textedges vertically.')
 @click.option('-r', '--row_close_tol', default=2, help='Tolerance parameter'
               ' used to combine text vertically, to generate rows.')
 @click.option('-c', '--col_close_tol', default=0, help='Tolerance parameter'
