@@ -319,7 +319,7 @@ You can solve this by passing ``flag_size=True``, which will enclose the supersc
 Control how text is grouped into rows
 -------------------------------------
 
-You can pass ``row_close_tol=<+int>`` to group the rows closer together, as shown below.
+You can pass ``row_tol=<+int>`` to group the rows closer together, as shown below.
 
 ::
 
@@ -337,7 +337,7 @@ You can pass ``row_close_tol=<+int>`` to group the rows closer together, as show
 
 ::
 
-    >>> tables = camelot.read_pdf('group_rows.pdf', flavor='stream', row_close_tol=10)
+    >>> tables = camelot.read_pdf('group_rows.pdf', flavor='stream', row_tol=10)
     >>> tables[0].df
 
 .. tip::

@@ -81,7 +81,7 @@ def test_stream_columns():
 
     filename = os.path.join(testdir, "mexican_towns.pdf")
     tables = camelot.read_pdf(
-        filename, flavor="stream", columns=["67,180,230,425,475"], row_close_tol=10)
+        filename, flavor="stream", columns=["67,180,230,425,475"], row_tol=10)
     assert df.equals(tables[0].df)
 
 
@@ -99,6 +99,22 @@ def test_stream_flag_size():
 
     filename = os.path.join(testdir, "superscript.pdf")
     tables = camelot.read_pdf(filename, flavor="stream", flag_size=True)
+    assert df.equals(tables[0].df)
+
+
+def test_stream_strip_text():
+    df = pd.DataFrame(data_stream_strip_text)
+
+    filename = os.path.join(testdir, "detect_vertical_false.pdf")
+    tables = camelot.read_pdf(filename, flavor="stream", strip_text="\n")
+    assert df.equals(tables[0].df)
+
+
+def test_stream_edge_tol():
+    df = pd.DataFrame(data_stream_edge_tol)
+
+    filename = os.path.join(testdir, "edge_tolerance.pdf")
+    tables = camelot.read_pdf(filename, flavor="stream", edge_tol=500)
     assert df.equals(tables[0].df)
 
 

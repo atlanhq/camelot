@@ -47,16 +47,16 @@ class Lattice(BaseParser):
         Direction in which text in a spanning cell will flow.
     split_text : bool, optional (default: False)
         Split text that spans across multiple cells.
-    strip_text : str, optional (default: '')
-        Characters that should be stripped from a string before
-        assigning it to a cell.
     flag_size : bool, optional (default: False)
         Flag text based on font size. Useful to detect
         super/subscripts. Adds <s></s> around flagged text.
-    line_close_tol : int, optional (default: 2)
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
+    line_tol : int, optional (default: 2)
         Tolerance parameter used to merge close vertical and horizontal
         lines.
-    joint_close_tol : int, optional (default: 2)
+    joint_tol : int, optional (default: 2)
         Tolerance parameter used to decide whether the detected lines
         and points lie close to each other.
     threshold_blocksize : int, optional (default: 15)
@@ -73,12 +73,14 @@ class Lattice(BaseParser):
         Number of times for erosion/dilation is applied.
 
         For more information, refer `OpenCV's dilate <https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html#dilate>`_.
+    resolution : int, optional (default: 300)
+        Resolution used for PDF to PNG conversion.
 
     """
     def __init__(self, table_areas=None, process_background=False,
                  line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
-                 split_text=False, flag_size=False, strip_text='', line_close_tol=2,
-                 joint_close_tol=2, threshold_blocksize=15, threshold_constant=-2,
+                 split_text=False, flag_size=False, strip_text='', line_tol=2,
+                 joint_tol=2, threshold_blocksize=15, threshold_constant=-2,
                  iterations=0, resolution=300, **kwargs):
         self.table_areas = table_areas
         self.process_background = process_background
@@ -88,8 +90,8 @@ class Lattice(BaseParser):
         self.split_text = split_text
         self.flag_size = flag_size
         self.strip_text = strip_text
-        self.line_close_tol = line_close_tol
-        self.joint_close_tol = joint_close_tol
+        self.line_tol = line_tol
+        self.joint_tol = joint_tol
         self.threshold_blocksize = threshold_blocksize
         self.threshold_constant = threshold_constant
         self.iterations = iterations
@@ -283,9 +285,9 @@ class Lattice(BaseParser):
         rows.extend([tk[1], tk[3]])
         # sort horizontal and vertical segments
         cols = merge_close_lines(
-            sorted(cols), line_close_tol=self.line_close_tol)
+            sorted(cols), line_tol=self.line_tol)
         rows = merge_close_lines(
-            sorted(rows, reverse=True), line_close_tol=self.line_close_tol)
+            sorted(rows, reverse=True), line_tol=self.line_tol)
         # make grid using x and y coord of shortlisted rows and cols
         cols = [(cols[i], cols[i + 1])
                 for i in range(0, len(cols) - 1)]
@@ -302,7 +304,7 @@ class Lattice(BaseParser):
 
         table = Table(cols, rows)
         # set table edges to True using ver+hor lines
-        table = table.set_edges(v_s, h_s, joint_close_tol=self.joint_close_tol)
+        table = table.set_edges(v_s, h_s, joint_tol=self.joint_tol)
         # set table border edges to True
         table = table.set_border()
         # set spanning cells to True
@@ -315,7 +317,7 @@ class Lattice(BaseParser):
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
                     table, t, direction, split_text=self.split_text,
-                    flag_size=self.flag_size)
+                    flag_size=self.flag_size, strip_text=self.strip_text)
                 if indices[:2] != (-1, -1):
                     pos_errors.append(error)
                     indices = Lattice._reduce_index(table, indices, shift_text=self.shift_text)

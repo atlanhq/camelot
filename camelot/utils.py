@@ -20,16 +20,16 @@ from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
 
 stream_kwargs = [
     'columns',
-    'row_close_tol',
-    'col_close_tol'
+    'row_tol',
+    'column_tol'
 ]
 lattice_kwargs = [
     'process_background',
     'line_size_scaling',
     'copy_text',
     'shift_text',
-    'line_close_tol',
-    'joint_close_tol',
+    'line_tol',
+    'joint_tol',
     'threshold_blocksize',
     'threshold_constant',
     'iterations'
@@ -281,14 +281,14 @@ def text_in_bbox(bbox, text):
     return t_bbox
 
 
-def merge_close_lines(ar, line_close_tol=2):
+def merge_close_lines(ar, line_tol=2):
     """Merges lines which are within a tolerance by calculating a
     moving mean, based on their x or y axis projections.
 
     Parameters
     ----------
     ar : list
-    line_close_tol : int, optional (default: 2)
+    line_tol : int, optional (default: 2)
 
     Returns
     -------
@@ -301,7 +301,7 @@ def merge_close_lines(ar, line_close_tol=2):
             ret.append(a)
         else:
             temp = ret[-1]
-            if np.isclose(temp, a, atol=line_close_tol):
+            if np.isclose(temp, a, atol=line_tol):
                 temp = (temp + a) / 2.0
                 ret[-1] = temp
             else:
