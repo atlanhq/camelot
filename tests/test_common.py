@@ -113,7 +113,7 @@ def test_stream_strip_text():
 def test_stream_edge_tol():
     df = pd.DataFrame(data_stream_edge_tol)
 
-    filename = os.path.join(testdir, "edge_tolerance.pdf")
+    filename = os.path.join(testdir, "edge_tol.pdf")
     tables = camelot.read_pdf(filename, flavor="stream", edge_tol=500)
     assert df.equals(tables[0].df)
 
