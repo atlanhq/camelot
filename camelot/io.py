@@ -40,10 +40,13 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     flag_size : bool, optional (default: False)
         Flag text based on font size. Useful to detect
         super/subscripts. Adds <s></s> around flagged text.
-    row_close_tol^ : int, optional (default: 2)
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
+    row_tol^ : int, optional (default: 2)
         Tolerance parameter used to combine text vertically,
         to generate rows.
-    col_close_tol^ : int, optional (default: 0)
+    column_tol^ : int, optional (default: 0)
         Tolerance parameter used to combine text horizontally,
         to generate columns.
     process_background* : bool, optional (default: False)
@@ -59,10 +62,10 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     shift_text* : list, optional (default: ['l', 't'])
         {'l', 'r', 't', 'b'}
         Direction in which text in a spanning cell will flow.
-    line_close_tol* : int, optional (default: 2)
+    line_tol* : int, optional (default: 2)
         Tolerance parameter used to merge close vertical and horizontal
         lines.
-    joint_close_tol* : int, optional (default: 2)
+    joint_tol* : int, optional (default: 2)
         Tolerance parameter used to decide whether the detected lines
         and points lie close to each other.
     threshold_blocksize* : int, optional (default: 15)
@@ -79,6 +82,8 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         Number of times for erosion/dilation is applied.
 
         For more information, refer `OpenCV's dilate <https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html#dilate>`_.
+    resolution* : int, optional (default: 300)
+        Resolution used for PDF to PNG conversion.
 
     Returns
     -------
