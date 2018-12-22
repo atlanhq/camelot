@@ -6,7 +6,7 @@ from .utils import validate_input, remove_extra
 
 
 def read_pdf(filepath, pages='1', password=None, flavor='lattice',
-             suppress_stdout=False, **kwargs):
+             suppress_stdout=False, layout_kwargs={}, **kwargs):
     """Read PDF and return extracted tables.
 
     Note: kwargs annotated with ^ can only be used with flavor='stream'
@@ -26,6 +26,8 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         Lattice is used by default.
     suppress_stdout : bool, optional (default: True)
         Print all logs and warnings.
+    layout_kwargs : dict, optional (default: {})
+        A dict of `pdfminer.layout.LAParams <https://github.com/euske/pdfminer/blob/master/pdfminer/layout.py#L33>`_ kwargs.
     table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
@@ -38,10 +40,13 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     flag_size : bool, optional (default: False)
         Flag text based on font size. Useful to detect
         super/subscripts. Adds <s></s> around flagged text.
-    row_close_tol^ : int, optional (default: 2)
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
+    row_tol^ : int, optional (default: 2)
         Tolerance parameter used to combine text vertically,
         to generate rows.
-    col_close_tol^ : int, optional (default: 0)
+    column_tol^ : int, optional (default: 0)
         Tolerance parameter used to combine text horizontally,
         to generate columns.
     process_background* : bool, optional (default: False)
@@ -57,10 +62,10 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     shift_text* : list, optional (default: ['l', 't'])
         {'l', 'r', 't', 'b'}
         Direction in which text in a spanning cell will flow.
-    line_close_tol* : int, optional (default: 2)
+    line_tol* : int, optional (default: 2)
         Tolerance parameter used to merge close vertical and horizontal
         lines.
-    joint_close_tol* : int, optional (default: 2)
+    joint_tol* : int, optional (default: 2)
         Tolerance parameter used to decide whether the detected lines
         and points lie close to each other.
     threshold_blocksize* : int, optional (default: 15)
@@ -77,10 +82,8 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         Number of times for erosion/dilation is applied.
 
         For more information, refer `OpenCV's dilate <https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html#dilate>`_.
-    margins : tuple
-        PDFMiner char_margin, line_margin and word_margin.
-
-        For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
+    resolution* : int, optional (default: 300)
+        Resolution used for PDF to PNG conversion.
 
     Returns
     -------
@@ -98,5 +101,6 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         validate_input(kwargs, flavor=flavor)
         p = PDFHandler(filepath, pages=pages, password=password)
         kwargs = remove_extra(kwargs, flavor=flavor)
-        tables = p.parse(flavor=flavor, suppress_stdout=suppress_stdout, **kwargs)
+        tables = p.parse(flavor=flavor, suppress_stdout=suppress_stdout,
+                         layout_kwargs=layout_kwargs, **kwargs)
         return tables

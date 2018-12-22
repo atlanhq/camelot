@@ -38,29 +38,31 @@ class Stream(BaseParser):
     flag_size : bool, optional (default: False)
         Flag text based on font size. Useful to detect
         super/subscripts. Adds <s></s> around flagged text.
-    row_close_tol : int, optional (default: 2)
+    strip_text : str, optional (default: '')
+        Characters that should be stripped from a string before
+        assigning it to a cell.
+    edge_tol : int, optional (default: 50)
+        Tolerance parameter for extending textedges vertically.
+    row_tol : int, optional (default: 2)
         Tolerance parameter used to combine text vertically,
         to generate rows.
-    col_close_tol : int, optional (default: 0)
+    column_tol : int, optional (default: 0)
         Tolerance parameter used to combine text horizontally,
         to generate columns.
-    margins : tuple, optional (default: (1.0, 0.5, 0.1))
-        PDFMiner char_margin, line_margin and word_margin.
-
-        For more information, refer `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 
     """
     def __init__(self, table_areas=None, columns=None, split_text=False,
-                 flag_size=False, row_close_tol=2, col_close_tol=0,
-                 margins=(1.0, 0.5, 0.1), **kwargs):
+                 flag_size=False, strip_text='', edge_tol=50, row_tol=2,
+                 column_tol=0, **kwargs):
         self.table_areas = table_areas
         self.columns = columns
         self._validate_columns()
         self.split_text = split_text
         self.flag_size = flag_size
-        self.row_close_tol = row_close_tol
-        self.col_close_tol = col_close_tol
-        self.char_margin, self.line_margin, self.word_margin = margins
+        self.strip_text = strip_text
+        self.edge_tol = edge_tol
+        self.row_tol = row_tol
+        self.column_tol = column_tol
 
     @staticmethod
     def _text_bbox(t_bbox):
@@ -86,7 +88,7 @@ class Stream(BaseParser):
         return text_bbox
 
     @staticmethod
-    def _group_rows(text, row_close_tol=2):
+    def _group_rows(text, row_tol=2):
         """Groups PDFMiner text objects into rows vertically
         within a tolerance.
 
@@ -94,7 +96,7 @@ class Stream(BaseParser):
         ----------
         text : list
             List of PDFMiner text objects.
-        row_close_tol : int, optional (default: 2)
+        row_tol : int, optional (default: 2)
 
         Returns
         -------
@@ -110,7 +112,7 @@ class Stream(BaseParser):
             # if t.get_text().strip() and all([obj.upright for obj in t._objs if
             # type(obj) is LTChar]):
             if t.get_text().strip():
-                if not np.isclose(row_y, t.y0, atol=row_close_tol):
+                if not np.isclose(row_y, t.y0, atol=row_tol):
                     rows.append(sorted(temp, key=lambda t: t.x0))
                     temp = []
                     row_y = t.y0
@@ -120,7 +122,7 @@ class Stream(BaseParser):
         return rows
 
     @staticmethod
-    def _merge_columns(l, col_close_tol=0):
+    def _merge_columns(l, column_tol=0):
         """Merges column boundaries horizontally if they overlap
         or lie within a tolerance.
 
@@ -128,7 +130,7 @@ class Stream(BaseParser):
         ----------
         l : list
             List of column x-coordinate tuples.
-        col_close_tol : int, optional (default: 0)
+        column_tol : int, optional (default: 0)
 
         Returns
         -------
@@ -142,17 +144,17 @@ class Stream(BaseParser):
                 merged.append(higher)
             else:
                 lower = merged[-1]
-                if col_close_tol >= 0:
+                if column_tol >= 0:
                     if (higher[0] <= lower[1] or
-                            np.isclose(higher[0], lower[1], atol=col_close_tol)):
+                            np.isclose(higher[0], lower[1], atol=column_tol)):
                         upper_bound = max(lower[1], higher[1])
                         lower_bound = min(lower[0], higher[0])
                         merged[-1] = (lower_bound, upper_bound)
                     else:
                         merged.append(higher)
-                elif col_close_tol < 0:
+                elif column_tol < 0:
                     if higher[0] <= lower[1]:
-                        if np.isclose(higher[0], lower[1], atol=abs(col_close_tol)):
+                        if np.isclose(higher[0], lower[1], atol=abs(column_tol)):
                             merged.append(higher)
                         else:
                             upper_bound = max(lower[1], higher[1])
@@ -189,7 +191,7 @@ class Stream(BaseParser):
         return rows
 
     @staticmethod
-    def _add_columns(cols, text, row_close_tol):
+    def _add_columns(cols, text, row_tol):
         """Adds columns to existing list by taking into account
         the text that lies outside the current column x-coordinates.
 
@@ -208,7 +210,7 @@ class Stream(BaseParser):
 
         """
         if text:
-            text = Stream._group_rows(text, row_close_tol=row_close_tol)
+            text = Stream._group_rows(text, row_tol=row_tol)
             elements = [len(r) for r in text]
             new_cols = [(t.x0, t.x1)
                         for r in text if len(r) == max(elements) for t in r]
@@ -254,11 +256,10 @@ class Stream(BaseParser):
         Assumes that tables are situated relatively far apart
         vertically.
         """
-
         # TODO: add support for arabic text #141
         # sort textlines in reading order
         textlines.sort(key=lambda x: (-x.y0, x.x0))
-        textedges = TextEdges()
+        textedges = TextEdges(edge_tol=self.edge_tol)
         # generate left, middle and right textedges
         textedges.generate(textlines)
         # select relevant edges
@@ -300,7 +301,7 @@ class Stream(BaseParser):
         self.t_bbox = t_bbox
 
         text_x_min, text_y_min, text_x_max, text_y_max = self._text_bbox(self.t_bbox)
-        rows_grouped = self._group_rows(self.t_bbox['horizontal'], row_close_tol=self.row_close_tol)
+        rows_grouped = self._group_rows(self.t_bbox['horizontal'], row_tol=self.row_tol)
         rows = self._join_rows(rows_grouped, text_y_max, text_y_min)
         elements = [len(r) for r in rows_grouped]
 
@@ -331,7 +332,7 @@ class Stream(BaseParser):
                     warnings.warn("No tables found in table area {}".format(
                         table_idx + 1))
             cols = [(t.x0, t.x1) for r in rows_grouped if len(r) == ncols for t in r]
-            cols = self._merge_columns(sorted(cols), col_close_tol=self.col_close_tol)
+            cols = self._merge_columns(sorted(cols), column_tol=self.column_tol)
             inner_text = []
             for i in range(1, len(cols)):
                 left = cols[i - 1][1]
@@ -343,7 +344,7 @@ class Stream(BaseParser):
                             for t in self.t_bbox[direction]
                             if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
             inner_text.extend(outer_text)
-            cols = self._add_columns(cols, inner_text, self.row_close_tol)
+            cols = self._add_columns(cols, inner_text, self.row_tol)
             cols = self._join_columns(cols, text_x_min, text_x_max)
 
         return cols, rows
@@ -359,7 +360,7 @@ class Stream(BaseParser):
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
                     table, t, direction, split_text=self.split_text,
-                    flag_size=self.flag_size)
+                    flag_size=self.flag_size, strip_text=self.strip_text)
                 if indices[:2] != (-1, -1):
                     pos_errors.append(error)
                     for r_idx, c_idx, text in indices:
@@ -388,8 +389,8 @@ class Stream(BaseParser):
 
         return table
 
-    def extract_tables(self, filename, suppress_stdout=False):
-        self._generate_layout(filename)
+    def extract_tables(self, filename, suppress_stdout=False, layout_kwargs={}):
+        self._generate_layout(filename, layout_kwargs)
         if not suppress_stdout:
             logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 

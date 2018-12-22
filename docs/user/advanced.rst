@@ -316,10 +316,87 @@ You can solve this by passing ``flag_size=True``, which will enclose the supersc
     "Madhya Pradesh","27.13","23.57","-","-","3.56","0.38","-","1.86","-","1.28"
     "...","...","...","...","...","...","...","...","...","...","..."
 
-Control how text is grouped into rows
--------------------------------------
+Strip characters from text
+--------------------------
 
-You can pass ``row_close_tol=<+int>`` to group the rows closer together, as shown below.
+You can strip unwanted characters like spaces, dots and newlines from a string using the ``strip_text`` keyword argument. Take a look at `this PDF <https://github.com/socialcopsdev/camelot/blob/master/tests/files/tabula/12s0324.pdf>`_ as an example, the text at the start of each row contains a lot of unwanted spaces, dots and newlines.
+
+::
+
+    >>> tables = camelot.read_pdf('12s0324.pdf', flavor='stream', strip_text=' .\n')
+    >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot -strip ' .\n' stream 12s0324.pdf
+
+.. csv-table::
+
+    "...","...","...","...","...","...","...","...","...","..."
+    "Forcible rape","17.5","2.6","14.9","17.2","2.5","14.7","–","–","–"
+    "Robbery","102.1","25.5","76.6","90.0","22.9","67.1","12.1","2.5","9.5"
+    "Aggravated assault","338.4","40.1","298.3","264.0","30.2","233.8","74.4","9.9","64.5"
+    "Property crime","1,396 .4","338 .7","1,057 .7","875 .9","210 .8","665 .1","608 .2","127 .9","392 .6"
+    "Burglary","240.9","60.3","180.6","205.0","53.4","151.7","35.9","6.9","29.0"
+    "...","...","...","...","...","...","...","...","...","..."
+
+Improve guessed table areas
+---------------------------
+
+While using :ref:`Stream <stream>`, automatic table detection can fail for PDFs like `this one <https://github.com/socialcopsdev/camelot/blob/master/tests/files/edge_tol.pdf>`_. That's because the text is relatively far apart vertically, which can lead to shorter textedges being calculated.
+
+.. note:: To know more about how textedges are calculated to guess table areas, you can see pages 20, 35 and 40 of `Anssi Nurminen's master's thesis <http://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3>`_.
+
+Let's see the table area that is detected by default.
+
+::
+
+    >>> tables = camelot.read_pdf('edge_tol.pdf', flavor='stream')
+    >>> camelot.plot(tables[0], kind='contour')
+    >>> plt.show()
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -plot contour edge.pdf
+
+.. figure:: ../_static/png/edge_tol_1.png
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: Table area with default edge_tol
+    :align: left
+
+To improve the detected area, you can increase the ``edge_tol`` (default: 50) value to counter the effect of text being placed relatively far apart vertically. Larger ``edge_tol`` will lead to longer textedges being detected, leading to an improved guess of the table area. Let's use a value of 500.
+
+::
+
+    >>> tables = camelot.read_pdf('edge_tol.pdf', flavor='stream', edge_tol=500)
+    >>> camelot.plot(tables[0], kind='contour')
+    >>> plt.show()
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot stream -e 500 -plot contour edge.pdf
+
+.. figure:: ../_static/png/edge_tol_2.png
+    :height: 674
+    :width: 1366
+    :scale: 50%
+    :alt: Table area with default edge_tol
+    :align: left
+
+As you can see, the guessed table area has improved!
+
+Improve guessed table rows
+--------------------------
+
+You can pass ``row_tol=<+int>`` to group the rows closer together, as shown below.
 
 ::
 
@@ -337,7 +414,7 @@ You can pass ``row_close_tol=<+int>`` to group the rows closer together, as show
 
 ::
 
-    >>> tables = camelot.read_pdf('group_rows.pdf', flavor='stream', row_close_tol=10)
+    >>> tables = camelot.read_pdf('group_rows.pdf', flavor='stream', row_tol=10)
     >>> tables[0].df
 
 .. tip::
@@ -524,3 +601,14 @@ We don't need anything else. Now, let's pass ``copy_text=['v']`` to copy text in
     "4","West Bengal","West Medinipur","iv. Acute Diarrhoeal Disease","145","0","04/01/14","05/01/14","Under control","..."
     "4","West Bengal","Birbhum","v.  Food Poisoning","199","0","31/12/13","31/12/13","Under control","..."
     "4","West Bengal","Howrah","vi. Viral Hepatitis A &E","85","0","26/12/13","27/12/13","Under surveillance","..."
+
+Tweak layout generation
+-----------------------
+
+Camelot is built on top of PDFMiner's functionality of grouping characters on a page into words and sentences. In some cases (such as `#170 <https://github.com/socialcopsdev/camelot/issues/170>`_ and `#215 <https://github.com/socialcopsdev/camelot/issues/215>`_), PDFMiner can group characters that should belong to the same sentence into separate sentences.
+
+To deal with such cases, you can tweak PDFMiner's `LAParams kwargs <https://github.com/euske/pdfminer/blob/master/pdfminer/layout.py#L33>`_ to improve layout generation, by passing the keyword arguments as a dict using ``layout_kwargs`` in :meth:`read_pdf() <camelot.read_pdf>`. To know more about the parameters you can tweak, you can check out `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
+
+::
+
+    >>> tables = camelot.read_pdf('foo.pdf', layout_kwargs={'detect_vertical': False})

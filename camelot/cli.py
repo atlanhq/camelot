@@ -43,6 +43,8 @@ pass_config = click.make_pass_decorator(Config)
               help='Split text that spans across multiple cells.')
 @click.option('-flag', '--flag_size', is_flag=True, help='Flag text based on'
               ' font size. Useful to detect super/subscripts.')
+@click.option('-strip', '--strip_text', help='Characters that should be stripped from a string before'
+              ' assigning it to a cell.')
 @click.option('-M', '--margins', nargs=3, default=(1.0, 0.5, 0.1),
               help='PDFMiner char_margin, line_margin and word_margin.')
 @click.pass_context
@@ -68,10 +70,10 @@ def cli(ctx, *args, **kwargs):
 @click.option('-shift', '--shift_text', default=['l', 't'],
               type=click.Choice(['', 'l', 'r', 't', 'b']), multiple=True,
               help='Direction in which text in a spanning cell will flow.')
-@click.option('-l', '--line_close_tol', default=2,
+@click.option('-l', '--line_tol', default=2,
               help='Tolerance parameter used to merge close vertical'
               ' and horizontal lines.')
-@click.option('-j', '--joint_close_tol', default=2,
+@click.option('-j', '--joint_tol', default=2,
               help='Tolerance parameter used to decide whether'
               ' the detected lines and points lie close to each other.')
 @click.option('-block', '--threshold_blocksize', default=15,
@@ -84,6 +86,8 @@ def cli(ctx, *args, **kwargs):
               ' may be zero or negative as well.')
 @click.option('-I', '--iterations', default=0,
               help='Number of times for erosion/dilation will be applied.')
+@click.option('-res', '--resolution', default=300,
+              help='Resolution used for PDF to PNG conversion.')
 @click.option('-plot', '--plot_type',
               type=click.Choice(['text', 'grid', 'contour', 'joint', 'line']),
               help='Plot elements found on PDF page for visual debugging.')
@@ -133,9 +137,11 @@ def lattice(c, *args, **kwargs):
               ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-C', '--columns', default=[], multiple=True,
               help='X coordinates of column separators.')
-@click.option('-r', '--row_close_tol', default=2, help='Tolerance parameter'
+@click.option('-e', '--edge_tol', default=50, help='Tolerance parameter'
+              ' for extending textedges vertically.')
+@click.option('-r', '--row_tol', default=2, help='Tolerance parameter'
               ' used to combine text vertically, to generate rows.')
-@click.option('-c', '--col_close_tol', default=0, help='Tolerance parameter'
+@click.option('-c', '--column_tol', default=0, help='Tolerance parameter'
               ' used to combine text horizontally, to generate columns.')
 @click.option('-plot', '--plot_type',
               type=click.Choice(['text', 'grid', 'contour', 'textedge']),

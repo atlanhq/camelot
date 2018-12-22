@@ -13,8 +13,6 @@ import pandas as pd
 # minimum number of vertical textline intersections for a textedge
 # to be considered valid
 TEXTEDGE_REQUIRED_ELEMENTS = 4
-# y coordinate tolerance for extending textedge
-TEXTEDGE_EXTEND_TOLERANCE = 50
 # padding added to table area on the left, right and bottom
 TABLE_AREA_PADDING = 10
 
@@ -55,11 +53,11 @@ class TextEdge(object):
         return '<TextEdge x={} y0={} y1={} align={} valid={}>'.format(
             round(self.x, 2), round(self.y0, 2), round(self.y1, 2), self.align, self.is_valid)
 
-    def update_coords(self, x, y0):
+    def update_coords(self, x, y0, edge_tol=50):
         """Updates the text edge's x and bottom y coordinates and sets
         the is_valid attribute.
         """
-        if np.isclose(self.y0, y0, atol=TEXTEDGE_EXTEND_TOLERANCE):
+        if np.isclose(self.y0, y0, atol=edge_tol):
             self.x = (self.intersections * self.x + x) / float(self.intersections + 1)
             self.y0 = y0
             self.intersections += 1
@@ -74,7 +72,8 @@ class TextEdges(object):
     the PDF page. The dict has three keys based on the alignments,
     and each key's value is a list of camelot.core.TextEdge objects.
     """
-    def __init__(self):
+    def __init__(self, edge_tol=50):
+        self.edge_tol = edge_tol
         self._textedges = {'left': [], 'right': [], 'middle': []}
 
     @staticmethod
@@ -115,7 +114,8 @@ class TextEdges(object):
             if idx is None:
                 self.add(textline, align)
             else:
-                self._textedges[align][idx].update_coords(x_coord, textline.y0)
+                self._textedges[align][idx].update_coords(
+                    x_coord, textline.y0, edge_tol=self.edge_tol)
 
     def generate(self, textlines):
         """Generates the text edges dict based on horizontal text
@@ -359,7 +359,7 @@ class Table(object):
                 cell.left = cell.right = cell.top = cell.bottom = True
         return self
 
-    def set_edges(self, vertical, horizontal, joint_close_tol=2):
+    def set_edges(self, vertical, horizontal, joint_tol=2):
         """Sets a cell's edges to True depending on whether the cell's
         coordinates overlap with the line's coordinates within a
         tolerance.
@@ -376,11 +376,11 @@ class Table(object):
             # find closest x coord
             # iterate over y coords and find closest start and end points
             i = [i for i, t in enumerate(self.cols)
-                 if np.isclose(v[0], t[0], atol=joint_close_tol)]
+                 if np.isclose(v[0], t[0], atol=joint_tol)]
             j = [j for j, t in enumerate(self.rows)
-                 if np.isclose(v[3], t[0], atol=joint_close_tol)]
+                 if np.isclose(v[3], t[0], atol=joint_tol)]
             k = [k for k, t in enumerate(self.rows)
-                 if np.isclose(v[1], t[0], atol=joint_close_tol)]
+                 if np.isclose(v[1], t[0], atol=joint_tol)]
             if not j:
                 continue
             J = j[0]
@@ -427,11 +427,11 @@ class Table(object):
             # find closest y coord
             # iterate over x coords and find closest start and end points
             i = [i for i, t in enumerate(self.rows)
-                 if np.isclose(h[1], t[0], atol=joint_close_tol)]
+                 if np.isclose(h[1], t[0], atol=joint_tol)]
             j = [j for j, t in enumerate(self.cols)
-                 if np.isclose(h[0], t[0], atol=joint_close_tol)]
+                 if np.isclose(h[0], t[0], atol=joint_tol)]
             k = [k for k, t in enumerate(self.cols)
-                 if np.isclose(h[2], t[0], atol=joint_close_tol)]
+                 if np.isclose(h[2], t[0], atol=joint_tol)]
             if not j:
                 continue
             J = j[0]
