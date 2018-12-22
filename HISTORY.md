@@ -6,6 +6,11 @@ master
 
 **Improvements**
 
+* [#229](https://github.com/socialcopsdev/camelot/issues/229), [#230](https://github.com/socialcopsdev/camelot/issues/230) and [#233](https://github.com/socialcopsdev/camelot/issues/233) New configuration parameters. [#234](https://github.com/socialcopsdev/camelot/pull/234) by Vinayak Mehta.
+    * `strip_text`: To define characters that should be stripped from each string.
+    * `edge_tol`: Tolerance parameter for extending textedges vertically.
+    * `resolution`: Resolution used for PDF to PNG conversion.
+    * Check out the [advanced docs](https://camelot-py.readthedocs.io/en/master/user/advanced.html#strip-characters-from-text) for usage details.
 * [#170](https://github.com/socialcopsdev/camelot/issues/170) Add option to pass pdfminer layout kwargs. [#232](https://github.com/socialcopsdev/camelot/pull/232) by Vinayak Mehta.
     * Keyword arguments for [pdfminer.layout.LAParams](https://github.com/euske/pdfminer/blob/master/pdfminer/layout.py#L33) can now be passed using `layout_kwargs` in `read_pdf()`.
     * The `margins` keyword argument in `read_pdf()` is now deprecated.
