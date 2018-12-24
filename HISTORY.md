@@ -4,6 +4,9 @@ Release History
 master
 ------
 
+0.6.0 (2018-12-24)
+------------------
+
 **Improvements**
 
 * [#91](https://github.com/socialcopsdev/camelot/issues/91) Add support to read from url. [#236](https://github.com/socialcopsdev/camelot/pull/236) by Vinayak Mehta.
