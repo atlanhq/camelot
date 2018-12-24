@@ -6,6 +6,7 @@ master
 
 **Improvements**
 
+* [#91](https://github.com/socialcopsdev/camelot/issues/91) Add support to read from url. [#236](https://github.com/socialcopsdev/camelot/pull/236) by Vinayak Mehta.
 * [#229](https://github.com/socialcopsdev/camelot/issues/229), [#230](https://github.com/socialcopsdev/camelot/issues/230) and [#233](https://github.com/socialcopsdev/camelot/issues/233) New configuration parameters. [#234](https://github.com/socialcopsdev/camelot/pull/234) by Vinayak Mehta.
     * `strip_text`: To define characters that should be stripped from each string.
     * `edge_tol`: Tolerance parameter for extending textedges vertically.
