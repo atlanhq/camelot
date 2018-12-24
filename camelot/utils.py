@@ -82,7 +82,11 @@ def download_url(url):
     filename = '{}.pdf'.format(random_string(6))
     with tempfile.NamedTemporaryFile('wb', delete=False) as f:
         obj = urlopen(url)
-        if obj.info().get_content_type() != 'application/pdf':
+        if PY3:
+            content_type = obj.info().get_content_type()
+        else:
+            content_type = obj.info().getheader('Content-Type')
+        if content_type != 'application/pdf':
             raise NotImplementedError("File format not supported")
         f.write(obj.read())
     filepath = os.path.join(os.path.dirname(f.name), filename)
