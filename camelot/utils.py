@@ -1,12 +1,17 @@
+# -*- coding: utf-8 -*-
 from __future__ import division
+
+import os
+import sys
+import random
 import shutil
+import string
 import tempfile
 import warnings
 from itertools import groupby
 from operator import itemgetter
 
 import numpy as np
-
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
 from pdfminer.pdfpage import PDFPage
@@ -16,6 +21,77 @@ from pdfminer.pdfinterp import PDFPageInterpreter
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
                              LTTextLineVertical)
+
+
+PY3 = sys.version_info[0] >= 3
+if PY3:
+    from urllib.request import urlopen
+    from urllib.parse import urlparse as parse_url
+    from urllib.parse import uses_relative, uses_netloc, uses_params
+else:
+    from urllib2 import urlopen
+    from urlparse import urlparse as parse_url
+    from urlparse import uses_relative, uses_netloc, uses_params
+
+
+_VALID_URLS = set(uses_relative + uses_netloc + uses_params)
+_VALID_URLS.discard('')
+
+
+# https://github.com/pandas-dev/pandas/blob/master/pandas/io/common.py
+def is_url(url):
+    """Check to see if a URL has a valid protocol.
+
+    Parameters
+    ----------
+    url : str or unicode
+
+    Returns
+    -------
+    isurl : bool
+        If url has a valid protocol return True otherwise False.
+
+    """
+    try:
+        return parse_url(url).scheme in _VALID_URLS
+    except Exception:
+        return False
+
+
+def random_string(length):
+    ret = ''
+    while length:
+        ret += random.choice(string.digits + string.ascii_lowercase + string.ascii_uppercase)
+        length -= 1
+    return ret
+
+
+def download_url(url):
+    """Download file from specified URL.
+
+    Parameters
+    ----------
+    url : str or unicode
+
+    Returns
+    -------
+    filepath : str or unicode
+        Temporary filepath.
+
+    """
+    filename = '{}.pdf'.format(random_string(6))
+    with tempfile.NamedTemporaryFile('wb', delete=False) as f:
+        obj = urlopen(url)
+        if PY3:
+            content_type = obj.info().get_content_type()
+        else:
+            content_type = obj.info().getheader('Content-Type')
+        if content_type != 'application/pdf':
+            raise NotImplementedError("File format not supported")
+        f.write(obj.read())
+    filepath = os.path.join(os.path.dirname(f.name), filename)
+    shutil.move(f.name, filepath)
+    return filepath
 
 
 stream_kwargs = [

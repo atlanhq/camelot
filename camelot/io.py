@@ -15,7 +15,7 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     Parameters
     ----------
     filepath : str
-        Path to PDF file.
+        Filepath or URL of the PDF file.
     pages : str, optional (default: '1')
         Comma-separated page numbers.
         Example: '1,3,4' or '1,4-end'.
