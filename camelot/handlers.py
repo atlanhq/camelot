@@ -22,7 +22,7 @@ class PDFHandler(object):
         Filepath or URL of the PDF file.
     pages : str, optional (default: '1')
         Comma-separated page numbers.
-        Example: '1,3,4' or '1,4-end'.
+        Example: '1,3,4' or '1,4-end' or 'all'.
     password : str, optional (default: None)
         Password for decryption.
 
@@ -50,7 +50,7 @@ class PDFHandler(object):
             Filepath or URL of the PDF file.
         pages : str, optional (default: '1')
             Comma-separated page numbers.
-            Example: 1,3,4 or 1,4-end.
+            Example: '1,3,4' or '1,4-end' or 'all'.
 
         Returns
         -------
