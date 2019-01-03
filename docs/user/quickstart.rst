@@ -14,7 +14,7 @@ Begin by importing the Camelot module::
 
     >>> import camelot
 
-Now, let's try to read a PDF. (You can check out the PDF used in this example `here`_.) Since the PDF has a table with clearly demarcated lines, we will use the :ref:`Lattice <lattice>` method here. To do that, we will set the ``mesh`` keyword argument to ``True``.
+Now, let's try to read a PDF. (You can check out the PDF used in this example `here`_.) Since the PDF has a table with clearly demarcated lines, we will use the :ref:`Lattice <lattice>` method here.
 
 .. note:: :ref:`Lattice <lattice>` is used by default. You can use :ref:`Stream <stream>` with ``flavor='stream'``.
 
