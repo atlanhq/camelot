@@ -356,8 +356,12 @@ class Lattice(BaseParser):
             logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
-            warnings.warn("No tables found on {}".format(
-                os.path.basename(self.rootname)))
+            if self.images:
+                warnings.warn('{} is image-based, camelot only works on'
+                              ' text-based pages.'.format(os.path.basename(self.rootname)))
+            else:
+                warnings.warn('No tables found on {}'.format(
+                    os.path.basename(self.rootname)))
             return []
 
         self._generate_image()
