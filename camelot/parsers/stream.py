@@ -396,8 +396,8 @@ class Stream(BaseParser):
 
         if not self.horizontal_text:
             if self.images:
-                warnings.warn('The page is image-based, Camelot only works with'
-                              ' text-based PDF pages.'.format(os.path.basename(self.rootname)))
+                warnings.warn('{} is image-based, camelot only works on'
+                              ' text-based pages.'.format(os.path.basename(self.rootname)))
             else:
                 warnings.warn('No tables found on {}'.format(
                     os.path.basename(self.rootname)))

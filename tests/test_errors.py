@@ -41,6 +41,15 @@ def test_stream_equal_length():
             table_areas=['10,20,30,40'], columns=['10,20,30,40', '10,20,30,40'])
 
 
+def test_image_warning():
+    filename = os.path.join(testdir, 'image.pdf')
+    with warnings.catch_warnings():
+        warnings.simplefilter('error')
+        with pytest.raises(UserWarning) as e:
+            tables = camelot.read_pdf(filename)
+        assert str(e.value) == 'page-1 is image-based, camelot only works on text-based pages.'
+
+
 def test_no_tables_found():
     filename = os.path.join(testdir, 'blank.pdf')
     with warnings.catch_warnings():
