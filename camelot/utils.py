@@ -295,8 +295,8 @@ def get_rotation(chars, horizontal_text, vertical_text):
     hlen = len([t for t in horizontal_text if t.get_text().strip()])
     vlen = len([t for t in vertical_text if t.get_text().strip()])
     if hlen < vlen:
-        clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in ltchar)
-        anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in ltchar)
+        clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in chars)
+        anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in chars)
         rotation = 'anticlockwise' if clockwise < anticlockwise else 'clockwise'
     return rotation
 
