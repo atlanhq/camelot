@@ -395,8 +395,12 @@ class Stream(BaseParser):
             logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
-            warnings.warn("No tables found on {}".format(
-                os.path.basename(self.rootname)))
+            if self.images:
+                warnings.warn('The page is image-based, Camelot only works with'
+                              ' text-based PDF pages.'.format(os.path.basename(self.rootname)))
+            else:
+                warnings.warn('No tables found on {}'.format(
+                    os.path.basename(self.rootname)))
             return []
 
         self._generate_table_bbox()

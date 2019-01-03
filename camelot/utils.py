@@ -20,7 +20,7 @@ from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.pdfinterp import PDFPageInterpreter
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
-                             LTTextLineVertical)
+                             LTTextLineVertical, LTImage)
 
 
 PY3 = sys.version_info[0] >= 3
@@ -270,15 +270,15 @@ def scale_image(tables, v_segments, h_segments, factors):
     return tables_new, v_segments_new, h_segments_new
 
 
-def get_rotation(lttextlh, lttextlv, ltchar):
+def get_rotation(chars, horizontal_text, vertical_text):
     """Detects if text in table is rotated or not using the current
     transformation matrix (CTM) and returns its orientation.
 
     Parameters
     ----------
-    lttextlh : list
+    horizontal_text : list
         List of PDFMiner LTTextLineHorizontal objects.
-    lttextlv : list
+    vertical_text : list
         List of PDFMiner LTTextLineVertical objects.
     ltchar : list
         List of PDFMiner LTChar objects.
@@ -292,8 +292,8 @@ def get_rotation(lttextlh, lttextlv, ltchar):
 
     """
     rotation = ''
-    hlen = len([t for t in lttextlh if t.get_text().strip()])
-    vlen = len([t for t in lttextlv if t.get_text().strip()])
+    hlen = len([t for t in horizontal_text if t.get_text().strip()])
+    vlen = len([t for t in vertical_text if t.get_text().strip()])
     if hlen < vlen:
         clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in ltchar)
         anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in ltchar)
@@ -713,11 +713,13 @@ def get_text_objects(layout, ltype="char", t=None):
         List of PDFMiner text objects.
 
     """
-    if ltype == "char":
+    if ltype == 'char':
         LTObject = LTChar
-    elif ltype == "lh":
+    elif ltype == 'image':
+        LTObject = LTImage
+    elif ltype == 'horizontal_text':
         LTObject = LTTextLineHorizontal
-    elif ltype == "lv":
+    elif ltype == 'vertical_text':
         LTObject = LTTextLineVertical
     if t is None:
         t = []
