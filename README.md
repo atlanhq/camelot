@@ -21,7 +21,7 @@
 >>> tables = camelot.read_pdf('foo.pdf')
 >>> tables
 &lt;TableList n=1&gt;
->>> tables.export('foo.csv', f='csv', compress=True) # json, excel, html
+>>> tables.export('foo.csv', f='csv', compress=True) # json, excel, html, sqlite
 >>> tables[0]
 &lt;Table shape=(7, 7)&gt;
 >>> tables[0].parsing_report
@@ -31,7 +31,7 @@
     'order': 1,
     'page': 1
 }
->>> tables[0].to_csv('foo.csv') # to_json, to_excel, to_html
+>>> tables[0].to_csv('foo.csv') # to_json, to_excel, to_html, to_sqlite
 >>> tables[0].df # get a pandas DataFrame!
 </pre>
 
@@ -53,7 +53,7 @@ There's a [command-line interface](https://camelot-py.readthedocs.io/en/master/u
 - **You are in control.**: Unlike other libraries and tools which either give a nice output or fail miserably (with no in-between), Camelot gives you the power to tweak table extraction. (This is important since everything in the real world, including PDF table extraction, is fuzzy.)
 - *Bad* tables can be discarded based on **metrics** like accuracy and whitespace, without ever having to manually look at each table.
 - Each table is a **pandas DataFrame**, which seamlessly integrates into [ETL and data analysis workflows](https://gist.github.com/vinayak-mehta/e5949f7c2410a0e12f25d3682dc9e873).
-- **Export** to multiple formats, including JSON, Excel and HTML.
+- **Export** to multiple formats, including JSON, Excel, HTML and Sqlite.
 
 See [comparison with other PDF table extraction libraries and tools](https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools).
 
