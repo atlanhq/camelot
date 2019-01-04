@@ -36,7 +36,7 @@ pass_config = click.make_pass_decorator(Config)
 @click.option('-pw', '--password', help='Password for decryption.')
 @click.option('-o', '--output', help='Output file path.')
 @click.option('-f', '--format',
-              type=click.Choice(['csv', 'json', 'excel', 'html']),
+              type=click.Choice(['csv', 'json', 'excel', 'html', 'sqlite']),
               help='Output file format.')
 @click.option('-z', '--zip', is_flag=True, help='Create ZIP archive.')
 @click.option('-split', '--split_text', is_flag=True,
