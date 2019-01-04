@@ -206,11 +206,9 @@ You can also visualize the textedges found on a page by specifying ``kind='texte
 Specify table areas
 -------------------
 
-In cases such as `these <../_static/pdf/table_areas.pdf>`__, it can be useful to specify table boundaries. You can plot the text on this page and note the top left and bottom right coordinates of the table.
+In cases such as `these <../_static/pdf/table_areas.pdf>`__, it can be useful to specify exact table boundaries. You can plot the text on this page and note the top left and bottom right coordinates of the table.
 
 Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
-
-.. _for now: https://github.com/socialcopsdev/camelot/issues/102
 
 ::
 
@@ -225,6 +223,27 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
 
 .. csv-table::
   :file: ../_static/csv/table_areas.csv
+
+Specify table regions
+---------------------
+
+However there may be cases like `[1] <../_static/pdf/table_regions.pdf>`__ and `[2] <https://github.com/socialcopsdev/camelot/blob/master/tests/files/tableception.pdf>`__, where the table might not lie at the exact coordinates every time but in an approximate region.
+
+You can use the ``table_regions`` keyword argument to :meth:`read_pdf() <camelot.read_pdf>` to solve for such cases. When ``table_regions`` is specified, Camelot will only analyze the specified regions to look for tables.
+
+::
+
+    >>> tables = camelot.read_pdf('table_regions.pdf', table_regions=['170,370,560,270'])
+    >>> tables[0].df
+
+.. tip::
+    Here's how you can do the same with the :ref:`command-line interface <cli>`.
+    ::
+
+        $ camelot lattice -R 170,370,560,270 table_regions.pdf
+
+.. csv-table::
+  :file: ../_static/csv/table_regions.csv
 
 Specify column separators
 -------------------------
