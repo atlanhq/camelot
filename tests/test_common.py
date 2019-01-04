@@ -159,6 +159,14 @@ def test_lattice_two_tables():
     assert df2.equals(tables[1].df)
 
 
+def test_lattice_table_regions():
+    df = pd.DataFrame(data_lattice_table_regions)
+
+    filename = os.path.join(testdir, "table_region.pdf")
+    tables = camelot.read_pdf(filename, table_regions=["170,370,560,270"])
+    assert df.equals(tables[0].df)
+
+
 def test_lattice_table_areas():
     df = pd.DataFrame(data_lattice_table_areas)
 
