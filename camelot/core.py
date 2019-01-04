@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sqlite3
 import zipfile
 import tempfile
 from itertools import chain
@@ -592,6 +593,28 @@ class Table(object):
         with open(path, 'w') as f:
             f.write(html_string)
 
+    def to_sqlite(self, path, **kwargs):
+        """Writes Table to sqlite database.
+
+        For kwargs, check :meth:`pandas.DataFrame.to_sql`.
+
+        Parameters
+        ----------
+        path : str
+            Output filepath.
+
+        """
+        kw = {
+            'if_exists': 'replace',
+            'index': False
+        }
+        kw.update(kwargs)
+        conn = sqlite3.connect(path)
+        table_name = 'page-{}-table-{}'.format(self.page, self.order)
+        self.df.to_sql(table_name, conn, **kw)
+        conn.commit()
+        conn.close()
+
 
 class TableList(object):
     """Defines a list of camelot.core.Table objects. Each table can
@@ -656,7 +679,7 @@ class TableList(object):
         path : str
             Output filepath.
         f : str
-            File format. Can be csv, json, excel and html.
+            File format. Can be csv, json, excel, html and sqlite.
         compress : bool
             Whether or not to add files to a ZIP archive.
 
@@ -685,6 +708,14 @@ class TableList(object):
                 sheet_name = 'page-{}-table-{}'.format(table.page, table.order)
                 table.df.to_excel(writer, sheet_name=sheet_name, encoding='utf-8')
             writer.save()
+            if compress:
+                zipname = os.path.join(os.path.dirname(path), root) + '.zip'
+                with zipfile.ZipFile(zipname, 'w', allowZip64=True) as z:
+                    z.write(filepath, os.path.basename(filepath))
+        elif f == 'sqlite':
+            filepath = os.path.join(dirname, basename)
+            for table in self._tables:
+                table.to_sqlite(filepath)
             if compress:
                 zipname = os.path.join(os.path.dirname(path), root) + '.zip'
                 with zipfile.ZipFile(zipname, 'w', allowZip64=True) as z:
