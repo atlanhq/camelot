@@ -281,11 +281,16 @@ class Stream(BaseParser):
     def _generate_table_bbox(self):
         self.textedges = []
         if self.table_areas is None:
+            hor_text = self.horizontal_text
             if self.table_regions is not None:
                 # filter horizontal text
-                pass
+                hor_text = []
+                for region in self.table_regions:
+                    x1, y1, x2, y2 = region
+                    region_text = text_in_bbox((x1, y2, x2, y1), self.horizontal_text)
+                    hor_text.extend(region_text)
             # find tables based on nurminen's detection algorithm
-            table_bbox = self._nurminen_table_detection(self.horizontal_text)
+            table_bbox = self._nurminen_table_detection(hor_text)
         else:
             table_bbox = {}
             for area in self.table_areas:
