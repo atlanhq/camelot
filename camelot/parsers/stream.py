@@ -26,6 +26,10 @@ class Stream(BaseParser):
 
     Parameters
     ----------
+    table_regions : list, optional (default: None)
+        List of page regions that may contain tables of the form x1,y1,x2,y2
+        where (x1, y1) -> left-top and (x2, y2) -> right-bottom
+        in PDF coordinate space.
     table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
@@ -51,9 +55,10 @@ class Stream(BaseParser):
         to generate columns.
 
     """
-    def __init__(self, table_areas=None, columns=None, split_text=False,
+    def __init__(self, table_regions=None, table_areas=None, columns=None, split_text=False,
                  flag_size=False, strip_text='', edge_tol=50, row_tol=2,
                  column_tol=0, **kwargs):
+        self.table_regions = table_regions
         self.table_areas = table_areas
         self.columns = columns
         self._validate_columns()
@@ -275,7 +280,13 @@ class Stream(BaseParser):
 
     def _generate_table_bbox(self):
         self.textedges = []
-        if self.table_areas is not None:
+        if self.table_areas is None:
+            if self.table_regions is not None:
+                # filter horizontal text
+                pass
+            # find tables based on nurminen's detection algorithm
+            table_bbox = self._nurminen_table_detection(self.horizontal_text)
+        else:
             table_bbox = {}
             for area in self.table_areas:
                 x1, y1, x2, y2 = area.split(",")
@@ -284,9 +295,6 @@ class Stream(BaseParser):
                 x2 = float(x2)
                 y2 = float(y2)
                 table_bbox[(x1, y2, x2, y1)] = None
-        else:
-            # find tables based on nurminen's detection algorithm
-            table_bbox = self._nurminen_table_detection(self.horizontal_text)
         self.table_bbox = table_bbox
 
     def _generate_columns_and_rows(self, table_idx, tk):

@@ -101,7 +101,7 @@ stream_kwargs = [
 ]
 lattice_kwargs = [
     'process_background',
-    'line_size_scaling',
+    'line_scale',
     'copy_text',
     'shift_text',
     'line_tol',
@@ -339,7 +339,7 @@ def text_in_bbox(bbox, text):
     ----------
     bbox : tuple
         Tuple (x1, y1, x2, y2) representing a bounding box where
-        (x1, y1) -> lb and (x2, y2) -> rt in PDFMiner coordinate
+        (x1, y1) -> lb and (x2, y2) -> rt in the PDF coordinate
         space.
     text : List of PDFMiner text objects.
 

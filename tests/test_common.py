@@ -179,7 +179,7 @@ def test_lattice_copy_text():
     df = pd.DataFrame(data_lattice_copy_text)
 
     filename = os.path.join(testdir, "row_span_1.pdf")
-    tables = camelot.read_pdf(filename, line_size_scaling=60, copy_text="v")
+    tables = camelot.read_pdf(filename, line_scale=60, copy_text="v")
     assert df.equals(tables[0].df)
 
 
@@ -189,13 +189,13 @@ def test_lattice_shift_text():
     df_rb = pd.DataFrame(data_lattice_shift_text_right_bottom)
 
     filename = os.path.join(testdir, "column_span_2.pdf")
-    tables = camelot.read_pdf(filename, line_size_scaling=40)
+    tables = camelot.read_pdf(filename, line_scale=40)
     assert df_lt.equals(tables[0].df)
 
-    tables = camelot.read_pdf(filename, line_size_scaling=40, shift_text=[''])
+    tables = camelot.read_pdf(filename, line_scale=40, shift_text=[''])
     assert df_disable.equals(tables[0].df)
 
-    tables = camelot.read_pdf(filename, line_size_scaling=40, shift_text=['r', 'b'])
+    tables = camelot.read_pdf(filename, line_scale=40, shift_text=['r', 'b'])
     assert df_rb.equals(tables[0].df)
 
 

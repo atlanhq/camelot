@@ -434,11 +434,11 @@ You can pass ``row_tol=<+int>`` to group the rows closer together, as shown belo
 Detect short lines
 ------------------
 
-There might be cases while using :ref:`Lattice <lattice>` when smaller lines don't get detected. The size of the smallest line that gets detected is calculated by dividing the PDF page's dimensions with a scaling factor called ``line_size_scaling``. By default, its value is 15.
+There might be cases while using :ref:`Lattice <lattice>` when smaller lines don't get detected. The size of the smallest line that gets detected is calculated by dividing the PDF page's dimensions with a scaling factor called ``line_scale``. By default, its value is 15.
 
-As you can guess, the larger the ``line_size_scaling``, the smaller the size of lines getting detected.
+As you can guess, the larger the ``line_scale``, the smaller the size of lines getting detected.
 
-.. warning:: Making ``line_size_scaling`` very large (>150) will lead to text getting detected as lines.
+.. warning:: Making ``line_scale`` very large (>150) will lead to text getting detected as lines.
 
 Here's a `PDF <../_static/pdf/short_lines.pdf>`__ where small lines separating the the headers don't get detected with the default value of 15.
 
@@ -458,11 +458,11 @@ Let's plot the table for this PDF.
     :alt: A plot of the PDF table with short lines
     :align: left
 
-Clearly, the smaller lines separating the headers, couldn't be detected. Let's try with ``line_size_scaling=40``, and plot the table again.
+Clearly, the smaller lines separating the headers, couldn't be detected. Let's try with ``line_scale=40``, and plot the table again.
 
 ::
 
-    >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40)
+    >>> tables = camelot.read_pdf('short_lines.pdf', line_scale=40)
     >>> camelot.plot(tables[0], kind='grid')
     >>> plt.show()
 
@@ -511,7 +511,7 @@ We'll use the `PDF <../_static/pdf/short_lines.pdf>`__ from the previous example
 
 ::
 
-    >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40, shift_text=[''])
+    >>> tables = camelot.read_pdf('short_lines.pdf', line_scale=40, shift_text=[''])
     >>> tables[0].df
 
 .. csv-table::
@@ -532,7 +532,7 @@ No surprises there — it did remain in place (observe the strings "2400" and "A
 
 ::
 
-    >>> tables = camelot.read_pdf('short_lines.pdf', line_size_scaling=40, shift_text=['r', 'b'])
+    >>> tables = camelot.read_pdf('short_lines.pdf', line_scale=40, shift_text=['r', 'b'])
     >>> tables[0].df
 
 .. tip::

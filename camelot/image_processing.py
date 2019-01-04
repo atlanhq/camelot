@@ -48,7 +48,8 @@ def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
     return img, threshold
 
 
-def find_lines(threshold, direction='horizontal', line_size_scaling=15, iterations=0):
+def find_lines(threshold, regions=None, direction='horizontal',
+               line_scale=15, iterations=0):
     """Finds horizontal and vertical lines by applying morphological
     transformations on an image.
 
@@ -56,9 +57,13 @@ def find_lines(threshold, direction='horizontal', line_size_scaling=15, iteratio
     ----------
     threshold : object
         numpy.ndarray representing the thresholded image.
+    regions : list, optional (default: None)
+        List of page regions that may contain tables of the form x1,y1,x2,y2
+        where (x1, y1) -> left-top and (x2, y2) -> right-bottom
+        in image coordinate space.
     direction : string, optional (default: 'horizontal')
         Specifies whether to find vertical or horizontal lines.
-    line_size_scaling : int, optional (default: 15)
+    line_scale : int, optional (default: 15)
         Factor by which the page dimensions will be divided to get
         smallest length of lines that should be detected.
 
@@ -83,10 +88,10 @@ def find_lines(threshold, direction='horizontal', line_size_scaling=15, iteratio
     lines = []
 
     if direction == 'vertical':
-        size = threshold.shape[0] // line_size_scaling
+        size = threshold.shape[0] // line_scale
         el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
     elif direction == 'horizontal':
-        size = threshold.shape[1] // line_size_scaling
+        size = threshold.shape[1] // line_scale
         el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
     elif direction is None:
         raise ValueError("Specify direction as either 'vertical' or"
@@ -112,11 +117,17 @@ def find_lines(threshold, direction='horizontal', line_size_scaling=15, iteratio
             lines.append(((x1 + x2) // 2, y2, (x1 + x2) // 2, y1))
         elif direction == 'horizontal':
             lines.append((x1, (y1 + y2) // 2, x2, (y1 + y2) // 2))
+    if regions is not None:
+        region_mask = np.zeros(dmask.shape)
+        for region in regions:
+            x, y, w, h = region
+            region_mask[y : y + h, x : x + w] = 1
+        dmask = np.multiply(dmask, region_mask)
 
     return dmask, lines
 
 
-def find_table_contours(vertical, horizontal):
+def find_contours(vertical, horizontal):
     """Finds table boundaries using OpenCV's findContours.
 
     Parameters
@@ -138,11 +149,12 @@ def find_table_contours(vertical, horizontal):
 
     try:
         __, contours, __ = cv2.findContours(
-            mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            mask.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     except ValueError:
         # for opencv backward compatibility
         contours, __ = cv2.findContours(
-            mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            mask.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # sort in reverse based on contour area and use first 10 contours
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
 
     cont = []
@@ -153,7 +165,7 @@ def find_table_contours(vertical, horizontal):
     return cont
 
 
-def find_table_joints(contours, vertical, horizontal):
+def find_joints(contours, vertical, horizontal):
     """Finds joints/intersections present inside each table boundary.
 
     Parameters
@@ -176,18 +188,18 @@ def find_table_joints(contours, vertical, horizontal):
         and (x2, y2) -> rt in image coordinate space.
 
     """
-    joints = np.bitwise_and(vertical, horizontal)
+    joints = np.multiply(vertical, horizontal)
     tables = {}
     for c in contours:
         x, y, w, h = c
         roi = joints[y : y + h, x : x + w]
         try:
             __, jc, __ = cv2.findContours(
-                roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+                roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
         except ValueError:
             # for opencv backward compatibility
             jc, __ = cv2.findContours(
-                roi, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+                roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
         if len(jc) <= 4:  # remove contours with less than 4 joints
             continue
         joint_coords = []
