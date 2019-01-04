@@ -97,17 +97,24 @@ def find_lines(threshold, regions=None, direction='horizontal',
         raise ValueError("Specify direction as either 'vertical' or"
                          " 'horizontal'")
 
+    if regions is not None:
+        region_mask = np.zeros(threshold.shape)
+        for region in regions:
+            x, y, w, h = region
+            region_mask[y : y + h, x : x + w] = 1
+        threshold = np.multiply(threshold, region_mask)
+
     threshold = cv2.erode(threshold, el)
     threshold = cv2.dilate(threshold, el)
     dmask = cv2.dilate(threshold, el, iterations=iterations)
 
     try:
         _, contours, _ = cv2.findContours(
-            threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            threshold.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     except ValueError:
         # for opencv backward compatibility
         contours, _ = cv2.findContours(
-            threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            threshold.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     for c in contours:
         x, y, w, h = cv2.boundingRect(c)
@@ -117,12 +124,6 @@ def find_lines(threshold, regions=None, direction='horizontal',
             lines.append(((x1 + x2) // 2, y2, (x1 + x2) // 2, y1))
         elif direction == 'horizontal':
             lines.append((x1, (y1 + y2) // 2, x2, (y1 + y2) // 2))
-    if regions is not None:
-        region_mask = np.zeros(dmask.shape)
-        for region in regions:
-            x, y, w, h = region
-            region_mask[y : y + h, x : x + w] = 1
-        dmask = np.multiply(dmask, region_mask)
 
     return dmask, lines
 

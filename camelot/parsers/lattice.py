@@ -232,9 +232,22 @@ class Lattice(BaseParser):
             stderr=subprocess.STDOUT)
 
     def _generate_table_bbox(self):
+        def scale_areas(areas):
+            scaled_areas = []
+            for area in areas:
+                x1, y1, x2, y2 = area.split(",")
+                x1 = float(x1)
+                y1 = float(y1)
+                x2 = float(x2)
+                y2 = float(y2)
+                x1, y1, x2, y2 = scale_pdf((x1, y1, x2, y2), image_scalers)
+                scaled_areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
+            return scaled_areas
+
         self.image, self.threshold = adaptive_threshold(
             self.imagename, process_background=self.process_background,
             blocksize=self.threshold_blocksize, c=self.threshold_constant)
+
         image_width = self.image.shape[1]
         image_height = self.image.shape[0]
         image_width_scaler = image_width / float(self.pdf_width)
@@ -247,15 +260,8 @@ class Lattice(BaseParser):
         if self.table_areas is None:
             regions = None
             if self.table_regions is not None:
-                regions = []
-                for region in self.table_regions:
-                    x1, y1, x2, y2 = region.split(",")
-                    x1 = float(x1)
-                    y1 = float(y1)
-                    x2 = float(x2)
-                    y2 = float(y2)
-                    x1, y1, x2, y2 = scale_pdf((x1, y1, x2, y2), image_scalers)
-                    regions.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
+                regions = scale_areas(self.table_regions)
+
             vertical_mask, vertical_segments = find_lines(
                 self.threshold, regions=regions, direction='vertical',
                 line_scale=self.line_scale, iterations=self.iterations)
@@ -273,15 +279,7 @@ class Lattice(BaseParser):
                 self.threshold, direction='horizontal', line_scale=self.line_scale,
                 iterations=self.iterations)
 
-            areas = []
-            for area in self.table_areas:
-                x1, y1, x2, y2 = area.split(",")
-                x1 = float(x1)
-                y1 = float(y1)
-                x2 = float(x2)
-                y2 = float(y2)
-                x1, y1, x2, y2 = scale_pdf((x1, y1, x2, y2), image_scalers)
-                areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
+            areas = scale_areas(self.table_areas)
             table_bbox = find_joints(areas, vertical_mask, horizontal_mask)
 
         self.table_bbox_unscaled = copy.deepcopy(table_bbox)
