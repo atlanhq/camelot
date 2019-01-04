@@ -427,6 +427,13 @@ data_lattice_two_tables_2 = [
     ["Pooled", "23889", "47.7", "1.5", "9.9", "19.9", "17.8", "3.3"]
 ]
 
+data_lattice_table_regions = [
+    ['Età dell’Assicurato \nall’epoca del decesso', 'Misura % di \nmaggiorazione'],
+    ['18-75', '1,00%'],
+    ['76-80', '0,50%'],
+    ['81 in poi', '0,10%']
+]
+
 data_lattice_table_areas = [
     ["", "", "", "", "", "", "", "", ""],
     ["State", "n", "Literacy Status", "", "", "", "", "", ""],
