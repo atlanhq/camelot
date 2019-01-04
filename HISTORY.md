@@ -9,6 +9,7 @@ master
 * [#240](https://github.com/socialcopsdev/camelot/issues/209) Add support to analyze only certain page regions to look for tables. [#243](https://github.com/socialcopsdev/camelot/pull/243) by Vinayak Mehta.
     * You can use `table_regions` in `read_pdf()` to specify approximate page regions which may contain tables.
     * Kwarg `line_size_scaling` is now called `line_scale`.
+* [#212](https://github.com/socialcopsdev/camelot/issues/212) Add support to export as sqlite database. [#244](https://github.com/socialcopsdev/camelot/pull/244) by Vinayak Mehta.
 * [#239](https://github.com/socialcopsdev/camelot/issues/239) Raise warning if PDF is image-based. [#240](https://github.com/socialcopsdev/camelot/pull/240) by Vinayak Mehta.
 
 0.6.0 (2018-12-24)
