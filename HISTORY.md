@@ -12,6 +12,12 @@ master
 * [#212](https://github.com/socialcopsdev/camelot/issues/212) Add support to export as sqlite database. [#244](https://github.com/socialcopsdev/camelot/pull/244) by Vinayak Mehta.
 * [#239](https://github.com/socialcopsdev/camelot/issues/239) Raise warning if PDF is image-based. [#240](https://github.com/socialcopsdev/camelot/pull/240) by Vinayak Mehta.
 
+**Documentation**
+
+* Remove mention of old mesh kwarg from docs. [#241](https://github.com/socialcopsdev/camelot/pull/241) by [fte10kso](https://github.com/fte10kso).
+
+**Note**: The python wrapper to Ghostscript's C API is now vendorized under the `ext` module. This was done due to unavailability of the [ghostscript](https://pypi.org/project/ghostscript/) package on Anaconda. The code should be removed after we submit a recipe for it to conda-forge. With this release, the user doesn't need to ensure that the Ghostscript executable is available on the PATH variable.
+
 0.6.0 (2018-12-24)
 ------------------
 

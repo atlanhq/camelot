@@ -32,8 +32,6 @@ For Windows
 
 For Tkinter, you can download the `ActiveTcl Community Edition`_ from ActiveState. For ghostscript, you can get the installer at the `ghostscript downloads page`_.
 
-After installing ghostscript, you'll need to reboot your system to make sure that the ghostscript executable's path is in the windows PATH environment variable. In case you don't want to reboot, you can manually add the ghostscript executable's path to the PATH variable, `as shown here`_.
-
 .. _ActiveTcl Community Edition: https://www.activestate.com/activetcl/downloads
 .. _ghostscript downloads page: https://www.ghostscript.com/download/gsdnld.html
 .. _as shown here: https://java.com/en/download/help/path.xml
