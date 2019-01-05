@@ -32,11 +32,11 @@ pass_config = click.make_pass_decorator(Config)
 @click.version_option(version=__version__)
 @click.option('-q', '--quiet', is_flag=False, help='Suppress logs and warnings.')
 @click.option('-p', '--pages', default='1', help='Comma-separated page numbers.'
-              ' Example: 1,3,4 or 1,4-end.')
+              ' Example: 1,3,4 or 1,4-end or all.')
 @click.option('-pw', '--password', help='Password for decryption.')
 @click.option('-o', '--output', help='Output file path.')
 @click.option('-f', '--format',
-              type=click.Choice(['csv', 'json', 'excel', 'html']),
+              type=click.Choice(['csv', 'json', 'excel', 'html', 'sqlite']),
               help='Output file format.')
 @click.option('-z', '--zip', is_flag=True, help='Create ZIP archive.')
 @click.option('-split', '--split_text', is_flag=True,
@@ -56,12 +56,15 @@ def cli(ctx, *args, **kwargs):
 
 
 @cli.command('lattice')
+@click.option('-R', '--table_regions', default=[], multiple=True,
+              help='Page regions to analyze. Example: x1,y1,x2,y2'
+              ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-T', '--table_areas', default=[], multiple=True,
               help='Table areas to process. Example: x1,y1,x2,y2'
               ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-back', '--process_background', is_flag=True,
               help='Process background lines.')
-@click.option('-scale', '--line_size_scaling', default=15,
+@click.option('-scale', '--line_scale', default=15,
               help='Line size scaling factor. The larger the value,'
               ' the smaller the detected lines.')
 @click.option('-copy', '--copy_text', default=[], type=click.Choice(['h', 'v']),
@@ -105,6 +108,8 @@ def lattice(c, *args, **kwargs):
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
 
+    table_regions = list(kwargs['table_regions'])
+    kwargs['table_regions'] = None if not table_regions else table_regions
     table_areas = list(kwargs['table_areas'])
     kwargs['table_areas'] = None if not table_areas else table_areas
     copy_text = list(kwargs['copy_text'])
@@ -132,6 +137,9 @@ def lattice(c, *args, **kwargs):
 
 
 @cli.command('stream')
+@click.option('-R', '--table_regions', default=[], multiple=True,
+              help='Page regions to analyze. Example: x1,y1,x2,y2'
+              ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
 @click.option('-T', '--table_areas', default=[], multiple=True,
               help='Table areas to process. Example: x1,y1,x2,y2'
               ' where x1, y1 -> left-top and x2, y2 -> right-bottom.')
@@ -160,6 +168,8 @@ def stream(c, *args, **kwargs):
     filepath = kwargs.pop('filepath')
     kwargs.update(conf)
 
+    table_regions = list(kwargs['table_regions'])
+    kwargs['table_regions'] = None if not table_regions else table_regions
     table_areas = list(kwargs['table_areas'])
     kwargs['table_areas'] = None if not table_areas else table_areas
     columns = list(kwargs['columns'])

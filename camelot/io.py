@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import warnings
 
 from .handlers import PDFHandler
@@ -15,10 +16,10 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     Parameters
     ----------
     filepath : str
-        Path to PDF file.
+        Filepath or URL of the PDF file.
     pages : str, optional (default: '1')
         Comma-separated page numbers.
-        Example: '1,3,4' or '1,4-end'.
+        Example: '1,3,4' or '1,4-end' or 'all'.
     password : str, optional (default: None)
         Password for decryption.
     flavor : str (default: 'lattice')
@@ -51,7 +52,7 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         to generate columns.
     process_background* : bool, optional (default: False)
         Process background lines.
-    line_size_scaling* : int, optional (default: 15)
+    line_scale* : int, optional (default: 15)
         Line size scaling factor. The larger the value the smaller
         the detected lines. Making it very large will lead to text
         being detected as lines.

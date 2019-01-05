@@ -19,7 +19,7 @@ from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
                      merge_close_lines, get_table_index, compute_accuracy,
                      compute_whitespace)
 from ..image_processing import (adaptive_threshold, find_lines,
-                                find_table_contours, find_table_joints)
+                                find_contours, find_joints)
 
 
 logger = logging.getLogger('camelot')
@@ -31,13 +31,17 @@ class Lattice(BaseParser):
 
     Parameters
     ----------
+    table_regions : list, optional (default: None)
+        List of page regions that may contain tables of the form x1,y1,x2,y2
+        where (x1, y1) -> left-top and (x2, y2) -> right-bottom
+        in PDF coordinate space.
     table_areas : list, optional (default: None)
         List of table area strings of the form x1,y1,x2,y2
         where (x1, y1) -> left-top and (x2, y2) -> right-bottom
         in PDF coordinate space.
     process_background : bool, optional (default: False)
         Process background lines.
-    line_size_scaling : int, optional (default: 15)
+    line_scale : int, optional (default: 15)
         Line size scaling factor. The larger the value the smaller
         the detected lines. Making it very large will lead to text
         being detected as lines.
@@ -80,14 +84,15 @@ class Lattice(BaseParser):
         Resolution used for PDF to PNG conversion.
 
     """
-    def __init__(self, table_areas=None, process_background=False,
-                 line_size_scaling=15, copy_text=None, shift_text=['l', 't'],
+    def __init__(self, table_regions=None, table_areas=None, process_background=False,
+                 line_scale=15, copy_text=None, shift_text=['l', 't'],
                  split_text=False, flag_size=False, strip_text='', line_tol=2,
                  joint_tol=2, threshold_blocksize=15, threshold_constant=-2,
                  iterations=0, resolution=300, **kwargs):
+        self.table_regions = table_regions
         self.table_areas = table_areas
         self.process_background = process_background
-        self.line_size_scaling = line_size_scaling
+        self.line_scale = line_scale
         self.copy_text = copy_text
         self.shift_text = shift_text
         self.split_text = split_text
@@ -189,9 +194,22 @@ class Lattice(BaseParser):
         null.close()
 
     def _generate_table_bbox(self):
+        def scale_areas(areas):
+            scaled_areas = []
+            for area in areas:
+                x1, y1, x2, y2 = area.split(",")
+                x1 = float(x1)
+                y1 = float(y1)
+                x2 = float(x2)
+                y2 = float(y2)
+                x1, y1, x2, y2 = scale_pdf((x1, y1, x2, y2), image_scalers)
+                scaled_areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
+            return scaled_areas
+
         self.image, self.threshold = adaptive_threshold(
             self.imagename, process_background=self.process_background,
             blocksize=self.threshold_blocksize, c=self.threshold_constant)
+
         image_width = self.image.shape[1]
         image_height = self.image.shape[0]
         image_width_scaler = image_width / float(self.pdf_width)
@@ -201,27 +219,30 @@ class Lattice(BaseParser):
         image_scalers = (image_width_scaler, image_height_scaler, self.pdf_height)
         pdf_scalers = (pdf_width_scaler, pdf_height_scaler, image_height)
 
-        vertical_mask, vertical_segments = find_lines(
-            self.threshold, direction='vertical',
-            line_size_scaling=self.line_size_scaling, iterations=self.iterations)
-        horizontal_mask, horizontal_segments = find_lines(
-            self.threshold, direction='horizontal',
-            line_size_scaling=self.line_size_scaling, iterations=self.iterations)
+        if self.table_areas is None:
+            regions = None
+            if self.table_regions is not None:
+                regions = scale_areas(self.table_regions)
 
-        if self.table_areas is not None:
-            areas = []
-            for area in self.table_areas:
-                x1, y1, x2, y2 = area.split(",")
-                x1 = float(x1)
-                y1 = float(y1)
-                x2 = float(x2)
-                y2 = float(y2)
-                x1, y1, x2, y2 = scale_pdf((x1, y1, x2, y2), image_scalers)
-                areas.append((x1, y1, abs(x2 - x1), abs(y2 - y1)))
-            table_bbox = find_table_joints(areas, vertical_mask, horizontal_mask)
+            vertical_mask, vertical_segments = find_lines(
+                self.threshold, regions=regions, direction='vertical',
+                line_scale=self.line_scale, iterations=self.iterations)
+            horizontal_mask, horizontal_segments = find_lines(
+                self.threshold, regions=regions, direction='horizontal',
+                line_scale=self.line_scale, iterations=self.iterations)
+
+            contours = find_contours(vertical_mask, horizontal_mask)
+            table_bbox = find_joints(contours, vertical_mask, horizontal_mask)
         else:
-            contours = find_table_contours(vertical_mask, horizontal_mask)
-            table_bbox = find_table_joints(contours, vertical_mask, horizontal_mask)
+            vertical_mask, vertical_segments = find_lines(
+                self.threshold, direction='vertical', line_scale=self.line_scale,
+                iterations=self.iterations)
+            horizontal_mask, horizontal_segments = find_lines(
+                self.threshold, direction='horizontal', line_scale=self.line_scale,
+                iterations=self.iterations)
+
+            areas = scale_areas(self.table_areas)
+            table_bbox = find_joints(areas, vertical_mask, horizontal_mask)
 
         self.table_bbox_unscaled = copy.deepcopy(table_bbox)
 
@@ -318,8 +339,12 @@ class Lattice(BaseParser):
             logger.info('Processing {}'.format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
-            warnings.warn("No tables found on {}".format(
-                os.path.basename(self.rootname)))
+            if self.images:
+                warnings.warn('{} is image-based, camelot only works on'
+                              ' text-based pages.'.format(os.path.basename(self.rootname)))
+            else:
+                warnings.warn('No tables found on {}'.format(
+                    os.path.basename(self.rootname)))
             return []
 
         self._generate_image()

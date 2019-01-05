@@ -1,12 +1,17 @@
+# -*- coding: utf-8 -*-
 from __future__ import division
+
+import os
+import sys
+import random
 import shutil
+import string
 import tempfile
 import warnings
 from itertools import groupby
 from operator import itemgetter
 
 import numpy as np
-
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
 from pdfminer.pdfpage import PDFPage
@@ -15,7 +20,78 @@ from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.pdfinterp import PDFPageInterpreter
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import (LAParams, LTAnno, LTChar, LTTextLineHorizontal,
-                             LTTextLineVertical)
+                             LTTextLineVertical, LTImage)
+
+
+PY3 = sys.version_info[0] >= 3
+if PY3:
+    from urllib.request import urlopen
+    from urllib.parse import urlparse as parse_url
+    from urllib.parse import uses_relative, uses_netloc, uses_params
+else:
+    from urllib2 import urlopen
+    from urlparse import urlparse as parse_url
+    from urlparse import uses_relative, uses_netloc, uses_params
+
+
+_VALID_URLS = set(uses_relative + uses_netloc + uses_params)
+_VALID_URLS.discard('')
+
+
+# https://github.com/pandas-dev/pandas/blob/master/pandas/io/common.py
+def is_url(url):
+    """Check to see if a URL has a valid protocol.
+
+    Parameters
+    ----------
+    url : str or unicode
+
+    Returns
+    -------
+    isurl : bool
+        If url has a valid protocol return True otherwise False.
+
+    """
+    try:
+        return parse_url(url).scheme in _VALID_URLS
+    except Exception:
+        return False
+
+
+def random_string(length):
+    ret = ''
+    while length:
+        ret += random.choice(string.digits + string.ascii_lowercase + string.ascii_uppercase)
+        length -= 1
+    return ret
+
+
+def download_url(url):
+    """Download file from specified URL.
+
+    Parameters
+    ----------
+    url : str or unicode
+
+    Returns
+    -------
+    filepath : str or unicode
+        Temporary filepath.
+
+    """
+    filename = '{}.pdf'.format(random_string(6))
+    with tempfile.NamedTemporaryFile('wb', delete=False) as f:
+        obj = urlopen(url)
+        if PY3:
+            content_type = obj.info().get_content_type()
+        else:
+            content_type = obj.info().getheader('Content-Type')
+        if content_type != 'application/pdf':
+            raise NotImplementedError("File format not supported")
+        f.write(obj.read())
+    filepath = os.path.join(os.path.dirname(f.name), filename)
+    shutil.move(f.name, filepath)
+    return filepath
 
 
 stream_kwargs = [
@@ -25,7 +101,7 @@ stream_kwargs = [
 ]
 lattice_kwargs = [
     'process_background',
-    'line_size_scaling',
+    'line_scale',
     'copy_text',
     'shift_text',
     'line_tol',
@@ -194,15 +270,15 @@ def scale_image(tables, v_segments, h_segments, factors):
     return tables_new, v_segments_new, h_segments_new
 
 
-def get_rotation(lttextlh, lttextlv, ltchar):
+def get_rotation(chars, horizontal_text, vertical_text):
     """Detects if text in table is rotated or not using the current
     transformation matrix (CTM) and returns its orientation.
 
     Parameters
     ----------
-    lttextlh : list
+    horizontal_text : list
         List of PDFMiner LTTextLineHorizontal objects.
-    lttextlv : list
+    vertical_text : list
         List of PDFMiner LTTextLineVertical objects.
     ltchar : list
         List of PDFMiner LTChar objects.
@@ -216,11 +292,11 @@ def get_rotation(lttextlh, lttextlv, ltchar):
 
     """
     rotation = ''
-    hlen = len([t for t in lttextlh if t.get_text().strip()])
-    vlen = len([t for t in lttextlv if t.get_text().strip()])
+    hlen = len([t for t in horizontal_text if t.get_text().strip()])
+    vlen = len([t for t in vertical_text if t.get_text().strip()])
     if hlen < vlen:
-        clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in ltchar)
-        anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in ltchar)
+        clockwise = sum(t.matrix[1] < 0 and t.matrix[2] > 0 for t in chars)
+        anticlockwise = sum(t.matrix[1] > 0 and t.matrix[2] < 0 for t in chars)
         rotation = 'anticlockwise' if clockwise < anticlockwise else 'clockwise'
     return rotation
 
@@ -263,7 +339,7 @@ def text_in_bbox(bbox, text):
     ----------
     bbox : tuple
         Tuple (x1, y1, x2, y2) representing a bounding box where
-        (x1, y1) -> lb and (x2, y2) -> rt in PDFMiner coordinate
+        (x1, y1) -> lb and (x2, y2) -> rt in the PDF coordinate
         space.
     text : List of PDFMiner text objects.
 
@@ -637,11 +713,13 @@ def get_text_objects(layout, ltype="char", t=None):
         List of PDFMiner text objects.
 
     """
-    if ltype == "char":
+    if ltype == 'char':
         LTObject = LTChar
-    elif ltype == "lh":
+    elif ltype == 'image':
+        LTObject = LTImage
+    elif ltype == 'horizontal_text':
         LTObject = LTTextLineHorizontal
-    elif ltype == "lv":
+    elif ltype == 'vertical_text':
         LTObject = LTTextLineVertical
     if t is None:
         t = []

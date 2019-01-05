@@ -14,7 +14,7 @@ Begin by importing the Camelot module::
 
     >>> import camelot
 
-Now, let's try to read a PDF. (You can check out the PDF used in this example `here`_.) Since the PDF has a table with clearly demarcated lines, we will use the :ref:`Lattice <lattice>` method here. To do that, we will set the ``mesh`` keyword argument to ``True``.
+Now, let's try to read a PDF. (You can check out the PDF used in this example `here`_.) Since the PDF has a table with clearly demarcated lines, we will use the :ref:`Lattice <lattice>` method here.
 
 .. note:: :ref:`Lattice <lattice>` is used by default. You can use :ref:`Stream <stream>` with ``flavor='stream'``.
 
@@ -56,7 +56,7 @@ Woah! The accuracy is top-notch and there is less whitespace, which means the ta
 .. csv-table::
   :file: ../_static/csv/foo.csv
 
-Looks good! You can now export the table as a CSV file using its :meth:`to_csv() <camelot.core.Table.to_csv>` method. Alternatively you can use :meth:`to_json() <camelot.core.Table.to_json>`, :meth:`to_excel() <camelot.core.Table.to_excel>` or :meth:`to_html() <camelot.core.Table.to_html>` methods to export the table as JSON, Excel and HTML files respectively.
+Looks good! You can now export the table as a CSV file using its :meth:`to_csv() <camelot.core.Table.to_csv>` method. Alternatively you can use :meth:`to_json() <camelot.core.Table.to_json>`, :meth:`to_excel() <camelot.core.Table.to_excel>` :meth:`to_html() <camelot.core.Table.to_html>` or :meth:`to_sqlite() <camelot.core.Table.to_sqlite>` methods to export the table as JSON, Excel, HTML files or a sqlite database respectively.
 
 ::
 
@@ -76,7 +76,7 @@ You can also export all tables at once, using the :class:`tables <camelot.core.T
 
         $ camelot --format csv --output foo.csv lattice foo.pdf
 
-This will export all tables as CSV files at the path specified. Alternatively, you can use ``f='json'``, ``f='excel'`` or ``f='html'``.
+This will export all tables as CSV files at the path specified. Alternatively, you can use ``f='json'``, ``f='excel'``, ``f='html'`` or ``f='sqlite'``.
 
 .. note:: The :meth:`export() <camelot.core.TableList.export>` method exports files with a ``page-*-table-*`` suffix. In the example above, the single table in the list will be exported to ``foo-page-1-table-1.csv``. If the list contains multiple tables, multiple CSV files will be created. To avoid filling up your path with multiple files, you can use ``compress=True``, which will create a single ZIP file at your path with all the CSV files.
 

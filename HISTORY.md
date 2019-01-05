@@ -6,6 +6,18 @@ master
 
 **Improvements**
 
+* [#240](https://github.com/socialcopsdev/camelot/issues/209) Add support to analyze only certain page regions to look for tables. [#243](https://github.com/socialcopsdev/camelot/pull/243) by Vinayak Mehta.
+    * You can use `table_regions` in `read_pdf()` to specify approximate page regions which may contain tables.
+    * Kwarg `line_size_scaling` is now called `line_scale`.
+* [#212](https://github.com/socialcopsdev/camelot/issues/212) Add support to export as sqlite database. [#244](https://github.com/socialcopsdev/camelot/pull/244) by Vinayak Mehta.
+* [#239](https://github.com/socialcopsdev/camelot/issues/239) Raise warning if PDF is image-based. [#240](https://github.com/socialcopsdev/camelot/pull/240) by Vinayak Mehta.
+
+0.6.0 (2018-12-24)
+------------------
+
+**Improvements**
+
+* [#91](https://github.com/socialcopsdev/camelot/issues/91) Add support to read from url. [#236](https://github.com/socialcopsdev/camelot/pull/236) by Vinayak Mehta.
 * [#229](https://github.com/socialcopsdev/camelot/issues/229), [#230](https://github.com/socialcopsdev/camelot/issues/230) and [#233](https://github.com/socialcopsdev/camelot/issues/233) New configuration parameters. [#234](https://github.com/socialcopsdev/camelot/pull/234) by Vinayak Mehta.
     * `strip_text`: To define characters that should be stripped from each string.
     * `edge_tol`: Tolerance parameter for extending textedges vertically.
