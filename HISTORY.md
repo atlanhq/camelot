@@ -4,6 +4,9 @@ Release History
 master
 ------
 
+0.7.0 (2019-01-05)
+------------------
+
 **Improvements**
 
 * [#240](https://github.com/socialcopsdev/camelot/issues/209) Add support to analyze only certain page regions to look for tables. [#243](https://github.com/socialcopsdev/camelot/pull/243) by Vinayak Mehta.
