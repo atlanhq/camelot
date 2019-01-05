@@ -2,7 +2,9 @@
 
 from __future__ import division
 import os
+import sys
 import copy
+import locale
 import logging
 import warnings
 import subprocess
@@ -12,6 +14,7 @@ import pandas as pd
 
 from .base import BaseParser
 from ..core import Table
+from ..ext.ghostscript import Ghostscript
 from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
                      merge_close_lines, get_table_index, compute_accuracy,
                      compute_whitespace)
@@ -181,55 +184,14 @@ class Lattice(BaseParser):
         return t
 
     def _generate_image(self):
-        # TODO: get rid of ghostscript #96
-        def get_executable():
-            import platform
-            from distutils.spawn import find_executable
-
-            class GhostscriptNotFound(Exception): pass
-
-            gs = None
-            system = platform.system().lower()
-            try:
-                if system == 'windows':
-                    if find_executable('gswin32c.exe'):
-                        gs = 'gswin32c.exe'
-                    elif find_executable('gswin64c.exe'):
-                        gs = 'gswin64c.exe'
-                    else:
-                        raise ValueError
-                else:
-                    if find_executable('gs'):
-                        gs = 'gs'
-                    elif find_executable('gsc'):
-                        gs = 'gsc'
-                    else:
-                        raise ValueError
-                if 'ghostscript' not in subprocess.check_output(
-                        [gs, '-version']).decode('utf-8').lower():
-                    raise ValueError
-            except ValueError:
-                raise GhostscriptNotFound(
-                    'Please make sure that Ghostscript is installed'
-                    ' and available on the PATH environment variable')
-
-            return gs
-
         self.imagename = ''.join([self.rootname, '.png'])
-        gs_call = [
-            '-q',
-            '-sDEVICE=png16m',
-            '-o',
-            self.imagename,
-            '-r{}'.format(self.resolution),
-            self.filename
-        ]
-        gs = get_executable()
-        gs_call.insert(0, gs)
-
-        subprocess.call(
-            gs_call, stdout=open(os.devnull, 'w'),
-            stderr=subprocess.STDOUT)
+        gs_call = '-q -sDEVICE=png16m -o {} -r300 {}'.format(
+            self.imagename, self.filename)
+        gs_call = gs_call.encode().split()
+        null = open(os.devnull, 'wb')
+        with Ghostscript(*gs_call, stdout=null) as gs:
+            pass
+        null.close()
 
     def _generate_table_bbox(self):
         def scale_areas(areas):
