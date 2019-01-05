@@ -14,7 +14,6 @@ import pandas as pd
 
 from .base import BaseParser
 from ..core import Table
-from ..ext.ghostscript import Ghostscript
 from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
                      merge_close_lines, get_table_index, compute_accuracy,
                      compute_whitespace)
@@ -184,6 +183,8 @@ class Lattice(BaseParser):
         return t
 
     def _generate_image(self):
+        from ..ext.ghostscript import Ghostscript
+
         self.imagename = ''.join([self.rootname, '.png'])
         gs_call = '-q -sDEVICE=png16m -o {} -r300 {}'.format(
             self.imagename, self.filename)
