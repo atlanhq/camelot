@@ -4,6 +4,13 @@ Release History
 master
 ------
 
+0.7.1 (2019-01-06)
+------------------
+
+**Bugfixes**
+
+* Move ghostscript import to inside the function so Anaconda builds don't fail.
+
 0.7.0 (2019-01-05)
 ------------------
 
