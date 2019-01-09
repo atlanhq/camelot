@@ -224,6 +224,8 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
 .. csv-table::
   :file: ../_static/csv/table_areas.csv
 
+Table areas accepts strings of the form x1,y1,x2,y2 where (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDF coordinate space. In PDF coordinate space, the bottom left corner of the page has coordinates (0, 0). 
+
 Specify table regions
 ---------------------
 
