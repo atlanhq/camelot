@@ -208,7 +208,7 @@ Specify table areas
 
 In cases such as `these <../_static/pdf/table_areas.pdf>`__, it can be useful to specify exact table boundaries. You can plot the text on this page and note the top left and bottom right coordinates of the table.
 
-.. note:: Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
+Table areas that you want Camelot to analyze can be passed as a list of comma-separated strings to :meth:`read_pdf() <camelot.read_pdf>`, using the ``table_areas`` keyword argument.
 
 ::
 
@@ -224,7 +224,7 @@ In cases such as `these <../_static/pdf/table_areas.pdf>`__, it can be useful to
 .. csv-table::
   :file: ../_static/csv/table_areas.csv
 
-Table areas accepts strings of the form x1,y1,x2,y2 where (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDF coordinate space. In PDF coordinate space, the bottom left corner of the page has coordinates (0, 0). 
+.. note:: Table areas accepts strings of the form x1,y1,x2,y2 where (x1, y1) -> left-top and (x2, y2) -> right-bottom in PDF coordinate space. In PDF coordinate space, the bottom left corner of the page has coordinates (0, 0). 
 
 Specify table regions
 ---------------------
