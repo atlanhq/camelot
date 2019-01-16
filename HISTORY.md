@@ -4,6 +4,14 @@ Release History
 master
 ------
 
+0.7.2 (2019-01-10)
+------------------
+
+ **Bugfixes**
+
+ * [#245](https://github.com/socialcopsdev/camelot/issues/245) Fix AttributeError for encrypted files. [#251](https://github.com/socialcopsdev/camelot/pull/251) by Yatin Taluja.
+
+
 0.7.1 (2019-01-06)
 ------------------
 
