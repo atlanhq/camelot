@@ -161,4 +161,4 @@ class PDFHandler(object):
                 t = parser.extract_tables(p, suppress_stdout=suppress_stdout,
                                           layout_kwargs=layout_kwargs)
                 tables.extend(t)
-        return TableList(tables)
+        return TableList(sorted(tables))
