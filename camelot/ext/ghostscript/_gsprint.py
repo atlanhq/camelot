@@ -230,7 +230,10 @@ if sys.platform == 'win32':
     libgs = windll.LoadLibrary(libgs)
 else:
     try:
-        libgs = cdll.LoadLibrary('libgs.so')
+        if sys.platform == 'cygwin':
+            libgs = cdll.LoadLibrary('cyggs-*.dll')
+        else:
+            libgs = cdll.LoadLibrary('libgs.so')
     except OSError:
         # shared object file not found
         import ctypes.util
