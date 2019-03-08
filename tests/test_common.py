@@ -5,6 +5,7 @@ import os
 import pandas as pd
 
 import camelot
+from camelot.core import Table, TableList
 
 from .data import *
 
@@ -247,3 +248,28 @@ def test_arabic():
     filename = os.path.join(testdir, "tabula/arabic.pdf")
     tables = camelot.read_pdf(filename)
     assert df.equals(tables[0].df)
+
+
+def test_table_order():
+    def _make_table(page, order):
+        t = Table([], [])
+        t.page = page
+        t.order = order
+        return t
+
+    table_list = TableList(
+        [_make_table(2, 1), _make_table(1, 1), _make_table(3, 4), _make_table(1, 2)]
+    )
+
+    assert [(t.page, t.order) for t in sorted(table_list)] == [
+        (1, 1),
+        (1, 2),
+        (2, 1),
+        (3, 4),
+    ]
+    assert [(t.page, t.order) for t in sorted(table_list, reverse=True)] == [
+        (3, 4),
+        (2, 1),
+        (1, 2),
+        (1, 1),
+    ]

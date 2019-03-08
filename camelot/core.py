@@ -329,6 +329,13 @@ class Table(object):
     def __repr__(self):
         return '<{} shape={}>'.format(self.__class__.__name__, self.shape)
 
+    def __lt__(self, other):
+        if self.page == other.page:
+            if self.order < other.order:
+                return True
+        if self.page < other.page:
+            return True
+
     @property
     def data(self):
         """Returns two-dimensional list of strings in table.
