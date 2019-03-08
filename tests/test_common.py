@@ -251,14 +251,14 @@ def test_arabic():
 
 
 def test_table_order():
-    def _mk_table(page, order):
+    def _make_table(page, order):
         t = Table([], [])
         t.page = page
         t.order = order
         return t
 
     table_list = TableList(
-        [_mk_table(2, 1), _mk_table(1, 1), _mk_table(3, 4), _mk_table(1, 2)]
+        [_make_table(2, 1), _make_table(1, 1), _make_table(3, 4), _make_table(1, 2)]
     )
 
     assert [(t.page, t.order) for t in sorted(table_list)] == [
