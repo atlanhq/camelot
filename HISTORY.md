@@ -4,6 +4,8 @@ Release History
 master
 ------
 
+* [#277](https://github.com/socialcopsdev/camelot/issues/277) Sort TableList by order of tables in PDF. [#283](https://github.com/socialcopsdev/camelot/pull/283) by [Sym Roe](https://github.com/symroe).
+
 0.7.2 (2019-01-10)
 ------------------
 
