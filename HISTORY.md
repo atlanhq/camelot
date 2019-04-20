@@ -4,12 +4,17 @@ Release History
 master
 ------
 
+**Bugfixes**
+
+* Fix split text bug. [#294](https://github.com/socialcopsdev/camelot/pull/294) by Vinayak Mehta.
+    * When a text string spans multiple columns, the last split chunk is completely ignored.
+
 0.7.2 (2019-01-10)
 ------------------
 
- **Bugfixes**
+**Bugfixes**
 
- * [#245](https://github.com/socialcopsdev/camelot/issues/245) Fix AttributeError for encrypted files. [#251](https://github.com/socialcopsdev/camelot/pull/251) by Yatin Taluja.
+* [#245](https://github.com/socialcopsdev/camelot/issues/245) Fix AttributeError for encrypted files. [#251](https://github.com/socialcopsdev/camelot/pull/251) by Yatin Taluja.
 
 
 0.7.1 (2019-01-06)
