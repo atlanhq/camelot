@@ -6,8 +6,7 @@ master
 
 **Bugfixes**
 
-* Fix split text bug. [#294](https://github.com/socialcopsdev/camelot/pull/294) by Vinayak Mehta.
-    * When a text string spans multiple columns, the last split chunk is completely ignored.
+* [#293](https://github.com/socialcopsdev/camelot/issues/293) Split text ignores all text to the right of last cut. [#294](https://github.com/socialcopsdev/camelot/pull/294) by Vinayak Mehta.
 
 0.7.2 (2019-01-10)
 ------------------
