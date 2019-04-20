@@ -4,14 +4,17 @@ Release History
 master
 ------
 
+**Bugfixes**
+
+* [#293](https://github.com/socialcopsdev/camelot/issues/293) Split text ignores all text to the right of last cut. [#294](https://github.com/socialcopsdev/camelot/pull/294) by Vinayak Mehta.
 * [#277](https://github.com/socialcopsdev/camelot/issues/277) Sort TableList by order of tables in PDF. [#283](https://github.com/socialcopsdev/camelot/pull/283) by [Sym Roe](https://github.com/symroe).
 
 0.7.2 (2019-01-10)
 ------------------
 
- **Bugfixes**
+**Bugfixes**
 
- * [#245](https://github.com/socialcopsdev/camelot/issues/245) Fix AttributeError for encrypted files. [#251](https://github.com/socialcopsdev/camelot/pull/251) by Yatin Taluja.
+* [#245](https://github.com/socialcopsdev/camelot/issues/245) Fix AttributeError for encrypted files. [#251](https://github.com/socialcopsdev/camelot/pull/251) by Yatin Taluja.
 
 
 0.7.1 (2019-01-06)
