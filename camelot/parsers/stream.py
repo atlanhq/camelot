@@ -120,7 +120,7 @@ class Stream(BaseParser):
                 if not np.isclose(row_y, t.y0, atol=row_tol):
                     rows.append(sorted(temp, key=lambda t: t.x0))
                     temp = []
-                    row_y = t.y0
+                row_y = t.y0
                 temp.append(t)
         rows.append(sorted(temp, key=lambda t: t.x0))
         __ = rows.pop(0)  # TODO: hacky
