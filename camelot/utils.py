@@ -141,6 +141,7 @@ def remove_extra(kwargs, flavor='lattice'):
 class TemporaryDirectory(object):
     def __enter__(self):
         self.name = tempfile.mkdtemp()
+        print(self.name)
         return self.name
 
     def __exit__(self, exc_type, exc_value, traceback):

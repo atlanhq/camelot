@@ -6,6 +6,7 @@ from click import HelpFormatter
 
 from .__version__ import __version__
 from .io import read_pdf
+from .io import read_fileObj
 from .plotting import PlotMethods
 
 
