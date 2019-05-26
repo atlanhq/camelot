@@ -286,7 +286,7 @@ class Stream(BaseParser):
                 # filter horizontal text
                 hor_text = []
                 for region in self.table_regions:
-                    x1, y1, x2, y2 = region
+                    x1, y1, x2, y2 = region.split(",")
                     region_text = text_in_bbox((x1, y2, x2, y1), self.horizontal_text)
                     hor_text.extend(region_text)
             # find tables based on nurminen's detection algorithm
