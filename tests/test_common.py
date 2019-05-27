@@ -69,6 +69,14 @@ def test_stream_two_tables():
     assert df2.equals(tables[1].df)
 
 
+def test_stream_table_regions():
+    df = pd.DataFrame(data_stream_table_areas)
+
+    filename = os.path.join(testdir, "tabula/us-007.pdf")
+    tables = camelot.read_pdf(filename, flavor="stream", table_regions=["320,460,573,335"])
+    assert df.equals(tables[0].df)
+
+
 def test_stream_table_areas():
     df = pd.DataFrame(data_stream_table_areas)
 
