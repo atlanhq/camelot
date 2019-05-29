@@ -598,7 +598,7 @@ class Table(object):
         """
         html_string = self.df.to_html(**kwargs)
         with open(path, 'w') as f:
-            f.write(html_string)
+            f.write(html_string.encode('utf-8'))
 
     def to_sqlite(self, path, **kwargs):
         """Writes Table to sqlite database.
