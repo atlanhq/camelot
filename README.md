@@ -16,14 +16,14 @@
 
 **Here's how you can extract tables from PDF files.** Check out the PDF used in this example [here](https://github.com/socialcopsdev/camelot/blob/master/docs/_static/pdf/foo.pdf).
 
-<pre>
+```python3
 >>> import camelot
 >>> tables = camelot.read_pdf('foo.pdf')
 >>> tables
-&lt;TableList n=1&gt;
+<TableList n=1>
 >>> tables.export('foo.csv', f='csv', compress=True) # json, excel, html, sqlite
 >>> tables[0]
-&lt;Table shape=(7, 7)&gt;
+<Table shape=(7, 7)>
 >>> tables[0].parsing_report
 {
     'accuracy': 99.02,
@@ -33,7 +33,7 @@
 }
 >>> tables[0].to_csv('foo.csv') # to_json, to_excel, to_html, to_sqlite
 >>> tables[0].df # get a pandas DataFrame!
-</pre>
+```
 
 | Cycle Name | KI (1/km) | Distance (mi) | Percent Fuel Savings |                 |                 |                |
 |------------|-----------|---------------|----------------------|-----------------|-----------------|----------------|
@@ -63,32 +63,32 @@ See [comparison with other PDF table extraction libraries and tools](https://git
 
 The easiest way to install Camelot is to install it with [conda](https://conda.io/docs/), which is a package manager and  environment management system for the [Anaconda](http://docs.continuum.io/anaconda/) distribution.
 
-<pre>
-$ conda install -c conda-forge camelot-py
-</pre>
+```bash
+conda install -c conda-forge camelot-py
+```
 
 ### Using pip
 
 After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install-deps.html) ([tk](https://packages.ubuntu.com/trusty/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
 
-<pre>
-$ pip install camelot-py[cv]
-</pre>
+```bash
+pip install camelot-py[cv]
+```
 
 ### From the source code
 
 After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install.html#using-pip), clone the repo using:
 
-<pre>
-$ git clone https://www.github.com/socialcopsdev/camelot
-</pre>
+```bash
+git clone https://www.github.com/socialcopsdev/camelot
+```
 
 and install Camelot using pip:
 
-<pre>
-$ cd camelot
-$ pip install ".[cv]"
-</pre>
+```
+cd camelot
+pip install ".[cv]"
+```
 
 ## Documentation
 
@@ -102,25 +102,25 @@ The [Contributor's Guide](https://camelot-py.readthedocs.io/en/master/dev/contri
 
 You can check the latest sources with:
 
-<pre>
-$ git clone https://www.github.com/socialcopsdev/camelot
-</pre>
+```bash
+git clone https://www.github.com/socialcopsdev/camelot
+```
 
 ### Setting up a development environment
 
 You can install the development dependencies easily, using pip:
 
-<pre>
-$ pip install camelot-py[dev]
-</pre>
+```bash
+pip install camelot-py[dev]
+```
 
 ### Testing
 
 After installation, you can run tests using:
 
-<pre>
-$ python setup.py test
-</pre>
+```bash
+python setup.py test
+```
 
 ## Versioning
 
