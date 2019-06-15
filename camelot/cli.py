@@ -28,7 +28,7 @@ class Config(object):
 pass_config = click.make_pass_decorator(Config)
 
 
-@click.group()
+@click.group(name='camelot')
 @click.version_option(version=__version__)
 @click.option('-q', '--quiet', is_flag=False, help='Suppress logs and warnings.')
 @click.option('-p', '--pages', default='1', help='Comma-separated page numbers.'

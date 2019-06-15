@@ -12,6 +12,21 @@ testdir = os.path.dirname(os.path.abspath(__file__))
 testdir = os.path.join(testdir, 'files')
 
 
+def test_help_output():
+    runner = CliRunner()
+    prog_name = runner.get_default_prog_name(cli)
+    result = runner.invoke(cli, ['--help'])
+    output = result.output
+
+    assert prog_name == 'camelot'
+    assert result.output.startswith('Usage: %(prog_name)s [OPTIONS] COMMAND' % locals())
+
+    assert all(
+        v in result.output
+        for v in ['Options:', '--version', '--help', 'Commands:', 'lattice', 'stream']
+    )
+
+
 def test_cli_lattice():
     with TemporaryDirectory() as tempdir:
         infile = os.path.join(testdir, 'foo.pdf')
@@ -101,6 +116,7 @@ def test_cli_output_format():
         result = runner.invoke(cli, ['--zip', '--format', 'csv', '--output', outfile.format('csv'),
                                      'stream', infile])
         assert result.exit_code == 0
+
 
 def test_cli_quiet():
     with TemporaryDirectory() as tempdir:
