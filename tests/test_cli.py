@@ -20,7 +20,6 @@ def test_help_output():
 
     assert prog_name == 'camelot'
     assert result.output.startswith('Usage: %(prog_name)s [OPTIONS] COMMAND' % locals())
-
     assert all(
         v in result.output
         for v in ['Options:', '--version', '--help', 'Commands:', 'lattice', 'stream']
