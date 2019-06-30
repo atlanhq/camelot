@@ -14,7 +14,7 @@
 
 ---
 
-**Here's how you can extract tables from PDF files.** Check out the PDF used in this example [here](https://github.com/socialcopsdev/camelot/blob/master/docs/_static/pdf/foo.pdf).
+**Here's how you can extract tables from PDF files.** Check out the PDF used in this example [here](https://github.com/atlanhq/camelot/blob/master/docs/_static/pdf/foo.pdf).
 
 <pre>
 >>> import camelot
@@ -55,7 +55,7 @@ There's a [command-line interface](https://camelot-py.readthedocs.io/en/master/u
 - Each table is a **pandas DataFrame**, which seamlessly integrates into [ETL and data analysis workflows](https://gist.github.com/vinayak-mehta/e5949f7c2410a0e12f25d3682dc9e873).
 - **Export** to multiple formats, including JSON, Excel, HTML and Sqlite.
 
-See [comparison with other PDF table extraction libraries and tools](https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools).
+See [comparison with other PDF table extraction libraries and tools](https://github.com/atlanhq/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools).
 
 ## Installation
 
@@ -80,7 +80,7 @@ $ pip install camelot-py[cv]
 After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install.html#using-pip), clone the repo using:
 
 <pre>
-$ git clone https://www.github.com/socialcopsdev/camelot
+$ git clone https://www.github.com/atlanhq/camelot
 </pre>
 
 and install Camelot using pip:
@@ -103,7 +103,7 @@ The [Contributor's Guide](https://camelot-py.readthedocs.io/en/master/dev/contri
 You can check the latest sources with:
 
 <pre>
-$ git clone https://www.github.com/socialcopsdev/camelot
+$ git clone https://www.github.com/atlanhq/camelot
 </pre>
 
 ### Setting up a development environment
@@ -124,8 +124,10 @@ $ python setup.py test
 
 ## Versioning
 
-Camelot uses [Semantic Versioning](https://semver.org/). For the available versions, see the tags on this repository. For the changelog, you can check out [HISTORY.md](https://github.com/socialcopsdev/camelot/blob/master/HISTORY.md).
+Camelot uses [Semantic Versioning](https://semver.org/). For the available versions, see the tags on this repository. For the changelog, you can check out [HISTORY.md](https://github.com/atlanhq/camelot/blob/master/HISTORY.md).
 
 ## License
 
-This project is licensed under the MIT License, see the [LICENSE](https://github.com/socialcopsdev/camelot/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License, see the [LICENSE](https://github.com/atlanhq/camelot/blob/master/LICENSE) file for details.
+
+<img src="http://i65.tinypic.com/9h4ajs.png" align="centre" />
