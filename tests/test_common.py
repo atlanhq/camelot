@@ -115,7 +115,7 @@ def test_stream_strip_text():
     df = pd.DataFrame(data_stream_strip_text)
 
     filename = os.path.join(testdir, "detect_vertical_false.pdf")
-    tables = camelot.read_pdf(filename, flavor="stream", strip_text="\n")
+    tables = camelot.read_pdf(filename, flavor="stream", strip_text=" ,\n")
     assert df.equals(tables[0].df)
 
 

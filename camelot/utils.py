@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
 
+import re
 import os
 import sys
 import random
@@ -385,6 +386,33 @@ def merge_close_lines(ar, line_tol=2):
     return ret
 
 
+def text_strip(text, strip=""):
+    """Strips any characters in `strip` that are present in `text`.
+
+    Parameters
+    ----------
+    text : str
+        Text to process and strip.
+    strip : str, optional (default: '')
+        Characters that should be stripped from `text`.
+
+    Returns
+    -------
+    stripped : str
+
+    """
+    if not strip:
+        return text
+
+    stripped = re.sub(
+        r"[{}]".format("".join(map(re.escape, strip))),
+        "",
+        text,
+        re.UNICODE,
+    )
+    return stripped
+
+
 # TODO: combine the following functions into a TextProcessor class which
 # applies corresponding transformations sequentially
 # (inspired from sklearn.pipeline.Pipeline)
@@ -428,10 +456,10 @@ def flag_font_size(textline, direction, strip_text=''):
                 fchars = [t[0] for t in chars]
                 if ''.join(fchars).strip():
                     flist.append(''.join(fchars))
-        fstring = ''.join(flist).strip(strip_text)
+        fstring = ''.join(flist)
     else:
-        fstring = ''.join([t.get_text() for t in textline]).strip(strip_text)
-    return fstring
+        fstring = ''.join([t.get_text() for t in textline])
+    return text_strip(fstring, strip_text)
 
 
 def split_textline(table, textline, direction, flag_size=False, strip_text=''):
@@ -515,7 +543,7 @@ def split_textline(table, textline, direction, flag_size=False, strip_text=''):
                 flag_font_size([t[2] for t in chars], direction, strip_text=strip_text)))
         else:
             gchars = [t[2].get_text() for t in chars]
-            grouped_chars.append((key[0], key[1], ''.join(gchars).strip(strip_text)))
+            grouped_chars.append((key[0], key[1], text_strip(''.join(gchars), strip_text)))
     return grouped_chars
 
 
@@ -599,7 +627,15 @@ def get_table_index(table, t, direction, split_text=False, flag_size=False, stri
         if flag_size:
             return [(r_idx, c_idx, flag_font_size(t._objs, direction, strip_text=strip_text))], error
         else:
-            return [(r_idx, c_idx, t.get_text().strip(strip_text))], error
+
+            return (
+                [(
+                    r_idx,
+                    c_idx,
+                    text_strip(t.get_text(), strip_text),
+                )],
+                error,
+            )
 
 
 def compute_accuracy(error_weights):
