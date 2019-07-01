@@ -16,27 +16,27 @@ filename = os.path.join(testdir, 'foo.pdf')
 def test_unknown_flavor():
     message = ("Unknown flavor specified."
                " Use either 'lattice' or 'stream'")
-    with pytest.raises(NotImplementedError, match=message):
+    with pytest.raises(NotImplementedError, message=message):
         tables = camelot.read_pdf(filename, flavor='chocolate')
 
 
 def test_input_kwargs():
     message = "columns cannot be used with flavor='lattice'"
-    with pytest.raises(ValueError, match=message):
+    with pytest.raises(ValueError, message=message):
         tables = camelot.read_pdf(filename, columns=['10,20,30,40'])
 
 
 def test_unsupported_format():
     message = 'File format not supported'
     filename = os.path.join(testdir, 'foo.csv')
-    with pytest.raises(NotImplementedError, match=message):
+    with pytest.raises(NotImplementedError, message=message):
         tables = camelot.read_pdf(filename)
 
 
 def test_stream_equal_length():
     message = ("Length of table_areas and columns"
                " should be equal")
-    with pytest.raises(ValueError, match=message):
+    with pytest.raises(ValueError, message=message):
         tables = camelot.read_pdf(filename, flavor='stream',
             table_areas=['10,20,30,40'], columns=['10,20,30,40', '10,20,30,40'])
 
@@ -86,12 +86,12 @@ def test_no_tables_found_warnings_suppressed():
 def test_no_password():
     filename = os.path.join(testdir, 'health_protected.pdf')
     message = 'file has not been decrypted'
-    with pytest.raises(Exception, match=message):
+    with pytest.raises(Exception, message=message):
         tables = camelot.read_pdf(filename)
 
 
 def test_bad_password():
     filename = os.path.join(testdir, 'health_protected.pdf')
     message = 'file has not been decrypted'
-    with pytest.raises(Exception, match=message):
+    with pytest.raises(Exception, message=message):
         tables = camelot.read_pdf(filename, password='wrongpass')
