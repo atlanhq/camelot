@@ -14,14 +14,25 @@ import pandas as pd
 
 from .base import BaseParser
 from ..core import Table
-from ..utils import (scale_image, scale_pdf, segments_in_bbox, text_in_bbox,
-                     merge_close_lines, get_table_index, compute_accuracy,
-                     compute_whitespace)
-from ..image_processing import (adaptive_threshold, find_lines,
-                                find_contours, find_joints)
+from ..utils import (
+    scale_image,
+    scale_pdf,
+    segments_in_bbox,
+    text_in_bbox,
+    merge_close_lines,
+    get_table_index,
+    compute_accuracy,
+    compute_whitespace,
+)
+from ..image_processing import (
+    adaptive_threshold,
+    find_lines,
+    find_contours,
+    find_joints,
+)
 
 
-logger = logging.getLogger('camelot')
+logger = logging.getLogger("camelot")
 
 
 class Lattice(BaseParser):
@@ -83,11 +94,26 @@ class Lattice(BaseParser):
         Resolution used for PDF to PNG conversion.
 
     """
-    def __init__(self, table_regions=None, table_areas=None, process_background=False,
-                 line_scale=15, copy_text=None, shift_text=['l', 't'],
-                 split_text=False, flag_size=False, strip_text='', line_tol=2,
-                 joint_tol=2, threshold_blocksize=15, threshold_constant=-2,
-                 iterations=0, resolution=300, **kwargs):
+
+    def __init__(
+        self,
+        table_regions=None,
+        table_areas=None,
+        process_background=False,
+        line_scale=15,
+        copy_text=None,
+        shift_text=["l", "t"],
+        split_text=False,
+        flag_size=False,
+        strip_text="",
+        line_tol=2,
+        joint_tol=2,
+        threshold_blocksize=15,
+        threshold_constant=-2,
+        iterations=0,
+        resolution=300,
+        **kwargs
+    ):
         self.table_regions = table_regions
         self.table_areas = table_areas
         self.process_background = process_background
@@ -130,19 +156,19 @@ class Lattice(BaseParser):
         indices = []
         for r_idx, c_idx, text in idx:
             for d in shift_text:
-                if d == 'l':
+                if d == "l":
                     if t.cells[r_idx][c_idx].hspan:
                         while not t.cells[r_idx][c_idx].left:
                             c_idx -= 1
-                if d == 'r':
+                if d == "r":
                     if t.cells[r_idx][c_idx].hspan:
                         while not t.cells[r_idx][c_idx].right:
                             c_idx += 1
-                if d == 't':
+                if d == "t":
                     if t.cells[r_idx][c_idx].vspan:
                         while not t.cells[r_idx][c_idx].top:
                             r_idx -= 1
-                if d == 'b':
+                if d == "b":
                     if t.cells[r_idx][c_idx].vspan:
                         while not t.cells[r_idx][c_idx].bottom:
                             r_idx += 1
@@ -171,13 +197,13 @@ class Lattice(BaseParser):
             if f == "h":
                 for i in range(len(t.cells)):
                     for j in range(len(t.cells[i])):
-                        if t.cells[i][j].text.strip() == '':
+                        if t.cells[i][j].text.strip() == "":
                             if t.cells[i][j].hspan and not t.cells[i][j].left:
                                 t.cells[i][j].text = t.cells[i][j - 1].text
             elif f == "v":
                 for i in range(len(t.cells)):
                     for j in range(len(t.cells[i])):
-                        if t.cells[i][j].text.strip() == '':
+                        if t.cells[i][j].text.strip() == "":
                             if t.cells[i][j].vspan and not t.cells[i][j].top:
                                 t.cells[i][j].text = t.cells[i - 1][j].text
         return t
@@ -185,11 +211,12 @@ class Lattice(BaseParser):
     def _generate_image(self):
         from ..ext.ghostscript import Ghostscript
 
-        self.imagename = ''.join([self.rootname, '.png'])
-        gs_call = '-q -sDEVICE=png16m -o {} -r300 {}'.format(
-            self.imagename, self.filename)
+        self.imagename = "".join([self.rootname, ".png"])
+        gs_call = "-q -sDEVICE=png16m -o {} -r300 {}".format(
+            self.imagename, self.filename
+        )
         gs_call = gs_call.encode().split()
-        null = open(os.devnull, 'wb')
+        null = open(os.devnull, "wb")
         with Ghostscript(*gs_call, stdout=null) as gs:
             pass
         null.close()
@@ -208,8 +235,11 @@ class Lattice(BaseParser):
             return scaled_areas
 
         self.image, self.threshold = adaptive_threshold(
-            self.imagename, process_background=self.process_background,
-            blocksize=self.threshold_blocksize, c=self.threshold_constant)
+            self.imagename,
+            process_background=self.process_background,
+            blocksize=self.threshold_blocksize,
+            c=self.threshold_constant,
+        )
 
         image_width = self.image.shape[1]
         image_height = self.image.shape[0]
@@ -226,21 +256,35 @@ class Lattice(BaseParser):
                 regions = scale_areas(self.table_regions)
 
             vertical_mask, vertical_segments = find_lines(
-                self.threshold, regions=regions, direction='vertical',
-                line_scale=self.line_scale, iterations=self.iterations)
+                self.threshold,
+                regions=regions,
+                direction="vertical",
+                line_scale=self.line_scale,
+                iterations=self.iterations,
+            )
             horizontal_mask, horizontal_segments = find_lines(
-                self.threshold, regions=regions, direction='horizontal',
-                line_scale=self.line_scale, iterations=self.iterations)
+                self.threshold,
+                regions=regions,
+                direction="horizontal",
+                line_scale=self.line_scale,
+                iterations=self.iterations,
+            )
 
             contours = find_contours(vertical_mask, horizontal_mask)
             table_bbox = find_joints(contours, vertical_mask, horizontal_mask)
         else:
             vertical_mask, vertical_segments = find_lines(
-                self.threshold, direction='vertical', line_scale=self.line_scale,
-                iterations=self.iterations)
+                self.threshold,
+                direction="vertical",
+                line_scale=self.line_scale,
+                iterations=self.iterations,
+            )
             horizontal_mask, horizontal_segments = find_lines(
-                self.threshold, direction='horizontal', line_scale=self.line_scale,
-                iterations=self.iterations)
+                self.threshold,
+                direction="horizontal",
+                line_scale=self.line_scale,
+                iterations=self.iterations,
+            )
 
             areas = scale_areas(self.table_areas)
             table_bbox = find_joints(areas, vertical_mask, horizontal_mask)
@@ -248,18 +292,20 @@ class Lattice(BaseParser):
         self.table_bbox_unscaled = copy.deepcopy(table_bbox)
 
         self.table_bbox, self.vertical_segments, self.horizontal_segments = scale_image(
-            table_bbox, vertical_segments, horizontal_segments, pdf_scalers)
+            table_bbox, vertical_segments, horizontal_segments, pdf_scalers
+        )
 
     def _generate_columns_and_rows(self, table_idx, tk):
         # select elements which lie within table_bbox
         t_bbox = {}
         v_s, h_s = segments_in_bbox(
-            tk, self.vertical_segments, self.horizontal_segments)
-        t_bbox['horizontal'] = text_in_bbox(tk, self.horizontal_text)
-        t_bbox['vertical'] = text_in_bbox(tk, self.vertical_text)
+            tk, self.vertical_segments, self.horizontal_segments
+        )
+        t_bbox["horizontal"] = text_in_bbox(tk, self.horizontal_text)
+        t_bbox["vertical"] = text_in_bbox(tk, self.vertical_text)
 
-        t_bbox['horizontal'].sort(key=lambda x: (-x.y0, x.x0))
-        t_bbox['vertical'].sort(key=lambda x: (x.x0, -x.y0))
+        t_bbox["horizontal"].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox["vertical"].sort(key=lambda x: (x.x0, -x.y0))
 
         self.t_bbox = t_bbox
 
@@ -268,23 +314,19 @@ class Lattice(BaseParser):
         cols.extend([tk[0], tk[2]])
         rows.extend([tk[1], tk[3]])
         # sort horizontal and vertical segments
-        cols = merge_close_lines(
-            sorted(cols), line_tol=self.line_tol)
-        rows = merge_close_lines(
-            sorted(rows, reverse=True), line_tol=self.line_tol)
+        cols = merge_close_lines(sorted(cols), line_tol=self.line_tol)
+        rows = merge_close_lines(sorted(rows, reverse=True), line_tol=self.line_tol)
         # make grid using x and y coord of shortlisted rows and cols
-        cols = [(cols[i], cols[i + 1])
-                for i in range(0, len(cols) - 1)]
-        rows = [(rows[i], rows[i + 1])
-                for i in range(0, len(rows) - 1)]
+        cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
+        rows = [(rows[i], rows[i + 1]) for i in range(0, len(rows) - 1)]
 
         return cols, rows, v_s, h_s
 
     def _generate_table(self, table_idx, cols, rows, **kwargs):
-        v_s = kwargs.get('v_s')
-        h_s = kwargs.get('h_s')
+        v_s = kwargs.get("v_s")
+        h_s = kwargs.get("h_s")
         if v_s is None or h_s is None:
-            raise ValueError('No segments found on {}'.format(self.rootname))
+            raise ValueError("No segments found on {}".format(self.rootname))
 
         table = Table(cols, rows)
         # set table edges to True using ver+hor lines
@@ -297,14 +339,21 @@ class Lattice(BaseParser):
         pos_errors = []
         # TODO: have a single list in place of two directional ones?
         # sorted on x-coordinate based on reading order i.e. LTR or RTL
-        for direction in ['vertical', 'horizontal']:
+        for direction in ["vertical", "horizontal"]:
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
-                    table, t, direction, split_text=self.split_text,
-                    flag_size=self.flag_size, strip_text=self.strip_text)
+                    table,
+                    t,
+                    direction,
+                    split_text=self.split_text,
+                    flag_size=self.flag_size,
+                    strip_text=self.strip_text,
+                )
                 if indices[:2] != (-1, -1):
                     pos_errors.append(error)
-                    indices = Lattice._reduce_index(table, indices, shift_text=self.shift_text)
+                    indices = Lattice._reduce_index(
+                        table, indices, shift_text=self.shift_text
+                    )
                     for r_idx, c_idx, text in indices:
                         table.cells[r_idx][c_idx].text = text
         accuracy = compute_accuracy([[100, pos_errors]])
@@ -317,11 +366,11 @@ class Lattice(BaseParser):
         table.shape = table.df.shape
 
         whitespace = compute_whitespace(data)
-        table.flavor = 'lattice'
+        table.flavor = "lattice"
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1
-        table.page = int(os.path.basename(self.rootname).replace('page-', ''))
+        table.page = int(os.path.basename(self.rootname).replace("page-", ""))
 
         # for plotting
         _text = []
@@ -337,15 +386,18 @@ class Lattice(BaseParser):
     def extract_tables(self, filename, suppress_stdout=False, layout_kwargs={}):
         self._generate_layout(filename, layout_kwargs)
         if not suppress_stdout:
-            logger.info('Processing {}'.format(os.path.basename(self.rootname)))
+            logger.info("Processing {}".format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
             if self.images:
-                warnings.warn('{} is image-based, camelot only works on'
-                              ' text-based pages.'.format(os.path.basename(self.rootname)))
+                warnings.warn(
+                    "{} is image-based, camelot only works on"
+                    " text-based pages.".format(os.path.basename(self.rootname))
+                )
             else:
-                warnings.warn('No tables found on {}'.format(
-                    os.path.basename(self.rootname)))
+                warnings.warn(
+                    "No tables found on {}".format(os.path.basename(self.rootname))
+                )
             return []
 
         self._generate_image()
@@ -353,8 +405,9 @@ class Lattice(BaseParser):
 
         _tables = []
         # sort tables based on y-coord
-        for table_idx, tk in enumerate(sorted(
-                self.table_bbox.keys(), key=lambda x: x[1], reverse=True)):
+        for table_idx, tk in enumerate(
+            sorted(self.table_bbox.keys(), key=lambda x: x[1], reverse=True)
+        ):
             cols, rows, v_s, h_s = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows, v_s=v_s, h_s=h_s)
             table._bbox = tk

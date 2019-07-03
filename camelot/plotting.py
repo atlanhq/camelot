@@ -10,7 +10,7 @@ else:
 
 
 class PlotMethods(object):
-    def __call__(self, table, kind='text', filename=None):
+    def __call__(self, table, kind="text", filename=None):
         """Plot elements found on PDF page based on kind
         specified, useful for debugging and playing with different
         parameters to get the best output.
@@ -31,14 +31,16 @@ class PlotMethods(object):
 
         """
         if not _HAS_MPL:
-            raise ImportError('matplotlib is required for plotting.')
+            raise ImportError("matplotlib is required for plotting.")
 
-        if table.flavor == 'lattice' and kind in ['textedge']:
-            raise NotImplementedError("Lattice flavor does not support kind='{}'".format(
-                                      kind))
-        elif table.flavor == 'stream' and kind in ['joint', 'line']:
-            raise NotImplementedError("Stream flavor does not support kind='{}'".format(
-                                      kind))
+        if table.flavor == "lattice" and kind in ["textedge"]:
+            raise NotImplementedError(
+                "Lattice flavor does not support kind='{}'".format(kind)
+            )
+        elif table.flavor == "stream" and kind in ["joint", "line"]:
+            raise NotImplementedError(
+                "Stream flavor does not support kind='{}'".format(kind)
+            )
 
         plot_method = getattr(self, kind)
         return plot_method(table)
@@ -57,18 +59,12 @@ class PlotMethods(object):
 
         """
         fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
+        ax = fig.add_subplot(111, aspect="equal")
         xs, ys = [], []
         for t in table._text:
             xs.extend([t[0], t[2]])
             ys.extend([t[1], t[3]])
-            ax.add_patch(
-                patches.Rectangle(
-                    (t[0], t[1]),
-                    t[2] - t[0],
-                    t[3] - t[1]
-                )
-            )
+            ax.add_patch(patches.Rectangle((t[0], t[1]), t[2] - t[0], t[3] - t[1]))
         ax.set_xlim(min(xs) - 10, max(xs) + 10)
         ax.set_ylim(min(ys) - 10, max(ys) + 10)
         return fig
@@ -87,21 +83,17 @@ class PlotMethods(object):
 
         """
         fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
+        ax = fig.add_subplot(111, aspect="equal")
         for row in table.cells:
             for cell in row:
                 if cell.left:
-                    ax.plot([cell.lb[0], cell.lt[0]],
-                            [cell.lb[1], cell.lt[1]])
+                    ax.plot([cell.lb[0], cell.lt[0]], [cell.lb[1], cell.lt[1]])
                 if cell.right:
-                    ax.plot([cell.rb[0], cell.rt[0]],
-                            [cell.rb[1], cell.rt[1]])
+                    ax.plot([cell.rb[0], cell.rt[0]], [cell.rb[1], cell.rt[1]])
                 if cell.top:
-                    ax.plot([cell.lt[0], cell.rt[0]],
-                            [cell.lt[1], cell.rt[1]])
+                    ax.plot([cell.lt[0], cell.rt[0]], [cell.lt[1], cell.rt[1]])
                 if cell.bottom:
-                    ax.plot([cell.lb[0], cell.rb[0]],
-                            [cell.lb[1], cell.rb[1]])
+                    ax.plot([cell.lb[0], cell.rb[0]], [cell.lb[1], cell.rb[1]])
         return fig
 
     def contour(self, table):
@@ -124,7 +116,7 @@ class PlotMethods(object):
             img, table_bbox = (None, {table._bbox: None})
             _FOR_LATTICE = False
         fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
+        ax = fig.add_subplot(111, aspect="equal")
 
         xs, ys = [], []
         if not _FOR_LATTICE:
@@ -133,21 +125,14 @@ class PlotMethods(object):
                 ys.extend([t[1], t[3]])
                 ax.add_patch(
                     patches.Rectangle(
-                        (t[0], t[1]),
-                        t[2] - t[0],
-                        t[3] - t[1],
-                        color='blue'
+                        (t[0], t[1]), t[2] - t[0], t[3] - t[1], color="blue"
                     )
                 )
 
         for t in table_bbox.keys():
             ax.add_patch(
                 patches.Rectangle(
-                    (t[0], t[1]),
-                    t[2] - t[0],
-                    t[3] - t[1],
-                    fill=False,
-                    color='red'
+                    (t[0], t[1]), t[2] - t[0], t[3] - t[1], fill=False, color="red"
                 )
             )
             if not _FOR_LATTICE:
@@ -173,25 +158,19 @@ class PlotMethods(object):
 
         """
         fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
+        ax = fig.add_subplot(111, aspect="equal")
         xs, ys = [], []
         for t in table._text:
             xs.extend([t[0], t[2]])
             ys.extend([t[1], t[3]])
             ax.add_patch(
-                patches.Rectangle(
-                    (t[0], t[1]),
-                    t[2] - t[0],
-                    t[3] - t[1],
-                    color='blue'
-                )
+                patches.Rectangle((t[0], t[1]), t[2] - t[0], t[3] - t[1], color="blue")
             )
         ax.set_xlim(min(xs) - 10, max(xs) + 10)
         ax.set_ylim(min(ys) - 10, max(ys) + 10)
 
         for te in table._textedges:
-            ax.plot([te.x, te.x],
-                    [te.y0, te.y1])
+            ax.plot([te.x, te.x], [te.y0, te.y1])
 
         return fig
 
@@ -210,14 +189,14 @@ class PlotMethods(object):
         """
         img, table_bbox = table._image
         fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
+        ax = fig.add_subplot(111, aspect="equal")
         x_coord = []
         y_coord = []
         for k in table_bbox.keys():
             for coord in table_bbox[k]:
                 x_coord.append(coord[0])
                 y_coord.append(coord[1])
-        ax.plot(x_coord, y_coord, 'ro')
+        ax.plot(x_coord, y_coord, "ro")
         ax.imshow(img)
         return fig
 
@@ -235,7 +214,7 @@ class PlotMethods(object):
 
         """
         fig = plt.figure()
-        ax = fig.add_subplot(111, aspect='equal')
+        ax = fig.add_subplot(111, aspect="equal")
         vertical, horizontal = table._segments
         for v in vertical:
             ax.plot([v[0], v[2]], [v[1], v[3]])

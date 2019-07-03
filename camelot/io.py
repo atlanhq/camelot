@@ -6,8 +6,15 @@ from .handlers import PDFHandler
 from .utils import validate_input, remove_extra
 
 
-def read_pdf(filepath, pages='1', password=None, flavor='lattice',
-             suppress_stdout=False, layout_kwargs={}, **kwargs):
+def read_pdf(
+    filepath,
+    pages="1",
+    password=None,
+    flavor="lattice",
+    suppress_stdout=False,
+    layout_kwargs={},
+    **kwargs
+):
     """Read PDF and return extracted tables.
 
     Note: kwargs annotated with ^ can only be used with flavor='stream'
@@ -91,9 +98,10 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
     tables : camelot.core.TableList
 
     """
-    if flavor not in ['lattice', 'stream']:
-        raise NotImplementedError("Unknown flavor specified."
-                                  " Use either 'lattice' or 'stream'")
+    if flavor not in ["lattice", "stream"]:
+        raise NotImplementedError(
+            "Unknown flavor specified." " Use either 'lattice' or 'stream'"
+        )
 
     with warnings.catch_warnings():
         if suppress_stdout:
@@ -102,6 +110,10 @@ def read_pdf(filepath, pages='1', password=None, flavor='lattice',
         validate_input(kwargs, flavor=flavor)
         p = PDFHandler(filepath, pages=pages, password=password)
         kwargs = remove_extra(kwargs, flavor=flavor)
-        tables = p.parse(flavor=flavor, suppress_stdout=suppress_stdout,
-                         layout_kwargs=layout_kwargs, **kwargs)
+        tables = p.parse(
+            flavor=flavor,
+            suppress_stdout=suppress_stdout,
+            layout_kwargs=layout_kwargs,
+            **kwargs
+        )
         return tables
