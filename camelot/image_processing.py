@@ -100,7 +100,7 @@ def find_lines(
         size = threshold.shape[1] // line_scale
         el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
     elif direction is None:
-        raise ValueError("Specify direction as either 'vertical' or" " 'horizontal'")
+        raise ValueError("Specify direction as either 'vertical' or 'horizontal'")
 
     if regions is not None:
         region_mask = np.zeros(threshold.shape)
