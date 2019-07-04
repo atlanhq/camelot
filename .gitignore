@@ -12,5 +12,8 @@ coverage.xml
 .pytest_cache/
 _build/
 
+.venv/
+htmlcov/
+
 # vscode
 .vscode
