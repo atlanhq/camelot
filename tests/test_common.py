@@ -14,12 +14,7 @@ testdir = os.path.join(testdir, "files")
 
 
 def test_parsing_report():
-    parsing_report = {
-        'accuracy': 99.02,
-        'whitespace': 12.24,
-        'order': 1,
-        'page': 1
-    }
+    parsing_report = {"accuracy": 99.02, "whitespace": 12.24, "order": 1, "page": 1}
 
     filename = os.path.join(testdir, "foo.pdf")
     tables = camelot.read_pdf(filename)
@@ -62,7 +57,7 @@ def test_stream_two_tables():
     df2 = pd.DataFrame(data_stream_two_tables_2)
 
     filename = os.path.join(testdir, "tabula/12s0324.pdf")
-    tables = camelot.read_pdf(filename, flavor='stream')
+    tables = camelot.read_pdf(filename, flavor="stream")
 
     assert len(tables) == 2
     assert df1.equals(tables[0].df)
@@ -73,7 +68,9 @@ def test_stream_table_regions():
     df = pd.DataFrame(data_stream_table_areas)
 
     filename = os.path.join(testdir, "tabula/us-007.pdf")
-    tables = camelot.read_pdf(filename, flavor="stream", table_regions=["320,460,573,335"])
+    tables = camelot.read_pdf(
+        filename, flavor="stream", table_regions=["320,460,573,335"]
+    )
     assert df.equals(tables[0].df)
 
 
@@ -81,7 +78,9 @@ def test_stream_table_areas():
     df = pd.DataFrame(data_stream_table_areas)
 
     filename = os.path.join(testdir, "tabula/us-007.pdf")
-    tables = camelot.read_pdf(filename, flavor="stream", table_areas=["320,500,573,335"])
+    tables = camelot.read_pdf(
+        filename, flavor="stream", table_areas=["320,500,573,335"]
+    )
     assert df.equals(tables[0].df)
 
 
@@ -90,7 +89,8 @@ def test_stream_columns():
 
     filename = os.path.join(testdir, "mexican_towns.pdf")
     tables = camelot.read_pdf(
-        filename, flavor="stream", columns=["67,180,230,425,475"], row_tol=10)
+        filename, flavor="stream", columns=["67,180,230,425,475"], row_tol=10
+    )
     assert df.equals(tables[0].df)
 
 
@@ -99,7 +99,11 @@ def test_stream_split_text():
 
     filename = os.path.join(testdir, "tabula/m27.pdf")
     tables = camelot.read_pdf(
-        filename, flavor="stream", columns=["72,95,209,327,442,529,566,606,683"], split_text=True)
+        filename,
+        flavor="stream",
+        columns=["72,95,209,327,442,529,566,606,683"],
+        split_text=True,
+    )
     assert df.equals(tables[0].df)
 
 
@@ -115,7 +119,7 @@ def test_stream_strip_text():
     df = pd.DataFrame(data_stream_strip_text)
 
     filename = os.path.join(testdir, "detect_vertical_false.pdf")
-    tables = camelot.read_pdf(filename, flavor="stream", strip_text="\n")
+    tables = camelot.read_pdf(filename, flavor="stream", strip_text=" ,\n")
     assert df.equals(tables[0].df)
 
 
@@ -132,7 +136,8 @@ def test_stream_layout_kwargs():
 
     filename = os.path.join(testdir, "detect_vertical_false.pdf")
     tables = camelot.read_pdf(
-        filename, flavor="stream", layout_kwargs={"detect_vertical": False})
+        filename, flavor="stream", layout_kwargs={"detect_vertical": False}
+    )
     assert df.equals(tables[0].df)
 
 
@@ -140,7 +145,8 @@ def test_lattice():
     df = pd.DataFrame(data_lattice)
 
     filename = os.path.join(
-        testdir, "tabula/icdar2013-dataset/competition-dataset-us/us-030.pdf")
+        testdir, "tabula/icdar2013-dataset/competition-dataset-us/us-030.pdf"
+    )
     tables = camelot.read_pdf(filename, pages="2")
     assert df.equals(tables[0].df)
 
@@ -209,10 +215,10 @@ def test_lattice_shift_text():
     tables = camelot.read_pdf(filename, line_scale=40)
     assert df_lt.equals(tables[0].df)
 
-    tables = camelot.read_pdf(filename, line_scale=40, shift_text=[''])
+    tables = camelot.read_pdf(filename, line_scale=40, shift_text=[""])
     assert df_disable.equals(tables[0].df)
 
-    tables = camelot.read_pdf(filename, line_scale=40, shift_text=['r', 'b'])
+    tables = camelot.read_pdf(filename, line_scale=40, shift_text=["r", "b"])
     assert df_rb.equals(tables[0].df)
 
 
@@ -221,7 +227,9 @@ def test_repr():
     tables = camelot.read_pdf(filename)
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
-    assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    assert (
+        repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    )
 
 
 def test_pages():
@@ -229,17 +237,23 @@ def test_pages():
     tables = camelot.read_pdf(url)
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
-    assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    assert (
+        repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    )
 
-    tables = camelot.read_pdf(url, pages='1-end')
+    tables = camelot.read_pdf(url, pages="1-end")
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
-    assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    assert (
+        repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    )
 
-    tables = camelot.read_pdf(url, pages='all')
+    tables = camelot.read_pdf(url, pages="all")
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
-    assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    assert (
+        repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    )
 
 
 def test_url():
@@ -247,7 +261,9 @@ def test_url():
     tables = camelot.read_pdf(url)
     assert repr(tables) == "<TableList n=1>"
     assert repr(tables[0]) == "<Table shape=(7, 7)>"
-    assert repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    assert (
+        repr(tables[0].cells[0][0]) == "<Cell x1=120.48 y1=218.43 x2=164.64 y2=233.77>"
+    )
 
 
 def test_arabic():
