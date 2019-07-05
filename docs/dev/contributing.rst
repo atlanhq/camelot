@@ -29,8 +29,8 @@ Your first contribution
 
 A great way to start contributing to Camelot is to pick an issue tagged with the `help wanted`_ or the `good first issue`_ tags. If you're unable to find a good first issue, feel free to contact the maintainer.
 
-.. _help wanted: https://github.com/socialcopsdev/camelot/labels/help%20wanted
-.. _good first issue: https://github.com/socialcopsdev/camelot/labels/good%20first%20issue
+.. _help wanted: https://github.com/camelot-dev/camelot/labels/help%20wanted
+.. _good first issue: https://github.com/camelot-dev/camelot/labels/good%20first%20issue
 
 Setting up a development environment
 ------------------------------------
@@ -51,7 +51,7 @@ Submit a pull request
 
 The preferred workflow for contributing to Camelot is to fork the `project repository`_ on GitHub, clone, develop on a branch and then finally submit a pull request. Here are the steps:
 
-.. _project repository: https://github.com/socialcopsdev/camelot
+.. _project repository: https://github.com/camelot-dev/camelot
 
 1. Fork the project repository. Click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub.
 
@@ -134,7 +134,7 @@ Filing Issues
 
 We use `GitHub issues`_ to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
 
-.. _GitHub issues: https://github.com/socialcopsdev/camelot/issues
+.. _GitHub issues: https://github.com/camelot-dev/camelot/issues
 
 Questions
 ^^^^^^^^^

@@ -224,12 +224,12 @@ Table areas that you want Camelot to analyze can be passed as a list of comma-se
 .. csv-table::
   :file: ../_static/csv/table_areas.csv
 
-.. note:: ``table_areas`` accepts strings of the form x1,y1,x2,y2 where (x1, y1) -> top-left and (x2, y2) -> bottom-right in PDF coordinate space. In PDF coordinate space, the bottom-left corner of the page is the origin, with coordinates (0, 0). 
+.. note:: ``table_areas`` accepts strings of the form x1,y1,x2,y2 where (x1, y1) -> top-left and (x2, y2) -> bottom-right in PDF coordinate space. In PDF coordinate space, the bottom-left corner of the page is the origin, with coordinates (0, 0).
 
 Specify table regions
 ---------------------
 
-However there may be cases like `[1] <../_static/pdf/table_regions.pdf>`__ and `[2] <https://github.com/socialcopsdev/camelot/blob/master/tests/files/tableception.pdf>`__, where the table might not lie at the exact coordinates every time but in an approximate region.
+However there may be cases like `[1] <../_static/pdf/table_regions.pdf>`__ and `[2] <https://github.com/camelot-dev/camelot/blob/master/tests/files/tableception.pdf>`__, where the table might not lie at the exact coordinates every time but in an approximate region.
 
 You can use the ``table_regions`` keyword argument to :meth:`read_pdf() <camelot.read_pdf>` to solve for such cases. When ``table_regions`` is specified, Camelot will only analyze the specified regions to look for tables.
 
@@ -316,7 +316,7 @@ In this case, the text that `other tools`_ return, will be ``24.912``. This is r
 
 You can solve this by passing ``flag_size=True``, which will enclose the superscripts and subscripts with ``<s></s>``, based on font size, as shown below.
 
-.. _other tools: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools
+.. _other tools: https://github.com/camelot-dev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools
 
 ::
 
@@ -340,7 +340,7 @@ You can solve this by passing ``flag_size=True``, which will enclose the supersc
 Strip characters from text
 --------------------------
 
-You can strip unwanted characters like spaces, dots and newlines from a string using the ``strip_text`` keyword argument. Take a look at `this PDF <https://github.com/socialcopsdev/camelot/blob/master/tests/files/tabula/12s0324.pdf>`_ as an example, the text at the start of each row contains a lot of unwanted spaces, dots and newlines.
+You can strip unwanted characters like spaces, dots and newlines from a string using the ``strip_text`` keyword argument. Take a look at `this PDF <https://github.com/camelot-dev/camelot/blob/master/tests/files/tabula/12s0324.pdf>`_ as an example, the text at the start of each row contains a lot of unwanted spaces, dots and newlines.
 
 ::
 
@@ -366,7 +366,7 @@ You can strip unwanted characters like spaces, dots and newlines from a string u
 Improve guessed table areas
 ---------------------------
 
-While using :ref:`Stream <stream>`, automatic table detection can fail for PDFs like `this one <https://github.com/socialcopsdev/camelot/blob/master/tests/files/edge_tol.pdf>`_. That's because the text is relatively far apart vertically, which can lead to shorter textedges being calculated.
+While using :ref:`Stream <stream>`, automatic table detection can fail for PDFs like `this one <https://github.com/camelot-dev/camelot/blob/master/tests/files/edge_tol.pdf>`_. That's because the text is relatively far apart vertically, which can lead to shorter textedges being calculated.
 
 .. note:: To know more about how textedges are calculated to guess table areas, you can see pages 20, 35 and 40 of `Anssi Nurminen's master's thesis <http://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/21520/Nurminen.pdf?sequence=3>`_.
 
@@ -626,7 +626,7 @@ We don't need anything else. Now, let's pass ``copy_text=['v']`` to copy text in
 Tweak layout generation
 -----------------------
 
-Camelot is built on top of PDFMiner's functionality of grouping characters on a page into words and sentences. In some cases (such as `#170 <https://github.com/socialcopsdev/camelot/issues/170>`_ and `#215 <https://github.com/socialcopsdev/camelot/issues/215>`_), PDFMiner can group characters that should belong to the same sentence into separate sentences.
+Camelot is built on top of PDFMiner's functionality of grouping characters on a page into words and sentences. In some cases (such as `#170 <https://github.com/camelot-dev/camelot/issues/170>`_ and `#215 <https://github.com/camelot-dev/camelot/issues/215>`_), PDFMiner can group characters that should belong to the same sentence into separate sentences.
 
 To deal with such cases, you can tweak PDFMiner's `LAParams kwargs <https://github.com/euske/pdfminer/blob/master/pdfminer/layout.py#L33>`_ to improve layout generation, by passing the keyword arguments as a dict using ``layout_kwargs`` in :meth:`read_pdf() <camelot.read_pdf>`. To know more about the parameters you can tweak, you can check out `PDFMiner docs <https://euske.github.io/pdfminer/>`_.
 

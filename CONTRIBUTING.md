@@ -16,7 +16,7 @@ As the [Requests Code Of Conduct](http://docs.python-requests.org/en/master/dev/
 
 ## Your first contribution
 
-A great way to start contributing to Camelot is to pick an issue tagged with the [help wanted](https://github.com/socialcopsdev/camelot/labels/help%20wanted) tag or the [good first issue](https://github.com/socialcopsdev/camelot/labels/good%20first%20issue) tag. If you're unable to find a good first issue, feel free to contact the maintainer.
+A great way to start contributing to Camelot is to pick an issue tagged with the [help wanted](https://github.com/camelot-dev/camelot/labels/help%20wanted) tag or the [good first issue](https://github.com/camelot-dev/camelot/labels/good%20first%20issue) tag. If you're unable to find a good first issue, feel free to contact the maintainer.
 
 ## Setting up a development environment
 
@@ -36,7 +36,7 @@ $ pip install ".[dev]"
 
 ### Submit a pull request
 
-The preferred workflow for contributing to Camelot is to fork the [project repository](https://github.com/socialcopsdev/camelot) on GitHub, clone, develop on a branch and then finally submit a pull request. Here are the steps:
+The preferred workflow for contributing to Camelot is to fork the [project repository](https://github.com/camelot-dev/camelot) on GitHub, clone, develop on a branch and then finally submit a pull request. Here are the steps:
 
 1. Fork the project repository. Click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub.
 
@@ -106,7 +106,7 @@ The function docstrings are written using the [numpydoc](https://numpydoc.readth
 
 ## Filing Issues
 
-We use [GitHub issues](https://github.com/socialcopsdev/camelot/issues) to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
+We use [GitHub issues](https://github.com/camelot-dev/camelot/issues) to keep track of all issues and pull requests. Before opening an issue (which asks a question or reports a bug), please use GitHub search to look for existing issues (both open and closed) that may be similar.
 
 ### Questions
 
