@@ -179,7 +179,7 @@ class PDFHandler(object):
                     page_kwargs.update(self.multi[p_no])
                     page_parser = Lattice(**page_kwargs) if flavor == 'lattice' else Stream(**page_kwargs)
 
-                t = parser.extract_tables(
+                t = page_parser.extract_tables(
                     p, suppress_stdout=suppress_stdout, layout_kwargs=layout_kwargs
                 )
 
