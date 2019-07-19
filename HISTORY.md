@@ -4,8 +4,19 @@ Release History
 master
 ------
 
+0.7.3 (2019-07-07)
+------------------
+
+**Improvements**
+
+* Camelot now follows the Black code style! [#1](https://github.com/camelot-dev/camelot/pull/1) and [#3](https://github.com/camelot-dev/camelot/pull/3).
+
 **Bugfixes**
 
+* Fix Click.HelpFormatter monkey-patch. [#5](https://github.com/camelot-dev/camelot/pull/5) by [Dimiter Naydenov](https://github.com/dimitern).
+* Fix strip_text argument getting ignored. [#4](https://github.com/camelot-dev/camelot/pull/4) by [Dimiter Naydenov](https://github.com/dimitern).
+* [#25](https://github.com/camelot-dev/camelot/issues/25) edge_tol skipped in read_pdf. [#26](https://github.com/camelot-dev/camelot/pull/26) by Vinayak Mehta.
+* Fix pytest deprecation warning. [#2](https://github.com/camelot-dev/camelot/pull/2) by Vinayak Mehta.
 * [#293](https://github.com/socialcopsdev/camelot/issues/293) Split text ignores all text to the right of last cut. [#294](https://github.com/socialcopsdev/camelot/pull/294) by Vinayak Mehta.
 * [#277](https://github.com/socialcopsdev/camelot/issues/277) Sort TableList by order of tables in PDF. [#283](https://github.com/socialcopsdev/camelot/pull/283) by [Sym Roe](https://github.com/symroe).
 * [#312](https://github.com/socialcopsdev/camelot/issues/312) `table_regions` throws `ValueError` when `flavor='stream'`. [#332](https://github.com/socialcopsdev/camelot/pull/332) by Vinayak Mehta.

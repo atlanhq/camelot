@@ -38,7 +38,7 @@ After :ref:`installing the dependencies <install_deps>`, you can install from th
 1. Cloning the GitHub repository.
 ::
 
-    $ git clone https://www.github.com/socialcopsdev/camelot
+    $ git clone https://www.github.com/camelot-dev/camelot
 
 2. Then simply using pip again.
 ::

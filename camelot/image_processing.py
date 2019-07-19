@@ -39,17 +39,23 @@ def adaptive_threshold(imagename, process_background=False, blocksize=15, c=-2):
 
     if process_background:
         threshold = cv2.adaptiveThreshold(
-            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-            cv2.THRESH_BINARY, blocksize, c)
+            gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, blocksize, c
+        )
     else:
         threshold = cv2.adaptiveThreshold(
-            np.invert(gray), 255,
-            cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, blocksize, c)
+            np.invert(gray),
+            255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY,
+            blocksize,
+            c,
+        )
     return img, threshold
 
 
-def find_lines(threshold, regions=None, direction='horizontal',
-               line_scale=15, iterations=0):
+def find_lines(
+    threshold, regions=None, direction="horizontal", line_scale=15, iterations=0
+):
     """Finds horizontal and vertical lines by applying morphological
     transformations on an image.
 
@@ -87,15 +93,14 @@ def find_lines(threshold, regions=None, direction='horizontal',
     """
     lines = []
 
-    if direction == 'vertical':
+    if direction == "vertical":
         size = threshold.shape[0] // line_scale
         el = cv2.getStructuringElement(cv2.MORPH_RECT, (1, size))
-    elif direction == 'horizontal':
+    elif direction == "horizontal":
         size = threshold.shape[1] // line_scale
         el = cv2.getStructuringElement(cv2.MORPH_RECT, (size, 1))
     elif direction is None:
-        raise ValueError("Specify direction as either 'vertical' or"
-                         " 'horizontal'")
+        raise ValueError("Specify direction as either 'vertical' or 'horizontal'")
 
     if regions is not None:
         region_mask = np.zeros(threshold.shape)
@@ -110,19 +115,21 @@ def find_lines(threshold, regions=None, direction='horizontal',
 
     try:
         _, contours, _ = cv2.findContours(
-            threshold.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            threshold.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+        )
     except ValueError:
         # for opencv backward compatibility
         contours, _ = cv2.findContours(
-            threshold.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            threshold.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+        )
 
     for c in contours:
         x, y, w, h = cv2.boundingRect(c)
         x1, x2 = x, x + w
         y1, y2 = y, y + h
-        if direction == 'vertical':
+        if direction == "vertical":
             lines.append(((x1 + x2) // 2, y2, (x1 + x2) // 2, y1))
-        elif direction == 'horizontal':
+        elif direction == "horizontal":
             lines.append((x1, (y1 + y2) // 2, x2, (y1 + y2) // 2))
 
     return dmask, lines
@@ -150,11 +157,13 @@ def find_contours(vertical, horizontal):
 
     try:
         __, contours, __ = cv2.findContours(
-            mask.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            mask.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+        )
     except ValueError:
         # for opencv backward compatibility
         contours, __ = cv2.findContours(
-            mask.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            mask.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+        )
     # sort in reverse based on contour area and use first 10 contours
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
 
@@ -196,11 +205,13 @@ def find_joints(contours, vertical, horizontal):
         roi = joints[y : y + h, x : x + w]
         try:
             __, jc, __ = cv2.findContours(
-                roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+                roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE
+            )
         except ValueError:
             # for opencv backward compatibility
             jc, __ = cv2.findContours(
-                roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+                roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE
+            )
         if len(jc) <= 4:  # remove contours with less than 4 joints
             continue
         joint_coords = []

@@ -8,15 +8,15 @@ Camelot: PDF Table Extraction for Humans
 
 Release v\ |version|. (:ref:`Installation <install>`)
 
-.. image:: https://travis-ci.org/socialcopsdev/camelot.svg?branch=master
-    :target: https://travis-ci.org/socialcopsdev/camelot
+.. image:: https://travis-ci.org/camelot-dev/camelot.svg?branch=master
+    :target: https://travis-ci.org/camelot-dev/camelot
 
 .. image:: https://readthedocs.org/projects/camelot-py/badge/?version=master
     :target: https://camelot-py.readthedocs.io/en/master/
     :alt: Documentation Status
 
-.. image:: https://codecov.io/github/socialcopsdev/camelot/badge.svg?branch=master&service=github
-    :target: https://codecov.io/github/socialcopsdev/camelot?branch=master
+.. image:: https://codecov.io/github/camelot-dev/camelot/badge.svg?branch=master&service=github
+    :target: https://codecov.io/github/camelot-dev/camelot?branch=master
 
 .. image:: https://img.shields.io/pypi/v/camelot-py.svg
     :target: https://pypi.org/project/camelot-py/
@@ -81,7 +81,7 @@ Why Camelot?
 See `comparison with other PDF table extraction libraries and tools`_.
 
 .. _ETL and data analysis workflows: https://gist.github.com/vinayak-mehta/e5949f7c2410a0e12f25d3682dc9e873
-.. _comparison with other PDF table extraction libraries and tools: https://github.com/socialcopsdev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools
+.. _comparison with other PDF table extraction libraries and tools: https://github.com/camelot-dev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools
 
 The User Guide
 --------------

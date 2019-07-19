@@ -10,11 +10,10 @@ import pandas as pd
 
 from .base import BaseParser
 from ..core import TextEdges, Table
-from ..utils import (text_in_bbox, get_table_index, compute_accuracy,
-                     compute_whitespace)
+from ..utils import text_in_bbox, get_table_index, compute_accuracy, compute_whitespace
 
 
-logger = logging.getLogger('camelot')
+logger = logging.getLogger("camelot")
 
 
 class Stream(BaseParser):
@@ -55,9 +54,20 @@ class Stream(BaseParser):
         to generate columns.
 
     """
-    def __init__(self, table_regions=None, table_areas=None, columns=None, split_text=False,
-                 flag_size=False, strip_text='', edge_tol=50, row_tol=2,
-                 column_tol=0, **kwargs):
+
+    def __init__(
+        self,
+        table_regions=None,
+        table_areas=None,
+        columns=None,
+        split_text=False,
+        flag_size=False,
+        strip_text="",
+        edge_tol=50,
+        row_tol=2,
+        column_tol=0,
+        **kwargs
+    ):
         self.table_regions = table_regions
         self.table_areas = table_areas
         self.columns = columns
@@ -150,8 +160,9 @@ class Stream(BaseParser):
             else:
                 lower = merged[-1]
                 if column_tol >= 0:
-                    if (higher[0] <= lower[1] or
-                            np.isclose(higher[0], lower[1], atol=column_tol)):
+                    if higher[0] <= lower[1] or np.isclose(
+                        higher[0], lower[1], atol=column_tol
+                    ):
                         upper_bound = max(lower[1], higher[1])
                         lower_bound = min(lower[0], higher[0])
                         merged[-1] = (lower_bound, upper_bound)
@@ -186,13 +197,14 @@ class Stream(BaseParser):
             List of continuous row y-coordinate tuples.
 
         """
-        row_mids = [sum([(t.y0 + t.y1) / 2 for t in r]) / len(r)
-                    if len(r) > 0 else 0 for r in rows_grouped]
+        row_mids = [
+            sum([(t.y0 + t.y1) / 2 for t in r]) / len(r) if len(r) > 0 else 0
+            for r in rows_grouped
+        ]
         rows = [(row_mids[i] + row_mids[i - 1]) / 2 for i in range(1, len(row_mids))]
         rows.insert(0, text_y_max)
         rows.append(text_y_min)
-        rows = [(rows[i], rows[i + 1])
-                for i in range(0, len(rows) - 1)]
+        rows = [(rows[i], rows[i + 1]) for i in range(0, len(rows) - 1)]
         return rows
 
     @staticmethod
@@ -217,8 +229,9 @@ class Stream(BaseParser):
         if text:
             text = Stream._group_rows(text, row_tol=row_tol)
             elements = [len(r) for r in text]
-            new_cols = [(t.x0, t.x1)
-                        for r in text if len(r) == max(elements) for t in r]
+            new_cols = [
+                (t.x0, t.x1) for r in text if len(r) == max(elements) for t in r
+            ]
             cols.extend(Stream._merge_columns(sorted(new_cols)))
         return cols
 
@@ -243,15 +256,13 @@ class Stream(BaseParser):
         cols = [(cols[i][0] + cols[i - 1][1]) / 2 for i in range(1, len(cols))]
         cols.insert(0, text_x_min)
         cols.append(text_x_max)
-        cols = [(cols[i], cols[i + 1])
-                for i in range(0, len(cols) - 1)]
+        cols = [(cols[i], cols[i + 1]) for i in range(0, len(cols) - 1)]
         return cols
 
     def _validate_columns(self):
         if self.table_areas is not None and self.columns is not None:
             if len(self.table_areas) != len(self.columns):
-                raise ValueError("Length of table_areas and columns"
-                                 " should be equal")
+                raise ValueError("Length of table_areas and columns" " should be equal")
 
     def _nurminen_table_detection(self, textlines):
         """A general implementation of the table detection algorithm
@@ -309,16 +320,16 @@ class Stream(BaseParser):
     def _generate_columns_and_rows(self, table_idx, tk):
         # select elements which lie within table_bbox
         t_bbox = {}
-        t_bbox['horizontal'] = text_in_bbox(tk, self.horizontal_text)
-        t_bbox['vertical'] = text_in_bbox(tk, self.vertical_text)
+        t_bbox["horizontal"] = text_in_bbox(tk, self.horizontal_text)
+        t_bbox["vertical"] = text_in_bbox(tk, self.vertical_text)
 
-        t_bbox['horizontal'].sort(key=lambda x: (-x.y0, x.x0))
-        t_bbox['vertical'].sort(key=lambda x: (x.x0, -x.y0))
+        t_bbox["horizontal"].sort(key=lambda x: (-x.y0, x.x0))
+        t_bbox["vertical"].sort(key=lambda x: (x.x0, -x.y0))
 
         self.t_bbox = t_bbox
 
         text_x_min, text_y_min, text_x_max, text_y_max = self._text_bbox(self.t_bbox)
-        rows_grouped = self._group_rows(self.t_bbox['horizontal'], row_tol=self.row_tol)
+        rows_grouped = self._group_rows(self.t_bbox["horizontal"], row_tol=self.row_tol)
         rows = self._join_rows(rows_grouped, text_y_max, text_y_min)
         elements = [len(r) for r in rows_grouped]
 
@@ -327,7 +338,7 @@ class Stream(BaseParser):
             # take (0, pdf_width) by default
             # similar to else condition
             # len can't be 1
-            cols = self.columns[table_idx].split(',')
+            cols = self.columns[table_idx].split(",")
             cols = [float(c) for c in cols]
             cols.insert(0, text_x_min)
             cols.append(text_x_max)
@@ -346,20 +357,29 @@ class Stream(BaseParser):
                 if len(elements):
                     ncols = max(set(elements), key=elements.count)
                 else:
-                    warnings.warn("No tables found in table area {}".format(
-                        table_idx + 1))
+                    warnings.warn(
+                        "No tables found in table area {}".format(table_idx + 1)
+                    )
             cols = [(t.x0, t.x1) for r in rows_grouped if len(r) == ncols for t in r]
             cols = self._merge_columns(sorted(cols), column_tol=self.column_tol)
             inner_text = []
             for i in range(1, len(cols)):
                 left = cols[i - 1][1]
                 right = cols[i][0]
-                inner_text.extend([t for direction in self.t_bbox
-                                     for t in self.t_bbox[direction]
-                                     if t.x0 > left and t.x1 < right])
-            outer_text = [t for direction in self.t_bbox
-                            for t in self.t_bbox[direction]
-                            if t.x0 > cols[-1][1] or t.x1 < cols[0][0]]
+                inner_text.extend(
+                    [
+                        t
+                        for direction in self.t_bbox
+                        for t in self.t_bbox[direction]
+                        if t.x0 > left and t.x1 < right
+                    ]
+                )
+            outer_text = [
+                t
+                for direction in self.t_bbox
+                for t in self.t_bbox[direction]
+                if t.x0 > cols[-1][1] or t.x1 < cols[0][0]
+            ]
             inner_text.extend(outer_text)
             cols = self._add_columns(cols, inner_text, self.row_tol)
             cols = self._join_columns(cols, text_x_min, text_x_max)
@@ -373,11 +393,16 @@ class Stream(BaseParser):
         pos_errors = []
         # TODO: have a single list in place of two directional ones?
         # sorted on x-coordinate based on reading order i.e. LTR or RTL
-        for direction in ['vertical', 'horizontal']:
+        for direction in ["vertical", "horizontal"]:
             for t in self.t_bbox[direction]:
                 indices, error = get_table_index(
-                    table, t, direction, split_text=self.split_text,
-                    flag_size=self.flag_size, strip_text=self.strip_text)
+                    table,
+                    t,
+                    direction,
+                    split_text=self.split_text,
+                    flag_size=self.flag_size,
+                    strip_text=self.strip_text,
+                )
                 if indices[:2] != (-1, -1):
                     pos_errors.append(error)
                     for r_idx, c_idx, text in indices:
@@ -389,11 +414,11 @@ class Stream(BaseParser):
         table.shape = table.df.shape
 
         whitespace = compute_whitespace(data)
-        table.flavor = 'stream'
+        table.flavor = "stream"
         table.accuracy = accuracy
         table.whitespace = whitespace
         table.order = table_idx + 1
-        table.page = int(os.path.basename(self.rootname).replace('page-', ''))
+        table.page = int(os.path.basename(self.rootname).replace("page-", ""))
 
         # for plotting
         _text = []
@@ -409,23 +434,27 @@ class Stream(BaseParser):
     def extract_tables(self, filename, suppress_stdout=False, layout_kwargs={}):
         self._generate_layout(filename, layout_kwargs)
         if not suppress_stdout:
-            logger.info('Processing {}'.format(os.path.basename(self.rootname)))
+            logger.info("Processing {}".format(os.path.basename(self.rootname)))
 
         if not self.horizontal_text:
             if self.images:
-                warnings.warn('{} is image-based, camelot only works on'
-                              ' text-based pages.'.format(os.path.basename(self.rootname)))
+                warnings.warn(
+                    "{} is image-based, camelot only works on"
+                    " text-based pages.".format(os.path.basename(self.rootname))
+                )
             else:
-                warnings.warn('No tables found on {}'.format(
-                    os.path.basename(self.rootname)))
+                warnings.warn(
+                    "No tables found on {}".format(os.path.basename(self.rootname))
+                )
             return []
 
         self._generate_table_bbox()
 
         _tables = []
         # sort tables based on y-coord
-        for table_idx, tk in enumerate(sorted(
-                self.table_bbox.keys(), key=lambda x: x[1], reverse=True)):
+        for table_idx, tk in enumerate(
+            sorted(self.table_bbox.keys(), key=lambda x: x[1], reverse=True)
+        ):
             cols, rows = self._generate_columns_and_rows(table_idx, tk)
             table = self._generate_table(table_idx, cols, rows)
             table._bbox = tk

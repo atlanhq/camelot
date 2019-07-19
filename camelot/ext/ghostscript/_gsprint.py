@@ -42,10 +42,10 @@ e_Info = -110
 #
 e_Quit = -101
 
-__author__ = 'Hartmut Goebel <h.goebel@crazy-compilers.com>'
-__copyright__ = 'Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>'
-__license__ = 'GNU General Public License version 3 (GPL v3)'
-__version__ = '0.6'
+__author__ = "Hartmut Goebel <h.goebel@crazy-compilers.com>"
+__copyright__ = "Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>"
+__license__ = "GNU General Public License version 3 (GPL v3)"
+__version__ = "0.6"
 
 gs_main_instance = c_void_p
 display_callback = c_void_p
@@ -55,7 +55,7 @@ display_callback = c_void_p
 
 class GhostscriptError(Exception):
     def __init__(self, ecode):
-         self.code = ecode
+        self.code = ecode
 
 
 def new_instance():
@@ -89,6 +89,7 @@ def _wrap_stdin(infp):
     """Wrap a filehandle into a C function to be used as `stdin` callback
     for ``set_stdio``. The filehandle has to support the readline() method.
     """
+
     def _wrap(instance, dest, count):
         try:
             data = infp.readline(count)
@@ -110,6 +111,7 @@ def _wrap_stdout(outfp):
     `stderr` callback for ``set_stdio``. The filehandle has to support the
     write() and flush() methods.
     """
+
     def _wrap(instance, str, count):
         outfp.write(str[:count])
         outfp.flush()
@@ -187,11 +189,23 @@ def __win32_finddll():
         import winreg
     except ImportError:
         # assume Python 2
-        from _winreg import OpenKey, CloseKey, EnumKey, QueryValueEx, \
-            QueryInfoKey, HKEY_LOCAL_MACHINE
+        from _winreg import (
+            OpenKey,
+            CloseKey,
+            EnumKey,
+            QueryValueEx,
+            QueryInfoKey,
+            HKEY_LOCAL_MACHINE,
+        )
     else:
-        from winreg import OpenKey, CloseKey, EnumKey, QueryValueEx, \
-            QueryInfoKey, HKEY_LOCAL_MACHINE
+        from winreg import (
+            OpenKey,
+            CloseKey,
+            EnumKey,
+            QueryValueEx,
+            QueryInfoKey,
+            HKEY_LOCAL_MACHINE,
+        )
 
     from distutils.version import LooseVersion
     import os
@@ -199,15 +213,19 @@ def __win32_finddll():
     dlls = []
     # Look up different variants of Ghostscript and take the highest
     # version for which the DLL is to be found in the filesystem.
-    for key_name in ('AFPL Ghostscript', 'Aladdin Ghostscript',
-                     'GNU Ghostscript', 'GPL Ghostscript'):
+    for key_name in (
+        "AFPL Ghostscript",
+        "Aladdin Ghostscript",
+        "GNU Ghostscript",
+        "GPL Ghostscript",
+    ):
         try:
             k1 = OpenKey(HKEY_LOCAL_MACHINE, "Software\\%s" % key_name)
             for num in range(0, QueryInfoKey(k1)[0]):
                 version = EnumKey(k1, num)
                 try:
                     k2 = OpenKey(k1, version)
-                    dll_path = QueryValueEx(k2, 'GS_DLL')[0]
+                    dll_path = QueryValueEx(k2, "GS_DLL")[0]
                     CloseKey(k2)
                     if os.path.exists(dll_path):
                         dlls.append((LooseVersion(version), dll_path))
@@ -223,21 +241,21 @@ def __win32_finddll():
         return None
 
 
-if sys.platform == 'win32':
+if sys.platform == "win32":
     libgs = __win32_finddll()
     if not libgs:
-        raise RuntimeError('Please make sure that Ghostscript is installed')
+        raise RuntimeError("Please make sure that Ghostscript is installed")
     libgs = windll.LoadLibrary(libgs)
 else:
     try:
-        libgs = cdll.LoadLibrary('libgs.so')
+        libgs = cdll.LoadLibrary("libgs.so")
     except OSError:
         # shared object file not found
         import ctypes.util
 
-        libgs = ctypes.util.find_library('gs')
+        libgs = ctypes.util.find_library("gs")
         if not libgs:
-            raise RuntimeError('Please make sure that Ghostscript is installed')
+            raise RuntimeError("Please make sure that Ghostscript is installed")
         libgs = cdll.LoadLibrary(libgs)
 
 del __win32_finddll

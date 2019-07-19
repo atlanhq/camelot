@@ -63,7 +63,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Camelot'
-copyright = u'2018, <a href="https://socialcops.com" target="_blank">SocialCops</a>'
+copyright = u'2019, Camelot Developers'
 author = u'Vinayak Mehta'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -137,7 +137,7 @@ html_theme = 'alabaster'
 # documentation.
 html_theme_options = {
     'show_powered_by': False,
-    'github_user': 'socialcopsdev',
+    'github_user': 'camelot-dev',
     'github_repo': 'camelot',
     'github_banner': True,
     'show_related': False,

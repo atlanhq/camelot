@@ -24,10 +24,10 @@ ghostscript - A Python interface for the Ghostscript interpreter C-API
 from . import _gsprint as gs
 
 
-__author__ = 'Hartmut Goebel <h.goebel@crazy-compilers.com>'
-__copyright__ = 'Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>'
-__license__ = 'GNU General Public License version 3 (GPL v3)'
-__version__ = '0.6'
+__author__ = "Hartmut Goebel <h.goebel@crazy-compilers.com>"
+__copyright__ = "Copyright 2010-2018 by Hartmut Goebel <h.goebel@crazy-compilers.com>"
+__license__ = "GNU General Public License version 3 (GPL v3)"
+__version__ = "0.6"
 
 
 class __Ghostscript(object):
@@ -87,10 +87,13 @@ def Ghostscript(*args, **kwargs):
     # Ghostscript only supports a single instance
     if __instance__ is None:
         __instance__ = gs.new_instance()
-    return __Ghostscript(__instance__, args,
-                         stdin=kwargs.get('stdin', None),
-                         stdout=kwargs.get('stdout', None),
-                         stderr=kwargs.get('stderr', None))
+    return __Ghostscript(
+        __instance__,
+        args,
+        stdin=kwargs.get("stdin", None),
+        stdout=kwargs.get("stdout", None),
+        stderr=kwargs.get("stderr", None),
+    )
 
 
 __instance__ = None

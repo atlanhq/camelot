@@ -42,7 +42,8 @@ class TextEdge(object):
         TEXTEDGE_REQUIRED_ELEMENTS horizontal text rows.
 
     """
-    def __init__(self, x, y0, y1, align='left'):
+
+    def __init__(self, x, y0, y1, align="left"):
         self.x = x
         self.y0 = y0
         self.y1 = y1
@@ -51,8 +52,13 @@ class TextEdge(object):
         self.is_valid = False
 
     def __repr__(self):
-        return '<TextEdge x={} y0={} y1={} align={} valid={}>'.format(
-            round(self.x, 2), round(self.y0, 2), round(self.y1, 2), self.align, self.is_valid)
+        return "<TextEdge x={} y0={} y1={} align={} valid={}>".format(
+            round(self.x, 2),
+            round(self.y0, 2),
+            round(self.y1, 2),
+            self.align,
+            self.is_valid,
+        )
 
     def update_coords(self, x, y0, edge_tol=50):
         """Updates the text edge's x and bottom y coordinates and sets
@@ -73,9 +79,10 @@ class TextEdges(object):
     the PDF page. The dict has three keys based on the alignments,
     and each key's value is a list of camelot.core.TextEdge objects.
     """
+
     def __init__(self, edge_tol=50):
         self.edge_tol = edge_tol
-        self._textedges = {'left': [], 'right': [], 'middle': []}
+        self._textedges = {"left": [], "right": [], "middle": []}
 
     @staticmethod
     def get_x_coord(textline, align):
@@ -85,7 +92,7 @@ class TextEdges(object):
         x_left = textline.x0
         x_right = textline.x1
         x_middle = x_left + (x_right - x_left) / 2.0
-        x_coord = {'left': x_left, 'middle': x_middle, 'right': x_right}
+        x_coord = {"left": x_left, "middle": x_middle, "right": x_right}
         return x_coord[align]
 
     def find(self, x_coord, align):
@@ -109,21 +116,22 @@ class TextEdges(object):
     def update(self, textline):
         """Updates an existing text edge in the current dict.
         """
-        for align in ['left', 'right', 'middle']:
+        for align in ["left", "right", "middle"]:
             x_coord = self.get_x_coord(textline, align)
             idx = self.find(x_coord, align)
             if idx is None:
                 self.add(textline, align)
             else:
                 self._textedges[align][idx].update_coords(
-                    x_coord, textline.y0, edge_tol=self.edge_tol)
+                    x_coord, textline.y0, edge_tol=self.edge_tol
+                )
 
     def generate(self, textlines):
         """Generates the text edges dict based on horizontal text
         rows.
         """
         for tl in textlines:
-            if len(tl.get_text().strip()) > 1: # TODO: hacky
+            if len(tl.get_text().strip()) > 1:  # TODO: hacky
                 self.update(tl)
 
     def get_relevant(self):
@@ -132,9 +140,15 @@ class TextEdges(object):
         the most.
         """
         intersections_sum = {
-            'left': sum(te.intersections for te in self._textedges['left'] if te.is_valid),
-            'right': sum(te.intersections for te in self._textedges['right'] if te.is_valid),
-            'middle': sum(te.intersections for te in self._textedges['middle'] if te.is_valid)
+            "left": sum(
+                te.intersections for te in self._textedges["left"] if te.is_valid
+            ),
+            "right": sum(
+                te.intersections for te in self._textedges["right"] if te.is_valid
+            ),
+            "middle": sum(
+                te.intersections for te in self._textedges["middle"] if te.is_valid
+            ),
         }
 
         # TODO: naive
@@ -147,6 +161,7 @@ class TextEdges(object):
         """Returns a dict of interesting table areas on the PDF page
         calculated using relevant text edges.
         """
+
         def pad(area, average_row_height):
             x0 = area[0] - TABLE_AREA_PADDING
             y0 = area[1] - TABLE_AREA_PADDING
@@ -175,7 +190,11 @@ class TextEdges(object):
                     else:
                         table_areas.pop(found)
                         updated_area = (
-                            found[0], min(te.y0, found[1]), max(found[2], te.x), max(found[3], te.y1))
+                            found[0],
+                            min(te.y0, found[1]),
+                            max(found[2], te.x),
+                            max(found[3], te.y1),
+                        )
                         table_areas[updated_area] = None
 
         # extend table areas based on textlines that overlap
@@ -196,7 +215,11 @@ class TextEdges(object):
             if found is not None:
                 table_areas.pop(found)
                 updated_area = (
-                    min(tl.x0, found[0]), min(tl.y0, found[1]), max(found[2], tl.x1), max(found[3], tl.y1))
+                    min(tl.x0, found[0]),
+                    min(tl.y0, found[1]),
+                    max(found[2], tl.x1),
+                    max(found[3], tl.y1),
+                )
                 table_areas[updated_area] = None
         average_textline_height = sum_textline_height / float(len(textlines))
 
@@ -265,11 +288,12 @@ class Cell(object):
         self.bottom = False
         self.hspan = False
         self.vspan = False
-        self._text = ''
+        self._text = ""
 
     def __repr__(self):
-        return '<Cell x1={} y1={} x2={} y2={}>'.format(
-            round(self.x1, 2), round(self.y1, 2), round(self.x2, 2), round(self.y2, 2))
+        return "<Cell x1={} y1={} x2={} y2={}>".format(
+            round(self.x1, 2), round(self.y1, 2), round(self.x2, 2), round(self.y2, 2)
+        )
 
     @property
     def text(self):
@@ -277,7 +301,7 @@ class Cell(object):
 
     @text.setter
     def text(self, t):
-        self._text = ''.join([self._text, t])
+        self._text = "".join([self._text, t])
 
     @property
     def bound(self):
@@ -314,11 +338,11 @@ class Table(object):
         PDF page number.
 
     """
+
     def __init__(self, cols, rows):
         self.cols = cols
         self.rows = rows
-        self.cells = [[Cell(c[0], r[1], c[1], r[0])
-                       for c in cols] for r in rows]
+        self.cells = [[Cell(c[0], r[1], c[1], r[0]) for c in cols] for r in rows]
         self.df = None
         self.shape = (0, 0)
         self.accuracy = 0
@@ -327,7 +351,7 @@ class Table(object):
         self.page = None
 
     def __repr__(self):
-        return '<{} shape={}>'.format(self.__class__.__name__, self.shape)
+        return "<{} shape={}>".format(self.__class__.__name__, self.shape)
 
     def __lt__(self, other):
         if self.page == other.page:
@@ -352,10 +376,10 @@ class Table(object):
         """
         # pretty?
         report = {
-            'accuracy': round(self.accuracy, 2),
-            'whitespace': round(self.whitespace, 2),
-            'order': self.order,
-            'page': self.page
+            "accuracy": round(self.accuracy, 2),
+            "whitespace": round(self.whitespace, 2),
+            "order": self.order,
+            "page": self.page,
         }
         return report
 
@@ -383,12 +407,21 @@ class Table(object):
         for v in vertical:
             # find closest x coord
             # iterate over y coords and find closest start and end points
-            i = [i for i, t in enumerate(self.cols)
-                 if np.isclose(v[0], t[0], atol=joint_tol)]
-            j = [j for j, t in enumerate(self.rows)
-                 if np.isclose(v[3], t[0], atol=joint_tol)]
-            k = [k for k, t in enumerate(self.rows)
-                 if np.isclose(v[1], t[0], atol=joint_tol)]
+            i = [
+                i
+                for i, t in enumerate(self.cols)
+                if np.isclose(v[0], t[0], atol=joint_tol)
+            ]
+            j = [
+                j
+                for j, t in enumerate(self.rows)
+                if np.isclose(v[3], t[0], atol=joint_tol)
+            ]
+            k = [
+                k
+                for k, t in enumerate(self.rows)
+                if np.isclose(v[1], t[0], atol=joint_tol)
+            ]
             if not j:
                 continue
             J = j[0]
@@ -434,12 +467,21 @@ class Table(object):
         for h in horizontal:
             # find closest y coord
             # iterate over x coords and find closest start and end points
-            i = [i for i, t in enumerate(self.rows)
-                 if np.isclose(h[1], t[0], atol=joint_tol)]
-            j = [j for j, t in enumerate(self.cols)
-                 if np.isclose(h[0], t[0], atol=joint_tol)]
-            k = [k for k, t in enumerate(self.cols)
-                 if np.isclose(h[2], t[0], atol=joint_tol)]
+            i = [
+                i
+                for i, t in enumerate(self.rows)
+                if np.isclose(h[1], t[0], atol=joint_tol)
+            ]
+            j = [
+                j
+                for j, t in enumerate(self.cols)
+                if np.isclose(h[0], t[0], atol=joint_tol)
+            ]
+            k = [
+                k
+                for k, t in enumerate(self.cols)
+                if np.isclose(h[2], t[0], atol=joint_tol)
+            ]
             if not j:
                 continue
             J = j[0]
@@ -537,12 +579,7 @@ class Table(object):
             Output filepath.
 
         """
-        kw = {
-            'encoding': 'utf-8',
-            'index': False,
-            'header': False,
-            'quoting': 1
-        }
+        kw = {"encoding": "utf-8", "index": False, "header": False, "quoting": 1}
         kw.update(kwargs)
         self.df.to_csv(path, **kw)
 
@@ -557,12 +594,10 @@ class Table(object):
             Output filepath.
 
         """
-        kw = {
-            'orient': 'records'
-        }
+        kw = {"orient": "records"}
         kw.update(kwargs)
         json_string = self.df.to_json(**kw)
-        with open(path, 'w') as f:
+        with open(path, "w") as f:
             f.write(json_string)
 
     def to_excel(self, path, **kwargs):
@@ -577,8 +612,8 @@ class Table(object):
 
         """
         kw = {
-            'sheet_name': 'page-{}-table-{}'.format(self.page, self.order),
-            'encoding': 'utf-8'
+            "sheet_name": "page-{}-table-{}".format(self.page, self.order),
+            "encoding": "utf-8",
         }
         kw.update(kwargs)
         writer = pd.ExcelWriter(path)
@@ -597,7 +632,7 @@ class Table(object):
 
         """
         html_string = self.df.to_html(**kwargs)
-        with open(path, 'w') as f:
+        with open(path, "w") as f:
             f.write(html_string)
 
     def to_sqlite(self, path, **kwargs):
@@ -611,13 +646,10 @@ class Table(object):
             Output filepath.
 
         """
-        kw = {
-            'if_exists': 'replace',
-            'index': False
-        }
+        kw = {"if_exists": "replace", "index": False}
         kw.update(kwargs)
         conn = sqlite3.connect(path)
-        table_name = 'page-{}-table-{}'.format(self.page, self.order)
+        table_name = "page-{}-table-{}".format(self.page, self.order)
         self.df.to_sql(table_name, conn, **kw)
         conn.commit()
         conn.close()
@@ -633,12 +665,12 @@ class TableList(object):
         Number of tables in the list.
 
     """
+
     def __init__(self, tables):
         self._tables = tables
 
     def __repr__(self):
-        return '<{} n={}>'.format(
-            self.__class__.__name__, self.n)
+        return "<{} n={}>".format(self.__class__.__name__, self.n)
 
     def __len__(self):
         return len(self._tables)
@@ -648,37 +680,39 @@ class TableList(object):
 
     @staticmethod
     def _format_func(table, f):
-        return getattr(table, 'to_{}'.format(f))
+        return getattr(table, "to_{}".format(f))
 
     @property
     def n(self):
         return len(self)
 
     def _write_file(self, f=None, **kwargs):
-        dirname = kwargs.get('dirname')
-        root = kwargs.get('root')
-        ext = kwargs.get('ext')
+        dirname = kwargs.get("dirname")
+        root = kwargs.get("root")
+        ext = kwargs.get("ext")
         for table in self._tables:
-            filename = os.path.join('{}-page-{}-table-{}{}'.format(
-                                    root, table.page, table.order, ext))
+            filename = os.path.join(
+                "{}-page-{}-table-{}{}".format(root, table.page, table.order, ext)
+            )
             filepath = os.path.join(dirname, filename)
             to_format = self._format_func(table, f)
             to_format(filepath)
 
     def _compress_dir(self, **kwargs):
-        path = kwargs.get('path')
-        dirname = kwargs.get('dirname')
-        root = kwargs.get('root')
-        ext = kwargs.get('ext')
-        zipname = os.path.join(os.path.dirname(path), root) + '.zip'
-        with zipfile.ZipFile(zipname, 'w', allowZip64=True) as z:
+        path = kwargs.get("path")
+        dirname = kwargs.get("dirname")
+        root = kwargs.get("root")
+        ext = kwargs.get("ext")
+        zipname = os.path.join(os.path.dirname(path), root) + ".zip"
+        with zipfile.ZipFile(zipname, "w", allowZip64=True) as z:
             for table in self._tables:
-                filename = os.path.join('{}-page-{}-table-{}{}'.format(
-                                        root, table.page, table.order, ext))
+                filename = os.path.join(
+                    "{}-page-{}-table-{}{}".format(root, table.page, table.order, ext)
+                )
                 filepath = os.path.join(dirname, filename)
                 z.write(filepath, os.path.basename(filepath))
 
-    def export(self, path, f='csv', compress=False):
+    def export(self, path, f="csv", compress=False):
         """Exports the list of tables to specified file format.
 
         Parameters
@@ -697,33 +731,28 @@ class TableList(object):
         if compress:
             dirname = tempfile.mkdtemp()
 
-        kwargs = {
-            'path': path,
-            'dirname': dirname,
-            'root': root,
-            'ext': ext
-        }
+        kwargs = {"path": path, "dirname": dirname, "root": root, "ext": ext}
 
-        if f in ['csv', 'json', 'html']:
+        if f in ["csv", "json", "html"]:
             self._write_file(f=f, **kwargs)
             if compress:
                 self._compress_dir(**kwargs)
-        elif f == 'excel':
+        elif f == "excel":
             filepath = os.path.join(dirname, basename)
             writer = pd.ExcelWriter(filepath)
             for table in self._tables:
-                sheet_name = 'page-{}-table-{}'.format(table.page, table.order)
-                table.df.to_excel(writer, sheet_name=sheet_name, encoding='utf-8')
+                sheet_name = "page-{}-table-{}".format(table.page, table.order)
+                table.df.to_excel(writer, sheet_name=sheet_name, encoding="utf-8")
             writer.save()
             if compress:
-                zipname = os.path.join(os.path.dirname(path), root) + '.zip'
-                with zipfile.ZipFile(zipname, 'w', allowZip64=True) as z:
+                zipname = os.path.join(os.path.dirname(path), root) + ".zip"
+                with zipfile.ZipFile(zipname, "w", allowZip64=True) as z:
                     z.write(filepath, os.path.basename(filepath))
-        elif f == 'sqlite':
+        elif f == "sqlite":
             filepath = os.path.join(dirname, basename)
             for table in self._tables:
                 table.to_sqlite(filepath)
             if compress:
-                zipname = os.path.join(os.path.dirname(path), root) + '.zip'
-                with zipfile.ZipFile(zipname, 'w', allowZip64=True) as z:
+                zipname = os.path.join(os.path.dirname(path), root) + ".zip"
+                with zipfile.ZipFile(zipname, "w", allowZip64=True) as z:
                     z.write(filepath, os.path.basename(filepath))
