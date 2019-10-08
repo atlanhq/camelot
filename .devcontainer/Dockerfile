@@ -26,10 +26,10 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
-    && apt-get -y install git iproute2 procps lsb-release \
+    && apt-get -y install git iproute2 procps lsb-release vim ghostscript \
     #
     # Install pylint
-    && pip --disable-pip-version-check --no-cache-dir install pylint vim ghostscript \
+    && pip --disable-pip-version-check --no-cache-dir install pylint \
     #
     # Update Python environment based on requirements.txt
     # && pip --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
