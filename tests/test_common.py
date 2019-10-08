@@ -12,6 +12,19 @@ from .data import *
 testdir = os.path.dirname(os.path.abspath(__file__))
 testdir = os.path.join(testdir, "files")
 
+def test_load_entire():
+    filename = os.path.join(testdir, "foo.pdf")
+    tables = camelot.read_pdf(filename, save_entire_document=True)
+    for con in tables:
+        try:
+            print(con.get_text())
+        except Exception as e:
+            print(con.data)
+        # print(con.bbox)
+        # for txt in con:
+        #     print("\t{0}".format(txt.get_text()))
+
+    assert(False)
 
 def test_parsing_report():
     parsing_report = {"accuracy": 99.02, "whitespace": 12.24, "order": 1, "page": 1}

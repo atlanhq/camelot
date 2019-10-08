@@ -16,5 +16,10 @@ class BaseParser(object):
         self.images = get_text_objects(self.layout, ltype="image")
         self.horizontal_text = get_text_objects(self.layout, ltype="horizontal_text")
         self.vertical_text = get_text_objects(self.layout, ltype="vertical_text")
+        # new items
+        # self.chars_txt = get_text_objects(self.layout)
+        self.containers = get_text_objects(self.layout, "containers")
+        self.text_cons = get_text_objects(self.layout, "text_containers")
+        # end new items
         self.pdf_width, self.pdf_height = self.dimensions
         self.rootname, __ = os.path.splitext(self.filename)

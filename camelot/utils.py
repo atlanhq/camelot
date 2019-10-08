@@ -24,9 +24,11 @@ from pdfminer.layout import (
     LAParams,
     LTAnno,
     LTChar,
+    LTTextContainer,
     LTTextLineHorizontal,
     LTTextLineVertical,
     LTImage,
+    LTContainer
 )
 
 
@@ -841,6 +843,10 @@ def get_text_objects(layout, ltype="char", t=None):
         LTObject = LTTextLineHorizontal
     elif ltype == "vertical_text":
         LTObject = LTTextLineVertical
+    elif ltype == "containers":
+        LTObject = LTContainer
+    elif ltype == "text_containers":
+        LTObject = LTTextContainer
     if t is None:
         t = []
     try:

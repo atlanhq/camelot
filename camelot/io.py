@@ -13,6 +13,7 @@ def read_pdf(
     flavor="lattice",
     suppress_stdout=False,
     layout_kwargs={},
+    save_entire_document=False,
     **kwargs
 ):
     """Read PDF and return extracted tables.
@@ -114,6 +115,7 @@ def read_pdf(
             flavor=flavor,
             suppress_stdout=suppress_stdout,
             layout_kwargs=layout_kwargs,
+            save_entire_document=save_entire_document,
             **kwargs
         )
         return tables

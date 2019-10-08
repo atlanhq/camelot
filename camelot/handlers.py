@@ -136,7 +136,7 @@ class PDFHandler(object):
                     outfile.write(f)
 
     def parse(
-        self, flavor="lattice", suppress_stdout=False, layout_kwargs={}, **kwargs
+        self, flavor="lattice", suppress_stdout=False, layout_kwargs={}, save_entire_document=False, **kwargs
     ):
         """Extracts tables by calling parser.get_tables on all single
         page PDFs.
@@ -167,9 +167,38 @@ class PDFHandler(object):
                 os.path.join(tempdir, "page-{0}.pdf".format(p)) for p in self.pages
             ]
             parser = Lattice(**kwargs) if flavor == "lattice" else Stream(**kwargs)
-            for p in pages:
-                t = parser.extract_tables(
-                    p, suppress_stdout=suppress_stdout, layout_kwargs=layout_kwargs
-                )
-                tables.extend(t)
-        return TableList(sorted(tables))
+            if save_entire_document:
+                return self.perform_full_extract(parser, pages)
+            else:
+                for p in pages:
+                    t = parser.extract_tables(
+                        p, suppress_stdout=suppress_stdout, layout_kwargs=layout_kwargs
+                    )
+                    tables.extend(t)
+            return TableList(sorted(tables))
+
+    def perform_full_extract(self, parser, pages):
+        obs = []
+        for p in pages:
+            _extracted = parser.extract_tables(
+                p, suppress_stdout=False, layout_kwargs={}
+            )
+            indexes = []
+            for container in parser.containers:
+                text = container.get_text().strip().strip()
+                for tbl in _extracted:
+                    for row in tbl.data:
+                        for col in row:
+                            if col.strip().strip() == text:
+                                indexes.append(container)
+            indexes = list(set(indexes))
+            min_idx = indexes[0]
+            indexes.remove(min_idx)
+            # replace min_index; 
+            minxx = parser.containers.index(min_idx)
+            parser.containers[minxx] = _extracted[0]
+            for x in indexes:
+                print(x.get_text())
+                parser.containers.remove(x)
+
+        return parser.containers
