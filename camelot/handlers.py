@@ -183,22 +183,16 @@ class PDFHandler(object):
             _extracted = parser.extract_tables(
                 p, suppress_stdout=False, layout_kwargs={}
             )
-            indexes = []
+            toRemove = []
             for container in parser.containers:
-                text = container.get_text().strip().strip()
-                for tbl in _extracted:
-                    for row in tbl.data:
-                        for col in row:
-                            if col.strip().strip() == text:
-                                indexes.append(container)
-            indexes = list(set(indexes))
-            min_idx = indexes[0]
-            indexes.remove(min_idx)
-            # replace min_index; 
-            minxx = parser.containers.index(min_idx)
-            parser.containers[minxx] = _extracted[0]
-            for x in indexes:
-                print(x.get_text())
-                parser.containers.remove(x)
-
+                for obj in container._objs:
+                    if obj in parser.t_bbox["horizontal"] or obj in parser.t_bbox["vertical"]:
+                        toRemove.append(container)
+            toRemove = list(set(toRemove))
+            parser.containers[parser.containers.index(toRemove[0])] = _extracted[0] # may cause an issue down the road
+            for obj in toRemove:
+                try:
+                    parser.containers.remove(obj)
+                except ValueError as ve:
+                    continue
         return parser.containers
