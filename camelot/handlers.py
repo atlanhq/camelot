@@ -187,18 +187,19 @@ class PDFHandler(object):
         _extracted = parser.extract_tables(
             page, suppress_stdout=False, layout_kwargs={}
         )
-        if hasattr(parser, "t_bbox"):
-            toRemove = []
-            for container in parser.containers:
-                for obj in container._objs:
-                    if obj in parser.t_bbox["horizontal"] or obj in parser.t_bbox["vertical"]:
-                        toRemove.append(container)
-            toRemove = list(set(toRemove))
-            parser.containers[parser.containers.index(toRemove[0])] = _extracted[0] # may cause an issue down the road
-            for obj in toRemove:
-                try:
-                    parser.containers.remove(obj)
-                except ValueError as ve:
-                    continue
+        if len(_extracted) != 0:
+            if hasattr(parser, "t_bbox"):
+                toRemove = []
+                for container in parser.containers:
+                    for obj in container._objs:
+                        if obj in parser.t_bbox["horizontal"] or obj in parser.t_bbox["vertical"]:
+                            toRemove.append(container)
+                toRemove = list(set(toRemove))
+                parser.containers[parser.containers.index(toRemove[0])] = _extracted[0] # may cause an issue down the road
+                for obj in toRemove:
+                    try:
+                        parser.containers.remove(obj)
+                    except ValueError as ve:
+                        continue
         obs.append(parser.containers)
         return obs

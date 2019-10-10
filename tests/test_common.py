@@ -13,14 +13,21 @@ testdir = os.path.dirname(os.path.abspath(__file__))
 testdir = os.path.join(testdir, "files")
 
 def test_load_entire():
-    filename = os.path.join(testdir, "table_region.pdf")
-    tables = camelot.read_pdf(filename, save_entire_document=True)
-    toPrint = []
-    for con in tables:
+    def append(box):
         try:
-            toPrint.append(con.get_text())
-        except Exception as e:
-            toPrint.append(con.df.to_string(index=False, header=False))
+            return box.get_text()
+        except Exception as ex:
+            return box.df.to_string(index=False, header=False)
+
+    filename = os.path.join(testdir, "CardHolderTest.pdf")
+    tables = camelot.read_pdf(filename, save_entire_document=True, pages="all")
+    toPrint = []
+    for container in tables:
+        if type(container) is list:
+            for box in container:
+                toPrint.append(append(box))
+        else:
+            toPrint.append(append(container))
 
     print("\n".join(toPrint))
 
