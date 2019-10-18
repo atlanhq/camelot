@@ -32,6 +32,17 @@ def test_password():
     assert df.equals(tables[0].df)
 
 
+def test_file_object():
+    df = pd.DataFrame(data_stream)
+
+    filename = os.path.join(testdir, "health_protected.pdf")
+    file_object = open(filename, "rb")
+    tables = camelot.read_file_obj(file_object, password="ownerpass", flavor="stream")
+    assert df.equals(tables[0].df)
+
+    tables = camelot.read_file_obj(file_object, password="userpass", flavor="stream")
+    assert df.equals(tables[0].df)
+
 def test_stream():
     df = pd.DataFrame(data_stream)
 
