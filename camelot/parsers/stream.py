@@ -302,7 +302,7 @@ class Stream(BaseParser):
                     y1 = float(y1)
                     x2 = float(x2)
                     y2 = float(y2)
-                    region_text = text_in_bbox((x1, y2, x2, y1), self.horizontal_text)
+                    region_text = text_in_bbox((x1, y1, x2, y2), self.horizontal_text)
                     hor_text.extend(region_text)
             # find tables based on nurminen's detection algorithm
             table_bbox = self._nurminen_table_detection(hor_text)
