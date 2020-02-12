@@ -5,7 +5,7 @@ import sys
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
-from .core import TableList Table
+from .core import TableList, Table
 from .parsers import Stream, Lattice
 from .utils import (
     TemporaryDirectory,
