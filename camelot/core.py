@@ -336,6 +336,8 @@ class Table(object):
         Table number on PDF page.
     page : int
         PDF page number.
+    t_bboxs : list
+        List of t_bbox for removal
 
     """
 
@@ -349,6 +351,7 @@ class Table(object):
         self.whitespace = 0
         self.order = None
         self.page = None
+        self.t_bboxs =  []
 
     def __repr__(self):
         return "<{} shape={}>".format(self.__class__.__name__, self.shape)

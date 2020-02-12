@@ -356,6 +356,7 @@ class Lattice(BaseParser):
                     )
                     for r_idx, c_idx, text in indices:
                         table.cells[r_idx][c_idx].text = text
+                        table.t_bboxs.append(t)
         accuracy = compute_accuracy([[100, pos_errors]])
 
         if self.copy_text is not None:
