@@ -25,7 +25,7 @@ ghostscript._gsprint - A low-level interface to the Ghostscript C-API using ctyp
 
 import sys
 from ctypes import *
-
+import distutils.spawn
 
 # base/gserrors.h
 #
@@ -253,7 +253,7 @@ else:
         # shared object file not found
         import ctypes.util
 
-        libgs = ctypes.util.find_library("gs")
+        libgs = distutils.spawn.find_executable("gs")
         if not libgs:
             raise RuntimeError("Please make sure that Ghostscript is installed")
         libgs = cdll.LoadLibrary(libgs)
