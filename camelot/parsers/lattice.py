@@ -174,7 +174,8 @@ class Lattice(BaseParser):
                             while not t.cells[r_idx][c_idx].bottom:
                                 r_idx += 1
             except IndexError:
-                print(r_idx, c_idx)
+                # TODO: probably there should be some warning
+                pass
             else:
                 indices.append((r_idx, c_idx, text))
         return indices
