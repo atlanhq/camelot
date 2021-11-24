@@ -155,24 +155,28 @@ class Lattice(BaseParser):
         """
         indices = []
         for r_idx, c_idx, text in idx:
-            for d in shift_text:
-                if d == "l":
-                    if t.cells[r_idx][c_idx].hspan:
-                        while not t.cells[r_idx][c_idx].left:
-                            c_idx -= 1
-                if d == "r":
-                    if t.cells[r_idx][c_idx].hspan:
-                        while not t.cells[r_idx][c_idx].right:
-                            c_idx += 1
-                if d == "t":
-                    if t.cells[r_idx][c_idx].vspan:
-                        while not t.cells[r_idx][c_idx].top:
-                            r_idx -= 1
-                if d == "b":
-                    if t.cells[r_idx][c_idx].vspan:
-                        while not t.cells[r_idx][c_idx].bottom:
-                            r_idx += 1
-            indices.append((r_idx, c_idx, text))
+            try:
+                for d in shift_text:
+                    if d == "l":
+                        if t.cells[r_idx][c_idx].hspan:
+                            while not t.cells[r_idx][c_idx].left:
+                                c_idx -= 1
+                    if d == "r":
+                        if t.cells[r_idx][c_idx].hspan:
+                            while not t.cells[r_idx][c_idx].right:
+                                c_idx += 1
+                    if d == "t":
+                        if t.cells[r_idx][c_idx].vspan:
+                            while not t.cells[r_idx][c_idx].top:
+                                r_idx -= 1
+                    if d == "b":
+                        if t.cells[r_idx][c_idx].vspan:
+                            while not t.cells[r_idx][c_idx].bottom:
+                                r_idx += 1
+            except IndexError:
+                print(r_idx, c_idx)
+            else:
+                indices.append((r_idx, c_idx, text))
         return indices
 
     @staticmethod
