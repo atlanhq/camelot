@@ -177,7 +177,6 @@ def find_contours(vertical, horizontal):
 
 def find_joints(contours, vertical, horizontal):
     """Finds joints/intersections present inside each table boundary.
-
     Parameters
     ----------
     contours : list
@@ -188,7 +187,6 @@ def find_joints(contours, vertical, horizontal):
         numpy.ndarray representing pixels where vertical lines lie.
     horizontal : object
         numpy.ndarray representing pixels where horizontal lines lie.
-
     Returns
     -------
     tables : dict
@@ -196,22 +194,12 @@ def find_joints(contours, vertical, horizontal):
         in that boundary as their value.
         Keys are of the form (x1, y1, x2, y2) where (x1, y1) -> lb
         and (x2, y2) -> rt in image coordinate space.
-
     """
-    joints = np.multiply(vertical, horizontal)
     tables = {}
     for c in contours:
         x, y, w, h = c
-        roi = joints[y : y + h, x : x + w]
-        try:
-            __, jc, __ = cv2.findContours(
-                roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE
-            )
-        except ValueError:
-            # for opencv backward compatibility
-            jc, __ = cv2.findContours(
-                roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE
-            )
+        roi = joints[y:y+h, x:x+w]
+        jc = cv2.findContours(roi.astype(np.uint8), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)[1]
         if len(jc) <= 4:  # remove contours with less than 4 joints
             continue
         joint_coords = []
